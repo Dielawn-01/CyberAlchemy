@@ -1,0 +1,75 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["97855220de1a64e3.olean"],
+  "i": "c51a171f67383a9d.ilean",
+  "c": "2ab176ecbf9843cf.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/Cli/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/batteries/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/Qq/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/aesop/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/importGraph/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/plausible/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/mathlib/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/build/lib/lean /home/phrxmaz/.elan/toolchains/leanprover--lean4---v4.29.1/bin/lean /home/phrxmaz/Documents/CyberAlchemy/CyberAlchemy/CyberBundle.lean -o /home/phrxmaz/Documents/CyberAlchemy/.lake/build/lib/lean/CyberAlchemy/CyberBundle.olean -i /home/phrxmaz/Documents/CyberAlchemy/.lake/build/lib/lean/CyberAlchemy/CyberBundle.ilean -c /home/phrxmaz/Documents/CyberAlchemy/.lake/build/ir/CyberAlchemy/CyberBundle.c --setup /home/phrxmaz/Documents/CyberAlchemy/.lake/build/ir/CyberAlchemy/CyberBundle.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "CyberAlchemy/CyberBundle.lean:55:2: The namespace 'CyberBundle' is duplicated in the declaration 'CyberAlchemy.CyberBundle.CyberBundle.basis_rank'\n\nNote: This linter can be disabled with `set_option linter.dupNamespace false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/CyberBundle.lean:47:2: The namespace 'CyberBundle' is duplicated in the declaration 'CyberAlchemy.CyberBundle.CyberBundle.total_dim'\n\nNote: This linter can be disabled with `set_option linter.dupNamespace false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/CyberBundle.lean:49:2: The namespace 'CyberBundle' is duplicated in the declaration 'CyberAlchemy.CyberBundle.CyberBundle.base_dim'\n\nNote: This linter can be disabled with `set_option linter.dupNamespace false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/CyberBundle.lean:53:2: The namespace 'CyberBundle' is duplicated in the declaration 'CyberAlchemy.CyberBundle.CyberBundle.h_bundle'\n\nNote: This linter can be disabled with `set_option linter.dupNamespace false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/CyberBundle.lean:45:10: The namespace 'CyberBundle' is duplicated in the declaration 'CyberAlchemy.CyberBundle.CyberBundle.mk'\n\nNote: This linter can be disabled with `set_option linter.dupNamespace false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/CyberBundle.lean:57:2: The namespace 'CyberBundle' is duplicated in the declaration 'CyberAlchemy.CyberBundle.CyberBundle.h_tensor'\n\nNote: This linter can be disabled with `set_option linter.dupNamespace false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/CyberBundle.lean:51:2: The namespace 'CyberBundle' is duplicated in the declaration 'CyberAlchemy.CyberBundle.CyberBundle.fiber_dim'\n\nNote: This linter can be disabled with `set_option linter.dupNamespace false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/CyberBundle.lean:56:2: The namespace 'CyberBundle' is duplicated in the declaration 'CyberAlchemy.CyberBundle.CyberBundle.adapter_rank'\n\nNote: This linter can be disabled with `set_option linter.dupNamespace false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/CyberBundle.lean:45:10: The namespace 'CyberBundle' is duplicated in the declaration 'CyberAlchemy.CyberBundle.CyberBundle'\n\nNote: This linter can be disabled with `set_option linter.dupNamespace false`",
+   "level": "warning"}],
+ "inputs":
+ [["CyberAlchemy.CyberBundle:deps",
+   [["deps",
+     [["CyberAlchemy/CyberAlchemy:extraDep",
+       [["@CyberAlchemy:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["Mathlib.Data.Real.Basic transitive imports (legacy)",
+         "dee90db6c6d9680f"],
+        ["Mathlib.Data.Real.Basic:importAllArts", "1c59c2fc821ca43f"],
+        ["Mathlib.Tactic.Linarith transitive imports (legacy)",
+         "fc5bbb3899366fce"],
+        ["Mathlib.Tactic.Linarith:importAllArts", "ec0a7bff9f2dd5e7"],
+        ["Mathlib.Tactic.NormNum transitive imports (legacy)",
+         "63f979dfce745c91"],
+        ["Mathlib.Tactic.NormNum:importAllArts", "714c07957344bdb9"],
+        ["CyberAlchemy.ObserverAdapter transitive imports (legacy)",
+         "3fb078f47df83e00"],
+        ["CyberAlchemy.ObserverAdapter:importAllArts", "ff523a6ed051df57"],
+        ["CyberAlchemy.TensorCoupling transitive imports (legacy)",
+         "b3cd2c5611750528"],
+        ["CyberAlchemy.TensorCoupling:importAllArts", "276436df7a89ef77"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.29.1, commit f72c35b3f637c8c6571d353742168ab66cc22c00",
+   "fa77a35a41db35c0"],
+  ["/home/phrxmaz/Documents/CyberAlchemy/CyberAlchemy/CyberBundle.lean",
+   "2a475d8060bec31f"],
+  ["options",
+   [["-DrelaxedAutoImplicit=false", "74a2b5546b55be80"],
+    ["-Dpp.unicode.fun=true", "9b94070140457fab"]]],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: CyberAlchemy.CyberBundle", "df6e96e6a652fbd8"],
+  ["Package.id?: (some CyberAlchemy)", "145ff4c6b42a15f8"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "f83d6a7ef34bb674"}

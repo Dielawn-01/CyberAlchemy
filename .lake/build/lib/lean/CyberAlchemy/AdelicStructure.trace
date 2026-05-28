@@ -1,0 +1,62 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["e9ae885b408b5145.olean"],
+  "i": "43a2217e327200eb.ilean",
+  "c": "17bc9e99e4d5e669.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/Cli/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/batteries/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/Qq/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/aesop/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/importGraph/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/plausible/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/mathlib/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/build/lib/lean /home/phrxmaz/.elan/toolchains/leanprover--lean4---v4.29.1/bin/lean /home/phrxmaz/Documents/CyberAlchemy/CyberAlchemy/AdelicStructure.lean -o /home/phrxmaz/Documents/CyberAlchemy/.lake/build/lib/lean/CyberAlchemy/AdelicStructure.olean -i /home/phrxmaz/Documents/CyberAlchemy/.lake/build/lib/lean/CyberAlchemy/AdelicStructure.ilean -c /home/phrxmaz/Documents/CyberAlchemy/.lake/build/ir/CyberAlchemy/AdelicStructure.c --setup /home/phrxmaz/Documents/CyberAlchemy/.lake/build/ir/CyberAlchemy/AdelicStructure.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "CyberAlchemy/AdelicStructure.lean:100:56: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/AdelicStructure.lean:144:8: This simp argument is unused:\n  abs_nonneg\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵a̵b̵s̵_̵n̵o̵n̵n̵e̵g̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/AdelicStructure.lean:170:5: unused variable `hu`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/AdelicStructure.lean:170:27: unused variable `hv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/AdelicStructure.lean:171:5: unused variable `ha`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/AdelicStructure.lean:171:22: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/AdelicStructure.lean:171:39: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"}],
+ "inputs":
+ [["CyberAlchemy.AdelicStructure:deps",
+   [["deps",
+     [["CyberAlchemy/CyberAlchemy:extraDep",
+       [["@CyberAlchemy:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["CyberAlchemy.Basic transitive imports (legacy)", "1a7fb5153a0c7cc6"],
+        ["CyberAlchemy.Basic:importAllArts", "8943365e0b68b91e"],
+        ["CyberAlchemy.SpectralFiber transitive imports (legacy)",
+         "2db4a0c02246587e"],
+        ["CyberAlchemy.SpectralFiber:importAllArts", "29cba41dc1e710e7"],
+        ["Mathlib.Data.Real.Basic transitive imports (legacy)",
+         "dee90db6c6d9680f"],
+        ["Mathlib.Data.Real.Basic:importAllArts", "1c59c2fc821ca43f"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.29.1, commit f72c35b3f637c8c6571d353742168ab66cc22c00",
+   "fa77a35a41db35c0"],
+  ["/home/phrxmaz/Documents/CyberAlchemy/CyberAlchemy/AdelicStructure.lean",
+   "7f3f51d6bb47c35d"],
+  ["options",
+   [["-DrelaxedAutoImplicit=false", "74a2b5546b55be80"],
+    ["-Dpp.unicode.fun=true", "9b94070140457fab"]]],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: CyberAlchemy.AdelicStructure", "f60248bd01fba49c"],
+  ["Package.id?: (some CyberAlchemy)", "145ff4c6b42a15f8"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "f7c1aa3346e89f2d"}

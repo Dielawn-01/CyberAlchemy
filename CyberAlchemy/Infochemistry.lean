@@ -45,7 +45,6 @@ Infoton (atom) → Bond (molecule) → Ionization (plasma generation)
 
 open ProtorealManifold
 open KamaTrain
-open EmotionalCompass
 
 namespace Infochemistry
 

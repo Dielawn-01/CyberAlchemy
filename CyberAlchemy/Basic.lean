@@ -86,7 +86,6 @@ import CyberAlchemy.HolographicCollapse
 import CyberAlchemy.MetaMem
 import CyberAlchemy.LangSemantics
 import CyberAlchemy.BorrowObserver
-import CyberAlchemy.TopologicalBifurcation
 import CyberAlchemy.AgenticKeychain
 import CyberAlchemy.EmotionalLFunctions
 import CyberAlchemy.EmotionalSecurity

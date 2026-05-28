@@ -79,7 +79,6 @@ open ProtorealAlgebra.Topology
 open HyperKlein
 open MonsterInverse
 open IncompletenessSource
-open EnumerationSystems
 
 namespace SpectralCharacteristic
 

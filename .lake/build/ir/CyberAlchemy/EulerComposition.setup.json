@@ -1,0 +1,7 @@
+{"plugins": [],
+ "package": "CyberAlchemy",
+ "options": {"relaxedAutoImplicit": false, "pp.unicode.fun": true},
+ "name": "CyberAlchemy.EulerComposition",
+ "isModule": false,
+ "importArts": {},
+ "dynlibs": []}

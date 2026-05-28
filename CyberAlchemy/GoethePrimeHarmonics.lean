@@ -17,7 +17,6 @@ namespace CyberAlchemy.GoethePrimeHarmonics
 
 open ProtorealManifold
 open DMinorResonance
-open Soulchemy
 
 -- ════════════════════════════════════════════════════
 -- THE ZETA PRIME HARMONICS (UP TO P=19)

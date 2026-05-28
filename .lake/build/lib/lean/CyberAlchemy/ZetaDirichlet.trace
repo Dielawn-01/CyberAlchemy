@@ -1,0 +1,78 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["4c6a65208c6cadf9.olean"],
+  "i": "3b06d703099cf42a.ilean",
+  "c": "9d006a89e9c81b39.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/Cli/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/batteries/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/Qq/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/aesop/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/importGraph/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/plausible/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/packages/mathlib/.lake/build/lib/lean:/home/phrxmaz/Documents/CyberAlchemy/.lake/build/lib/lean /home/phrxmaz/.elan/toolchains/leanprover--lean4---v4.29.1/bin/lean /home/phrxmaz/Documents/CyberAlchemy/CyberAlchemy/ZetaDirichlet.lean -o /home/phrxmaz/Documents/CyberAlchemy/.lake/build/lib/lean/CyberAlchemy/ZetaDirichlet.olean -i /home/phrxmaz/Documents/CyberAlchemy/.lake/build/lib/lean/CyberAlchemy/ZetaDirichlet.ilean -c /home/phrxmaz/Documents/CyberAlchemy/.lake/build/ir/CyberAlchemy/ZetaDirichlet.c --setup /home/phrxmaz/Documents/CyberAlchemy/.lake/build/ir/CyberAlchemy/ZetaDirichlet.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "CyberAlchemy/ZetaDirichlet.lean:121:46: This simp argument is unused:\n  hm\n\nHint: Omit it from the simp argument list.\n  simp [hb, hm̵,̵ ̵h̵e, hl]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/ZetaDirichlet.lean:121:50: This simp argument is unused:\n  he\n\nHint: Omit it from the simp argument list.\n  simp [hb, hm, he̵,̵ ̵h̵l]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/ZetaDirichlet.lean:121:54: This simp argument is unused:\n  hl\n\nHint: Omit it from the simp argument list.\n  simp [hb, hm, he,̵ ̵h̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/ZetaDirichlet.lean:123:42: This simp argument is unused:\n  hb\n\nHint: Omit it from the simp argument list.\n  simp [hb̵,̵ ̵h̵m, he, hl]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/ZetaDirichlet.lean:123:50: This simp argument is unused:\n  he\n\nHint: Omit it from the simp argument list.\n  simp [hb, hm, he̵,̵ ̵h̵l]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/ZetaDirichlet.lean:123:54: This simp argument is unused:\n  hl\n\nHint: Omit it from the simp argument list.\n  simp [hb, hm, he,̵ ̵h̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/ZetaDirichlet.lean:125:42: This simp argument is unused:\n  hb\n\nHint: Omit it from the simp argument list.\n  simp [hb̵,̵ ̵h̵m, he, hl]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/ZetaDirichlet.lean:125:46: This simp argument is unused:\n  hm\n\nHint: Omit it from the simp argument list.\n  simp [hb, hm̵,̵ ̵h̵e, hl]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/ZetaDirichlet.lean:125:54: This simp argument is unused:\n  hl\n\nHint: Omit it from the simp argument list.\n  simp [hb, hm, he,̵ ̵h̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/ZetaDirichlet.lean:126:42: This simp argument is unused:\n  hb\n\nHint: Omit it from the simp argument list.\n  simp [hb̵,̵ ̵h̵m, he, hl]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/ZetaDirichlet.lean:126:46: This simp argument is unused:\n  hm\n\nHint: Omit it from the simp argument list.\n  simp [hb, hm̵,̵ ̵h̵e, hl]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "CyberAlchemy/ZetaDirichlet.lean:126:50: This simp argument is unused:\n  he\n\nHint: Omit it from the simp argument list.\n  simp [hb, hm, he̵,̵ ̵h̵l]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"}],
+ "inputs":
+ [["CyberAlchemy.ZetaDirichlet:deps",
+   [["deps",
+     [["CyberAlchemy/CyberAlchemy:extraDep",
+       [["@CyberAlchemy:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["CyberAlchemy.HyperKlein transitive imports (legacy)",
+         "b264e3923a6d3b52"],
+        ["CyberAlchemy.HyperKlein:importAllArts", "c50e587bda4778d8"],
+        ["CyberAlchemy.IncompletenessSource transitive imports (legacy)",
+         "2171d10b7b1233fc"],
+        ["CyberAlchemy.IncompletenessSource:importAllArts", "0401cf487053b75f"],
+        ["CyberAlchemy.Invariance transitive imports (legacy)",
+         "782f5fce75c4eb69"],
+        ["CyberAlchemy.Invariance:importAllArts", "fc30432e5e20ca30"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.29.1, commit f72c35b3f637c8c6571d353742168ab66cc22c00",
+   "fa77a35a41db35c0"],
+  ["/home/phrxmaz/Documents/CyberAlchemy/CyberAlchemy/ZetaDirichlet.lean",
+   "b422f62a9441347c"],
+  ["options",
+   [["-DrelaxedAutoImplicit=false", "74a2b5546b55be80"],
+    ["-Dpp.unicode.fun=true", "9b94070140457fab"]]],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: CyberAlchemy.ZetaDirichlet", "29788990fc4afa1c"],
+  ["Package.id?: (some CyberAlchemy)", "145ff4c6b42a15f8"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "0d8134ba0df393c3"}

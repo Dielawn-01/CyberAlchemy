@@ -155,6 +155,6 @@ theorem quantum_nucleus : dim_spin + 1 = dim_charge := by
   unfold dim_spin dim_charge; norm_num
 
 /-- The midpoint of the buffer falls between spin and charge. -/
-theorem midpoint : (dim_spin + dim_charge) / 2 = 21 := by
+theorem duality_midpoint : (dim_spin + dim_charge) / 2 = 21 := by
   unfold dim_spin dim_charge; norm_num
 

@@ -6,7 +6,6 @@ import CyberAlchemy.KamaTrain
 import CyberAlchemy.MonsterInverse
 import CyberAlchemy.Infochemistry
 import CyberAlchemy.MatterAntimatter
-import CyberAlchemy.CrystalGrowth
 
 /-!
 # Infonad: The Fundamental Unit of Information Chemistry
