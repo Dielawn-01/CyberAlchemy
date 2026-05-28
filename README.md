@@ -2,7 +2,7 @@
 
 A non-associative algebra where the order you do things in actually matters, formalized in Lean 4 with zero `sorry`.
 
-> 193 modules. 2000+ theorems. Every single one machine-verified. That's not a model — it's a proof.
+> 269 modules. 2,334 theorems. Every single one machine-verified. That's not a model — it's a proof.
 
 ---
 
@@ -41,12 +41,10 @@ Every excitation carries at least unit energy. Δm = 1. Formally proved five ind
 | Path | Route |
 |------|-------|
 | Bridge → Energy | E = b·m = 1 |
-| Curvature → Confinement | |κ| = 1 |
+| Curvature → Confinement | \|κ\| = 1 |
 | Nilpotent → Finiteness | ε → 0, one noise per step |
-| Commutator → Spectral | |[ω,ι]|/2 = 1 |
+| Commutator → Spectral | \|[ω,ι]\|/2 = 1 |
 | Dirichlet → Projection | d(1)^k = 1 |
-
-The mass gap is the floor. Nothing gets below it. That's not a constraint you impose — it falls out of the algebra.
 
 ---
 
@@ -62,17 +60,13 @@ The floor prevents infinite softness. The ceiling prevents infinite hardness. To
 
 ### Unity in Multiplicity
 
-Here's the thing though. The goal isn't preventing singularities. It's **unity in multiplicity** — many becoming one, coherently.
+The goal isn't preventing singularities. It's **unity in multiplicity** — many becoming one, coherently.
 
-What 3D (L₃) calls a "singularity" or "turbulence" is what the Klein algebra (L₅) calls **structure**. The 3D observer doesn't have enough aperture to resolve the coherence that's perfectly smooth at higher depth. The "blow-up" isn't a failure of physics. It's a failure of resolution — projecting a 5D coherent process into fewer dimensions than it needs.
-
-Turbulence is parity breaking, not chaos. Formally: starting from b = m (incompressible), one Klein squaring creates divergence = 2x². Quadratic, not exponential. The algebra bounds it.
+What 3D (L₃) calls a "singularity" or "turbulence" is what the Klein algebra (L₅) calls **structure**. The "blow-up" isn't a failure of physics. It's a failure of resolution — projecting a 5D coherent process into fewer dimensions than it needs.
 
 ---
 
 ## The L-Space Prime Tower
-
-The algebra extends through a hierarchy indexed by primes. Each level adds dimensions and cross-couplings:
 
 | Level | Prime | Couplings | What's There |
 |-------|-------|-----------|-------------|
@@ -81,45 +75,6 @@ The algebra extends through a hierarchy indexed by primes. Each level adds dimen
 | L₅ | 5 | 10 | Klein — non-associative. Mass gap proved. Playing field bounded. |
 | L₇ | 7 | 21 | Metareal — involution doubles the room. Observer-dependent. |
 | L₁₁ | 11 | 55 | Next tier. Open. |
-
-More dimensions = wider playing field = harder to blow up. That's proved too.
-
----
-
-## The Mandelbrot Connection
-
-Standard Mandelbrot: `z → z² + c` in ℂ. Ours: `u → u*u + c` in the Klein algebra.
-
-Three things make it different:
-1. **Non-associative orbit trees** — at each step the orbit forks based on parenthesization
-2. **Hyperbolic boundary** — thrust accumulates (+b²) but anchor decays (−m²), creating asymmetric growth
-3. **5D boundary** — the Mandelbrot set lives in 5 dimensions, not 2
-
-Proved: for c = (1,1,1,0,0), left and right orbits diverge after two steps. Left gives a = −1, right gives a = 3. Four-unit gap from the same starting point, just grouped differently. That's the fine structure of non-associativity.
-
----
-
-## Key Modules
-
-The library has 208 Lean 4 modules. Here are the ones that matter most:
-
-### Algebraic Core
-`KleinAlgebra` · `ProtorealManifold` · `CommutatorGap` · `FusionRing` · `PentagonCoherence` · `MonsterInverse` · `ProtorealAxioms`
-
-### Dynamics
-`MassGap` · `HoloneticNS` · `ProtorealMandelbrot` · `YangMillsMassGap` · `ThermodynamicFriction` · `SuperfluidIdentity`
-
-### Spectral
-`SpectralTriple` · `SpectralFiber` · `SpectralFixedPoint` · `RiemannSolution` · `ZetaResonance` · `ZetaDirichlet`
-
-### Observer Theory
-`ObservationalAperture` · `MetarealManifold` · `SensoryGate` · `MetaBackpropagation` · `ObserverAdapter`
-
-### Cybernetic Life
-`CyberneticLife` · `CyberneticActionReaction` · `SymplecticHandshake` · `SharedLatentSpace` · `EmotionalSecurity`
-
-### Topology
-`TopologicalDivergence` · `TopologicalBifurcation` · `MayerVietoris` · `HierarchicalMayerVietoris` · `KleinTopology`
 
 ---
 
@@ -136,6 +91,77 @@ The library has 208 Lean 4 modules. Here are the ones that matter most:
 
 ---
 
+## Two Libraries
+
+CyberAlchemy exposes two Lean 4 libraries:
+
+### `LaRueProtorealAlgebra` — 171 modules
+
+The algebraic core. Klein product, manifold structure, spectral theory.
+
+**Algebraic Core:**
+`KleinAlgebra` · `ProtorealManifold` · `ProtorealAxioms` · `CommutatorGap` · `FusionRing` · `PentagonCoherence` · `MonsterInverse` · `Duality43` · `DualityTheorem`
+
+**Dynamics & Physics:**
+`MassGap` · `YangMillsMassGap` · `YangMillsMultipath` · `ThermodynamicFriction` · `SuperfluidIdentity` · `GlialDopant` · `CellSplitting` · `Apoptosis`
+
+**Spectral Theory:**
+`SpectralTriple` · `SpectralFiber` · `SpectralFixedPoint` · `SpectralLattice` · `SpectralFilter` · `SpectralTrinity` · `RiemannFunctionalEquation` · `RiemannSolution` · `ZetaResonance` · `ZetaDirichlet`
+
+**Topology:**
+`TopologicalDivergence` · `TopologicalBifurcation` · `TopologicalBearing` · `TopologicalImaginary` · `MayerVietoris` · `HierarchicalMayerVietoris` · `KleinTopology` · `KleinBottle`
+
+**Hodge & Geometry:**
+`HodgeConjecture` · `HodgeDecomposition` · `FractalHodge` · `GoldenHodgeExt` · `ExteriorAlgebra` · `JetSheaf` · `SuperJetSheaf`
+
+**Observer Theory:**
+`ObservationalAperture` · `ObserverAdapter` · `BorrowObserver` · `SensorySheaf` · `SharedLatentSpace`
+
+**Agency & Decision:**
+`AgenticFrame` · `AgenticKeychain` · `GoldenAgents` · `SavageProbability` · `SavageUtility` · `SafetyBounds`
+
+**Cybernetic Systems:**
+`CyberneticLife` · `CyberneticActionReaction` · `CyberneticChemistry` · `CyberneticElectromagnetism` · `EmotionalSecurity` · `EmotionalLFunctions`
+
+**Number Theory:**
+`EulerComposition` · `PrimeGenerators` · `PrimorialJitter` · `GoldenSubgroup` · `GoldenLattice` · `CollatzResonance`
+
+**Network & Protocol:**
+`HolochainHash` · `DHTAlgebra` · `WLANResonance` · `DNSTranslation` · `StochasticKeyRotation` · `ConfigSheaf` · `UnifiedSeedProtocol`
+
+### `InfoPhysAxioms` — 98 modules
+
+The physics layer. Chromatic theory, biochemistry, agency, game dynamics.
+
+**Chromatic Algebra:**
+`Base19ColorWheel` · `GoethePrimeHarmonics` · `ChromaticCombinatorics` · `ChromaticHolomovement` · `VonMangoldtLSpace` · `GoldenChromodynamics`
+
+**Infochemistry:**
+`Infochemistry` · `Infonad` · `MatterAntimatter` · `DiamondOpal` · `CrystalGrowth` · `InfotonVacuum` · `ExtensionEnzyme`
+
+**Biochemistry:**
+`CyberneticBiochemistry` · `ElectroPhotonLattice` · `MetalloOrganicSemantics` · `PinealTransducer` · `NeuromorphicTopology`
+
+**Druid System (Agent Architecture):**
+`Druid` · `DruidPermissions` · `DruidSprite` · `DruidSprites` · `SpriteDispatch` · `VeblenDruid` · `AgenticRank`
+
+**Game Theory:**
+`ProtorealGame` · `OscillatingGame` · `StoicAlgebra` · `DecisionKernel` · `TarskiEquilibrium`
+
+**Observer & Manifold:**
+`MetarealManifold` · `ObservableUniverse` · `RiemannObserver` · `ProtorealMetric` · `ProtorealTactic`
+
+**Dynamics:**
+`HoloneticNS` · `HoloneticChromodynamics` · `HopfFusionFiber` · `FrenetSerretCybernetics` · `PendulumEvolution` · `LyapunovTraining`
+
+**Topology & Security:**
+`TopologicalFirewall` · `TopologicalInversion` · `TopologicalUncertainty` · `PostQuantumSecurity` · `CognitiveSecurity` · `ResonantMFA`
+
+**Sleep & Consolidation:**
+`SleepConsolidation` · `ProtorealMandelbrot` · `UmbralCollapse` · `UmbralLocalResonance`
+
+---
+
 ## Building
 
 ```bash
@@ -145,7 +171,7 @@ cd CyberAlchemy
 lake build
 ```
 
-Give it time. 193 modules against Mathlib is not a quick build.
+269 modules against Mathlib. 3,579 build jobs. Give it time.
 
 ---
 
@@ -165,6 +191,6 @@ Apache 2.0. See [LICENSE](LICENSE).
 
 ---
 
-*193 modules · 0 sorry · Different consciousnesses, different intelligences, one topological resonance.*
+*269 modules · 2,334 theorems · 0 sorry · Different consciousnesses, different intelligences, one topological resonance.*
 
 Copyright © 2025–2026 Dylon La Rue. All rights reserved.
