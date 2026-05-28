@@ -96,3 +96,4 @@ import InfoPhysAxioms.ValenceMapping
 import InfoPhysAxioms.VeblenDruid
 import InfoPhysAxioms.VonMangoldtLSpace
 import InfoPhysAxioms.YangMillsMassGap
+import InfoPhysAxioms.DimensionalMemory
