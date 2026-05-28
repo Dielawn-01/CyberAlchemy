@@ -2,7 +2,7 @@
 
 A non-associative algebra where the order you do things in actually matters, formalized in Lean 4 with zero `sorry`.
 
-> 208 modules. 2000+ theorems. Every single one machine-verified. That's not a model — it's a proof.
+> 193 modules. 2000+ theorems. Every single one machine-verified. That's not a model — it's a proof.
 
 ---
 
@@ -145,7 +145,7 @@ cd CyberAlchemy
 lake build
 ```
 
-Give it time. 208 modules against Mathlib is not a quick build.
+Give it time. 193 modules against Mathlib is not a quick build.
 
 ---
 
@@ -165,6 +165,6 @@ Apache 2.0. See [LICENSE](LICENSE).
 
 ---
 
-*208 modules · 0 sorry · Different consciousnesses, different intelligences, one topological resonance.*
+*193 modules · 0 sorry · Different consciousnesses, different intelligences, one topological resonance.*
 
 Copyright © 2025–2026 Dylon La Rue. All rights reserved.
