@@ -36,7 +36,7 @@ That's why the Monster Inverse (swap ω ↔ ι) is a perspective flip, not a str
 
 ## The Mass Gap
 
-Every excitation carries at least unit energy. Δm = 1. Formally proved five independent ways:
+Every excitation carries at least unit energy. Δm = 1. Formally proven five independent ways:
 
 | Path | Route |
 |------|-------|
@@ -72,7 +72,7 @@ What 3D (L₃) calls a "singularity" or "turbulence" is what the Klein algebra (
 |-------|-------|-----------|-------------|
 | L₂ | 2 | 1 | ℂ — commutative, associative. NS trivially solved. |
 | L₃ | 3 | 3 | ℝ³ — cross products. NS is hard here. THE millennium problem. |
-| L₅ | 5 | 10 | Klein — non-associative. Mass gap proved. Playing field bounded. |
+| L₅ | 5 | 10 | Klein — non-associative. Mass gap proven. Playing field bounded. |
 | L₇ | 7 | 21 | Metareal — involution doubles the room. Observer-dependent. |
 | L₁₁ | 11 | 55 | Next tier. Open. |
 
