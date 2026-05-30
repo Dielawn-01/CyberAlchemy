@@ -107,6 +107,8 @@ import LaRueProtorealAlgebra.OrchOR
 import LaRueProtorealAlgebra.ParityStability
 import LaRueProtorealAlgebra.PentagonCoherence
 import LaRueProtorealAlgebra.PhasorTower
+import LaRueProtorealAlgebra.PhysicalBifurcation
+import LaRueProtorealAlgebra.PhysicalConstants
 import LaRueProtorealAlgebra.PlasmaInfotonBridge
 import LaRueProtorealAlgebra.PolarizingField
 import LaRueProtorealAlgebra.PrimeGenerators
