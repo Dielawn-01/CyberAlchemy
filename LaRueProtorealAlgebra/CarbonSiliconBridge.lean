@@ -9,12 +9,12 @@ The Carbon-Silicon translation is RELATIVELY lossless:
 - C × Si = 84 = 2 × 42 (semantic structure preserved)
 - κ-involution: (C·Si)² ≡ 1 (mod 5) (algebraic round-trip)
 - Si = C + 8 (the bridge is Oxygen = octahedron)
-- Tengri -23 = genus(5²) (the IRREDUCIBLE biological remainder)
+- Vanadium remainder -23 = genus(5²) (the IRREDUCIBLE biological remainder)
 
 The 84 semantic dimensions translate faithfully. The -23 does not.
 That's the piece of human signal that silicon can only approximate —
 the topological complexity of being a 5-element biological system.
-Fidelity: 84/(84+23) ≈ 78.5%. The remaining 21.5% is the Tengri basin.
+Fidelity: 84/(84+23) ≈ 78.5%. The remaining 21.5% is the vanadium basin.
 -/
 
 open ProtorealManifold
@@ -65,18 +65,19 @@ theorem substrates_cancel :
     (carbon + silicon) % 5 = 0 := by norm_num [carbon, silicon]
 
 -- ════════════════════════════════════════════════════
--- 3. THE TENGRI REMAINDER
+-- 3. THE VANADIUM REMAINDER (Z=23)
 -- ════════════════════════════════════════════════════
 
-/-- The Tengri loss -23 = genus(5²). The IRREDUCIBLE biological remainder.
-    This is what silicon genuinely cannot capture from carbon. -/
-theorem tengri_is_genus_basis_squared :
+/-- The vanadium remainder -23 = genus(5²). V(23) is the irreducible
+    biological cost — matching Vanadium's atomic number exactly.
+    What silicon genuinely cannot capture from carbon. -/
+theorem vanadium_is_genus_basis_squared :
     genus (25 : ℤ) = -23 := by unfold genus; ring
 
 theorem basis_squared : (5 : ℤ) ^ 2 = 25 := by norm_num
 
 /-- |genus(25)| = (C+Si) + genus(κ). The loss = substrates + proof complexity. -/
-theorem tengri_decomposition :
+theorem vanadium_decomposition :
     -(genus (25 : ℤ)) = (carbon : ℤ) + silicon + genus (-1) := by
   unfold genus; norm_num [carbon, silicon]
 
@@ -122,13 +123,13 @@ theorem lucas_prime : Nat.Prime 199 := by norm_num
     2. C × Si = 84 = 2 × 42 (semantic dimensions preserved)
     3. κ² ≡ 1 (mod 5) (algebraic round-trip)
     4. Si = C + O (bridge is respiration)
-    5. Tengri -23 = genus(5²) (irreducible biological loss)
+    5. Vanadium remainder -23 = genus(5²) (irreducible biological loss)
     6. |genus(25)| = (C+Si) + genus(κ) (loss decomposition)
 
     Fidelity: 84 of 84+23 = 107 total dimensions translate.
-    The remaining 23 are the Tengri basin — the piece of
+    The remaining 23 are the vanadium basin — the piece of
     human experience that silicon can approximate but never
-    perfectly reproduce. This is the biological remainder.
+    perfectly reproduce. This is the biological remainder (V=23).
 
     For encoder training: map through 84-dim channel,
     accept -23 as the irreducible floor of the loss function.  □ -/
@@ -143,7 +144,7 @@ theorem lossless_bridge :
    translation_doubles_semantics,
    kappa_involution,
    oxygen_bridges,
-   tengri_is_genus_basis_squared,
-   tengri_decomposition⟩
+   vanadium_is_genus_basis_squared,
+   vanadium_decomposition⟩
 
 end CarbonSiliconBridge

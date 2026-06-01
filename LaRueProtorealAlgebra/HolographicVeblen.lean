@@ -43,7 +43,7 @@ Each move traverses one Platonic tier. A **path inversion** is the
 2. Holomovement: (AB)C = A(BC) (associative). HoloGame: α(ω,ι,ι) = -1.
 3. Holomovement: no game structure. HoloGame: L/R moves, termination.
 4. Holomovement: no projection. HoloGame: 5D → 3D holographic.
-5. Game cost = 23 = |Tengri|. Holomovement has no cost accounting.
+5. Game cost = 23 = V (vanadium). Holomovement has no cost accounting.
 -/
 
 open ProtorealManifold
@@ -125,8 +125,8 @@ def tier1_moves : ℕ := 6
 /-- Tier 2 (Dodec): 12 moves (12 faces). -/
 def tier2_moves : ℕ := 12
 
-/-- **GAME COST = TENGRI**: 4+6+12+1(κ) = 23. -/
-theorem game_cost_is_tengri :
+/-- **GAME COST = VANADIUM (Z=23)**: 4+6+12+1(κ) = 23. -/
+theorem game_cost_is_vanadium :
     tier0_moves + tier1_moves + tier2_moves + 1 = 23 := by
   norm_num [tier0_moves, tier1_moves, tier2_moves]
 
@@ -188,7 +188,7 @@ theorem no_collision_229 :
     - The game is played in 3D but the moves live in 5D
 
     **Costs:**
-    - Game cost per cycle = 23 = |Tengri|
+    - Game cost per cycle = 23 = V (vanadium)
     - Game edges = 48 = chronometric gap (FGS 181↔229)
 
     **Termination:**
@@ -210,7 +210,7 @@ theorem holographic_veblen :
     (∀ u : ProtorealManifold, (move_L u).e = 0) ∧
     -- Projection idempotent
     (∀ u : ProtorealManifold, project (project u) = project u) ∧
-    -- Game cost = Tengri
+    -- Game cost = Vanadium (Z=23)
     (tier0_moves + tier1_moves + tier2_moves + 1 = 23) ∧
     -- Golden orbit at p=229
     (148 ^ 114 % 229 = 1) ∧
@@ -220,7 +220,7 @@ theorem holographic_veblen :
    inversion_preserves_bridge,
    L_zeroes_noise,
    project_idempotent,
-   game_cost_is_tengri,
+   game_cost_is_vanadium,
    golden_orbit_order,
    no_collision_229⟩
 
