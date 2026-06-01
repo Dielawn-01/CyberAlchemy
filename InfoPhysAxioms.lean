@@ -97,3 +97,6 @@ import InfoPhysAxioms.VeblenDruid
 import InfoPhysAxioms.VonMangoldtLSpace
 import InfoPhysAxioms.YangMillsMassGap
 import InfoPhysAxioms.DimensionalMemory
+import InfoPhysAxioms.ChronometricProbe
+import InfoPhysAxioms.AntimatterLattice
+import InfoPhysAxioms.ExoticMatterChamber
