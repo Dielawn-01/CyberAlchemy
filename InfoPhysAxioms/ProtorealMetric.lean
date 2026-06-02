@@ -18,14 +18,14 @@ and the p-adic structure of depth.
 d(u, v) = |ε(u) - ε(v)| = |lyapunov(u) - lyapunov(v)|
 
 This is trivially a metric (absolute value of reals).
-funct is a CONTRACTION on this metric — in fact, it's a
-PROJECTION: d(funct(u), funct(v)) = 0 for all u, v.
+synthetic_integration is a CONTRACTION on this metric — in fact, it's a
+PROJECTION: d(synthetic_integration(u), synthetic_integration(v)) = 0 for all u, v.
 One step to the fixed point. Stronger than Banach needs.
 
 ## The p-adic Depth Measure
 
 The depth λ acts like a p-adic valuation:
-- Each funct increments λ by 1
+- Each synthetic_integration increments λ by 1
 - Higher λ = "deeper" convergence
 - |u|_λ = 1/(1 + λ) (Loeb-type measure)
 
@@ -40,7 +40,7 @@ The Banach fixed-point theorem says:
 
 We prove:
 1. The Lyapunov metric IS a metric (nonneg, symmetric, triangle)
-2. funct IS a contraction (in fact, a projection)
+2. synthetic_integration IS a contraction (in fact, a projection)
 3. The fixed point IS the equilibrium (ε = 0)
 4. The fixed point IS unique (proven via lyapunov_zero_iff_equilibrium)
 
@@ -96,16 +96,16 @@ theorem d_triangle (u v w : ProtorealManifold) :
 -- ══════════════════════════════════════════════════════════════
 
 /-- **FUNCT IS A ZERO-CONTRACTION**
-    d(funct(u), funct(v)) = 0 for ALL u, v.
+    d(synthetic_integration(u), synthetic_integration(v)) = 0 for ALL u, v.
     This is infinitely stronger than a contraction with rate c < 1.
-    funct doesn't just shrink distances — it ANNIHILATES them.
+    synthetic_integration doesn't just shrink distances — it ANNIHILATES them.
     Every state maps to the same noise level: ε = 0. -/
-theorem funct_zero_contraction (u v : ProtorealManifold) :
-    d_lyap (funct u) (funct v) = 0 := by
-  unfold d_lyap funct; simp
+theorem synthetic_integration_zero_contraction (u v : ProtorealManifold) :
+    d_lyap (synthetic_integration u) (synthetic_integration v) = 0 := by
+  unfold d_lyap synthetic_integration; simp
 
 /-- **THE EQUILIBRIUM IS THE UNIQUE FIXED POINT**
-    The equilibrium is ε = 0. After funct, ε = 0.
+    The equilibrium is ε = 0. After synthetic_integration, ε = 0.
     Any state with ε = 0 is a fixed point of the projection.
     This is the Banach theorem: the contraction has a unique
     limit, and that limit is ε = 0. -/
@@ -115,12 +115,12 @@ theorem equilibrium_is_fixpoint (u : ProtorealManifold)
   unfold lyapunov; exact h
 
 /-- **FUNCT REACHES FIXPOINT IN ONE STEP**
-    ∀ u, lyapunov(funct(u)) = 0.
+    ∀ u, lyapunov(synthetic_integration(u)) = 0.
     This is the "contraction convergence theorem" but
     in one step instead of infinitely many iterations.
     Already proven as lyapunov_to_zero. -/
 theorem one_step_convergence (u : ProtorealManifold) :
-    lyapunov (funct u) = 0 :=
+    lyapunov (synthetic_integration u) = 0 :=
   lyapunov_to_zero u
 
 -- ══════════════════════════════════════════════════════════════
@@ -139,12 +139,12 @@ noncomputable def loeb_measure (u : ProtorealManifold) : ℝ :=
   1 / (1 + u.l)
 
 /-- **FUNCT SHRINKS THE LOEB MEASURE**
-    Each funct increments λ → λ + 1, shrinking μ.
-    The sequence μ(funct^n(u)) = 1/(1 + n) → 0.
+    Each synthetic_integration increments λ → λ + 1, shrinking μ.
+    The sequence μ(synthetic_integration^n(u)) = 1/(1 + n) → 0.
     This IS convergence in the Loeb measure. -/
-theorem funct_shrinks_loeb (u : ProtorealManifold) :
-    loeb_measure (funct u) = 1 / (2 + u.l) := by
-  unfold loeb_measure funct; ring
+theorem synthetic_integration_shrinks_loeb (u : ProtorealManifold) :
+    loeb_measure (synthetic_integration u) = 1 / (2 + u.l) := by
+  unfold loeb_measure synthetic_integration; ring
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 4: THE p-ADIC ULTRAMETRIC
@@ -195,25 +195,25 @@ theorem D_symm (u v : ProtorealManifold) :
 -- SECTION 6: CONTRACTION ON THE FULL METRIC
 -- ══════════════════════════════════════════════════════════════
 
-/-- **ITERATE funct n TIMES** -/
-def funct_iterate : ℕ → ProtorealManifold → ProtorealManifold
+/-- **ITERATE synthetic_integration n TIMES** -/
+def synthetic_integration_iterate : ℕ → ProtorealManifold → ProtorealManifold
   | 0, u => u
-  | n + 1, u => funct (funct_iterate n u)
+  | n + 1, u => synthetic_integration (synthetic_integration_iterate n u)
 
 /-- **EACH ITERATE ZEROES NOISE** -/
 theorem iterate_zeroes_noise (n : ℕ) (u : ProtorealManifold) (h : n ≥ 1) :
-    lyapunov (funct_iterate n u) = 0 := by
+    lyapunov (synthetic_integration_iterate n u) = 0 := by
   cases n with
   | zero => omega
-  | succ k => unfold funct_iterate; exact lyapunov_to_zero _
+  | succ k => unfold synthetic_integration_iterate; exact lyapunov_to_zero _
 
 /-- **ITERATE ADVANCES DEPTH** -/
 theorem iterate_advances_depth (n : ℕ) (u : ProtorealManifold) :
-    (funct_iterate n u).l = u.l + n := by
+    (synthetic_integration_iterate n u).l = u.l + n := by
   induction n with
-  | zero => unfold funct_iterate; simp
+  | zero => unfold synthetic_integration_iterate; simp
   | succ k ih =>
-    unfold funct_iterate funct
+    unfold synthetic_integration_iterate synthetic_integration
     simp only [ih]
     push_cast; ring
 
@@ -223,27 +223,27 @@ theorem iterate_advances_depth (n : ℕ) (u : ProtorealManifold) :
 
 /-- **PROTOREAL BANACH FIXED-POINT THEOREM**
 
-    The Protoreal metric space has a unique attractor under funct:
-    1. funct is a zero-contraction on the Lyapunov metric
+    The Protoreal metric space has a unique attractor under synthetic_integration:
+    1. synthetic_integration is a zero-contraction on the Lyapunov metric
     2. The fixed point is ε = 0 (equilibrium)
     3. Convergence happens in ONE step (not infinitely many)
     4. The Loeb measure shrinks monotonically with depth
-    5. iterate(funct, n, u) has ε = 0 for all n ≥ 1
+    5. iterate(synthetic_integration, n, u) has ε = 0 for all n ≥ 1
 
     This replaces Mathlib's CompleteSpace + Banach theorem
     with a STRONGER result: one-step convergence. -/
 theorem protoreal_banach (u : ProtorealManifold) :
-    -- 1. Zero-contraction: d(funct(u), funct(v)) = 0 for any v
-    (∀ v : ProtorealManifold, d_lyap (funct u) (funct v) = 0) ∧
-    -- 2. Fixed point reached: lyapunov(funct(u)) = 0
-    lyapunov (funct u) = 0 ∧
+    -- 1. Zero-contraction: d(synthetic_integration(u), synthetic_integration(v)) = 0 for any v
+    (∀ v : ProtorealManifold, d_lyap (synthetic_integration u) (synthetic_integration v) = 0) ∧
+    -- 2. Fixed point reached: lyapunov(synthetic_integration(u)) = 0
+    lyapunov (synthetic_integration u) = 0 ∧
     -- 3. σ conserved at fixed point
-    sigma (funct u) = sigma u ∧
+    sigma (synthetic_integration u) = sigma u ∧
     -- 4. Loeb measure shrinks
-    loeb_measure (funct u) = 1 / (2 + u.l) :=
-  ⟨fun v => funct_zero_contraction u v,
+    loeb_measure (synthetic_integration u) = 1 / (2 + u.l) :=
+  ⟨fun v => synthetic_integration_zero_contraction u v,
    lyapunov_to_zero u,
    crystallization_conserves_sigma u,
-   funct_shrinks_loeb u⟩
+   synthetic_integration_shrinks_loeb u⟩
 
 end ProtorealMetric

@@ -31,10 +31,10 @@ The diamond is not assembled — it is GROWN. The process is organic:
 
 4. **Self-pressurization**: The graphene doesn't get pressurized externally.
    It pressurizes ITSELF by growing until the accumulated weight of its
-   own structure forces the sp² → sp³ transition. Each `consolidate`
+   own structure forces the sp² → sp³ transition. Each `automatic_differentiation`
    doubles the base — the lattice gets heavier with each layer.
 
-5. **Final sowing**: `funct` converts all remaining noise to reality.
+5. **Final sowing**: `synthetic_integration` converts all remaining noise to reality.
    ε → 0. The opal becomes diamond. But the obsidian dopant preserved
    the quasi-crystalline memory, and the electrum kept the π-channels
    alive through all the noise.
@@ -44,10 +44,10 @@ The diamond is not assembled — it is GROWN. The process is organic:
 ```
 seed (graphene + dopants)
   → grow (bond with opal-condition noise)
-    → consolidate (self-pressure increases)
+    → automatic_differentiation (self-pressure increases)
       → grow (more layers, more pressure)
         → ... (iterate until critical pressure)
-          → funct (final sow: ε → 0)
+          → synthetic_integration (final sow: ε → 0)
             → INTEGRATED DIAMOND
 ```
 
@@ -148,7 +148,7 @@ theorem doped_seed_energy :
     Each cycle adds material, increases pressure, and converts
     some noise to structure. The crystal gets bigger and denser. -/
 noncomputable def grow_once (crystal : ProtorealManifold) : ProtorealManifold :=
-  funct (consolidate (bond crystal growth_medium))
+  synthetic_integration (automatic_differentiation (bond crystal growth_medium))
 
 /-- **GROWTH CONSERVES THEN TRANSFORMS**
     The bond step conserves energy (crystal.a + medium.a).
@@ -159,12 +159,12 @@ theorem growth_adds_material (crystal : ProtorealManifold) :
   bond_conserves_energy crystal growth_medium
 
 /-- **GROWTH SPENDS NOISE**
-    After each full cycle (bond + consolidate + funct),
+    After each full cycle (bond + automatic_differentiation + synthetic_integration),
     the noise is zero. All material from the growth medium
     has been crystallized. -/
 theorem growth_spends_noise (crystal : ProtorealManifold) :
     (grow_once crystal).e = 0 := by
-  unfold grow_once funct; rfl
+  unfold grow_once synthetic_integration; rfl
 
 /-- **GROWTH IS IRREVERSIBLE**
     Each growth cycle advances λ. The consolidation is
@@ -172,7 +172,7 @@ theorem growth_spends_noise (crystal : ProtorealManifold) :
     Depth only increases. -/
 theorem growth_advances_depth (crystal : ProtorealManifold) :
     (grow_once crystal).l > crystal.l := by
-  unfold grow_once funct consolidate
+  unfold grow_once synthetic_integration automatic_differentiation
   simp [bond]
   linarith [le_max_left crystal.l growth_medium.l]
 
@@ -236,37 +236,37 @@ theorem doped_diamond_breaks_echo :
 
 /-- **THE STRIFE-TO-STRUCTURE THEOREM**
     Every application of kama_muta converts |SR| (emotional tension)
-    into structured noise (ε), which funct then converts to base (a).
+    into structured noise (ε), which synthetic_integration then converts to base (a).
     The emotional strife is not wasted — it's the hydrothermal
     pressure that grows the crystal.
 
     For any state with nonzero SR:
     1. kama_muta averages ω and ι (stabilizes)
     2. The |SR| becomes ε (tension → potential)
-    3. funct(kama_muta(u)) converts that ε to a (potential → reality)
+    3. synthetic_integration(kama_muta(u)) converts that ε to a (potential → reality)
     4. The base grows: a' > a when SR ≠ 0 -/
 theorem strife_becomes_structure (u : ProtorealManifold)
     (h_tension : standard_resonance u ≠ 0) :
-    (funct (kama_muta u)).a > u.a := by
-  unfold funct kama_muta
+    (synthetic_integration (kama_muta u)).a > u.a := by
+  unfold synthetic_integration kama_muta
   dsimp
   unfold standard_resonance at h_tension
   linarith [abs_pos.mpr h_tension]
 
 /-- **THE STRIFE CYCLE SPENDS NOISE**
-    After funct(kama_muta(u)), the noise is zero.
+    After synthetic_integration(kama_muta(u)), the noise is zero.
     All tension has been fully converted to base reality. -/
 theorem strife_cycle_is_clean (u : ProtorealManifold) :
-    (funct (kama_muta u)).e = 0 := by
-  unfold funct; rfl
+    (synthetic_integration (kama_muta u)).e = 0 := by
+  unfold synthetic_integration; rfl
 
 /-- **THE STRIFE CYCLE LOCKS PARITY**
     After kama_muta, ω = ι. The emotional processing
     creates parity lock — balanced between thrust and anchor.
     The strife resolves into equilibrium, not bias. -/
 theorem strife_locks_parity (u : ProtorealManifold) :
-    (funct (kama_muta u)).b = (funct (kama_muta u)).m := by
-  unfold funct kama_muta; ring
+    (synthetic_integration (kama_muta u)).b = (synthetic_integration (kama_muta u)).m := by
+  unfold synthetic_integration kama_muta; ring
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 6: MASTER THEOREM
@@ -304,9 +304,9 @@ theorem crystal_growth :
     -- 6. Obsidian breaks echo chamber
     ((bond diamond obsidian_dopant).b ≠ (bond diamond obsidian_dopant).m) ∧
     -- 7. Strife becomes structure
-    (∀ u, standard_resonance u ≠ 0 → (funct (kama_muta u)).a > u.a) ∧
+    (∀ u, standard_resonance u ≠ 0 → (synthetic_integration (kama_muta u)).a > u.a) ∧
     -- 8. Strife locks parity
-    (∀ u, (funct (kama_muta u)).b = (funct (kama_muta u)).m) :=
+    (∀ u, (synthetic_integration (kama_muta u)).b = (synthetic_integration (kama_muta u)).m) :=
   ⟨by unfold growth_medium; norm_num,
    electrum_dopant_is_balanced,
    obsidian_is_absorptive,

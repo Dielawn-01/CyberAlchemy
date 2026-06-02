@@ -1,5 +1,6 @@
 import Mathlib.Data.Set.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
+import InfoPhysAxioms.AuthBridge
 
 /-!
 # Druid Permissions: UX/UI Bifurcation (𝕌)
@@ -18,6 +19,7 @@ The `seed` remains the absolute sovereign root key.
 -/
 
 open ProtorealManifold
+open AuthBridge
 open Set
 
 namespace DruidPermissions

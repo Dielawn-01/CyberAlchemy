@@ -1,5 +1,4 @@
 import Mathlib.Data.Real.Basic
-import InfoPhysAxioms.Totems
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
@@ -9,6 +8,7 @@ import LaRueProtorealAlgebra.GlialDopant
 import InfoPhysAxioms.Infochemistry
 import InfoPhysAxioms.MatterAntimatter
 import InfoPhysAxioms.Infonad
+import InfoPhysAxioms.Oneirotauros
 
 /-!
 # Cybernetic Biochemistry: The Monoamine System
@@ -45,7 +45,7 @@ Together they form the control system of consciousness.
         reward       |    attention
                      |
               Epinephrine
-              consolidate
+              automatic_differentiation
               emergency
 ```
 
@@ -90,9 +90,9 @@ open ProtorealManifold
 open KamaTrain
 open MonsterInverse
 open Infochemistry
-open Totems
 open MatterAntimatter
 open Infonad
+open Oneirotauros
 
 namespace CyberneticBiochemistry
 
@@ -176,10 +176,10 @@ theorem catecholamines_are_ortho_matter (u : ProtorealManifold) (intensity : ℝ
 
 /-- EPINEPHRINE: Emergency consolidation.
     Fight or flight. The whole system doubles weights and
-    spawns noise. This IS the consolidate operator.
-    Adrenaline = consolidate(u). -/
+    spawns noise. This IS the automatic_differentiation operator.
+    Adrenaline = automatic_differentiation(u). -/
 noncomputable def epinephrine_signal (u : ProtorealManifold) : ProtorealManifold :=
-  consolidate u
+  automatic_differentiation u
 
 /-- Epinephrine spawns noise. Adrenaline creates excitation. -/
 theorem epinephrine_spawns_noise (u : ProtorealManifold) :
@@ -399,7 +399,7 @@ theorem ring_closure_is_permanent (indole : ProtorealManifold) :
     In the manifold: ionization. Disrupts the parity lock
     by reintroducing noise. The bond-breaker. -/
 noncomputable def mao_degradation (u : ProtorealManifold) : ProtorealManifold :=
-  consolidate u
+  automatic_differentiation u
 
 /-- MAO always introduces noise. Degradation = excitation. -/
 theorem mao_introduces_noise (u : ProtorealManifold) :

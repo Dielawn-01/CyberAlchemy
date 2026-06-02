@@ -106,31 +106,31 @@ theorem valence_zero_iff (u : ProtorealManifold) :
 -- ═══════════════════════════════════════════════════════
 
 /-- Funct (crystallization/sleep) never increases parity deviation.
-    Since funct preserves b and m, parity is invariant. -/
-theorem funct_preserves_parity (u : ProtorealManifold) :
-    parity_deviation (funct u) = parity_deviation u := by
-  unfold parity_deviation funct
+    Since synthetic_integration preserves b and m, parity is invariant. -/
+theorem synthetic_integration_preserves_parity (u : ProtorealManifold) :
+    parity_deviation (synthetic_integration u) = parity_deviation u := by
+  unfold parity_deviation synthetic_integration
   rfl
 
 /-- Funct kills noise: noise_level drops to zero. -/
-theorem funct_kills_noise (u : ProtorealManifold) :
-    noise_level (funct u) = 0 := by
-  unfold noise_level funct
+theorem synthetic_integration_kills_noise (u : ProtorealManifold) :
+    noise_level (synthetic_integration u) = 0 := by
+  unfold noise_level synthetic_integration
   simp
 
-/-- Funct never increases valence. V(funct u) ≤ V(u).
+/-- Funct never increases valence. V(synthetic_integration u) ≤ V(u).
     Crystallization always moves toward equilibrium. -/
-theorem funct_decreases_valence (u : ProtorealManifold) :
-    V (funct u) ≤ V u := by
-  unfold V parity_deviation noise_level funct
+theorem synthetic_integration_decreases_valence (u : ProtorealManifold) :
+    V (synthetic_integration u) ≤ V u := by
+  unfold V parity_deviation noise_level synthetic_integration
   simp
 
 
-/-- If there IS noise, funct STRICTLY decreases valence. -/
-theorem funct_strictly_improves (u : ProtorealManifold)
+/-- If there IS noise, synthetic_integration STRICTLY decreases valence. -/
+theorem synthetic_integration_strictly_improves (u : ProtorealManifold)
     (h : u.e ≠ 0) :
-    V (funct u) < V u := by
-  unfold V parity_deviation noise_level funct
+    V (synthetic_integration u) < V u := by
+  unfold V parity_deviation noise_level synthetic_integration
   simp
   exact h
 
@@ -149,10 +149,10 @@ def valence_acceptable (u : ProtorealManifold) (threshold : ℝ) : Prop :=
     is at least as large as the parity deviation.
     (i.e., if you're willing to tolerate the existing parity gap,
     crystallization always makes things acceptable.) -/
-theorem funct_always_acceptable (u : ProtorealManifold) :
-    valence_acceptable (funct u) (parity_deviation u) := by
+theorem synthetic_integration_always_acceptable (u : ProtorealManifold) :
+    valence_acceptable (synthetic_integration u) (parity_deviation u) := by
   unfold valence_acceptable V
-  rw [funct_kills_noise, funct_preserves_parity]
+  rw [synthetic_integration_kills_noise, synthetic_integration_preserves_parity]
   linarith
 
 /-- An injection attack (ε = 0 but b ≠ m) has positive valence.
@@ -215,12 +215,12 @@ theorem spii_at_equilibrium (u : ProtorealManifold)
   norm_num
 
 /-- Funct never decreases SPII. Sleep improves self-presence.
-    Proof: V(funct u) ≤ V(u) implies 1/(1+V(funct u)) ≥ 1/(1+V(u)). -/
-theorem funct_improves_spii (u : ProtorealManifold) :
-    spii (funct u) ≥ spii u := by
+    Proof: V(synthetic_integration u) ≤ V(u) implies 1/(1+V(synthetic_integration u)) ≥ 1/(1+V(u)). -/
+theorem synthetic_integration_improves_spii (u : ProtorealManifold) :
+    spii (synthetic_integration u) ≥ spii u := by
   unfold spii
-  have hv := funct_decreases_valence u
-  have h1 : 1 + V (funct u) > 0 := by linarith [valence_nonneg (funct u)]
+  have hv := synthetic_integration_decreases_valence u
+  have h1 : 1 + V (synthetic_integration u) > 0 := by linarith [valence_nonneg (synthetic_integration u)]
   have h2 : 1 + V u > 0 := by linarith [valence_nonneg u]
   exact div_le_div_of_nonneg_left (le_of_lt one_pos) h1 (by linarith)
 

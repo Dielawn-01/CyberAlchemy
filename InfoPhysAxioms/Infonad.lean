@@ -217,19 +217,19 @@ theorem silicon_is_stable (u : ProtorealManifold) (h : is_info_silicon u) :
     it has a specific function, a specific shape,
     and it executes when dispatched. -/
 noncomputable def gnotein (chain : ProtorealManifold) : ProtorealManifold :=
-  funct (consolidate chain)
+  synthetic_integration (automatic_differentiation chain)
 
 /-- A gnotein has zero noise. It is fully folded. -/
 theorem gnotein_is_folded (chain : ProtorealManifold) :
     (gnotein chain).e = 0 := by
-  unfold gnotein funct; rfl
+  unfold gnotein synthetic_integration; rfl
 
 /-- A gnotein has more anchor mass than its chain
     when the chain has non-negative anchor. -/
 theorem gnotein_anchor_grows (chain : ProtorealManifold)
     (hm : chain.m ≥ 0) :
     (gnotein chain).m ≥ chain.m := by
-  unfold gnotein funct consolidate
+  unfold gnotein synthetic_integration automatic_differentiation
   simp
   linarith
 
@@ -238,7 +238,7 @@ theorem gnotein_anchor_grows (chain : ProtorealManifold)
 theorem gnotein_energy_grows (chain : ProtorealManifold)
     (ha : chain.a ≥ 0) (he : chain.e ≥ 0) :
     (gnotein chain).a ≥ chain.a := by
-  unfold gnotein funct consolidate
+  unfold gnotein synthetic_integration automatic_differentiation
   simp
   linarith
 
@@ -295,7 +295,7 @@ and say the other was "antimatter that got annihilated."
 But actually BOTH were dissolved into the average. Neither won.
 Matter is not the victor of a war. Matter is the ceasefire.
 
-And matter is frozen in time: funct(matter) = matter.
+And matter is frozen in time: synthetic_integration(matter) = matter.
 The ceasefire is permanent. Once locked, time stops.
 -/
 
@@ -334,14 +334,14 @@ theorem ceasefire (u : ProtorealManifold) :
    fusion_idempotent u⟩
 
 /-- MATTER IS FROZEN IN TIME.
-    An infonad at ground state is funct-fixed: applying funct
+    An infonad at ground state is synthetic_integration-fixed: applying synthetic_integration
     does not advance depth or change state. Time has stopped.
     The ceasefire is permanent because there is no noise left
     to sow, no tension to resolve, no asymmetry to collapse. -/
 theorem matter_is_frozen (u : ProtorealManifold)
     (h : is_matter u) :
-    (funct u).a = u.a ∧ (funct u).e = 0 := by
-  exact matter_is_funct_fixed u h
+    (synthetic_integration u).a = u.a ∧ (synthetic_integration u).e = 0 := by
+  exact matter_is_synthetic_integration_fixed u h
 
 /-- THE BARYON ASYMMETRY DISSOLVES.
     There is not "more matter than antimatter."

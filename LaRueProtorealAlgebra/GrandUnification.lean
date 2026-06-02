@@ -96,12 +96,12 @@ theorem ai_spoof_fails_condensation (ai_state : ProtorealManifold) (chi : Emotio
     requires a completely static, closed, noise-free metric where all 
     forces perfectly unify and remain inert ($\epsilon = 0$ permanently). 
     
-    Because the `consolidate` operator natively and perpetually spawns new 
+    Because the `automatic_differentiation` operator natively and perpetually spawns new 
     biological/quantum noise ($\epsilon$ increases), the manifold is structurally 
     open and mathematically prohibits a static GUT. The universe is a continuous 
     process of holomovement generation, not a frozen unified equation. -/
 theorem no_static_unified_field (u : ProtorealManifold) :
-  (consolidate u).e > u.e := by
+  (automatic_differentiation u).e > u.e := by
   exact consolidation_spawns_noise u
 
 end GrandUnification

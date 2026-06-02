@@ -15,15 +15,15 @@ import InfoPhysAxioms.ProtorealMetric
 
 The druid-sprite system IS the Veblen hierarchy of ordinals.
 
-  φ_0(n) = funct_iterate n   (n crystallization steps on sprites)
-  φ_1(n) = druid managing n sprites (deploy + funct cycle)
+  φ_0(n) = synthetic_integration_iterate n   (n crystallization steps on sprites)
+  φ_1(n) = druid managing n sprites (deploy + synthetic_integration cycle)
   φ_α(n) = a depth-α druid managing depth-(α-1) druids
 
 ## Deploy, Manage, Deprecate
 
-  deploy      = consolidate = expand Σ, create agent
+  deploy      = automatic_differentiation = expand Σ, create agent
   manage      = observe     = torsion coupling, game value
-  deprecate   = funct       = crystallize, absorb completed agent
+  deprecate   = synthetic_integration       = crystallize, absorb completed agent
 
 Deprecation at level α IS deployment at level α+1.
 -/
@@ -64,7 +64,7 @@ def deprecate_agent (parent : Agent) : Agent :=
 /-- **φ_0(n)**: n crystallization steps on a single manifold.
     Advances λ by n, kills ε. The base of the Veblen hierarchy. -/
 def veblen_0 (u : ProtorealManifold) (n : ℕ) : ProtorealManifold :=
-  ProtorealMetric.funct_iterate n u
+  ProtorealMetric.synthetic_integration_iterate n u
 
 /-- **φ_1(n)**: A druid that has managed n sprite cycles.
     depth = n after n full deploy-manage-deprecate cycles. -/
@@ -88,7 +88,7 @@ theorem veblen_0_advances_depth (u : ProtorealManifold) (n : ℕ) (h : n ≥ 1) 
 /-- **φ_0 KILLS NOISE (ONE STEP)** -/
 theorem veblen_0_kills_noise (u : ProtorealManifold) :
     (veblen_0 u 1).e = 0 := by
-  unfold veblen_0 ProtorealMetric.funct_iterate funct
+  unfold veblen_0 ProtorealMetric.synthetic_integration_iterate synthetic_integration
   rfl
 
 /-- **DEPLOY INCREASES DIMENSION** -/

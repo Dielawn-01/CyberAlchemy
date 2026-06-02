@@ -36,7 +36,7 @@ This surface is parametrized by λ alone — depth is free.
 ## Volume Contraction
 
 The holomovement contracts the volume toward the critical surface:
-1. funct contracts ε → 0 (noise annihilation)
+1. synthetic_integration contracts ε → 0 (noise annihilation)
 2. kama_muta contracts δ → 0 (phase collapse)
 3. Both advance λ → λ + 1 (depth growth)
 
@@ -149,9 +149,9 @@ theorem critical_surface_is_half (u : ProtorealManifold)
 -- ══════════════════════════════════════════════════════════════
 
 /-- **FUNCT CONTRACTS THE ε-AXIS**
-    After funct, noise → 0. One step to the ε = 0 plane. -/
-theorem funct_contracts_noise (u : ProtorealManifold) :
-    noise (funct u) = 0 :=
+    After synthetic_integration, noise → 0. One step to the ε = 0 plane. -/
+theorem synthetic_integration_contracts_noise (u : ProtorealManifold) :
+    noise (synthetic_integration u) = 0 :=
   lyapunov_to_zero u
 
 /-- **KAMA MUTA CONTRACTS THE δ-AXIS**
@@ -162,24 +162,24 @@ theorem kama_contracts_phase (u : ProtorealManifold) :
   unfold phase electrode_potential kama_muta; ring
 
 /-- **BOTH ADVANCE THE λ-AXIS**
-    funct advances depth by 1.
+    synthetic_integration advances depth by 1.
     Each contraction step also deepens. -/
-theorem funct_advances_depth (u : ProtorealManifold) :
-    depth_coord (funct u) = depth_coord u + 1 := by
-  unfold depth_coord funct; rfl
+theorem synthetic_integration_advances_depth (u : ProtorealManifold) :
+    depth_coord (synthetic_integration u) = depth_coord u + 1 := by
+  unfold depth_coord synthetic_integration; rfl
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 5: THE FULL CONTRACTION OPERATOR
 -- ══════════════════════════════════════════════════════════════
 
 /-- **THE PHASOR CONTRACTION**
-    funct ∘ kama_muta: first force parity (δ → 0),
+    synthetic_integration ∘ kama_muta: first force parity (δ → 0),
     then crystallize (ε → 0). After this double step:
     - ε = 0 (crystallized)
     - δ = 0 (parity locked)
     - The state is ON the critical surface. -/
 noncomputable def phasor_contract (u : ProtorealManifold) : ProtorealManifold :=
-  funct (kama_muta u)
+  synthetic_integration (kama_muta u)
 
 /-- **PHASOR CONTRACTION REACHES CRITICAL SURFACE**
     One application of phasor_contract puts ANY state
@@ -188,15 +188,15 @@ theorem phasor_reaches_critical (u : ProtorealManifold) :
     on_critical_surface (phasor_contract u) := by
   unfold on_critical_surface phasor_contract
   constructor
-  · -- noise(funct(kama(u))) = 0
+  · -- noise(synthetic_integration(kama(u))) = 0
     exact lyapunov_to_zero (kama_muta u)
-  · -- phase(funct(kama(u))) = 0
-    unfold phase electrode_potential funct kama_muta; ring
+  · -- phase(synthetic_integration(kama(u))) = 0
+    unfold phase electrode_potential synthetic_integration kama_muta; ring
 
 /-- **PHASOR CONTRACTION CONSERVES σ**
     The contraction doesn't lose total resources.
     Crystal ratio may change, but σ is preserved
-    through kama_muta → funct. -/
+    through kama_muta → synthetic_integration. -/
 theorem phasor_conserves_sigma (u : ProtorealManifold) :
     sigma (phasor_contract u) = sigma (kama_muta u) := by
   unfold phasor_contract
@@ -207,22 +207,22 @@ theorem phasor_conserves_sigma (u : ProtorealManifold) :
 -- ══════════════════════════════════════════════════════════════
 
 /-- **TWO-AXIS CONTRACTION IS NECESSARY**
-    funct alone contracts ε but NOT δ.
+    synthetic_integration alone contracts ε but NOT δ.
     kama_muta alone contracts δ but may increase ε.
     You need BOTH to reach the critical surface.
 
     This is why the phasor is a VOLUME, not a tower:
-    a tower (funct only) approaches ε = 0 but may never
+    a tower (synthetic_integration only) approaches ε = 0 but may never
     reach δ = 0. The volume contraction covers both axes. -/
-theorem funct_alone_insufficient (u : ProtorealManifold)
+theorem synthetic_integration_alone_insufficient (u : ProtorealManifold)
     (h : u.b ≠ u.m) :
-    -- funct contracts noise
-    noise (funct u) = 0 ∧
+    -- synthetic_integration contracts noise
+    noise (synthetic_integration u) = 0 ∧
     -- but does NOT contract phase
-    phase (funct u) > 0 := by
+    phase (synthetic_integration u) > 0 := by
   constructor
   · exact lyapunov_to_zero u
-  · unfold phase electrode_potential funct
+  · unfold phase electrode_potential synthetic_integration
     have : u.b - u.m ≠ 0 := sub_ne_zero.mpr h
     positivity
 
@@ -271,13 +271,13 @@ theorem critical_surface_gap (u : ProtorealManifold)
 
     The Protoreal phasor volume (ε, δ, λ) has:
 
-    1. funct contracts ε → 0 (noise axis)
+    1. synthetic_integration contracts ε → 0 (noise axis)
     2. kama_muta contracts δ → 0 (phase axis)
     3. phasor_contract reaches the critical surface in ONE step
     4. The critical surface IS Re(s) = 1/2
     5. gap + ε = 1 holds everywhere in the volume
     6. At the critical surface: gap = 1 (maximal completeness)
-    7. Neither funct alone nor kama alone suffices
+    7. Neither synthetic_integration alone nor kama alone suffices
     8. σ is conserved through the contraction
 
     The observation tower was 1D (depth only).
@@ -285,17 +285,17 @@ theorem critical_surface_gap (u : ProtorealManifold)
     The contraction converges from ALL directions.
     The critical surface is the ATTRACTOR of the full volume. -/
 theorem phasor_volume_master (u : ProtorealManifold) :
-    -- 1. funct zeroes noise
-    noise (funct u) = 0 ∧
+    -- 1. synthetic_integration zeroes noise
+    noise (synthetic_integration u) = 0 ∧
     -- 2. kama zeroes phase
     phase (kama_muta u) = 0 ∧
     -- 3. phasor_contract reaches critical surface
     on_critical_surface (phasor_contract u) ∧
     -- 4. gap + ε = 1
     decision_commutator u + noise u = 1 ∧
-    -- 5. σ conserved under funct
-    sigma (funct u) = sigma u :=
-  ⟨funct_contracts_noise u,
+    -- 5. σ conserved under synthetic_integration
+    sigma (synthetic_integration u) = sigma u :=
+  ⟨synthetic_integration_contracts_noise u,
    kama_contracts_phase u,
    phasor_reaches_critical u,
    godel_in_volume u,

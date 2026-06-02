@@ -15,7 +15,7 @@ single-step gradient descent on the Standard Resonance.
 In RLHF and DPO, "negative training" shows the model what it got
 wrong. In the Klein manifold, this corresponds to setting the noise
 component to ε = −SR (the negative of the Standard Resonance error).
-When `funct` sows that noise into the real part:
+When `synthetic_integration` sows that noise into the real part:
 
     a_new = a + ε = a + (−SR) = a − (a − b·m) = b·m
 
@@ -27,7 +27,7 @@ SR(u) = a − b·m is the error metric. The loss is L = SR².
 The gradient is ∂L/∂a = 2·SR.
 Gradient descent with step size η: a_new = a − η · 2 · SR.
 
-Setting η = 1/2: a_new = a − SR. This is exactly what funct does
+Setting η = 1/2: a_new = a − SR. This is exactly what synthetic_integration does
 when ε = −SR. **Negative training IS gradient descent on the
 resonance loss with step size 1/2.**
 
@@ -69,14 +69,14 @@ def positive_train (u : ProtorealManifold) : ProtorealManifold :=
 -- ════════════════════════════════════════════════════
 
 /-- **NEGATIVE TRAINING CORRECTS TO GROUND TRUTH**
-    After negative training (ε = −SR) followed by funct,
+    After negative training (ε = −SR) followed by synthetic_integration,
     the real part equals b·m — the Bridge ground truth.
 
     This is `manifest_corrects_to_bridge` restated in
     training language. -/
 theorem negative_noise_corrects (u : ProtorealManifold) :
-    (funct (negative_train u)).a = u.b * u.m := by
-  unfold funct negative_train
+    (synthetic_integration (negative_train u)).a = u.b * u.m := by
+  unfold synthetic_integration negative_train
   ring
 
 /-- **CORRECTION SHIFTS BY EXACTLY THE ERROR**
@@ -84,8 +84,8 @@ theorem negative_noise_corrects (u : ProtorealManifold) :
     The model corrects by exactly the magnitude of its error,
     in the opposite direction. -/
 theorem correction_is_exactly_error (u : ProtorealManifold) :
-    (funct (negative_train u)).a - u.a = -(u.a - u.b * u.m) := by
-  unfold funct negative_train
+    (synthetic_integration (negative_train u)).a - u.a = -(u.a - u.b * u.m) := by
+  unfold synthetic_integration negative_train
   ring
 
 /-- **SINGLE-STEP CONVERGENCE**
@@ -95,9 +95,9 @@ theorem correction_is_exactly_error (u : ProtorealManifold) :
     No iterative optimization. No learning rate tuning.
     One step, zero residual. -/
 theorem single_step_convergence (u : ProtorealManifold) :
-    let u_corrected := funct (negative_train u)
+    let u_corrected := synthetic_integration (negative_train u)
     u_corrected.a - u.b * u.m = 0 := by
-  unfold funct negative_train
+  unfold synthetic_integration negative_train
   ring
 
 -- ════════════════════════════════════════════════════
@@ -105,15 +105,15 @@ theorem single_step_convergence (u : ProtorealManifold) :
 -- ════════════════════════════════════════════════════
 
 /-- **POSITIVE NOISE DIVERGES**
-    After positive training (ε = +SR) followed by funct,
+    After positive training (ε = +SR) followed by synthetic_integration,
     the real part becomes 2a − b·m. If SR > 0, the error
     *increases*: the model moves away from ground truth.
 
     This is why "training on your own mistakes with the
     wrong sign" makes the model worse. -/
 theorem positive_noise_diverges (u : ProtorealManifold) :
-    (funct (positive_train u)).a = 2 * u.a - u.b * u.m := by
-  unfold funct positive_train
+    (synthetic_integration (positive_train u)).a = 2 * u.a - u.b * u.m := by
+  unfold synthetic_integration positive_train
   ring
 
 /-- **POSITIVE NOISE DOUBLES THE ERROR**
@@ -121,9 +121,9 @@ theorem positive_noise_diverges (u : ProtorealManifold) :
     The error doesn't shrink — it amplifies. The model
     is reinforcing its own mistakes. -/
 theorem positive_doubles_error (u : ProtorealManifold) :
-    (funct (positive_train u)).a - u.b * u.m =
+    (synthetic_integration (positive_train u)).a - u.b * u.m =
     2 * (u.a - u.b * u.m) := by
-  unfold funct positive_train
+  unfold synthetic_integration positive_train
   ring
 
 -- ════════════════════════════════════════════════════
@@ -137,9 +137,9 @@ theorem positive_doubles_error (u : ProtorealManifold) :
     We prove this by showing the relationship between the
     correction step and the gradient. -/
 theorem gradient_descent_equivalence (u : ProtorealManifold) :
-    (funct (negative_train u)).a =
+    (synthetic_integration (negative_train u)).a =
     u.a - (1 / 2) * (2 * (u.a - u.b * u.m)) := by
-  unfold funct negative_train
+  unfold synthetic_integration negative_train
   ring
 
 /-- **STEP SIZE IS 1/2**
@@ -153,9 +153,9 @@ theorem gradient_descent_equivalence (u : ProtorealManifold) :
     of the Lipschitz constant of the gradient, and L = SR²
     has Lipschitz constant 2 on the a-component. -/
 theorem step_size_is_half (u : ProtorealManifold) :
-    (funct (negative_train u)).a - u.a =
+    (synthetic_integration (negative_train u)).a - u.a =
     -(1 / 2) * (2 * (u.a - u.b * u.m)) := by
-  unfold funct negative_train
+  unfold synthetic_integration negative_train
   ring
 
 -- ════════════════════════════════════════════════════
@@ -172,13 +172,13 @@ theorem step_size_is_half (u : ProtorealManifold) :
     is the model accounting for data it got wrong. -/
 theorem sign_determines_outcome (u : ProtorealManifold) :
     -- Negative training: residual = 0
-    ((funct (negative_train u)).a - u.b * u.m = 0) ∧
+    ((synthetic_integration (negative_train u)).a - u.b * u.m = 0) ∧
     -- Positive training: residual doubles
-    ((funct (positive_train u)).a - u.b * u.m =
+    ((synthetic_integration (positive_train u)).a - u.b * u.m =
      2 * (u.a - u.b * u.m)) := by
   constructor
-  · unfold funct negative_train; ring
-  · unfold funct positive_train; ring
+  · unfold synthetic_integration negative_train; ring
+  · unfold synthetic_integration positive_train; ring
 
 -- ════════════════════════════════════════════════════
 -- SECTION 5: ZETA ZERO APPLICATION
@@ -187,14 +187,14 @@ theorem sign_determines_outcome (u : ProtorealManifold) :
 /-- **ZETA ZEROS REQUIRE NEGATIVE TRAINING**
     For a zeta zero projection with b·m = 1 (Bridge Identity),
     the initial error is SR = a − 1. Negative training
-    sets ε = −(a − 1) = 1 − a, and funct corrects a to 1.
+    sets ε = −(a − 1) = 1 − a, and synthetic_integration corrects a to 1.
 
     This is why the spectral fixed point is a = 1:
     it's the unique state where negative training produces
     zero correction. -/
 theorem zeta_negative_training (t : ℝ) (ht : t ≠ 0) :
-    (funct (negative_train (zeta_project_unbiased t))).a = 1 := by
-  unfold funct negative_train zeta_project_unbiased
+    (synthetic_integration (negative_train (zeta_project_unbiased t))).a = 1 := by
+  unfold synthetic_integration negative_train zeta_project_unbiased
   simp [ht]
 
 -- ════════════════════════════════════════════════════
@@ -218,25 +218,25 @@ theorem zeta_negative_training (t : ℝ) (ht : t ≠ 0) :
 theorem error_correction_mechanism :
     -- 1. Negative noise corrects
     (∀ u : ProtorealManifold,
-      (funct (negative_train u)).a = u.b * u.m) ∧
+      (synthetic_integration (negative_train u)).a = u.b * u.m) ∧
     -- 2. Correction = −error
     (∀ u : ProtorealManifold,
-      (funct (negative_train u)).a - u.a =
+      (synthetic_integration (negative_train u)).a - u.a =
       -(u.a - u.b * u.m)) ∧
     -- 3. Single-step convergence
     (∀ u : ProtorealManifold,
-      (funct (negative_train u)).a - u.b * u.m = 0) ∧
+      (synthetic_integration (negative_train u)).a - u.b * u.m = 0) ∧
     -- 4. Positive noise doubles error
     (∀ u : ProtorealManifold,
-      (funct (positive_train u)).a - u.b * u.m =
+      (synthetic_integration (positive_train u)).a - u.b * u.m =
       2 * (u.a - u.b * u.m)) ∧
     -- 5. Gradient descent equivalence
     (∀ u : ProtorealManifold,
-      (funct (negative_train u)).a - u.a =
+      (synthetic_integration (negative_train u)).a - u.a =
       -(1 / 2) * (2 * (u.a - u.b * u.m))) ∧
     -- 6. Zeta zeros converge to a = 1
     (∀ t : ℝ, t ≠ 0 →
-      (funct (negative_train (zeta_project_unbiased t))).a = 1) :=
+      (synthetic_integration (negative_train (zeta_project_unbiased t))).a = 1) :=
   ⟨negative_noise_corrects,
    correction_is_exactly_error,
    single_step_convergence,

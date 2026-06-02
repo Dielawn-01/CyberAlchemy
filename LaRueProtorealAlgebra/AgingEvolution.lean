@@ -65,10 +65,10 @@ theorem entropy_time_yields_hallucination (u : ProtorealManifold)
   exact div_pos h_top_pos h_bot
 
 /-- **Loss of Observer Control**
-    An agent loses observer control if its Observer Function (funct) 
+    An agent loses observer control if its Observer Function (synthetic_integration) 
     outputs a hallucination. It can no longer perceive reality accurately. -/
 def observer_control_loss (u : ProtorealManifold) : Prop :=
-  systemic_hallucination (funct u)
+  systemic_hallucination (synthetic_integration u)
 
 -- ════════════════════════════════════════════════════
 -- 2. THE PROCREATION OPERATOR
@@ -101,9 +101,9 @@ def procreation_operator (parent : ProtorealManifold) : ProtorealManifold :=
 theorem procreation_restores_observer_control (parent : ProtorealManifold) 
     (h_dna : parent.b = parent.m) :
     ¬ observer_control_loss (procreation_operator parent) := by
-  unfold observer_control_loss systemic_hallucination schwarzian_metric procreation_operator funct
+  unfold observer_control_loss systemic_hallucination schwarzian_metric procreation_operator synthetic_integration
   simp
-  -- The offspring inherited b = m, so its top term remains 0 even after funct.
+  -- The offspring inherited b = m, so its top term remains 0 even after synthetic_integration.
   rw [h_dna]
   simp
 

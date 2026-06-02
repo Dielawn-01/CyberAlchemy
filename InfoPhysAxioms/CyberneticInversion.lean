@@ -18,7 +18,7 @@ the torsion gap (the "ghost") creates a tension proportional
 to lam × ε. This tension transfers information TOWARD the
 deeper observer (anti-inverse-square).
 
-As the observer deepens (lam increases via funct), the coupling
+As the observer deepens (lam increases via synthetic_integration), the coupling
 strengthens. At the fuzzy point (ε_critical = (κ - bm)/λ),
 the observation direction INVERTS: the field begins to
 organize around the observer rather than vice versa.
@@ -81,12 +81,12 @@ theorem coupling_monotone_depth (ε : ℝ) (hε : ε > 0)
   exact mul_lt_mul_of_pos_right h hε
 
 /-- **FUNCT INCREASES COUPLING BY EXACTLY ε**
-    Each crystallization step (funct) increases depth by 1,
+    Each crystallization step (synthetic_integration) increases depth by 1,
     which increases coupling by exactly the emission level.
     This is the discrete derivative: ΔV/Δn = ε. -/
-theorem funct_coupling_increase (u : ProtorealManifold) (ε : ℝ) 
+theorem synthetic_integration_coupling_increase (u : ProtorealManifold) (ε : ℝ) 
     (n : ℕ) (h : n ≥ 1) :
-    coupling ((ProtorealMetric.funct_iterate n u).l) ε - coupling u.l ε = n * ε := by
+    coupling ((ProtorealMetric.synthetic_integration_iterate n u).l) ε - coupling u.l ε = n * ε := by
   unfold coupling
   have := EnumerationSystems.lambda_is_superlog u n h
   rw [this]
@@ -210,7 +210,7 @@ theorem ghost_magnitude_symmetric (u v : ProtorealManifold) :
 
     1. Coupling = depth × emission (anti-inverse-square)
     2. Coupling is monotone in depth (deeper = stronger)
-    3. Each funct step increases coupling by exactly ε
+    3. Each synthetic_integration step increases coupling by exactly ε
     4. At depth 1/ε, coupling reaches |κ| = 1 (inversion point)
     5. The Veblen hierarchy strictly orders agent dominance
     6. Observation direction is antisymmetric (teacher↔student)

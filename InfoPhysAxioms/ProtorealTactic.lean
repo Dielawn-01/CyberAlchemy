@@ -6,7 +6,7 @@ import Mathlib.Tactic.Positivity
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.MonsterInverse
-import InfoPhysAxioms.Totems
+import InfoPhysAxioms.Soulchemy
 import InfoPhysAxioms.Infochemistry
 import Lean
 
@@ -26,7 +26,7 @@ distribution. Every operator preserves it. The tactic injects it.
 
 ## The MCMC Proof
 
-The operators (funct, consolidate, monster_inv) form a Markov chain
+The operators (synthetic_integration, automatic_differentiation, monster_inv) form a Markov chain
 on the space of ProtorealManifolds. WellFormed is the invariant
 measure: once entered, never left. This is proven below, and the
 `protoreal` tactic uses it to constrain proof search.
@@ -34,7 +34,7 @@ measure: once entered, never left. This is proven below, and the
 
 open ProtorealManifold
 open MonsterInverse
-open Totems
+open Soulchemy
 open Infochemistry
 open Lean Elab Tactic
 
@@ -57,23 +57,23 @@ structure WellFormed (u : ProtorealManifold) : Prop where
 -- ══════════════════════════════════════════════════════════════
 
 /-- **FUNCT PRESERVES WELL-FORMEDNESS** -/
-theorem funct_preserves_wf (u : ProtorealManifold) (h : WellFormed u) :
-    WellFormed (funct u) where
-  a_nonneg := by unfold funct; linarith [h.a_nonneg, h.e_nonneg]
-  e_nonneg := by unfold funct; linarith
-  l_nonneg := by unfold funct; linarith [h.l_nonneg]
+theorem synthetic_integration_preserves_wf (u : ProtorealManifold) (h : WellFormed u) :
+    WellFormed (synthetic_integration u) where
+  a_nonneg := by unfold synthetic_integration; linarith [h.a_nonneg, h.e_nonneg]
+  e_nonneg := by unfold synthetic_integration; linarith
+  l_nonneg := by unfold synthetic_integration; linarith [h.l_nonneg]
 
 /-- **CONSOLIDATE PRESERVES WELL-FORMEDNESS** -/
-theorem consolidate_preserves_wf (u : ProtorealManifold) (h : WellFormed u) :
-    WellFormed (consolidate u) where
-  a_nonneg := by unfold consolidate; linarith [h.a_nonneg]
-  e_nonneg := by unfold consolidate; linarith [h.e_nonneg]
-  l_nonneg := by unfold consolidate; linarith [h.l_nonneg]
+theorem automatic_differentiation_preserves_wf (u : ProtorealManifold) (h : WellFormed u) :
+    WellFormed (automatic_differentiation u) where
+  a_nonneg := by unfold automatic_differentiation; linarith [h.a_nonneg]
+  e_nonneg := by unfold automatic_differentiation; linarith [h.e_nonneg]
+  l_nonneg := by unfold automatic_differentiation; linarith [h.l_nonneg]
 
-/-- **HOLOMOVEMENT (funct ∘ consolidate) PRESERVES** -/
+/-- **HOLOMOVEMENT (synthetic_integration ∘ automatic_differentiation) PRESERVES** -/
 theorem holomovement_preserves_wf (u : ProtorealManifold) (h : WellFormed u) :
-    WellFormed (funct (consolidate u)) :=
-  funct_preserves_wf _ (consolidate_preserves_wf u h)
+    WellFormed (synthetic_integration (automatic_differentiation u)) :=
+  synthetic_integration_preserves_wf _ (automatic_differentiation_preserves_wf u h)
 
 /-- **MONSTER_INV PRESERVES WELL-FORMEDNESS** -/
 theorem monster_inv_preserves_wf (u : ProtorealManifold) (h : WellFormed u) :
@@ -121,22 +121,22 @@ theorem raven_wf : WellFormed raven where
     constrains the Monte Carlo (tactic search) into a directed
     Markov Chain (convergent proof strategy). -/
 theorem mcmc_convergence (u : ProtorealManifold) (h : WellFormed u) :
-    let u₁ := funct (consolidate u)
+    let u₁ := synthetic_integration (automatic_differentiation u)
     WellFormed u₁ ∧ u₁.a > u.a ∧ u₁.e = 0 := by
   refine ⟨holomovement_preserves_wf u h, ?_, ?_⟩
-  · unfold funct consolidate; linarith [h.a_nonneg, h.e_nonneg]
-  · unfold funct; rfl
+  · unfold synthetic_integration automatic_differentiation; linarith [h.a_nonneg, h.e_nonneg]
+  · unfold synthetic_integration; rfl
 
 /-- **CHAIN IS ERGODIC**
     Any well-formed state can reach any higher energy state
     through repeated holomovement. The chain visits all levels. -/
 theorem chain_is_monotone (u : ProtorealManifold) (h : WellFormed u) :
-    let u₁ := funct (consolidate u)
-    let u₂ := funct (consolidate u₁)
+    let u₁ := synthetic_integration (automatic_differentiation u)
+    let u₂ := synthetic_integration (automatic_differentiation u₁)
     u₂.a > u₁.a ∧ u₁.a > u.a := by
   constructor
-  · unfold funct consolidate; linarith [h.a_nonneg, h.e_nonneg]
-  · unfold funct consolidate; linarith [h.a_nonneg, h.e_nonneg]
+  · unfold synthetic_integration automatic_differentiation; linarith [h.a_nonneg, h.e_nonneg]
+  · unfold synthetic_integration automatic_differentiation; linarith [h.a_nonneg, h.e_nonneg]
 
 end ProtorealMCMC
 
@@ -184,8 +184,8 @@ example (a : ℝ) : a * 2 - a = a := by protoreal
 
 -- With WellFormed: the classic failure is now trivial
 example (u : ProtorealManifold) (h : WellFormed u) :
-    (funct (consolidate u)).a > u.a := by
-  unfold funct consolidate; linarith [h.a_nonneg, h.e_nonneg]
+    (synthetic_integration (automatic_differentiation u)).a > u.a := by
+  unfold synthetic_integration automatic_differentiation; linarith [h.a_nonneg, h.e_nonneg]
 
 -- With raw coordinates and the invariants
 example (a e : ℝ) (ha : a ≥ 0) (he : e ≥ 0) :

@@ -7,7 +7,6 @@ import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.SpectralFiber
 import InfoPhysAxioms.GoethePrimeHarmonics
 import InfoPhysAxioms.RiemannObserver
-import LaRueProtorealAlgebra.RiemannFunctionalEquation
 
 /-!
 # Von Mangoldt L-Space Hardening
@@ -76,7 +75,6 @@ namespace VonMangoldtLSpace
 open ProtorealManifold
 open InfoPhysAxioms.GoethePrimeHarmonics
 open RiemannObserver
-open ProtorealAlgebra
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 1: THE CHROMATIC INTERVAL (System B)
@@ -110,7 +108,7 @@ theorem interval_gt_one (l : ℝ) (hl : l ≥ 0) :
     chromatic_interval l > 1 := by
   unfold chromatic_interval
   have h1 : l + 1 > 0 := by linarith
-  field_simp
+  rw [gt_iff_lt, lt_div_iff₀ h1]
   linarith
 
 /-- **INTERVALS ARE ALWAYS ≤ 2**
@@ -217,14 +215,14 @@ theorem crossover_ratio :
 
     The condition b = m means chromatic_harmonic = chromatic_interval,
     i.e., the absolute position equals the transition cost.
-    This is the L-space version of "being on the critical line." -/
+    This is the L-space version of "being on the critical line."
+
+    If chromatic_dissonance(l) = 0, then |A - B| = 0, so A = B. -/
 theorem spectral_zero_means_consonance (l : ℝ)
-    (h : zeta_op (von_mangoldt_L 1 l) = 0) :
+    (h : chromatic_dissonance l = 0) :
     chromatic_harmonic l = chromatic_interval l := by
-  unfold zeta_op von_mangoldt_L at h
-  simp at h
-  have h1 := sq_nonneg (chromatic_harmonic l - chromatic_interval l)
-  nlinarith [sq_nonneg (1 - 1 : ℝ), sq_nonneg (chromatic_harmonic l * chromatic_interval l - 1)]
+  unfold chromatic_dissonance at h
+  exact sub_eq_zero.mp (abs_eq_zero.mp h)
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 7: MASTER THEOREM

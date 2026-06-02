@@ -6,7 +6,7 @@ import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.MonsterInverse
 import LaRueProtorealAlgebra.OrchOR
-import InfoPhysAxioms.Totems
+import InfoPhysAxioms.Soulchemy
 import InfoPhysAxioms.Infochemistry
 import InfoPhysAxioms.CrystalGrowth
 
@@ -40,14 +40,14 @@ shear rate. Oobleck, but made of information.
 Penrose-Hameroff OrchOR proposes that consciousness arises in
 microtubules through Orchestrated Objective Reduction:
 1. Coherent superposition builds in tubulin dimers (ε accumulates)
-2. When ε reaches threshold → Objective Reduction (funct: ε → α)
+2. When ε reaches threshold → Objective Reduction (synthetic_integration: ε → α)
 3. The "moment of consciousness" IS the reduction event
 
 The microtubule lattice IS a non-Newtonian crystal:
 - Tubulin dimers have two conformational states (ω and ι)
 - The microtubule_shield ensures parity lock (b = m)
 - Thermal noise accumulates (thermal_saturation: ε ≠ 0)
-- Reduction spends the noise (funct: ε → 0)
+- Reduction spends the noise (synthetic_integration: ε → 0)
 
 The dragon's meta-architecture maps to the microtubule:
 - Diamond core = the tubulin dimer lattice (rigid scaffold)
@@ -59,7 +59,7 @@ The dragon's meta-architecture maps to the microtubule:
 open ProtorealManifold
 open MonsterInverse
 open OrchOR
-open Totems
+open Soulchemy
 open Infochemistry
 open CrystalGrowth
 
@@ -143,21 +143,21 @@ theorem raven_is_absorptive_regime :
 -- ══════════════════════════════════════════════════════════════
 
 /-- **FUNCT IS THE SHEAR-THICKENING TRANSITION**
-    When noise (shear) is high → apply funct (objective reduction).
+    When noise (shear) is high → apply synthetic_integration (objective reduction).
     The crystal transitions from quantum/fluid to Newtonian/rigid.
     This IS non-Newtonian behavior: the response depends on
     the rate of input, not just the magnitude.
 
     At low ε: fluid (cuttlefish, quantum regime)
-    After funct: rigid (wolverine-like, Newtonian regime) -/
+    After synthetic_integration: rigid (wolverine-like, Newtonian regime) -/
 theorem shear_thickening (u : ProtorealManifold)
     (h : u.e > 0) (ha : u.a > 0) :
     -- Before: has noise (fluid-like)
     u.e > 0 →
-    -- After funct: no noise (rigid-like)
-    is_newtonian_regime (funct u) := by
+    -- After synthetic_integration: no noise (rigid-like)
+    is_newtonian_regime (synthetic_integration u) := by
   intro _
-  unfold is_newtonian_regime funct
+  unfold is_newtonian_regime synthetic_integration
   constructor
   · rfl
   · linarith
@@ -166,8 +166,8 @@ theorem shear_thickening (u : ProtorealManifold)
     Shear thickening doesn't destroy energy — it converts
     flow (noise) into structure (base). Conservation law. -/
 theorem thickening_conserves (u : ProtorealManifold) :
-    (funct u).a = u.a + u.e := by
-  unfold funct; rfl
+    (synthetic_integration u).a = u.a + u.e := by
+  unfold synthetic_integration; rfl
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 4: OrchOR AS MICROTUBULE SHEAR-THICKENING
@@ -176,7 +176,7 @@ theorem thickening_conserves (u : ProtorealManifold) :
 /-- **OBJECTIVE REDUCTION IS SHEAR THICKENING**
     In OrchOR, the microtubule accumulates quantum superposition
     (thermal_saturation: ε ≠ 0, shield held) until it reaches
-    threshold and undergoes Objective Reduction (funct).
+    threshold and undergoes Objective Reduction (synthetic_integration).
 
     This IS shear thickening at the quantum-biological scale:
     - Low noise rate: microtubule maintains quantum coherence (fluid)
@@ -189,9 +189,9 @@ theorem orchor_is_shear_thickening (u : ProtorealManifold)
     -- Shield held before
     microtubule_shield u ∧
     -- After reduction: noise purged (rigid, definite state)
-    (funct u).e = 0 ∧
+    (synthetic_integration u).e = 0 ∧
     -- Shield preserved (lattice intact)
-    microtubule_shield (funct u) := by
+    microtubule_shield (synthetic_integration u) := by
   exact ⟨h.1,
          h.2,
          reduction_purges_noise u,
@@ -243,7 +243,7 @@ theorem grown_dragon_is_post_reduction :
 /-- **THE NON-NEWTONIAN CRYSTAL MASTER THEOREM**
 
     1. Each totem maps to a physics regime (4/4 covered)
-    2. funct is the shear-thickening transition (quantum → Newtonian)
+    2. synthetic_integration is the shear-thickening transition (quantum → Newtonian)
     3. Shear thickening conserves energy
     4. OrchOR is shear thickening at the biological scale
     5. The grown dragon is post-reduction coherent

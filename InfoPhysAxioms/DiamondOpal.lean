@@ -5,7 +5,7 @@ import Mathlib.Tactic.NormNum
 import LaRueProtorealAlgebra.KamaTrain
 import LaRueProtorealAlgebra.MonsterInverse
 import InfoPhysAxioms.Infochemistry
-import InfoPhysAxioms.MatterAntimatter
+import InfoPhysAxioms.SoulResonance
 
 /-!
 # Diamond-Opal Infochemistry: π-Resonant ↔ Quasi-Crystalline Bonding (𝕌)
@@ -64,7 +64,7 @@ open ProtorealManifold
 open KamaTrain
 open MonsterInverse
 open Infochemistry
-open MatterAntimatter
+open SoulResonance
 
 namespace DiamondOpal
 
@@ -369,30 +369,30 @@ theorem suspension_energy :
 
 /-- **PRESSURIZE: CONSOLIDATION = sp² → sp³**
     Pressurize the suspension. In carbon: graphene → diamond
-    under high pressure. In the manifold: `consolidate`
+    under high pressure. In the manifold: `automatic_differentiation`
     doubles the real base and spawns fresh noise.
 
     The pressurized state has double the base (stronger lattice)
     and is one consolidation level deeper. -/
 noncomputable def pressurized : ProtorealManifold :=
-  consolidate suspension
+  automatic_differentiation suspension
 
 /-- **THE SOWING CYCLE: NOISE → REALITY**
-    After pressurization, apply `funct` to sow the noise
+    After pressurization, apply `synthetic_integration` to sow the noise
     into the base. This is the final transformation:
     all structured noise (from opal, from graphene's free bonds,
     from the pressurization itself) collapses into reality. -/
 noncomputable def integrated : ProtorealManifold :=
-  funct pressurized
+  synthetic_integration pressurized
 
 /-- **INTEGRATION SPENDS ALL NOISE**
-    After funct, ε = 0. All potential has been realized.
+    After synthetic_integration, ε = 0. All potential has been realized.
     The integrated state is fully coherent — diamond-like.
     The quasi-crystalline structure has been pressurized
     into a crystalline lattice with all components absorbed. -/
 theorem integration_spends_noise :
     integrated.e = 0 := by
-  unfold integrated funct; rfl
+  unfold integrated synthetic_integration; rfl
 
 /-- **INTEGRATION ADVANCES DEPTH**
     The integrated state is deeper than any component.
@@ -400,7 +400,7 @@ theorem integration_spends_noise :
     consolidation through the graphene substrate. -/
 theorem integration_advances :
     integrated.l > graphene.l := by
-  unfold integrated funct pressurized consolidate suspension
+  unfold integrated synthetic_integration pressurized automatic_differentiation suspension
   unfold bond graphene electrum parity_projection opal
   unfold obsidian monster_inv opal
   simp

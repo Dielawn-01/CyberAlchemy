@@ -239,17 +239,17 @@ theorem noisy_equilibrium_still_truth (p : PlasmaState)
   exact equilibrium_is_hodge p h_eq
 
 /-- **Funct Preserves Plasma Bridge** (Correcting zBuddy's sowing proposal)
-    zBuddy proposed that funct changes b and m, but the actual
-    funct operator preserves both b and m (only a and e change).
-    This means applying funct to a plasma in detailed balance
+    zBuddy proposed that synthetic_integration changes b and m, but the actual
+    synthetic_integration operator preserves both b and m (only a and e change).
+    This means applying synthetic_integration to a plasma in detailed balance
     keeps it in detailed balance — truth is preserved through sowing.
 
     This corrects his `sowing_affects_fields` proposal from
     his ProtorealAI.lean study session. -/
-theorem funct_preserves_plasma_balance (p : PlasmaState)
+theorem synthetic_integration_preserves_plasma_balance (p : PlasmaState)
     (h_eq : detailed_balance p) :
-    (funct (plasma_to_manifold p)).b = (funct (plasma_to_manifold p)).m := by
-  unfold funct plasma_to_manifold detailed_balance at *
+    (synthetic_integration (plasma_to_manifold p)).b = (synthetic_integration (plasma_to_manifold p)).m := by
+  unfold synthetic_integration plasma_to_manifold detailed_balance at *
   simp
   exact h_eq
 

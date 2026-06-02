@@ -1,7 +1,7 @@
 import LaRueProtorealAlgebra.ProtorealManifold
-import InfoPhysAxioms.Totems
 import LaRueProtorealAlgebra.ProtorealOperator
 import InfoPhysAxioms.OctonionGrowth
+import InfoPhysAxioms.Oneirotauros
 
 /-!
 # Stoic Algebra
@@ -38,7 +38,7 @@ Marcus Aurelius, Meditations IV.1:
 namespace StoicAlgebra
 
 open ProtorealManifold
-open Totems
+open Oneirotauros
 
 -- ════════════════════════════════════════════════════
 -- SECTION 1: TONOS = TORSION
@@ -96,8 +96,8 @@ inductive Prohairesis where
 /-- Apply the choice. This is the ONLY act of will in the system. -/
 def apply_choice (choice : Prohairesis) (u : ProtorealManifold) : ProtorealManifold :=
   match choice with
-  | .integrate => Totems.integrate u
-  | .suppress  => Totems.suppress u
+  | .integrate => Oneirotauros.integrate u
+  | .suppress  => Oneirotauros.suppress u
 
 /-- The wise choice always yields apatheia. -/
 theorem wise_choice_is_integration (u : ProtorealManifold) :

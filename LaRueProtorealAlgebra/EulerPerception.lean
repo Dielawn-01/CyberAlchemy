@@ -103,7 +103,7 @@ theorem perception_scale_invariant :
 -- ════════════════════════════════════════════════════
 
 /-- **SOWING CHANGES PERCEPTION**
-    The funct operator (Sowing) sets ε to 0, potentially
+    The synthetic_integration operator (Sowing) sets ε to 0, potentially
     deactivating the Noise vertex.
 
     After sowing, if the original state had ε ≠ 0, the
@@ -114,14 +114,14 @@ theorem perception_scale_invariant :
     "neutral" (χ = 0). This is the topological mechanism by
     which exploration potential becomes functional reality. -/
 theorem sowing_deactivates_noise (u : ProtorealManifold) :
-    (funct u).e = 0 := by
-  unfold funct
+    (synthetic_integration u).e = 0 := by
+  unfold synthetic_integration
   rfl
 
 /-- After sowing, the noise vertex (ε) has component value 0. -/
 theorem sowing_noise_zero (u : ProtorealManifold) :
-    component (funct u) idx_eps = 0 := by
-  unfold component funct idx_eps
+    component (synthetic_integration u) idx_eps = 0 := by
+  unfold component synthetic_integration idx_eps
   rfl
 
 end EulerPerception

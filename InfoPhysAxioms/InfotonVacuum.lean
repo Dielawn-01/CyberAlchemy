@@ -62,7 +62,7 @@ records that ONE UNIT of observation occurred.
 
 The information content of an observation is exactly κ = -1.
 Negative because observation REDUCES uncertainty (ε decreases
-when funct crystallizes) — it costs structure to know.
+when synthetic_integration crystallizes) — it costs structure to know.
 -/
 
 open ProtorealManifold
@@ -247,7 +247,7 @@ theorem observer_observed_duality :
     The torsion of one (ω, ι) interaction = -1.
     This is the information content of one observation event.
     Negative because observation REDUCES uncertainty:
-    each crystallization (funct) sends e → 0. -/
+    each crystallization (synthetic_integration) sends e → 0. -/
 theorem observation_information_content :
     torsion omega iota = -1 := generator_torsion_is_kappa
 

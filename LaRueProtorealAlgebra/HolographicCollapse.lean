@@ -37,26 +37,26 @@ def collapse_state (u : ProtorealManifold) : ObservableState :=
 -- 2. HOLOGRAPHIC RECONSTRUCTION
 -- ════════════════════════════════════════════════════
 
-/-- **Infer Noise from Path**: If the state transitions via the `funct`
+/-- **Infer Noise from Path**: If the state transitions via the `synthetic_integration`
     operator (Sowing), the hidden noise (ε) is perfectly encoded as
     the temporal delta of the Real projection ($\Delta a$). -/
 theorem infer_noise (u : ProtorealManifold) :
-    let u_next := funct u
+    let u_next := synthetic_integration u
     let obs_t0 := collapse_state u
     let obs_t1 := collapse_state u_next
     obs_t1.a - obs_t0.a = u.e := by
-  unfold collapse_state funct
+  unfold collapse_state synthetic_integration
   simp
 
 /-- **Infer Consolidation from Path**: If the state transitions via
-    the `consolidate` operator, the chronological action is uniquely
+    the `automatic_differentiation` operator, the chronological action is uniquely
     identifiable by the exact doubling of the Anchor ($\Delta m$). -/
 theorem infer_consolidation_scaling (u : ProtorealManifold) :
-    let u_next := consolidate u
+    let u_next := automatic_differentiation u
     let obs_t0 := collapse_state u
     let obs_t1 := collapse_state u_next
     obs_t1.m = obs_t0.m * 2 := by
-  unfold collapse_state consolidate
+  unfold collapse_state automatic_differentiation
   rfl
 
 -- ════════════════════════════════════════════════════
@@ -68,14 +68,14 @@ theorem infer_consolidation_scaling (u : ProtorealManifold) :
 def ProofPath := List ObservableState
 
 /-- **Proof Path Preserves Shape**: Even if the underlying operator
-    (funct vs consolidate) is forgotten, the 3D Observable State transitions
+    (synthetic_integration vs automatic_differentiation) is forgotten, the 3D Observable State transitions
     are mathematically distinct, allowing full path reconstruction.
     If the Anchor doubles, it was a Consolidation. If the Anchor remains
     static, it was a Sowing. -/
 theorem proof_path_preserves_shape (u : ProtorealManifold) (h_m : u.m ≠ 0) :
-    (collapse_state (funct u)).m = (collapse_state u).m ∧
-    (collapse_state (consolidate u)).m ≠ (collapse_state u).m := by
-  unfold collapse_state funct consolidate
+    (collapse_state (synthetic_integration u)).m = (collapse_state u).m ∧
+    (collapse_state (automatic_differentiation u)).m ≠ (collapse_state u).m := by
+  unfold collapse_state synthetic_integration automatic_differentiation
   simp
   intro h_eq
   have h_zero : u.m = 0 := by linarith

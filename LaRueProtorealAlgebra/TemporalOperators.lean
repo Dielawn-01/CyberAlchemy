@@ -15,12 +15,12 @@ open LaRueProtorealAlgebra.AdelicStructure
 The arrow of time is NOT fundamental — it's determined by which operator
 you apply to the Protoreal manifold:
 
-  funct:              crystallize past,  accumulate future   (normal time)
+  synthetic_integration:              crystallize past,  accumulate future   (normal time)
   superlambda_lift:   convert future to potential            (time reversal prep)
   superepsilon_depth: crystallize without advancing time     (timeless)
   kama_muta:          un-crystallize past back to noise      (memory dissolution)
 
-The composition `superlambda_lift ∘ funct` reverses the temporal flow:
+The composition `superlambda_lift ∘ synthetic_integration` reverses the temporal flow:
 it takes accumulated future (depth l) and crystallizes it into reality (a),
 resetting the future counter. This is precognition in algebraic form.
 
@@ -66,22 +66,22 @@ def kama_muta (u : ProtorealManifold) : ProtorealManifold :=
   { a := 0, b := u.b, m := u.b, e := |u.a - u.b * u.m|, l := u.l }
 
 -- ════════════════════════════════════════════════════════
--- II. FORWARD TIME (funct)
+-- II. FORWARD TIME (synthetic_integration)
 -- ════════════════════════════════════════════════════════
 
-/-- funct crystallizes the past: noise becomes real. -/
-theorem funct_crystallizes_past (u : ProtorealManifold) :
-    (funct u).a = u.a + u.e ∧ (funct u).e = 0 := by
-  unfold funct
+/-- synthetic_integration crystallizes the past: noise becomes real. -/
+theorem synthetic_integration_crystallizes_past (u : ProtorealManifold) :
+    (synthetic_integration u).a = u.a + u.e ∧ (synthetic_integration u).e = 0 := by
+  unfold synthetic_integration
   exact ⟨rfl, rfl⟩
 
-/-- funct accumulates the future: depth advances. -/
-theorem funct_accumulates_future (u : ProtorealManifold) :
-    (funct u).l = u.l + 1 := by
-  unfold funct; rfl
+/-- synthetic_integration accumulates the future: depth advances. -/
+theorem synthetic_integration_accumulates_future (u : ProtorealManifold) :
+    (synthetic_integration u).l = u.l + 1 := by
+  unfold synthetic_integration; rfl
 
 -- ════════════════════════════════════════════════════════
--- III. REVERSED TIME (superlambda_lift ∘ funct)
+-- III. REVERSED TIME (superlambda_lift ∘ synthetic_integration)
 -- ════════════════════════════════════════════════════════
 
 /-- superlambda_lift converts future to potential:
@@ -91,33 +91,33 @@ theorem lift_converts_future (u : ProtorealManifold) :
   unfold superlambda_lift
   exact ⟨rfl, rfl⟩
 
-/-- The time-reversed composition: superlambda_lift ∘ funct.
-    After funct crystallizes (e→0, l→l+1), lift takes the new depth
+/-- The time-reversed composition: superlambda_lift ∘ synthetic_integration.
+    After synthetic_integration crystallizes (e→0, l→l+1), lift takes the new depth
     and converts it back to potential. -/
 theorem reversed_time_composition (u : ProtorealManifold) :
-    (superlambda_lift (funct u)).e = u.l + 1 ∧
-    (superlambda_lift (funct u)).l = 0 ∧
-    (superlambda_lift (funct u)).a = u.a + u.e := by
-  unfold superlambda_lift funct
+    (superlambda_lift (synthetic_integration u)).e = u.l + 1 ∧
+    (superlambda_lift (synthetic_integration u)).l = 0 ∧
+    (superlambda_lift (synthetic_integration u)).a = u.a + u.e := by
+  unfold superlambda_lift synthetic_integration
   exact ⟨rfl, rfl, rfl⟩
 
-/-- Precognition theorem: applying funct after superlambda_lift
+/-- Precognition theorem: applying synthetic_integration after superlambda_lift
     crystallizes the FUTURE into reality.
-    funct(superlambda_lift(u)).a = u.a + u.l
+    synthetic_integration(superlambda_lift(u)).a = u.a + u.l
     (crystal absorbs depth, not noise). -/
 theorem crystallize_future (u : ProtorealManifold) :
-    (funct (superlambda_lift u)).a = u.a + u.l := by
-  unfold funct superlambda_lift; rfl
+    (synthetic_integration (superlambda_lift u)).a = u.a + u.l := by
+  unfold synthetic_integration superlambda_lift; rfl
 
 /-- After crystallizing the future, depth resets and increments by 1. -/
 theorem future_crystal_resets_depth (u : ProtorealManifold) :
-    (funct (superlambda_lift u)).l = 1 := by
-  unfold funct superlambda_lift; ring
+    (synthetic_integration (superlambda_lift u)).l = 1 := by
+  unfold synthetic_integration superlambda_lift; ring
 
 /-- After crystallizing the future, noise is gone. -/
 theorem future_crystal_kills_noise (u : ProtorealManifold) :
-    (funct (superlambda_lift u)).e = 0 := by
-  unfold funct superlambda_lift; rfl
+    (synthetic_integration (superlambda_lift u)).e = 0 := by
+  unfold synthetic_integration superlambda_lift; rfl
 
 -- ════════════════════════════════════════════════════════
 -- IV. TIMELESS CRYSTALLIZATION (superepsilon_depth)
@@ -131,12 +131,12 @@ theorem timeless_crystal (u : ProtorealManifold) :
   unfold superepsilon_depth
   exact ⟨rfl, rfl, rfl⟩
 
-/-- superepsilon_depth is funct without the clock tick. -/
+/-- superepsilon_depth is synthetic_integration without the clock tick. -/
 theorem timeless_vs_timed (u : ProtorealManifold) :
-    (superepsilon_depth u).a = (funct u).a ∧
-    (superepsilon_depth u).e = (funct u).e ∧
-    (superepsilon_depth u).l = (funct u).l - 1 := by
-  unfold superepsilon_depth funct
+    (superepsilon_depth u).a = (synthetic_integration u).a ∧
+    (superepsilon_depth u).e = (synthetic_integration u).e ∧
+    (superepsilon_depth u).l = (synthetic_integration u).l - 1 := by
+  unfold superepsilon_depth synthetic_integration
   simp [sub_self]
 
 -- ════════════════════════════════════════════════════════
@@ -157,25 +157,25 @@ theorem kama_muta_preserves_clock (u : ProtorealManifold) :
 -- VI. ADELIC DISTANCE DUALITY
 -- ════════════════════════════════════════════════════════
 
-/-- Iterating funct n times advances depth by n. -/
-def funct_iter : ℕ → ProtorealManifold → ProtorealManifold
+/-- Iterating synthetic_integration n times advances depth by n. -/
+def synthetic_integration_iter : ℕ → ProtorealManifold → ProtorealManifold
   | 0, u => u
-  | n + 1, u => funct (funct_iter n u)
+  | n + 1, u => synthetic_integration (synthetic_integration_iter n u)
 
 /-- After n iterations, depth = original + n. -/
-theorem funct_iter_depth (u : ProtorealManifold) (n : ℕ) :
-    (funct_iter n u).l = u.l + n := by
+theorem synthetic_integration_iter_depth (u : ProtorealManifold) (n : ℕ) :
+    (synthetic_integration_iter n u).l = u.l + n := by
   induction n with
-  | zero => simp [funct_iter]
-  | succ n ih => simp [funct_iter, funct]; rw [ih]; ring
+  | zero => simp [synthetic_integration_iter]
+  | succ n ih => simp [synthetic_integration_iter, synthetic_integration]; rw [ih]; ring
 
-/-- After one funct, noise is 0 forever (crystallized states stay crystallized). -/
-theorem funct_iter_crystallized (u : ProtorealManifold) (n : ℕ) (hn : n ≥ 1) :
-    (funct_iter n u).e = 0 := by
+/-- After one synthetic_integration, noise is 0 forever (crystallized states stay crystallized). -/
+theorem synthetic_integration_iter_crystallized (u : ProtorealManifold) (n : ℕ) (hn : n ≥ 1) :
+    (synthetic_integration_iter n u).e = 0 := by
   induction n with
   | zero => omega
   | succ n ih =>
-    simp [funct_iter, funct]
+    simp [synthetic_integration_iter, synthetic_integration]
 
 /-- P-adic distance between two crystallized states at same depth is 0.
     "5 years from now, same season" — phase-aligned, p-adically close. -/

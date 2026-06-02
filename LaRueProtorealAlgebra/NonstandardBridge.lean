@@ -189,7 +189,7 @@ theorem bandwidth_positive (ar : AgentResolution) :
     Each level introduces a new operation that closes
     the previous level's "hyperdifference." -/
 inductive HyperLevel where
-  | Successor  -- H₀: funct (λ += 1)
+  | Successor  -- H₀: synthetic_integration (λ += 1)
   | Addition   -- H₁: manifold addition
   | Multiply   -- H₂: Klein multiplication
   | Power      -- H₃: klein_pow (exponentiation)
@@ -302,13 +302,13 @@ theorem promote_conserves_internal (u : ProtorealManifold) :
   unfold promote_u; ring
 
 /-- **PROMOTION-CONSOLIDATION CYCLE**
-    promote_u ∘ consolidate generates the full
+    promote_u ∘ automatic_differentiation generates the full
     ε → ι → a → ω → λ → (new ε) cycle.
     The new element has nonzero noise, enabling
     the next round of promotion. -/
 theorem promotion_cycle_generates_noise (u : ProtorealManifold) :
-    (promote_u (consolidate u)).m = u.e + 1 := by
-  unfold promote_u consolidate; ring
+    (promote_u (automatic_differentiation u)).m = u.e + 1 := by
+  unfold promote_u automatic_differentiation; ring
 
 -- ════════════════════════════════════════════════════
 -- SECTION 5: THE CONTINUUM INTERPRETATION

@@ -11,14 +11,14 @@ number, phase, and magnitude of saturations in the identity path.
 
 ## Key Discovery
 
-`consolidate` IS a bit shift: `a *= 2, m *= 2` is `a << 1, m << 1`.
+`automatic_differentiation` IS a bit shift: `a *= 2, m *= 2` is `a << 1, m << 1`.
 The dopant cycle = shift + accumulate.
 
 ## Key Results
 
-- `consolidate_is_noisy_shift`: consolidate = shift_1 + noise spawn
+- `automatic_differentiation_is_noisy_shift`: automatic_differentiation = shift_1 + noise spawn
 - `shift_noise_margin`: n shifts vs n consolidates differ by n on ε
-- `saturation_absorbs`: At fixpoint, funct gain = 0
+- `saturation_absorbs`: At fixpoint, synthetic_integration gain = 0
 - `noise_margin_bound`: margin ≤ n_desat (number of desaturated steps)
 - `invariance_constrains_margin`: κ = -1 bounds per-transition noise
 -/
@@ -74,66 +74,66 @@ theorem shift_compose (u : ProtorealManifold) (n m : ℕ) :
 -- ════════════════════════════════════════════════════
 
 /-- **CONSOLIDATE IS A NOISY SHIFT**
-    consolidate agrees with shift_1 on (a, b, m, l) but DIFFERS
-    on ε: consolidate spawns +1 noise, shift doesn't.
+    automatic_differentiation agrees with shift_1 on (a, b, m, l) but DIFFERS
+    on ε: automatic_differentiation spawns +1 noise, shift doesn't.
     This is the fundamental approximation cost. -/
-theorem consolidate_is_noisy_shift (u : ProtorealManifold) :
-    (consolidate u).a = (shift_n u 1).a ∧
-    (consolidate u).b = (shift_n u 1).b ∧
-    (consolidate u).m = (shift_n u 1).m ∧
-    (consolidate u).l = (shift_n u 1).l ∧
-    (consolidate u).e = (shift_n u 1).e + 1 := by
-  unfold consolidate shift_n
+theorem automatic_differentiation_is_noisy_shift (u : ProtorealManifold) :
+    (automatic_differentiation u).a = (shift_n u 1).a ∧
+    (automatic_differentiation u).b = (shift_n u 1).b ∧
+    (automatic_differentiation u).m = (shift_n u 1).m ∧
+    (automatic_differentiation u).l = (shift_n u 1).l ∧
+    (automatic_differentiation u).e = (shift_n u 1).e + 1 := by
+  unfold automatic_differentiation shift_n
   simp [pow_one]
 
 /-- **N-FOLD CONSOLIDATION** (without intermediate functs) -/
-def consolidate_n : ProtorealManifold → ℕ → ProtorealManifold
+def automatic_differentiation_n : ProtorealManifold → ℕ → ProtorealManifold
   | u, 0 => u
-  | u, n + 1 => consolidate_n (consolidate u) n
+  | u, n + 1 => automatic_differentiation_n (automatic_differentiation u) n
 
 /-- **N-FOLD CONSOLIDATION SCALES REAL PART**
     After n consolidations, a is scaled by 2^n. -/
-theorem consolidate_n_real (u : ProtorealManifold) (n : ℕ) :
-    (consolidate_n u n).a = u.a * 2 ^ n := by
+theorem automatic_differentiation_n_real (u : ProtorealManifold) (n : ℕ) :
+    (automatic_differentiation_n u n).a = u.a * 2 ^ n := by
   induction n generalizing u with
-  | zero => simp [consolidate_n]
+  | zero => simp [automatic_differentiation_n]
   | succ n ih =>
-    simp only [consolidate_n]
+    simp only [automatic_differentiation_n]
     rw [ih]
-    unfold consolidate
+    unfold automatic_differentiation
     simp; ring
 
 /-- **N-FOLD CONSOLIDATION SCALES ANCHOR**
     After n consolidations, m is scaled by 2^n. -/
-theorem consolidate_n_anchor (u : ProtorealManifold) (n : ℕ) :
-    (consolidate_n u n).m = u.m * 2 ^ n := by
+theorem automatic_differentiation_n_anchor (u : ProtorealManifold) (n : ℕ) :
+    (automatic_differentiation_n u n).m = u.m * 2 ^ n := by
   induction n generalizing u with
-  | zero => simp [consolidate_n]
+  | zero => simp [automatic_differentiation_n]
   | succ n ih =>
-    simp only [consolidate_n]
+    simp only [automatic_differentiation_n]
     rw [ih]
-    unfold consolidate
+    unfold automatic_differentiation
     simp; ring
 
 /-- **N-FOLD CONSOLIDATION SPAWNS N NOISE**
     After n consolidations, ε has increased by n. -/
-theorem consolidate_n_noise (u : ProtorealManifold) (n : ℕ) :
-    (consolidate_n u n).e = u.e + n := by
+theorem automatic_differentiation_n_noise (u : ProtorealManifold) (n : ℕ) :
+    (automatic_differentiation_n u n).e = u.e + n := by
   induction n generalizing u with
-  | zero => simp [consolidate_n]
+  | zero => simp [automatic_differentiation_n]
   | succ n ih =>
-    simp only [consolidate_n]
+    simp only [automatic_differentiation_n]
     rw [ih]
-    unfold consolidate
+    unfold automatic_differentiation
     push_cast; ring
 
 /-- **N-FOLD CONSOLIDATION PRESERVES THRUST** -/
-theorem consolidate_n_thrust (u : ProtorealManifold) (n : ℕ) :
-    (consolidate_n u n).b = u.b := by
+theorem automatic_differentiation_n_thrust (u : ProtorealManifold) (n : ℕ) :
+    (automatic_differentiation_n u n).b = u.b := by
   induction n generalizing u with
-  | zero => simp [consolidate_n]
+  | zero => simp [automatic_differentiation_n]
   | succ n ih =>
-    simp only [consolidate_n]; rw [ih]; unfold consolidate; simp
+    simp only [automatic_differentiation_n]; rw [ih]; unfold automatic_differentiation; simp
 
 -- ════════════════════════════════════════════════════
 -- SECTION 3: THE NOISE MARGIN
@@ -147,21 +147,21 @@ theorem consolidate_n_thrust (u : ProtorealManifold) (n : ℕ) :
     This is the EXACT cost of using bit shifts instead of
     the full dopant cycle: you skip n units of learning noise. -/
 theorem shift_noise_margin (u : ProtorealManifold) (n : ℕ) :
-    (consolidate_n u n).e - (shift_n u n).e = n := by
-  rw [consolidate_n_noise, shift_preserves_noise]
+    (automatic_differentiation_n u n).e - (shift_n u n).e = n := by
+  rw [automatic_differentiation_n_noise, shift_preserves_noise]
   ring
 
 /-- **SHIFT AND CONSOLIDATE AGREE ON REAL PART**
     The actual computation (a scaling) is identical. -/
-theorem shift_consolidate_real_agree (u : ProtorealManifold) (n : ℕ) :
-    (consolidate_n u n).a = (shift_n u n).a := by
-  rw [consolidate_n_real]; unfold shift_n; simp
+theorem shift_automatic_differentiation_real_agree (u : ProtorealManifold) (n : ℕ) :
+    (automatic_differentiation_n u n).a = (shift_n u n).a := by
+  rw [automatic_differentiation_n_real]; unfold shift_n; simp
 
 /-- **SHIFT AND CONSOLIDATE AGREE ON ANCHOR**
     The anchor scaling is identical. -/
-theorem shift_consolidate_anchor_agree (u : ProtorealManifold) (n : ℕ) :
-    (consolidate_n u n).m = (shift_n u n).m := by
-  rw [consolidate_n_anchor]; unfold shift_n; simp
+theorem shift_automatic_differentiation_anchor_agree (u : ProtorealManifold) (n : ℕ) :
+    (automatic_differentiation_n u n).m = (shift_n u n).m := by
+  rw [automatic_differentiation_n_anchor]; unfold shift_n; simp
 
 -- ════════════════════════════════════════════════════
 -- SECTION 4: SATURATION & DESATURATION
@@ -174,17 +174,17 @@ def is_saturated (u : ProtorealManifold) : Prop := u.e = 0
 def is_desaturated (u : ProtorealManifold) : Prop := u.e > 0
 
 /-- **SATURATION ABSORBS NOISE**
-    At a fixpoint (ε = 0), funct has zero gain on the real part.
+    At a fixpoint (ε = 0), synthetic_integration has zero gain on the real part.
     The bit shift approximation is EXACT at saturation. -/
 theorem saturation_absorbs (u : ProtorealManifold)
-    (h : is_saturated u) : (funct u).a = u.a :=
+    (h : is_saturated u) : (synthetic_integration u).a = u.a :=
   silence_prevents_growth u h
 
 /-- **DESATURATION AMPLIFIES**
-    Away from fixpoint (ε > 0), funct gain = ε.
+    Away from fixpoint (ε > 0), synthetic_integration gain = ε.
     The bit shift approximation misses this gain entirely. -/
 theorem desaturation_amplifies (u : ProtorealManifold)
-    (h : is_desaturated u) : (funct u).a > u.a :=
+    (h : is_desaturated u) : (synthetic_integration u).a > u.a :=
   dopant_enables_growth u h
 
 /-- **NOISE PER CONSOLIDATION IS EXACTLY 1**
@@ -192,8 +192,8 @@ theorem desaturation_amplifies (u : ProtorealManifold)
     regardless of the manifold state. This is the
     fundamental "cost" of each bit shift approximation. -/
 theorem noise_per_step (u : ProtorealManifold) :
-    (consolidate u).e - u.e = 1 := by
-  unfold consolidate; simp
+    (automatic_differentiation u).e - u.e = 1 := by
+  unfold automatic_differentiation; simp
 
 -- ════════════════════════════════════════════════════
 -- SECTION 5: PHASE
@@ -234,8 +234,8 @@ theorem phase_divergence (u : ProtorealManifold) :
     For a chain of n steps where k are desaturated (have ε > 0
     after consolidation), the effective noise margin is exactly k.
 
-    Saturated steps contribute 0 effective noise (funct has no gain).
-    Desaturated steps contribute 1 each (funct gain = ε = 1).
+    Saturated steps contribute 0 effective noise (synthetic_integration has no gain).
+    Desaturated steps contribute 1 each (synthetic_integration gain = ε = 1).
 
     So: effective_margin = n_desaturated ≤ n_total. -/
 theorem noise_margin_desat_bound (n_desat n_sat : ℕ) :
@@ -253,11 +253,11 @@ theorem noise_margin_desat_bound (n_desat n_sat : ℕ) :
 theorem invariance_constrains_margin :
     -- κ = -1 from the algebraic face
     (PentagonCoherence.assoc omega omega iota).a = -1 ∧
-    -- Each consolidate spawns exactly |κ| = 1 noise
-    (∀ u : ProtorealManifold, (consolidate u).e - u.e = 1) ∧
+    -- Each automatic_differentiation spawns exactly |κ| = 1 noise
+    (∀ u : ProtorealManifold, (automatic_differentiation u).e - u.e = 1) ∧
     -- The noise margin after n shifts is exactly n × |κ|
     (∀ u : ProtorealManifold, ∀ n : ℕ,
-      (consolidate_n u n).e - (shift_n u n).e = n) := by
+      (automatic_differentiation_n u n).e - (shift_n u n).e = n) := by
   exact ⟨face_algebraic,
          noise_per_step,
          shift_noise_margin⟩
@@ -294,8 +294,8 @@ theorem shift_preserves_equilibrium (u : ProtorealManifold) (n : ℕ)
     1. Shift composition: shift_m ∘ shift_n = shift_(n+m)
     2. Consolidate = noisy shift (agrees on a,b,m,l; differs by 1 on ε)
     3. Noise margin = n (exactly n noise units after n shifts)
-    4. Saturation absorbs: at ε=0, funct gain = 0
-    5. Desaturation amplifies: at ε>0, funct gain > 0
+    4. Saturation absorbs: at ε=0, synthetic_integration gain = 0
+    5. Desaturation amplifies: at ε>0, synthetic_integration gain > 0
     6. Phase at Hodge = 0 (parity-locked → zero phase divergence)
     7. Bridge scales by 2^n (SR is shift-equivariant)
     8. Equilibrium is shift-invariant (SR=0 → stays SR=0)
@@ -307,14 +307,14 @@ theorem bitshift_master :
       shift_n (shift_n u n) m = shift_n u (n + m)) ∧
     -- 2. Real parts agree
     (∀ u : ProtorealManifold, ∀ n : ℕ,
-      (consolidate_n u n).a = (shift_n u n).a) ∧
+      (automatic_differentiation_n u n).a = (shift_n u n).a) ∧
     -- 3. Noise margin = n
     (∀ u : ProtorealManifold, ∀ n : ℕ,
-      (consolidate_n u n).e - (shift_n u n).e = n) ∧
+      (automatic_differentiation_n u n).e - (shift_n u n).e = n) ∧
     -- 4. Saturation absorbs
-    (∀ u : ProtorealManifold, u.e = 0 → (funct u).a = u.a) ∧
+    (∀ u : ProtorealManifold, u.e = 0 → (synthetic_integration u).a = u.a) ∧
     -- 5. Desaturation amplifies
-    (∀ u : ProtorealManifold, u.e > 0 → (funct u).a > u.a) ∧
+    (∀ u : ProtorealManifold, u.e > 0 → (synthetic_integration u).a > u.a) ∧
     -- 6. Hodge phase = 0
     (∀ u : ProtorealManifold,
       phase (MonsterInverse.parity_projection u) = 0) ∧
@@ -329,9 +329,9 @@ theorem bitshift_master :
     -- 9. κ constrains margin
     ((PentagonCoherence.assoc omega omega iota).a = -1) ∧
     -- 10. Noise per step = 1
-    (∀ u : ProtorealManifold, (consolidate u).e - u.e = 1) :=
+    (∀ u : ProtorealManifold, (automatic_differentiation u).e - u.e = 1) :=
   ⟨shift_compose,
-   shift_consolidate_real_agree,
+   shift_automatic_differentiation_real_agree,
    shift_noise_margin,
    saturation_absorbs,
    desaturation_amplifies,

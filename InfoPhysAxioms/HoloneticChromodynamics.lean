@@ -8,6 +8,8 @@ import InfoPhysAxioms.ChromaticHolomovement
 import InfoPhysAxioms.PendulumEvolution
 import InfoPhysAxioms.HodgePhasorVolume
 import InfoPhysAxioms.Base19ColorWheel
+import LaRueProtorealAlgebra.LieAlgebra
+open LieAlgebra
 
 /-!
 # Holonetic-Chromodynamics (HCD)
@@ -90,15 +92,15 @@ theorem gluon_octonion_count :
 def is_color_confined (u : ProtorealManifold) : Prop :=
   u.e = 0
 
-/-- The `funct` operator crystallizes noise: ε → 0 in the output.
+/-- The `synthetic_integration` operator crystallizes noise: ε → 0 in the output.
     This is the proof of color confinement — every application of
     the crystallization operator produces a confined state.
 
     In QCD language: every hadronization event produces a color singlet.
-    In QCD, this is ASSUMED. Here, it is PROVED from the definition of funct. -/
+    In QCD, this is ASSUMED. Here, it is PROVED from the definition of synthetic_integration. -/
 theorem confinement_by_crystallization (u : ProtorealManifold) :
-    is_color_confined (funct u) := by
-  unfold is_color_confined funct
+    is_color_confined (synthetic_integration u) := by
+  unfold is_color_confined synthetic_integration
   simp
 
 /-- The prediction horizon at zero noise is maximal (= 1).
@@ -255,7 +257,7 @@ theorem four_color_decomposition :
   The Protoreal manifold has 4 non-depth coordinates:
     a (crystal), b (thrust), m (anchor), e (noise)
 
-  The crystal 'a' is the OBSERVER. When funct acts:
+  The crystal 'a' is the OBSERVER. When synthetic_integration acts:
     a_new = a + e    (observer absorbs excitation)
     e_new = 0        (noise vanishes)
     b, m unchanged   (other colors persist)
@@ -278,34 +280,34 @@ theorem four_color_decomposition :
 /-- The observer (a) absorbs noise and exits the interaction.
     This is the seesaw: noise (left-handed) → crystal (right-handed). -/
 theorem observer_absorbs_noise (u : ProtorealManifold) :
-    (funct u).a = u.a + u.e ∧ (funct u).e = 0 := by
-  unfold funct; exact ⟨rfl, rfl⟩
+    (synthetic_integration u).a = u.a + u.e ∧ (synthetic_integration u).e = 0 := by
+  unfold synthetic_integration; exact ⟨rfl, rfl⟩
 
 /-- The other colors are UNCHANGED by crystallization.
     The observer's departure doesn't affect the remaining dynamics.
     This is sterility: the right-handed neutrino doesn't interact. -/
 theorem sterile_decoupling (u : ProtorealManifold) :
-    (funct u).b = u.b ∧ (funct u).m = u.m := by
-  unfold funct; exact ⟨rfl, rfl⟩
+    (synthetic_integration u).b = u.b ∧ (synthetic_integration u).m = u.m := by
+  unfold synthetic_integration; exact ⟨rfl, rfl⟩
 
 /-- After crystallization, the observer's mass is a + e.
     If a = 0 initially (pure observer, no prior crystal),
     then the mass IS the noise: m_infoton = e.
     This is the Landauer-limited mass. -/
 theorem infoton_mass (u : ProtorealManifold) (h : u.a = 0) :
-    (funct u).a = u.e := by
-  unfold funct; rw [h]; ring
+    (synthetic_integration u).a = u.e := by
+  unfold synthetic_integration; rw [h]; ring
 
 /-- The noise-to-crystal transfer is IRREVERSIBLE in the
-    funct direction: after crystallization, e = 0 and there
+    synthetic_integration direction: after crystallization, e = 0 and there
     is no operator that un-crystallizes without kama_muta.
 
     This is the arrow of time in particle physics: the
     left→right neutrino oscillation has a preferred direction.
     It costs κ = -1 to reverse (kama_muta). -/
 theorem crystallization_kills_noise (u : ProtorealManifold) :
-    is_color_confined (funct u) := by
-  unfold is_color_confined funct; simp
+    is_color_confined (synthetic_integration u) := by
+  unfold is_color_confined synthetic_integration; simp
 
 /-- Protoreal has 4 color coordinates + 1 depth = 5 total.
     The 4 color coords decompose: 3 dynamic + 1 observer. -/
@@ -331,8 +333,8 @@ theorem hue_contains_color :
 
 /-- **COLOR AS MOTION** -/
 theorem color_is_motion (u : ProtorealManifold) :
-    (funct u).l = u.l + 1 ∧ (funct u).e = 0 := by
-  unfold funct; exact ⟨rfl, rfl⟩
+    (synthetic_integration u).l = u.l + 1 ∧ (synthetic_integration u).e = 0 := by
+  unfold synthetic_integration; exact ⟨rfl, rfl⟩
 
 -- ═══════════════════════════════════════════════════════
 -- Section 6: MASTER THEOREM
@@ -344,21 +346,21 @@ theorem color_is_motion (u : ProtorealManifold) :
 
     1. 3 phasor axes = 3 color charges
     2. 3² + κ = 8 gluons (κ is curvature, not subtraction)
-    3. Confinement PROVEN: funct crystallizes noise
+    3. Confinement PROVEN: synthetic_integration crystallizes noise
     4. Asymptotic freedom PROVEN: I(l+1) < I(l)
     5. κ = -1 ≠ 0: nonabelian structure contained
     6. 4² = 8 + 6 + 2: observer decomposition
     7. Observer absorbs noise: right-handed neutrino = infoton
     8. Trace = κ: tracelessness IS observation cost
     9. 19 mod 3 = 1: 3-fold coloring of 19-hue wheel
-    10. Color is motion (funct advances depth) -/
+    10. Color is motion (synthetic_integration advances depth) -/
 theorem holonetic_chromodynamics_master :
     -- 1. Color count
     (3 : ℕ) = 3 ∧
     -- 2. Gluon count via curvature
     (3 : Int) ^ 2 + (-1) = 8 ∧
     -- 3. Confinement
-    (∀ u : ProtorealManifold, is_color_confined (funct u)) ∧
+    (∀ u : ProtorealManifold, is_color_confined (synthetic_integration u)) ∧
     -- 4. Asymptotic freedom
     (∀ l : ℝ, l ≥ 0 → I (l + 1) < I l) ∧
     -- 5. Nonabelian
@@ -366,13 +368,13 @@ theorem holonetic_chromodynamics_master :
     -- 6. Observer decomposition
     (8 : ℕ) + 6 + 2 = 16 ∧
     -- 7. Observer absorbs noise (infoton)
-    (∀ u : ProtorealManifold, (funct u).a = u.a + u.e ∧ (funct u).e = 0) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).a = u.a + u.e ∧ (synthetic_integration u).e = 0) ∧
     -- 8. Trace = κ
     (3 : Int) ^ 2 - 1 = 3 ^ 2 + (-1) ∧
     -- 9. Color partition
     19 % 3 = 1 ∧
     -- 10. Color is motion
-    (∀ u : ProtorealManifold, (funct u).l = u.l + 1) :=
+    (∀ u : ProtorealManifold, (synthetic_integration u).l = u.l + 1) :=
   ⟨rfl,
    by norm_num,
    confinement_by_crystallization,
@@ -383,6 +385,12 @@ theorem holonetic_chromodynamics_master :
    by ring,
    by omega,
    fun u => rfl⟩
+
+/-- **Harmonic Emission**
+    Spectral emission (color/harmony) is driven by the real scalar energy (a)
+    released when quantum geometry undergoes Lie Bracket commutator collapse.
+-/
+def harmonic_emission (u v : ProtorealManifold) : ℝ := (lie_bracket u v).a
 
 end InfoPhysAxioms.HoloneticChromodynamics
 

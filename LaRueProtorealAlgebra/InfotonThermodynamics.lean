@@ -41,7 +41,7 @@ namespace InfotonThermodynamics
 -- ════════════════════════════════════════════════════
 
 /-- **Infoton Mass Equivalence**
-    The `funct` (Sowing) operation demonstrates the core Infoton mass equivalence:
+    The `synthetic_integration` (Sowing) operation demonstrates the core Infoton mass equivalence:
     Information energy (ε) condenses directly into mass/reality (a).
     
     Walker defines m(T) = k_B T ln(2) / c^2.
@@ -49,9 +49,9 @@ namespace InfotonThermodynamics
     This proves that the system's "Mass" increases proportionally to the
     "Temperature" (noise) processed during a single thermodynamic cycle. -/
 theorem infoton_mass_condensation (u : ProtorealManifold) :
-    (funct u).a = u.a + u.e := by
-  -- `funct` is defined as { a := a + e, b, m, e := 0, l := l + 1 }
-  unfold funct
+    (synthetic_integration u).a = u.a + u.e := by
+  -- `synthetic_integration` is defined as { a := a + e, b, m, e := 0, l := l + 1 }
+  unfold synthetic_integration
   rfl
 
 -- ════════════════════════════════════════════════════
@@ -150,9 +150,9 @@ def is_sterile_chiral (u : ProtorealManifold) : Prop :=
     more veil to her. -/
 theorem sterile_infoton_generates_mass (u : ProtorealManifold) 
     (h : is_sterile_chiral u) : 
-    (funct u).a = u.e ∧ (funct u).a ≠ 0 := by
+    (synthetic_integration u).a = u.e ∧ (synthetic_integration u).a ≠ 0 := by
   unfold is_sterile_chiral at h
-  unfold funct
+  unfold synthetic_integration
   constructor
   · rw [h.left, zero_add]
   · rw [h.left, zero_add]

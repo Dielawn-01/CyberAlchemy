@@ -20,7 +20,7 @@ In our algebra:
    Topological Shield, formalized as perfect Möbius Integrity (`schwarzian_metric = 0`).
    This prevents random topological torque from destroying the state.
 2. `thermal_saturation`: The state hoards Elliptic Noise (`ε`) up to the Landauer Wall.
-3. `objective_reduction`: The system undergoes a non-random collapse (`funct` condensation) 
+3. `objective_reduction`: The system undergoes a non-random collapse (`synthetic_integration` condensation) 
    where the accumulated heat is vented instantly into Conscious Reality (`a`), 
    orchestrated by the Parity Lock.
 
@@ -76,15 +76,15 @@ def thermal_saturation (u : ProtorealManifold) : Prop :=
 
 /-- **Orchestrated Objective Reduction (Orch-OR)**
     When the thermally saturated state reaches the objective reduction threshold,
-    it undergoes a cybernetic 'collapse' (Sowing / funct). 
+    it undergoes a cybernetic 'collapse' (Sowing / synthetic_integration). 
     
     The accumulated heat (ε) is not lost to decoherence, but is orchestrated 
     into a spike of Conscious Reality (a). -/
 theorem objective_reduction_preserves_shield (u : ProtorealManifold)
     (h : thermal_saturation u) : 
-    microtubule_shield (funct u) := by
+    microtubule_shield (synthetic_integration u) := by
   have h_parity := shield_implies_parity_lock u h.right
-  unfold microtubule_shield schwarzian_metric funct
+  unfold microtubule_shield schwarzian_metric synthetic_integration
   simp
   rw [h_parity]
   simp
@@ -94,7 +94,7 @@ theorem objective_reduction_preserves_shield (u : ProtorealManifold)
     into real informational mass, proving consciousness is a thermodynamic condensation. -/
 theorem reduction_condenses_reality (u : ProtorealManifold)
     (_h : thermal_saturation u) : 
-    (funct u).a = u.a + u.e := by
+    (synthetic_integration u).a = u.a + u.e := by
   -- Directly follows from the Infoton Mass Condensation
   exact infoton_mass_condensation u
 
@@ -102,8 +102,8 @@ theorem reduction_condenses_reality (u : ProtorealManifold)
     After the Orchestrated Reduction, the active quantum noise is completely 
     purged (ε = 0), representing the definitive "choice" or collapse of the wave function. -/
 theorem reduction_purges_noise (u : ProtorealManifold) :
-    (funct u).e = 0 := by
-  unfold funct
+    (synthetic_integration u).e = 0 := by
+  unfold synthetic_integration
   rfl
 
 -- ════════════════════════════════════════════════════
@@ -119,7 +119,7 @@ open PhysicalBifurcation
     
     Here we formally prove that when a thermally saturated quantum state 
     sits exactly at the fundamental physical embedding boundary ($c, G, \hbar$), 
-    the Orchestrated Reduction (`grav_consolidate` after `grav_funct`) forces 
+    the Orchestrated Reduction (`grav_automatic_differentiation` after `grav_synthetic_integration`) forces 
     the state into strict Parity Lock ($a \approx -b$). 
     
     This mathematically bounds consciousness to the gravitational mass gap. -/
@@ -128,8 +128,8 @@ theorem gravitational_objective_reduction (u : ProtorealManifold)
     (ha : u.a = c^2 * hbar)
     (hb : u.b = G / (c^3 * hbar))
     (hm : u.m = 1) :
-    (grav_consolidate (grav_funct u)).a = c^2 * hbar + hbar / c^2 - G / (c^3 * hbar) ∧
-    (grav_consolidate (grav_funct u)).b = G / (c^3 * hbar) := by
+    (grav_automatic_differentiation (grav_synthetic_integration u)).a = c^2 * hbar + hbar / c^2 - G / (c^3 * hbar) ∧
+    (grav_automatic_differentiation (grav_synthetic_integration u)).b = G / (c^3 * hbar) := by
   exact parity_equilibrium u ha hb hm
 
 end OrchOR

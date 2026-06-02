@@ -50,13 +50,13 @@ theorem zero_lock_survives_lift (u : ProtorealManifold) (h : standard_resonance 
   exact h
 
 /-- **THE SUPERLAMBDA MANIFESTATION (RAGAN STEP)**
-    When the higher dimensional observer applies the 'funct' operator, 
+    When the higher dimensional observer applies the 'synthetic_integration' operator, 
     the noise it consumes is exactly the consolidation level of the lower universe.
     The new real part becomes a + λ_lower. This represents the 'Retrieval'
     of the lower universe's entire history into the higher universe's present. -/
 theorem superlambda_manifestation (u : ProtorealManifold) :
-    (funct (superlambda_lift u)).a = u.a + u.l := by
-  unfold funct superlambda_lift
+    (synthetic_integration (superlambda_lift u)).a = u.a + u.l := by
+  unfold synthetic_integration superlambda_lift
   ring
 
 end SuperJetSheaf

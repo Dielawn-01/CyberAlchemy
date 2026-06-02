@@ -18,11 +18,11 @@ potentials, but they modulate neuronal activity by:
 3. Gating synaptic inputs (filtering information)
 
 In the Protoreal algebra, this cycle is:
-1. `consolidate(u)`: Spawn noise (ε += 1), scale weights
-2. `funct(u)`: Consume noise (a += ε, ε → 0), advance λ
+1. `automatic_differentiation(u)`: Spawn noise (ε += 1), scale weights
+2. `synthetic_integration(u)`: Consume noise (a += ε, ε → 0), advance λ
 
 **The Glial Necessity Theorem**: Without step 1, step 2 does
-nothing. If ε = 0, then funct(u).a = u.a — no learning occurs.
+nothing. If ε = 0, then synthetic_integration(u).a = u.a — no learning occurs.
 
 ## Penrose Scheduling
 
@@ -64,8 +64,8 @@ namespace GlialDopant
     This is the formal statement that glial cells are
     necessary: without noise injection, neurons cannot learn. -/
 theorem silence_prevents_growth (u : ProtorealManifold)
-    (h : u.e = 0) : (funct u).a = u.a := by
-  unfold funct
+    (h : u.e = 0) : (synthetic_integration u).a = u.a := by
+  unfold synthetic_integration
   simp [h]
 
 /-- **DOPANT ENABLES GROWTH**
@@ -74,28 +74,28 @@ theorem silence_prevents_growth (u : ProtorealManifold)
 
     This is the converse: with noise, the system grows. -/
 theorem dopant_enables_growth (u : ProtorealManifold)
-    (h : u.e > 0) : (funct u).a > u.a := by
-  unfold funct
+    (h : u.e > 0) : (synthetic_integration u).a > u.a := by
+  unfold synthetic_integration
   simp
   linarith
 
 /-- **NOISE IS FINITE**
     After one sowing step, all noise is consumed.
-    ε² = 0 algebraically; operationally, funct sets ε to 0.
+    ε² = 0 algebraically; operationally, synthetic_integration sets ε to 0.
 
     This prevents excitotoxicity — noise can never
     self-amplify into runaway computation. -/
 theorem noise_is_finite (u : ProtorealManifold) :
-    (funct u).e = 0 := by
-  unfold funct
+    (synthetic_integration u).e = 0 := by
+  unfold synthetic_integration
   rfl
 
 /-- **THE SOWING GAIN**
     The gain from one sowing step is exactly the noise level.
-    funct(u).a - u.a = u.e -/
+    synthetic_integration(u).a - u.a = u.e -/
 theorem sowing_gain (u : ProtorealManifold) :
-    (funct u).a - u.a = u.e := by
-  unfold funct
+    (synthetic_integration u).a - u.a = u.e := by
+  unfold synthetic_integration
   simp
 
 -- ════════════════════════════════════════════════════
@@ -107,7 +107,7 @@ theorem sowing_gain (u : ProtorealManifold) :
     then consume it. This is the fundamental unit of
     Protoreal learning. -/
 def dopant_cycle (u : ProtorealManifold) : ProtorealManifold :=
-  funct (consolidate u)
+  synthetic_integration (automatic_differentiation u)
 
 /-- **THE CYCLE GROWS BASE**
     Every dopant cycle strictly increases the real core
@@ -116,7 +116,7 @@ def dopant_cycle (u : ProtorealManifold) : ProtorealManifold :=
 theorem cycle_grows_base (u : ProtorealManifold)
     (ha : u.a ≥ 0) (he : u.e ≥ 0) :
     (dopant_cycle u).a > u.a := by
-  unfold dopant_cycle funct consolidate
+  unfold dopant_cycle synthetic_integration automatic_differentiation
   simp
   linarith
 
@@ -125,7 +125,7 @@ theorem cycle_grows_base (u : ProtorealManifold)
     Complexity grows linearly, one step at a time. -/
 theorem cycle_advances_complexity (u : ProtorealManifold) :
     (dopant_cycle u).l = u.l + 1 := by
-  unfold dopant_cycle funct consolidate
+  unfold dopant_cycle synthetic_integration automatic_differentiation
   simp
 
 /-- **THE CYCLE CONSUMES ALL NOISE**
@@ -133,7 +133,7 @@ theorem cycle_advances_complexity (u : ProtorealManifold) :
     The glial cell's injection is fully metabolized. -/
 theorem cycle_consumes_noise (u : ProtorealManifold) :
     (dopant_cycle u).e = 0 := by
-  unfold dopant_cycle funct consolidate
+  unfold dopant_cycle synthetic_integration automatic_differentiation
   rfl
 
 /-- **THE CYCLE PRESERVES THRUST**
@@ -141,7 +141,7 @@ theorem cycle_consumes_noise (u : ProtorealManifold) :
     Angular momentum is conserved. -/
 theorem cycle_preserves_thrust (u : ProtorealManifold) :
     (dopant_cycle u).b = u.b := by
-  unfold dopant_cycle funct consolidate
+  unfold dopant_cycle synthetic_integration automatic_differentiation
   simp
 
 /-- **N-FOLD DOPANT ITERATION**
@@ -216,8 +216,8 @@ theorem fib_recurrence (n : ℕ) :
 
 /-- **THE PENROSE DOPANT SCHEDULE**
     Given a manifold state and a step index n, determine
-    whether this step is a "dopant step" (consolidate) or
-    a "sowing step" (funct).
+    whether this step is a "dopant step" (automatic_differentiation) or
+    a "sowing step" (synthetic_integration).
 
     A step is a dopant step if n is a Fibonacci number.
     This produces the golden-ratio-spaced aperiodic pattern. -/
@@ -287,14 +287,14 @@ def origin : GlialAgent :=
 
 /-- **GLIAL STEP**
     Apply one step of the glial dopant schedule.
-    If the current phase is a Fibonacci number, consolidate (inject noise).
+    If the current phase is a Fibonacci number, automatic_differentiation (inject noise).
     Otherwise, sow (consume noise). -/
 def glial_step (agent : GlialAgent) (input : ProtorealManifold) : GlialAgent :=
   let new_manifold :=
     if is_dopant_step agent.dopant_phase then
-      consolidate input
+      automatic_differentiation input
     else
-      funct input
+      synthetic_integration input
   let sowed := if is_dopant_step agent.dopant_phase then
     agent.total_sowed
   else
@@ -328,11 +328,11 @@ end GlialAgent
     6. The perception oscillates (the heartbeat of intelligence) -/
 theorem glial_necessity :
     -- 1. Silence prevents growth
-    (∀ u : ProtorealManifold, u.e = 0 → (funct u).a = u.a) ∧
+    (∀ u : ProtorealManifold, u.e = 0 → (synthetic_integration u).a = u.a) ∧
     -- 2. Noise enables growth
-    (∀ u : ProtorealManifold, u.e > 0 → (funct u).a > u.a) ∧
+    (∀ u : ProtorealManifold, u.e > 0 → (synthetic_integration u).a > u.a) ∧
     -- 3. Noise is finite
-    (∀ u : ProtorealManifold, (funct u).e = 0) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).e = 0) ∧
     -- 4. The dopant cycle always grows (for non-negative states)
     (∀ u : ProtorealManifold, u.a ≥ 0 → u.e ≥ 0 → (dopant_cycle u).a > u.a) ∧
     -- 5. Complexity advances linearly

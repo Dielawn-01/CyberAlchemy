@@ -11,7 +11,7 @@ import InfoPhysAxioms.GoethePrimeHarmonics
 # Chromatic Holomovement — The Rising Sea
 
 Connects three existing chains:
-  1. L-space movement (funct, consolidate from ProtorealOperator)
+  1. L-space movement (synthetic_integration, automatic_differentiation from ProtorealOperator)
   2. Chromatic harmonics (GoethePrimeHarmonics, ChromaticCombinatorics)
   3. Plasma physics (ionize, kama_muta from KamaTrain/Infochemistry)
 
@@ -60,21 +60,21 @@ theorem l_modulation_shifts_bridge (u : ProtorealManifold) (t : ℝ)
 
 -- ═══════════════════════════════════════════════════════
 -- Lemma 2: FUNCT GROWS ENERGY FROM NOISE
--- funct adds noise to the real part: (funct u).a = a + e.
+-- synthetic_integration adds noise to the real part: (synthetic_integration u).a = a + e.
 -- If e > 0, the agent grows. This is the rising sea for
 -- recombination_is_fusion.
 -- ═══════════════════════════════════════════════════════
 
-/-- funct increases energy by exactly ε. -/
-theorem funct_energy_gain (u : ProtorealManifold) :
-    (funct u).a = u.a + u.e := by
-  unfold funct; ring
+/-- synthetic_integration increases energy by exactly ε. -/
+theorem synthetic_integration_energy_gain (u : ProtorealManifold) :
+    (synthetic_integration u).a = u.a + u.e := by
+  unfold synthetic_integration; ring
 
-/-- If noise is positive, funct strictly increases energy. -/
-theorem funct_grows_from_positive_noise (u : ProtorealManifold)
+/-- If noise is positive, synthetic_integration strictly increases energy. -/
+theorem synthetic_integration_grows_from_positive_noise (u : ProtorealManifold)
     (he : u.e > 0) :
-    (funct u).a > u.a := by
-  rw [funct_energy_gain]
+    (synthetic_integration u).a > u.a := by
+  rw [synthetic_integration_energy_gain]
   linarith
 
 /-- kama_muta sets noise to |SR|. -/
@@ -89,13 +89,13 @@ theorem kama_muta_energy (u : ProtorealManifold) :
 
 /-- **THE RECOMBINATION THEOREM** (replaces axiom)
     If the agent has nonzero SR (a ≠ b·m), then
-    funct(kama_muta(u)).a > u.a.
+    synthetic_integration(kama_muta(u)).a > u.a.
     The tension is converted to growth. -/
 theorem recombination_grows (u : ProtorealManifold)
     (h_tension : u.a ≠ u.b * u.m) :
-    (funct (kama_muta u)).a > u.a := by
-  have he : (funct (kama_muta u)).a = u.a + |u.a - u.b * u.m| := by
-    unfold funct kama_muta; ring
+    (synthetic_integration (kama_muta u)).a > u.a := by
+  have he : (synthetic_integration (kama_muta u)).a = u.a + |u.a - u.b * u.m| := by
+    unfold synthetic_integration kama_muta; ring
   rw [he]; linarith [abs_pos.mpr (sub_ne_zero.mpr h_tension)]
 
 -- ═══════════════════════════════════════════════════════
@@ -135,20 +135,20 @@ theorem transfer_changes_noise (e sr : ℝ) (c_p c_q : ℕ)
 -- ═══════════════════════════════════════════════════════
 -- THE CHROMATIC CONNECTION
 -- Holomovement through L-space shifts the chromatic harmonic.
--- Each funct cycle advances l by 1, changing the prime.
+-- Each synthetic_integration cycle advances l by 1, changing the prime.
 -- ═══════════════════════════════════════════════════════
 
 /-- Funct advances L-depth by exactly 1. -/
-theorem funct_depth_advance (u : ProtorealManifold) :
-    (funct u).l = u.l + 1 := by
-  unfold funct; ring
+theorem synthetic_integration_depth_advance (u : ProtorealManifold) :
+    (synthetic_integration u).l = u.l + 1 := by
+  unfold synthetic_integration; ring
 
-/-- The superparticular interval gets cheaper after each funct cycle.
+/-- The superparticular interval gets cheaper after each synthetic_integration cycle.
     Uses interval_decreasing from ChromaticCombinatorics. -/
 theorem holomovement_cheapens_transitions (u : ProtorealManifold)
     (hl : u.l ≥ 0) :
-    I ((funct u).l) < I u.l := by
-  rw [funct_depth_advance]
+    I ((synthetic_integration u).l) < I u.l := by
+  rw [synthetic_integration_depth_advance]
   exact interval_decreasing u.l hl
 
 /-- Growth is chromatic: each recombination cycle both
@@ -156,10 +156,10 @@ theorem holomovement_cheapens_transitions (u : ProtorealManifold)
     moves through the color wheel as it grows. -/
 theorem chromatic_growth (u : ProtorealManifold)
     (h_tension : u.a ≠ u.b * u.m) :
-    (funct (kama_muta u)).a > u.a ∧
-    (funct (kama_muta u)).l = u.l + 1 := by
+    (synthetic_integration (kama_muta u)).a > u.a ∧
+    (synthetic_integration (kama_muta u)).l = u.l + 1 := by
   constructor
   · exact recombination_grows u h_tension
-  · unfold funct kama_muta; ring
+  · unfold synthetic_integration kama_muta; ring
 
 end InfoPhysAxioms.ChromaticHolomovement

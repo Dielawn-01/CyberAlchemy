@@ -279,7 +279,7 @@ theorem two_phase_is_minimal :
     being provable — and that boundary is κ = -1. -/
 theorem incompleteness_is_curvature :
     -- 1. λ encodes successor (Peano arithmetic)
-    (∀ u : ProtorealManifold, (funct u).l = u.l + 1) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).l = u.l + 1) ∧
     -- 2. The Bridge Identity (source of encoding power)
     (ProtorealManifold.mul omega iota).a = -1 ∧
     -- 3. The same Bridge creates κ = -1 (non-associativity)
@@ -292,7 +292,7 @@ theorem incompleteness_is_curvature :
     EulerPerception.euler_perception = -1 ∧
     -- 5. Normalization requires exactly 2 phases
     (4 + 1 = 5) := by
-  exact ⟨SafetyBounds.successor_is_funct,
+  exact ⟨SafetyBounds.successor_is_synthetic_integration,
          by unfold omega iota ProtorealManifold.mul; norm_num,
          by unfold omega iota ProtorealManifold.mul; norm_num,
          face_algebraic,
@@ -332,17 +332,17 @@ theorem incompleteness_source_master :
     -- 4. All 6 faces equal κ
     (PentagonCoherence.assoc omega omega iota).a = -1 ∧
     EulerPerception.euler_perception = -1 ∧
-    -- 5. Successor = funct (Gödel applies)
-    (∀ u : ProtorealManifold, (funct u).l = u.l + 1) ∧
+    -- 5. Successor = synthetic_integration (Gödel applies)
+    (∀ u : ProtorealManifold, (synthetic_integration u).l = u.l + 1) ∧
     -- 6. Noise margin is linear (bounded by |κ|)
     (∀ u : ProtorealManifold,
-      (consolidate u).e - u.e = 1) := by
+      (automatic_differentiation u).e - u.e = 1) := by
   exact ⟨bridge_breaks_commutativity,
          face_structural,
          associator_gap_is_curvature,
          face_algebraic,
          face_combinatoric,
-         SafetyBounds.successor_is_funct,
+         SafetyBounds.successor_is_synthetic_integration,
          BitCollapse.noise_per_step⟩
 
 end IncompletenessSource

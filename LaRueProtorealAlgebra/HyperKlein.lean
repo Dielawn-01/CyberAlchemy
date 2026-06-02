@@ -15,7 +15,7 @@ and proving that the κ = −1 invariant is preserved at each level.
 
 | Level | Operation | Klein Realization |
 |-------|-----------|-------------------|
-| H₀ | Successor | funct (λ += 1) |
+| H₀ | Successor | synthetic_integration (λ += 1) |
 | H₁ | Addition  | Manifold addition |
 | H₂ | Multiplication | Klein multiplication |
 | H₃ | Exponentiation | Left-associated Klein power |
@@ -172,10 +172,10 @@ theorem tower_collapse :
 -- INVARIANT PRESERVATION
 -- ════════════════════════════════════════════════════
 
-/-- **H₀ PRESERVES κ**: funct preserves thrust and anchor. -/
+/-- **H₀ PRESERVES κ**: synthetic_integration preserves thrust and anchor. -/
 theorem h0_preserves_gap (u : ProtorealManifold) :
-    (funct u).b = u.b ∧ (funct u).m = u.m := by
-  unfold funct; exact ⟨rfl, rfl⟩
+    (synthetic_integration u).b = u.b ∧ (synthetic_integration u).m = u.m := by
+  unfold synthetic_integration; exact ⟨rfl, rfl⟩
 
 /-- **H₂ PRODUCES κ**: Klein multiplication generates κ = −1. -/
 theorem h2_produces_curvature :
@@ -205,14 +205,14 @@ theorem hexation_closure :
 -- ════════════════════════════════════════════════════
 
 /-- **THE HYPEROPERATION TOWER THEOREM**
-    1. H₀ (funct) preserves the spectral gap
+    1. H₀ (synthetic_integration) preserves the spectral gap
     2. H₂ (Klein mult) produces κ = −1
     3. H₃ (Klein power) has 3 fixpoints and 1 oscillator
     4. H₄–H₆ collapse for fixpoint elements
     5. Hexation rank (6) = Klein edge count (6)
     6. ι oscillation witnesses: ι² = −ι, ι³ = ι -/
 theorem hyperoperation_tower :
-    (∀ u : ProtorealManifold, (funct u).b = u.b ∧ (funct u).m = u.m) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).b = u.b ∧ (synthetic_integration u).m = u.m) ∧
     (PentagonCoherence.assoc omega omega iota).a = -1 ∧
     (∀ n : ℕ, klein_pow omega (n + 1) = omega) ∧
     (∀ n : ℕ, klein_pow FusionRing.eE (n + 1) = FusionRing.eE) ∧

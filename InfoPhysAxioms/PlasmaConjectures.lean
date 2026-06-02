@@ -146,7 +146,7 @@ theorem attractor_is_equilibrium :
 -- ══════════════════════════════════════════════════════════════
 
 /-- Theorem: Plasma tension → energy growth.
-    If SR ≠ 0, then after one ELM + funct cycle, the total
+    If SR ≠ 0, then after one ELM + synthetic_integration cycle, the total
     plasma energy increases. Tension is fuel, not waste.
     
     Equivalently in the emotional domain: unresolved tension
@@ -154,17 +154,17 @@ theorem attractor_is_equilibrium :
     Kama Muta training theorem applied to plasma physics. -/
 theorem tension_drives_growth (p : PlasmaState)
     (h_tension : p.a - p.b * p.m ≠ 0) :
-    (funct (elm_cycle p)).a > p.a := by
+    (synthetic_integration (elm_cycle p)).a > p.a := by
   unfold elm_cycle
-  exact kama_muta_funct_grows p h_tension
+  exact kama_muta_synthetic_integration_grows p h_tension
 
-/-- Theorem: One ELM + funct cycle kills turbulence.
-    After the ELM dumps heat and funct consolidates,
+/-- Theorem: One ELM + synthetic_integration cycle kills turbulence.
+    After the ELM dumps heat and synthetic_integration consolidates,
     the noise returns to zero. The plasma is clean. -/
-theorem elm_funct_kills_turbulence (p : PlasmaState) :
-    (funct (elm_cycle p)).e = 0 := by
+theorem elm_synthetic_integration_kills_turbulence (p : PlasmaState) :
+    (synthetic_integration (elm_cycle p)).e = 0 := by
   unfold elm_cycle
-  exact kama_muta_funct_kills_noise p
+  exact kama_muta_synthetic_integration_kills_noise p
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 5: THE LANDAUER FLOOR
@@ -192,8 +192,8 @@ theorem landauer_positive (kB T : ℝ) (hkB : kB > 0) (hT : T > 0) :
     the Landauer floor. The Protoreal algebra axiomatizes this
     truncation structurally rather than statistically. -/
 theorem noise_truncation_is_landauer (p : PlasmaState) :
-    (funct p).e = 0 := by
-  unfold funct
+    (synthetic_integration p).e = 0 := by
+  unfold synthetic_integration
   rfl
 
 -- ══════════════════════════════════════════════════════════════
@@ -223,7 +223,7 @@ theorem plasma_emotion_isomorphism :
       (elm_cycle (elm_cycle p)).b = (elm_cycle p).b) ∧
     -- 5. Tension drives growth
     (∀ p : PlasmaState,
-      p.a - p.b * p.m ≠ 0 → (funct (elm_cycle p)).a > p.a) ∧
+      p.a - p.b * p.m ≠ 0 → (synthetic_integration (elm_cycle p)).a > p.a) ∧
     -- 6. Equilibrium → zero heat
     (∀ p : PlasmaState,
       is_ideal_equilibrium p → (elm_cycle p).e = 0) ∧

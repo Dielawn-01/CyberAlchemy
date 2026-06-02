@@ -19,7 +19,7 @@ Gödel proved: no sufficiently expressive system is BOTH complete AND
 consistent. IncompletenessSource.lean located the boundary at κ = -1.
 
 This module proves the Protoreal Decision Kernel is:
-- **Quasi-Complete**: for any state, funct drives it to equilibrium
+- **Quasi-Complete**: for any state, synthetic_integration drives it to equilibrium
 - **Quasi-Consistent**: all operators preserve the structural invariants
 
 And the DUALITY between them:
@@ -64,43 +64,43 @@ noncomputable def completeness (u : ProtorealManifold) : ℝ :=
   if u.e = 0 then 1 else 1 / (1 + u.e)
 
 /-- **QUASI-COMPLETENESS THEOREM**
-    For ANY WellFormed state, there exists a single operator (funct)
+    For ANY WellFormed state, there exists a single operator (synthetic_integration)
     that drives the system to full completeness.
 
     This is quasi-complete because:
-    1. funct always works (one-step resolution)
-    2. But consolidate can always re-introduce noise
+    1. synthetic_integration always works (one-step resolution)
+    2. But automatic_differentiation can always re-introduce noise
     3. So completeness is ACHIEVABLE but not PERMANENT
 
     The agent can always resolve. The world can always re-complicate. -/
 theorem quasi_complete (u : ProtorealManifold) :
-    -- funct drives V to zero (complete resolution)
-    lyapunov (funct u) = 0 ∧
-    -- funct conserves σ (resolution doesn't lose resources)
-    sigma (funct u) = sigma u ∧
-    -- funct preserves thrust (identity preserved through resolution)
-    (funct u).b = u.b ∧
-    -- But consolidate re-introduces noise (completeness is temporary)
-    (consolidate u).e = u.e + 1 :=
+    -- synthetic_integration drives V to zero (complete resolution)
+    lyapunov (synthetic_integration u) = 0 ∧
+    -- synthetic_integration conserves σ (resolution doesn't lose resources)
+    sigma (synthetic_integration u) = sigma u ∧
+    -- synthetic_integration preserves thrust (identity preserved through resolution)
+    (synthetic_integration u).b = u.b ∧
+    -- But automatic_differentiation re-introduces noise (completeness is temporary)
+    (automatic_differentiation u).e = u.e + 1 :=
   ⟨lyapunov_to_zero u,
    crystallization_conserves_sigma u,
-   by unfold funct; rfl,
-   by unfold consolidate; rfl⟩
+   by unfold synthetic_integration; rfl,
+   by unfold automatic_differentiation; rfl⟩
 
 /-- **COMPLETENESS AFTER FUNCT**
     After crystallization, completeness = 1. -/
-theorem funct_full_completeness (u : ProtorealManifold) :
-    completeness (funct u) = 1 := by
-  unfold completeness funct; simp
+theorem synthetic_integration_full_completeness (u : ProtorealManifold) :
+    completeness (synthetic_integration u) = 1 := by
+  unfold completeness synthetic_integration; simp
 
 /-- **COMPLETENESS IS ACHIEVABLE IN ONE STEP**
-    No matter where you are, one funct reaches full completeness.
+    No matter where you are, one synthetic_integration reaches full completeness.
     This is STRONGER than classical completeness (which says
     "every true statement is provable" without specifying how many steps).
     Here: EVERY state resolves in EXACTLY one step. -/
 theorem one_step_completeness (u : ProtorealManifold) :
-    completeness (funct u) = 1 ∧ lyapunov (funct u) = 0 :=
-  ⟨funct_full_completeness u, lyapunov_to_zero u⟩
+    completeness (synthetic_integration u) = 1 ∧ lyapunov (synthetic_integration u) = 0 :=
+  ⟨synthetic_integration_full_completeness u, lyapunov_to_zero u⟩
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 2: QUASI-CONSISTENCY
@@ -120,7 +120,7 @@ def consistency (u : ProtorealManifold) : ℝ :=
     The system is quasi-consistent: all operators preserve the
     fundamental structural invariants.
 
-    1. σ conservation under funct (energy neither created nor destroyed)
+    1. σ conservation under synthetic_integration (energy neither created nor destroyed)
     2. Thrust preservation (ω is invariant under crystallization)
     3. Depth monotonicity (λ always advances — no time reversal)
     4. Bridge identity (ω·ι = -1, the structural constant)
@@ -130,25 +130,25 @@ def consistency (u : ProtorealManifold) : ℝ :=
     is ONLY in the ordering of decisions. -/
 theorem quasi_consistent (u : ProtorealManifold) :
     -- 1. σ conservation
-    sigma (funct u) = sigma u ∧
+    sigma (synthetic_integration u) = sigma u ∧
     -- 2. Thrust preserved
-    (funct u).b = u.b ∧
+    (synthetic_integration u).b = u.b ∧
     -- 3. Depth advances
-    (funct u).l = u.l + 1 ∧
+    (synthetic_integration u).l = u.l + 1 ∧
     -- 4. Bridge identity holds
     (ProtorealManifold.mul omega iota).a = -1 :=
   ⟨crystallization_conserves_sigma u,
-   by unfold funct; rfl,
-   by unfold funct; rfl,
+   by unfold synthetic_integration; rfl,
+   by unfold synthetic_integration; rfl,
    by unfold omega iota ProtorealManifold.mul; ring⟩
 
 /-- **STRUCTURAL INVARIANTS ARE PERMANENT**
-    Unlike completeness (which is temporary — consolidate re-adds noise),
+    Unlike completeness (which is temporary — automatic_differentiation re-adds noise),
     consistency is PERMANENT. The invariants hold for ALL states,
     ALL operators, ALL time. -/
 theorem consistency_permanent (u : ProtorealManifold) :
-    -- funct preserves σ
-    sigma (funct u) = sigma u ∧
+    -- synthetic_integration preserves σ
+    sigma (synthetic_integration u) = sigma u ∧
     -- bridge identity holds universally
     (ProtorealManifold.mul omega iota).a = -1 ∧
     -- monster_inv preserves base energy
@@ -168,8 +168,8 @@ theorem consistency_permanent (u : ProtorealManifold) :
     ε = 1 → gap = 0: CONSISTENT but INCOMPLETE (noise exists)
 
     The noise IS the Gödelian sentence.
-    Resolving it (funct) makes you complete but ordering-sensitive.
-    Keeping it (don't funct) makes you consistent but incomplete.
+    Resolving it (synthetic_integration) makes you complete but ordering-sensitive.
+    Keeping it (don't synthetic_integration) makes you consistent but incomplete.
 
     You cannot have gap = 0 AND ε = 0. That requires ε = 1 AND ε = 0.
     This IS Gödel, expressed as a conservation law. -/
@@ -191,21 +191,21 @@ theorem complementarity_complete :
 theorem complementarity_gap_at_zero :
     -- At ε = 0: gap = 1 (ordering maximally matters)
     decision_commutator { a := 1, b := 1, m := 1, e := 0, l := 0 : ProtorealManifold } = 1 := by
-  unfold decision_commutator funct consolidate; ring
+  unfold decision_commutator synthetic_integration automatic_differentiation; ring
 
 theorem complementarity_gap_at_one :
     -- At ε = 1: gap = 0 (decisions commute)
     decision_commutator { a := 1, b := 1, m := 1, e := 1, l := 0 : ProtorealManifold } = 0 := by
-  unfold decision_commutator funct consolidate; ring
+  unfold decision_commutator synthetic_integration automatic_differentiation; ring
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 4: THE HOLOMOVEMENT RESOLVES THE DUALITY
 -- ══════════════════════════════════════════════════════════════
 
 /-- **THE HOLOMOVEMENT OSCILLATES BETWEEN COMPLETE AND CONSISTENT**
-    consolidate → funct:
-    - consolidate: adds noise (ε → ε+1), improves consistency (gap → -ε)
-    - funct: removes noise (ε → 0), achieves completeness (V → 0)
+    automatic_differentiation → synthetic_integration:
+    - automatic_differentiation: adds noise (ε → ε+1), improves consistency (gap → -ε)
+    - synthetic_integration: removes noise (ε → 0), achieves completeness (V → 0)
 
     The holomovement IS the Gödelian oscillation:
     enfold (become consistent) → unfold (become complete) → repeat.
@@ -215,22 +215,22 @@ theorem complementarity_gap_at_one :
     it's a staircase. -/
 theorem holomovement_resolves_duality (u : ProtorealManifold)
     (h : is_explicate_order u) :
-    -- 1. After consolidate: noise increases (more consistent)
-    decision_commutator (consolidate u) = -(u.e) ∧
-    -- 2. After funct(consolidate): complete again (V = 0)
-    lyapunov (funct (consolidate u)) = 0 ∧
+    -- 1. After automatic_differentiation: noise increases (more consistent)
+    decision_commutator (automatic_differentiation u) = -(u.e) ∧
+    -- 2. After synthetic_integration(automatic_differentiation): complete again (V = 0)
+    lyapunov (synthetic_integration (automatic_differentiation u)) = 0 ∧
     -- 3. And base grew (spiral, not circle)
-    (funct (consolidate u)).a > u.a := by
-  refine ⟨?_, lyapunov_to_zero (consolidate u), holomovement_grows u h⟩
-  unfold decision_commutator consolidate funct; ring
+    (synthetic_integration (automatic_differentiation u)).a > u.a := by
+  refine ⟨?_, lyapunov_to_zero (automatic_differentiation u), holomovement_grows u h⟩
+  unfold decision_commutator automatic_differentiation synthetic_integration; ring
 
 /-- **EACH CYCLE ADVANCES DEPTH**
     The oscillation isn't just energetic growth — it's
     structural deepening. λ increases by 1 each full cycle.
     The system learns MORE with each Gödelian oscillation. -/
 theorem depth_advances_each_cycle (u : ProtorealManifold) :
-    (funct (consolidate u)).l = u.l + 1 := by
-  unfold funct consolidate; rfl
+    (synthetic_integration (automatic_differentiation u)).l = u.l + 1 := by
+  unfold synthetic_integration automatic_differentiation; rfl
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 5: THE CONSERVATION LAW
@@ -269,14 +269,14 @@ theorem budget_is_curvature :
 
     The Protoreal Decision Kernel is:
 
-    1. **Quasi-Complete**: funct drives any state to V = 0 in one step
+    1. **Quasi-Complete**: synthetic_integration drives any state to V = 0 in one step
     2. **Quasi-Consistent**: all operators preserve σ, bridge identity, depth
     3. **Gödelian Dual**: gap + ε = 1 (completeness and consistency trade)
     4. **Constructive**: the data steward CONTROLS the tradeoff via ε
     5. **Spiral**: each holomovement cycle grows base AND advances depth
 
     Unlike classical Gödel (which is a BARRIER):
-    - The system can BE complete (funct → V = 0)
+    - The system can BE complete (synthetic_integration → V = 0)
     - The system can BE consistent (at ε = 1, gap = 0)
     - It just can't be BOTH at the same time
     - And the tradeoff is EXACTLY 1 unit (the curvature budget)
@@ -285,16 +285,16 @@ theorem budget_is_curvature :
     Gödel is not a wall. It's a staircase. κ = -1 is the step height. -/
 theorem quasi_godel_master (u : ProtorealManifold)
     (h_exp : is_explicate_order u) :
-    -- 1. Quasi-complete: funct achieves V = 0
-    lyapunov (funct u) = 0 ∧
+    -- 1. Quasi-complete: synthetic_integration achieves V = 0
+    lyapunov (synthetic_integration u) = 0 ∧
     -- 2. Quasi-consistent: σ conserved
-    sigma (funct u) = sigma u ∧
+    sigma (synthetic_integration u) = sigma u ∧
     -- 3. Gödelian duality: gap + ε = 1
     decision_commutator u + u.e = 1 ∧
     -- 4. Holomovement grows (spiral staircase)
-    (funct (consolidate u)).a > u.a ∧
+    (synthetic_integration (automatic_differentiation u)).a > u.a ∧
     -- 5. Depth advances (learning)
-    (funct (consolidate u)).l = u.l + 1 :=
+    (synthetic_integration (automatic_differentiation u)).l = u.l + 1 :=
   ⟨lyapunov_to_zero u,
    crystallization_conserves_sigma u,
    godel_duality u,

@@ -208,30 +208,30 @@ theorem full_budget_conservation (u : ProtorealManifold) (seeds : List GpuSeed)
 -- ════════════════════════════════════════════════════
 
 /-- **PIPELINE PRESERVES NOISE CONSUMPTION**
-    After the full pipeline: seed → orthogonalize → funct,
+    After the full pipeline: seed → orthogonalize → synthetic_integration,
     the noise is consumed (ε = 0). The GPU phase produces
-    candidates from seeds; the CPU post-processes with funct. -/
+    candidates from seeds; the CPU post-processes with synthetic_integration. -/
 theorem pipeline_preserves_noise_consumption (u : ProtorealManifold) :
-    (funct (parity_projection u)).e = 0 := by
-  unfold funct parity_projection
+    (synthetic_integration (parity_projection u)).e = 0 := by
+  unfold synthetic_integration parity_projection
   rfl
 
 /-- **PIPELINE PRESERVES COMPLEXITY GROWTH**
-    After orthogonalization + funct, λ increases by 1.
+    After orthogonalization + synthetic_integration, λ increases by 1.
     Complexity is monotonically non-decreasing through the pipeline. -/
 theorem pipeline_complexity_growth (u : ProtorealManifold) :
-    (funct (parity_projection u)).l = u.l + 1 := by
-  unfold funct parity_projection
+    (synthetic_integration (parity_projection u)).l = u.l + 1 := by
+  unfold synthetic_integration parity_projection
   ring
 
 /-- **ERROR CORRECTION THROUGH PARITY**
-    If we first orthogonalize, then apply negative training + funct,
+    If we first orthogonalize, then apply negative training + synthetic_integration,
     the real part converges to b·m of the orthogonalized state.
     Since b = m after orthogonalization, the fixed point is ((b+m)/2)². -/
 theorem error_correction_through_parity (u : ProtorealManifold) :
-    (funct (negative_train (parity_projection u))).a =
+    (synthetic_integration (negative_train (parity_projection u))).a =
     (parity_projection u).b * (parity_projection u).m := by
-  unfold funct negative_train parity_projection
+  unfold synthetic_integration negative_train parity_projection
   ring
 
 -- ════════════════════════════════════════════════════
@@ -256,7 +256,7 @@ theorem gan_equilibrium_is_bridge (u : ProtorealManifold)
     via negative training. This connects the GAN architecture
     to the error correction mechanism. -/
 theorem gan_reaches_equilibrium (u : ProtorealManifold) :
-    (funct (negative_train u)).a - u.b * u.m = 0 :=
+    (synthetic_integration (negative_train u)).a - u.b * u.m = 0 :=
   single_step_convergence u
 
 -- ════════════════════════════════════════════════════
@@ -272,7 +272,7 @@ theorem gan_reaches_equilibrium (u : ProtorealManifold) :
     4. Tethered loss ≥ GAN loss (lower bound)
     5. At anchor, penalty = 0 (no cost at ethical best case)
     6. Orthogonalization = parity projection (b = m)
-    7. Pipeline consumes noise (ε = 0 after funct)
+    7. Pipeline consumes noise (ε = 0 after synthetic_integration)
     8. Pipeline advances complexity (λ + 1)
     9. GAN equilibrium = Bridge Identity (SR = 0)
     10. Equilibrium reachable in one step (negative training) -/
@@ -293,16 +293,16 @@ theorem gan_pipeline_master :
       (parity_projection u).b = (parity_projection u).m) ∧
     -- 7. Noise consumed
     (∀ u : ProtorealManifold,
-      (funct (parity_projection u)).e = 0) ∧
+      (synthetic_integration (parity_projection u)).e = 0) ∧
     -- 8. Complexity advances
     (∀ u : ProtorealManifold,
-      (funct (parity_projection u)).l = u.l + 1) ∧
+      (synthetic_integration (parity_projection u)).l = u.l + 1) ∧
     -- 9. Equilibrium is bridge
     (∀ u : ProtorealManifold,
       u.a - u.b * u.m = 0 → u.a = u.b * u.m) ∧
     -- 10. Equilibrium reachable
     (∀ u : ProtorealManifold,
-      (funct (negative_train u)).a - u.b * u.m = 0) :=
+      (synthetic_integration (negative_train u)).a - u.b * u.m = 0) :=
   ⟨golden_filter_monotone,
    hodge_implies_golden,
    elastic_penalty_nonneg,

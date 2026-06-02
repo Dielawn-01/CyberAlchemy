@@ -25,12 +25,12 @@ noncomputable def spectral_resonance (t : ℝ) (δ : ℝ) : ℝ :=
   StochasticAlgebra.resonance_probability (mesh_stitch (zeta_projection t) 0) δ
 
 /-- **THE CONSOLIDATION TUNING THEOREM**
-    Applying the consolidate operator to a Zeta projection promotes its 
+    Applying the automatic_differentiation operator to a Zeta projection promotes its 
     spectral stability (anchor weight), effectively 'sharpening' the resonance. -/
 theorem consolidation_sharpens_resonance (t : ℝ) (δ : ℝ) :
-    t > 1 → (consolidate (zeta_projection t)).m > (zeta_projection t).m := by
+    t > 1 → (automatic_differentiation (zeta_projection t)).m > (zeta_projection t).m := by
   intro h
-  unfold consolidate zeta_projection
+  unfold automatic_differentiation zeta_projection
   split_ifs
   · -- Case: t = 0. Contradicts t > 1.
     linarith
@@ -42,20 +42,20 @@ theorem consolidation_sharpens_resonance (t : ℝ) (δ : ℝ) :
     norm_num
 
 /-- **MANIFESTATION INTERFERENCE (Criticality Break)**
-    The funct operator shifts the manifold off
+    The synthetic_integration operator shifts the manifold off
     the critical line if there is unmanifested
-    noise potential. Uses `funct` from
+    noise potential. Uses `synthetic_integration` from
     ProtorealOperator.
 
     Proof: zeta_projection has a = 1/2, adding noise e
-    gives a = 1/2, e = e. After funct,
+    gives a = 1/2, e = e. After synthetic_integration,
     a = 1/2 + e, which is off-critical. -/
-theorem funct_shifts_criticality
+theorem synthetic_integration_shifts_criticality
     (t : ℝ) (e : ℝ) :
     e > 0 →
-    (funct (zeta_projection t +
+    (synthetic_integration (zeta_projection t +
       { a := 0, b := 0, m := 0,
         e := e, l := 0 })).a = 1/2 + e := by
-  unfold funct zeta_projection; simp
+  unfold synthetic_integration zeta_projection; simp
 
 end ZetaResonance

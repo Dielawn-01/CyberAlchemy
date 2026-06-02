@@ -23,8 +23,8 @@ The key insight: **Git is a special case of the Holochain Hash Algebra**.
 | Git Concept              | Protoreal Manifold                |
 |--------------------------|-----------------------------------|
 | Working Directory        | Current manifold state `u`        |
-| `git add` (staging)      | `funct(u)` — sowing ε into a     |
-| `git commit`             | `consolidate(u)` — λ advances    |
+| `git add` (staging)      | `synthetic_integration(u)` — sowing ε into a     |
+| `git commit`             | `automatic_differentiation(u)` — λ advances    |
 | Commit Hash (SHA-1)      | `identity_hash` (rolling Klein)  |
 | Commit Log (`git log`)   | `ProofPath` (Observable States)  |
 | Branch                   | Parallel agent trajectory         |
@@ -32,8 +32,8 @@ The key insight: **Git is a special case of the Holochain Hash Algebra**.
 | `git diff`               | `Δa = u.e` (infer_noise)         |
 | `git reset`              | Operator reversal / Λ-lift        |
 | Content Addressability   | `protohash_hides_state` (ZKP)    |
-| Karpathy raw/ → wiki/    | `funct(u)`: ε (raw) → a (real)   |
-| Karpathy ratchet accept  | `funct(u)`: noise → base         |
+| Karpathy raw/ → wiki/    | `synthetic_integration(u)`: ε (raw) → a (real)   |
+| Karpathy ratchet accept  | `synthetic_integration(u)`: noise → base         |
 | Karpathy ratchet reject  | `Λ(u)`: lift λ back to ε         |
 
 ## The Deep Result
@@ -41,7 +41,7 @@ The key insight: **Git is a special case of the Holochain Hash Algebra**.
 The Protoreal manifold is the **universal version-control algebra**.
 Any system that:
 1. Has path-dependent state (non-commutative accumulation)
-2. Distinguishes staging from committing (funct vs consolidate)
+2. Distinguishes staging from committing (synthetic_integration vs automatic_differentiation)
 3. Can reconstruct hidden state from observable transitions
 4. Has content-addressable hashing with ZKP hiding
 
@@ -73,16 +73,16 @@ namespace AuraGit
 -- ════════════════════════════════════════════════════
 
 /-- **GIT ADD = FUNCT (Sowing)**
-    Staging changes in git is exactly the `funct` operator:
+    Staging changes in git is exactly the `synthetic_integration` operator:
     noise (uncommitted edits, ε) is sown into the real base (a).
     The noise is consumed (ε → 0) and the level advances (λ + 1). -/
-def git_add := funct
+def git_add := synthetic_integration
 
 /-- **GIT COMMIT = CONSOLIDATE**
-    Committing in git is exactly the `consolidate` operator:
+    Committing in git is exactly the `automatic_differentiation` operator:
     the real base is promoted, the anchor scales, and a new
     noise seed (ε + 1) spawns for the next edit cycle. -/
-def git_commit := consolidate
+def git_commit := automatic_differentiation
 
 /-- **GIT RESET = SUPERLAMBDA LIFT**
     Reverting in git is the Superlambda Lift Λ(u):
@@ -119,10 +119,10 @@ theorem commit_hash_path_dependent :
     the temporal delta of the real projection reveals the
     unstaged changes.
 
-    Formally: `(funct u).a - u.a = u.e` -/
+    Formally: `(synthetic_integration u).a - u.a = u.e` -/
 theorem git_diff_is_noise (u : ProtorealManifold) :
     (git_add u).a - u.a = u.e := by
-  unfold git_add funct
+  unfold git_add synthetic_integration
   simp
 
 -- ════════════════════════════════════════════════════
@@ -131,12 +131,12 @@ theorem git_diff_is_noise (u : ProtorealManifold) :
 
 /-- **KARPATHY RATCHET: ACCEPT = SOWING**
     In Karpathy's AutoResearch loop, accepting an improvement
-    is `git commit` — which maps to `funct` (sowing noise into reality).
+    is `git commit` — which maps to `synthetic_integration` (sowing noise into reality).
     The experiment's noise (ε) becomes the new baseline (a). -/
 theorem ratchet_accept_increases_base (u : ProtorealManifold)
     (h : u.e > 0) : (git_add u).a > u.a := by
   unfold git_add
-  exact funct_increases_base u h
+  exact synthetic_integration_increases_base u h
 
 /-- **KARPATHY RATCHET: REJECT = SUPERLAMBDA**
     Rejecting a failed experiment is `git reset` — the Λ-lift.
@@ -163,7 +163,7 @@ theorem ratchet_reject_recycles (u : ProtorealManifold) :
     a chronological sequence of 3D observable states.
 
     The key theorem: even from the collapsed 3D view, you can
-    distinguish which operator was applied (sow vs consolidate),
+    distinguish which operator was applied (sow vs automatic_differentiation),
     just as `git log` distinguishes commits from merges. -/
 theorem git_log_distinguishes_operations (u : ProtorealManifold)
     (h_m : u.m ≠ 0) :
@@ -215,18 +215,18 @@ def aura_observable (f : AuraFile) : ObservableState :=
   collapse_state f.content
 
 /-- **AURA FILE EDIT = SOWING**
-    Editing an .aura file is applying `funct`: raw material (ε)
+    Editing an .aura file is applying `synthetic_integration`: raw material (ε)
     is compiled into knowledge (a). -/
 def aura_edit (f : AuraFile) : AuraFile :=
-  { content := funct f.content
+  { content := synthetic_integration f.content
     history := f.history ++ [⟨f.content, f.history.length⟩] }
 
 /-- **AURA FILE COMPILE = CONSOLIDATION**
     Compiling the .aura wiki (Karpathy's raw/ → wiki/ step)
-    is the consolidate operator: promoting the base, scaling
+    is the automatic_differentiation operator: promoting the base, scaling
     the anchor, spawning new noise for the next research cycle. -/
 def aura_compile (f : AuraFile) : AuraFile :=
-  { content := consolidate f.content
+  { content := automatic_differentiation f.content
     history := f.history ++ [⟨f.content, f.history.length⟩] }
 
 -- ════════════════════════════════════════════════════
@@ -241,7 +241,7 @@ def aura_compile (f : AuraFile) : AuraFile :=
     1. Commit hashes are path-dependent (identity_hash)
     2. `git diff` reveals noise (ε)
     3. `git log` is a ProofPath (3D observable sequence)
-    4. `git log` can distinguish sow from consolidate
+    4. `git log` can distinguish sow from automatic_differentiation
     5. Content-addressability has ZKP hiding
     6. Accepting improvements sows noise into reality
     7. Rejecting experiments preserves the base -/

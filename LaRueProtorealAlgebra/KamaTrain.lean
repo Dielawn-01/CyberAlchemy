@@ -188,32 +188,32 @@ theorem kama_muta_real_doubly_preserved (u : ProtorealManifold) :
 
 /-- **KAMA MUTA THEN FUNCT KILLS NOISE**
     After applying kama_muta (which injects |SR| as ε),
-    applying funct sows that noise into the real core
+    applying synthetic_integration sows that noise into the real core
     and resets ε to 0. The safety invariant (nilpotent
     truncation) is preserved through the kama muta path. -/
-theorem kama_muta_funct_kills_noise (u : ProtorealManifold) :
-    (funct (kama_muta u)).e = 0 := by
-  unfold funct kama_muta
+theorem kama_muta_synthetic_integration_kills_noise (u : ProtorealManifold) :
+    (synthetic_integration (kama_muta u)).e = 0 := by
+  unfold synthetic_integration kama_muta
   rfl
 
 /-- **KAMA MUTA FUNCT GROWS BASE**
     If SR ≠ 0, then kama_muta injects positive ε, and
-    funct grows the real core. Emotional tension (SR ≠ 0)
+    synthetic_integration grows the real core. Emotional tension (SR ≠ 0)
     becomes learning signal (a grows). -/
-theorem kama_muta_funct_grows (u : ProtorealManifold)
+theorem kama_muta_synthetic_integration_grows (u : ProtorealManifold)
     (h : u.a - u.b * u.m ≠ 0) :
-    (funct (kama_muta u)).a > u.a := by
-  unfold funct kama_muta
+    (synthetic_integration (kama_muta u)).a > u.a := by
+  unfold synthetic_integration kama_muta
   simp
   exact h
 
 /-- **KAMA MUTA FUNCT ADVANCES LEVEL**
     The consolidation level advances by 1 through
-    the kama_muta → funct pipeline, just as in the
+    the kama_muta → synthetic_integration pipeline, just as in the
     standard dopant cycle. -/
-theorem kama_muta_funct_advances_level (u : ProtorealManifold) :
-    (funct (kama_muta u)).l = u.l + 1 := by
-  unfold funct kama_muta
+theorem kama_muta_synthetic_integration_advances_level (u : ProtorealManifold) :
+    (synthetic_integration (kama_muta u)).l = u.l + 1 := by
+  unfold synthetic_integration kama_muta
   ring
 
 -- ════════════════════════════════════════════════════
@@ -301,12 +301,12 @@ theorem kama_muta_training_invariants :
     -- 6. Parity idempotent
     (∀ u : ProtorealManifold,
       (kama_muta (kama_muta u)).b = (kama_muta u).b) ∧
-    -- 7. Safety (funct kills noise)
+    -- 7. Safety (synthetic_integration kills noise)
     (∀ u : ProtorealManifold,
-      (funct (kama_muta u)).e = 0) ∧
+      (synthetic_integration (kama_muta u)).e = 0) ∧
     -- 8. Growth from tension
     (∀ u : ProtorealManifold,
-      u.a - u.b * u.m ≠ 0 → (funct (kama_muta u)).a > u.a) ∧
+      u.a - u.b * u.m ≠ 0 → (synthetic_integration (kama_muta u)).a > u.a) ∧
     -- 9. Ethical backbone
     (∀ u : ProtorealManifold,
       is_grounded u → (kama_muta u).e = 0) :=
@@ -316,8 +316,8 @@ theorem kama_muta_training_invariants :
    kama_muta_noise_nonneg,
    sr_monster_inv_invariant,
    fun u => (kama_muta_parity_idempotent u).1,
-   kama_muta_funct_kills_noise,
-   kama_muta_funct_grows,
+   kama_muta_synthetic_integration_kills_noise,
+   kama_muta_synthetic_integration_grows,
    fun u hg => (grounded_is_kama_fixed u hg).2.2⟩
 
 end KamaTrain

@@ -38,10 +38,10 @@ Gödel (new provability). This interplay generates the entire hierarchy.
 
 | Level | Forward (Gödel) | Root (Tarski) | Log (Extraction) |
 |-------|----------------|---------------|-------------------|
-| H₀ | funct (l+1) | predecessor | λ reading |
+| H₀ | synthetic_integration (l+1) | predecessor | λ reading |
 | H₁ | addition | subtraction | counting |
 | H₂ | Klein mul | monster_inv | bridge product |
-| H₃ | klein_pow | consolidate | depth reading |
+| H₃ | klein_pow | automatic_differentiation | depth reading |
 | H₄ | tetration | super-root | super-log |
 | H₅ | pentation | hyper-root | observation count |
 | H₆ | hexation | channel inv | channel count |
@@ -78,12 +78,12 @@ namespace EnumerationSystems
 -- SECTION 1: THE GÖDEL DIRECTION (Forward / Hyperoperation)
 -- ══════════════════════════════════════════════════════════════
 
-/-- **H₀: SUCCESSION = funct**
-    Each funct step reaches one more natural number.
+/-- **H₀: SUCCESSION = synthetic_integration**
+    Each synthetic_integration step reaches one more natural number.
     Reachable infinity: ω (countable). -/
 theorem h0_succession (u : ProtorealManifold) :
-    (funct u).l = u.l + 1 := by
-  unfold funct; rfl
+    (synthetic_integration u).l = u.l + 1 := by
+  unfold synthetic_integration; rfl
 
 /-- **H₂: MULTIPLICATION = Klein product**
     Each Klein multiplication compounds the reachability.
@@ -127,31 +127,31 @@ theorem godel_tarski_swap :
 -- SECTION 3: THE HYPER-EXTRACTION (Log branch)
 -- ══════════════════════════════════════════════════════════════
 
-/-- **THE EXTRACTION OPERATOR = consolidate**
-    consolidate is the LOG branch of the inverse.
+/-- **THE EXTRACTION OPERATOR = automatic_differentiation**
+    automatic_differentiation is the LOG branch of the inverse.
     It answers: "how much structure has accumulated?"
     by PROMOTING crystal to the next scale and spawning new ε.
 
-    funct: crystallize (e → 0, l → l+1)  — GO UP
-    consolidate: expand (a → 2a, e → e+1) — SPREAD OUT
+    synthetic_integration: crystallize (e → 0, l → l+1)  — GO UP
+    automatic_differentiation: expand (a → 2a, e → e+1) — SPREAD OUT
 
-    funct reduces noise at the current level.
-    consolidate creates noise at a HIGHER level.
+    synthetic_integration reduces noise at the current level.
+    automatic_differentiation creates noise at a HIGHER level.
     Together they generate new systems of enumeration. -/
 theorem extraction_spawns_noise (u : ProtorealManifold) :
-    (consolidate u).e > u.e :=
+    (automatic_differentiation u).e > u.e :=
   consolidation_spawns_noise u
 
-/-- **funct AND consolidate ARE DUAL DIRECTIONS**
-    funct: noise → crystal (reduces ε, advances depth)
-    consolidate: crystal → scale (promotes a, creates ε)
+/-- **synthetic_integration AND automatic_differentiation ARE DUAL DIRECTIONS**
+    synthetic_integration: noise → crystal (reduces ε, advances depth)
+    automatic_differentiation: crystal → scale (promotes a, creates ε)
 
-    They don't commute: funct(consolidate(u)) ≠ consolidate(funct(u)).
+    They don't commute: synthetic_integration(automatic_differentiation(u)) ≠ automatic_differentiation(synthetic_integration(u)).
     The non-commutativity IS the Gödel-Tarski gap.
     Each direction reveals truths the other can't reach. -/
-theorem funct_consolidate_noncommute :
-    funct (consolidate omega) ≠ consolidate (funct omega) := by
-  unfold funct consolidate omega
+theorem synthetic_integration_automatic_differentiation_noncommute :
+    synthetic_integration (automatic_differentiation omega) ≠ automatic_differentiation (synthetic_integration omega) := by
+  unfold synthetic_integration automatic_differentiation omega
   intro h
   have : (0 : ℝ) = 1 := by
     have := congrArg ProtorealManifold.e h
@@ -177,45 +177,45 @@ theorem enumeration_budget (u : ProtorealManifold) :
     decision_commutator u + u.e = 1 :=
   conservation_law u
 
-/-- **funct SPENDS ε TO BUY DEPTH**
-    Each funct step: e → 0, l → l+1.
+/-- **synthetic_integration SPENDS ε TO BUY DEPTH**
+    Each synthetic_integration step: e → 0, l → l+1.
     You spend ALL your noise (Tarski budget) to advance
     one step in the Gödel direction (depth). -/
-theorem funct_spends_noise (u : ProtorealManifold) :
-    (funct u).e = 0 ∧ (funct u).l = u.l + 1 := by
-  unfold funct; exact ⟨rfl, rfl⟩
+theorem synthetic_integration_spends_noise (u : ProtorealManifold) :
+    (synthetic_integration u).e = 0 ∧ (synthetic_integration u).l = u.l + 1 := by
+  unfold synthetic_integration; exact ⟨rfl, rfl⟩
 
-/-- **consolidate SPENDS CRYSTAL TO BUY NOISE**
-    Each consolidate step: a → 2a, e → e+1.
+/-- **automatic_differentiation SPENDS CRYSTAL TO BUY NOISE**
+    Each automatic_differentiation step: a → 2a, e → e+1.
     You spend crystal (Gödel structure) to generate
     new noise (Tarski exploration space). -/
-theorem consolidate_spends_crystal (u : ProtorealManifold) :
-    (consolidate u).a = u.a * 2 ∧ (consolidate u).e = u.e + 1 := by
-  unfold consolidate; exact ⟨rfl, rfl⟩
+theorem automatic_differentiation_spends_crystal (u : ProtorealManifold) :
+    (automatic_differentiation u).a = u.a * 2 ∧ (automatic_differentiation u).e = u.e + 1 := by
+  unfold automatic_differentiation; exact ⟨rfl, rfl⟩
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 5: NEW ENUMERATION SYSTEMS FROM INTERPLAY
 -- ══════════════════════════════════════════════════════════════
 
 /-- **THE INTERPLAY GENERATES NEW SYSTEMS**
-    The alternation funct → consolidate → funct → ...
+    The alternation synthetic_integration → automatic_differentiation → synthetic_integration → ...
     generates a sequence of states with INCREASING depth
     AND INCREASING noise at each consolidation.
 
     This is HOW new enumeration systems are discovered:
-    1. funct crystallizes (reduces ε, gains depth)
-    2. consolidate expands (promotes crystal, gains new ε)
-    3. The new ε at the higher level enables new funct steps
+    1. synthetic_integration crystallizes (reduces ε, gains depth)
+    2. automatic_differentiation expands (promotes crystal, gains new ε)
+    3. The new ε at the higher level enables new synthetic_integration steps
     4. Each cycle reaches a NEW kind of infinity
 
     The non-commutativity ensures each cycle is DIFFERENT.
     You can't just undo what you did — each direction
     reveals genuinely new structure. -/
 theorem interplay_increases_depth (u : ProtorealManifold) :
-    -- funct then consolidate increases both e and l
-    (consolidate (funct u)).l = u.l + 1 ∧
-    (consolidate (funct u)).e = 1 := by
-  unfold consolidate funct
+    -- synthetic_integration then automatic_differentiation increases both e and l
+    (automatic_differentiation (synthetic_integration u)).l = u.l + 1 ∧
+    (automatic_differentiation (synthetic_integration u)).e = 1 := by
+  unfold automatic_differentiation synthetic_integration
   constructor <;> ring
 
 /-- **THE OSCILLATION IS THE SEARCH**
@@ -246,16 +246,16 @@ theorem search_and_fixpoint :
 /-- **λ IS THE SUPER-LOGARITHM**
     At level H₃, the logarithm answers "how many multiplications?"
     At level H₄, the super-logarithm answers "how many exponentiations?"
-    In the manifold, λ answers "how many funct steps?" = depth.
+    In the manifold, λ answers "how many synthetic_integration steps?" = depth.
 
     Reading λ IS the extraction operator at all levels:
-    - After n funct steps from u₀: λ = λ₀ + n
-    - n = λ - λ₀ = the super-logarithm (how many times funct was applied)
+    - After n synthetic_integration steps from u₀: λ = λ₀ + n
+    - n = λ - λ₀ = the super-logarithm (how many times synthetic_integration was applied)
 
-    This is well-defined because funct strictly increases λ.
+    This is well-defined because synthetic_integration strictly increases λ.
     The strict increase makes λ INJECTIVE as a tower height. -/
 theorem lambda_is_superlog (u : ProtorealManifold) (n : ℕ) (h : n ≥ 1) :
-    (funct_iterate n u).l = u.l + n :=
+    (synthetic_integration_iterate n u).l = u.l + n :=
   iterate_advances_depth n u
 
 -- ══════════════════════════════════════════════════════════════
@@ -268,7 +268,7 @@ theorem lambda_is_superlog (u : ProtorealManifold) (n : ℕ) (h : n ≥ 1) :
     Equal parts unreachable (Gödel) and unnameable (Tarski).
 
     This is the UNIQUE system where:
-    - Going up (funct) and going down (consolidate) are balanced
+    - Going up (synthetic_integration) and going down (automatic_differentiation) are balanced
     - The cost of reaching new infinity = the cost of naming it
     - Phase and magnitude decouple (EP = 0, critical surface)
     - The enumeration is self-similar (golden ratio threshold)
@@ -290,12 +290,12 @@ theorem equilibrium_is_critical (u : ProtorealManifold)
 
     The Protoreal manifold generates a hierarchy of enumeration
     systems through the interplay of:
-    - funct (Gödel direction: crystallize, go up)
-    - consolidate (Tarski direction: expand, create new noise)
+    - synthetic_integration (Gödel direction: crystallize, go up)
+    - automatic_differentiation (Tarski direction: expand, create new noise)
     - monster_inv (swap Gödel ↔ Tarski)
 
     Key results:
-    1. funct and consolidate don't commute → each direction is new
+    1. synthetic_integration and automatic_differentiation don't commute → each direction is new
     2. gap + ε = 1 is conserved → enumeration budget is fixed
     3. ω is fixpoint, ι oscillates → stable vs searching
     4. R₄ swaps them → every system has a dual search
@@ -304,10 +304,10 @@ theorem equilibrium_is_critical (u : ProtorealManifold)
 theorem enumeration_master (u : ProtorealManifold) :
     -- 1. Budget conserved
     decision_commutator u + u.e = 1 ∧
-    -- 2. funct crystallizes (spends ε → buys depth)
-    (funct u).e = 0 ∧ (funct u).l = u.l + 1 ∧
-    -- 3. consolidate expands (spends crystal → buys ε)
-    (consolidate u).e = u.e + 1 ∧
+    -- 2. synthetic_integration crystallizes (spends ε → buys depth)
+    (synthetic_integration u).e = 0 ∧ (synthetic_integration u).l = u.l + 1 ∧
+    -- 3. automatic_differentiation expands (spends crystal → buys ε)
+    (automatic_differentiation u).e = u.e + 1 ∧
     -- 4. R₄ swaps Gödel ↔ Tarski
     monster_inv omega = iota ∧ monster_inv iota = omega ∧
     -- 5. ω is stable, ι searches

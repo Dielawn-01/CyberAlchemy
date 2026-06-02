@@ -10,10 +10,10 @@ Mapping the Klein Manifold to discrete agentic operations.
 open ProtorealManifold
 
 /-- **FUNCT (Sowing Operator - λ)**
-    The funct operator converts exploration potential (Noise) 
+    The synthetic_integration operator converts exploration potential (Noise) 
     into functional reality (Base). The noise is 'sown' to increase 
     the real core of the manifold. -/
-def funct (u : ProtorealManifold) : ProtorealManifold :=
+def synthetic_integration (u : ProtorealManifold) : ProtorealManifold :=
   { a := u.a + u.e, -- Noise is sown into the Real
     b := u.b,       -- Thrust remains
     m := u.m,       -- Anchor remains
@@ -21,10 +21,10 @@ def funct (u : ProtorealManifold) : ProtorealManifold :=
     l := u.l + 1 }  -- Consolidation level advances
 
 /-- **THE SOWING THEOREM**
-    The funct operator increases the real core if there is non-zero noise. -/
-theorem funct_increases_base (u : ProtorealManifold) :
-    u.e > 0 → (funct u).a > u.a := by
-  unfold funct
+    The synthetic_integration operator increases the real core if there is non-zero noise. -/
+theorem synthetic_integration_increases_base (u : ProtorealManifold) :
+    u.e > 0 → (synthetic_integration u).a > u.a := by
+  unfold synthetic_integration
   intro h
   simp
   linarith
@@ -32,7 +32,7 @@ theorem funct_increases_base (u : ProtorealManifold) :
 /-- **CONSOLIDATE (λ)**
     Generational Consolidation: Promotes the weights of the number's
     components and spawns a new epsilon (Noise) to seed the next scale. -/
-def consolidate (u : ProtorealManifold) : ProtorealManifold :=
+def automatic_differentiation (u : ProtorealManifold) : ProtorealManifold :=
   { a := u.a * 2,  -- Promotion of the Real core
     b := u.b,      -- Maintaining the Thrust horizon
     m := u.m * 2,  -- Promoting the Anchor (Monecule)
@@ -42,8 +42,8 @@ def consolidate (u : ProtorealManifold) : ProtorealManifold :=
 /-- **THE GENERATIONAL SHIFT THEOREM**
     Consolidation increases the exploration potential (Noise). -/
 theorem consolidation_spawns_noise (u : ProtorealManifold) :
-    (consolidate u).e > u.e := by
-  unfold consolidate
+    (automatic_differentiation u).e > u.e := by
+  unfold automatic_differentiation
   simp
 
 /-- **PROMOTE (Promotion Operator - 𝕌)**
@@ -55,7 +55,7 @@ theorem consolidation_spawns_noise (u : ProtorealManifold) :
     Where QEC contracts: noise → recovery → code space,
     Promotion expands: subatomic → molecular → real → galactic → cosmic.
 
-    The cycle closes: λ feeds back into new ε via consolidate. -/
+    The cycle closes: λ feeds back into new ε via automatic_differentiation. -/
 def promote_u (u : ProtorealManifold) : ProtorealManifold :=
   { a := u.m,  -- ι → a (Anchor becomes observable)
     b := u.a,  -- a → ω (Real becomes Thrust)
@@ -92,55 +92,55 @@ end ProtorealInstruction
 -- ═══════════════════════════════════════════════════════
 
 /-- Funct annihilates noise: the exploration signal is zeroed. -/
-theorem funct_kills_noise (u : ProtorealManifold) : (funct u).e = 0 := by
-  unfold funct; rfl
+theorem synthetic_integration_kills_noise (u : ProtorealManifold) : (synthetic_integration u).e = 0 := by
+  unfold synthetic_integration; rfl
 
 /-- Funct absorbs noise into the real core. -/
-theorem funct_absorbs_noise (u : ProtorealManifold) : (funct u).a = u.a + u.e := by
-  unfold funct; rfl
+theorem synthetic_integration_absorbs_noise (u : ProtorealManifold) : (synthetic_integration u).a = u.a + u.e := by
+  unfold synthetic_integration; rfl
 
 /-- Funct advances the layer counter by 1. -/
-theorem funct_advances_layer (u : ProtorealManifold) : (funct u).l = u.l + 1 := by
-  unfold funct; rfl
+theorem synthetic_integration_advances_layer (u : ProtorealManifold) : (synthetic_integration u).l = u.l + 1 := by
+  unfold synthetic_integration; rfl
 
 /-- Funct preserves thrust (ω-component). -/
-theorem funct_preserves_thrust (u : ProtorealManifold) : (funct u).b = u.b := by
-  unfold funct; rfl
+theorem synthetic_integration_preserves_thrust (u : ProtorealManifold) : (synthetic_integration u).b = u.b := by
+  unfold synthetic_integration; rfl
 
 /-- Funct preserves anchor (ι-component). -/
-theorem funct_preserves_anchor (u : ProtorealManifold) : (funct u).m = u.m := by
-  unfold funct; rfl
+theorem synthetic_integration_preserves_anchor (u : ProtorealManifold) : (synthetic_integration u).m = u.m := by
+  unfold synthetic_integration; rfl
 
-/-- When noise is zero, funct is the identity on the real part. -/
-theorem funct_zero_noise_identity (u : ProtorealManifold) (h : u.e = 0) :
-    (funct u).a = u.a := by
-  unfold funct; simp [h]
+/-- When noise is zero, synthetic_integration is the identity on the real part. -/
+theorem synthetic_integration_zero_noise_identity (u : ProtorealManifold) (h : u.e = 0) :
+    (synthetic_integration u).a = u.a := by
+  unfold synthetic_integration; simp [h]
 
-/-- Double application of funct still kills noise (idempotent annihilation). -/
-theorem double_funct_kills_noise (u : ProtorealManifold) : (funct (funct u)).e = 0 := by
-  unfold funct; simp
+/-- Double application of synthetic_integration still kills noise (idempotent annihilation). -/
+theorem double_synthetic_integration_kills_noise (u : ProtorealManifold) : (synthetic_integration (synthetic_integration u)).e = 0 := by
+  unfold synthetic_integration; simp
 
-/-- Double funct advances the layer by 2. -/
-theorem double_funct_layer (u : ProtorealManifold) : (funct (funct u)).l = u.l + 2 := by
-  unfold funct; simp; ring
+/-- Double synthetic_integration advances the layer by 2. -/
+theorem double_synthetic_integration_layer (u : ProtorealManifold) : (synthetic_integration (synthetic_integration u)).l = u.l + 2 := by
+  unfold synthetic_integration; simp; ring
 
-/-- Consolidation after funct preserves the funct'd layer. -/
-theorem funct_consolidate_layer (u : ProtorealManifold) :
-    (consolidate (funct u)).l = u.l + 1 := by
-  unfold funct; unfold consolidate; rfl
+/-- Consolidation after synthetic_integration preserves the synthetic_integration'd layer. -/
+theorem synthetic_integration_automatic_differentiation_layer (u : ProtorealManifold) :
+    (automatic_differentiation (synthetic_integration u)).l = u.l + 1 := by
+  unfold synthetic_integration; unfold automatic_differentiation; rfl
 
 /-- Consolidation doubles the real component. -/
-theorem consolidate_doubles_real (u : ProtorealManifold) :
-    (consolidate u).a = u.a * 2 := by
-  unfold consolidate; rfl
+theorem automatic_differentiation_doubles_real (u : ProtorealManifold) :
+    (automatic_differentiation u).a = u.a * 2 := by
+  unfold automatic_differentiation; rfl
 
-/-- **CRYSTALLIZATION CONJUNCTION**: funct simultaneously kills noise and advances layer. -/
+/-- **CRYSTALLIZATION CONJUNCTION**: synthetic_integration simultaneously kills noise and advances layer. -/
 theorem crystallization_conjunction (u : ProtorealManifold) :
-    (funct u).e = 0 ∧ (funct u).l = u.l + 1 := by
-  unfold funct; simp
+    (synthetic_integration u).e = 0 ∧ (synthetic_integration u).l = u.l + 1 := by
+  unfold synthetic_integration; simp
 
-/-- Consolidation re-injects unit noise after funct has zeroed it. -/
-theorem funct_then_consolidate_noise (u : ProtorealManifold) :
-    (consolidate (funct u)).e = 1 := by
-  unfold funct; unfold consolidate; simp
+/-- Consolidation re-injects unit noise after synthetic_integration has zeroed it. -/
+theorem synthetic_integration_then_automatic_differentiation_noise (u : ProtorealManifold) :
+    (automatic_differentiation (synthetic_integration u)).e = 1 := by
+  unfold synthetic_integration; unfold automatic_differentiation; simp
 

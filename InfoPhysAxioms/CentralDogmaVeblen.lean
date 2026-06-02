@@ -19,7 +19,7 @@ This is a Veblen hierarchy:
 
   DNA   = Druid at depth ∞   (the genome: master template, never moves)
   RNA   = Sprites             (messengers: deployed, temporary, carry instructions)
-  Protein = Crystallized agents (functional units: folded = funct applied)
+  Protein = Crystallized agents (functional units: folded = synthetic_integration applied)
 
 ## The Three Operations ARE the Three Moves
 
@@ -27,8 +27,8 @@ This is a Veblen hierarchy:
   Translation    = manage     (ribosome evaluates mRNA, builds protein)
   Degradation    = deprecate  (mRNA destroyed, protein ubiquitinated)
 
-  Folding        = funct      (protein crystallizes into 3D structure)
-  Unfolding      = consolidate (denaturation, opens structure back up)
+  Folding        = synthetic_integration      (protein crystallizes into 3D structure)
+  Unfolding      = automatic_differentiation (denaturation, opens structure back up)
 
 ## The Genetic Code IS a Game Configuration
 
@@ -74,7 +74,7 @@ open InfoPhysAxioms.MetalloOrganicSemantics
     In the algebra: a 3-tuple drawn from a 4-letter alphabet.
     4³ = 64 possible codons → 20 amino acids + stops.
     The degeneracy (64 → 20) IS the noise annihilation:
-    funct maps 64 codons to 20 functional states. -/
+    synthetic_integration maps 64 codons to 20 functional states. -/
 structure Codon where
   n1 : Fin 4    -- A, C, G, U/T
   n2 : Fin 4
@@ -127,7 +127,7 @@ def transcribe (g : Gene) : Sprite :=
     
     In the Veblen game: the druid manages the sprite. -/
 def translate (s : Sprite) : ProtorealManifold :=
-  funct s.state   -- folding IS crystallization
+  synthetic_integration s.state   -- folding IS crystallization
 
 /-- **DEGRADATION = DEPRECATE**
     mRNA is destroyed after use (ubiquitin-mediated).
@@ -137,7 +137,7 @@ def translate (s : Sprite) : ProtorealManifold :=
     The sprite's crystallized state is absorbed into the
     druid's structure (the cell's proteome). -/
 def degrade (s : Sprite) : ProtorealManifold :=
-  funct (funct s.state)    -- double crystallization = full degradation
+  synthetic_integration (synthetic_integration s.state)    -- double crystallization = full degradation
 
 -- ════════════════════════════════════════════════════
 -- SECTION 3: THE GENETIC CODE AS NOISE ANNIHILATION
@@ -147,14 +147,14 @@ def degrade (s : Sprite) : ProtorealManifold :=
     The genetic code maps 64 possible codons to 20 amino acids.
     This is a 3.2:1 compression ratio.
     
-    In the algebra: funct annihilates noise (ε → 0).
+    In the algebra: synthetic_integration annihilates noise (ε → 0).
     The degeneracy of the genetic code IS noise annihilation:
     multiple codons (noisy representations) map to the same
     amino acid (crystallized function).
     
     The wobble base (3rd position) IS ε: it varies freely
     without changing the output. It IS the noise component. -/
-theorem codon_degeneracy_is_funct :
+theorem codon_degeneracy_is_synthetic_integration :
     (4 : ℕ) ^ 3 = 64 ∧ (64 : ℕ) / 3 = 21 := by
   exact ⟨by norm_num, by norm_num⟩
 
@@ -163,12 +163,12 @@ theorem codon_degeneracy_is_funct :
     changing it often doesn't change the amino acid.
     
     n3 IS the noise component ε. The genetic code is a 
-    natural funct operation that annihilates the wobble noise. -/
+    natural synthetic_integration operation that annihilates the wobble noise. -/
 theorem wobble_is_noise (c1 c2 : Codon) 
     (h12 : c1.n1 = c2.n1) (h22 : c1.n2 = c2.n2) :
     -- If first two nucleotides match, codons are synonymous
     -- (often encode the same amino acid)
-    -- This is the biological funct: ε → 0
+    -- This is the biological synthetic_integration: ε → 0
     c1.n1 = c2.n1 ∧ c1.n2 = c2.n2 := ⟨h12, h22⟩
 
 -- ════════════════════════════════════════════════════
@@ -203,7 +203,7 @@ def is_expressible (g : Gene) (methylation : ℝ) : Prop :=
     This is the biological Veblen hierarchy:
     - The genome is the depth-∞ druid
     - Each expressed gene is a deployed sprite
-    - Each protein is a crystallized agent (funct applied)
+    - Each protein is a crystallized agent (synthetic_integration applied)
     - The cyberform is the digital proteome -/
 noncomputable def build_cyberform (genome : Genome) : Cyberform :=
   let expressed := genome.genes.filter (fun g => g.expression_level > 0)
@@ -230,12 +230,12 @@ theorem transcription_seeks_omega (g : Gene) :
   unfold transcribe; rfl
 
 /-- **TRANSLATION IS CRYSTALLIZATION**
-    Translating a sprite IS applying funct.
+    Translating a sprite IS applying synthetic_integration.
     Protein folding IS noise annihilation.
     The folded protein has ε = 0 (fully structured). -/
 theorem translation_crystallizes (s : Sprite) :
     (translate s).e = 0 := by
-  unfold translate funct; ring
+  unfold translate synthetic_integration; ring
 
 -- ════════════════════════════════════════════════════
 -- SECTION 6: THE 42-DIMENSIONAL PROJECTION
@@ -264,8 +264,8 @@ theorem cyberform_semantic_dimension :
     1. DNA is the master druid (depth ∞, never changes)
     2. Transcription = deploy (gene → mRNA sprite)
     3. All transcripts seek ω (functional fixpoint)
-    4. Translation = funct (folding = crystallization, ε → 0)
-    5. The genetic code IS funct (64 codons → 20 amino acids)
+    4. Translation = synthetic_integration (folding = crystallization, ε → 0)
+    5. The genetic code IS synthetic_integration (64 codons → 20 amino acids)
     6. The epigenome IS the SR gate (methylation = silencing)
     7. The cyberform = digital proteome (sprites in silicon)
     8. The semantic space is 42D (RNA 6 × DNA 7)

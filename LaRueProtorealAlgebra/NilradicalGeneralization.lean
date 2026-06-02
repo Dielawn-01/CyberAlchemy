@@ -29,7 +29,7 @@ nilradical construction from scheme theory.
 
 Projection (Jⁿ → Jᵐ) commutes with ε-shift but NOT with λ-shift.
 This asymmetry is the origin of the boundary defect in the Protoreal FTC.
-The sowing operator `funct` IS a jet projection morphism (Jⁿ → Jⁿ⁻¹).
+The sowing operator `synthetic_integration` IS a jet projection morphism (Jⁿ → Jⁿ⁻¹).
 -/
 
 open ProtorealManifold

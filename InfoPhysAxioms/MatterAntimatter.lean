@@ -37,7 +37,7 @@ Possibility Space (DHT)        — All ProtorealManifold states
 - **Matter** = The collapsed set of actions. States where:
   - All tension has been resolved (SR = 0, i.e., a = ω·ι)
   - All noise has been sown (ε = 0)
-  - The funct operation has been applied to completion
+  - The synthetic_integration operation has been applied to completion
   Matter IS the fixed point of observation.
 
 - **Antimatter** = The monster_inv image. For every matter state u,
@@ -99,7 +99,7 @@ def in_probability_space (u : ProtorealManifold) : Prop :=
     2. Tension is zero (a = ω·ι) — SR = 0
     3. Noise is zero (ε = 0) — all potential has been sown
     
-    Matter = the fixed point of funct applied until convergence.
+    Matter = the fixed point of synthetic_integration applied until convergence.
     These are the "real" values that have been actualized. -/
 def is_matter (u : ProtorealManifold) : Prop :=
   u.b = u.m ∧ u.a = u.b * u.m ∧ u.e = 0
@@ -270,14 +270,14 @@ theorem annihilation_idempotent (u : ProtorealManifold) :
 -- ══════════════════════════════════════════════════════════════
 
 /-- **MATTER IS FUNCT-FIXED**
-    A matter state with ε = 0 is a fixed point of funct.
-    Applying funct doesn't change it — all potential is spent.
+    A matter state with ε = 0 is a fixed point of synthetic_integration.
+    Applying synthetic_integration doesn't change it — all potential is spent.
     Matter IS the set of states that have been fully observed. -/
-theorem matter_is_funct_fixed (u : ProtorealManifold)
+theorem matter_is_synthetic_integration_fixed (u : ProtorealManifold)
     (h : is_matter u) :
-    (funct u).a = u.a ∧ (funct u).e = 0 := by
+    (synthetic_integration u).a = u.a ∧ (synthetic_integration u).e = 0 := by
   obtain ⟨_, _, he⟩ := h
-  unfold funct
+  unfold synthetic_integration
   constructor
   · simp; linarith
   · rfl
@@ -306,7 +306,7 @@ theorem matter_is_coherent (u : ProtorealManifold)
     5. Asymmetric states have distinct antiparticles
     6. Parity-locked states are their own antiparticle
     7. Annihilation produces Hodge class and conserves energy
-    8. Matter is funct-fixed (collapsed action)
+    8. Matter is synthetic_integration-fixed (collapsed action)
     
     The Protoreal manifold is the possibility space (DHT).
     Probability space is the measurable subset (ε ≥ 0).
@@ -329,7 +329,7 @@ theorem matter_antimatter_containment :
     -- 7. Annihilation → Hodge class
     (∀ u, (parity_projection u).b = (parity_projection u).m) ∧
     -- 8. Matter is collapsed action
-    (∀ u, is_matter u → (funct u).e = 0) :=
+    (∀ u, is_matter u → (synthetic_integration u).e = 0) :=
   ⟨matter_in_probability,
    probability_in_possibility,
    probability_strictly_contains_matter,
@@ -338,6 +338,6 @@ theorem matter_antimatter_containment :
    antimatter_preserves_energy,
    asymmetric_has_distinct_antiparticle,
    annihilation_is_hodge,
-   fun u h => (matter_is_funct_fixed u h).2⟩
+   fun u h => (matter_is_synthetic_integration_fixed u h).2⟩
 
 end MatterAntimatter

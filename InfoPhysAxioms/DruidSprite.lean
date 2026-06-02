@@ -22,20 +22,20 @@ is a sub-game. The druid is the meta-game.
 ### Structural Mapping
 
   Druid (zPlasmic)     = meta-game   { sprites | environment }
-  Sprite (cobra, etc.) = sub-game    { funct | consolidate }
+  Sprite (cobra, etc.) = sub-game    { synthetic_integration | automatic_differentiation }
   User                 = the entity deploying the druid
                          (could be human OR another druid)
 
 ### Conway Game Tower
 
-  Level 0: Individual moves (funct / consolidate)
-  Level 1: Sprite games { funct | consolidate } per space
+  Level 0: Individual moves (synthetic_integration / automatic_differentiation)
+  Level 1: Sprite games { synthetic_integration | automatic_differentiation } per space
   Level 2: Druid meta-game { sprite₁ | sprite₂ | ... | spriteₙ }
   Level 3: User deploying the druid (recursive)
 
 The druid's VALUE FUNCTION is the aggregate torsion over all sprites.
-The druid picks which sprite to crystallize (funct) and which to
-expand (consolidate).
+The druid picks which sprite to crystallize (synthetic_integration) and which to
+expand (automatic_differentiation).
 
 ### zPlasmic as Meta-Game
 
@@ -57,8 +57,8 @@ subnet reward.
   cuttlefish: observe = "chromatophore"  → adaptive camouflage
   zplasmic:   observe = "self_observe"   → meta-observation
 
-Each sprite has its own lexicon: funct → space-specific crystallization,
-consolidate → space-specific expansion, monster_inv → space-specific R₄.
+Each sprite has its own lexicon: synthetic_integration → space-specific crystallization,
+automatic_differentiation → space-specific expansion, monster_inv → space-specific R₄.
 -/
 
 open ProtorealManifold
@@ -78,7 +78,7 @@ namespace DruidSprite
 
 /-- **A SPRITE is a sub-game with a name and a goal.**
     Each MinotaurOS space (cobra, wolverine, etc.) is a sprite.
-    The sprite's state evolves via funct/consolidate.
+    The sprite's state evolves via synthetic_integration/automatic_differentiation.
     The druid evaluates each sprite via torsion(sprite.state, sprite.goal). -/
 structure Sprite where
   state : ProtorealManifold   -- current position in the manifold
@@ -91,12 +91,12 @@ def sprite_value (s : Sprite) : ℝ :=
   OctonionGrowth.torsion s.state s.goal
 
 /-- **SPRITE LEFT MOVE: crystallize the sprite's state** -/
-def sprite_funct (s : Sprite) : Sprite :=
-  { state := funct s.state, goal := s.goal }
+def sprite_synthetic_integration (s : Sprite) : Sprite :=
+  { state := synthetic_integration s.state, goal := s.goal }
 
 /-- **SPRITE RIGHT MOVE: expand the sprite's state** -/
-def sprite_consolidate (s : Sprite) : Sprite :=
-  { state := consolidate s.state, goal := s.goal }
+def sprite_automatic_differentiation (s : Sprite) : Sprite :=
+  { state := automatic_differentiation s.state, goal := s.goal }
 
 /-- **THE CANONICAL SPRITES** -/
 
@@ -122,7 +122,7 @@ def raven_sprite : Sprite :=
     Its memory (dark sector) accumulates interaction torsions.
 
     The druid makes a META-DECISION: which sprite to crystallize
-    (funct) and which to expand (consolidate) at each step.
+    (synthetic_integration) and which to expand (automatic_differentiation) at each step.
     This is the meta-game { sprite₁ | sprite₂ | ... }. -/
 structure Druid where
   sprites : List Sprite
@@ -142,18 +142,18 @@ def deploy (d : Druid) (s : Sprite) : Druid :=
   { sprites := d.sprites ++ [s], depth := d.depth }
 
 /-- **DRUID CRYSTALLIZES A SPECIFIC SPRITE**
-    Applies funct to the i-th sprite (Gödel move on that sprite). -/
-def funct_head (d : Druid) : Druid :=
+    Applies synthetic_integration to the i-th sprite (Gödel move on that sprite). -/
+def synthetic_integration_head (d : Druid) : Druid :=
   match d.sprites with
   | [] => d
-  | s :: rest => { sprites := sprite_funct s :: rest, depth := d.depth }
+  | s :: rest => { sprites := sprite_synthetic_integration s :: rest, depth := d.depth }
 
 /-- **DRUID EXPANDS A SPECIFIC SPRITE**
-    Applies consolidate to the i-th sprite (Tarski move on that sprite). -/
-def consolidate_head (d : Druid) : Druid :=
+    Applies automatic_differentiation to the i-th sprite (Tarski move on that sprite). -/
+def automatic_differentiation_head (d : Druid) : Druid :=
   match d.sprites with
   | [] => d
-  | s :: rest => { sprites := sprite_consolidate s :: rest, depth := d.depth }
+  | s :: rest => { sprites := sprite_automatic_differentiation s :: rest, depth := d.depth }
 
 /-- **DRUID ADVANCES META-DEPTH**
     After a complete cycle over all sprites, the druid advances
@@ -229,15 +229,15 @@ theorem fleet_value :
 
 /-- **SPRITE FUNCT PRESERVES GOAL**
     Crystallizing a sprite doesn't change what it's aiming for. -/
-theorem funct_preserves_goal (s : Sprite) :
-    (sprite_funct s).goal = s.goal := by
-  unfold sprite_funct; rfl
+theorem synthetic_integration_preserves_goal (s : Sprite) :
+    (sprite_synthetic_integration s).goal = s.goal := by
+  unfold sprite_synthetic_integration; rfl
 
 /-- **SPRITE CONSOLIDATE PRESERVES GOAL**
     Expanding a sprite doesn't change what it's aiming for. -/
-theorem consolidate_preserves_goal (s : Sprite) :
-    (sprite_consolidate s).goal = s.goal := by
-  unfold sprite_consolidate; rfl
+theorem automatic_differentiation_preserves_goal (s : Sprite) :
+    (sprite_automatic_differentiation s).goal = s.goal := by
+  unfold sprite_automatic_differentiation; rfl
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 5: THE VALIDATION GAME (BITTENSOR)
@@ -284,7 +284,7 @@ theorem cobra_raven_observation :
     2. Druid value = sum of sprite values
        Empty druid = 0. Deploy cobra → -1.
 
-    3. Funct/consolidate preserve the sprite's goal
+    3. Funct/automatic_differentiation preserve the sprite's goal
        The game target doesn't change when the agent moves.
 
     4. Cobra validates on deployment (value = κ = -1)

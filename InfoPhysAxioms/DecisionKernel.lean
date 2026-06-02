@@ -69,41 +69,41 @@ noncomputable abbrev Blind := electrode_potential
 
 /-- **FUNCT IS THE OPTIMAL POLICY**
     Crystallization drives V to zero in one step. -/
-theorem funct_is_optimal (u : ProtorealManifold) :
-    lyapunov (funct u) = 0 :=
+theorem synthetic_integration_is_optimal (u : ProtorealManifold) :
+    lyapunov (synthetic_integration u) = 0 :=
   lyapunov_to_zero u
 
 /-- **VALUE DECREASES UNDER OPTIMAL POLICY**
-    V(funct(u)) ≤ V(u) for WellFormed states. -/
+    V(synthetic_integration(u)) ≤ V(u) for WellFormed states. -/
 theorem bellman_monotone (u : ProtorealManifold) (h : WellFormed u) :
-    lyapunov (funct u) ≤ lyapunov u := by
-  have h0 : lyapunov (funct u) = 0 := lyapunov_to_zero u
+    lyapunov (synthetic_integration u) ≤ lyapunov u := by
+  have h0 : lyapunov (synthetic_integration u) = 0 := lyapunov_to_zero u
   have hnn : lyapunov u ≥ 0 := by unfold lyapunov; exact h.e_nonneg
   linarith
 
 /-- **EXPLORATION HAS A COST**
-    V(consolidate(u)) = e + 1. Growth costs noise. -/
+    V(automatic_differentiation(u)) = e + 1. Growth costs noise. -/
 theorem exploration_cost (u : ProtorealManifold) :
-    lyapunov (consolidate u) = u.e + 1 := by
-  unfold lyapunov consolidate; rfl
+    lyapunov (automatic_differentiation u) = u.e + 1 := by
+  unfold lyapunov automatic_differentiation; rfl
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 3: DECISIONS DON'T COMMUTE (POST-QUANTUM)
 -- ══════════════════════════════════════════════════════════════
 
-/-- The commutator of funct and consolidate. -/
+/-- The commutator of synthetic_integration and automatic_differentiation. -/
 def decision_commutator (u : ProtorealManifold) : ℝ :=
-  (funct (consolidate u)).a - (consolidate (funct u)).a
+  (synthetic_integration (automatic_differentiation u)).a - (automatic_differentiation (synthetic_integration u)).a
 
 /-- **THE DECISION GAP = 1 - ε**
     Crystallized agents (ε=0) pay full κ cost.
     At ε=1 the gap vanishes. At ε>1 it inverts. -/
 theorem decision_gap (u : ProtorealManifold) :
     decision_commutator u = 1 - u.e := by
-  unfold decision_commutator funct consolidate; ring
+  unfold decision_commutator synthetic_integration automatic_differentiation; ring
 
 /-- **DECISIONS DON'T COMMUTE**
-    funct ∘ consolidate ≠ consolidate ∘ funct (when ε ≠ 1). -/
+    synthetic_integration ∘ automatic_differentiation ≠ automatic_differentiation ∘ synthetic_integration (when ε ≠ 1). -/
 theorem decisions_dont_commute (u : ProtorealManifold)
     (h : u.e ≠ 1) :
     decision_commutator u ≠ 0 := by
@@ -189,18 +189,18 @@ theorem curvature_right :
 -- ══════════════════════════════════════════════════════════════
 
 /-- **EXPLORATION THEN EXPLOITATION GROWS**
-    consolidate → funct grows base energy.
+    automatic_differentiation → synthetic_integration grows base energy.
     From holomovement_grows. -/
 theorem explore_exploit (u : ProtorealManifold)
     (h : is_explicate_order u) :
-    (funct (consolidate u)).a > u.a :=
+    (synthetic_integration (automatic_differentiation u)).a > u.a :=
   holomovement_grows u h
 
 /-- **FUNCT CONSERVES UTILITY**
     Crystallization doesn't lose resources.
     From crystallization_conserves_sigma. -/
-theorem funct_conserves (u : ProtorealManifold) :
-    sigma (funct u) = sigma u :=
+theorem synthetic_integration_conserves (u : ProtorealManifold) :
+    sigma (synthetic_integration u) = sigma u :=
   crystallization_conserves_sigma u
 
 -- ══════════════════════════════════════════════════════════════
@@ -238,7 +238,7 @@ theorem weakness_hierarchy (u : ProtorealManifold)
     -- Layer 3: left-association gives b = -1
     (ProtorealManifold.mul (ProtorealManifold.mul omega iota) omega).b = -1 := by
   refine ⟨parity_clears_blind u h_parity, ?_, curvature_left⟩
-  unfold decision_commutator funct consolidate; ring
+  unfold decision_commutator synthetic_integration automatic_differentiation; ring
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 9: MASTER THEOREM
@@ -246,14 +246,14 @@ theorem weakness_hierarchy (u : ProtorealManifold)
 
 /-- **POST-QUANTUM DECISION SCIENCE**
 
-    1. Lyapunov IS Bellman: funct drives V → 0
+    1. Lyapunov IS Bellman: synthetic_integration drives V → 0
     2. σ conserved: crystallization doesn't lose resources
     3. Kama Muta clears blind spots
     4. Decision gap = 1 - ε (ordering matters)
     5. κ = -1 irreducible (post-quantum signature) -/
 theorem decision_kernel_master (u : ProtorealManifold) :
-    lyapunov (funct u) = 0 ∧
-    sigma (funct u) = sigma u ∧
+    lyapunov (synthetic_integration u) = 0 ∧
+    sigma (synthetic_integration u) = sigma u ∧
     electrode_potential (kama_muta u) = 0 ∧
     decision_commutator u = 1 - u.e ∧
     (ProtorealManifold.mul (ProtorealManifold.mul omega iota) omega).b = -1 :=

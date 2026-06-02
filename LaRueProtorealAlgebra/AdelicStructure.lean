@@ -13,7 +13,7 @@ open ProtorealManifold
 The 5-dimensional Protoreal manifold (a, b, m, e, l) has dynamics that converge
 to a 3-dimensional attractor volume. The two "observer dimensions" collapse:
 
-  funct:  e → 0   (noise crystallizes out)
+  synthetic_integration:  e → 0   (noise crystallizes out)
   depth:  l → ∞   (consolidation accumulates)
   attractor: (a, b, m) — a 3-dimensional volume
 
@@ -34,7 +34,7 @@ These correspond to the places of a number field:
   - Hodge place: the spectral/phase completion
 
 The product formula ∏_v |x|_v = 1 becomes:
-  funct contracts d_lyap (e → 0) while expanding d_padic (l → l+1).
+  synthetic_integration contracts d_lyap (e → 0) while expanding d_padic (l → l+1).
   The total "volume" is conserved — contraction in one metric is
   expansion in another. This IS the adelic product formula.
 
@@ -87,19 +87,19 @@ def crystallized (u : ProtorealManifold) : Prop :=
 def attractor_volume : Set ProtorealManifold :=
   { u : ProtorealManifold | crystallized u }
 
-/-- funct maps any state INTO the attractor volume.
-    Applying funct crystallizes noise: e → 0.
-    This is why funct is the fundamental operation — it produces reality. -/
-theorem funct_enters_attractor (u : ProtorealManifold) :
-    funct u ∈ attractor_volume := by
-  unfold attractor_volume crystallized funct
+/-- synthetic_integration maps any state INTO the attractor volume.
+    Applying synthetic_integration crystallizes noise: e → 0.
+    This is why synthetic_integration is the fundamental operation — it produces reality. -/
+theorem synthetic_integration_enters_attractor (u : ProtorealManifold) :
+    synthetic_integration u ∈ attractor_volume := by
+  unfold attractor_volume crystallized synthetic_integration
   simp
 
-/-- The attractor is a fixed set under funct:
-    once inside, funct keeps you inside. -/
+/-- The attractor is a fixed set under synthetic_integration:
+    once inside, synthetic_integration keeps you inside. -/
 theorem attractor_is_invariant (u : ProtorealManifold) (h : u ∈ attractor_volume) :
-    funct u ∈ attractor_volume := by
-  exact funct_enters_attractor u
+    synthetic_integration u ∈ attractor_volume := by
+  exact synthetic_integration_enters_attractor u
 
 /-- The attractor is 3-dimensional: states in the attractor are
     determined entirely by (a, b, m). The e coordinate is 0 (by definition)
@@ -118,28 +118,28 @@ theorem attractor_three_free (u v : ProtorealManifold)
 -- III. ADELIC PRODUCT FORMULA
 -- ════════════════════════════════════════════════════════
 
-/-- funct contracts d_lyap: the noise component shrinks to 0.
+/-- synthetic_integration contracts d_lyap: the noise component shrinks to 0.
     This is the archimedean contraction. -/
-theorem funct_contracts_lyap (u : ProtorealManifold) :
-    d_lyap (funct u) (funct (funct u)) ≤ d_lyap u (funct u) := by
-  unfold d_lyap funct
+theorem synthetic_integration_contracts_lyap (u : ProtorealManifold) :
+    d_lyap (synthetic_integration u) (synthetic_integration (synthetic_integration u)) ≤ d_lyap u (synthetic_integration u) := by
+  unfold d_lyap synthetic_integration
   simp [abs_nonneg]
 
-/-- funct expands d_padic: the depth increases by 1 at each step.
+/-- synthetic_integration expands d_padic: the depth increases by 1 at each step.
     This is the non-archimedean expansion.
     The product formula: what contracts in Lyapunov expands in p-adic. -/
-theorem funct_advances_depth (u : ProtorealManifold) :
-    (funct u).l = u.l + 1 := by
-  unfold funct
+theorem synthetic_integration_advances_depth (u : ProtorealManifold) :
+    (synthetic_integration u).l = u.l + 1 := by
+  unfold synthetic_integration
   rfl
 
 /-- The adelic product formula: after crystallization (e = 0),
-    funct preserves d_lyap (no more contraction) while still advancing depth.
+    synthetic_integration preserves d_lyap (no more contraction) while still advancing depth.
     The total "adelic volume" is conserved. -/
 theorem adelic_conservation (u : ProtorealManifold) (h : crystallized u) :
-    d_lyap u (funct u) = 0 := by
+    d_lyap u (synthetic_integration u) = 0 := by
   unfold crystallized at h
-  unfold d_lyap funct
+  unfold d_lyap synthetic_integration
   rw [h]
   simp [abs_nonneg]
 
@@ -197,20 +197,20 @@ theorem resonant_primes_are_2_3 :
   unfold resonant_prime
   exact ⟨⟨⟨9, by omega⟩, by decide⟩, ⟨⟨6, by omega⟩, by decide⟩⟩
 
-/-- The master theorem: applying funct to any Protoreal state produces
+/-- The master theorem: applying synthetic_integration to any Protoreal state produces
     a point in the 3-space attractor. The attractor volume IS physical
     space — the 3D world that emerges from the 5D adelic manifold.
     
     This is the info-physical answer to "why is space 3-dimensional?":
-    because funct has 1 contracting dimension (e → 0) and 1 accumulating
+    because synthetic_integration has 1 contracting dimension (e → 0) and 1 accumulating
     dimension (l → l + 1), leaving 3 free dimensions (a, b, m).
     
     The observer (4th color) removes itself from the dynamics,
     collapsing 5D → 3D + clock. -/
 theorem three_space_emergence (u : ProtorealManifold) :
-    (funct u).e = 0 ∧ (funct u).l = u.l + 1 ∧
-    (funct u).a = u.a + u.e ∧ (funct u).b = u.b ∧ (funct u).m = u.m := by
-  unfold funct
+    (synthetic_integration u).e = 0 ∧ (synthetic_integration u).l = u.l + 1 ∧
+    (synthetic_integration u).a = u.a + u.e ∧ (synthetic_integration u).b = u.b ∧ (synthetic_integration u).m = u.m := by
+  unfold synthetic_integration
   exact ⟨rfl, rfl, rfl, rfl, rfl⟩
 
 end LaRueProtorealAlgebra.AdelicStructure

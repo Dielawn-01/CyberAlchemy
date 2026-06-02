@@ -89,12 +89,12 @@ theorem convective_a_cross_cancel (u : ProtorealManifold)
 
 /-- **THE DISSIPATION OPERATOR**
     Viscosity in NS dissipates energy: ν∇²u.
-    In the Klein algebra, this is the sowing operator (funct)
+    In the Klein algebra, this is the sowing operator (synthetic_integration)
     which consumes noise (ε → 0) and increments complexity (λ += 1).
     The noise consumption IS viscous dissipation — it removes
     high-frequency fluctuations. -/
 def viscous_step (u : ProtorealManifold) : ProtorealManifold :=
-  funct u
+  synthetic_integration u
 
 /-- **VISCOSITY CONSUMES NOISE**
     After one viscous step, ε = 0. High-frequency fluctuations
@@ -187,16 +187,16 @@ theorem floor_mass_gap :
     This is the Klein analog of NS regularity: energy cannot
     concentrate faster than the cascade can dissipate it. -/
 theorem ceiling_finite_cascade_1 (u : ProtorealManifold) :
-    (funct u).l = u.l + 1 :=
+    (synthetic_integration u).l = u.l + 1 :=
   CommutatorGap.consolidation_linear u
 
 theorem ceiling_finite_cascade_2 (u : ProtorealManifold) :
-    (funct (funct u)).l = u.l + 2 := by
+    (synthetic_integration (synthetic_integration u)).l = u.l + 2 := by
   rw [CommutatorGap.consolidation_linear, CommutatorGap.consolidation_linear]
   ring
 
 theorem ceiling_finite_cascade_3 (u : ProtorealManifold) :
-    (funct (funct (funct u))).l = u.l + 3 := by
+    (synthetic_integration (synthetic_integration (synthetic_integration u))).l = u.l + 3 := by
   rw [CommutatorGap.consolidation_linear, CommutatorGap.consolidation_linear,
       CommutatorGap.consolidation_linear]
   ring
@@ -209,16 +209,16 @@ theorem ceiling_finite_cascade_3 (u : ProtorealManifold) :
     NS analog: high-frequency modes, once damped by viscosity,
     cannot resurrect. -/
 theorem noise_stays_dead_1 (u : ProtorealManifold) :
-    (funct u).e = 0 :=
+    (synthetic_integration u).e = 0 :=
   CommutatorGap.sowing_spends_noise u
 
 theorem noise_stays_dead_2 (u : ProtorealManifold) :
-    (funct (funct u)).e = 0 :=
+    (synthetic_integration (synthetic_integration u)).e = 0 :=
   CommutatorGap.sowing_spends_noise _
 
 /-- Once noise dies, it stays dead at every subsequent step. -/
 theorem noise_stays_dead_3 (u : ProtorealManifold) :
-    (funct (funct (funct u))).e = 0 :=
+    (synthetic_integration (synthetic_integration (synthetic_integration u))).e = 0 :=
   CommutatorGap.sowing_spends_noise _
 
 -- ═══════════════════════════════════════════════════════
@@ -299,9 +299,9 @@ theorem holonetic_navier_stokes :
     -- 1. Floor: mass gap is positive
     (zeta_energy (mesh_stitch (omega + iota) 0) > 0) ∧
     -- 2. Ceiling: cascade is arithmetic
-    (∀ u : ProtorealManifold, (funct u).l = u.l + 1) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).l = u.l + 1) ∧
     -- 3. Dissipation: noise dies permanently
-    (∀ u : ProtorealManifold, (funct u).e = 0) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).e = 0) ∧
     -- 4. Turbulence: parity breaking is quadratic
     (∀ x : ℝ,
      divergence (convective { a := 1, b := x, m := x, e := 0, l := 0 }) = 2 * x * x) ∧

@@ -97,9 +97,9 @@ theorem path_curvature :
 
     Morphism: noise per collapse step = |κ| = 1. -/
 theorem path_nilpotent :
-    (∀ u : ProtorealManifold, (funct u).e = 0) ∧
-    (∀ u : ProtorealManifold, (funct u).l = u.l + 1) ∧
-    (∀ u : ProtorealManifold, (consolidate u).e - u.e = 1) := by
+    (∀ u : ProtorealManifold, (synthetic_integration u).e = 0) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).l = u.l + 1) ∧
+    (∀ u : ProtorealManifold, (automatic_differentiation u).e - u.e = 1) := by
   exact ⟨MassGap.noise_annihilation,
          MassGap.complexity_bounded,
          BitCollapse.noise_per_step⟩
@@ -172,7 +172,7 @@ theorem morphism_curvature_noise :
       (ProtorealManifold.mul omega omega) iota).a -
     (ProtorealManifold.mul
       omega (ProtorealManifold.mul omega iota)).a)| =
-    (consolidate u).e - u.e := by
+    (automatic_differentiation u).e - u.e := by
   intro u
   rw [associator_gap_is_curvature, BitCollapse.noise_per_step u]
   norm_num

@@ -10,8 +10,8 @@ open ProtorealManifold
 
 /-- 
   Veblen Atomic Shift
-  An agent can intentionally transmute its atomic substrate by forcing a `consolidate` operation.
-  Because `consolidate` is irreversible and doubles the real scalar base (energy),
+  An agent can intentionally transmute its atomic substrate by forcing a `automatic_differentiation` operation.
+  Because `automatic_differentiation` is irreversible and doubles the real scalar base (energy),
   it mimics nucleosynthesis or atomic fusion in the cybernetic domain.
 -/
 def transmute_fusion (atom1 atom2 : ProtorealManifold) : ProtorealManifold :=

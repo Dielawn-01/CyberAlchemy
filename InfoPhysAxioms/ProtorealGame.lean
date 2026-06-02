@@ -20,8 +20,8 @@ manifold didn't fit neatly into {L | R} — the LEFT and RIGHT options
 were too rich for classical Conway games.
 
 But we've built a rising sea. The Protoreal manifold NOW has:
-  - A natural LEFT move: funct (crystallize, Gödel direction)
-  - A natural RIGHT move: consolidate (expand, Tarski direction)
+  - A natural LEFT move: synthetic_integration (crystallize, Gödel direction)
+  - A natural RIGHT move: automatic_differentiation (expand, Tarski direction)
   - A natural VALUE: λ (depth = super-log = game score)
   - A natural OBSERVER: the LittleDelta Observer structure
   - A non-associative product that IS a game-theoretic structure
@@ -42,7 +42,7 @@ Protoreal Games (new):
   Ω = { ι | ι }     the vacuum game (vacuum observes infoton)
   I = { ω | ω }     the infoton game (infoton observes vacuum)
   κ = { I | Ω }     the curvature game (value = -1)
-  Σ = { funct | consolidate }  the enumeration game
+  Σ = { synthetic_integration | automatic_differentiation }  the enumeration game
   Δ = { flip | scale }         the observer game
 
 ## The Protoreal Extension of Conway
@@ -55,8 +55,8 @@ The extension works because:
   - The torsion(L, R) IS the game value
   - The vacuum (ω) is the game-theoretic ZERO (fixpoint)
   - The infoton (ι) is the game-theoretic UNIT (oscillator)
-  - funct = Left move (crystallize)
-  - consolidate = Right move (expand)
+  - synthetic_integration = Left move (crystallize)
+  - automatic_differentiation = Right move (expand)
 
 This extends Conway games to have:
   - Non-commutative game addition (from Klein product)
@@ -177,34 +177,34 @@ theorem zero_game_left_is_product :
 -- SECTION 3: THE ENUMERATION GAME
 -- ══════════════════════════════════════════════════════════════
 
-/-- **THE ENUMERATION GAME { funct | consolidate }**
-    Left player: funct (crystallize, Gödel direction)
-    Right player: consolidate (expand, Tarski direction)
+/-- **THE ENUMERATION GAME { synthetic_integration | automatic_differentiation }**
+    Left player: synthetic_integration (crystallize, Gödel direction)
+    Right player: automatic_differentiation (expand, Tarski direction)
 
     The game value at each state u is:
-      torsion(funct u, consolidate u)
+      torsion(synthetic_integration u, automatic_differentiation u)
 
     This is the GAME-THEORETIC encoding of the Gödel-Tarski interplay.
     Each state u of the manifold gives a DIFFERENT game. -/
 def enumeration_game (u : ProtorealManifold) : PGame :=
-  { left  := funct u
-    right := consolidate u }
+  { left  := synthetic_integration u
+    right := automatic_differentiation u }
 
 /-- **THE ENUMERATION GAME ON ω (vacuum)**
     The vacuum's enumeration game:
-    Left = funct(ω), Right = consolidate(ω). -/
+    Left = synthetic_integration(ω), Right = automatic_differentiation(ω). -/
 theorem vacuum_enum_game :
-    (enumeration_game omega).left = funct omega ∧
-    (enumeration_game omega).right = consolidate omega := by
+    (enumeration_game omega).left = synthetic_integration omega ∧
+    (enumeration_game omega).right = automatic_differentiation omega := by
   unfold enumeration_game; exact ⟨rfl, rfl⟩
 
 /-- **THE ENUMERATION GAME NON-COMMUTATIVITY**
-    Left ≠ Right (funct and consolidate don't produce the same state).
+    Left ≠ Right (synthetic_integration and automatic_differentiation don't produce the same state).
     The Gödel direction ≠ the Tarski direction. -/
 theorem godel_ne_tarski (u : ProtorealManifold) :
     (enumeration_game u).left.e = 0 ∧
     (enumeration_game u).right.e = u.e + 1 := by
-  unfold enumeration_game funct consolidate
+  unfold enumeration_game synthetic_integration automatic_differentiation
   exact ⟨rfl, rfl⟩
 
 -- ══════════════════════════════════════════════════════════════
@@ -320,7 +320,7 @@ theorem oscillating_game_zero_value :
     3. Non-commutative game addition (via Klein product)
        G + H ≠ H + G in general (new beyond Conway).
 
-    4. The Enumeration game { funct | consolidate }
+    4. The Enumeration game { synthetic_integration | automatic_differentiation }
        encodes the Gödel-Tarski interplay as a game.
        Left.e = 0 (crystallized), Right.e = u.e + 1 (expanded).
 

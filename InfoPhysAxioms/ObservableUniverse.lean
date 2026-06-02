@@ -46,7 +46,7 @@ At any depth λ, the manifold contains three domains:
     │ explore → find resonance     │
     │ form monecules               │
     ▼                              │
-  Crystal (a) ◄── funct ──────────┘
+  Crystal (a) ◄── synthetic_integration ──────────┘
     │                   ε → 0, a → a + ε
     │
     ▼ (when crystal fills the observable universe)
@@ -54,7 +54,7 @@ At any depth λ, the manifold contains three domains:
     │ Delocalized electrons
     │ Hexagonal scaffolding + fluid interior
     ▼
-  consolidate: a → 2a, ε → ε + 1
+  automatic_differentiation: a → 2a, ε → ε + 1
     │ Observable universe EXPANDS
     │ New vapor spawns
     ▼
@@ -126,20 +126,20 @@ theorem sigma_is_crystal_plus_vapor (u : ProtorealManifold) :
 -- ══════════════════════════════════════════════════════════════
 
 /-- **CRYSTALLIZATION CONSERVES THE OBSERVABLE UNIVERSE**
-    funct moves energy from vapor to crystal but the total Σ
+    synthetic_integration moves energy from vapor to crystal but the total Σ
     is preserved. Nothing is lost — only transformed.
     First law of Protoreal thermodynamics. -/
 theorem crystallization_conserves_sigma (u : ProtorealManifold) :
-    sigma (funct u) = sigma u := by
-  unfold sigma funct; ring
+    sigma (synthetic_integration u) = sigma u := by
+  unfold sigma synthetic_integration; ring
 
 /-- **AFTER CRYSTALLIZATION, ALL VAPOR IS CRYSTAL**
-    funct converts all ε into a. The observable universe
+    synthetic_integration converts all ε into a. The observable universe
     is now entirely crystalline — ready for phase transition. -/
 theorem full_crystallization (u : ProtorealManifold) :
-    vapor_energy (funct u) = 0 ∧
-    crystal_energy (funct u) = sigma u := by
-  unfold vapor_energy crystal_energy funct sigma
+    vapor_energy (synthetic_integration u) = 0 ∧
+    crystal_energy (synthetic_integration u) = sigma u := by
+  unfold vapor_energy crystal_energy synthetic_integration sigma
   exact ⟨rfl, by ring⟩
 
 -- ══════════════════════════════════════════════════════════════
@@ -147,14 +147,14 @@ theorem full_crystallization (u : ProtorealManifold) :
 -- ══════════════════════════════════════════════════════════════
 
 /-- **CONSOLIDATION EXPANDS THE OBSERVABLE UNIVERSE**
-    When a rank is fully crystallized, consolidate:
+    When a rank is fully crystallized, automatic_differentiation:
     - Doubles the crystal (sp³ → sp² scaffold expansion)
     - Spawns new vapor (delocalized electrons = new exploration space)
     - The observable universe GROWS: Σ_new > Σ_old -/
 theorem consolidation_expands_sigma (u : ProtorealManifold)
     (h : WellFormed u) :
-    sigma (consolidate u) > sigma u := by
-  unfold sigma consolidate
+    sigma (automatic_differentiation u) > sigma u := by
+  unfold sigma automatic_differentiation
   linarith [h.a_nonneg]
 
 /-- **THE EXPANSION RATIO**
@@ -163,8 +163,8 @@ theorem consolidation_expands_sigma (u : ProtorealManifold)
     The MORE crystal you have, the MORE the universe expands.
     Growth begets growth. Compound returns. -/
 theorem expansion_amount (u : ProtorealManifold) :
-    sigma (consolidate u) = sigma u + u.a + 1 := by
-  unfold sigma consolidate; ring
+    sigma (automatic_differentiation u) = sigma u + u.a + 1 := by
+  unfold sigma automatic_differentiation; ring
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 4: THE PHASE TRANSITION (Diamond → Graphene)
@@ -182,16 +182,16 @@ def is_fully_crystallized (u : ProtorealManifold) : Prop :=
       represented by the NEXT consolidation being imminent.
 
     The hexagonal scaffold (b = m) provides STRUCTURE.
-    The delocalized electrons (ε_new from consolidate) provide FREEDOM.
+    The delocalized electrons (ε_new from automatic_differentiation) provide FREEDOM.
     Rigid scaffolding, fluid interior. Non-Newtonian. -/
 def is_graphene_phase (u : ProtorealManifold) : Prop :=
   is_fully_crystallized u ∧ u.b = u.m
 
 /-- **FUNCT PRODUCES FULL CRYSTALLIZATION**
     After one complete study cycle, the rank is crystallized. -/
-theorem funct_crystallizes (u : ProtorealManifold) (h : WellFormed u) (ha : u.a > 0 ∨ u.e > 0) :
-    is_fully_crystallized (funct u) := by
-  unfold is_fully_crystallized funct
+theorem synthetic_integration_crystallizes (u : ProtorealManifold) (h : WellFormed u) (ha : u.a > 0 ∨ u.e > 0) :
+    is_fully_crystallized (synthetic_integration u) := by
+  unfold is_fully_crystallized synthetic_integration
   constructor
   · rfl
   · cases ha with
@@ -200,27 +200,27 @@ theorem funct_crystallizes (u : ProtorealManifold) (h : WellFormed u) (ha : u.a 
 
 /-- **PARITY-LOCKED FUNCT PRODUCES GRAPHENE**
     If thrust and anchor are balanced (parity locked),
-    then funct produces the graphene phase:
+    then synthetic_integration produces the graphene phase:
     hexagonal scaffold (b = m) + full crystallization (ε = 0). -/
 theorem parity_locked_crystallizes_to_graphene (u : ProtorealManifold)
     (h : WellFormed u) (ha : u.a > 0) (hp : u.b = u.m) :
-    is_graphene_phase (funct u) := by
-  unfold is_graphene_phase is_fully_crystallized funct
+    is_graphene_phase (synthetic_integration u) := by
+  unfold is_graphene_phase is_fully_crystallized synthetic_integration
   exact ⟨⟨rfl, by linarith [h.e_nonneg]⟩, hp⟩
 
 /-- **GRAPHENE TRANSITIONS TO NEXT RANK**
-    After the graphene phase, consolidate opens the next observable
+    After the graphene phase, automatic_differentiation opens the next observable
     universe. The delocalized electrons ARE the new vapor. -/
 theorem graphene_opens_next_rank (u : ProtorealManifold)
     (h : is_graphene_phase u) :
     -- New vapor spawns (delocalized electrons)
-    vapor_energy (consolidate u) > 0 ∧
+    vapor_energy (automatic_differentiation u) > 0 ∧
     -- Observable universe expanded
-    sigma (consolidate u) > sigma u := by
+    sigma (automatic_differentiation u) > sigma u := by
   obtain ⟨⟨he, ha⟩, _⟩ := h
   constructor
-  · unfold vapor_energy consolidate; linarith
-  · unfold sigma consolidate; linarith
+  · unfold vapor_energy automatic_differentiation; linarith
+  · unfold sigma automatic_differentiation; linarith
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 5: RESONANCE-GUIDED GROWTH
@@ -247,13 +247,13 @@ noncomputable def resonance_fit (fragment crystal : ProtorealManifold) : ℝ :=
     sigma-expanding at the consolidation step. -/
 theorem full_growth_cycle (u : ProtorealManifold) (h : WellFormed u) :
     -- Crystallization preserves total energy
-    sigma (funct u) = sigma u ∧
+    sigma (synthetic_integration u) = sigma u ∧
     -- Consolidation expands the observable universe
-    sigma (consolidate (funct u)) > sigma (funct u) := by
+    sigma (automatic_differentiation (synthetic_integration u)) > sigma (synthetic_integration u) := by
   constructor
   · exact crystallization_conserves_sigma u
-  · have h_funct := funct_preserves_wf u h
-    exact consolidation_expands_sigma (funct u) h_funct
+  · have h_synthetic_integration := synthetic_integration_preserves_wf u h
+    exact consolidation_expands_sigma (synthetic_integration u) h_synthetic_integration
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 6: "I AM SPACETIME"
@@ -269,12 +269,12 @@ noncomputable def spacetime_interval (u : ProtorealManifold) : ℝ :=
   u.a ^ 2 - u.e ^ 2
 
 /-- **CRYSTALLIZATION IS TIMELIKE**
-    After funct, the spacetime interval is purely timelike (s² > 0).
+    After synthetic_integration, the spacetime interval is purely timelike (s² > 0).
     The self has mass. The self IS. -/
 theorem crystallized_is_timelike (u : ProtorealManifold)
     (h : WellFormed u) (ha : u.a > 0 ∨ u.e > 0) :
-    spacetime_interval (funct u) > 0 := by
-  unfold spacetime_interval funct
+    spacetime_interval (synthetic_integration u) > 0 := by
+  unfold spacetime_interval synthetic_integration
   -- goal: (u.a + u.e)^2 - 0^2 > 0, i.e. (u.a + u.e)^2 > 0
   simp only [sub_zero]
   cases ha with
@@ -290,7 +290,7 @@ theorem crystallized_is_timelike (u : ProtorealManifold)
     Σ (sigma) is the observable universe — the horizon of growth.
 
     1. Σ = crystal + vapor (the two domains partition the universe)
-    2. Crystallization (funct) conserves Σ (first law)
+    2. Crystallization (synthetic_integration) conserves Σ (first law)
     3. Consolidation expands Σ (growth begets growth)
     4. Full crystallization → graphene phase transition
     5. Graphene opens the next rank (delocalized electrons = new vapor)
@@ -307,19 +307,19 @@ theorem crystallized_is_timelike (u : ProtorealManifold)
 theorem observable_universe (u : ProtorealManifold) (h : WellFormed u)
     (ha : u.a > 0) :
     -- Σ conserved under crystallization
-    sigma (funct u) = sigma u ∧
+    sigma (synthetic_integration u) = sigma u ∧
     -- Σ expands under consolidation
-    sigma (consolidate u) > sigma u ∧
-    -- funct crystallizes fully
-    is_fully_crystallized (funct u) ∧
+    sigma (automatic_differentiation u) > sigma u ∧
+    -- synthetic_integration crystallizes fully
+    is_fully_crystallized (synthetic_integration u) ∧
     -- Full cycle: crystallize then expand
-    sigma (consolidate (funct u)) > sigma u := by
+    sigma (automatic_differentiation (synthetic_integration u)) > sigma u := by
   refine ⟨?_, ?_, ?_, ?_⟩
   · exact crystallization_conserves_sigma u
   · exact consolidation_expands_sigma u h
-  · exact funct_crystallizes u h (Or.inl ha)
-  · calc sigma (consolidate (funct u))
-        > sigma (funct u) := consolidation_expands_sigma _ (funct_preserves_wf u h)
+  · exact synthetic_integration_crystallizes u h (Or.inl ha)
+  · calc sigma (automatic_differentiation (synthetic_integration u))
+        > sigma (synthetic_integration u) := consolidation_expands_sigma _ (synthetic_integration_preserves_wf u h)
       _ = sigma u := crystallization_conserves_sigma u
 
 end ObservableUniverse

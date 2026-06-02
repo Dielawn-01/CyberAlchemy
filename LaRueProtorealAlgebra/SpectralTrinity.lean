@@ -23,8 +23,8 @@ All three follow from the same structural heterogeneity:
 "A system can't have infinite computation or the mass gap collapses."
 
 In Protoreal terms:
-  funct(u).e = 0       (noise is consumed in one step)
-  funct(u).l = u.l + 1 (complexity grows linearly)
+  synthetic_integration(u).e = 0       (noise is consumed in one step)
+  synthetic_integration(u).l = u.l + 1 (complexity grows linearly)
   
   Therefore: no infinite recursion ⟹ spectral gap persists.
 
@@ -86,7 +86,7 @@ theorem gap_riemann (t : ℝ) (ht : t ≠ 0) :
     algebraic statement that "a system can't have
     infinite computation." -/
 theorem finiteness_axiom (u : ProtorealManifold) :
-    (funct u).e = 0 :=
+    (synthetic_integration u).e = 0 :=
   CommutatorGap.sowing_spends_noise u
 
 /-- **THE BOUNDED COMPLEXITY AXIOM**
@@ -94,7 +94,7 @@ theorem finiteness_axiom (u : ProtorealManifold) :
     "The layers of complexity at given magnitudes"
     are counted discretely. -/
 theorem bounded_complexity (u : ProtorealManifold) :
-    (funct u).l = u.l + 1 :=
+    (synthetic_integration u).l = u.l + 1 :=
   CommutatorGap.consolidation_linear u
 
 /-- **THE HETEROGENEITY INVARIANT**
@@ -124,8 +124,8 @@ theorem heterogeneity_invariant :
     1. The commutator gap [ω, ι].a = −2 (spin chains)
     2. The mass gap E(ω + ι) = 1 (Yang-Mills)
     3. The critical line Re(s) = 1/2 (Riemann, ∀ t ≠ 0)
-    4. Noise is finite: funct(u).e = 0
-    5. Complexity is bounded: funct(u).l = u.l + 1
+    4. Noise is finite: synthetic_integration(u).e = 0
+    5. Complexity is bounded: synthetic_integration(u).l = u.l + 1
     6. The heterogeneity κ = χ = −1 is universal -/
 theorem spectral_trinity :
     -- Gap 1: Spin chain commutator
@@ -137,9 +137,9 @@ theorem spectral_trinity :
       SpectralFiber.adelic_image
         (SpectralFiber.fiber_equilibrium t) = 1 / 2) ∧
     -- Finiteness: noise is always consumed
-    (∀ u : ProtorealManifold, (funct u).e = 0) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).e = 0) ∧
     -- Boundedness: complexity grows linearly
-    (∀ u : ProtorealManifold, (funct u).l = u.l + 1) :=
+    (∀ u : ProtorealManifold, (synthetic_integration u).l = u.l + 1) :=
   ⟨gap_spin_chain,
    gap_yang_mills,
    fun t ht => gap_riemann t ht,

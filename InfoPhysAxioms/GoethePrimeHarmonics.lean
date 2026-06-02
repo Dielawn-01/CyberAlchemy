@@ -1,5 +1,6 @@
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.DMinorResonance
+import InfoPhysAxioms.Soulchemy
 
 /-!
 # Goethe's Color Theory & The Prime Harmonic Scale (Up to P=19)
@@ -17,6 +18,7 @@ namespace InfoPhysAxioms.GoethePrimeHarmonics
 
 open ProtorealManifold
 open DMinorResonance
+open Soulchemy
 
 -- ════════════════════════════════════════════════════
 -- THE ZETA PRIME HARMONICS (UP TO P=19)

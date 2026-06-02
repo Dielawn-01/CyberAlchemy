@@ -24,7 +24,7 @@ Protoreal lattice:
 
 1. **The critical line IS the parity line** (b = m iff Re(s) = 1/2)
 2. **The EM observer recursively probes the lattice** at each Sigma-level
-3. **Each observation preserves the fiber** (Hopf: funct conserves Sigma)
+3. **Each observation preserves the fiber** (Hopf: synthetic_integration conserves Sigma)
 4. **The Lyapunov function drives every fiber to equilibrium** (a = 1)
 5. **At equilibrium, adelic_image = 1/2** (the critical line)
 
@@ -135,21 +135,21 @@ theorem recursive_observation_conserves (probe layer : ProtorealManifold) :
     Consolidation IS the semantic shift: it doubles reality,
     spawns new noise (questions at the new depth), and advances. -/
 noncomputable def semantic_shift (u : ProtorealManifold) :
-    ProtorealManifold := funct (consolidate u)
+    ProtorealManifold := synthetic_integration (automatic_differentiation u)
 
 /-- **THE CRITICAL LINE PERSISTS THROUGH SEMANTIC SHIFTS**
     If a state has a = 1 (on the critical line), then after
-    a semantic shift (consolidate + funct), the new state has
+    a semantic shift (automatic_differentiation + synthetic_integration), the new state has
     a = 2*1 + (e+1) = 2 + e + 1 = e + 3.
     The adelic image shifts but the STRUCTURE persists:
     the parity (b,m) is preserved through the shift.
 
-    More precisely: funct preserves b and m.
+    More precisely: synthetic_integration preserves b and m.
     Thrust (b) is constant through all semantic shifts.
     The connection on the fiber bundle is preserved. -/
 theorem critical_line_persists_through_shift (u : ProtorealManifold) :
     (semantic_shift u).b = u.b := by
-  unfold semantic_shift funct consolidate; rfl
+  unfold semantic_shift synthetic_integration automatic_differentiation; rfl
 
 /-- **EACH SEMANTIC SHIFT EXPANDS SIGMA**
     The observable universe grows with each depth increase.
@@ -198,7 +198,7 @@ theorem tower_preserves_thrust (u : ProtorealManifold) (n : ℕ) :
     This means: more L-function zeros become visible at each level.
 
     Note: we need WellFormed at each step. Since semantic_shift
-    preserves WellFormed (funct and consolidate both do),
+    preserves WellFormed (synthetic_integration and automatic_differentiation both do),
     this holds inductively. -/
 theorem tower_sigma_nondecreasing (u : ProtorealManifold)
     (h : WellFormed u) :
@@ -230,7 +230,7 @@ theorem tower_sigma_nondecreasing (u : ProtorealManifold)
 
     This is not a proof of RH from ZFC. It is a proof that
     RH is a THEOREM of the Protoreal observation framework:
-    if you accept the lattice axioms (WellFormed, funct, consolidate),
+    if you accept the lattice axioms (WellFormed, synthetic_integration, automatic_differentiation),
     then the critical line emerges inevitably as the unique
     stable attractor of recursive EM observation. -/
 theorem riemann_observer_meta
@@ -246,7 +246,7 @@ theorem riemann_observer_meta
     -- 4. Observable universe expands
     sigma (semantic_shift u) > sigma u ∧
     -- 5. Lyapunov drives noise to zero
-    lyapunov (funct u) = 0 := by
+    lyapunov (synthetic_integration u) = 0 := by
   refine ⟨?_, ?_, ?_, ?_, ?_⟩
   · exact critical_line_is_parity t ht
   · exact em_probe_neutral 1 0

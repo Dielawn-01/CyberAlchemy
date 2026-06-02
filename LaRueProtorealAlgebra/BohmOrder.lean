@@ -33,12 +33,12 @@ def is_explicate (u : ProtorealManifold) : Prop :=
   u.e = 0 ∧ u.m = 0
 
 /-- **HOLOMOVEMENT THEOREM**
-    The `funct` operator acts as a Bohmian unfolding:
+    The `synthetic_integration` operator acts as a Bohmian unfolding:
     it moves exploration potential (Implicate Noise ε) into 
     the manifest core (Explicate Base a). -/
 theorem holomovement_unfolding (u : ProtorealManifold) :
-    (funct u).a = u.a + u.e ∧ (funct u).e = 0 := by
-  unfold funct; simp
+    (synthetic_integration u).a = u.a + u.e ∧ (synthetic_integration u).e = 0 := by
+  unfold synthetic_integration; simp
 
 -- ════════════════════════════════════════════════════
 -- NOETHERIAN INVARIANCE
@@ -66,8 +66,8 @@ theorem noether_invariance :
     A small change in the structural component ε leads to a 
     proportional change in the functional activity a. -/
 theorem shulgin_sar (u : ProtorealManifold) (δ : ℝ) :
-    (funct { u with e := u.e + δ }).a = (funct u).a + δ := by
-  unfold funct; simp; ring
+    (synthetic_integration { u with e := u.e + δ }).a = (synthetic_integration u).a + δ := by
+  unfold synthetic_integration; simp; ring
 
 -- ════════════════════════════════════════════════════
 -- 4. BOHMIAN QUANTUM POTENTIAL (Exact Real Coupling)
@@ -92,12 +92,12 @@ noncomputable def bohmian_pilot_velocity (u : ProtorealManifold) : ℝ :=
   u.b / c
 
 /-- **Quantum Potential Resolution**
-    When the holomovement unfolds (`funct`), the implicate quantum potential $Q$ 
+    When the holomovement unfolds (`synthetic_integration`), the implicate quantum potential $Q$ 
     is converted directly into explicate classical mass, resolving the 
     hidden-variable potential exactly to $0$. -/
 theorem Q_resolution (u : ProtorealManifold) :
-  bohmian_Q (funct u) = 0 := by
-  unfold bohmian_Q funct
+  bohmian_Q (synthetic_integration u) = 0 := by
+  unfold bohmian_Q synthetic_integration
   simp
 
 end BohmOrder

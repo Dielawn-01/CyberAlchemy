@@ -103,10 +103,10 @@ noncomputable def cohomological_morphism : PhasorMorphism where
 /-- **MORPHISM 3: FUNCT** (Spectral)
     Funct preserves the (b,m) structure, hence preserves phase. -/
 def spectral_morphism : PhasorMorphism where
-  map := funct
+  map := synthetic_integration
   phase_preserving := by
     intro u h
-    unfold klein_phase funct
+    unfold klein_phase synthetic_integration
     simp
     unfold klein_phase at h
     linarith
@@ -200,7 +200,7 @@ theorem inter_mapping_web :
         omega omega (ProtorealManifold.mul omega iota)).a = 0) ∧
     -- Phasor morphisms preserve Hodge structure
     (∀ u : ProtorealManifold,
-      klein_phase u = 0 → klein_phase (funct u) = 0) ∧
+      klein_phase u = 0 → klein_phase (synthetic_integration u) = 0) ∧
     -- Phase lock always produces Hodge classes
     (∀ u : ProtorealManifold, klein_phase (phase_lock u) = 0) ∧
     -- All six faces of κ agree

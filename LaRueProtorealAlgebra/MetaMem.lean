@@ -40,14 +40,14 @@ def compute_delta (t0 t1 : ObservableState) : MemoryDelta :=
 -- 2. RECONSTRUCTING NOISE (ε)
 -- ════════════════════════════════════════════════════
 
-/-- **Approximate Noise**: If the chronological step was a `funct` 
+/-- **Approximate Noise**: If the chronological step was a `synthetic_integration` 
     (Sowing) operation, the exact noise ($\varepsilon$) injected into the 
     manifold is mathematically perfectly preserved in the real delta ($\Delta a$). -/
 theorem approximate_noise (u : ProtorealManifold) :
     let obs_t0 := collapse_state u
-    let obs_t1 := collapse_state (funct u)
+    let obs_t1 := collapse_state (synthetic_integration u)
     (compute_delta obs_t0 obs_t1).da = u.e := by
-  unfold collapse_state funct compute_delta
+  unfold collapse_state synthetic_integration compute_delta
   simp
 
 -- ════════════════════════════════════════════════════
@@ -55,13 +55,13 @@ theorem approximate_noise (u : ProtorealManifold) :
 -- ════════════════════════════════════════════════════
 
 /-- **Approximate Consolidation**: If the chronological step was a 
-    `consolidate` operation, the Anchor ($\iota$) strictly doubles.
+    `automatic_differentiation` operation, the Anchor ($\iota$) strictly doubles.
     The ratio of the delta to the original state confirms the scaling action. -/
 theorem approximate_consolidation (u : ProtorealManifold) (hm : u.m ≠ 0) :
     let obs_t0 := collapse_state u
-    let obs_t1 := collapse_state (consolidate u)
+    let obs_t1 := collapse_state (automatic_differentiation u)
     (compute_delta obs_t0 obs_t1).dm / obs_t0.m = 1 := by
-  unfold collapse_state consolidate compute_delta
+  unfold collapse_state automatic_differentiation compute_delta
   simp
   have h_sub : u.m * 2 - u.m = u.m := by ring
   rw [h_sub]
@@ -85,12 +85,12 @@ noncomputable def reconstruct_step (u_prev : ProtorealManifold) (obs_next : Obse
   let delta := compute_delta obs_prev obs_next
   
   if delta.dm = obs_prev.m then
-    -- It was a consolidate operator
+    -- It was a automatic_differentiation operator
     { a := obs_next.a, b := obs_next.b, m := obs_next.m, 
       e := 0, 
       l := u_prev.l }
   else if delta.dm = 0 then
-    -- It was a funct (Sowing) operator
+    -- It was a synthetic_integration (Sowing) operator
     { a := obs_next.a, b := obs_next.b, m := obs_next.m, 
       e := 0, 
       l := u_prev.l + 1 }
@@ -109,11 +109,11 @@ noncomputable def metamem_reconstruction (genesis : ProtorealManifold) (path : P
 /-- **MetaMem Perfect Reconstruction (Funct)**:
     Proves that if an agent undergoes a Sowing operation, MetaMem 
     perfectly reconstructs the resulting 5D state from just the 3D footprint. -/
-theorem metamem_perfect_funct (u : ProtorealManifold) (hm : u.m ≠ 0) :
-    let u_next := funct u
+theorem metamem_perfect_synthetic_integration (u : ProtorealManifold) (hm : u.m ≠ 0) :
+    let u_next := synthetic_integration u
     let obs_next := collapse_state u_next
     reconstruct_step u obs_next = u_next := by
-  unfold reconstruct_step collapse_state funct compute_delta
+  unfold reconstruct_step collapse_state synthetic_integration compute_delta
   simp
   intro h
   exact hm h.symm

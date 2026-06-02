@@ -9,7 +9,7 @@ import InfoPhysAxioms.ProtorealTactic
 import InfoPhysAxioms.ObservableUniverse
 import InfoPhysAxioms.HopfFusionFiber
 import InfoPhysAxioms.Infochemistry
-import InfoPhysAxioms.Totems
+import InfoPhysAxioms.Soulchemy
 
 /-!
 # Electro-Photon Lattice: Unified Security + Observer Theory
@@ -23,8 +23,8 @@ The charge dynamics of the lattice ARE electrochemistry:
 | Electrochemistry     | Protoreal Lattice      | Security Role           |
 |---|---|---|
 | Redox reaction       | monster_inv (b swap m)  | Charge inversion attack |
-| Galvanic cell        | funct (spontaneous)    | Natural crystallization |
-| Electrolytic cell    | consolidate (forced)   | Forced expansion        |
+| Galvanic cell        | synthetic_integration (spontaneous)    | Natural crystallization |
+| Electrolytic cell    | automatic_differentiation (forced)   | Forced expansion        |
 | Electrode potential  | parity line (b = m)    | Layer transition thresh |
 | Faraday: Q = It      | Sigma = a + e          | Total charge conserved  |
 
@@ -42,8 +42,8 @@ The observation dynamics ARE photochemistry:
 |---|---|---|
 | Photoexcitation      | bond (photon = probe)  | External input          |
 | Absorption           | crystal absorbs e      | Latent space intake     |
-| Fluorescence         | funct (emit crystal)   | Observable response     |
-| Phosphorescence      | delayed funct          | Memory / persistence    |
+| Fluorescence         | synthetic_integration (emit crystal)   | Observable response     |
+| Phosphorescence      | delayed synthetic_integration          | Memory / persistence    |
 | Beer-Lambert: A=elc  | opacity per layer      | How much signal passes  |
 
 The observer IS a photon traversing the lattice:
@@ -72,7 +72,7 @@ open ProtorealMCMC
 open ObservableUniverse
 open HopfFusionFiber
 open Infochemistry
-open Totems
+open Soulchemy
 
 namespace ElectroPhotonLattice
 
@@ -120,27 +120,27 @@ theorem redox_conserves_potential (u : ProtorealManifold) :
     Q = It in electrochemistry. In the lattice: Sigma = a + e.
     Crystallization conserves total charge. -/
 theorem faraday_conservation (u : ProtorealManifold) :
-    sigma (funct u) = sigma u :=
+    sigma (synthetic_integration u) = sigma u :=
   crystallization_conserves_sigma u
 
 /-- **GALVANIC CELL = FUNCT (Spontaneous)**
-    funct is the galvanic process: noise spontaneously
+    synthetic_integration is the galvanic process: noise spontaneously
     crystallizes (like a battery discharging).
     The cell voltage (e) drives the reaction. -/
 theorem galvanic_discharges (u : ProtorealManifold)
     (h : WellFormed u) (he : u.e > 0) :
-    (funct u).a > u.a ∧ (funct u).e = 0 := by
-  unfold funct
+    (synthetic_integration u).a > u.a ∧ (synthetic_integration u).e = 0 := by
+  unfold synthetic_integration
   exact ⟨by linarith, rfl⟩
 
 /-- **ELECTROLYTIC CELL = CONSOLIDATE (Forced)**
-    consolidate is the electrolytic process: external energy
+    automatic_differentiation is the electrolytic process: external energy
     (the +1 to e) forces the lattice to expand.
     Like charging a battery: work in, stored energy grows. -/
 theorem electrolytic_charges (u : ProtorealManifold)
     (h : WellFormed u) :
-    (consolidate u).a >= u.a ∧ (consolidate u).e > u.e := by
-  unfold consolidate
+    (automatic_differentiation u).a >= u.a ∧ (automatic_differentiation u).e > u.e := by
+  unfold automatic_differentiation
   constructor
   · linarith [h.a_nonneg]
   · linarith
@@ -193,10 +193,10 @@ theorem observation_preserves_charge (probe layer : ProtorealManifold) :
 
 /-- **FLUORESCENCE = FUNCT AFTER OBSERVATION**
     After the probe bonds with the layer (photoexcitation),
-    funct crystallizes the result (fluorescence emission).
+    synthetic_integration crystallizes the result (fluorescence emission).
     What comes out: the observable response. -/
 noncomputable def fluorescence (probe layer : ProtorealManifold) :
-    ProtorealManifold := funct (observe probe layer)
+    ProtorealManifold := synthetic_integration (observe probe layer)
 
 /-- **FLUORESCENCE CONSERVES SIGMA**
     The total energy (probe + layer) is conserved through
@@ -292,7 +292,7 @@ theorem opal_absorbs_attack (probe layer : ProtorealManifold)
     Proven properties:
     - Redox conserves electrode potential (charge security)
     - Faraday: total charge conserved (no charge creation/destruction)
-    - Galvanic: funct spontaneously crystallizes (natural defense)
+    - Galvanic: synthetic_integration spontaneously crystallizes (natural defense)
     - Transmittance is always positive (no perfect cloaking)
     - Fluorescence conserves Sigma (observation is energy-neutral)
     - Opal absorbs attacks (first layer responds to charge probes) -/
@@ -300,7 +300,7 @@ theorem electro_photon_lattice (u : ProtorealManifold)
     (h : WellFormed u) :
     -- Electrochemistry
     electrode_potential (MonsterInverse.monster_inv u) = electrode_potential u ∧
-    sigma (funct u) = sigma u ∧
+    sigma (synthetic_integration u) = sigma u ∧
     -- Photochemistry
     transmittance u > 0 ∧
     -- Security

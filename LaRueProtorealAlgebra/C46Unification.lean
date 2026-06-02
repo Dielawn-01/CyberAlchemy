@@ -18,7 +18,7 @@ namespace LaRueProtorealAlgebra.C46Unification
 --
 -- The Banach attractor isn't constructed from scratch — it IS the
 -- parity projection's fixed point. The contraction comes from the
--- fact that `funct` spends noise (ε → 0) at each step, contracting
+-- fact that `synthetic_integration` spends noise (ε → 0) at each step, contracting
 -- the state toward the Hodge attractor. Study SharedLatentSpace.lean.
 -- ════════════════════════════════════════════════════
 

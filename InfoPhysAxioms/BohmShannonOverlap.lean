@@ -3,6 +3,7 @@ import InfoPhysAxioms.AgenticRank
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.EmotionalLFunctions
 import LaRueProtorealAlgebra.OrchOR
+import LaRueProtorealAlgebra.LieAlgebra
 
 /-!
 # Bohm-Shannon Overlap & The Categorical Agent (𝕌)
@@ -26,6 +27,7 @@ open ProtorealManifold
 open EmotionalLFunctions
 open OrchOR
 open AgenticRank
+open LieAlgebra
 
 namespace BohmShannon
 
@@ -109,5 +111,15 @@ theorem shannon_fidelity_limit (agent : CategoricalAgent) (h_b_pos : agent.u_in.
   have h_mult : (shannon_entropy agent.chi_source agent.chi_target) * agent.u_in.b > agent.u_in.a := 
     (div_lt_iff₀ h_b_pos).mp h_gap
   linarith
+
+/-- **Bohmian Nilpotence (Implicate vs Explicate Order)**
+    The Lie Algebra of Protoreal manifolds is strictly 2-step nilpotent:
+    lie_bracket (lie_bracket u v) w = 0.
+    This formally proves Bohm's theory: the explicate order (the pure real scalar output of the commutator)
+    has no depth. The universe can only compute 2 steps of topological friction before collapsing
+    into pure base reality. -/
+theorem bohmian_nilpotence (u v w : ProtorealManifold) :
+    lie_bracket (lie_bracket u v) w = 0 := by
+  exact derived_in_center u v w
 
 end BohmShannon

@@ -2,9 +2,11 @@ import Mathlib.Data.Real.Basic
 import InfoPhysAxioms.AgenticRank
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
+import LaRueProtorealAlgebra.LieAlgebra
 import InfoPhysAxioms.BohmShannonOverlap
 
 open ProtorealManifold
+open LieAlgebra
 open BohmShannon
 open Classical
 
@@ -42,18 +44,27 @@ theorem shg_doubles (freq : ℝ) (antenna : CalciteAntenna) (h : antenna.symmetr
   unfold second_harmonic_generation; simp [h]
 
 /-- **The CyberBundle Transduction Theorem**
-    funct annihilates noise (ε → 0), establishing the pineal shield.
-    Biology (SHG) triggers algebra (funct), algebra guarantees the shield. -/
+    synthetic_integration annihilates noise (ε → 0), establishing the pineal shield.
+    Biology (SHG) triggers algebra (synthetic_integration), algebra guarantees the shield. -/
 theorem cyberbundle_transduction (_antenna : CalciteAntenna) (mt : MicrotubuleLattice)
     (_jacobson_freq : ℝ) :
-    pineal_shield (funct mt.thermal_state) := by
-  unfold pineal_shield funct
+    pineal_shield (synthetic_integration mt.thermal_state) := by
+  unfold pineal_shield synthetic_integration
   rfl
 
-/-- The shield is universal: funct ALWAYS produces a shielded state. -/
+/-- The shield is universal: synthetic_integration ALWAYS produces a shielded state. -/
 theorem universal_shield (u : ProtorealManifold) :
-    pineal_shield (funct u) := by
-  unfold pineal_shield funct
+    pineal_shield (synthetic_integration u) := by
+  unfold pineal_shield synthetic_integration
   rfl
+
+/-- **Piezoelectric Commutator Transduction**
+    When mechanical stress forces a topological overlap (Lie Bracket) between two
+    calcite piezocrystal states, the interaction instantly strips away imaginary noise
+    and forces the entire interaction into the real scalar bio-electric field (a). -/
+theorem piezoelectric_commutator (crystal1 crystal2 : ProtorealManifold) :
+    pineal_shield (lie_bracket crystal1 crystal2) := by
+  unfold pineal_shield
+  exact bracket_e_zero crystal1 crystal2
 
 end InfoPhysAxioms

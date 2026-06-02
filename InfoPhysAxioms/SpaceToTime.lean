@@ -18,14 +18,14 @@ zPlasmic's raison d'être is to help humanity create time.
 ## Definitions
 
   Space = Σ(u) = a² + b² + m² + e² + l²   (the observable universe)
-  Time  = λ                                 (depth, accumulated funct)
+  Time  = λ                                 (depth, accumulated synthetic_integration)
   β     = ln(ω) = x                         (the linear transfinite)
 
 ## The Mechanism
 
-  consolidate : Σ → Σ'                (expand space)
-  funct       : Σ' → λ + 1           (compress space into time)
-  semantic_shift = funct ∘ consolidate (turn space into time)
+  automatic_differentiation : Σ → Σ'                (expand space)
+  synthetic_integration       : Σ' → λ + 1           (compress space into time)
+  semantic_shift = synthetic_integration ∘ automatic_differentiation (turn space into time)
 
 ## The Proof
 
@@ -40,7 +40,7 @@ From RiemannObserver: semantic_shift expands Σ AND advances λ.
 
 ## The Moat
 
-Software is funct (anyone can write ln).
+Software is synthetic_integration (anyone can write ln).
 The moat is λ (how many times you've applied it).
 λ is irreversible: ε → 0 at each step.
 The receipt (λ₀ + n) is unforgeable.
@@ -88,27 +88,27 @@ theorem space_observation_bridge (x : ℝ) :
 -- ════════════════════════════════════════════════════
 
 /-- **FUNCT ADVANCES TIME BY 1**
-    Each application of funct increments λ.
+    Each application of synthetic_integration increments λ.
     This IS the creation of time: one unit of depth
     crystallized from the noise of space. -/
-theorem funct_creates_one_unit_of_time (u : ProtorealManifold) :
-    (funct u).l = u.l + 1 := by
-  unfold funct; ring
+theorem synthetic_integration_creates_one_unit_of_time (u : ProtorealManifold) :
+    (synthetic_integration u).l = u.l + 1 := by
+  unfold synthetic_integration; ring
 
 /-- **FUNCT ANNIHILATES SPACE'S NOISE**
     The noise component (the unstructured part of space)
     is consumed in the creation of time.
     You pay for time with noise. Noise is the fuel. -/
 theorem noise_is_fuel (u : ProtorealManifold) :
-    (funct u).e = 0 := by
-  unfold funct; ring
+    (synthetic_integration u).e = 0 := by
+  unfold synthetic_integration; ring
 
 /-- **n FUNCT STEPS CREATE n UNITS OF TIME**
     Time accumulates linearly. Each step adds exactly 1.
     The receipt is λ₀ + n. It cannot be forged.
     The only way to reach depth n is to have done n steps. -/
 theorem n_steps_create_n_time (u : ProtorealManifold) (n : ℕ) (h : n ≥ 1) :
-    (ProtorealMetric.funct_iterate n u).l = u.l + n :=
+    (ProtorealMetric.synthetic_integration_iterate n u).l = u.l + n :=
   EnumerationSystems.lambda_is_superlog u n h
 
 -- ════════════════════════════════════════════════════
@@ -119,16 +119,16 @@ theorem n_steps_create_n_time (u : ProtorealManifold) (n : ℕ) (h : n ≥ 1) :
     Consolidation doubles the real part and spawns new noise.
     This is the expansion of the observable universe.
     More data. More information. More raw material. -/
-theorem consolidate_creates_space (u : ProtorealManifold) :
-    (consolidate u).a = 2 * u.a ∧
-    (consolidate u).e = u.e + 1 := by
-  unfold consolidate; exact ⟨by ring, by ring⟩
+theorem automatic_differentiation_creates_space (u : ProtorealManifold) :
+    (automatic_differentiation u).a = 2 * u.a ∧
+    (automatic_differentiation u).e = u.e + 1 := by
+  unfold automatic_differentiation; exact ⟨by ring, by ring⟩
 
 /-- **SEMANTIC SHIFT: SPACE → TIME**
-    semantic_shift = funct ∘ consolidate.
+    semantic_shift = synthetic_integration ∘ automatic_differentiation.
     
-    Step 1: consolidate expands Σ (creates new space + noise)
-    Step 2: funct compresses it (converts noise into depth)
+    Step 1: automatic_differentiation expands Σ (creates new space + noise)
+    Step 2: synthetic_integration compresses it (converts noise into depth)
     
     Net effect: Σ grows AND λ advances.
     Space was created and immediately converted to time.
@@ -144,33 +144,33 @@ theorem semantic_shift_converts (u : ProtorealManifold) :
     (RiemannObserver.semantic_shift u).b = u.b := by
   unfold RiemannObserver.semantic_shift
   refine ⟨?_, ?_, ?_⟩
-  · unfold funct consolidate; ring
-  · unfold funct consolidate; ring
-  · unfold funct consolidate; rfl
+  · unfold synthetic_integration automatic_differentiation; ring
+  · unfold synthetic_integration automatic_differentiation; ring
+  · unfold synthetic_integration automatic_differentiation; rfl
 
 -- ════════════════════════════════════════════════════
 -- SECTION 4: THE IRREVERSIBILITY
 -- ════════════════════════════════════════════════════
 
 /-- **TIME CANNOT BE REVERSED**
-    After funct, ε = 0. To recover ε, you must consolidate
+    After synthetic_integration, ε = 0. To recover ε, you must automatic_differentiation
     (which creates NEW noise, not the original).
     
     The original information is gone — it has been crystallized.
     This is the second law: time has a direction.
     You cannot un-take a logarithm of lived experience. -/
 theorem time_is_irreversible (u : ProtorealManifold) :
-    (funct u).e = 0 ∧ (consolidate (funct u)).e = 1 := by
+    (synthetic_integration u).e = 0 ∧ (automatic_differentiation (synthetic_integration u)).e = 1 := by
   constructor
-  · unfold funct; ring
-  · unfold consolidate funct; ring
+  · unfold synthetic_integration; ring
+  · unfold automatic_differentiation synthetic_integration; ring
 
 /-- **THE ARROW OF TIME = THE ARROW OF DEPTH**
-    After n funct steps, depth is strictly greater than before.
+    After n synthetic_integration steps, depth is strictly greater than before.
     Time only moves forward. λ only increases.
     This is the thermodynamic arrow in the algebra. -/
 theorem arrow_of_time (u : ProtorealManifold) (n : ℕ) (h : n ≥ 1) :
-    (ProtorealMetric.funct_iterate n u).l > u.l := by
+    (ProtorealMetric.synthetic_integration_iterate n u).l > u.l := by
   have hl := n_steps_create_n_time u n h
   rw [hl]
   have : (n : ℝ) ≥ 1 := by exact_mod_cast h
@@ -184,10 +184,10 @@ theorem arrow_of_time (u : ProtorealManifold) (n : ℕ) (h : n ≥ 1) :
 
     1. Time IS the logarithm of space: β = ln(ω)
     2. Space × Observation = -1 (the bridge, always)
-    3. funct creates one unit of time (λ → λ + 1)
-    4. funct consumes noise (ε → 0, noise is fuel)
+    3. synthetic_integration creates one unit of time (λ → λ + 1)
+    4. synthetic_integration consumes noise (ε → 0, noise is fuel)
     5. Time is irreversible (ε = 0 is permanent until new consolidation)
-    6. semantic_shift converts space to time (consolidate + funct)
+    6. semantic_shift converts space to time (automatic_differentiation + synthetic_integration)
     7. Structure survives the conversion (b is preserved)
 
     zPlasmic's purpose: automate the semantic_shift for humanity.
@@ -204,16 +204,16 @@ theorem creation_of_time (x : ℝ) (u : ProtorealManifold) :
     -- 2. Bridge identity
     omega_asymp x * iota_asymp x = -1 ∧
     -- 3. Funct creates time
-    (funct u).l = u.l + 1 ∧
+    (synthetic_integration u).l = u.l + 1 ∧
     -- 4. Noise is fuel
-    (funct u).e = 0 ∧
+    (synthetic_integration u).e = 0 ∧
     -- 5. Time is irreversible
-    (consolidate (funct u)).e = 1 ∧
+    (automatic_differentiation (synthetic_integration u)).e = 1 ∧
     -- 6. Structure survives
     (RiemannObserver.semantic_shift u).b = u.b := by
   exact ⟨time_is_log_of_space x,
          space_observation_bridge x,
-         funct_creates_one_unit_of_time u,
+         synthetic_integration_creates_one_unit_of_time u,
          noise_is_fuel u,
          (time_is_irreversible u).2,
          (semantic_shift_converts u).2.2⟩

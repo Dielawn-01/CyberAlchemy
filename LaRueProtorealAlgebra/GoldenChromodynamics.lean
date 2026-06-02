@@ -17,7 +17,7 @@ optimal paths through the L-sheaf.
 ## Collatz-Klein Paths
 
 The Klein bottle has two strips. Multiplying by φ (expand/sow)
-and φ̄ (contract/consolidate) bounces between them. The bridge
+and φ̄ (contract/automatic_differentiation) bounces between them. The bridge
 φ · φ̄ = -1 guarantees convergence: act-then-observe negates.
 -/
 

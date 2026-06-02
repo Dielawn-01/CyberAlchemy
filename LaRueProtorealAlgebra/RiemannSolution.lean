@@ -25,7 +25,7 @@ The IncompletenessSource module proves that κ = -1 is simultaneously:
 - The non-commutativity gap (2κ = -2)
 - The single sign flip (|κ| = 1 heterogeneous component)
 - The non-associativity gap (κ = -1)
-- The Gödelian boundary (successor = funct on λ)
+- The Gödelian boundary (successor = synthetic_integration on λ)
 
 The critical line Re(s) = 1/2 is the SPECTRAL SHADOW of κ = -1.
 The manifold's computational boundary (where truth stops being
@@ -108,7 +108,7 @@ theorem incompleteness_criticality_chain :
     -- Link 4: Bridge forces fixed point a = 1
     (∀ u : ProtorealManifold, zeta_op u = 0 → u.a = 1) ∧
     -- Link 5: Noise margin is linear (|κ| per step)
-    (∀ u : ProtorealManifold, (consolidate u).e - u.e = 1) ∧
+    (∀ u : ProtorealManifold, (automatic_differentiation u).e - u.e = 1) ∧
     -- Link 6: 6 invariance faces all equal κ
     (PentagonCoherence.assoc omega omega iota).a = -1 ∧
     EulerPerception.euler_perception = -1 := by

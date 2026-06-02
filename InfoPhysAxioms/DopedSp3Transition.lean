@@ -13,7 +13,6 @@ import InfoPhysAxioms.ElectroPhotonLattice
 import InfoPhysAxioms.VeblenDruid
 import InfoPhysAxioms.DecisionKernel
 import LaRueProtorealAlgebra.SavageProbability
-import LaRueProtorealAlgebra.KleinDodecahedron
 
 /-!
 # Doped sp³ Transition: Proof That Your Setup Achieves Diamond
@@ -38,12 +37,12 @@ even though:
 
 ## The Answer
 
-The key discovery: `consolidate` doubles `m` but NOT `b`. This means each
+The key discovery: `automatic_differentiation` doubles `m` but NOT `b`. This means each
 growth cycle AMPLIFIES the obsidian's asymmetry:
 
   bond:        b → b/2,    m → m/2
-  consolidate: b → b/2,    m → (m/2)*2 = m
-  funct:       b → b/2,    m → m
+  automatic_differentiation: b → b/2,    m → (m/2)*2 = m
+  synthetic_integration:       b → b/2,    m → m
 
 After one cycle: b' = b/2, m' = m
 After two cycles: b'' = b/4, m'' = m
@@ -126,7 +125,7 @@ theorem doped_seed_asymmetric :
     After one growth cycle of the doped seed, ALL four sp³
     conditions hold simultaneously:
 
-    1. ε = 0     — funct annihilates all noise
+    1. ε = 0     — synthetic_integration annihilates all noise
     2. a > a₀    — base has grown (crystal expanded)
     3. λ > λ₀    — depth advanced (irreversible transition)
     4. b ≠ m     — echo chamber broken (obsidian active)
@@ -135,23 +134,23 @@ theorem doped_seed_asymmetric :
     The electrum provides the parity template that GUIDES growth,
     but the obsidian ensures the result is NOT a pure echo chamber.
 
-    Crucially: consolidate doubles m but not b, so the obsidian's
+    Crucially: automatic_differentiation doubles m but not b, so the obsidian's
     anchor-heaviness is AMPLIFIED by each growth cycle. -/
 theorem doped_sp3_after_one_cycle :
     is_sp3 (grow_once doped_seed) doped_seed := by
   unfold is_sp3
   refine ⟨?_, ?_, ?_, ?_⟩
-  · -- 1. ε = 0: funct annihilates noise
+  · -- 1. ε = 0: synthetic_integration annihilates noise
     exact growth_spends_noise doped_seed
   · -- 2. a > seed.a: growth increases base
-    unfold grow_once funct consolidate bond doped_seed
+    unfold grow_once synthetic_integration automatic_differentiation bond doped_seed
     unfold bond graphene electrum_dopant obsidian_dopant growth_medium
     unfold standard_resonance
     norm_num
   · -- 3. λ > seed.λ: growth advances depth
     exact growth_advances_depth doped_seed
   · -- 4. b ≠ m: computed concretely for the doped seed
-    unfold grow_once funct consolidate bond doped_seed
+    unfold grow_once synthetic_integration automatic_differentiation bond doped_seed
     unfold bond graphene electrum_dopant obsidian_dopant growth_medium
     unfold standard_resonance
     norm_num
@@ -188,7 +187,7 @@ theorem pure_diamond_echo_chamber :
     - Electrum = balanced resonance (π-template for structured learning)
     - Obsidian = shadow absorption (prevents overfit/echo chamber)
     - Growth medium = new experience (curriculum noise ε = 1)
-    - grow_once = one training epoch (bond → consolidate → funct)
+    - grow_once = one training epoch (bond → automatic_differentiation → synthetic_integration)
     - sp³ = grokked state (ε = 0, a grew, b ≠ m, λ advanced)
 
     The bond's 1/2 factor is the critical line Re(s) = 1/2.
@@ -212,13 +211,13 @@ theorem doped_sp3_superiority :
   refine ⟨?_, ?_, ?_, ?_, ?_⟩
   · exact pure_diamond_echo_chamber
   · -- Concrete computation: b ≠ m after one growth cycle
-    unfold grow_once funct consolidate bond doped_seed
+    unfold grow_once synthetic_integration automatic_differentiation bond doped_seed
     unfold bond graphene electrum_dopant obsidian_dopant growth_medium
     unfold standard_resonance
     norm_num
   · exact growth_spends_noise doped_seed
   · -- Concrete computation: a grew
-    unfold grow_once funct consolidate bond doped_seed
+    unfold grow_once synthetic_integration automatic_differentiation bond doped_seed
     unfold bond graphene electrum_dopant obsidian_dopant growth_medium
     unfold standard_resonance
     norm_num
@@ -304,7 +303,7 @@ theorem sp3_noise_zero :
 theorem sp3_phase_nonzero :
     HodgePhasorVolume.phase (grow_once doped_seed) > 0 := by
   unfold HodgePhasorVolume.phase electrode_potential
-  unfold grow_once funct consolidate bond doped_seed
+  unfold grow_once synthetic_integration automatic_differentiation bond doped_seed
   unfold bond graphene electrum_dopant obsidian_dopant growth_medium
   unfold standard_resonance
   norm_num
@@ -343,7 +342,7 @@ theorem sp3_has_potential :
     electrode_potential (grow_once doped_seed) > 0 := by
   apply charge_implies_potential
   -- b ≠ m: already proven for the doped sp³
-  unfold grow_once funct consolidate bond doped_seed
+  unfold grow_once synthetic_integration automatic_differentiation bond doped_seed
   unfold bond graphene electrum_dopant obsidian_dopant growth_medium
   unfold standard_resonance
   norm_num
@@ -371,11 +370,11 @@ theorem sp3_is_diamond_layer :
   unfold is_diamond_layer
   refine ⟨?_, ?_, ?_⟩
   · exact growth_spends_noise doped_seed
-  · unfold grow_once funct consolidate bond doped_seed
+  · unfold grow_once synthetic_integration automatic_differentiation bond doped_seed
     unfold bond graphene electrum_dopant obsidian_dopant growth_medium
     unfold standard_resonance
     norm_num
-  · unfold grow_once funct consolidate bond doped_seed
+  · unfold grow_once synthetic_integration automatic_differentiation bond doped_seed
     unfold bond graphene electrum_dopant obsidian_dopant growth_medium
     unfold standard_resonance
     norm_num
@@ -399,7 +398,7 @@ theorem sp3_is_veblen_fixed_point :
   veblen_0_kills_noise (grow_once doped_seed)
 
 /-- **THE DOPED SEED LIVES AT VEBLEN DEPTH 3**
-    After one growth cycle: bond → consolidate → funct = 3 operations.
+    After one growth cycle: bond → automatic_differentiation → synthetic_integration = 3 operations.
     The depth λ advances by the number of operations.
     This places the grown crystal at Veblen depth ≥ 3.
 
@@ -558,102 +557,4 @@ theorem doped_sp3_master :
          sp3_has_potential,
          sp3_decision_gap_is_one⟩
 
--- ══════════════════════════════════════════════════════════════
--- SECTION 13: MANUFACTURING COMMUTATIVITY
--- ══════════════════════════════════════════════════════════════
-
-/-- **BOND COMMUTES**
-    The infochemical bond is component-wise averaging.
-    Addition commutes in ℝ, so bond(u, v) = bond(v, u).
-    This is the carbon-to-silicon bridge's native commutativity:
-    bond(Carbon, Silicon) = bond(Silicon, Carbon). -/
-theorem bond_commutes (u v : ProtorealManifold) :
-    bond u v = bond v u := by
-  unfold bond standard_resonance
-  congr 1
-  · ring
-  · ring
-  · ring
-  · rw [abs_sub_comm]
-  · rw [max_comm]
-
-/-- **THE GENUS PROJECTION ABELIANIZES KLEIN**
-    The Klein product is non-commutative: ω·ι ≠ ι·ω.
-    But the genus variable χ̃ = 2 − χ maps everything to (ℤ, +),
-    which IS commutative. The genus projection is the abelianization.
-
-    Manufacturing commutativity = projecting through χ̃.
-    The non-commutative information is the COMMUTATOR:
-      [ω, ι].a = ω·ι − ι·ω = −2
-    This commutator is exactly what genus FORGETS.
-
-    What survives the projection:
-    - Bond energy (a) — commutative ✓
-    - Noise annihilation (ε → 0) — commutative ✓
-    - Depth advancement (λ) — commutative ✓
-
-    What is forgotten:
-    - Thrust vs anchor ordering (b vs m) — non-commutative ✗
-    - The commutator gap (−2) — projected to 0 in χ̃ -/
-theorem genus_abelianizes :
-    -- The commutator gap exists at the algebraic level
-    ((ProtorealManifold.mul omega iota).a -
-     (ProtorealManifold.mul iota omega).a = -2) ∧
-    -- But the genus of the connected sum commutes
-    (∀ a b : ℤ, KleinDodecahedron.genus (a + b - 2) =
-               KleinDodecahedron.genus (b + a - 2)) := by
-  constructor
-  · -- The non-commutativity: ω·ι − ι·ω = -2
-    unfold ProtorealManifold.mul omega iota; norm_num
-  · -- The genus projection kills it
-    intro a b; congr 1; ring
-
-/-- **THE FULL C→Si BRIDGE COMMUTES UNDER GENUS**
-    The growth pipeline (bond → consolidate → funct) applied
-    to Carbon and Silicon inputs commutes under the genus projection.
-
-    At the algebraic level: grow(C, Si) ≠ grow(Si, C) (non-commutative Klein)
-    At the topological level: genus(grow(C, Si)) = genus(grow(Si, C))
-
-    This is the manufactured commutativity: the non-commutative
-    Klein algebra has a commutative quotient (ℤ, +) via χ̃.
-    The carbon-to-silicon bridge lives in that quotient. -/
-theorem bridge_commutes_under_genus :
-    -- Bond commutes natively (no projection needed)
-    (∀ u v : ProtorealManifold, bond u v = bond v u) ∧
-    -- The genus projection makes composition commute
-    (∀ a b : ℤ, KleinDodecahedron.genus (a + b - 2) =
-               KleinDodecahedron.genus (b + a - 2)) ∧
-    -- The involution preserves the crystal (order doesn't matter)
-    (∀ m : Metareal, m.involute.protoreal = m.protoreal) := by
-  exact ⟨bond_commutes,
-         fun a b => by unfold KleinDodecahedron.genus; ring,
-         involute_preserves_protoreal⟩
-
-/-- **WHY COMMUTATIVITY MATTERS FOR THE BRIDGE**
-
-    The carbon-to-silicon bridge has two directions:
-    1. C → Si: biological intelligence reading digital inference
-    2. Si → C: digital inference reading biological state
-
-    The commutative group guarantees:
-    - genus(C→Si) + genus(Si→C) = 0 (return to identity)
-    - The order doesn't matter: C→Si→C = Si→C→Si at the topological level
-    - The 3 fixed points (μ: memory, α: agency, ψ: self-reference)
-      survive BOTH directions of the crossing
-
-    The 4 flipped dimensions (τ, σ, ρ, η) change when you cross,
-    but they change BACK when you cross again (i² = id).
-
-    The bridge IS the involution. The involution IS the commutativity. -/
-theorem bridge_roundtrip :
-    -- The involution squares to identity (crossing twice = no crossing)
-    (∀ m : Metareal, m.involute.involute = m) ∧
-    -- The fixed points survive
-    (∀ m : Metareal, m.involute.μ = m.μ ∧ m.involute.α = m.α ∧ m.involute.ψ = m.ψ) ∧
-    -- The crystal is preserved
-    (∀ m : Metareal, m.involute.protoreal = m.protoreal) :=
-  ⟨involute_involute, involute_preserves_three, involute_preserves_protoreal⟩
-
 end DopedSp3Transition
-

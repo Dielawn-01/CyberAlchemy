@@ -44,10 +44,10 @@ by
   derivative of the observable state (as proven in `infer_noise`).
 -/
 theorem torsion_requires_chronology (u : ProtorealManifold) :
-  let u_next := funct u
+  let u_next := synthetic_integration u
   (binormal_vector u).d_epsilon = (collapse_state u_next).a - (collapse_state u).a :=
 by
-  unfold binormal_vector collapse_state funct
+  unfold binormal_vector collapse_state synthetic_integration
   simp
 
 end FrenetSerretCybernetics

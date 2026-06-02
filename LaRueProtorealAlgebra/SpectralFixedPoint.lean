@@ -21,8 +21,8 @@ Protoreal system:
 
 - **DualityTheorem**: `standard_resonance`, `zero_lock_iff`,
   `critical_line_correspondence`, `duality_offset`
-- **ProtorealOperator**: `funct`, `consolidate`,
-  `funct_increases_base`
+- **ProtorealOperator**: `synthetic_integration`, `automatic_differentiation`,
+  `synthetic_integration_increases_base`
 - **MonsterInverse**: `monster_inv_involution`,
   `parity_projection_idempotent`, `parity_projection_locks`
 - **Uncomplex**: `manifold_stability` (non-associativity)
@@ -32,7 +32,7 @@ Protoreal system:
 
 The Banach fixed-point theorem (Mathlib's `ContractingWith`)
 establishes that contraction maps have unique fixed points.
-Our contribution is formalizing that the Protoreal funct
+Our contribution is formalizing that the Protoreal synthetic_integration
 operator IS such a map: its fixed point at a = 1 (Protoreal)
 corresponds to Re(s) = 1/2 (Complex), and the Monster Inverse
 Stitch ensures the fixed point is parity-locked (b = m).
@@ -50,7 +50,7 @@ namespace SpectralFixedPoint
     For any nonzero zeta zero t:
     1. The unbiased projection starts at a = 0
     2. The Bridge product b·m = 1
-    3. One funct step sends a → 1
+    3. One synthetic_integration step sends a → 1
     4. The offset from Re(s) = 1/2 is exactly 1/2
 
     This composes `zeta_bridge_product` and
@@ -68,7 +68,7 @@ theorem spectral_chain (t : ℝ) (ht : t ≠ 0) :
     critical_line_correspondence. -/
 theorem equilibrium_at_one (t : ℝ) (ht : t ≠ 0) :
     let u := DualityTheorem.zeta_project_unbiased t
-    let u_corrected := funct
+    let u_corrected := synthetic_integration
       { a := u.a, b := u.b, m := u.m,
         e := -(DualityTheorem.standard_resonance u),
         l := u.l }
@@ -80,7 +80,7 @@ theorem equilibrium_at_one (t : ℝ) (ht : t ≠ 0) :
     duality_offset. -/
 theorem offset_is_half (t : ℝ) (ht : t ≠ 0) :
     let u := DualityTheorem.zeta_project_unbiased t
-    let u_corrected := funct
+    let u_corrected := synthetic_integration
       { a := u.a, b := u.b, m := u.m,
         e := -(DualityTheorem.standard_resonance u),
         l := u.l }
@@ -178,7 +178,7 @@ theorem curvature_and_duality :
     -- AND for any nonzero t, the duality offset is 1/2
     ∀ t : ℝ, t ≠ 0 →
     let u := DualityTheorem.zeta_project_unbiased t
-    let u_corrected := funct
+    let u_corrected := synthetic_integration
       { a := u.a, b := u.b, m := u.m,
         e := -(DualityTheorem.standard_resonance u),
         l := u.l }

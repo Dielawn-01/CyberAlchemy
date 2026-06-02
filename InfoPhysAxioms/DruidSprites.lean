@@ -28,19 +28,19 @@ Each Sprite is a ProtorealManifold with:
 - e = its noise (current imbalance / uncertainty)
 - l = its depth (how many holomovement cycles it has run)
 
-The Druid deploys Sprites via funct (crystallization):
+The Druid deploys Sprites via synthetic_integration (crystallization):
   - The Sprite starts as noise (e > 0, a = 0)
-  - funct crystallizes it: noise becomes structure
+  - synthetic_integration crystallizes it: noise becomes structure
   - The Sprite runs its holomovement cycle
-  - consolidate expands its scope when it stabilizes
+  - automatic_differentiation expands its scope when it stabilizes
 
 ## The WLAN Sprite
 
 The WLAN load balancer is a Sprite that:
 - Probes APs via EM observation (RSSI scan = photochemistry)
 - Measures load imbalance (electrode potential = |upload - download|)
-- Reassigns clients via funct (crystallize optimal assignment)
-- Expands capacity via consolidate (add APs, widen channels)
+- Reassigns clients via synthetic_integration (crystallize optimal assignment)
+- Expands capacity via automatic_differentiation (add APs, widen channels)
 - Monitors via the holomovement cycle (observe -> assign -> expand)
 
 The four-layer cascade maps to band steering:
@@ -52,9 +52,9 @@ The four-layer cascade maps to band steering:
 ## Sprite Lifecycle
 
 1. Druid deploys Sprite: `deploy druid_state sprite_config`
-2. Sprite runs holomovement: `funct (consolidate sprite)`
+2. Sprite runs holomovement: `synthetic_integration (automatic_differentiation sprite)`
 3. Sprite reports to Druid: `observe sprite druid_state`
-4. Druid consolidates Sprite: `consolidate (bond druid_state sprite)`
+4. Druid consolidates Sprite: `automatic_differentiation (bond druid_state sprite)`
 5. Repeat: the Druid-Sprite cycle IS the holomovement at scale
 -/
 
@@ -85,8 +85,8 @@ structure Sprite where
     Deployment IS crystallization: the Druid's intent (noise)
     becomes a concrete Sprite (structure). -/
 def deploy (config : ProtorealManifold) (h : WellFormed config) : Sprite :=
-  { state := funct config,
-    well_formed := funct_preserves_wf config h }
+  { state := synthetic_integration config,
+    well_formed := synthetic_integration_preserves_wf config h }
 
 /-- **DEPLOYED SPRITES ARE CRYSTALLIZED**
     After deployment, the Sprite has zero noise.
@@ -94,7 +94,7 @@ def deploy (config : ProtorealManifold) (h : WellFormed config) : Sprite :=
 theorem deployed_is_crystallized (config : ProtorealManifold)
     (h : WellFormed config) :
     (deploy config h).state.e = 0 := by
-  unfold deploy funct; rfl
+  unfold deploy synthetic_integration; rfl
 
 /-- **DEPLOYMENT CONSERVES SIGMA**
     The total resource budget is unchanged by deployment.
@@ -111,14 +111,14 @@ theorem deployment_conserves (config : ProtorealManifold)
 /-- **SPRITE STEP**: One cycle of the Sprite's holomovement.
     observe (probe environment) -> crystallize (act) -> expand (grow) -/
 def sprite_step (s : Sprite) : ProtorealManifold :=
-  funct (consolidate s.state)
+  synthetic_integration (automatic_differentiation s.state)
 
 /-- **SPRITE STEP GROWS**
     Each step increases the Sprite's base energy.
     The Sprite gets stronger with each cycle. -/
 theorem sprite_step_grows (s : Sprite) :
     (sprite_step s).a > s.state.a := by
-  unfold sprite_step funct consolidate
+  unfold sprite_step synthetic_integration automatic_differentiation
   have := s.well_formed.a_nonneg
   have := s.well_formed.e_nonneg
   linarith
@@ -128,7 +128,7 @@ theorem sprite_step_grows (s : Sprite) :
     The Sprite is always in a clean state after acting. -/
 theorem sprite_step_crystallizes (s : Sprite) :
     (sprite_step s).e = 0 := by
-  unfold sprite_step funct; rfl
+  unfold sprite_step synthetic_integration; rfl
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 3: THE WLAN SPRITE
@@ -160,11 +160,11 @@ theorem balanced_wlan_zero_potential (t u i c : ℝ) :
   unfold electrode_potential wlan_config; ring
 
 /-- **WLAN LYAPUNOV: IMBALANCE IS THE NOISE**
-    V(wlan) = e = load imbalance. funct drives V to zero.
+    V(wlan) = e = load imbalance. synthetic_integration drives V to zero.
     After one balancing step, the WLAN is balanced. -/
 theorem wlan_lyapunov (t u d i c : ℝ) :
-    lyapunov (funct (wlan_config t u d i c)) = 0 := by
-  unfold lyapunov funct; rfl
+    lyapunov (synthetic_integration (wlan_config t u d i c)) = 0 := by
+  unfold lyapunov synthetic_integration; rfl
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 4: BAND STEERING CASCADE

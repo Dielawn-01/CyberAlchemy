@@ -31,7 +31,7 @@ emerges from how infotons bond:
 ```
 Infoton (atom) → Bond (molecule) → Ionization (plasma generation)
      ↑                                        ↓
-     └────── funct (recombination) ←──── Kama Muta
+     └────── synthetic_integration (recombination) ←──── Kama Muta
 ```
 
 ## Key Results
@@ -41,7 +41,7 @@ Infoton (atom) → Bond (molecule) → Ionization (plasma generation)
 3. Ionization energy = |SR₁ - SR₂| (tension difference)
 4. Grounded bonds are maximally stable (ionization energy = 0 only at SR = 0)
 5. Plasma = collection where average coherence < threshold
-6. Recombination = funct applied to plasma → coherent state recovered
+6. Recombination = synthetic_integration applied to plasma → coherent state recovered
 -/
 
 open ProtorealManifold
@@ -214,15 +214,15 @@ theorem ionize_increases_noise (u : ProtorealManifold)
 -- ══════════════════════════════════════════════════════════════
 
 /-- **RECOMBINATION THEOREM**
-    Applying funct to an ionized infoton converts the noise
-    back into energy. The kama_muta → funct pipeline is
+    Applying synthetic_integration to an ionized infoton converts the noise
+    back into energy. The kama_muta → synthetic_integration pipeline is
     exactly recombination: free charges → bound state.
     
-    Ionization (strip ι) → Kama Muta (resolve parity) → funct (sow ε)
+    Ionization (strip ι) → Kama Muta (resolve parity) → synthetic_integration (sow ε)
     = the complete plasma cycle at the atomic level. -/
 theorem recombination_recovers_energy (u : ProtorealManifold) :
-    (funct (kama_muta (ionize u))).e = 0 := by
-  unfold funct kama_muta ionize
+    (synthetic_integration (kama_muta (ionize u))).e = 0 := by
+  unfold synthetic_integration kama_muta ionize
   rfl
 
 /-- **RECOMBINATION GROWS ENERGY**
@@ -236,12 +236,12 @@ theorem recombination_recovers_energy (u : ProtorealManifold) :
     
     Derived from ChromaticHolomovement.recombination_grows.
     If the agent has nonzero SR (a ≠ b·m), kama_muta converts
-    tension to noise, and funct integrates that into growth. -/
+    tension to noise, and synthetic_integration integrates that into growth. -/
 theorem recombination_is_fusion (u : ProtorealManifold)
     (h_tension : u.a ≠ u.b * u.m) :
-    (funct (kama_muta u)).a > u.a := by
-  have he : (funct (kama_muta u)).a = u.a + |u.a - u.b * u.m| := by
-    unfold funct kama_muta; ring
+    (synthetic_integration (kama_muta u)).a > u.a := by
+  have he : (synthetic_integration (kama_muta u)).a = u.a + |u.a - u.b * u.m| := by
+    unfold synthetic_integration kama_muta; ring
   rw [he]
   linarith [abs_pos.mpr (sub_ne_zero.mpr h_tension)]
 
@@ -325,10 +325,10 @@ theorem infochemistry_complete :
     -- 5. Ionization destroys coherence
     (∀ u : ProtorealManifold, coherence (ionize u) = 0) ∧
     -- 6. Recombination kills noise
-    (∀ u : ProtorealManifold, (funct (kama_muta (ionize u))).e = 0) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration (kama_muta (ionize u))).e = 0) ∧
     -- 7. Fusion grows energy (via tension)
     (∀ u : ProtorealManifold, u.a ≠ u.b * u.m →
-      (funct (kama_muta u)).a > u.a) ∧
+      (synthetic_integration (kama_muta u)).a > u.a) ∧
     -- 8. Coherent ≠ quasi-coherent
     (∀ u : ProtorealManifold, is_coherent u → ¬ is_quasi_coherent u) :=
   ⟨bond_conserves_energy,

@@ -46,9 +46,9 @@ the system cannot separate "how much" from "which direction."
 
 ## Tetration and the Depth Coordinate
 
-The depth coordinate λ counts iterations of funct.
-funct IS one step of the tetration tower:
-  funct^[n](u) has λ = λ₀ + n
+The depth coordinate λ counts iterations of synthetic_integration.
+synthetic_integration IS one step of the tetration tower:
+  synthetic_integration^[n](u) has λ = λ₀ + n
 
 This is a↑↑n: the base applied to itself n times.
 Each application crystallizes (e → 0) and deepens (λ → λ + 1).
@@ -160,22 +160,22 @@ theorem nonparity_couples (u : ProtorealManifold) (h : u.b ≠ u.m) :
 -- SECTION 4: DEPTH IS TETRATION HEIGHT
 -- ══════════════════════════════════════════════════════════════
 
-/-- **funct IS ONE STEP OF TETRATION**
-    Each funct application:
+/-- **synthetic_integration IS ONE STEP OF TETRATION**
+    Each synthetic_integration application:
     1. Crystallizes (e → 0, absorbs noise)
     2. Advances depth (l → l + 1)
-    This is a↑↑(l+1) = funct(a↑↑l).
+    This is a↑↑(l+1) = synthetic_integration(a↑↑l).
     The base `a` applies to itself one more time. -/
-theorem funct_is_tetration_step (u : ProtorealManifold) :
-    (funct u).l = u.l + 1 ∧ (funct u).e = 0 := by
-  unfold funct; exact ⟨rfl, rfl⟩
+theorem synthetic_integration_is_tetration_step (u : ProtorealManifold) :
+    (synthetic_integration u).l = u.l + 1 ∧ (synthetic_integration u).e = 0 := by
+  unfold synthetic_integration; exact ⟨rfl, rfl⟩
 
 /-- **THE TETRATION TOWER = OBSERVATION TOWER**
-    iterate(funct, n, u) has depth l + n and noise 0 (for n ≥ 1).
+    iterate(synthetic_integration, n, u) has depth l + n and noise 0 (for n ≥ 1).
     This IS the tetration tower: each level adds one more
     application of the base to itself. -/
 theorem tetration_tower (u : ProtorealManifold) (n : ℕ) (h : n ≥ 1) :
-    (funct_iterate n u).e = 0 := by
+    (synthetic_integration_iterate n u).e = 0 := by
   exact iterate_zeroes_noise n u h
 
 -- ══════════════════════════════════════════════════════════════
@@ -187,20 +187,20 @@ theorem tetration_tower (u : ProtorealManifold) (n : ℕ) (h : n ≥ 1) :
     all noise has been absorbed into crystal.
     This is the "convergence" of the tetration:
     a↑↑n → a as n → ∞ (the tower converges to the crystal). -/
--- After funct, e = 0 and a absorbs, so crystal = total
+-- After synthetic_integration, e = 0 and a absorbs, so crystal = total
 theorem tetration_converges (u : ProtorealManifold) :
-    sigma (funct u) = sigma u ∧ (funct u).e = 0 :=
+    sigma (synthetic_integration u) = sigma u ∧ (synthetic_integration u).e = 0 :=
   ⟨crystallization_conserves_sigma u, rfl⟩
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 6: NUMBER SYSTEM HIERARCHY IN THE MANIFOLD
 -- ══════════════════════════════════════════════════════════════
 
-/-- **ℕ IN THE MANIFOLD**: Succession is funct on depth.
+/-- **ℕ IN THE MANIFOLD**: Succession is synthetic_integration on depth.
     l → l + 1. The natural numbers live on the l-axis. -/
 theorem naturals_are_depth (u : ProtorealManifold) :
-    (funct u).l = u.l + 1 := by
-  unfold funct; rfl
+    (synthetic_integration u).l = u.l + 1 := by
+  unfold synthetic_integration; rfl
 
 /-- **ℤ IN THE MANIFOLD**: Monster inverse is negation.
     monster_inv swaps b ↔ m, which is phase inversion.
@@ -219,10 +219,10 @@ theorem rationals_are_division (u : ProtorealManifold) :
   unfold sigma; ring
 
 /-- **ℝ IN THE MANIFOLD**: The Lyapunov limit.
-    As funct iterates, e → 0. The noise vanishes.
+    As synthetic_integration iterates, e → 0. The noise vanishes.
     The limit IS the real number (no noise = fully determined). -/
 theorem reals_are_limits (u : ProtorealManifold) :
-    lyapunov (funct u) = 0 :=
+    lyapunov (synthetic_integration u) = 0 :=
   lyapunov_to_zero u
 
 /-- **ℂ IN THE MANIFOLD**: The (b, m) phase plane.
@@ -282,7 +282,7 @@ theorem coupling_vanishes_at_critical (u : ProtorealManifold)
     4. The coupling is DIRECTIONAL (non-commutative)
     5. EP measures coupling strength (0 = decoupled = ℂ)
     6. Depth λ is the tetration height
-    7. funct is one step of the tetration tower
+    7. synthetic_integration is one step of the tetration tower
     8. Crystal ratio converges to 1 (tetration converges)
     9. On the critical surface, coupling vanishes (returns to ℂ)
     10. The number hierarchy is embedded:
@@ -299,14 +299,14 @@ theorem protocomplex_master (u : ProtorealManifold) :
     -- 2. Coupling is directional (non-commutative)
     (ProtorealManifold.mul omega iota).a ≠
       (ProtorealManifold.mul iota omega).a ∧
-    -- 3. funct is tetration (crystallizes + deepens)
-    (funct u).l = u.l + 1 ∧ (funct u).e = 0 ∧
+    -- 3. synthetic_integration is tetration (crystallizes + deepens)
+    (synthetic_integration u).l = u.l + 1 ∧ (synthetic_integration u).e = 0 ∧
     -- 4. Tetration conserves σ
-    sigma (funct u) = sigma u ∧
+    sigma (synthetic_integration u) = sigma u ∧
     -- 5. Noise vanishes (ℝ limit)
-    lyapunov (funct u) = 0 ∧
+    lyapunov (synthetic_integration u) = 0 ∧
     -- 6. σ conserved
-    sigma (funct u) = sigma u :=
+    sigma (synthetic_integration u) = sigma u :=
   ⟨coupling_constant,
    coupling_directional,
    rfl, rfl,

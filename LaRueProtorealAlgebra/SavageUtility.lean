@@ -31,13 +31,13 @@ theorem certainty_maximizes (tc ed : ℕ) :
 
 /-- Sowing preserves utility inputs: kills noise, advances depth. -/
 theorem sow_preserves_utility_inputs (u : ProtorealManifold) :
-    (funct u).e = 0 ∧ (funct u).l = u.l + 1 := by
-  unfold funct; simp
+    (synthetic_integration u).e = 0 ∧ (synthetic_integration u).l = u.l + 1 := by
+  unfold synthetic_integration; simp
 
 /-- Consolidation re-injects noise: trades certainty for capacity. -/
 theorem consolidation_trades_certainty (u : ProtorealManifold) :
-    (consolidate u).e = u.e + 1 := by
-  unfold consolidate; ring
+    (automatic_differentiation u).e = u.e + 1 := by
+  unfold automatic_differentiation; ring
 
 /-- The 1-tactic ext proof of omega_idempotent has utility 1,
     while a hypothetical 3-tactic proof has utility 1/4.

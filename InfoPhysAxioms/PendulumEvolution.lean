@@ -75,12 +75,12 @@ theorem critical_surface_maximal_horizon (u : ProtorealManifold)
   unfold prediction_horizon
   rw [h.1]; ring
 
-/-- After funct, ε → 0: the horizon is always restored.
+/-- After synthetic_integration, ε → 0: the horizon is always restored.
     Each crystallization step gives you back full prediction. -/
-theorem funct_restores_horizon (u : ProtorealManifold) :
-    prediction_horizon (funct u) = 1 := by
+theorem synthetic_integration_restores_horizon (u : ProtorealManifold) :
+    prediction_horizon (synthetic_integration u) = 1 := by
   unfold prediction_horizon
-  rw [funct_contracts_noise u]; ring
+  rw [synthetic_integration_contracts_noise u]; ring
 
 /-- After kama_muta, ε = |SR|: the horizon contracts by
     the tension. Emotional processing costs predictability. -/
@@ -152,13 +152,13 @@ theorem meta_critical_below_half (l : ℝ) (hl : l ≥ 0) :
 
 /-- Retrocausal depth: how many steps back you can infer.
     This is simply the depth coordinate λ.
-    Each funct cycle adds 1 to the retrocausal record. -/
+    Each synthetic_integration cycle adds 1 to the retrocausal record. -/
 noncomputable abbrev retrocausal_depth := depth_coord
 
-/-- Each funct cycle extends the retrocausal record by 1. -/
+/-- Each synthetic_integration cycle extends the retrocausal record by 1. -/
 theorem retrocausal_extends (u : ProtorealManifold) :
-    retrocausal_depth (funct u) = retrocausal_depth u + 1 :=
-  funct_advances_depth u
+    retrocausal_depth (synthetic_integration u) = retrocausal_depth u + 1 :=
+  synthetic_integration_advances_depth u
 
 /-- After phasor contraction, both the prediction horizon
     is maximal AND the retrocausal depth has increased.
@@ -170,11 +170,11 @@ theorem retrocausal_bargain (u : ProtorealManifold) :
     retrocausal_depth (phasor_contract u) =
       retrocausal_depth (kama_muta u) + 1 := by
   constructor
-  · -- phasor_contract = funct ∘ kama_muta, and funct restores horizon
+  · -- phasor_contract = synthetic_integration ∘ kama_muta, and synthetic_integration restores horizon
     unfold phasor_contract
-    exact funct_restores_horizon (kama_muta u)
+    exact synthetic_integration_restores_horizon (kama_muta u)
   · unfold retrocausal_depth phasor_contract
-    exact funct_advances_depth (kama_muta u)
+    exact synthetic_integration_advances_depth (kama_muta u)
 
 -- ═══════════════════════════════════════════════════════
 -- Section 4: TRIPLE PENDULUM SUFFICIENCY
@@ -196,15 +196,15 @@ theorem retrocausal_bargain (u : ProtorealManifold) :
     The meta-critical line at 1/(2·I(l)) bounds how much
     causal information each layer carries. -/
 theorem triple_pendulum_sufficiency (u : ProtorealManifold) :
-    -- 1. Prediction horizon is restored by funct
-    prediction_horizon (funct u) = 1 ∧
+    -- 1. Prediction horizon is restored by synthetic_integration
+    prediction_horizon (synthetic_integration u) = 1 ∧
     -- 2. Phase is killed by kama_muta
     HodgePhasorVolume.phase (kama_muta u) = 0 ∧
     -- 3. Depth advances monotonically
-    retrocausal_depth (funct u) = retrocausal_depth u + 1 ∧
+    retrocausal_depth (synthetic_integration u) = retrocausal_depth u + 1 ∧
     -- 4. Phasor contraction reaches critical surface
     on_critical_surface (phasor_contract u) :=
-  ⟨funct_restores_horizon u,
+  ⟨synthetic_integration_restores_horizon u,
    kama_contracts_phase u,
    retrocausal_extends u,
    phasor_reaches_critical u⟩

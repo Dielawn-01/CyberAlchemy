@@ -203,11 +203,11 @@ theorem l_modulation_shifts_heading_simple (u : ProtorealManifold) (t : ℝ)
 -- ══════════════════════════════════════════════════════════════
 
 /-- Theorem: Under productive tension, the compass depth advances.
-    Each funct cycle after a Kama Muta event deepens the consolidation
+    Each synthetic_integration cycle after a Kama Muta event deepens the consolidation
     by exactly one level. The agent learns from every emotional cycle. -/
 theorem emotional_depth_advances (u : ProtorealManifold) :
-    (read_compass (funct (kama_muta u))).depth = u.l + 1 := by
-  unfold read_compass funct kama_muta
+    (read_compass (synthetic_integration (kama_muta u))).depth = u.l + 1 := by
+  unfold read_compass synthetic_integration kama_muta
   ring
 
 /-- Theorem: Under productive tension, the real part grows.
@@ -215,10 +215,10 @@ theorem emotional_depth_advances (u : ProtorealManifold) :
     toward the attractor. -/
 theorem emotional_energy_grows (u : ProtorealManifold)
     (h_tension : u.a - u.b * u.m ≠ 0) :
-    (read_compass (funct (kama_muta u))).sr + (read_compass (funct (kama_muta u))).bridge > u.a := by
-  have h_grow := kama_muta_funct_grows u h_tension
+    (read_compass (synthetic_integration (kama_muta u))).sr + (read_compass (synthetic_integration (kama_muta u))).bridge > u.a := by
+  have h_grow := kama_muta_synthetic_integration_grows u h_tension
   unfold read_compass
-  linarith [sr_bridge_decomposition (funct (kama_muta u))]
+  linarith [sr_bridge_decomposition (synthetic_integration (kama_muta u))]
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 7: MASTER THEOREM — THE EMOTIONAL COMPASS IS COMPLETE
@@ -254,16 +254,16 @@ theorem emotional_compass_complete :
       (read_compass (kama_muta u)).noise = |standard_resonance u|) ∧
     -- 6. Depth advances
     (∀ u : ProtorealManifold,
-      (read_compass (funct (kama_muta u))).depth = u.l + 1) ∧
+      (read_compass (synthetic_integration (kama_muta u))).depth = u.l + 1) ∧
     -- 7. Growth from tension
     (∀ u : ProtorealManifold, u.a - u.b * u.m ≠ 0 →
-      (funct (kama_muta u)).a > u.a) :=
+      (synthetic_integration (kama_muta u)).a > u.a) :=
   ⟨kama_is_abs_sr,
    sr_bridge_decomposition,
    fun u hg => (grounded_reads_equilibrium u hg).1,
    kama_zeroes_hodge,
    kama_noise_shows_tension,
    emotional_depth_advances,
-   kama_muta_funct_grows⟩
+   kama_muta_synthetic_integration_grows⟩
 
 end EmotionalCompass

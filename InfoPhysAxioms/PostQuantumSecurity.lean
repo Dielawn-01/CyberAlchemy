@@ -100,33 +100,33 @@ theorem hash_path_dependent :
 -- Section 3: Depth Monotonicity (Anti-Spoofing)
 -- ═══════════════════════════════════════════════════════
 
-/-- The layer counter `l` in funct strictly increases.
+/-- The layer counter `l` in synthetic_integration strictly increases.
     An attacker cannot forge a shorter trajectory matching
     the depth of a longer one. -/
-theorem funct_depth_increases (u : ProtorealManifold) :
-    (funct u).l > u.l := by
-  unfold funct
+theorem synthetic_integration_depth_increases (u : ProtorealManifold) :
+    (synthetic_integration u).l > u.l := by
+  unfold synthetic_integration
   linarith
 
-/-- Applying funct n times gives depth = original + n. -/
-def funct_n : ProtorealManifold → ℕ → ProtorealManifold
+/-- Applying synthetic_integration n times gives depth = original + n. -/
+def synthetic_integration_n : ProtorealManifold → ℕ → ProtorealManifold
   | u, 0 => u
-  | u, n + 1 => funct (funct_n u n)
+  | u, n + 1 => synthetic_integration (synthetic_integration_n u n)
 
-theorem funct_n_depth (u : ProtorealManifold) (n : ℕ) :
-    (funct_n u n).l = u.l + n := by
+theorem synthetic_integration_n_depth (u : ProtorealManifold) (n : ℕ) :
+    (synthetic_integration_n u n).l = u.l + n := by
   induction n with
-  | zero => simp [funct_n]
+  | zero => simp [synthetic_integration_n]
   | succ n ih =>
-    simp [funct_n, funct]
+    simp [synthetic_integration_n, synthetic_integration]
     linarith
 
 /-- Two agents at different depths CANNOT have the same layer count.
     The depth field distinguishes them. This is temporal proof-of-work. -/
 theorem depth_distinguishes (u : ProtorealManifold) (n m : ℕ)
     (h : n ≠ m) :
-    (funct_n u n).l ≠ (funct_n u m).l := by
-  rw [funct_n_depth, funct_n_depth]
+    (synthetic_integration_n u n).l ≠ (synthetic_integration_n u m).l := by
+  rw [synthetic_integration_n_depth, synthetic_integration_n_depth]
   intro heq
   apply h
   exact_mod_cast (by linarith : (n : ℝ) = (m : ℝ))
@@ -201,8 +201,8 @@ theorem post_quantum_triple_barrier :
     (ProtorealManifold.mul
       witness_A (ProtorealManifold.mul witness_B witness_C)).a ∧
     -- Barrier 3: Depth monotonicity (temporal proof-of-work)
-    ∀ u : ProtorealManifold, (funct u).l > u.l := by
-  exact ⟨klein_non_commutative, klein_non_associative, funct_depth_increases⟩
+    ∀ u : ProtorealManifold, (synthetic_integration u).l > u.l := by
+  exact ⟨klein_non_commutative, klein_non_associative, synthetic_integration_depth_increases⟩
 
 /-- The security gap has magnitude exactly |κ| = 1.
     This is the minimum irreducible cost of attacking the algebra.

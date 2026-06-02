@@ -110,11 +110,11 @@ theorem error_orthogonality (u : ProtorealManifold) :
 
 /-- **ONE-STEP RECOVERY EXISTENCE**
     For any state $u$, applying the recovery operator
-    `funct ∘ negative_train` moves the state to the Code Space
+    `synthetic_integration ∘ negative_train` moves the state to the Code Space
     manifold (SR = 0) in exactly 1 operation. -/
 theorem recovery_step_exists (u : ProtorealManifold) :
-    standard_resonance (funct (negative_train u)) = 0 := by
-  unfold funct negative_train standard_resonance; simp
+    standard_resonance (synthetic_integration (negative_train u)) = 0 := by
+  unfold synthetic_integration negative_train standard_resonance; simp
 
 -- ════════════════════════════════════════════════════
 -- SECTION 5: STOCHASTIC RESONANCE COUPLING
@@ -151,7 +151,7 @@ theorem qec_code_existence :
     -- 3. Bounded Errors (Idempotency = 2)
     ((FusionRing.eE * FusionRing.eE).e = 1) ∧
     -- 4. Bounded Recovery (Depth = 1)
-    (∀ u : ProtorealManifold, standard_resonance (funct (negative_train u)) = 0) ∧
+    (∀ u : ProtorealManifold, standard_resonance (synthetic_integration (negative_train u)) = 0) ∧
     -- 5. Stochastic Stability
     (∀ u : ProtorealManifold, ∀ δ : ℝ, u.m = 0 → 
       resonance_probability (mesh_stitch u 0) δ = 1) :=

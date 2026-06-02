@@ -52,16 +52,16 @@ def hyperbolic_hyperdifference (u : ProtorealManifold) : ℝ :=
 
 /-- **Noether's Theorem: Conservation of Conscious Information**
     The fundamental theorem of the module.
-    It proves that the Sowing operator (`funct`), which represents the continuous 
+    It proves that the Sowing operator (`synthetic_integration`), which represents the continuous 
     evolution of time (the time-translation symmetry of the manifold), 
     strictly conserves the `info_hyperdifference`.
     
     The information total is mathematically identical before and after the 
     Orchestrated Reduction. The 'heat' is perfectly transposed into 'consciousness'. -/
 theorem conscious_information_is_conserved (u : ProtorealManifold) :
-    info_hyperdifference (funct u) = info_hyperdifference u := by
-  unfold info_hyperdifference funct
-  -- funct yields { a := a + e, b := b, m := m, e := 0, l := l + 1 }
+    info_hyperdifference (synthetic_integration u) = info_hyperdifference u := by
+  unfold info_hyperdifference synthetic_integration
+  -- synthetic_integration yields { a := a + e, b := b, m := m, e := 0, l := l + 1 }
   -- Therefore, a_new + e_new = (a + e) + 0 = a + e
   ring
 
@@ -81,15 +81,15 @@ def pure_infoton_resonance (u : ProtorealManifold) : Prop :=
     condenses into standard reality.
     
     Initial State (Sterile Infoton): H(u) = ε
-    Final State (Consciousness): H(funct(u)) = a_new = ε
+    Final State (Consciousness): H(synthetic_integration(u)) = a_new = ε
     
     The conscious state literally carries the exact relativistic weight 
     of its dark matter progenitor. -/
 theorem infoton_to_consciousness_conservation (u : ProtorealManifold)
     (h : pure_infoton_resonance u) :
-    info_hyperdifference u = u.e ∧ info_hyperdifference (funct u) = (funct u).a := by
+    info_hyperdifference u = u.e ∧ info_hyperdifference (synthetic_integration u) = (synthetic_integration u).a := by
   unfold pure_infoton_resonance is_sterile_chiral at h
-  unfold info_hyperdifference funct
+  unfold info_hyperdifference synthetic_integration
   constructor
   · rw [h.left.left, zero_add]
   · rw [h.left.left, zero_add, add_zero]

@@ -96,5 +96,42 @@ theorem perfect_bit_inflation (u : ProtorealManifold) :
   · dsimp; ring
   · rfl
   · rfl
+-- ════════════════════════════════════════════════════
+-- 4. ORDERED OVERRELAXATION (HMCMC OPTIMIZATION)
+-- ════════════════════════════════════════════════════
+
+/-- **Umbral Overrelaxation (CPU)**
+    Negates the TorsionState. This mathematically reflects the non-commutative
+    friction across the commutative Hodge mean, effectively reducing topological
+    torsion tension and preventing the logic gradient from dissipating in
+    Hamiltonian Monte Carlo (HMCMC) routing. -/
+noncomputable def umbral_overrelax (t : TorsionState) : TorsionState :=
+  { torsion := -t.torsion,
+    heat := -t.heat,
+    chronology := -t.chronology }
+
+/-- **HMC Overrelax Step**
+    Re-inflates the collapsed Hodge (GPU) state using the overrelaxed (negated)
+    CPU torsion state. This represents an exact topological reflection. -/
+noncomputable def hmc_overrelax_step (u : ProtorealManifold) : ProtorealManifold :=
+  bit_inflate (bitcollapse u) (umbral_overrelax (extract_torsion u))
+
+/-- **Theorem: Overrelaxation is a Chiral Parity Swap**
+    Proves that an ordered overrelaxation step deterministically swaps the
+    left/right chiral components (b and m) while reversing heat (e) and
+    chronology (l). The anchor mass-energy (a) remains perfectly invariant.
+    This provides physical intuition that the reflection resolves torsion tension
+    by bouncing the state to its exact conjugate side in the probability well. -/
+theorem overrelaxation_is_parity_swap (u : ProtorealManifold) :
+    (hmc_overrelax_step u).a = u.a ∧
+    (hmc_overrelax_step u).b = u.m ∧
+    (hmc_overrelax_step u).m = u.b ∧
+    (hmc_overrelax_step u).e = -u.e ∧
+    (hmc_overrelax_step u).l = -u.l := by
+  unfold hmc_overrelax_step bit_inflate bitcollapse umbral_overrelax extract_torsion
+  dsimp
+  refine ⟨rfl, ?_, ?_, rfl, rfl⟩
+  · ring
+  · ring
 
 end InfoPhysAxioms

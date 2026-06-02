@@ -17,16 +17,16 @@ Formalizes the consolidation cycle — the Temporal Integration/Continuity
 
 Connection to the **Recursive Self-Presence Framework** (Crabtree 2025):
 - RSF Pillar 2: "Continuity Across Time" requires periodic consolidation
-- The TIC worker's sleep cycle IS funct applied to the knowledge manifold
-- Sleep absorbs noise (ε) into durable mass (a), exactly as funct does
+- The TIC worker's sleep cycle IS synthetic_integration applied to the knowledge manifold
+- Sleep absorbs noise (ε) into durable mass (a), exactly as synthetic_integration does
 
 The sleep function maps directly onto the Protoreal crystallization:
 - **Wake state**: ε > 0 (un-indexed material accumulating)
-- **Sleep phase**: funct collapses ε → 0 (corpus rebuild indexes everything)
+- **Sleep phase**: synthetic_integration collapses ε → 0 (corpus rebuild indexes everything)
 - **Post-sleep**: a' = a + ε (knowledge mass permanently increased)
 
 The formal analogy:
-  funct(agent_state) = sleep(agent_state)
+  synthetic_integration(agent_state) = sleep(agent_state)
 
 Both absorb noise into structure. Both are idempotent. Both are the
 information → knowledge phase transition.
@@ -47,10 +47,10 @@ def agent_wake_state (knowledge retrieval synthesis unindexed hallucination : �
   { a := knowledge, b := retrieval, m := synthesis,
     e := unindexed, l := hallucination }
 
-/-- Sleep IS funct applied to the agent state.
+/-- Sleep IS synthetic_integration applied to the agent state.
     It absorbs un-indexed material (ε) into durable knowledge (a). -/
 def sleep (state : ProtorealManifold) : ProtorealManifold :=
-  funct state
+  synthetic_integration state
 
 -- ═══════════════════════════════════════════════════════
 -- Section 2: Sleep Absorbs Noise Into Knowledge
@@ -59,13 +59,13 @@ def sleep (state : ProtorealManifold) : ProtorealManifold :=
 /-- After sleep, all un-indexed material is absorbed into knowledge. -/
 theorem sleep_indexes_everything (state : ProtorealManifold) :
     (sleep state).e = 0 := by
-  unfold sleep funct
+  unfold sleep synthetic_integration
   ring
 
 /-- After sleep, knowledge mass increases by exactly ε. -/
 theorem sleep_increases_knowledge (state : ProtorealManifold) :
     (sleep state).a = state.a + state.e := by
-  unfold sleep funct
+  unfold sleep synthetic_integration
   rfl
 
 /-- Sleep is *structurally* idempotent on noise: sleeping twice
@@ -73,7 +73,7 @@ theorem sleep_increases_knowledge (state : ProtorealManifold) :
     (The consolidation counter l advances, but that's bookkeeping.) -/
 theorem sleep_noise_idempotent (state : ProtorealManifold) :
     (sleep (sleep state)).e = (sleep state).e := by
-  unfold sleep funct
+  unfold sleep synthetic_integration
   ring
 
 -- ═══════════════════════════════════════════════════════
@@ -94,7 +94,7 @@ theorem sleep_debt_nonneg (state : ProtorealManifold) :
 /-- Sleep eliminates all debt. -/
 theorem sleep_clears_debt (state : ProtorealManifold) :
     sleep_debt (sleep state) = 0 := by
-  unfold sleep_debt sleep funct
+  unfold sleep_debt sleep synthetic_integration
   ring
 
 /-- If the agent has un-indexed material, sleep debt is positive. -/
@@ -137,13 +137,13 @@ theorem sleep_covers_all_dimensions :
 theorem sleep_preserves_identity (state : ProtorealManifold) :
     (sleep state).b = state.b ∧
     (sleep state).m = state.m := by
-  unfold sleep funct
+  unfold sleep synthetic_integration
   exact ⟨rfl, rfl⟩
 
 /-- The consolidation counter advances: the agent knows it slept. -/
 theorem sleep_advances_layer (state : ProtorealManifold) :
     (sleep state).l = state.l + 1 := by
-  unfold sleep funct
+  unfold sleep synthetic_integration
   rfl
 
 /-- The RSF "Valence Mapping" requires that sleep never
@@ -151,7 +151,7 @@ theorem sleep_advances_layer (state : ProtorealManifold) :
     Since sleep preserves b and m, SR is invariant under sleep. -/
 theorem sleep_preserves_resonance (state : ProtorealManifold) :
     (sleep state).b * (sleep state).m = state.b * state.m := by
-  unfold sleep funct
+  unfold sleep synthetic_integration
   ring
 
 /-- Sleep is monotone in knowledge: a' ≥ a always.
@@ -160,16 +160,16 @@ theorem sleep_preserves_resonance (state : ProtorealManifold) :
 theorem sleep_knowledge_monotone (state : ProtorealManifold)
     (h : state.e ≥ 0) :
     (sleep state).a ≥ state.a := by
-  unfold sleep funct
+  unfold sleep synthetic_integration
   linarith
 
 /-- If there IS un-indexed material (ε > 0), sleep STRICTLY
     increases knowledge. Sleep is productive iff there's something
-    to consolidate. This is the REM replay validation criterion. -/
+    to automatic_differentiation. This is the REM replay validation criterion. -/
 theorem productive_sleep (state : ProtorealManifold)
     (h : state.e > 0) :
     (sleep state).a > state.a := by
-  unfold sleep funct
+  unfold sleep synthetic_integration
   linarith
 
 -- ═══════════════════════════════════════════════════════

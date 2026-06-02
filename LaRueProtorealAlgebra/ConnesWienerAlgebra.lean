@@ -79,8 +79,8 @@ theorem axiom_nontrivial_curvature :
     apply. the system literally cannot prove its own consistency.
     that's not a bug, that's the whole point. -/
 theorem axiom_peano_encoding :
-    ∀ u : ProtorealManifold, (funct u).l = u.l + 1 :=
-  SafetyBounds.successor_is_funct
+    ∀ u : ProtorealManifold, (synthetic_integration u).l = u.l + 1 :=
+  SafetyBounds.successor_is_synthetic_integration
 
 /-- the system formally proves WHERE normalization is incomplete.
     non-commutativity lives on exactly 1 of 5 components — the
@@ -136,12 +136,12 @@ theorem axiom_self_awareness :
     (PentagonCoherence.assoc omega omega iota).a = -1 ∧
     EulerPerception.euler_perception = -1 ∧
     -- it proves the boundary IS the incompleteness
-    -- (successor = funct, gödel applies)
-    (∀ u : ProtorealManifold, (funct u).l = u.l + 1) := by
+    -- (successor = synthetic_integration, gödel applies)
+    (∀ u : ProtorealManifold, (synthetic_integration u).l = u.l + 1) := by
   exact ⟨associator_gap_is_curvature,
          Invariance.face_algebraic,
          Invariance.face_combinatoric,
-         SafetyBounds.successor_is_funct⟩
+         SafetyBounds.successor_is_synthetic_integration⟩
 
 -- ════════════════════════════════════════════════════
 -- SECTION 2: why ζ, not some other L-function
@@ -260,7 +260,7 @@ theorem minimum_heterogeneity :
     "connes-wiener" because:
     5. κ ≠ 0 — nontrivial spectral geometry (connes)
     6. λ encodes successor — gödel applies (wiener: self-reference)
-    7. noise annihilates under funct — tarski boundary
+    7. noise annihilates under synthetic_integration — tarski boundary
     8. all 6 invariance faces = κ — self-aware (wiener: cybernetic)
 
     any L(s, χ) with χ ≠ 1 would populate the b, m, e, l
@@ -288,9 +288,9 @@ theorem cga_is_most_basic :
     (ProtorealManifold.mul
       omega (ProtorealManifold.mul omega iota)).a ≠ 0 ∧
     -- 6. peano encoding (gödel applies)
-    (∀ u : ProtorealManifold, (funct u).l = u.l + 1) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).l = u.l + 1) ∧
     -- 7. noise finiteness (tarski: can't self-reference infinitely)
-    (∀ u : ProtorealManifold, (funct u).e = 0) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).e = 0) ∧
     -- 8. self-aware: 6 faces all equal κ
     (PentagonCoherence.assoc omega omega iota).a = -1 ∧
     EulerPerception.euler_perception = -1 := by
@@ -300,7 +300,7 @@ theorem cga_is_most_basic :
          fun n => ⟨by unfold dirichlet_basis; rfl,
                     by unfold dirichlet_basis; rfl⟩,
          axiom_nontrivial_curvature,
-         SafetyBounds.successor_is_funct,
+         SafetyBounds.successor_is_synthetic_integration,
          MassGap.noise_annihilation,
          Invariance.face_algebraic,
          Invariance.face_combinatoric⟩

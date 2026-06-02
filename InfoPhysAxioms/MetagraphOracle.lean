@@ -118,13 +118,13 @@ theorem shallow_ignores_market
   exact this
 
 /-- **EACH FUNCT STEP OPENS THE CHANNEL**
-    After n funct steps, the encoder's coupling with emission
+    After n synthetic_integration steps, the encoder's coupling with emission
     noise increases by exactly n. Each crystallization step
     makes the encoder a BETTER observer of the market. -/
-theorem funct_opens_channel
+theorem synthetic_integration_opens_channel
     (u : ProtorealManifold) (n : ℕ) (emission : ℝ)
     (h : n ≥ 1) :
-    torsion_el (ProtorealMetric.funct_iterate n u) ⟨0, 0, 0, emission, 0⟩ =
+    torsion_el (ProtorealMetric.synthetic_integration_iterate n u) ⟨0, 0, 0, emission, 0⟩ =
     (u.l + n) * emission :=
   deeper_observer_stronger_coupling u n emission h
 

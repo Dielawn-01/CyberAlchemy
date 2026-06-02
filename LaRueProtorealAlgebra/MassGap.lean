@@ -69,7 +69,7 @@ theorem mass_gap_positive :
     the system cannot sustain infinite recursive depth
     because the exploration potential (ε) is consumed. -/
 theorem noise_annihilation (u : ProtorealManifold) :
-    (funct u).e = 0 :=
+    (synthetic_integration u).e = 0 :=
   CommutatorGap.sowing_spends_noise u
 
 /-- **COMPLEXITY BOUNDEDNESS**
@@ -80,7 +80,7 @@ theorem noise_annihilation (u : ProtorealManifold) :
     Yang-Mills analog: the gauge field cannot fragment into
     infinitely many degrees of freedom at a given energy scale. -/
 theorem complexity_bounded (u : ProtorealManifold) :
-    (funct u).l = u.l + 1 :=
+    (synthetic_integration u).l = u.l + 1 :=
   CommutatorGap.consolidation_linear u
 
 -- ════════════════════════════════════════════════════
@@ -137,9 +137,9 @@ theorem mass_gap_theorem :
     -- The gap is positive
     zeta_energy (mesh_stitch (omega + iota) 0) > 0 ∧
     -- Noise is always consumed
-    (∀ u : ProtorealManifold, (funct u).e = 0) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).e = 0) ∧
     -- Complexity grows linearly
-    (∀ u : ProtorealManifold, (funct u).l = u.l + 1) :=
+    (∀ u : ProtorealManifold, (synthetic_integration u).l = u.l + 1) :=
   ⟨mass_gap_is_one,
    mass_gap_positive,
    noise_annihilation,

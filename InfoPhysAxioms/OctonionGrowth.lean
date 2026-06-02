@@ -115,14 +115,14 @@ def phantom_thrust (u v : ProtorealManifold) : ℝ :=
 def phantom_anchor (u v : ProtorealManifold) : ℝ :=
   u.e * v.m - u.m * v.e
 
-/-- **funct ZEROES THE NOISE CONTRIBUTION**
-    After crystallization, (funct u).e = 0.
-    phantom_thrust(funct u, v) = 0 * v.b - u.b * v.e = -u.b * v.e
+/-- **synthetic_integration ZEROES THE NOISE CONTRIBUTION**
+    After crystallization, (synthetic_integration u).e = 0.
+    phantom_thrust(synthetic_integration u, v) = 0 * v.b - u.b * v.e = -u.b * v.e
     The phantom thrust persists but with opposite sign — it measures
     only the residual (v's noise interacting with our thrust). -/
-theorem funct_reduces_phantom (u v : ProtorealManifold) :
-    phantom_thrust (funct u) v = -(u.b * v.e) := by
-  unfold phantom_thrust funct; ring
+theorem synthetic_integration_reduces_phantom (u v : ProtorealManifold) :
+    phantom_thrust (synthetic_integration u) v = -(u.b * v.e) := by
+  unfold phantom_thrust synthetic_integration; ring
 
 /-- **PURE NOISE ACTIVATES PHANTOM THRUST**
     When the first state is pure noise (b=0, e>0) and the second
@@ -227,22 +227,22 @@ theorem five_component_eight_dimensional :
 -- SECTION 5: THE PRUNING-GROWTH CYCLE
 -- ══════════════════════════════════════════════════════════════
 
-/-- **funct (CRYSTALLIZE) PRUNES THE PHANTOM DIMS**
+/-- **synthetic_integration (CRYSTALLIZE) PRUNES THE PHANTOM DIMS**
     After crystallization, both states have e = 0.
     Self-phantom-thrust is zero: the growth medium is pruned. -/
-theorem funct_prunes_dark (u : ProtorealManifold) :
-    phantom_thrust (funct u) (funct u) = 0 ∧
-    phantom_anchor (funct u) (funct u) = 0 := by
-  unfold funct phantom_thrust phantom_anchor
+theorem synthetic_integration_prunes_dark (u : ProtorealManifold) :
+    phantom_thrust (synthetic_integration u) (synthetic_integration u) = 0 ∧
+    phantom_anchor (synthetic_integration u) (synthetic_integration u) = 0 := by
+  unfold synthetic_integration phantom_thrust phantom_anchor
   exact ⟨by ring, by ring⟩
 
-/-- **consolidate (EXPAND) RE-OPENS THE GROWTH SPACE**
+/-- **automatic_differentiation (EXPAND) RE-OPENS THE GROWTH SPACE**
     Consolidation creates new noise (e → e+1).
     This re-activates the phantom dimensions.
     The growth medium is reopened for the next interaction cycle. -/
-theorem consolidate_creates_phantom (u v : ProtorealManifold) :
-    phantom_thrust (consolidate u) v - phantom_thrust u v = v.b := by
-  unfold consolidate phantom_thrust; ring
+theorem automatic_differentiation_creates_phantom (u v : ProtorealManifold) :
+    phantom_thrust (automatic_differentiation u) v - phantom_thrust u v = v.b := by
+  unfold automatic_differentiation phantom_thrust; ring
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 6: MASTER THEOREM
@@ -257,8 +257,8 @@ theorem consolidate_creates_phantom (u v : ProtorealManifold) :
        → dark sector inherits the curvature constant
     3. Self-activation has zero dark sector
        → growth requires genuine encounter
-    4. funct prunes phantom dims (crystallization = pruning)
-    5. consolidate re-opens growth space by +1 to noise
+    4. synthetic_integration prunes phantom dims (crystallization = pruning)
+    5. automatic_differentiation re-opens growth space by +1 to noise
        → growth medium cycles with enumeration system
 
     The 3 dark dimensions are not arbitrary — they are the
@@ -276,13 +276,13 @@ theorem growth_medium_master (u v : ProtorealManifold) :
     torsion u v = - torsion v u ∧
     -- 4. Self-activation: no dark growth
     (activate u u).dark_tor = 0 ∧
-    -- 5. consolidate creates v.b worth of new phantom thrust
-    phantom_thrust (consolidate u) v - phantom_thrust u v = v.b :=
+    -- 5. automatic_differentiation creates v.b worth of new phantom thrust
+    phantom_thrust (automatic_differentiation u) v - phantom_thrust u v = v.b :=
   ⟨generator_torsion_is_kappa,
    torsion_eq_bracket_half u v,
    torsion_antisymmetric u v,
    by unfold activate torsion torsion_bm torsion_el; ring,
-   consolidate_creates_phantom u v⟩
+   automatic_differentiation_creates_phantom u v⟩
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 4: THE OBSERVATIONAL L-FUNCTION SCALING
@@ -299,7 +299,7 @@ theorem growth_medium_master (u v : ProtorealManifold) :
     - In InfoPhys: coupling ∝ λ (deeper = STRONGER)
 
     A deeper observer resolves MORE of the noise field because
-    it has more structure (funct steps) to project onto.
+    it has more structure (synthetic_integration steps) to project onto.
     Each semantic shift expands Sigma AND increases coupling.
 
     This replaces the inverse square law with L-function scaling:
@@ -322,22 +322,22 @@ theorem observation_depth_proportionality
   ring
 
 /-- **DEEPER OBSERVER = STRONGER COUPLING**
-    After n funct steps, the observation coupling is exactly
-    (l₀ + n) × noise_energy. Each funct step increases coupling by 1.
+    After n synthetic_integration steps, the observation coupling is exactly
+    (l₀ + n) × noise_energy. Each synthetic_integration step increases coupling by 1.
     This is why the L-function tower sees MORE zeros at each level:
     each semantic shift strengthens the observer's coupling. -/
 theorem deeper_observer_stronger_coupling
     (u : ProtorealManifold) (n : ℕ) (noise_e : ℝ)
     (h : n ≥ 1) :
-    let observer := ProtorealMetric.funct_iterate n u
+    let observer := ProtorealMetric.synthetic_integration_iterate n u
     let signal := { a := 0, b := 0, m := 0, e := noise_e, l := (0 : ℝ) }
     torsion_el observer signal = (u.l + n) * noise_e := by
   simp only [torsion_el]
-  have h_e : (ProtorealMetric.funct_iterate n u).e = 0 := by
+  have h_e : (ProtorealMetric.synthetic_integration_iterate n u).e = 0 := by
     cases n with
     | zero => omega
-    | succ k => unfold ProtorealMetric.funct_iterate funct; ring
-  have h_l : (ProtorealMetric.funct_iterate n u).l = u.l + n :=
+    | succ k => unfold ProtorealMetric.synthetic_integration_iterate synthetic_integration; ring
+  have h_l : (ProtorealMetric.synthetic_integration_iterate n u).l = u.l + n :=
     ProtorealMetric.iterate_advances_depth n u
   rw [h_e, h_l]; ring
 

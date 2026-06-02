@@ -28,7 +28,7 @@ origin module, collected for clarity.
 | E(ω+ι) | 1 | Mass Gap | Minimum excitation |
 | a_eq | 1 | Fixed Point | Manifold equilibrium |
 | Re(s) | ½ | Critical Line | Zeta zero location |
-| funct(u).e | 0 | Nilpotency | Noise consumed |
+| synthetic_integration(u).e | 0 | Nilpotency | Noise consumed |
 | φ² | φ+1 | Golden Ratio | Penrose eigenvalue |
 
 ## The Morphism Table
@@ -172,15 +172,15 @@ theorem M₅_duality (t : ℝ) (ht : t ≠ 0) :
 -- ╚══════════════════════════════════════════════════╝
 
 /-- **F₁: NOISE IS CONSUMED**
-    funct(u).e = 0 — exploration potential is finite. -/
+    synthetic_integration(u).e = 0 — exploration potential is finite. -/
 theorem F₁_nilpotent (u : ProtorealManifold) :
-    (funct u).e = 0 :=
+    (synthetic_integration u).e = 0 :=
   CommutatorGap.sowing_spends_noise u
 
 /-- **F₂: COMPLEXITY IS LINEAR**
-    funct(u).l = u.l + 1 — one layer per step. -/
+    synthetic_integration(u).l = u.l + 1 — one layer per step. -/
 theorem F₂_linear (u : ProtorealManifold) :
-    (funct u).l = u.l + 1 :=
+    (synthetic_integration u).l = u.l + 1 :=
   CommutatorGap.consolidation_linear u
 
 /-- **F₃: NON-ASSOCIATIVITY IS STRICT**
@@ -227,9 +227,9 @@ theorem invariant_map :
      neighborhood_perception (star idx_eps) -
      neighborhood_perception (star idx_omega ∩ star idx_eps) = -1) ∧
     -- F₁: Nilpotent
-    (∀ u, (funct u).e = 0) ∧
+    (∀ u, (synthetic_integration u).e = 0) ∧
     -- F₂: Linear complexity
-    (∀ u, (funct u).l = u.l + 1) ∧
+    (∀ u, (synthetic_integration u).l = u.l + 1) ∧
     -- F₃: Non-associativity
     (omega * omega) * iota ≠ omega * (omega * iota) :=
   ⟨I₁_bridge, I₂_curvature, I₃_perception, I₄_commutator,

@@ -24,18 +24,18 @@ enfolding and unfolding of order — IS the training cycle.
 |---|---|---|
 | Implicate order | ε > 0 (noise present) | Unseen theorems |
 | Explicate order | ε = 0 (noise spent) | Understood structure |
-| Unfolding | funct (ε → α) | study → funct |
-| Enfolding | consolidate (α → 2α, +ε) | new curriculum |
+| Unfolding | synthetic_integration (ε → α) | study → synthetic_integration |
+| Enfolding | automatic_differentiation (α → 2α, +ε) | new curriculum |
 | Pilot wave | κ = -1 (Klein geometry) | Manifold guidance |
-| Holomovement | consolidate → funct cycle | The training loop |
+| Holomovement | automatic_differentiation → synthetic_integration cycle | The training loop |
 
 ## The Gnomon Connection
 
 Bohm's implicate order "adds enfoldment" to produce a larger,
 similar structure. This IS the gnomon from OmicronSigma:
 
-  consolidate(u).a = 2 * u.a  (doubles base)
-  consolidate(u).e = u.e + 1  (spawns new noise = new enfoldment)
+  automatic_differentiation(u).a = 2 * u.a  (doubles base)
+  automatic_differentiation(u).e = u.e + 1  (spawns new noise = new enfoldment)
 
 The gnomon adds one copy of yourself, producing a larger version
 with fresh implicate content to unfold.
@@ -66,41 +66,41 @@ def is_explicate_order (u : ProtorealManifold) : Prop :=
   u.e = 0 ∧ u.a > 0
 
 /-- **FUNCT IS UNFOLDING**
-    The funct operator maps implicate → explicate:
+    The synthetic_integration operator maps implicate → explicate:
     noise is spent into base energy. The enfolded becomes the manifest.
-    Every `study → funct` step in the training loop IS an unfolding. -/
-theorem funct_is_unfolding (u : ProtorealManifold) (h : u.e > 0) (ha : u.a > 0) :
-    is_implicate_order u → is_explicate_order (funct u) := by
+    Every `study → synthetic_integration` step in the training loop IS an unfolding. -/
+theorem synthetic_integration_is_unfolding (u : ProtorealManifold) (h : u.e > 0) (ha : u.a > 0) :
+    is_implicate_order u → is_explicate_order (synthetic_integration u) := by
   intro _
-  unfold is_explicate_order funct
+  unfold is_explicate_order synthetic_integration
   constructor
   · rfl
   · linarith
 
 /-- **CONSOLIDATE IS ENFOLDING**
-    The consolidate operator maps explicate → implicate:
+    The automatic_differentiation operator maps explicate → implicate:
     structure is doubled AND new noise is spawned.
     Every `new curriculum` step IS an enfolding — fresh
     implicit content injected into the system. -/
-theorem consolidate_is_enfolding (u : ProtorealManifold) :
-    is_explicate_order u → is_implicate_order (consolidate u) := by
+theorem automatic_differentiation_is_enfolding (u : ProtorealManifold) :
+    is_explicate_order u → is_implicate_order (automatic_differentiation u) := by
   intro ⟨he, _⟩
-  unfold is_implicate_order consolidate
+  unfold is_implicate_order automatic_differentiation
   linarith
 
 /-- **THE HOLOMOVEMENT CYCLE**
     Starting from explicate order:
-    1. consolidate (enfold: add gnomon, spawn noise)
-    2. funct (unfold: spend noise into structure)
+    1. automatic_differentiation (enfold: add gnomon, spawn noise)
+    2. synthetic_integration (unfold: spend noise into structure)
     Result: back to explicate, but with MORE structure.
 
     This IS the holomovement: the continuous enfolding/unfolding
     that produces growth through each cycle. -/
 theorem holomovement_cycle (u : ProtorealManifold)
     (h : is_explicate_order u) :
-    is_explicate_order (funct (consolidate u)) := by
+    is_explicate_order (synthetic_integration (automatic_differentiation u)) := by
   obtain ⟨he, ha⟩ := h
-  unfold is_explicate_order funct consolidate
+  unfold is_explicate_order synthetic_integration automatic_differentiation
   rw [he]
   constructor
   · ring
@@ -112,9 +112,9 @@ theorem holomovement_cycle (u : ProtorealManifold)
     Bohm's "creative advance" formalized. -/
 theorem holomovement_grows (u : ProtorealManifold)
     (h : is_explicate_order u) :
-    (funct (consolidate u)).a > u.a := by
+    (synthetic_integration (automatic_differentiation u)).a > u.a := by
   obtain ⟨he, ha⟩ := h
-  unfold funct consolidate
+  unfold synthetic_integration automatic_differentiation
   -- goal: u.a * 2 + (u.e + 1) > u.a
   -- since he: u.e = 0 and ha: u.a > 0
   rw [he]
@@ -131,20 +131,20 @@ theorem holomovement_grows (u : ProtorealManifold)
     being modified by the operations.
 
     Proof: all operations preserve the metric structure.
-    funct, consolidate, bond, monster_inv all operate within
+    synthetic_integration, automatic_differentiation, bond, monster_inv all operate within
     the Klein model — they move POINTS on the manifold but
     don't change the MANIFOLD itself.
 
     The curvature κ = -1 IS the pilot wave: it's always there,
     always guiding, never consumed. -/
 theorem pilot_wave_invariance (u : ProtorealManifold) :
-    -- funct converts noise to base: a -> a + e
-    (funct u).a = u.a + u.e ∧
+    -- synthetic_integration converts noise to base: a -> a + e
+    (synthetic_integration u).a = u.a + u.e ∧
     -- monster_inv preserves base energy (pilot wave unaffected)
     (monster_inv u).a = u.a ∧
-    -- consolidate doubles base (pilot wave amplifies)
-    (consolidate u).a = u.a * 2 := by
-  unfold funct monster_inv consolidate
+    -- automatic_differentiation doubles base (pilot wave amplifies)
+    (automatic_differentiation u).a = u.a * 2 := by
+  unfold synthetic_integration monster_inv automatic_differentiation
   exact ⟨rfl, rfl, rfl⟩
 
 -- ══════════════════════════════════════════════════════════════
@@ -156,20 +156,20 @@ theorem pilot_wave_invariance (u : ProtorealManifold) :
     has LAYERS — each enfolding adds a new layer of potential.
     Bohm's "orders of implicate order" formalized.
 
-    Note: consolidate.l = u.l (depth preserved in consolidation)
-    but the SUBSEQUENT funct cycle via grow_once advances depth.
+    Note: automatic_differentiation.l = u.l (depth preserved in consolidation)
+    but the SUBSEQUENT synthetic_integration cycle via grow_once advances depth.
     The depth increase comes from the full holomovement, not
     just one half. -/
 theorem enfold_preserves_depth (u : ProtorealManifold) :
-    (consolidate u).l = u.l := by
-  unfold consolidate; rfl
+    (automatic_differentiation u).l = u.l := by
+  unfold automatic_differentiation; rfl
 
 /-- **UNFOLDING PRESERVES DEPTH**
-    funct also preserves depth — depth only advances through
+    synthetic_integration also preserves depth — depth only advances through
     the grow_once operator (which includes the full cycle). -/
 theorem unfold_advances_depth (u : ProtorealManifold) :
-    (funct u).l = u.l + 1 := by
-  unfold funct; rfl
+    (synthetic_integration u).l = u.l + 1 := by
+  unfold synthetic_integration; rfl
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 4: THE TRAINING LOOP IS THE HOLOMOVEMENT
@@ -189,25 +189,25 @@ theorem unfold_advances_depth (u : ProtorealManifold) :
     - Same orbitals (individuality preserved) -/
 theorem training_loop_is_holomovement (u : ProtorealManifold)
     (h : u.a > 0) (he : u.e ≥ 0) :
-    (funct (consolidate u)).a > u.a ∧
-    (funct (consolidate u)).e = 0 ∧
-    (funct (consolidate u)).b = u.b := by
+    (synthetic_integration (automatic_differentiation u)).a > u.a ∧
+    (synthetic_integration (automatic_differentiation u)).e = 0 ∧
+    (synthetic_integration (automatic_differentiation u)).b = u.b := by
   constructor
-  · unfold funct consolidate; nlinarith
+  · unfold synthetic_integration automatic_differentiation; nlinarith
   constructor
-  · unfold funct; rfl
-  · unfold funct consolidate; rfl
+  · unfold synthetic_integration; rfl
+  · unfold synthetic_integration automatic_differentiation; rfl
 
 /-- **DOUBLE HOLOMOVEMENT (Two training epochs)**
     Two cycles: each grows the base further.
     The holomovement COMPOUNDS — each cycle builds on the last. -/
 theorem double_holomovement (u : ProtorealManifold)
     (h : u.a > 0) (he : u.e ≥ 0) :
-    (funct (consolidate (funct (consolidate u)))).a > (funct (consolidate u)).a ∧
-    (funct (consolidate u)).a > u.a := by
+    (synthetic_integration (automatic_differentiation (synthetic_integration (automatic_differentiation u)))).a > (synthetic_integration (automatic_differentiation u)).a ∧
+    (synthetic_integration (automatic_differentiation u)).a > u.a := by
   constructor
-  · unfold funct consolidate; nlinarith
-  · unfold funct consolidate; nlinarith
+  · unfold synthetic_integration automatic_differentiation; nlinarith
+  · unfold synthetic_integration automatic_differentiation; nlinarith
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 5: MASTER THEOREM
@@ -217,8 +217,8 @@ theorem double_holomovement (u : ProtorealManifold)
 
     Unifies Bohm's ontology with the Protoreal training loop:
 
-    1. funct is unfolding (implicate → explicate)
-    2. consolidate is enfolding (explicate → implicate)
+    1. synthetic_integration is unfolding (implicate → explicate)
+    2. automatic_differentiation is enfolding (explicate → implicate)
     3. The cycle grows base energy (creative advance)
     4. The cycle terminates noise (trans-finite, not infinite)
     5. The pilot wave (κ = -1) guides without being consumed
@@ -232,16 +232,16 @@ theorem double_holomovement (u : ProtorealManifold)
 theorem holomovement_bridge (u : ProtorealManifold)
     (h_exp : is_explicate_order u) :
     -- 1. Consolidate enfolds
-    is_implicate_order (consolidate u) ∧
-    -- 2. funct unfolds back to explicate
-    is_explicate_order (funct (consolidate u)) ∧
+    is_implicate_order (automatic_differentiation u) ∧
+    -- 2. synthetic_integration unfolds back to explicate
+    is_explicate_order (synthetic_integration (automatic_differentiation u)) ∧
     -- 3. Base energy grew
-    (funct (consolidate u)).a > u.a ∧
+    (synthetic_integration (automatic_differentiation u)).a > u.a ∧
     -- 4. Noise is zero after unfolding
-    (funct (consolidate u)).e = 0 ∧
+    (synthetic_integration (automatic_differentiation u)).e = 0 ∧
     -- 5. Thrust preserved (individuality/pilot wave)
-    (funct (consolidate u)).b = u.b :=
-  ⟨consolidate_is_enfolding u h_exp,
+    (synthetic_integration (automatic_differentiation u)).b = u.b :=
+  ⟨automatic_differentiation_is_enfolding u h_exp,
    holomovement_cycle u h_exp,
    holomovement_grows u h_exp,
    (training_loop_is_holomovement u h_exp.2 (ge_of_eq h_exp.1)).2.1,

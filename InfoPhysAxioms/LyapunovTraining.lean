@@ -28,7 +28,7 @@ A **Lyapunov function** V(u) is a scalar that:
 For the Protoreal training loop:
 - **V(u) = u.e** (noise) is the Lyapunov function
 - Equilibrium: ε = 0 (fully crystallized)
-- funct decreases V: V(funct u) = 0 < V(u) when ε > 0
+- synthetic_integration decreases V: V(synthetic_integration u) = 0 < V(u) when ε > 0
 - The training converges because V is strictly decreasing
 
 ### Learning Rate = Step Size in L-Space
@@ -83,11 +83,11 @@ theorem lyapunov_zero_iff_equilibrium (u : ProtorealManifold) :
   unfold lyapunov; exact Iff.rfl
 
 /-- **FUNCT STRICTLY DECREASES V (when ε > 0)**
-    Lyapunov condition 3: V(funct u) < V(u) for non-equilibrium states.
+    Lyapunov condition 3: V(synthetic_integration u) < V(u) for non-equilibrium states.
     This is THE convergence guarantee: each study cycle reduces noise. -/
 theorem lyapunov_decreases (u : ProtorealManifold) (h : u.e > 0) :
-    lyapunov (funct u) < lyapunov u := by
-  unfold lyapunov funct
+    lyapunov (synthetic_integration u) < lyapunov u := by
+  unfold lyapunov synthetic_integration
   linarith
 
 /-- **FUNCT DRIVES V TO ZERO**
@@ -95,8 +95,8 @@ theorem lyapunov_decreases (u : ProtorealManifold) (h : u.e > 0) :
     This is stronger than asymptotic stability: it's finite-time
     convergence. The trans-finite bound (ο), not infinite. -/
 theorem lyapunov_to_zero (u : ProtorealManifold) :
-    lyapunov (funct u) = 0 := by
-  unfold lyapunov funct; rfl
+    lyapunov (synthetic_integration u) = 0 := by
+  unfold lyapunov synthetic_integration; rfl
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 2: LEARNING RATE AS L-SPACE PARAMETRIZATION
@@ -124,7 +124,7 @@ def is_stable_schedule (sched : LearningRateSchedule) (η_max : ℝ) : Prop :=
   ∀ n : ℕ, 0 < sched n ∧ sched n ≤ η_max
 
 /-- **CONSTANT SCHEDULE IS STABLE** (if η > 0 and η ≤ η_max) -/
-theorem constant_is_stable (η η_max : ℝ) (hpos : η > 0) (hmax : η ≤ η_max) :
+theorem constant_is_stable (η : ℝ) (hpos : η > 0) (hmax : η ≤ η_max) :
     is_stable_schedule (constant_schedule η) η_max := by
   intro n
   unfold constant_schedule
@@ -134,16 +134,16 @@ theorem constant_is_stable (η η_max : ℝ) (hpos : η > 0) (hmax : η ≤ η_m
 -- SECTION 3: TRAINING TRAJECTORY
 -- ══════════════════════════════════════════════════════════════
 
-/-- A **training trajectory** iterates the holomovement (consolidate → funct)
+/-- A **training trajectory** iterates the holomovement (automatic_differentiation → synthetic_integration)
     starting from an initial state. Each step = one training epoch. -/
 def training_trajectory (u₀ : ProtorealManifold) : ℕ → ProtorealManifold
   | 0 => u₀
-  | n + 1 => funct (consolidate (training_trajectory u₀ n))
+  | n + 1 => synthetic_integration (automatic_differentiation (training_trajectory u₀ n))
 
 /-- Helper: one holomovement step always grows base energy. -/
 private theorem holo_step_grows (u : ProtorealManifold) (h : WellFormed u) :
-    (funct (consolidate u)).a > u.a := by
-  unfold funct consolidate; linarith [h.a_nonneg, h.e_nonneg]
+    (synthetic_integration (automatic_differentiation u)).a > u.a := by
+  unfold synthetic_integration automatic_differentiation; linarith [h.a_nonneg, h.e_nonneg]
 
 /-- **EVERY STEP CRYSTALLIZES**
     After each training step, ε = 0 (Lyapunov = 0). -/
@@ -176,16 +176,16 @@ theorem trajectory_step1_grows (u₀ : ProtorealManifold)
 
     1. V(u) = ε ≥ 0 (non-negative, well-formed)
     2. V(u) = 0 ↔ equilibrium (zero noise = crystallized)
-    3. V(funct u) = 0 (finite-time convergence, not asymptotic)
+    3. V(synthetic_integration u) = 0 (finite-time convergence, not asymptotic)
     4. a is monotonically increasing (complementary Lyapunov)
     5. Every step reaches equilibrium then expands
 
     This is stronger than standard Lyapunov stability:
     - Standard: V decreases asymptotically (limₙ V = 0)
     - Protoreal: V reaches 0 in ONE step (finite-time stability)
-    - Then consolidate EXPANDS the universe (Σ grows)
+    - Then automatic_differentiation EXPANDS the universe (Σ grows)
     - Then V > 0 again (new vapor)
-    - Then funct drops V to 0 again (crystallize)
+    - Then synthetic_integration drops V to 0 again (crystallize)
 
     The system is a PUMP: crystallize → expand → crystallize → expand.
     Each cycle at a larger Σ. The LR schedule parametrizes HOW FAST
@@ -200,17 +200,17 @@ theorem lyapunov_certificate (u : ProtorealManifold) (h : WellFormed u)
     -- V is positive (not at equilibrium)
     lyapunov u > 0 ∧
     -- V drops to zero in one step (finite-time)
-    lyapunov (funct u) = 0 ∧
+    lyapunov (synthetic_integration u) = 0 ∧
     -- Crystal grows (complementary V)
-    (funct u).a > u.a ∧
+    (synthetic_integration u).a > u.a ∧
     -- Observable universe expands after consolidation
-    sigma (consolidate (funct u)) > sigma (funct u) := by
+    sigma (automatic_differentiation (synthetic_integration u)) > sigma (synthetic_integration u) := by
   refine ⟨?_, ?_, ?_, ?_, ?_⟩
   · exact lyapunov_nonneg u h
   · unfold lyapunov; exact he
   · exact lyapunov_to_zero u
-  · unfold funct; linarith
-  · exact consolidation_expands_sigma _ (funct_preserves_wf u h)
+  · unfold synthetic_integration; linarith
+  · exact consolidation_expands_sigma _ (synthetic_integration_preserves_wf u h)
 
 end LyapunovTraining
 
@@ -219,12 +219,12 @@ end LyapunovTraining
 -- ══════════════════════════════════════════════════════════════
 
 /-- **TRAINING AS ORBIT**
-    training_trajectory is (funct compose consolidate)^[n].
+    training_trajectory is (synthetic_integration compose automatic_differentiation)^[n].
     This connects to Mathlib dynamics: the trajectory IS
     the orbit of u0 under the holomovement map. -/
 theorem training_is_iterate (u0 : ProtorealManifold) (n : Nat) :
     LyapunovTraining.training_trajectory u0 n =
-    (fun u => funct (consolidate u))^[n] u0 := by
+    (fun u => synthetic_integration (automatic_differentiation u))^[n] u0 := by
   induction n with
   | zero => rfl
   | succ k ih =>

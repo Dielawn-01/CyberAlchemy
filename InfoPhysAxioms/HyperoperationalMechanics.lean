@@ -36,7 +36,7 @@ def tetration_is_calculus (u : ProtorealManifold) : Prop :=
   to the observer's Frenet-Serret binormal.
 -/
 theorem pentation_is_observation (u : ProtorealManifold) :
-  let u_next := funct u
+  let u_next := synthetic_integration u
   (binormal_vector u).d_epsilon = (collapse_state u_next).a - (collapse_state u).a :=
 by
   exact torsion_requires_chronology u

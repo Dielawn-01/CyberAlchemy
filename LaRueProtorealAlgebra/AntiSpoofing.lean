@@ -27,12 +27,12 @@ namespace AntiSpoofing
 -- ════════════════════════════════════════════════════
 
 /-- **DEPTH STRICTLY INCREASES**
-    The funct (sowing) operator strictly increases λ.
+    The synthetic_integration (sowing) operator strictly increases λ.
     An attacker cannot forge a shorter trajectory that matches
     the depth of a longer one. -/
 theorem depth_strictly_increases (u : ProtorealManifold) :
-    (funct u).l = u.l + 1 := by
-  unfold funct; rfl
+    (synthetic_integration u).l = u.l + 1 := by
+  unfold synthetic_integration; rfl
 
 /-- **NON-COMMUTATIVITY DEFEATS REORDER**
     The Klein algebra is non-commutative: ω·ι ≠ ι·ω.
@@ -80,19 +80,19 @@ theorem monster_cross_check (u : ProtorealManifold) :
 -- ════════════════════════════════════════════════════
 
 /-- **SOWING IS THE FIREWALL**
-    Every observation must pass through funct (sowing) before
+    Every observation must pass through synthetic_integration (sowing) before
     entering the identity hash. Sowing zeroes ε unconditionally.
     This means no noise can ever enter the permanent record. -/
 theorem sowing_firewall (u : ProtorealManifold) :
-    (funct u).e = 0 :=
+    (synthetic_integration u).e = 0 :=
   CommutatorGap.sowing_spends_noise u
 
 /-- **DOUBLE SOWING IS IDEMPOTENT ON NOISE**
     Sowing twice doesn't accumulate anything beyond the first sow.
     The noise is zero after the first sow, and stays zero. -/
 theorem double_sow_noise_zero (u : ProtorealManifold) :
-    (funct (funct u)).e = 0 := by
-  unfold funct; rfl
+    (synthetic_integration (synthetic_integration u)).e = 0 := by
+  unfold synthetic_integration; rfl
 
 -- ════════════════════════════════════════════════════
 -- MASTER THEOREM: ZKPCR STRUCTURAL SECURITY
@@ -109,14 +109,14 @@ theorem double_sow_noise_zero (u : ProtorealManifold) :
 theorem zkpcr_structural_security :
     -- Defense 1: Depth is monotonically increasing
     (∀ u : ProtorealManifold,
-      (funct u).l = u.l + 1) ∧
+      (synthetic_integration u).l = u.l + 1) ∧
     -- Defense 2: Monster preserves bridge product
     (∀ u : ProtorealManifold,
       (MonsterInverse.monster_inv u).b * (MonsterInverse.monster_inv u).m
       = u.b * u.m) ∧
     -- Defense 3: Sowing zeroes noise unconditionally
     (∀ u : ProtorealManifold,
-      (funct u).e = 0) :=
+      (synthetic_integration u).e = 0) :=
   ⟨depth_strictly_increases, monster_cross_check, sowing_firewall⟩
 
 end AntiSpoofing

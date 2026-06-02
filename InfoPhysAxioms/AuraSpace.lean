@@ -105,10 +105,10 @@ theorem plasma_wall_containment (m : AuraManifest)
   · linarith [h_state_wf.a_nonneg]
 
 /-- **CRYSTALLIZATION PRESERVES PLASMA WALL**
-    funct does not break the plasma wall because it conserves Sigma. -/
-theorem funct_preserves_wall (m : AuraManifest)
+    synthetic_integration does not break the plasma wall because it conserves Sigma. -/
+theorem synthetic_integration_preserves_wall (m : AuraManifest)
     (h_wall : within_plasma_wall m) :
-    sigma (funct m.state) ≤ m.sigma_bound := by
+    sigma (synthetic_integration m.state) ≤ m.sigma_bound := by
   unfold within_plasma_wall at h_wall
   rw [crystallization_conserves_sigma]
   exact h_wall
@@ -272,13 +272,13 @@ theorem aura_space_master (m : AuraManifest) (h : ManifestWellFormed m)
     (manifest_to_sprite m h).state.e = 0 ∧
     -- 3. Deployment conserves Sigma
     sigma (manifest_to_sprite m h).state = sigma m.state ∧
-    -- 4. funct preserves the wall
-    sigma (funct m.state) ≤ m.sigma_bound := by
+    -- 4. synthetic_integration preserves the wall
+    sigma (synthetic_integration m.state) ≤ m.sigma_bound := by
   refine ⟨?_, ?_, ?_, ?_, ?_⟩
   · exact (plasma_wall_containment m h h_wall).1
   · exact (plasma_wall_containment m h h_wall).2
   · exact space_deployment_crystallizes m h
   · exact space_deployment_conserves m h
-  · exact funct_preserves_wall m h_wall
+  · exact synthetic_integration_preserves_wall m h_wall
 
 end AuraSpace

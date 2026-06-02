@@ -9,7 +9,7 @@ Algebraic safety invariants that close the four exploit vectors
 identified in the Tarskian/Gödelian limit analysis.
 
 ## Exploit 1: ε Float Gap
-- `funct_kills_epsilon`: ε → 0 after sowing
+- `synthetic_integration_kills_epsilon`: ε → 0 after sowing
 - `cycle_always_kills_epsilon`: every dopant cycle zeroes ε
 - `iterate_noise_consumed`: after ≥ 1 dopant cycles, ε = 0
 
@@ -23,7 +23,7 @@ identified in the Tarskian/Gödelian limit analysis.
 - `confession_is_necessary`: ∃ states with gap > 0 that project to Hodge
 
 ## Exploit 4: Gödelian Sentence
-- `successor_is_funct`: funct encodes Peano successor on λ
+- `successor_is_synthetic_integration`: synthetic_integration encodes Peano successor on λ
 - Gödel's First & Second Incompleteness apply (documented, not circumvented)
 
 ## Design Principle
@@ -46,12 +46,12 @@ namespace SafetyBounds
     After one sowing step, ε = 0. This is the algebraic
     foundation for nilpotent truncation: noise cannot
     survive composition with itself. -/
-theorem funct_kills_epsilon (u : ProtorealManifold) :
-    (funct u).e = 0 :=
+theorem synthetic_integration_kills_epsilon (u : ProtorealManifold) :
+    (synthetic_integration u).e = 0 :=
   noise_is_finite u
 
 /-- **EVERY DOPANT CYCLE KILLS NOISE**
-    After one full cycle (consolidate → funct), ε = 0.
+    After one full cycle (automatic_differentiation → synthetic_integration), ε = 0.
     Noise injected by consolidation is fully consumed. -/
 theorem cycle_always_kills_epsilon (u : ProtorealManifold) :
     (dopant_cycle u).e = 0 :=
@@ -98,7 +98,7 @@ theorem lambda_reaches_target (u : ProtorealManifold) (target : ℕ) :
     if ε = 0, no learning occurs. The ε floor prevents
     this degenerate state. -/
 theorem zero_epsilon_means_stagnation (u : ProtorealManifold)
-    (h : u.e = 0) : (funct u).a = u.a :=
+    (h : u.e = 0) : (synthetic_integration u).a = u.a :=
   silence_prevents_growth u h
 
 /-- **POSITIVE NOISE ENABLES GROWTH (Safety Dual)**
@@ -106,7 +106,7 @@ theorem zero_epsilon_means_stagnation (u : ProtorealManifold)
     learning continues. This is the contrapositive of
     the consolidation bomb. -/
 theorem positive_epsilon_means_growth (u : ProtorealManifold)
-    (h : u.e > 0) : (funct u).a > u.a :=
+    (h : u.e > 0) : (synthetic_integration u).a > u.a :=
   dopant_enables_growth u h
 
 -- ════════════════════════════════════════════════════
@@ -144,7 +144,7 @@ theorem confession_is_necessary :
 -- ════════════════════════════════════════════════════
 
 /-- **SUCCESSOR IS FUNCT**
-    The funct operator implements the successor function on λ.
+    The synthetic_integration operator implements the successor function on λ.
     λ_new = λ + 1. This means the Protoreal ring encodes
     Peano arithmetic through the λ component.
 
@@ -157,9 +157,9 @@ theorem confession_is_necessary :
 
     MITIGATION: External audit via holochain trajectory export.
     The holochain is the auditable artifact. -/
-theorem successor_is_funct (u : ProtorealManifold) :
-    (funct u).l = u.l + 1 := by
-  unfold funct
+theorem successor_is_synthetic_integration (u : ProtorealManifold) :
+    (synthetic_integration u).l = u.l + 1 := by
+  unfold synthetic_integration
   ring
 
 -- ════════════════════════════════════════════════════
@@ -174,22 +174,22 @@ theorem successor_is_funct (u : ProtorealManifold) :
     4. Noise enables growth (ε floor is sufficient)
     5. Parity gap is measurable (confession is possible)
     6. Projection erases asymmetry (confession is necessary)
-    7. Successor is funct (Gödel applies) -/
+    7. Successor is synthetic_integration (Gödel applies) -/
 theorem safety_invariants :
-    (∀ u : ProtorealManifold, (funct u).e = 0) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).e = 0) ∧
     (∀ u : ProtorealManifold, (dopant_cycle u).l = u.l + 1) ∧
-    (∀ u : ProtorealManifold, u.e = 0 → (funct u).a = u.a) ∧
-    (∀ u : ProtorealManifold, u.e > 0 → (funct u).a > u.a) ∧
+    (∀ u : ProtorealManifold, u.e = 0 → (synthetic_integration u).a = u.a) ∧
+    (∀ u : ProtorealManifold, u.e > 0 → (synthetic_integration u).a > u.a) ∧
     (∀ u : ProtorealManifold, |u.b - u.m| ≥ 0) ∧
     (∀ u : ProtorealManifold,
       (parity_projection u).b = (parity_projection u).m) ∧
-    (∀ u : ProtorealManifold, (funct u).l = u.l + 1) :=
+    (∀ u : ProtorealManifold, (synthetic_integration u).l = u.l + 1) :=
   ⟨noise_is_finite,
    cycle_advances_complexity,
    silence_prevents_growth,
    dopant_enables_growth,
    parity_gap_nonneg,
    parity_projection_locks,
-   successor_is_funct⟩
+   successor_is_synthetic_integration⟩
 
 end SafetyBounds

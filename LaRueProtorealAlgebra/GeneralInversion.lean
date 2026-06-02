@@ -44,9 +44,9 @@ noncomputable def general_inversion (u : ProtorealManifold) (N : ℝ) : Protorea
   spectral_division u_noised N
 
 /-- **STABILIZED INVERSION**
-    Incorporating the Sowing operator (funct) into the inversion cycle. -/
+    Incorporating the Sowing operator (synthetic_integration) into the inversion cycle. -/
 noncomputable def stabilized_inversion (u : ProtorealManifold) (N : ℝ) : ProtorealManifold :=
-  funct (general_inversion u N)
+  synthetic_integration (general_inversion u N)
 
 /-- **THE RIEMANN FIXED POINT THEOREM**
     For a unit bridge state (b·m = 1), the stabilized inversion 
@@ -56,7 +56,7 @@ theorem riemann_fixed_point (u : ProtorealManifold) :
   intro hBridge
   unfold stabilized_inversion general_inversion
     precession monster_inv subtraction standard_resonance
-  unfold spectral_division funct
+  unfold spectral_division synthetic_integration
   split_ifs with hN
   · -- Case N = 0
     norm_num at hN

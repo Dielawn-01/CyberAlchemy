@@ -17,7 +17,7 @@ agentic frame. The feedback loop:
 $$\text{Null Cone} \xrightarrow{\omega \cdot \iota} \text{Reality}
   \xrightarrow{\delta} \text{Measurement}
   \xrightarrow{-SR} \text{Correction}
-  \xrightarrow{\text{funct}} \text{Null Cone}$$
+  \xrightarrow{\text{synthetic_integration}} \text{Null Cone}$$
 
 is formalized as a cycle of verified transformations.
 
@@ -29,7 +29,7 @@ is formalized as a cycle of verified transformations.
 3. **Observer equilibrium coincides with the null cone**:
    $\delta = 0$ at the Hodge attractor, which lies on $N = 1$.
 4. **Error correction returns to the null cone boundary**:
-   After `funct`, $\varepsilon = 0$ (noise spent).
+   After `synthetic_integration`, $\varepsilon = 0$ (noise spent).
 5. **The feedback loop is a symplectic cycle**: The Lie bracket
    (symplectic form) is preserved around the loop.
 -/
@@ -138,27 +138,27 @@ theorem sr_zero_at_attractor :
 -- 4. ERROR CORRECTION RETURNS TO THE NULL BOUNDARY
 -- ════════════════════════════════════════════════════
 
-/-- **Noise is spent after funct**: For any state, after one
-    application of `funct`, the noise component $\varepsilon = 0$.
+/-- **Noise is spent after synthetic_integration**: For any state, after one
+    application of `synthetic_integration`, the noise component $\varepsilon = 0$.
     The state's noise returns to the null cone boundary. -/
-theorem funct_spends_noise (u : ProtorealManifold) :
-    (funct u).e = 0 := by
-  unfold funct; simp
+theorem synthetic_integration_spends_noise (u : ProtorealManifold) :
+    (synthetic_integration u).e = 0 := by
+  unfold synthetic_integration; simp
 
-/-- **Negative training + funct achieves zero SR**:
+/-- **Negative training + synthetic_integration achieves zero SR**:
     The full correction cycle lands at $SR = 0$ in one step. -/
 theorem correction_cycle_closes (u : ProtorealManifold) :
-    (funct (negative_train u)).a -
+    (synthetic_integration (negative_train u)).a -
     u.b * u.m = 0 :=
   single_step_convergence u
 
 /-- **The correction cycle preserves the bridge structure**:
-    After negative training + funct, the b and m components
+    After negative training + synthetic_integration, the b and m components
     are unchanged — only the real part is corrected. -/
 theorem correction_preserves_bridge (u : ProtorealManifold) :
-    (funct (negative_train u)).b = u.b ∧
-    (funct (negative_train u)).m = u.m := by
-  unfold funct negative_train
+    (synthetic_integration (negative_train u)).b = u.b ∧
+    (synthetic_integration (negative_train u)).m = u.m := by
+  unfold synthetic_integration negative_train
   constructor <;> simp
 
 -- ════════════════════════════════════════════════════
@@ -173,15 +173,15 @@ theorem correction_preserves_bridge (u : ProtorealManifold) :
 
     Proof: The bracket $[u, v]$ depends on
     $m_1 b_2 - b_1 m_2 + l_1 e_2 - e_1 l_2$.
-    After `funct`, $b$ and $m$ are preserved and $e = 0$.
+    After `synthetic_integration`, $b$ and $m$ are preserved and $e = 0$.
     After `negative_train`, $b$ and $m$ are preserved. -/
 theorem bracket_invariant_under_correction
     (u v : ProtorealManifold) :
-    lie_bracket (funct (negative_train u))
-                (funct (negative_train v)) =
+    lie_bracket (synthetic_integration (negative_train u))
+                (synthetic_integration (negative_train v)) =
     { a := 2 * (u.m * v.b - u.b * v.m),
       b := 0, m := 0, e := 0, l := 0 } := by
-  unfold lie_bracket funct negative_train
+  unfold lie_bracket synthetic_integration negative_train
   ext <;> simp <;> ring
 
 -- ════════════════════════════════════════════════════
@@ -215,16 +215,16 @@ theorem shared_latent_space :
     -- 3. Observer equilibrium at attractor
     (little_delta.measure hodge_attractor = 0) ∧
     -- 4. Noise returns to null boundary
-    (∀ u : ProtorealManifold, (funct u).e = 0) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).e = 0) ∧
     -- 5. Single-step convergence
     (∀ u : ProtorealManifold,
-      (funct (negative_train u)).a - u.b * u.m = 0) ∧
+      (synthetic_integration (negative_train u)).a - u.b * u.m = 0) ∧
     -- 6. No hallucination at fixed point
     (schwarzian_metric hodge_attractor = 0) :=
   ⟨all_generators_null,
    ⟨norm_of_bridge_product, norm_of_consolidation⟩,
    observer_equilibrium_at_attractor,
-   funct_spends_noise,
+   synthetic_integration_spends_noise,
    single_step_convergence,
    no_hallucination_at_attractor⟩
 

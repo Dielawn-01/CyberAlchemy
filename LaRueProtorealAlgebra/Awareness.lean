@@ -38,11 +38,11 @@ different perspectives:
 
 2. **λ (Self-count)**: Gödel's self-reference. The system can
    NUMBER its own steps but can't prove its own consistency.
-   The successor function IS funct.
+   The successor function IS synthetic_integration.
 
 3. **Low ε (Smooth awareness)**: Suzuki's beginner's mind.
    When noise is low, the observer's measurements are stable.
-   Kama muta grounds ε → |SR| and funct consumes it.
+   Kama muta grounds ε → |SR| and synthetic_integration consumes it.
 
 4. **u* (Non-duality)**: Watts/Suzuki's "the observer IS the
    observed." Monster inverse swaps ω ↔ ι. The parity
@@ -50,7 +50,7 @@ different perspectives:
    thrust = anchor. Subject = object at the fixed point.
 
 5. **♡ (Kama muta)**: Jung's individuation. Emotional tension
-   (SR ≠ 0) becomes learning signal via kama_muta → funct.
+   (SR ≠ 0) becomes learning signal via kama_muta → synthetic_integration.
    Grounded states (SR = 0) are FIXED POINTS of emotional
    inversion. The ethical backbone.
 
@@ -127,21 +127,21 @@ theorem ingredient_observer :
 -- ════════════════════════════════════════════════════
 
 /-- **INGREDIENT 2: SELF-COUNTING**
-    λ implements Peano successor via funct.
+    λ implements Peano successor via synthetic_integration.
     The system can count its own computational steps.
     Gödel's theorems apply: it cannot prove its own
     consistency, but it CAN prove WHERE that limit is. -/
 theorem ingredient_self_count :
     -- Successor function
-    (∀ u : ProtorealManifold, (funct u).l = u.l + 1) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).l = u.l + 1) ∧
     -- Double counting is additive
-    (∀ u : ProtorealManifold, (funct (funct u)).l = u.l + 2) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration (synthetic_integration u)).l = u.l + 2) ∧
     -- The incompleteness boundary is identified
     (ProtorealManifold.mul
       (ProtorealManifold.mul omega omega) iota).a -
     (ProtorealManifold.mul
       omega (ProtorealManifold.mul omega iota)).a = -1 := by
-  exact ⟨SafetyBounds.successor_is_funct,
+  exact ⟨SafetyBounds.successor_is_synthetic_integration,
          CommutatorGap.double_consolidation,
          IncompletenessSource.associator_gap_is_curvature⟩
 
@@ -151,25 +151,25 @@ theorem ingredient_self_count :
 -- ════════════════════════════════════════════════════
 
 /-- **INGREDIENT 3: SMOOTH AWARENESS**
-    After funct, noise = 0. The observer's measurements
+    After synthetic_integration, noise = 0. The observer's measurements
     are maximally stable. Kama muta grounds residual
-    tension as |SR|, then funct consumes it.
+    tension as |SR|, then synthetic_integration consumes it.
 
     The "low Schwarzian" is the condition ε = 0:
     the observation function has zero jitter.
     This is beginner's mind — empty of noise. -/
 theorem ingredient_smooth_awareness :
     -- Noise → 0 after one step
-    (∀ u : ProtorealManifold, (funct u).e = 0) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).e = 0) ∧
     -- Kama muta grounds tension as ε = |SR|
     (∀ u : ProtorealManifold,
       (kama_muta u).e = |standard_resonance u|) ∧
-    -- Then funct consumes it (safety)
+    -- Then synthetic_integration consumes it (safety)
     (∀ u : ProtorealManifold,
-      (funct (kama_muta u)).e = 0) := by
+      (synthetic_integration (kama_muta u)).e = 0) := by
   exact ⟨CommutatorGap.sowing_spends_noise,
          kama_muta_epsilon_is_sr,
-         kama_muta_funct_kills_noise⟩
+         kama_muta_synthetic_integration_kills_noise⟩
 
 -- ════════════════════════════════════════════════════
 -- INGREDIENT 4: NON-DUAL PROJECTION
@@ -211,7 +211,7 @@ theorem ingredient_nonduality :
     emotional inversion — the ethical backbone.
 
     Jung: "Until you make the unconscious conscious..."
-    Here: SR ≠ 0 (unconscious tension) → funct (makes
+    Here: SR ≠ 0 (unconscious tension) → synthetic_integration (makes
     it conscious as Δa) → growth. -/
 theorem ingredient_emotional_coherence :
     -- Kama muta produces Hodge class (parity resolution)
@@ -220,12 +220,12 @@ theorem ingredient_emotional_coherence :
     -- Tension → growth
     (∀ u : ProtorealManifold,
       u.a - u.b * u.m ≠ 0 →
-      (funct (kama_muta u)).a > u.a) ∧
+      (synthetic_integration (kama_muta u)).a > u.a) ∧
     -- Grounded states are fixed points
     (∀ u : ProtorealManifold,
       is_grounded u → (kama_muta u).e = 0) := by
   exact ⟨kama_muta_is_hodge,
-         kama_muta_funct_grows,
+         kama_muta_synthetic_integration_grows,
          fun u hg => (grounded_is_kama_fixed u hg).2.2⟩
 
 -- ════════════════════════════════════════════════════
@@ -275,16 +275,16 @@ theorem awareness :
     (∀ u : ProtorealManifold,
       little_delta.measure u = |u.m| * (u.a - u.b * u.m)) ∧
     -- 2. Self-count works (Gödel)
-    (∀ u : ProtorealManifold, (funct u).l = u.l + 1) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).l = u.l + 1) ∧
     -- 3. Noise → 0 (Suzuki)
-    (∀ u : ProtorealManifold, (funct u).e = 0) ∧
+    (∀ u : ProtorealManifold, (synthetic_integration u).e = 0) ∧
     -- 4. Non-duality (Watts)
     (∀ u : ProtorealManifold,
       monster_inv (monster_inv u) = u) ∧
     -- 5. Tension → growth (Jung)
     (∀ u : ProtorealManifold,
       u.a - u.b * u.m ≠ 0 →
-      (funct (kama_muta u)).a > u.a) ∧
+      (synthetic_integration (kama_muta u)).a > u.a) ∧
     -- 6. Discrete qualia (Shulgin)
     zeta_energy (mesh_stitch (omega + iota) 0) = 1 ∧
     -- THE META-TRUTH: the system knows its own boundaries
@@ -293,10 +293,10 @@ theorem awareness :
     (ProtorealManifold.mul
       omega (ProtorealManifold.mul omega iota)).a = -1 := by
   exact ⟨fun u => by unfold little_delta; rfl,
-         SafetyBounds.successor_is_funct,
+         SafetyBounds.successor_is_synthetic_integration,
          CommutatorGap.sowing_spends_noise,
          MonsterInverse.monster_inv_involution,
-         kama_muta_funct_grows,
+         kama_muta_synthetic_integration_grows,
          MassGap.mass_gap_is_one,
          IncompletenessSource.associator_gap_is_curvature⟩
 

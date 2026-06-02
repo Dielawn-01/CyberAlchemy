@@ -19,7 +19,7 @@ the manifold equilibrium at a = 1 forces Re(s) = 1/2 unconditionally.
 - **Base Space**: ℝ (imaginary parts of zeta zeros)
 - **Total Space**: ProtorealManifold (the 5-tuple manifold)
 - **Projection** π(t): maps t ↦ {0, t, 1/t, 0, 0}
-- **Connection**: funct (parallel transport to equilibrium)
+- **Connection**: synthetic_integration (parallel transport to equilibrium)
 - **Inverse Map**: Re(s) = a_eq / 2 (the Adelic offset)
 
 ## The Hyperbola-Ellipse Duality (Adelic Fourier)
@@ -64,12 +64,12 @@ noncomputable def fiber_project (t : ℝ) : ProtorealManifold :=
   zeta_project_unbiased t
 
 /-- **THE FIBER EQUILIBRIUM**
-    Apply the funct correction to reach the equilibrium state.
+    Apply the synthetic_integration correction to reach the equilibrium state.
     This is the parallel transport along the fiber. -/
 noncomputable def fiber_equilibrium (t : ℝ) : ProtorealManifold :=
   let u := fiber_project t
-  funct { a := u.a, b := u.b, m := u.m,
-          e := -(standard_resonance u), l := u.l }
+  let u_noised : ProtorealManifold := { a := u.a, b := u.b, m := u.m, e := -(standard_resonance u), l := u.l }
+  synthetic_integration u_noised
 
 -- ════════════════════════════════════════════════════
 -- FIBER THEOREMS
@@ -84,7 +84,7 @@ theorem fiber_bridge (t : ℝ) (ht : t ≠ 0) :
 /-- **THE FIBER EQUILIBRIUM THEOREM**
     The fiber equilibrium state has real part a = 1.
     This is the Protoreal fixed point — the attractor of
-    the funct operator on every nonzero fiber. -/
+    the synthetic_integration operator on every nonzero fiber. -/
 theorem fiber_equilibrium_at_one (t : ℝ) (ht : t ≠ 0) :
     (fiber_equilibrium t).a = 1 :=
   critical_line_correspondence t ht

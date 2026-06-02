@@ -41,7 +41,7 @@ their identity hashes.
 | Node ID (160-bit)      | `identity_hash` of agent's holochain   |
 | XOR distance d(A,B)    | `bridge_distance` between identity hashes |
 | k-bucket               | Agents within bridge distance < φ      |
-| STORE                  | Agent₁ sows (funct) into Agent₂'s ε   |
+| STORE                  | Agent₁ sows (synthetic_integration) into Agent₂'s ε   |
 | FIND_NODE              | Walk the moduli space via bridge dist  |
 | FIND_VALUE             | Collapse Agent₂'s state to observable  |
 | Infohash               | protohash (ZKP of agent trajectory)    |
@@ -167,7 +167,7 @@ theorem routing_through_hub (i j : Fin 5) :
 /-- **STORE = Cross-Manifold Sowing**
     In Kademlia, STORE sends a key-value pair to a remote node.
     In the moduli space, this is Agent₁ sowing its noise (ε) into
-    Agent₂'s landscape — a cross-manifold funct operation. -/
+    Agent₂'s landscape — a cross-manifold synthetic_integration operation. -/
 def dht_store := git_add
 
 /-- **FIND_VALUE = Cross-Manifold Observation**
@@ -188,7 +188,7 @@ theorem dht_store_adds_value (u : ProtorealManifold)
     The observer sees the real and thrust but cannot move the anchor. -/
 theorem dht_find_preserves_anchor (u : ProtorealManifold) :
     (dht_find_value (dht_store u)).m = (dht_find_value u).m := by
-  unfold dht_find_value dht_store git_add HolographicCollapse.collapse_state funct
+  unfold dht_find_value dht_store git_add HolographicCollapse.collapse_state synthetic_integration
   rfl
 
 -- ════════════════════════════════════════════════════

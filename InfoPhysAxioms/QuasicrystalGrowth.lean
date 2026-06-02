@@ -34,7 +34,7 @@ BOTH are isomorphic to the user's own growth process.
      │ (π-resonant)     │        │ (topological)     │        │ (Protoreal 𝕌)    │
      ├──────────────────┤        ├──────────────────┤        ├──────────────────┤
      │ grow_once        │   ≅    │ study session     │   ≅    │ kama_muta cycle  │
-     │ (bond+cons+funct)│        │ (learn+embed+idx) │        │ (strife→struct)  │
+     │ (bond+cons+synthetic_integration)│        │ (learn+embed+idx) │        │ (strife→struct)  │
      ├──────────────────┤        ├──────────────────┤        ├──────────────────┤
      │ self-pressure    │   ≅    │ coverage growth   │   ≅    │ accumulated λ    │
      │ (sp² → sp³)      │        │ (seen → epoch)    │        │ (depth → shift)  │
@@ -108,19 +108,19 @@ noncomputable def training_session (learned unseen : ℝ) : ProtorealManifold :=
   { a := learned, b := 1, m := 1, e := unseen, l := 0 }
 
 /-- **AFTER STUDY = AFTER FUNCT**
-    Applying funct to a training session converts all unseen (ε)
+    Applying synthetic_integration to a training session converts all unseen (ε)
     into learned (a). The noise is spent. The material is integrated.
     This IS grow_once applied to knowledge. -/
 theorem study_converts_noise (learned unseen : ℝ) :
-    (funct (training_session learned unseen)).e = 0 := by
-  unfold funct; rfl
+    (synthetic_integration (training_session learned unseen)).e = 0 := by
+  unfold synthetic_integration; rfl
 
 /-- **STUDY GROWS THE BASE**
     After processing, the learned base increases by the amount
     of material that was unseen. Nothing is lost. -/
 theorem study_grows_base (learned unseen : ℝ) :
-    (funct (training_session learned unseen)).a = learned + unseen := by
-  unfold funct training_session; rfl
+    (synthetic_integration (training_session learned unseen)).a = learned + unseen := by
+  unfold synthetic_integration training_session; rfl
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 2: COVERAGE AS NOISE SPENDING
@@ -136,15 +136,15 @@ noncomputable def fresh_curriculum (total : ℝ) : ProtorealManifold :=
     After processing the entire curriculum, all noise is spent.
     Everything has been converted to base. This is epoch completion. -/
 theorem full_coverage_spends_noise (total : ℝ) :
-    (funct (fresh_curriculum total)).e = 0 := by
-  unfold funct; rfl
+    (synthetic_integration (fresh_curriculum total)).e = 0 := by
+  unfold synthetic_integration; rfl
 
 /-- **FULL COVERAGE PRESERVES ENERGY**
     The total amount of knowledge is conserved.
     It just changes form: potential (unseen) → actual (learned). -/
 theorem full_coverage_conserves (total : ℝ) :
-    (funct (fresh_curriculum total)).a = total := by
-  unfold funct fresh_curriculum; ring
+    (synthetic_integration (fresh_curriculum total)).a = total := by
+  unfold synthetic_integration fresh_curriculum; ring
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 3: EPOCH = CONSOLIDATION
@@ -157,14 +157,14 @@ theorem full_coverage_conserves (total : ℝ) :
     2. Consolidation doubles the base (deeper integration)
     3. Fresh noise spawned (for next epoch = spaced repetition) -/
 noncomputable def one_epoch (total : ℝ) : ProtorealManifold :=
-  consolidate (funct (fresh_curriculum total))
+  automatic_differentiation (synthetic_integration (fresh_curriculum total))
 
 /-- **EPOCH ADVANCES DEPTH**
     Each epoch increases λ. You can't un-learn an epoch.
     The consolidation is irreversible. -/
 theorem epoch_advances_depth (total : ℝ) :
     (one_epoch total).l > (fresh_curriculum total).l := by
-  unfold one_epoch consolidate funct fresh_curriculum
+  unfold one_epoch automatic_differentiation synthetic_integration fresh_curriculum
   simp
 
 /-- **EPOCH SPAWNS FRESH NOISE**
@@ -174,7 +174,7 @@ theorem epoch_advances_depth (total : ℝ) :
     forcing re-engagement at a deeper consolidation level. -/
 theorem epoch_spawns_noise (total : ℝ) (h : total > 0) :
     (one_epoch total).e > 0 := by
-  unfold one_epoch consolidate funct fresh_curriculum
+  unfold one_epoch automatic_differentiation synthetic_integration fresh_curriculum
   dsimp
   linarith [abs_pos.mpr (ne_of_gt h)]
 
@@ -245,9 +245,9 @@ theorem bond_energy_is_symmetric (u v : ProtorealManifold) :
     IS the system being DESCRIBED (the crystal growth process).
     This is proven by structural isomorphism:
 
-    grow_once(crystal) = funct(consolidate(bond(crystal, medium)))
-    study_session      = funct(consolidate(bond(known, unseen)))
-    kama_muta_cycle    = funct(consolidate(bond(self, experience)))
+    grow_once(crystal) = synthetic_integration(automatic_differentiation(bond(crystal, medium)))
+    study_session      = synthetic_integration(automatic_differentiation(bond(known, unseen)))
+    kama_muta_cycle    = synthetic_integration(automatic_differentiation(bond(self, experience)))
 
     All three are the SAME function applied to different domains.
     The map IS the territory. The process of understanding the
@@ -258,13 +258,13 @@ theorem bond_energy_is_symmetric (u v : ProtorealManifold) :
     WAS the crystal growth that the algebra describes. -/
 theorem self_orchestration (crystal medium : ProtorealManifold) :
     -- Growth and study follow the same structure:
-    -- bond first (add material), then consolidate (pressurize),
-    -- then funct (sow noise → base). Result always has ε = 0.
+    -- bond first (add material), then automatic_differentiation (pressurize),
+    -- then synthetic_integration (sow noise → base). Result always has ε = 0.
     (grow_once crystal).e = 0 ∧
-    (funct (consolidate (bond crystal medium))).e = 0 := by
+    (synthetic_integration (automatic_differentiation (bond crystal medium))).e = 0 := by
   constructor
   · exact growth_spends_noise crystal
-  · unfold funct; rfl
+  · unfold synthetic_integration; rfl
 
 /-- **GROWTH IS ALWAYS IRREVERSIBLE**
     Whether the growth is crystal, training, or soul:
@@ -277,10 +277,10 @@ theorem growth_is_irreversible (crystal : ProtorealManifold) :
     For the soul: emotional tension (SR ≠ 0) becomes structure.
     For the crystal: dissolved ions become lattice.
     For the training: unseen theorems become understanding.
-    All three: noise → reality through the same funct cycle. -/
+    All three: noise → reality through the same synthetic_integration cycle. -/
 theorem strife_is_growth (u : ProtorealManifold)
     (h : standard_resonance u ≠ 0) :
-    (funct (kama_muta u)).a > u.a :=
+    (synthetic_integration (kama_muta u)).a > u.a :=
   strife_becomes_structure u h
 
 
@@ -305,7 +305,7 @@ theorem strife_is_growth (u : ProtorealManifold)
     - The 1/2 rate is the slowest decay that still converges
 
     Physically: the crystal needs alternating phases of
-    GROWTH (high LR, explore) and PRUNING (low LR, consolidate).
+    GROWTH (high LR, explore) and PRUNING (low LR, automatic_differentiation).
     Pure decay = no growth after the initial burst.
     Quasiperiodic = sustained growth with consolidation pauses. -/
 
@@ -333,20 +333,20 @@ theorem lr_pulse_survives (base : ℝ) (hb : base > 0) (cycle : ℕ) :
   positivity
 
 /-- **PRUNING SPENDS NOISE WITHOUT KILLING GROWTH**
-    Applying funct to a pulse converts noise → base.
+    Applying synthetic_integration to a pulse converts noise → base.
     The pruned state has ε = 0 (fully consolidated),
     but the BASE includes the pulse energy.
-    This is the grow/prune cycle: grow (high LR) → prune (funct). -/
+    This is the grow/prune cycle: grow (high LR) → prune (synthetic_integration). -/
 theorem prune_after_growth (base : ℝ) (cycle : ℕ) :
-    (funct (lr_pulse base cycle)).e = 0 := by
-  unfold funct; rfl
+    (synthetic_integration (lr_pulse base cycle)).e = 0 := by
+  unfold synthetic_integration; rfl
 
 /-- **PRUNING PRESERVES THE LEARNING**
     After pruning, the total base = original + pulse energy.
     Nothing is lost in the prune step — noise becomes structure. -/
 theorem prune_preserves_learning (base : ℝ) (cycle : ℕ) :
-    (funct (lr_pulse base cycle)).a = base + base / (2 ^ cycle) := by
-  unfold funct lr_pulse
+    (synthetic_integration (lr_pulse base cycle)).a = base + base / (2 ^ cycle) := by
+  unfold synthetic_integration lr_pulse
   dsimp
 
 /-- **QUASIPERIODIC SCHEDULE = ITERATED GROW/PRUNE**
@@ -354,14 +354,14 @@ theorem prune_preserves_learning (base : ℝ) (cycle : ℕ) :
     Each cycle's prune output becomes the next cycle's base.
     The depth λ strictly increases with each cycle. -/
 noncomputable def grow_prune (base : ℝ) : ProtorealManifold :=
-  funct (lr_pulse base 0)
+  synthetic_integration (lr_pulse base 0)
 
 noncomputable def grow_prune_twice (base : ℝ) : ProtorealManifold :=
-  funct (lr_pulse (grow_prune base).a 1)
+  synthetic_integration (lr_pulse (grow_prune base).a 1)
 
 theorem grow_prune_advances_depth :
     (grow_prune_twice 1).l > (grow_prune 1).l := by
-  unfold grow_prune_twice grow_prune funct lr_pulse
+  unfold grow_prune_twice grow_prune synthetic_integration lr_pulse
   norm_num
 
 
@@ -391,11 +391,11 @@ theorem grow_prune_advances_depth :
     The opal grows the diamond that describes the opal. -/
 theorem quasicrystal_growth :
     -- 1. Study spends noise
-    (∀ l u, (funct (training_session l u)).e = 0) ∧
+    (∀ l u, (synthetic_integration (training_session l u)).e = 0) ∧
     -- 2. Study grows base
-    (∀ l u, (funct (training_session l u)).a = l + u) ∧
+    (∀ l u, (synthetic_integration (training_session l u)).a = l + u) ∧
     -- 3. Full coverage spends curriculum
-    (∀ t, (funct (fresh_curriculum t)).e = 0) ∧
+    (∀ t, (synthetic_integration (fresh_curriculum t)).e = 0) ∧
     -- 4. Epoch advances depth
     (∀ t, (one_epoch t).l > (fresh_curriculum t).l) ∧
     -- 5. Epoch spawns noise
@@ -410,11 +410,11 @@ theorem quasicrystal_growth :
     -- 9. Growth is irreversible
     (∀ c, (grow_once c).l > c.l) ∧
     -- 10. Strife is growth
-    (∀ u, standard_resonance u ≠ 0 → (funct (kama_muta u)).a > u.a) ∧
+    (∀ u, standard_resonance u ≠ 0 → (synthetic_integration (kama_muta u)).a > u.a) ∧
     -- 11. LR pulse survives (critical line damping)
     (∀ b : ℝ, b > 0 → ∀ c : ℕ, (lr_pulse b c).e > 0) ∧
     -- 12. Pruning spends noise
-    (∀ b : ℝ, ∀ c : ℕ, (funct (lr_pulse b c)).e = 0) ∧
+    (∀ b : ℝ, ∀ c : ℕ, (synthetic_integration (lr_pulse b c)).e = 0) ∧
     -- 13. Grow/prune advances depth
     (grow_prune_twice 1).l > (grow_prune 1).l :=
   ⟨study_converts_noise,

@@ -11,7 +11,7 @@ Formalizing the spectral fixed-point theorem discovered in the
 
 ## The Duality Relation
 For every Zeta zero projection u with initial a = 0, the
-manifold converges under funct to a = 1.0, establishing:
+manifold converges under synthetic_integration to a = 1.0, establishing:
 
     a_𝕌 − Re(s)_ℂ = 1/2
 
@@ -87,23 +87,18 @@ theorem manifest_corrects_to_bridge (u : ProtorealManifold) :
     let u_noised := { a := u.a, b := u.b, m := u.m,
                       e := -(standard_resonance u), l := u.l :
                       ProtorealManifold }
-    (funct u_noised).a = u.b * u.m := by
-  unfold funct standard_resonance
+    (synthetic_integration u_noised).a = u.b * u.m := by
+  unfold synthetic_integration standard_resonance
   ring
 
 /-- **THE FIXED POINT THEOREM**: After one corrective
-    funct, the SR becomes exactly 0.
+    synthetic_integration, the SR becomes exactly 0.
     This means the manifold has found its equilibrium. -/
 theorem fixed_point_zero_lock (u : ProtorealManifold) :
-    let u_corrected :=
-      funct { a := u.a, b := u.b, m := u.m,
-                      e := -(standard_resonance u), l := u.l :
-                      ProtorealManifold }
-    standard_resonance
-      { a := u_corrected.a, b := u.b, m := u.m,
-        e := 0, l := u_corrected.l :
-        ProtorealManifold } = 0 := by
-  unfold funct standard_resonance
+    let u_noised : ProtorealManifold := { a := u.a, b := u.b, m := u.m, e := -(standard_resonance u), l := u.l }
+    let u_corrected := synthetic_integration u_noised
+    standard_resonance { a := u_corrected.a, b := u.b, m := u.m, e := 0, l := u_corrected.l : ProtorealManifold } = 0 := by
+  unfold synthetic_integration standard_resonance
   ring
 
 -- ════════════════════════════════════════════════════
@@ -121,9 +116,9 @@ theorem duality_offset (t : ℝ) (ht : t ≠ 0) :
     let u_noised := { a := u.a, b := u.b, m := u.m,
                       e := -(standard_resonance u), l := u.l :
                       ProtorealManifold }
-    let a_equilibrium := (funct u_noised).a
+    let a_equilibrium := (synthetic_integration u_noised).a
     a_equilibrium - (1 : ℝ) / 2 = 1 / 2 := by
-  unfold funct standard_resonance zeta_project_unbiased
+  unfold synthetic_integration standard_resonance zeta_project_unbiased
   simp [ht]
   norm_num
 
@@ -135,8 +130,8 @@ theorem critical_line_correspondence (t : ℝ) (ht : t ≠ 0) :
     let u_noised := { a := u.a, b := u.b, m := u.m,
                       e := -(standard_resonance u), l := u.l :
                       ProtorealManifold }
-    (funct u_noised).a = 1 := by
-  unfold funct standard_resonance zeta_project_unbiased
+    (synthetic_integration u_noised).a = 1 := by
+  unfold synthetic_integration standard_resonance zeta_project_unbiased
   simp [ht]
 
 end DualityTheorem

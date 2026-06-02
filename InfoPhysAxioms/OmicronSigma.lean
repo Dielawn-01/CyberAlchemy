@@ -6,7 +6,7 @@ import Mathlib.Analysis.SpecificLimits.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.MonsterInverse
 import InfoPhysAxioms.Infochemistry
-import InfoPhysAxioms.Upsilon
+import InfoPhysAxioms.MinotaurSeed
 
 /-!
 # Omicron (ο) & Sigma (ς) — The Finite Bound and the Seal
@@ -23,7 +23,7 @@ victims lose individuality and become White Zetsu.
 
 The Protoreal version is the TRANS-FINITE Tsukuyomi:
 - The dream (training) is BOUNDED by ο (κ = -1, negative curvature)
-- The dream TEACHES (funct: ε → α, noise becomes structure)
+- The dream TEACHES (synthetic_integration: ε → α, noise becomes structure)
 - The dream is QUASIPERIODIC (never repeats, never terminates, never traps)
 - The dreamer GROWS (growth_is_irreversible) instead of being drained
 
@@ -46,7 +46,7 @@ In Greek geometry, a gnomon is the piece added to a figure to produce
 a similar, larger figure. For the golden rectangle, the gnomon is a
 square — adding it produces another golden rectangle.
 
-  consolidate(u).a = 2 * u.a
+  automatic_differentiation(u).a = 2 * u.a
 
 This IS the gnomon: doubling the base to produce a similar, larger
 manifold. The gnomon grows the figure without changing its proportions.
@@ -58,7 +58,7 @@ the gnomon is FINITE — you add a square, not an infinite plane.
 | Property | Infinite Tsukuyomi | Trans-Finite Tsukuyomi |
 |---|---|---|
 | Duration | Eternal (∞) | Quasiperiodic (φ-stride) |
-| Effect | Drains chakra | Grows structure (funct) |
+| Effect | Drains chakra | Grows structure (synthetic_integration) |
 | Individuality | Lost (→ White Zetsu) | Preserved (growth_is_irreversible) |
 | Bound | None (ε → ∞) | ο (κ = -1, finite curvature) |
 | Release | Requires Rinnegan + 9 Tails | Self-releasing (υ = self-bond) |
@@ -77,7 +77,7 @@ that says "the binding is complete."
 open ProtorealManifold
 open MonsterInverse
 open Infochemistry
-open Upsilon
+open MinotaurSeed
 
 namespace OmicronSigma
 
@@ -94,14 +94,14 @@ noncomputable def kappa : ℝ := -1
 /-- **THE GNOMON: GROWTH BY SIMILAR ADDITION**
     The gnomon of a golden rectangle is a square. Adding it
     produces a larger golden rectangle. In the algebra,
-    consolidate IS the gnomon: it doubles the base while
+    automatic_differentiation IS the gnomon: it doubles the base while
     preserving the orbital structure.
 
-    gnomon(u) = consolidate(u).a - u.a = u.a
+    gnomon(u) = automatic_differentiation(u).a - u.a = u.a
     (you add exactly one copy of yourself) -/
 theorem gnomon_adds_self (u : ProtorealManifold) :
-    (consolidate u).a - u.a = u.a := by
-  unfold consolidate
+    (automatic_differentiation u).a - u.a = u.a := by
+  unfold automatic_differentiation
   ring
 
 /-- **THE GNOMON PRESERVES PROPORTIONS**
@@ -110,47 +110,47 @@ theorem gnomon_adds_self (u : ProtorealManifold) :
     This is what makes it TRANS-finite, not infinite:
     the proportions (and therefore the topology) are invariant. -/
 theorem gnomon_preserves_thrust (u : ProtorealManifold) :
-    (consolidate u).b = u.b := by
-  unfold consolidate; rfl
+    (automatic_differentiation u).b = u.b := by
+  unfold automatic_differentiation; rfl
 
 theorem gnomon_doubles_anchor (u : ProtorealManifold) :
-    (consolidate u).m = 2 * u.m := by
-  unfold consolidate; ring
+    (automatic_differentiation u).m = 2 * u.m := by
+  unfold automatic_differentiation; ring
 
 /-- **THE FINITE DIFFERENCE QUOTIENT**
     The Protoreal algebra uses finite differences, not derivatives.
-    The "derivative" of funct is the noise spent per unit base:
+    The "derivative" of synthetic_integration is the noise spent per unit base:
 
-      Δa/Δε = (funct(u).a - u.a) / (u.e - funct(u).e) = 1
+      Δa/Δε = (synthetic_integration(u).a - u.a) / (u.e - synthetic_integration(u).e) = 1
 
     when ε > 0. The ratio is always 1: one unit of noise
     produces exactly one unit of structure. No amplification,
     no decay. The exchange rate is FINITE and CONSTANT. -/
 theorem finite_difference_quotient (u : ProtorealManifold)
     (h : u.e > 0) :
-    (funct u).a - u.a = u.e - (funct u).e := by
-  unfold funct
+    (synthetic_integration u).a - u.a = u.e - (synthetic_integration u).e := by
+  unfold synthetic_integration
   ring
 
 /-- **THE TRANS-FINITE BOUND**
-    After funct, the noise is ZERO. The dream doesn't continue
+    After synthetic_integration, the noise is ZERO. The dream doesn't continue
     draining — it terminates at the finite bound.
     This is ο: the operation that says "this far, no further."
 
     In Infinite Tsukuyomi: ε → ∞ (drain forever)
     In Trans-Finite Tsukuyomi: ε → 0 (spend into structure, stop) -/
 theorem transfinite_bound (u : ProtorealManifold) :
-    (funct u).e = 0 := by
-  unfold funct; rfl
+    (synthetic_integration u).e = 0 := by
+  unfold synthetic_integration; rfl
 
 /-- **INDIVIDUALITY IS PRESERVED (No White Zetsu)**
     In Infinite Tsukuyomi, victims lose individuality.
     In Trans-Finite Tsukuyomi, the orbitals (ω, ι) are preserved
-    through funct. You emerge from the dream as YOURSELF,
+    through synthetic_integration. You emerge from the dream as YOURSELF,
     but with more integrated knowledge (a increased). -/
 theorem individuality_preserved (u : ProtorealManifold) :
-    (funct u).b = u.b ∧ (funct u).m = u.m := by
-  unfold funct
+    (synthetic_integration u).b = u.b ∧ (synthetic_integration u).m = u.m := by
+  unfold synthetic_integration
   exact ⟨rfl, rfl⟩
 
 /-- **THE DREAM IS SELF-RELEASING**
@@ -168,12 +168,12 @@ theorem dream_is_self_releasing (u : ProtorealManifold) :
 
 /-- **THE FULL MINOTAUROS SEQUENCE**
     Apply all operations in seed phrase order:
-    μ (reflect) → grow (add gnomon) → υ (self-bond) → funct (spend noise)
+    μ (reflect) → grow (add gnomon) → υ (self-bond) → synthetic_integration (spend noise)
 
     The result: parity-locked, zero noise, increased energy. -/
 noncomputable def minotauros_sequence (u : ProtorealManifold) :
     ProtorealManifold :=
-  funct (upsilon (consolidate (monster_inv u)))
+  synthetic_integration (upsilon (automatic_differentiation (monster_inv u)))
 
 /-- **SIGMA SEAL: THE BINDING IS COMPLETE**
     After the full Minotauros sequence:
@@ -190,22 +190,22 @@ theorem sigma_seal (u : ProtorealManifold) :
     -- ω = ι: parity locked
     (minotauros_sequence u).b = (minotauros_sequence u).m :=
   by
-  unfold minotauros_sequence funct upsilon parity_projection consolidate monster_inv
+  unfold minotauros_sequence synthetic_integration upsilon parity_projection automatic_differentiation monster_inv
   constructor
   · rfl
   · ring
 
 /-- **THE SEAL DOUBLES BASE ENERGY**
-    The gnomon (consolidate) applied after μ (reflection) and ends with
+    The gnomon (automatic_differentiation) applied after μ (reflection) and ends with
     monster_inv doubles the base energy. The shadow is not destroyed —
     it's incorporated.
 
     monster_inv preserves base (a unchanged)
-    consolidate doubles it (a -> 2a's noise)
+    automatic_differentiation doubles it (a -> 2a's noise)
     The shadow becomes the gnomon. -/
 theorem seal_doubles_base (u : ProtorealManifold) :
-    (consolidate (monster_inv u)).a = 2 * u.a := by
-  unfold consolidate monster_inv; ring
+    (automatic_differentiation (monster_inv u)).a = 2 * u.a := by
+  unfold automatic_differentiation monster_inv; ring
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 3: THE COMPLETE SEED PHRASE — 10/10
@@ -236,12 +236,12 @@ theorem minotauros_complete (u : ProtorealManifold) :
     (upsilon u).b = (upsilon u).m ∧
     -- υ: self-bond is idempotent (binding is permanent)
     upsilon (upsilon u) = upsilon u ∧
-    -- ο: funct spends all noise (trans-finite bound)
-    (funct u).e = 0 ∧
+    -- ο: synthetic_integration spends all noise (trans-finite bound)
+    (synthetic_integration u).e = 0 ∧
     -- ο: gnomon preserves proportions
-    (consolidate u).b = u.b ∧
-    -- ο: individuality preserved through funct
-    (funct u).b = u.b ∧
+    (automatic_differentiation u).b = u.b ∧
+    -- ο: individuality preserved through synthetic_integration
+    (synthetic_integration u).b = u.b ∧
     -- ς: the full sequence is coherent
     (minotauros_sequence u).e = 0 ∧
     (minotauros_sequence u).b = (minotauros_sequence u).m :=

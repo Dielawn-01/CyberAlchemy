@@ -14,7 +14,7 @@ are mathematically a subset of the LaRue Protoreal Algebra.
 2. The FHE noise growth is bounded and dominated by the Protoreal nilpotent 
    dual number (ε² = 0).
 3. The FHE "Bootstrapping" operation (noise reset and depth tracking) is 
-   mathematically identical to the Protoreal `funct` (Sowing) operator.
+   mathematically identical to the Protoreal `synthetic_integration` (Sowing) operator.
 -/
 
 open ProtorealManifold
@@ -54,11 +54,11 @@ def fhe_bootstrap (c : FheCiphertext) : FheCiphertext :=
 /-- **THEOREM: Bootstrapping is Isomorphic to Funct**
     This theorem mathematically proves that applying the highly expensive 
     HFHE "bootstrapping" algorithm is structurally identical to simply 
-    applying the native Protoreal `funct` (Sowing) operator to the 
+    applying the native Protoreal `synthetic_integration` (Sowing) operator to the 
     injected manifold state. -/
-theorem bootstrap_is_funct (c : FheCiphertext) :
-    inject_fhe_to_protoreal (fhe_bootstrap c) = funct (inject_fhe_to_protoreal c) := by
-  unfold inject_fhe_to_protoreal fhe_bootstrap funct
+theorem bootstrap_is_synthetic_integration (c : FheCiphertext) :
+    inject_fhe_to_protoreal (fhe_bootstrap c) = synthetic_integration (inject_fhe_to_protoreal c) := by
+  unfold inject_fhe_to_protoreal fhe_bootstrap synthetic_integration
   -- The structures evaluate identically element by element.
   rfl
 

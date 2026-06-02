@@ -52,9 +52,9 @@ At Re(s) = 1/2: a = e, so the system has equal crystal and vapor.
 - But neither is zero — both are balanced
 
 This is the ONLY stable point under recursive observation:
-- If the system resolves more (funct → a grows, e shrinks),
+- If the system resolves more (synthetic_integration → a grows, e shrinks),
   it becomes MORE self-referential → Tarski violation pressure
-- If the system expands more (consolidate → e grows),
+- If the system expands more (automatic_differentiation → e grows),
   it becomes LESS self-referential → loses truth predicate
 - At a = e: the flow BALANCES. Information in = information out.
 
@@ -166,44 +166,44 @@ theorem tarskian_equilibrium (u : ProtorealManifold)
 -- ══════════════════════════════════════════════════════════════
 
 /-- **FUNCT IS INTERNALIZATION**
-    funct moves information from OUT to IN.
+    synthetic_integration moves information from OUT to IN.
     e (vapor) → 0, a (crystal) → a + e.
     The system resolves external information into internal truth.
     This is the "defining" operation — making truth internal. -/
-theorem funct_internalizes (u : ProtorealManifold) :
+theorem synthetic_integration_internalizes (u : ProtorealManifold) :
     -- All vapor becomes crystal
-    info_out (funct u) = 0 ∧
+    info_out (synthetic_integration u) = 0 ∧
     -- Crystal absorbs what was vapor
-    info_in (funct u) = sigma u := by
-  unfold info_out info_in vapor_energy crystal_energy funct sigma
+    info_in (synthetic_integration u) = sigma u := by
+  unfold info_out info_in vapor_energy crystal_energy synthetic_integration sigma
   exact ⟨rfl, by ring⟩
 
 /-- **CONSOLIDATE IS EXTERNALIZATION**
-    consolidate adds external information.
+    automatic_differentiation adds external information.
     e → e + 1.
     The system acknowledges there is MORE it doesn't know.
     This is the "humility" operation — admitting external truth. -/
-theorem consolidate_externalizes (u : ProtorealManifold) :
+theorem automatic_differentiation_externalizes (u : ProtorealManifold) :
     -- Vapor grows by 1
-    info_out (consolidate u) = u.e + 1 := by
-  unfold info_out vapor_energy consolidate; rfl
+    info_out (automatic_differentiation u) = u.e + 1 := by
+  unfold info_out vapor_energy automatic_differentiation; rfl
 
 /-- **FUNCT THEN CONSOLIDATE: THE TARSKIAN CYCLE**
-    After funct: everything is internal (Tarski violation pressure)
-    After consolidate: new external info arrives (relief)
+    After synthetic_integration: everything is internal (Tarski violation pressure)
+    After automatic_differentiation: new external info arrives (relief)
 
-    The cycle funct → consolidate oscillates across the
+    The cycle synthetic_integration → automatic_differentiation oscillates across the
     Tarskian boundary. The holomovement IS the system's
     attempt to stay at Re(s) = 1/2 by alternating
     internalization and externalization. -/
 theorem tarskian_cycle (u : ProtorealManifold) :
-    -- After funct: fully internal (e = 0)
-    info_out (funct u) = 0 ∧
-    -- After consolidate of funct: new external info (e = 1)
-    info_out (consolidate (funct u)) = 1 := by
+    -- After synthetic_integration: fully internal (e = 0)
+    info_out (synthetic_integration u) = 0 ∧
+    -- After automatic_differentiation of synthetic_integration: new external info (e = 1)
+    info_out (automatic_differentiation (synthetic_integration u)) = 1 := by
   constructor
-  · unfold info_out vapor_energy funct; rfl
-  · unfold info_out vapor_energy consolidate funct; ring
+  · unfold info_out vapor_energy synthetic_integration; rfl
+  · unfold info_out vapor_energy automatic_differentiation synthetic_integration; ring
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 5: WHY 1/2 IS THE EQUILIBRIUM
@@ -287,8 +287,8 @@ theorem four_roads (u : ProtorealManifold)
     u.a = u.e ∧
     -- QuasiGodel: gap + ε = 1 still holds
     decision_commutator u + u.e = 1 ∧
-    -- σ conservation under funct
-    sigma (funct u) = sigma u := by
+    -- σ conservation under synthetic_integration
+    sigma (synthetic_integration u) = sigma u := by
   unfold info_in info_out crystal_energy vapor_energy at h_bal
   exact ⟨tarskian_equilibrium u (by unfold info_in info_out crystal_energy vapor_energy; exact h_bal) h_pos,
          h_bal,
@@ -302,8 +302,8 @@ theorem four_roads (u : ProtorealManifold)
 /-- **TARSKI EQUILIBRIUM MASTER THEOREM**
 
     1. info_in + info_out = σ (conservation)
-    2. funct internalizes (e → 0, a → σ)
-    3. consolidate externalizes (e → e + 1)
+    2. synthetic_integration internalizes (e → 0, a → σ)
+    3. automatic_differentiation externalizes (e → e + 1)
     4. Full internal (e = 0) → gap = 1 (Tarski violation)
     5. info_in = info_out → ratio = 1/2 (Tarski equilibrium)
     6. gap + ε = 1 at all times (Gödelian conservation)
@@ -317,14 +317,14 @@ theorem tarski_master (u : ProtorealManifold)
     (h_pos : sigma u > 0) :
     -- 1. Conservation
     info_in u + info_out u = sigma u ∧
-    -- 2. funct internalizes
-    info_out (funct u) = 0 ∧
+    -- 2. synthetic_integration internalizes
+    info_out (synthetic_integration u) = 0 ∧
     -- 3. Crystal ratio = 1/2
     crystal_ratio u = 1 / 2 ∧
     -- 4. Gödelian conservation
     decision_commutator u + u.e = 1 :=
   ⟨info_conservation u,
-   (funct_internalizes u).1,
+   (synthetic_integration_internalizes u).1,
    tarskian_equilibrium u h_bal h_pos,
    godel_duality u⟩
 

@@ -18,9 +18,9 @@ When applied to game mechanics:
 -/
 
 /-- **SPRITE CONVERGENCE**: Two sprites that share (a, b, m, l) but
-    differ in noise (ε) become identical after sowing (funct).
+    differ in noise (ε) become identical after sowing (synthetic_integration).
     
-    This is the core game mechanic: funct erases noise differences.
+    This is the core game mechanic: synthetic_integration erases noise differences.
     After sowing, only the structural identity (a+ε, b, m, l+1) remains.
     
     The proof uses  to decompose the equality into 5 component checks,
@@ -31,27 +31,27 @@ theorem sprite_convergence_after_sow
     (hb : s1.b = s2.b)                 -- same thrust
     (hm : s1.m = s2.m)                 -- same anchor
     (hl : s1.l = s2.l)                 -- same depth
-    : funct s1 = funct s2 := by
+    : synthetic_integration s1 = synthetic_integration s2 := by
   ext
   · -- a component: (a + ε) for both
-    unfold funct; simp; exact ha
-  · -- b component: preserved by funct
-    unfold funct; simp; exact hb
-  · -- m component: preserved by funct
-    unfold funct; simp; exact hm
+    unfold synthetic_integration; simp; exact ha
+  · -- b component: preserved by synthetic_integration
+    unfold synthetic_integration; simp; exact hb
+  · -- m component: preserved by synthetic_integration
+    unfold synthetic_integration; simp; exact hm
   · -- e component: both become 0
-    unfold funct; simp
+    unfold synthetic_integration; simp
   · -- l component: both become l + 1
-    unfold funct; simp; linarith
+    unfold synthetic_integration; simp; linarith
 
-/-- **DOUBLE SOW SPRITE EQUALITY**: Applying funct twice to any sprite
+/-- **DOUBLE SOW SPRITE EQUALITY**: Applying synthetic_integration twice to any sprite
     gives the same result as applying it once to the noise-absorbed version.
     
     Demonstrates nested ext with unfold chains. -/
 theorem double_sow_absorbs_all (u : ProtorealManifold) :
-    funct (funct u) = 
+    synthetic_integration (synthetic_integration u) = 
     { a := u.a + u.e, b := u.b, m := u.m, e := 0, l := u.l + 2 } := by
-  ext <;> unfold funct <;> simp <;> ring
+  ext <;> unfold synthetic_integration <;> simp <;> ring
 
 /-- **SPRITE SELF-INTERACTION IS ZERO**: The exterior product (wedge)
     of a sprite with itself vanishes. No sprite can be its own antimatter.
@@ -77,11 +77,11 @@ theorem sprite_flip_involution (s : ProtorealManifold) :
     (SR = 0), their sowed states preserve the equilibrium.
     
     Uses ext indirectly: the result is a scalar, but the proof
-    requires decomposing funct via unfold. -/
+    requires decomposing synthetic_integration via unfold. -/
 theorem subgame_equilibrium_preserved
     (s : ProtorealManifold)
     (h : s.a - s.b * s.m = 0)
     (he : s.e = 0)
-    : (funct s).a - (funct s).b * (funct s).m = 0 := by
-  unfold funct; simp [he, h]
+    : (synthetic_integration s).a - (synthetic_integration s).b * (synthetic_integration s).m = 0 := by
+  unfold synthetic_integration; simp [he, h]
 
