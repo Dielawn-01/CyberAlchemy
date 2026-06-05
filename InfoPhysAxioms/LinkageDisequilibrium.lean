@@ -96,13 +96,15 @@ theorem D_symmetry (hf : HaplotypeFreq) :
     D hf = hf.f_AB * hf.f_ab - hf.f_Ab * hf.f_aB := by
   unfold D HaplotypeFreq.pA HaplotypeFreq.pB
   have h := hf.h_sum
-  nlinarith [sq_nonneg (hf.f_AB + hf.f_Ab + hf.f_aB + hf.f_ab)]
+  have h_ab : hf.f_ab = 1 - hf.f_AB - hf.f_Ab - hf.f_aB := by linarith
+  rw [h_ab]
+  ring
 
 -- ════════════════════════════════════════════════════
 -- SECTION 3: THE COMMUTATOR ISOMORPHISM
 -- ════════════════════════════════════════════════════
 
-/-- **STRUCTURAL ANALOGY: LD parallels the algebraic commutator.**
+/- **STRUCTURAL ANALOGY: LD parallels the algebraic commutator.**
 
     Commutator: [A, B] = A·B - B·A
     LD:         D      = f(AB) - f(A)·f(B)

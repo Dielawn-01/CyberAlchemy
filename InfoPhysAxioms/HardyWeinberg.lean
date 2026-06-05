@@ -107,14 +107,16 @@ theorem genotype_nonneg (af : AlleleFreq) :
     If allele frequencies are (p, q) in generation n,
     they remain (p, q) in generation n+1 under random mating.
     One generation of random mating is sufficient to reach HWE. -/
-def next_gen_p (af : AlleleFreq) : ℝ :=
+noncomputable def next_gen_p (af : AlleleFreq) : ℝ :=
   homozygous_dominant af + heterozygous af / 2
 
 theorem equilibrium_is_fixed_point (af : AlleleFreq) :
     next_gen_p af = af.p := by
   unfold next_gen_p homozygous_dominant heterozygous
-  have h := af.h_sum
-  nlinarith [sq_nonneg af.p, sq_nonneg af.q]
+  have hq : af.q = 1 - af.p := by linarith [af.h_sum]
+  rw [hq]
+  field_simp
+  ring
 
 -- ════════════════════════════════════════════════════
 -- SECTION 4: CHI-SQUARE DEVIATION
@@ -200,6 +202,13 @@ def epsilon_rate (ms : MetabolizerStatus) : Float :=
   | .intermediate => 0.50
   | .normal => 1.00
   | .ultrarapid => 2.00
+
+def epsilon_rate_real (ms : MetabolizerStatus) : ℝ :=
+  match ms with
+  | .poor => 0.25
+  | .intermediate => 0.50
+  | .normal => 1
+  | .ultrarapid => 2
 
 /-- Baseline metabolizer rate is 1.0 (by definition of "normal"). -/
 theorem baseline_is_unity :

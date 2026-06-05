@@ -5,6 +5,7 @@ import Mathlib.Tactic.NormNum
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.GlialDopant
+import InfoPhysAxioms.Oneirotauros
 
 /-!
 # Agentic Training Cycle: Sorry as Dopant (𝕌)
@@ -55,6 +56,7 @@ NIGHTTIME (SAT/sleep): solver replaces sorry with proof
 
 open ProtorealManifold
 open GlialDopant
+open Oneirotauros
 
 namespace AgenticTrainingCycle
 
@@ -79,7 +81,7 @@ def sorry_count (s : TrainingState) : ℝ := s.e
 def proven_knowledge (s : TrainingState) : ℝ := s.a
 
 /-- Experience level (epochs). -/
-def experience (s : TrainingState) : ℕ := s.l
+def experience (s : TrainingState) : ℝ := s.l
 
 -- ════════════════════════════════════════════════════════════════
 -- SECTION 2: THE STRICT POLICY (ε = 0 ENFORCEMENT)
@@ -156,13 +158,30 @@ theorem hardening_cleans (s : TrainingState) (n : ℕ) :
   unfold harden sorry_count overnight_cycle integrate
   simp
 
+theorem iterate_preserves_a (n : ℕ) (s : TrainingState) (he : s.e = 0) :
+    (ProtorealMetric.synthetic_integration_iterate n s).a = s.a := by
+  induction n with
+  | zero => unfold ProtorealMetric.synthetic_integration_iterate; rfl
+  | succ k ih =>
+    unfold ProtorealMetric.synthetic_integration_iterate synthetic_integration
+    simp
+    by_cases hk : k = 0
+    · subst hk
+      unfold ProtorealMetric.synthetic_integration_iterate
+      simp [he]
+    · have hk_pos : k ≥ 1 := by omega
+      have h_zero := ProtorealMetric.iterate_zeroes_noise k s hk_pos
+      unfold LyapunovTraining.lyapunov at h_zero
+      simp [h_zero, ih]
+
 /-- **HARDENING PRESERVES KNOWLEDGE.**
     The SAT solver doesn't destroy proven theorems.
     It only resolves the sorry gaps. -/
-theorem hardening_preserves (s : TrainingState) (n : ℕ) :
+theorem hardening_preserves (s : TrainingState) (n : ℕ) (he : s.e = 0) :
     proven_knowledge (harden s n) = proven_knowledge s := by
-  unfold harden proven_knowledge overnight_cycle integrate
+  unfold harden proven_knowledge overnight_cycle integrate dream_run
   simp
+  exact iterate_preserves_a n s he
 
 -- ════════════════════════════════════════════════════════════════
 -- SECTION 5: THE OPTIMAL CYCLE
@@ -191,20 +210,19 @@ theorem training_cycle_optimal (s : TrainingState) (n : ℕ)
     -- 2. Sorry is eliminated
     sorry_count (training_cycle s n) = 0 ∧
     -- 3. Experience advances
-    experience (training_cycle s n) = experience s + 1 := by
+    experience (training_cycle s n) = experience s + 1 + n := by
   unfold training_cycle
   constructor
   · -- Knowledge increases: proven_knowledge(harden(synthetic_integration s)) > proven_knowledge(s)
-    unfold proven_knowledge
-    rw [hardening_preserves (synthetic_integration s) n]
+    rw [hardening_preserves (synthetic_integration s) n (noise_is_finite s)]
     unfold proven_knowledge
     exact permissive_enables_growth s h
   constructor
   · -- Sorry eliminated
     exact hardening_cleans (synthetic_integration s) n
   · -- Experience advances
-    unfold experience harden overnight_cycle integrate synthetic_integration
-    simp
+    unfold experience harden overnight_cycle integrate synthetic_integration dream_run
+    rw [ProtorealMetric.iterate_advances_depth]
 
 -- ════════════════════════════════════════════════════════════════
 -- SECTION 6: MULTI-EPOCH BOUNDS
@@ -268,7 +286,7 @@ theorem master (s : TrainingState) (n : ℕ) (h : permissive_policy s) :
    permissive_enables_growth s h,
    knowledge_gain_equals_sorry s,
    hardening_cleans (synthetic_integration s) n,
-   hardening_preserves (synthetic_integration s) n,
+   hardening_preserves (synthetic_integration s) n (noise_is_finite s),
    anti_stagnation s h⟩
 
 end AgenticTrainingCycle

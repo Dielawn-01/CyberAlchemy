@@ -24,9 +24,10 @@ theorem homological_torsion_antisymm (u v : ProtorealManifold) :
   unfold homological_torsion
   -- The denominator is symmetric: u.a * v.a + 1 = v.a * u.a + 1
   -- The numerator negates: (u.b * v.m - u.m * v.b) = -(v.b * u.m - v.m * u.b)
-  rw [neg_div]
+  rw [← neg_div]
   congr 1
-  ring
+  · ring
+  · ring
 
 /--
   Torsion of a state with itself is zero.

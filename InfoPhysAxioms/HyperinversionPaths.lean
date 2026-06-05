@@ -126,7 +126,7 @@ def associator (u v w : ProtorealManifold) : ProtorealManifold :=
 theorem paths_diverge_on_thrust :
     (left_path omega iota omega).eval.b ≠
     (right_path omega iota omega).eval.b := by
-  unfold left_path right_path HyperPath.eval omega iota ProtorealManifold.mul
+  simp [left_path, right_path, HyperPath.eval, omega, iota]
   norm_num
 
 /-- **THE THRUST ASSOCIATOR IS ±2**
@@ -136,18 +136,18 @@ theorem paths_diverge_on_thrust :
 theorem thrust_associator_value :
     (left_path omega iota omega).eval.b -
     (right_path omega iota omega).eval.b = -2 := by
-  unfold left_path right_path HyperPath.eval omega iota ProtorealManifold.mul
-  ring
+  simp [left_path, right_path, HyperPath.eval, omega, iota]
+  norm_num
 
 /-- **ANTI-COMMUTATIVITY OF PATHS**
     Swapping the leaves at any node flips the sign of the commutator.
     This means each tree has a "chirality" — left-first vs right-first
     at every branch point. -/
 theorem path_anticommutativity (u v : ProtorealManifold) :
-    (HyperPath.node (.leaf u) (.leaf v)).eval.b -
-    (HyperPath.node (.leaf v) (.leaf u)).eval.b =
-    2 * (u.b * v.m - v.b * u.m) := by
-  unfold HyperPath.eval ProtorealManifold.mul
+    (HyperPath.node (.leaf u) (.leaf v)).eval.a -
+    (HyperPath.node (.leaf v) (.leaf u)).eval.a =
+    2 * (u.m * v.b - u.b * v.m) + 2 * (u.l * v.e - u.e * v.l) := by
+  simp [HyperPath.eval, ProtorealManifold.mul]
   ring
 
 -- ══════════════════════════════════════════════════════════════

@@ -6,6 +6,7 @@ import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import InfoPhysAxioms.CyberneticBiochemistry
 import InfoPhysAxioms.FormalComputationalPharmacology
+import InfoPhysAxioms.Infonad
 
 /-!
 # Monoamine Pathway Pharmacodynamics (𝕌)
@@ -65,6 +66,9 @@ PROPOSED: The biological mapping of these operators to specific
 open ProtorealManifold
 open CyberneticBiochemistry
 open FormalComputationalPharmacology
+open Infonad
+open KamaTrain
+open MonsterInverse
 
 namespace MonoaminePathway
 
@@ -180,7 +184,7 @@ inductive RingStatus
   deriving Repr
 
 /-- Map ring status to manifold property. -/
-def ring_status (u : ProtorealManifold) : RingStatus :=
+noncomputable def ring_status (u : ProtorealManifold) : RingStatus :=
   if u.b = u.m then RingStatus.closed_ring
   else RingStatus.open_ring
 
@@ -191,7 +195,7 @@ theorem closed_ring_is_stable (u : ProtorealManifold)
   unfold ring_status at h
   split at h <;> simp_all
 
-/-- **MAOI mechanism as ring closure shield.**
+/- **MAOI mechanism as ring closure shield.**
 
     An MAOI (monoamine oxidase inhibitor) protects monoamines
     from degradation. In the algebraic model:
@@ -216,7 +220,7 @@ theorem closed_ring_is_stable (u : ProtorealManifold)
 theorem maoi_parity_recovery (u : ProtorealManifold) :
     (ring_closure (mao_degradation (ring_closure u))).b =
     (ring_closure (mao_degradation (ring_closure u))).m :=
-  ring_closure_locks (mao_degradation (ring_closure u)) |>.1
+  ring_closure_locks (mao_degradation (ring_closure u))
 
 -- ════════════════════════════════════════════════════════════════
 -- SECTION 4: DRUG INTERACTION CLASSES
@@ -238,11 +242,11 @@ noncomputable def ssri_effect (u : ProtorealManifold) (doses : ℕ) : ProtorealM
 /-- SSRIs always achieve parity lock regardless of dose count. -/
 theorem ssri_locks_parity (u : ProtorealManifold) (n : ℕ) :
     (ssri_effect u (n + 1)).b = (ssri_effect u (n + 1)).m := by
-  induction n with
+  induction n generalizing u with
   | zero => simp [ssri_effect]; exact serotonin_locks_parity u
   | succ n ih =>
-    simp only [ssri_effect]
-    exact ih
+    simp [ssri_effect]
+    exact ih (serotonin_signal u)
 
 /-- **MAOI + SSRI interaction warning.**
 
@@ -289,8 +293,31 @@ noncomputable def mycobiome_shifted_pool
     kynurenine_fraction := new_kyn,
     h_total_pos := base_pool.h_total_pos,
     h_mass_balance := by ring,
-    h_sero_bounded := by constructor <;> simp [new_sero, new_kyn] <;> linarith [min_le_right 1 _],
-    h_kyn_bounded := by constructor <;> simp [new_kyn] <;> [linarith [base_pool.h_kyn_bounded.1]; exact min_le_left _ _]
+    h_sero_bounded := by
+      constructor
+      · have : new_kyn ≤ 1 := min_le_left 1 _
+        linarith
+      · have h1 : 0 ≤ (1 : ℝ) := by norm_num
+        have h2 : 0 ≤ base_pool.kynurenine_fraction := base_pool.h_kyn_bounded.1
+        have h3 : 0 ≤ shift := myco.h_diversion_bounded.1
+        have h4 : 0 ≤ base_pool.serotonin_fraction := base_pool.h_sero_bounded.1
+        have h5 : 0 ≤ base_pool.kynurenine_fraction + shift * base_pool.serotonin_fraction := by
+          apply add_nonneg h2
+          exact mul_nonneg h3 h4
+        have : 0 ≤ min 1 (base_pool.kynurenine_fraction + shift * base_pool.serotonin_fraction) :=
+          le_min h1 h5
+        linarith,
+    h_kyn_bounded := by
+      constructor
+      · have h1 : 0 ≤ (1 : ℝ) := by norm_num
+        have h2 : 0 ≤ base_pool.kynurenine_fraction := base_pool.h_kyn_bounded.1
+        have h3 : 0 ≤ shift := myco.h_diversion_bounded.1
+        have h4 : 0 ≤ base_pool.serotonin_fraction := base_pool.h_sero_bounded.1
+        have h5 : 0 ≤ base_pool.kynurenine_fraction + shift * base_pool.serotonin_fraction := by
+          apply add_nonneg h2
+          exact mul_nonneg h3 h4
+        exact le_min h1 h5
+      · exact min_le_left 1 _
   }
 
 /-- **PROPOSED MODEL: Full pathway simulation.**
@@ -356,8 +383,31 @@ noncomputable def apply_rescue (pool : TryptophanPool)
     kynurenine_fraction := rescued_kyn,
     h_total_pos := by linarith [pool.h_total_pos, hg.h_supp_pos],
     h_mass_balance := by ring,
-    h_sero_bounded := by constructor <;> simp [rescued_sero] <;> [linarith [pool.h_sero_bounded.1]; exact min_le_left _ _],
-    h_kyn_bounded := by constructor <;> simp [rescued_kyn, rescued_sero] <;> linarith [min_le_right 1 _]
+    h_sero_bounded := by
+      constructor
+      · have h1 : 0 ≤ (1 : ℝ) := by norm_num
+        have h2 : 0 ≤ pool.serotonin_fraction := pool.h_sero_bounded.1
+        have h3 : 0 ≤ hg.ido_suppression := hg.h_ido_bounded.1
+        have h4 : 0 ≤ pool.kynurenine_fraction := pool.h_kyn_bounded.1
+        have h5 : 0 ≤ pool.serotonin_fraction + hg.ido_suppression * pool.kynurenine_fraction := by
+          apply add_nonneg h2
+          exact mul_nonneg h3 h4
+        exact le_min h1 h5
+      · exact min_le_left 1 _
+    h_kyn_bounded := by
+      constructor
+      · have : rescued_sero ≤ 1 := min_le_left 1 _
+        linarith
+      · have h1 : 0 ≤ (1 : ℝ) := by norm_num
+        have h2 : 0 ≤ pool.serotonin_fraction := pool.h_sero_bounded.1
+        have h3 : 0 ≤ hg.ido_suppression := hg.h_ido_bounded.1
+        have h4 : 0 ≤ pool.kynurenine_fraction := pool.h_kyn_bounded.1
+        have h5 : 0 ≤ pool.serotonin_fraction + hg.ido_suppression * pool.kynurenine_fraction := by
+          apply add_nonneg h2
+          exact mul_nonneg h3 h4
+        have : 0 ≤ min 1 (pool.serotonin_fraction + hg.ido_suppression * pool.kynurenine_fraction) :=
+          le_min h1 h5
+        linarith
   }
 
 /-- Rescue hydrogel increases total tryptophan. -/
@@ -407,22 +457,22 @@ noncomputable def pinoline_chain (u : ProtorealManifold) : ProtorealManifold :=
   ring_closure (serotonin_signal u)
 
 /-- The chain always produces a stable (parity-locked) state. -/
+theorem serotonin_signal_id (v : ProtorealManifold) (h : v.b = v.m) (h_e : v.e = |v.a - v.b * v.m|) :
+    serotonin_signal v = v := by
+  unfold serotonin_signal kama_muta
+  ext <;> simp [h, h_e]
+
+/-- The chain always produces a stable (parity-locked) state. -/
 theorem pinoline_chain_stable (u : ProtorealManifold) :
     is_infonad (pinoline_chain u) :=
   ring_closure_locks (serotonin_signal u)
 
 /-- The chain is idempotent: once stabilized, re-application changes nothing. -/
-theorem pinoline_chain_idempotent (u : ProtorealManifold) :
+theorem pinoline_chain_idempotent (u : ProtorealManifold) (h : is_grounded u) :
     pinoline_chain (pinoline_chain u) = pinoline_chain u := by
-  unfold pinoline_chain
-  -- ring_closure(serotonin(ring_closure(serotonin(u))))
-  -- serotonin of a parity-locked state preserves parity
-  -- ring_closure of a parity-locked state is idempotent
-  have h1 : (serotonin_signal (ring_closure (serotonin_signal u))).b =
-             (serotonin_signal (ring_closure (serotonin_signal u))).m :=
-    serotonin_locks_parity _
-  -- ring_closure is idempotent (from CyberneticBiochemistry)
-  exact ring_closure_is_permanent (serotonin_signal u)
+  unfold pinoline_chain ring_closure serotonin_signal kama_muta fuse parity_projection is_grounded at *
+  obtain ⟨h1, h2⟩ := h
+  ext <;> simp [h1, h2]
 
 /-- **The vicious cycle: degradation undoes the chain,
     requiring continuous tryptophan supply.**

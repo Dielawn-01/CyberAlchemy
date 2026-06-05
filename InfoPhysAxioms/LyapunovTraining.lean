@@ -124,7 +124,7 @@ def is_stable_schedule (sched : LearningRateSchedule) (η_max : ℝ) : Prop :=
   ∀ n : ℕ, 0 < sched n ∧ sched n ≤ η_max
 
 /-- **CONSTANT SCHEDULE IS STABLE** (if η > 0 and η ≤ η_max) -/
-theorem constant_is_stable (η : ℝ) (hpos : η > 0) (hmax : η ≤ η_max) :
+theorem constant_is_stable (η η_max : ℝ) (hpos : η > 0) (hmax : η ≤ η_max) :
     is_stable_schedule (constant_schedule η) η_max := by
   intro n
   unfold constant_schedule

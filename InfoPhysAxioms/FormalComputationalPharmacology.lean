@@ -156,7 +156,7 @@ theorem drug_preserves_structure (drug : Drug) (u : ProtorealManifold) :
     This is a first-order approximation. Real PK modeling uses
     compartmental ODEs. We offer this as a simulation primitive. -/
 noncomputable def adjusted_intensity (drug : Drug) (ms : MetabolizerStatus) : ℝ :=
-  drug.intensity / (epsilon_rate ms).toFloat
+  drug.intensity / epsilon_rate_real ms
 
 /-- **PROPOSED MODEL: Apply drug with metabolizer adjustment.**
 
@@ -201,10 +201,10 @@ noncomputable def barrier_filter (barrier : GutBarrier) (signal : ℝ) : ℝ :=
 
 /-- A healthy barrier attenuates to baseline. -/
 theorem healthy_barrier_baseline (signal : ℝ) :
-    let barrier : GutBarrier := ⟨1.0, by norm_num⟩
+    let barrier : GutBarrier := ⟨1, by norm_num⟩
     barrier_filter barrier signal = signal := by
   unfold barrier_filter
-  simp; ring
+  simp
 
 /-- A compromised barrier amplifies signals (leaky gut).
     More metabolites reach the ENS than intended. -/
@@ -212,11 +212,13 @@ theorem leaky_gut_amplifies (barrier : GutBarrier) (signal : ℝ)
     (h_leaky : barrier.integrity < 1) (h_signal_pos : signal > 0) :
     barrier_filter barrier signal > signal := by
   unfold barrier_filter
-  have h := barrier.h_pos
-  rw [mul_comm]
-  rw [div_mul_eq_mul_div]
-  rw [one_mul]
-  exact div_lt_of_lt_mul₀ (by linarith) (by linarith) (by nlinarith)
+  have h_pos := barrier.h_pos
+  have h_diff : 0 < 1 - barrier.integrity := by linarith
+  have h_prod : 0 < signal * (1 - barrier.integrity) := mul_pos h_signal_pos h_diff
+  have h_eq : signal * (1 / barrier.integrity) - signal = (signal * (1 - barrier.integrity)) / barrier.integrity := by
+    field_simp [ne_of_gt h_pos]
+  have h_pos_div : 0 < (signal * (1 - barrier.integrity)) / barrier.integrity := div_pos h_prod h_pos
+  linarith
 
 -- ════════════════════════════════════════════════════════════════
 -- LAYER 5: MYCOBIOME POPULATION MODEL
@@ -300,7 +302,7 @@ theorem full_tryptophan_is_serotonin (u : ProtorealManifold)
     (mycobiome_modulated_serotonin u myco).b =
     (mycobiome_modulated_serotonin u myco).m := by
   unfold mycobiome_modulated_serotonin available_tryptophan
-  simp [h]; ring
+  simp [h]
 
 /-- With full diversion, serotonin signal has no effect. -/
 theorem full_diversion_no_serotonin (u : ProtorealManifold)
@@ -308,7 +310,7 @@ theorem full_diversion_no_serotonin (u : ProtorealManifold)
     (mycobiome_modulated_serotonin u myco).b = u.b ∧
     (mycobiome_modulated_serotonin u myco).m = u.m := by
   unfold mycobiome_modulated_serotonin available_tryptophan
-  simp [h]; constructor <;> ring
+  simp [h]
 
 -- ════════════════════════════════════════════════════════════════
 -- LAYER 7: FULL PATIENT STATE

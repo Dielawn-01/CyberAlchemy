@@ -114,6 +114,7 @@ import LaRueProtorealAlgebra.PlasmaInfotonBridge
 import LaRueProtorealAlgebra.PolarizingField
 import LaRueProtorealAlgebra.PrimeGenerators
 import LaRueProtorealAlgebra.PalindromeStandingWave
+import LaRueProtorealAlgebra.PalindromicPrimeOrbits
 import LaRueProtorealAlgebra.PrimorialJitter
 import LaRueProtorealAlgebra.ProtoLite
 import LaRueProtorealAlgebra.ProtorealAI

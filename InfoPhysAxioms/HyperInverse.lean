@@ -90,8 +90,9 @@ noncomputable def hyper (n : ℕ) (u : ProtorealManifold) (k : ℕ) :
       { a := 1, b := 0, m := 0, e := 0, l := 0 }
   | 3 => -- k-fold semantic shift
     (fun v => synthetic_integration (automatic_differentiation v))^[k] u
-  | _ + 4 => -- higher: iterate the previous level
-    (fun v => hyper (n - 1) v k)^[k] u
+  | n + 4 => -- higher: iterate the previous level
+    (fun v => hyper (n + 3) v k)^[k] u
+termination_by n
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 2: HYPER-EXTRACTION (Super-Logarithm / slog)
@@ -117,7 +118,8 @@ noncomputable def slog (u : ProtorealManifold) : ℝ := u.l
     depth increases linearly. -/
 theorem slog_of_successor (u : ProtorealManifold) (k : ℕ) :
     slog (hyper 0 u k) = u.l + k := by
-  unfold slog hyper; rfl
+  unfold slog
+  simp [hyper]
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 3: HYPER-DIFFERENCE (Super-Root / sroot)
@@ -224,7 +226,7 @@ inductive InverseOp
   | differ  : InverseOp   -- sroot (left inverse, base)
 
 /-- A sequence of inverse operations applied to a manifold state. -/
-def apply_inverse_sequence : List InverseOp → ProtorealManifold → ℝ
+noncomputable def apply_inverse_sequence : List InverseOp → ProtorealManifold → ℝ
   | [], u => u.a  -- default: extract base
   | InverseOp.extract :: rest, u =>
     apply_inverse_sequence rest
@@ -233,7 +235,7 @@ def apply_inverse_sequence : List InverseOp → ProtorealManifold → ℝ
     apply_inverse_sequence rest
       { a := sroot u, b := u.b, m := u.m, e := u.e, l := u.l }
 
-/-- **ORDERING MATTERS**
+/- **ORDERING MATTERS**
     [extract, differ] ≠ [differ, extract] in general.
     Extracting depth then base ≠ extracting base then depth.
 
@@ -245,11 +247,11 @@ def apply_inverse_sequence : List InverseOp → ProtorealManifold → ℝ
     This is because for leaves, slog and sroot read DIFFERENT
     components that don't interact. For composed states, the
     components have been MIXED by the Klein product. -/
-/-- Witness states for ordering theorem. -/
+/- Witness states for ordering theorem. -/
 private def order_witness_u : ProtorealManifold :=
-  { a := 1, b := 1, m := 0, e := 0, l := 0 }
+  { a := 2, b := 1, m := 0, e := 0, l := 0 }
 private def order_witness_v : ProtorealManifold :=
-  { a := 1, b := 0, m := 1, e := 0, l := 0 }
+  { a := 3, b := 0, m := 1, e := 0, l := 0 }
 
 /-- **ORDERING MATTERS AFTER COMPOSITION**:
     For specific states with different b-components,
