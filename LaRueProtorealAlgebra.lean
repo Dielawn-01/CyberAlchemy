@@ -52,6 +52,7 @@ import LaRueProtorealAlgebra.GeneralInversion
 import LaRueProtorealAlgebra.GlialDopant
 import LaRueProtorealAlgebra.GoldenAgents
 import LaRueProtorealAlgebra.GoldenChromodynamics
+import LaRueProtorealAlgebra.GoldenSplitPrime
 import LaRueProtorealAlgebra.GoldenHodgeExt
 import LaRueProtorealAlgebra.GoldenLattice
 import LaRueProtorealAlgebra.GoldenSubgroup
@@ -112,6 +113,7 @@ import LaRueProtorealAlgebra.PhysicalConstants
 import LaRueProtorealAlgebra.PlasmaInfotonBridge
 import LaRueProtorealAlgebra.PolarizingField
 import LaRueProtorealAlgebra.PrimeGenerators
+import LaRueProtorealAlgebra.PalindromeStandingWave
 import LaRueProtorealAlgebra.PrimorialJitter
 import LaRueProtorealAlgebra.ProtoLite
 import LaRueProtorealAlgebra.ProtorealAI

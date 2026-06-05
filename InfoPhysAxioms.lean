@@ -145,3 +145,6 @@ import InfoPhysAxioms.HoloneticNS
 import InfoPhysAxioms.ScratchIsomorphism
 -- Autonomous Deployment
 import InfoPhysAxioms.ZPlasmicAutonomous
+-- Digital Wave Mechanics (LaRue DWM formalization)
+import InfoPhysAxioms.ChromaticTriangle
+import InfoPhysAxioms.DigitalWaveMechanics
