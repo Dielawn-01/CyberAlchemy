@@ -161,3 +161,8 @@ import InfoPhysAxioms.ChromaticInvariants
 import InfoPhysAxioms.ISAR
 import InfoPhysAxioms.ActiveImagination
 import InfoPhysAxioms.AlchemistTriangulation
+-- ═══════════════════════════════════════════════════════
+-- IPvX Network Sharding (Druid / Sprite / Daemon)
+-- Hardened by Antigravity (2026-06-10)
+-- ═══════════════════════════════════════════════════════
+import InfoPhysAxioms.NetworkSharding
