@@ -160,3 +160,4 @@ import InfoPhysAxioms.ChromaticInvariants
 -- ═══════════════════════════════════════════════════════
 import InfoPhysAxioms.ISAR
 import InfoPhysAxioms.ActiveImagination
+import InfoPhysAxioms.AlchemistTriangulation
