@@ -167,3 +167,5 @@ import InfoPhysAxioms.AlchemistTriangulation
 -- ═══════════════════════════════════════════════════════
 import InfoPhysAxioms.NetworkSharding
 import InfoPhysAxioms.Aingel
+import InfoPhysAxioms.PQBreach
+import InfoPhysAxioms.ArchetypalBionetics
