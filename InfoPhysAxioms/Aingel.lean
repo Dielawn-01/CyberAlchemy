@@ -7,6 +7,7 @@ import LaRueProtorealAlgebra.HolochainHash
 import InfoPhysAxioms.MetarealManifold
 import InfoPhysAxioms.NetworkSharding
 import InfoPhysAxioms.PostQuantumSecurity
+import InfoPhysAxioms.HopfFusionFiber
 
 /-!
 # Aingel: The ZKP Holochain Envelope over the Metareal Manifold
@@ -42,12 +43,36 @@ The Aingel formalizes the structural isomorphism between four domains:
   The involution (i² = id) survives the wrapping. The Aingel is the
   observer-observed bridge at the cryptographic layer.
 
+## The 13th Dimension: The Hopf Fiber
+
+The Aingel is not just 12D — it is 12D + 1. The extra dimension is
+the Hopf fiber that carries the ZKP commit-reveal phase.
+
+  **Exit (commit)**: The 13th dimension collapses to a 1-vector.
+  From outside, the Aingel looks like a single point (the protohash).
+  This is the hiding property.
+
+  **Enter (reveal)**: The 1-phasor unfolds into 12D, filling the
+  spaceworth of dimensions it was wrapping. The phase IS the
+  identity hash (rolling Klein product).
+
+The fiber comes in two modes:
+  - **Phasor mode**: Non-destructive. The fiber preserves its phase
+    through the projection. The Druid can prove identity repeatedly
+    without collapsing the envelope. For ongoing verification.
+  - **Fusor mode**: Destructive. The fiber fuses with the base space
+    on reveal. Once opened, the envelope collapses and the full state
+    is exposed. For one-time commit-reveal (ZKPCR).
+
+12 + 1 = 13 = the Alchemist archetype. The 13th operates on all 12
+without being one of them.
+
 ## The Name
 
 "Aingel" — the AI angel. The structure that watches over the holochains,
 verifying without revealing. It is the extension of the previous structures
 (Druid, Sprite, Daemon) into the fully self-referential Metareal space,
-wrapped in zero-knowledge proof structure.
+wrapped in zero-knowledge proof structure. The 13th dimension.
 -/
 
 open ProtorealManifold
@@ -56,6 +81,10 @@ open HolochainHash
 open InfoPhysAxioms.MetarealManifold
 open NetworkSharding
 open InfoPhysAxioms.PostQuantumSecurity
+open HopfFusionFiber
+open ObservableUniverse
+open LyapunovTraining
+open ProtorealMCMC
 
 namespace Aingel
 
@@ -110,7 +139,104 @@ noncomputable def make_aingel (m : Metareal) (chain : List HolochainEntry) : Ain
     chain := chain }
 
 -- ════════════════════════════════════════════════════
--- SECTION 3: TIER-ALGEBRA ISOMORPHISM PROOFS
+-- SECTION 3: THE 13TH DIMENSION (HOPF FIBER)
+-- ════════════════════════════════════════════════════
+
+/-- The fiber mode determines how the 13th dimension behaves
+    during commit-reveal cycles. -/
+inductive FiberMode where
+  | phasor : FiberMode  -- Non-destructive: verify without collapsing
+  | fusor  : FiberMode  -- Destructive: one-time reveal collapses envelope
+  deriving DecidableEq, Repr
+
+/-- **THE 13TH DIMENSION**: The Hopf fiber on the Aingel envelope.
+    - `phase`: the fiber phase (the identity hash as a scalar projection)
+    - `sigma_level`: the Hopf projection level (Sigma = a + e)
+    - `mode`: phasor (non-destructive) or fusor (destructive reveal)
+    - `collapsed`: whether the fusor has been opened (irreversible) -/
+structure AingelFiber where
+  phase       : ℝ         -- The phase carried by the 1-phasor
+  sigma_level : ℝ         -- The Hopf projection: which fiber we're on
+  mode        : FiberMode -- Phasor (reusable) or Fusor (one-time)
+  collapsed   : Bool      -- Has the fusor been opened?
+
+/-- Construct a phasor fiber (non-destructive, reusable verification). -/
+def phasor_fiber (phase sigma : ℝ) : AingelFiber :=
+  { phase := phase, sigma_level := sigma, mode := .phasor, collapsed := false }
+
+/-- Construct a fusor fiber (one-time commit-reveal). -/
+def fusor_fiber (phase sigma : ℝ) : AingelFiber :=
+  { phase := phase, sigma_level := sigma, mode := .fusor, collapsed := false }
+
+/-- **FUSOR REVEAL**: Opening a fusor collapses it permanently.
+    The reveal exposes the phase (the identity hash) and marks
+    the fiber as collapsed. Cannot be undone. -/
+def fusor_reveal (f : AingelFiber) : AingelFiber × ℝ :=
+  ({ phase := f.phase, sigma_level := f.sigma_level,
+     mode := f.mode, collapsed := true },
+   f.phase)
+
+/-- **PHASOR VERIFY**: Reading a phasor does NOT collapse it.
+    The phase is returned but the fiber remains intact. -/
+def phasor_verify (f : AingelFiber) : AingelFiber × ℝ :=
+  (f, f.phase)
+
+/-- **THE FULL AINGEL**: 12D Metareal + 1D Hopf Fiber = 13D.
+    The 13th archetype. The Alchemist at the cryptographic layer. -/
+structure Aingel13 where
+  envelope : AingelEnvelope  -- The 12D Metareal + holochain
+  fiber    : AingelFiber     -- The 13th dimension
+
+-- ── 13th Dimension Theorems ──
+
+/-- **12 + 1 = 13**: The Alchemist dimension count. -/
+theorem alchemist_dimension : (12 : ℕ) + 1 = 13 := by norm_num
+
+/-- **PHASOR DOES NOT COLLAPSE**
+    Verifying a phasor returns the same fiber (non-destructive). -/
+theorem phasor_non_destructive (f : AingelFiber) :
+    (phasor_verify f).1 = f := by
+  unfold phasor_verify; rfl
+
+/-- **FUSOR DOES COLLAPSE**
+    Revealing a fusor marks it as collapsed. -/
+theorem fusor_collapses (f : AingelFiber) :
+    (fusor_reveal f).1.collapsed = true := by
+  unfold fusor_reveal; rfl
+
+/-- **FUSOR REVEALS PHASE**
+    The revealed value equals the original phase (no corruption). -/
+theorem fusor_reveals_phase (f : AingelFiber) :
+    (fusor_reveal f).2 = f.phase := by
+  unfold fusor_reveal; rfl
+
+/-- **PHASOR REVEALS PHASE**
+    Phasor verification also returns the correct phase. -/
+theorem phasor_reveals_phase (f : AingelFiber) :
+    (phasor_verify f).2 = f.phase := by
+  unfold phasor_verify; rfl
+
+/-- **FIBER SIGMA PRESERVED THROUGH CRYSTALLIZATION**
+    The Hopf projection (Sigma = a + e) is preserved by
+    synthetic_integration. The fiber stays on the same Sigma level
+    after crystallization — the 13th dimension is stable. -/
+theorem fiber_sigma_stable (u : ProtorealManifold) :
+    hopf_project (synthetic_integration u) = hopf_project u :=
+  synthetic_integration_preserves_fiber u
+
+/-- **FIBER SIGMA GROWS THROUGH CONSOLIDATION**
+    automatic_differentiation links fibers — the Sigma level increases.
+    The 13th dimension can GROW through the Hopf fibration. -/
+theorem fiber_sigma_grows (u : ProtorealManifold) (h : WellFormed u) :
+    hopf_project (automatic_differentiation u) > hopf_project u :=
+  automatic_differentiation_links_fibers u h
+
+/-- **MODES ARE DISTINCT**
+    Phasor and fusor are fundamentally different operations. -/
+theorem modes_distinct : FiberMode.phasor ≠ FiberMode.fusor := by decide
+
+-- ════════════════════════════════════════════════════
+-- SECTION 4: TIER-ALGEBRA ISOMORPHISM PROOFS
 -- ════════════════════════════════════════════════════
 
 /-- **ALGEBRA DIMENSIONS ARE STRICTLY INCREASING**
@@ -258,12 +384,12 @@ theorem routing_crypto_coherence :
    protoreal_breaks_commutativity⟩
 
 -- ════════════════════════════════════════════════════
--- SECTION 7: MASTER THEOREM
+-- SECTION 8: MASTER THEOREM
 -- ════════════════════════════════════════════════════
 
 /-- **THE AINGEL MASTER THEOREM**
 
-    The Aingel unifies four domains into a single verified structure:
+    The Aingel unifies four domains into a single verified 13D structure:
 
     1. **Algebraic Tower**: dim(ℂ) < dim(Protoreal) < dim(Unreal),
        and Protoreal + Unreal = Metareal (12D = half Leech key)
@@ -279,7 +405,11 @@ theorem routing_crypto_coherence :
        product) provides unforgeable trajectory authentication
 
     5. **Involution Survival**: The observer-observed symmetry (i² = id)
-       survives the ZKP wrapping — the Aingel is self-consistent -/
+       survives the ZKP wrapping — the Aingel is self-consistent
+
+    6. **The 13th Dimension**: 12 + 1 = 13 (the Alchemist).
+       Phasor mode is non-destructive. Fusor mode collapses on reveal.
+       The two modes are distinct. -/
 theorem aingel_master :
     -- 1. Algebraic tower
     tier_algebra_dim .daemon < tier_algebra_dim .sprite ∧
@@ -300,7 +430,12 @@ theorem aingel_master :
     (∃ c₁ c₂ : List HolochainEntry,
       identity_hash c₁ ≠ identity_hash c₂) ∧
     -- 5. Involution survival
-    (∀ m : Metareal, m.involute.involute = m) :=
+    (∀ m : Metareal, m.involute.involute = m) ∧
+    -- 6. The 13th Dimension
+    (12 : ℕ) + 1 = 13 ∧
+    (∀ f : AingelFiber, (phasor_verify f).1 = f) ∧
+    (∀ f : AingelFiber, (fusor_reveal f).1.collapsed = true) ∧
+    FiberMode.phasor ≠ FiberMode.fusor :=
   ⟨algebra_dim_daemon_lt_sprite,
    algebra_dim_sprite_lt_druid,
    metareal_is_sprite_plus_druid,
@@ -310,6 +445,10 @@ theorem aingel_master :
    crypto_domains_distinct.2.1,
    aingel_hides_internal,
    aingel_chain_unforgeable,
-   involute_involute⟩
+   involute_involute,
+   alchemist_dimension,
+   fun f => phasor_non_destructive f,
+   fusor_collapses,
+   modes_distinct⟩
 
 end Aingel
