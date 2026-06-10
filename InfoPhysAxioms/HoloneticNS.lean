@@ -77,8 +77,8 @@ def convective (u : ProtorealManifold) : ProtorealManifold :=
     (a-component) is unaffected by the convective nonlinearity
     when the cross-terms balance. -/
 theorem convective_a_cross_cancel (u : ProtorealManifold)
-    (h_bm : u.b * u.m = u.m * u.b)
-    (h_le : u.l * u.e = u.e * u.l) :
+    (_h_bm : u.b * u.m = u.m * u.b)
+    (_h_le : u.l * u.e = u.e * u.l) :
     (convective u).a = u.a * u.a := by
   unfold convective klein_square ProtorealManifold.mul
   linarith

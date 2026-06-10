@@ -168,9 +168,11 @@ noncomputable def apply_drug_adjusted (drug : Drug) (ms : MetabolizerStatus)
   let adj_drug : Drug := {
     name := drug.name,
     target := drug.target,
-    intensity := drug.intensity,  -- adjustment happens at application
+    intensity := adjusted_intensity drug ms,  -- adjustment happens at application
     half_life := drug.half_life,
-    h_intensity_pos := drug.h_intensity_pos
+    h_intensity_pos := by
+      unfold adjusted_intensity
+      exact div_pos drug.h_intensity_pos (epsilon_rate_pos ms)
   }
   apply_drug adj_drug u
 

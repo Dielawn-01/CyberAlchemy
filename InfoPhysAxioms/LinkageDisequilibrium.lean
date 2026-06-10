@@ -153,7 +153,7 @@ def D_next_gen (D_current : ℝ) (r : ℝ) : ℝ :=
 
 /-- LD decays strictly when recombination occurs (0 < r ≤ 1). -/
 theorem ld_decays (D_current : ℝ) (r : ℝ)
-    (hr : 0 < r) (hr1 : r ≤ 1) (hD : D_current > 0) :
+    (hr : 0 < r) (_hr1 : r ≤ 1) (hD : D_current > 0) :
     D_next_gen D_current r < D_current := by
   unfold D_next_gen
   nlinarith
@@ -167,7 +167,7 @@ noncomputable def D_after_n (D_initial : ℝ) (r : ℝ) (n : ℕ) : ℝ :=
     Complete LD elimination requires r = 1 (free recombination)
     or infinite generations. -/
 theorem residual_ld (D_initial : ℝ) (r : ℝ) (n : ℕ)
-    (hD : D_initial > 0) (hr : 0 < r) (hr1 : r < 1) :
+    (hD : D_initial > 0) (_hr : 0 < r) (hr1 : r < 1) :
     D_after_n D_initial r n > 0 := by
   unfold D_after_n
   apply mul_pos

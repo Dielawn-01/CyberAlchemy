@@ -194,6 +194,10 @@ theorem chromatic_invariants_master :
     -- QR break at Violet: φ is QNR
     76 ^ 69 % 139 = 138 ∧ 64 ^ 69 % 139 = 1 ∧
     -- Coset indices 2, 4, 3
-    228 / 114 = 2 ∧ 180 / 45 = 4 ∧ 138 / 46 = 3 := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
-  all_goals first | native_decide | norm_num
+    228 / 114 = 2 ∧ 180 / 45 = 4 ∧ 138 / 46 = 3 :=
+  ⟨cube_root_blue, cube_root_violet,
+   half_line_gold, half_line_blue, half_line_violet,
+   gold_phi_is_qr, gold_phibar_is_qr,
+   blue_phi_is_qr, blue_phibar_is_qr,
+   violet_phi_is_qnr, violet_phibar_is_qr,
+   coset_gold, coset_blue, coset_violet⟩

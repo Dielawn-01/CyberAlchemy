@@ -254,7 +254,7 @@ theorem search_and_fixpoint :
 
     This is well-defined because synthetic_integration strictly increases λ.
     The strict increase makes λ INJECTIVE as a tower height. -/
-theorem lambda_is_superlog (u : ProtorealManifold) (n : ℕ) (h : n ≥ 1) :
+theorem lambda_is_superlog (u : ProtorealManifold) (n : ℕ) (_h : n ≥ 1) :
     (synthetic_integration_iterate n u).l = u.l + n :=
   iterate_advances_depth n u
 

@@ -153,8 +153,8 @@ noncomputable def chi_square (oc : ObservedCounts) (af : AlleleFreq) : ℝ :=
 /-- **PERFECT HWE HAS ZERO CHI-SQUARE**
     When observed exactly matches expected, χ² = 0.
     Zero torsion = equilibrium. -/
-theorem perfect_hwe_zero_chi (af : AlleleFreq) (n : ℕ) (hn : n > 0) :
-    let oc : ObservedCounts := {
+theorem perfect_hwe_zero_chi (_af : AlleleFreq) (n : ℕ) (_hn : n > 0) :
+    let _oc : ObservedCounts := {
       n_AA := 0, n_Aa := 0, n_aa := 0  -- placeholder
     }
     -- Statement: if observed = expected, chi_square = 0
@@ -210,6 +210,9 @@ def epsilon_rate_real (ms : MetabolizerStatus) : ℝ :=
   | .normal => 1
   | .ultrarapid => 2
 
+theorem epsilon_rate_pos (ms : MetabolizerStatus) : epsilon_rate_real ms > 0 := by
+  cases ms <;> norm_num [epsilon_rate_real]
+
 /-- Baseline metabolizer rate is 1.0 (by definition of "normal"). -/
 theorem baseline_is_unity :
     epsilon_rate MetabolizerStatus.normal = 1.00 := rfl
@@ -228,7 +231,7 @@ theorem baseline_is_unity :
     OR = 1: no association (equilibrium)
     OR > 1: positive association (risk variant)
     OR < 1: protective association -/
-noncomputable def odds_ratio (a b c d : ℝ) (hb : b ≠ 0) (hc : c ≠ 0) : ℝ :=
+noncomputable def odds_ratio (a b c d : ℝ) (_hb : b ≠ 0) (_hc : c ≠ 0) : ℝ :=
   (a * d) / (b * c)
 
 /-- **NULL ODDS RATIO IS UNITY**

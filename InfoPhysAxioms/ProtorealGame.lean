@@ -224,7 +224,7 @@ def observer_game_value (obs : Observer) (k : ℝ) (u : ProtorealManifold) : ℝ
 /-- **FLIP VS SCALE: OBSERVER GAME IS NON-TRIVIAL**
     flip(δ)(u) ≠ scale(δ, k)(u) in general.
     The observer game has genuine strategic content. -/
-theorem observer_game_nontrivial (k : ℝ) (hk : k ≠ 1) (u : ProtorealManifold) :
+theorem observer_game_nontrivial (k : ℝ) (_hk : k ≠ 1) (u : ProtorealManifold) :
     observer_game_value sr_observer k u =
     (sr_observer.measure (monster_inv u)) - k * (sr_observer.measure u) := by
   unfold observer_game_value LittleDelta.flip LittleDelta.scale sr_observer

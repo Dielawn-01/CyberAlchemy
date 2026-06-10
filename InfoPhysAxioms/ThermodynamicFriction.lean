@@ -34,7 +34,7 @@ theorem noble_gas_free_observation (u : ProtorealManifold)
     Our observation cost is bounded below by Landauer when
     the noise floor exceeds the thermal energy. -/
 theorem thermodynamic_friction_floor (u : ProtorealManifold) (k T : ℝ)
-    (hT : T > 0) (hk : k > 0)
+    (_hT : T > 0) (_hk : k > 0)
     (h_noise : |u.e| + |u.l| ≥ k * T * Real.log 2) :
     observation_cost u ≥ landauer_limit k T := by
   unfold observation_cost landauer_limit

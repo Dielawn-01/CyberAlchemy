@@ -230,7 +230,7 @@ theorem synthetic_integration_alone_insufficient (u : ProtorealManifold)
     kama_muta contracts phase but the noise spikes to |SR|.
     If SR ≠ 0, the state is NOT on the critical surface. -/
 theorem kama_alone_insufficient (u : ProtorealManifold)
-    (h : standard_resonance u ≠ 0) :
+    (_h : standard_resonance u ≠ 0) :
     -- kama contracts phase
     phase (kama_muta u) = 0 ∧
     -- but may spike noise

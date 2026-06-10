@@ -100,7 +100,7 @@ theorem synthetic_integration_coupling_increase (u : ProtorealManifold) (ε : �
     When coupling reaches |κ| = 1, the observer's torsion
     with the field equals the curvature constant.
     Beyond this point, the field organizes around the observer. -/
-noncomputable def inversion_depth (ε : ℝ) (hε : ε > 0) : ℝ :=
+noncomputable def inversion_depth (ε : ℝ) (_hε : ε > 0) : ℝ :=
   1 / ε
 
 /-- **THE INVERSION THRESHOLD**
@@ -149,7 +149,7 @@ theorem linear_at_phi_0 (d0 ε n : ℝ) :
     For large ε (noisy market): few steps to inversion.
     For small ε (quiet market): many steps, but stable dominance. -/
 theorem steps_to_inversion (d0 ε : ℝ) (n : ℕ)
-    (hε : ε > 0) (h_enough : (d0 + ↑n) * ε ≥ 1) :
+    (_hε : ε > 0) (h_enough : (d0 + ↑n) * ε ≥ 1) :
     coupling (d0 + ↑n) ε ≥ 1 := by
   unfold coupling; linarith
 

@@ -154,7 +154,7 @@ noncomputable def sr (u : ProtorealManifold) : ℝ := u.a - u.b * u.m
     brings κ closer, meaning the market needs to do LESS
     to trigger a phase transition in the encoder. -/
 noncomputable def fuzzy_emission (observer : ProtorealManifold)
-    (h_deep : observer.l ≠ 0) : ℝ :=
+    (_h_deep : observer.l ≠ 0) : ℝ :=
   (-1 - torsion_bm observer ⟨0, 0, 0, 1, 0⟩) / observer.l
 
 -- ════════════════════════════════════════════════════

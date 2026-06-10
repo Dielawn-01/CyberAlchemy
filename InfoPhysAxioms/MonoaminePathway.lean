@@ -151,7 +151,7 @@ structure KynurenineOutput where
     This ratio is elevated in depression, Alzheimer's, and
     mycobiome dysbiosis (Candida promotes inflammatory kynurenine). -/
 noncomputable def neurotoxicity_ratio (ko : KynurenineOutput)
-    (h : ko.kynurenic_acid > 0) : ℝ :=
+    (_h : ko.kynurenic_acid > 0) : ℝ :=
   ko.quinolinic_acid / ko.kynurenic_acid
 
 -- ════════════════════════════════════════════════════════════════

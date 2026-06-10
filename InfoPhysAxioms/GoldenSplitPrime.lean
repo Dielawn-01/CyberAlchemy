@@ -116,8 +116,9 @@ theorem gold_parity : 114 > 57 := by norm_num
 /-- At Blue: ord(φ) = 45 < 90 = ord(φ̄). The conjugate root dominates. -/
 theorem blue_parity : 45 < 90 := by norm_num
 
-/-- At Violet: neither root has double the other's order. -/
-theorem violet_parity_neither : 46 ≠ 2 * 23 := by norm_num
+set_option maxRecDepth 200000
+/-- Gold is a prime. -/
+theorem gold_is_prime : Nat.Prime 229 := by decide
 
 /-- Fermat's little theorem instances: a^(p-1) ≡ 1 (mod p). -/
 theorem gold_fermat_phi    : 148 ^ 228 % 229 = 1 := by native_decide
@@ -131,7 +132,7 @@ theorem violet_fermat_pbar : 64 ^ 138 % 139 = 1  := by native_decide
 
 theorem gold_5_is_qr   : (66 * 66) % 229 = 5 := by native_decide
 theorem blue_5_is_qr   : (27 * 27) % 181 = 5 := by native_decide
-theorem violet_5_is_qr : (53 * 53) % 139 = 5 := by native_decide
+theorem violet_5_is_qr : (12 * 12) % 139 = 5 := by native_decide
 
 -- ════════════════════════════════════════════════════
 -- §7: Conjugate Order Parity Theorem Instances

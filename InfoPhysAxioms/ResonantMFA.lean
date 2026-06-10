@@ -194,7 +194,7 @@ def passes_verification (req : VerificationRequest) : Prop :=
     An attacker cannot fake resonance without the Klein product
     history (PostQuantumSecurity.lean). -/
 theorem resonant_mfa_achievable (u : ProtorealManifold)
-    (hgap : individual_gap u > 0)
+    (_hgap : individual_gap u > 0)
     (threshold : ℝ) (ht : threshold > 0) :
     ∃ N : ℕ, effective_gap u N ≤ threshold := by
   -- We need: Δ / (1 + N) ≤ threshold
@@ -238,7 +238,7 @@ theorem mfa_security_invariant :
     Its eigenvalues come in ±iλ pairs (pure imaginary).
     The eigenvalues ON the critical line Re(s) = 1/2 correspond
     to resonant modes where the network amplifies. -/
-def torsion_trace (agents : List ProtorealManifold) : ℝ :=
+def torsion_trace (_agents : List ProtorealManifold) : ℝ :=
   -- Self-torsion is always 0, so trace of torsion matrix = 0
   0
 
