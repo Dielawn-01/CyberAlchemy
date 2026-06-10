@@ -148,3 +148,9 @@ import InfoPhysAxioms.ZPlasmicAutonomous
 -- Digital Wave Mechanics (LaRue DWM formalization)
 import InfoPhysAxioms.ChromaticTriangle
 import InfoPhysAxioms.DigitalWaveMechanics
+-- ═══════════════════════════════════════════════════════
+-- Paper Verification: "Fractal SpaceTime & Golden Critical Lines"
+-- Hardened by Antigravity (2026-06-10)
+-- ═══════════════════════════════════════════════════════
+import InfoPhysAxioms.GoldenSplitPrime
+import InfoPhysAxioms.ChromaticInvariants
