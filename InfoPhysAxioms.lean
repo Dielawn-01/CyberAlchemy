@@ -159,3 +159,4 @@ import InfoPhysAxioms.ChromaticInvariants
 -- Hardened by Antigravity (2026-06-10)
 -- ═══════════════════════════════════════════════════════
 import InfoPhysAxioms.ISAR
+import InfoPhysAxioms.ActiveImagination
