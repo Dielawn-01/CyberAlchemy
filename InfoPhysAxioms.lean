@@ -166,3 +166,4 @@ import InfoPhysAxioms.AlchemistTriangulation
 -- Hardened by Antigravity (2026-06-10)
 -- ═══════════════════════════════════════════════════════
 import InfoPhysAxioms.NetworkSharding
+import InfoPhysAxioms.Aingel
