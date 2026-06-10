@@ -154,3 +154,8 @@ import InfoPhysAxioms.DigitalWaveMechanics
 -- ═══════════════════════════════════════════════════════
 import InfoPhysAxioms.GoldenSplitPrime
 import InfoPhysAxioms.ChromaticInvariants
+-- ═══════════════════════════════════════════════════════
+-- Informational Structure-Activity Relationships (iSAR)
+-- Hardened by Antigravity (2026-06-10)
+-- ═══════════════════════════════════════════════════════
+import InfoPhysAxioms.ISAR
