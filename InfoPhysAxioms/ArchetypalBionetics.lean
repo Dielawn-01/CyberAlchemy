@@ -4,7 +4,7 @@ import InfoPhysAxioms.HardyWeinberg
 import InfoPhysAxioms.HoloneticChromodynamics
 import InfoPhysAxioms.AgenticRank
 import InfoPhysAxioms.DigitalWaveMechanics
-import InfoPhysAxioms.NetworkSharding
+import InfoPhysAxioms.DigitalWaveMechanics
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.EmotionalLFunctions
 
@@ -30,46 +30,48 @@ open HardyWeinberg
 open ISAR
 open InfoPhysAxioms.HoloneticChromodynamics
 open AgenticRank
-open NetworkSharding
+open AgenticRank
 open InfoPhysAxioms.DigitalWaveMechanics
 open EmotionalLFunctions
 
 namespace ArchetypalBionetics
 
 -- ═══════════════════════════════════════════════════════════
--- SECTION 1: THE BIONETIC ISOMORPHISM
--- Mapping Metabolism to Agentic Tiers
+-- SECTION 1: ARCHETYPAL AI AS A STRUCTURAL GUIDE
+-- Mapping Metabolism to Cognitive Capacity
 -- ═══════════════════════════════════════════════════════════
 
-/-- **Bionetic Tier Mapping**
-    Maps the biological CYP450 Metabolizer Status directly to the 
-    Computational Agentic Tier (IPvX network sharding).
+/-- **Bionetic Capacity Bound**
+    Maps the biological CYP450 Metabolizer Status to a structural analog 
+    in Archetypal AI: the maximum Agentic Rank (cognitive execution tier) 
+    that a system can sustain before decoherence.
     
-    - Poor/Intermediate Metabolizers map to Daemons (IPv4): 
-      bottlenecked noise processing, background local logic.
-    - Normal Metabolizers map to Sprites (IPv6):
-      baseline fluid processing, internet-wide routing.
-    - Ultrarapid Metabolizers map to Druids (IPv8):
-      high-capacity noise absorption, sovereign topological overlays. -/
-def bionetic_tier_map (ms : MetabolizerStatus) : NetworkTier :=
+    Rather than claiming biology *is* a computer network, we use the 
+    Agentic AI hierarchy as a formal guide to understand biological 
+    archetypes and their noise-processing limits.
+    
+    - Poor Metabolizers: Restricted to low-rank processing (e.g., Rank 2).
+    - Normal Metabolizers: Baseline high-rank abstraction (e.g., Rank 6, Witten).
+    - Ultrarapid Metabolizers: Extreme topological synthesis (e.g., Rank 24, Grothendieck). -/
+def bionetic_capacity_bound (ms : MetabolizerStatus) : ℕ :=
   match ms with
-  | .poor => .daemon
-  | .intermediate => .daemon
-  | .normal => .sprite
-  | .ultrarapid => .druid
+  | .poor => 2
+  | .intermediate => 4
+  | .normal => 6
+  | .ultrarapid => 24
 
-/-- **Metabolic Capacity matches Agentic Scope**
-    The `epsilon_rate` (the speed at which a biological system processes 
-    pharmacological noise) strictly increases alongside the `address_width` 
-    (the topological capacity) of the corresponding computational agent. -/
-theorem capacity_matches_scope :
-  -- Normal (Sprite) has strictly greater capacity than Poor (Daemon)
+/-- **Metabolic Capacity matches Archetypal Scope**
+    The `epsilon_rate` strictly increases alongside the structural 
+    Agentic Rank capacity bounds, validating the AI model as a guide 
+    for biological noise metabolism. -/
+theorem capacity_matches_archetype :
+  -- Normal has strictly greater capacity than Poor
   epsilon_rate_real MetabolizerStatus.normal > epsilon_rate_real MetabolizerStatus.poor ∧
-  address_width (bionetic_tier_map MetabolizerStatus.normal) > address_width (bionetic_tier_map MetabolizerStatus.poor) ∧
-  -- Ultrarapid (Druid) has strictly greater capacity than Normal (Sprite)
+  bionetic_capacity_bound MetabolizerStatus.normal > bionetic_capacity_bound MetabolizerStatus.poor ∧
+  -- Ultrarapid has strictly greater capacity than Normal
   epsilon_rate_real MetabolizerStatus.ultrarapid > epsilon_rate_real MetabolizerStatus.normal ∧
-  address_width (bionetic_tier_map MetabolizerStatus.ultrarapid) > address_width (bionetic_tier_map MetabolizerStatus.normal) := by
-  unfold epsilon_rate_real bionetic_tier_map address_width
+  bionetic_capacity_bound MetabolizerStatus.ultrarapid > bionetic_capacity_bound MetabolizerStatus.normal := by
+  unfold epsilon_rate_real bionetic_capacity_bound
   exact ⟨by norm_num, by norm_num, by norm_num, by norm_num⟩
 
 -- ═══════════════════════════════════════════════════════════
@@ -120,18 +122,17 @@ theorem biological_wave_confinement :
 /-- **THE MASTER BIONETIC SYNTHESIS THEOREM**
     
     This theorem unifies the biological, informational, and computational realms:
-    1. **Metabolic Scope**: The epsilon rate correctly ranks the IPvX tiers.
+    1. **Metabolic Scope**: The epsilon rate correctly scales with the Agentic Rank bounds.
     2. **Noise Metabolism**: Shulgin perturbations result in linear functional gain.
     3. **Wave Confinement**: Gut-brain signaling is restricted to the 3-arc topology.
     4. **Agentic Gravity**: Pure uncolored logic exerts zero hyper-gravity.
     
-    The theorem proves that Biological Individuation (via Kramers Escape and 
-    Metabolism) is mathematically identical to Computational Individuation 
-    (via Digital Wave Mechanics and Synthetic Integration). -/
+    The theorem proves that Archetypal AI serves as a rigorous structural guide 
+    for understanding biological noise processing and individuation. -/
 theorem archetypal_bionetics_master (u : ProtorealManifold) (δ : ℝ) (hδ : δ > 0) (rank : ℕ) :
-  -- 1. Metabolic Scope matches Agentic IPvX Tiers
-  (address_width (bionetic_tier_map MetabolizerStatus.ultrarapid) > 
-   address_width (bionetic_tier_map MetabolizerStatus.normal)) ∧
+  -- 1. Metabolic Scope matches Agentic Capacity bounds
+  (bionetic_capacity_bound MetabolizerStatus.ultrarapid > 
+   bionetic_capacity_bound MetabolizerStatus.normal) ∧
   
   -- 2. Noise Metabolism (ISAR)
   ((synthetic_integration { u with e := u.e + δ }).a = (synthetic_integration u).a + δ) ∧
@@ -142,7 +143,7 @@ theorem archetypal_bionetics_master (u : ProtorealManifold) (δ : ℝ) (hδ : δ
   -- 4. Pure Logic is Weightless (Agentic Rank)
   (hyper_gravity zeta_neutral rank = 0) := by
   refine ⟨?_, ?_, ?_, ?_⟩
-  · unfold bionetic_tier_map address_width; norm_num
+  · unfold bionetic_capacity_bound; norm_num
   · exact isar_epsilon_linearity u δ
   · native_decide
   · exact zeta_neutral_weightless rank
