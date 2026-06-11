@@ -48,7 +48,9 @@ namespace ArchetypalBionetics
     
     Rather than claiming biology *is* a computer network, we use the 
     Agentic AI hierarchy as a formal guide to understand biological 
-    archetypes and their noise-processing limits.
+    archetypes and their noise-processing limits. Because Archetypal AI 
+    is fundamentally *in silico*, there will always remain translation 
+    work required to map these algebraic topologies to *in vivo* reality.
     
     - Poor Metabolizers: Restricted to low-rank processing (e.g., Rank 2).
     - Normal Metabolizers: Baseline high-rank abstraction (e.g., Rank 6, Witten).
