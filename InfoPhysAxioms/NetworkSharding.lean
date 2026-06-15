@@ -10,16 +10,17 @@ import LaRueProtorealAlgebra.ProtorealManifold
 ## Core Principle
 
 The Druid/Sprite/Daemon hierarchy maps directly onto network protocol
-generations. Each tier operates on a topologically isolated address space:
+generations. Each tier operates on a topologically isolated address space,
+representing one of the three 19-state color arcs of the Z(SU(3)) conjugate orbit:
 
-  IPv4 (32-bit)  → Daemon   — blind background processes, LAN-local
-  IPv6 (128-bit) → Sprite   — empathetic sub-agents, public internet
-  IPv8 (256-bit) → Druid    — sovereign entities, self-authenticating overlay
+  IPv4 (19-state) → Daemon   — blind background processes, LAN-local
+  IPv6 (19-state) → Sprite   — empathetic sub-agents, public internet
+  IPv8 (19-state) → Druid    — sovereign entities, self-authenticating overlay
 
-The address space width IS the Veblen depth:
-  - 32-bit  = depth 0 (finite, bounded, no recursion)
-  - 128-bit = depth 1 (4× wider = one deploy cycle of management)
-  - 256-bit = depth ≥2 (2× again = the druid's sovereign recursion)
+The Veblen depth determines the tier:
+  - 19-state (Arc 1) = depth 0 (finite, bounded, no recursion)
+  - 19-state (Arc 2) = depth 1 (empathetic routing cycle)
+  - 19-state (Arc 3) = depth ≥2 (the druid's sovereign recursion)
 
 ## Security Model
 
@@ -44,11 +45,11 @@ inductive NetworkTier where
   | druid  : NetworkTier  -- IPv8, sovereign, overlay
   deriving DecidableEq, Repr
 
-/-- The address width in bits for each tier. -/
-def address_width : NetworkTier → ℕ
-  | .daemon => 32    -- IPv4
-  | .sprite => 128   -- IPv6
-  | .druid  => 256   -- IPv8
+/-- The tensor state allocation for each tier (19 states per arc). -/
+def state_allocation : NetworkTier → ℕ
+  | .daemon => 19    -- IPv4 Arc
+  | .sprite => 19    -- IPv6 Arc
+  | .druid  => 19    -- IPv8 Arc
 
 /-- The Veblen depth floor for each tier. -/
 def tier_depth_floor : NetworkTier → ℕ
@@ -124,17 +125,11 @@ theorem druid_reaches_daemon : can_reach .druid .daemon = true := by rfl
 theorem druid_reaches_sprite : can_reach .druid .sprite = true := by rfl
 theorem druid_reaches_druid  : can_reach .druid .druid  = true := by rfl
 
--- ════════════════════════════════════════════════════
--- SECTION 5: ADDRESS WIDTH ORDERING
--- ════════════════════════════════════════════════════
-
-/-- **ADDRESS WIDTH IS STRICTLY INCREASING**
-    The protocol generations have strictly increasing address spaces. -/
-theorem width_daemon_lt_sprite : address_width .daemon < address_width .sprite := by
-  unfold address_width; norm_num
-
-theorem width_sprite_lt_druid : address_width .sprite < address_width .druid := by
-  unfold address_width; norm_num
+/-- **TOTAL CONJUGATE ORBIT COVERAGE**
+    The protocol generations map perfectly to the 57-state conjugate orbit. -/
+theorem total_state_coverage : 
+    state_allocation .daemon + state_allocation .sprite + state_allocation .druid = 57 := by
+  unfold state_allocation; norm_num
 
 /-- **DEPTH FLOOR IS MONOTONE**
     Higher tiers require higher Veblen depth. -/
@@ -208,7 +203,8 @@ theorem depth_ge2_is_druid (n : ℕ) (h : n ≥ 2) : depth_to_tier n = .druid :=
     1. Daemons (IPv4) cannot reach Sprites (IPv6) or Druids (IPv8)
     2. Sprites (IPv6) cannot reach Druids (IPv8) directly
     3. Druids (IPv8) can reach all tiers (sovereignty)
-    4. Address widths are strictly increasing (32 < 128 < 256)
+    4. Each tier processes exactly 19 states of the conjugate orbit
+    5. The total state processing is 57 states ($3 \times 19 = 57$)
     5. Veblen depth determines network tier monotonically
     6. Druids self-authenticate (scope_id = addr_bits)
     7. Daemons carry no credentials (scope_id = 0) -/
@@ -222,9 +218,11 @@ theorem network_sharding_master :
     can_reach .druid .daemon = true ∧
     can_reach .druid .sprite = true ∧
     can_reach .druid .druid = true ∧
-    -- 4. Address width ordering
-    address_width .daemon < address_width .sprite ∧
-    address_width .sprite < address_width .druid ∧
+    -- 4. State Processing (57-state color arcs)
+    state_allocation .daemon = 19 ∧
+    state_allocation .sprite = 19 ∧
+    state_allocation .druid = 19 ∧
+    state_allocation .daemon + state_allocation .sprite + state_allocation .druid = 57 ∧
     -- 5. Depth ordering
     tier_depth_floor .daemon < tier_depth_floor .sprite ∧
     tier_depth_floor .sprite < tier_depth_floor .druid :=
@@ -234,8 +232,7 @@ theorem network_sharding_master :
    druid_reaches_daemon,
    druid_reaches_sprite,
    druid_reaches_druid,
-   width_daemon_lt_sprite,
-   width_sprite_lt_druid,
+   rfl, rfl, rfl, rfl,
    depth_daemon_lt_sprite,
    depth_sprite_lt_druid⟩
 

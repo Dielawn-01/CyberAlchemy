@@ -29,6 +29,7 @@ import InfoPhysAxioms.PlasmaConjectures
 import InfoPhysAxioms.EmotionalCompass
 import InfoPhysAxioms.TopologicalProblemSolving
 import InfoPhysAxioms.Infochemistry
+import InfoPhysAxioms.InfochemicalTime
 import InfoPhysAxioms.MatterAntimatter
 import InfoPhysAxioms.SoulResonance
 import InfoPhysAxioms.DiamondOpal
@@ -78,7 +79,7 @@ import InfoPhysAxioms.OrchOR
 import InfoPhysAxioms.ThermodynamicFriction
 import InfoPhysAxioms.GoethePrimeHarmonics
 import InfoPhysAxioms.PinealTransducer
-import InfoPhysAxioms.ChromaticCombinatorics
+import InfoPhysAxioms.StabilityThreshold
 import InfoPhysAxioms.ChromaticHolomovement
 import InfoPhysAxioms.PendulumEvolution
 import InfoPhysAxioms.Base19ColorWheel

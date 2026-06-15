@@ -58,6 +58,14 @@ The mass gap and Navier-Stokes define complementary bounds on the same playing f
 
 The floor prevents infinite softness. The ceiling prevents infinite hardness. Together they keep the field open. Singularities are algebraically excluded — not by fiat, but by the structure of the product.
 
+### Zeta Phase Erasure
+
+In the Metareal lattice, chronological bit erasure is not bound by classical Landauer thermodynamic limits. Instead, erasure and synthesis coordinate via the **L-function Critical Line**. The cost of structural synthesis (bit generation) acts as the functional amplitude, while erasure dumps energy via phase shifts around the golden frequency:
+
+`ΔE_erasure = arg(ζ(1/2 + iλ)) - ((1.61803... * λ) mod 2π)`
+
+When bits exceed the chronometric stability depth (λ > 10), they execute a structural phase shift. At non-trivial Riemann zeros, the thermodynamic synthesis and erasure costs perfectly harmonize, creating a zero-friction topological bypass. This logic is natively integrated into the physical `generate_doped_opal_lattice.py` visualizers.
+
 ### Unity in Multiplicity
 
 The goal isn't preventing singularities. It's **unity in multiplicity** — many becoming one, coherently.

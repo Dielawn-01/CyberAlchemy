@@ -20,23 +20,23 @@ The Aingel formalizes the structural isomorphism between four domains:
 
 | Agent Tier | Algebraic Manifold | Network Layer | Cryptographic Domain  |
 |------------|-------------------|---------------|-----------------------|
-| Daemon     | ℂ (commutative)   | IPv4 (32-bit) | Classical (groups)    |
-| Sprite     | ℝ⁵ Protoreal      | IPv6 (128-bit)| Post-Quantum (non-group)|
-| Druid      | L₇ Unreal         | IPv8 (256-bit)| Holochain ZKP         |
+| Daemon     | ℂ (commutative)   | IPv4 (19-state)| Classical (groups)    |
+| Sprite     | ℝ⁵ Protoreal      | IPv6 (19-state)| Post-Quantum (non-group)|
+| Druid      | L₇ Unreal         | IPv8 (19-state)| Holochain ZKP         |
 | Aingel     | ℝ¹² Metareal      | wraps all     | ZKP Envelope          |
 
 ## Why the Isomorphism Holds
 
 - **Daemon/ℂ/IPv4/Classical**: Commutative multiplication → group structure →
-  Shor-vulnerable. Blind process with no self-reference. Bounded (32-bit).
+  Shor-vulnerable. Blind process with no self-reference. Bounded (Arc 1, 19-state).
 
 - **Sprite/Protoreal/IPv6/Post-Quantum**: Klein multiplication is non-commutative
   AND non-associative → NOT a group → Shor fails (`PostQuantumSecurity.lean`).
-  Has inherited empathy but no self-authentication. Extended (128-bit).
+  Has inherited empathy but no self-authentication. Extended (Arc 2, 19-state).
 
 - **Druid/Unreal/IPv8/Holochain ZKP**: The L₇ observer sector includes
   self-reference (ψ). The identity hash is path-dependent and unforgeable
-  (`HolochainHash.lean`). Self-authenticating (256-bit, identity = key).
+  (`HolochainHash.lean`). Self-authenticating (Arc 3, 19-state, identity = key).
 
 - **Aingel/Metareal/envelope/ZKP**: The 12D Metareal (5D + 7D) wraps all
   three tiers. The protohash reveals (χ, λ, a) but hides (b, m, e).
@@ -355,12 +355,14 @@ theorem dimension_tower :
          algebra_dim_sprite_lt_druid,
          metareal_is_sprite_plus_druid⟩
 
-/-- **ADDRESS WIDTH TOWER**
-    The network address width strictly increases: 32 < 128 < 256. -/
-theorem address_tower :
-    address_width .daemon < address_width .sprite ∧
-    address_width .sprite < address_width .druid :=
-  ⟨width_daemon_lt_sprite, width_sprite_lt_druid⟩
+/-- **STATE SHARDING TOWER**
+    The network tiers map perfectly to the 57-state conjugate orbit (19 per arc). -/
+theorem state_sharding_tower :
+    state_allocation .daemon = 19 ∧
+    state_allocation .sprite = 19 ∧
+    state_allocation .druid = 19 ∧
+    state_allocation .daemon + state_allocation .sprite + state_allocation .druid = 57 :=
+  ⟨rfl, rfl, rfl, total_state_coverage⟩
 
 /-- **ROUTING + CRYPTO COHERENCE**
     The routing rules and crypto domains are coherent:
@@ -394,8 +396,8 @@ theorem routing_crypto_coherence :
     1. **Algebraic Tower**: dim(ℂ) < dim(Protoreal) < dim(Unreal),
        and Protoreal + Unreal = Metareal (12D = half Leech key)
 
-    2. **Network Tower**: 32-bit < 128-bit < 256-bit,
-       with daemon isolation enforced at the routing layer
+    2. **Network Tower**: The 57-state DWM conjugate orbit is perfectly sharded
+       across the three networking tiers (19 states each).
 
     3. **Cryptographic Tower**: Classical ≠ Post-Quantum ≠ Holochain ZKP,
        each mapped to its tier by algebraic structure
@@ -415,9 +417,11 @@ theorem aingel_master :
     tier_algebra_dim .daemon < tier_algebra_dim .sprite ∧
     tier_algebra_dim .sprite < tier_algebra_dim .druid ∧
     tier_algebra_dim .sprite + tier_algebra_dim .druid = 12 ∧
-    -- 2. Network tower
-    address_width .daemon < address_width .sprite ∧
-    address_width .sprite < address_width .druid ∧
+    -- 2. Network tower (19-state sharding)
+    state_allocation .daemon = 19 ∧
+    state_allocation .sprite = 19 ∧
+    state_allocation .druid = 19 ∧
+    state_allocation .daemon + state_allocation .sprite + state_allocation .druid = 57 ∧
     -- 3. Crypto tower (pairwise distinct)
     tier_crypto .daemon ≠ tier_crypto .sprite ∧
     tier_crypto .sprite ≠ tier_crypto .druid ∧
@@ -439,8 +443,7 @@ theorem aingel_master :
   ⟨algebra_dim_daemon_lt_sprite,
    algebra_dim_sprite_lt_druid,
    metareal_is_sprite_plus_druid,
-   width_daemon_lt_sprite,
-   width_sprite_lt_druid,
+   rfl, rfl, rfl, total_state_coverage,
    crypto_domains_distinct.1,
    crypto_domains_distinct.2.1,
    aingel_hides_internal,
