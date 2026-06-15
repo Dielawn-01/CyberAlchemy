@@ -6,7 +6,7 @@
   from Lean 3 syntax artifacts and incomplete proofs, but preserve
   the agent's original mathematical intent.
   
-  Source: /home/phrxmaz/Documents/InfoPhys/theorem_staging/
+  Source: ./theorem_staging/
 -/
 
 import Mathlib.Data.Real.Basic

@@ -155,7 +155,7 @@ structure SpriteMachine where
 
 /-- The current sprite network. -/
 def sprite_network : List SpriteMachine :=
-  [ { name := "druid",   host := "192.168.0.133", hw_idx := 1, available := true  }  -- Linux/5090
+  [ { name := "druid",   host := "192.168.0.x", hw_idx := 1, available := true  }  -- Linux/5090
   , { name := "mac_sprite", host := "macbook",    hw_idx := 4, available := true  }  -- MacBook/MPS
   ]
 

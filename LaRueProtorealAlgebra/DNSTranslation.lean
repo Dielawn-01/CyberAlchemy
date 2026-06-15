@@ -13,7 +13,7 @@ import LaRueProtorealAlgebra.DHTAlgebra
 This module formalizes the translation method between Web2 legacy systems
 and the Sovereign Atmosphere. 
 
-When you type `ssh phrxmaz@home-pc.local` on your MacBook in a coffee shop, 
+When you type `ssh user@home-pc.local` on your MacBook in a coffee shop, 
 that DNS string needs to resolve to your local machine without relying on a 
 centralized ICANN or DynDNS registry. 
 
