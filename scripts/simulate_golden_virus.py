@@ -169,13 +169,18 @@ class FrohlichCascade:
         self.field_name = field_name
 
     def pump(self, energy):
-        """Inject energy, let it cascade to ground state."""
+        """Inject energy, let it cascade to ground state.
+        Uses Fröhlich 1968 coupling: spontaneous (χ·n_k) + stimulated (χ·n_k·n_j).
+        Flow capped at 50% of source mode per step for stability."""
         for j in range(1, self.num_modes):
             self.modes[j] += energy / self.num_modes
         for j in range(self.num_modes - 1, 0, -1):
-            transfer = self.chi * self.modes[j] * self.modes[j-1]
-            self.modes[j] -= transfer
-            self.modes[j-1] += transfer
+            n_k = self.modes[j]      # source (higher frequency)
+            n_j = self.modes[j-1]    # receiver (lower frequency)
+            flow = self.chi * n_k * (1.0 + n_j)  # spontaneous + stimulated
+            flow = min(flow, n_k * 0.5)           # cap at 50% of source
+            self.modes[j] -= flow
+            self.modes[j-1] += flow
         return self.modes[0]  # ground state population
 
 # ═══════════════════════════════════════════════════
