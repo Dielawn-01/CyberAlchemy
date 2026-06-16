@@ -10,8 +10,11 @@ Each generates a distinct helical strand:
   Strand 2 (F₁₈₁): φ̄ = 14,  ord = 45 = 3²×5  → 3-decomposable (15-coset)
   Strand 3 (F₁₃₉): φ̄ = 64,  ord = 23 (prime) → indecomposable (no cosets)
 
-Cross-field embedding: 229 ≡ ω₁₈₁ = 48 (cube root of unity in F₁₈₁)
+Cross-field embedding: 229 mod 181 = 48 (ω₁₈₁, cube root of unity)
 Primitive generation: 139 is a primitive root at p = 229
+Bridge prime: 14489 couples to all three via {1/4, 1/2, 1/4} (GT Result 5.4)
+  14489 mod 57 = 11, mod 45 = 44, mod 23 = 22
+  14489 mod 138 = 137 = 1/α_EM
 
 The triple helix is NOT three copies of one structure.
 It is two 3-decomposable helices and one prime-order helix.
@@ -93,6 +96,53 @@ assert ORD_PHIBAR_139 == 23, "ord(φ̄₁₃₉) is prime"
 # 23 has no divisor other than 1 and 23 → no sub-orbits
 
 print("All golden tetrahedron algebraic assertions passed. ✓")
+
+# ═════════════════════════════════════════════════════════
+# §2b: BRIDGE PRIME 14489 (Golden Tetrahedron, Result 5.4)
+# ═════════════════════════════════════════════════════════
+
+BRIDGE_PRIME = 14489
+# 14489 = 24 × 600 + 89, where 24 = coset product at 229, 89 = 24th prime
+# Coupling: {1/4, 1/2, 1/4} symmetric to {229, 181, 139}
+# φ̄ is primitive root of F*_14489 (ord = 14488 = p-1)
+
+# Modular residues — how 14489 lands in each orbit
+GRAV_MOD_229 = BRIDGE_PRIME % ORD_PHIBAR_229  # = 11 (ground arc)
+GRAV_MOD_181 = BRIDGE_PRIME % ORD_PHIBAR_181  # = 44 (boundary)
+GRAV_MOD_139 = BRIDGE_PRIME % ORD_PHIBAR_139  # = 22 (simultaneous inversion step - 1)
+assert GRAV_MOD_229 == 11
+assert GRAV_MOD_181 == 44
+assert GRAV_MOD_139 == 22
+
+# Fine structure bridge: 14489 mod (P3-1) = 137 = 1/α_EM
+assert BRIDGE_PRIME % (P3 - 1) == 137, "bridge encodes fine structure constant"
+
+print(f"Bridge prime 14489 verified: mods = {GRAV_MOD_229}, {GRAV_MOD_181}, {GRAV_MOD_139}")
+print(f"Fine structure bridge: 14489 mod 138 = {BRIDGE_PRIME % (P3-1)}")
+
+# ═════════════════════════════════════════════════════════
+# §2c: GAUGE INTERACTION MATRIX M_{ij} (GT §8.6)
+# M_{ij} = ord(φ̄_{p_i} mod p_j) / (p_j - 1)
+# ═════════════════════════════════════════════════════════
+
+GAUGE_MATRIX = [
+    [1/4, 1/12, 1/3],   # SU(3): 57/228, 15/180, 46/138
+    [1/6, 1/2,  1/2],   # SU(2): 38/228, 90/180, 69/138
+    [1/6, 1/6,  1/6],   # U(1):  38/228, 30/180, 23/138
+]
+
+# Running coupling at penultimate arc depth (§7.1)
+# α_s(w-2) = w/(w-1) where w = arc width (coset size)
+ALPHA_S = [19/18, 15/14, 23/22]  # for F₂₂₉, F₁₂₁, F₁₃₉
+
+# ═════════════════════════════════════════════════════════
+# §2d: THERMAL LAYER CONSTANTS (VO₂/VN/N₂)
+# ═════════════════════════════════════════════════════════
+
+VO2_MIT_K = 341     # Metal-insulator transition temperature (Kelvin)
+VN_TC_K = 8.5       # VN superconducting critical temperature
+N2_BOIL_K = 77      # N₂ boiling point (cryogenic boundary)
+# Electrum:Oneiropal ratio = 57/23 ≈ 2.478
 
 # ═══════════════════════════════════════════════════════════
 # §3: ORBIT GENERATION
