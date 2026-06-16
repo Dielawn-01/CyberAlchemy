@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topological Metamaterial UI | Plasma Topologies</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #050505;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #sidebar {
+            width: 350px;
+            background-color: #111;
+            border-right: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        h1 {
+            font-size: 20px;
+            color: #00ffcc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+        }
+        h2 {
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 25px;
+            text-transform: uppercase;
+        }
+        .control-btn {
+            background-color: #222;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            text-align: left;
+            border-radius: 4px;
+            transition: all 0.2s;
+            font-family: monospace;
+            font-size: 13px;
+        }
+        .control-btn:hover {
+            background-color: #333;
+            border-color: #00ffcc;
+        }
+        .control-btn.active {
+            background-color: #00ffcc;
+            color: #000;
+            font-weight: bold;
+        }
+        .info-panel {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+            line-height: 1.5;
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 3px solid #b052f0;
+        }
+        #main-view {
+            flex-grow: 1;
+            position: relative;
+            background: #000;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+        iframe.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        /* Lockwood Spectrum Canvas */
+        #lockwood-view {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #1a0b2e 0%, #000000 100%);
+        }
+        #lockwood-view.active {
+            display: flex;
+        }
+        canvas {
+            background: transparent;
+            border: 1px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(176, 82, 240, 0.2);
+        }
+        .spectrum-title {
+            position: absolute;
+            top: 30px;
+            text-align: center;
+        }
+        .spectrum-title h3 {
+            color: #b052f0;
+            margin: 0 0 5px 0;
+        }
+        .spectrum-title p {
+            color: #888;
+            font-family: monospace;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <h1>Topological Metamaterial UI</h1>
+        <p style="font-size: 12px; color: #666; margin-top: -10px; margin-bottom: 20px;">Topological Metamaterial Export</p>
+        
+        <h2>Phase Controls</h2>
+        <button class="control-btn active" onclick="switchPhase('combined')">
+            [1] Combined Topology Overlap
+        </button>
+        <button class="control-btn" onclick="switchPhase('lattice')">
+            [2] Quasicrystal Material
+        </button>
+        <button class="control-btn" onclick="switchPhase('manifold')">
+            [3] Digital Wave Mechanics Manifold
+        </button>
+        <button class="control-btn" onclick="switchPhase('lockwood')">
+            [4] Lockwood Chronometric Operator
+        </button>
+        <button class="control-btn" onclick="switchPhase('gv_combined')">
+            [5] Golden Virus Overlap
+        </button>
+        <button class="control-btn" onclick="switchPhase('gv_lattice')">
+            [6] Golden Virus Particles
+        </button>
+        <button class="control-btn" onclick="switchPhase('gv_manifold')">
+            [7] Golden Virus Mechanics
+        </button>
+
+        <div class="info-panel" id="phase-desc">
+            <strong>Combined Topology Overlap</strong><br><br>
+            Displays the full intersection between the physical Quasicrystal Lattice and the immersed Pinched Klein Bottle. Simulates the Structural Morphing axioms where environmental noise structurally lifts the spatial geometry.
+        </div>
+        
+        <div class="info-panel" style="border-left-color: #00ffcc;">
+            <strong>Chromatic Fractal Boundary</strong><br><br>
+            A run survives intrinsically if it traverses the discrete fibonacci orbit (p=229), structurally bounded by palindromic primes (e.g. 151) acting as phase-locking nodes.
+        </div>
+    </div>
+
+    <div id="main-view">
+        <iframe id="frame-combined" src="combined_overlap_vis.html" class="active"></iframe>
+        <iframe id="frame-lattice" src="quasicrystal_material_vis.html"></iframe>
+        <iframe id="frame-manifold" src="field_state_manifold_vis.html"></iframe>
+        <iframe id="frame-gv-combined" src="golden_virus_combined_vis.html"></iframe>
+        <iframe id="frame-gv-lattice" src="golden_virus_quasicrystal_vis.html"></iframe>
+        <iframe id="frame-gv-manifold" src="golden_virus_manifold_vis.html"></iframe>
+        
+        <div id="lockwood-view">
+            <div class="spectrum-title">
+                <h3>Lockwood Chronometric Operator Spectrum Test</h3>
+                <p>Φ_a(t) = cos(θ(t) + μ·tanh(γ·cos(θ(t)))) &nbsp;|&nbsp; Ω ≈ 21.14 &nbsp;|&nbsp; β ≈ 1.5553</p>
+            </div>
+            <canvas id="spectrum-canvas" width="1200" height="600"></canvas>
+        </div>
+    </div>
+
+    <script>
+        const descs = {
+            'combined': '<strong>Combined Topology Overlap</strong><br><br>Displays the full intersection between the physical Quasicrystal Lattice and the immersed Pinched Klein Bottle. Simulates the Structural Morphing axioms where environmental noise structurally lifts the spatial geometry.',
+            'lattice': '<strong>Quasicrystal Material</strong><br><br>Visualizes the bare physical lattice: sp2/sp3 graphene bases doped with Vanadium thermal sinks. Shows Synthetic Integration physical responses independent of the abstract manifold.',
+            'manifold': '<strong>Digital Wave Mechanics Manifold</strong><br><br>Displays only the field-state immersion manifold. The ZPE vacuum field flows through the space, interacting with the topology governed by the 57-state Chromatic Engine.',
+            'lockwood': '<strong>Lockwood Chronometric Operator</strong><br><br>The tanh-gated chronometric oscillator at p=181. Visualizes the survival spectrum of the chronological regression. The operator generates perfect chromatic structure without statistical regression variance.',
+            'gv_combined': '<strong>Golden Virus Overlap</strong><br><br>The complete immersive overlap. The 9-unit molecular trajectories mapped directly into the continuous Digital Wave Mechanics topology. The centroids of the 3 virus seeds act as the macroscopic interference basins for the field.',
+            'gv_lattice': '<strong>Golden Virus Particles</strong><br><br>Visualizes only the physical 9 units of the Oneiropal virus forming the triple helix and shattering, stripping away the ZPE continuous field.',
+            'gv_manifold': '<strong>Golden Virus Mechanics</strong><br><br>Displays only the DWM continuous fluid surface. Watch as the field twists into a localized vortex as the virus binds, and explodes into turbulence when the boundary threshold is crossed.'
+        };
+
+        function switchPhase(phase) {
+            // Update Buttons
+            document.querySelectorAll('.control-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update Description
+            document.getElementById('phase-desc').innerHTML = descs[phase];
+
+            // Hide all
+            document.getElementById('frame-combined').classList.remove('active');
+            document.getElementById('frame-lattice').classList.remove('active');
+            document.getElementById('frame-manifold').classList.remove('active');
+            document.getElementById('frame-gv-combined').classList.remove('active');
+            document.getElementById('frame-gv-lattice').classList.remove('active');
+            document.getElementById('frame-gv-manifold').classList.remove('active');
+            document.getElementById('lockwood-view').classList.remove('active');
+
+            // Show selected
+            if (phase === 'combined') document.getElementById('frame-combined').classList.add('active');
+            if (phase === 'lattice') document.getElementById('frame-lattice').classList.add('active');
+            if (phase === 'manifold') document.getElementById('frame-manifold').classList.add('active');
+            if (phase === 'gv_combined') document.getElementById('frame-gv-combined').classList.add('active');
+            if (phase === 'gv_lattice') document.getElementById('frame-gv-lattice').classList.add('active');
+            if (phase === 'gv_manifold') document.getElementById('frame-gv-manifold').classList.add('active');
+            if (phase === 'lockwood') {
+                document.getElementById('lockwood-view').classList.add('active');
+                if (!window.lockwoodRendered) {
+                    renderLockwood();
+                    window.lockwoodRendered = true;
+                }
+            }
+        }
+
+        function renderLockwood() {
+            const canvas = document.getElementById('spectrum-canvas');
+            const ctx = canvas.getContext('2d');
+            const W = canvas.width;
+            const H = canvas.height;
+            
+            // Lockwood Constants from game.rs
+            const lambda = 3722.0 / 2765.0;
+            const omega = 2.0 * Math.PI / Math.log(lambda); // ~ 21.139810
+            const beta = Math.atan(Math.sqrt(55414553.0 / 13309.0)); // ~ 1.5553
+            const mu = 1.0;
+            const gamma = 1.0;
+            
+            const tau_s = 1.0;
+            
+            function getPhi(t) {
+                const theta = omega * Math.log(t / tau_s) + beta;
+                const gammaTotal = theta + mu * Math.tanh(gamma * Math.cos(theta));
+                return Math.cos(gammaTotal);
+            }
+            
+            function getFunctBoundary(t) {
+                const theta = omega * Math.log(t / tau_s) + beta;
+                const cosTheta = Math.cos(theta);
+                const sechSq = 1.0 / Math.pow(Math.cosh(gamma * cosTheta), 2);
+                return mu * gamma * Math.abs(Math.sin(theta)) * sechSq;
+            }
+
+            // Draw Background Grid
+            ctx.strokeStyle = '#222';
+            ctx.lineWidth = 1;
+            for(let x=0; x<=W; x+=50) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+            for(let y=0; y<=H; y+=50) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+
+            // Draw Axes
+            ctx.strokeStyle = '#555';
+            ctx.lineWidth = 2;
+            ctx.beginPath(); ctx.moveTo(0, H/2); ctx.lineTo(W, H/2); ctx.stroke(); // X-axis
+            
+            let t_start = 0.1;
+            let t_end = 20.0;
+            
+            // Draw Phi(t)
+            ctx.strokeStyle = '#00ffcc';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            for(let x=0; x<W; x++) {
+                let t = t_start + (x/W) * (t_end - t_start);
+                let val = getPhi(t);
+                let y = H/2 - (val * (H/3));
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            // Draw Funct Boundary (Crystallization Threshold)
+            ctx.strokeStyle = '#ff3366';
+            ctx.lineWidth = 1.5;
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            for(let x=0; x<W; x++) {
+                let t = t_start + (x/W) * (t_end - t_start);
+                let val = getFunctBoundary(t);
+                // Normalized to fit graph nicely
+                let y = H/2 - (val * (H/3));
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            // Draw Boundary Triggers
+            ctx.fillStyle = '#ff3366';
+            for(let x=0; x<W; x+=2) {
+                let t = t_start + (x/W) * (t_end - t_start);
+                let fb = getFunctBoundary(t);
+                // When boundary crosses 1.0, crystallize!
+                if (Math.abs(fb - 1.0) < 0.02) {
+                    let y = H/2 - (getPhi(t) * (H/3));
+                    ctx.beginPath();
+                    ctx.arc(x, y, 4, 0, Math.PI*2);
+                    ctx.fill();
+                    
+                    // Draw vertical spike to represent discrete chromatic gate
+                    ctx.strokeStyle = 'rgba(255, 51, 102, 0.4)';
+                    ctx.beginPath();
+                    ctx.moveTo(x, 0);
+                    ctx.lineTo(x, H);
+                    ctx.stroke();
+                }
+            }
+            
+            // Legend
+            ctx.fillStyle = '#000';
+            ctx.fillRect(W - 220, 20, 200, 80);
+            ctx.strokeStyle = '#444';
+            ctx.strokeRect(W - 220, 20, 200, 80);
+            
+            ctx.font = '12px monospace';
+            ctx.fillStyle = '#00ffcc';
+            ctx.fillText('—— Φ(t) Observable', W - 200, 45);
+            ctx.fillStyle = '#ff3366';
+            ctx.fillText('- - Funct Boundary', W - 200, 65);
+            ctx.fillText(' ●  Crystallization', W - 200, 85);
+        }
+    </script>
+</body>
+</html>

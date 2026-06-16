@@ -1,2 +1,11 @@
 .lake/
 lake-packages/
+__pycache__/
+*.pyc
+chromatic_fractal_exact.png
+opal_3x.log
+virus_3x.log
+scripts/quasicrystal_material_vis.html
+scripts/combined_overlap_vis.html
+scripts/field_state_manifold_vis.html
+.lake/
