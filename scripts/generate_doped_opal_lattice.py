@@ -71,10 +71,10 @@ assert pow(PHI_229, 2, P1) == (PHI_229 + 1) % P1, "φ²=φ+1 at 229"
 assert pow(PHI_181, 2, P2) == (PHI_181 + 1) % P2, "φ²=φ+1 at 181"
 assert pow(PHI_139, 2, P3) == (PHI_139 + 1) % P3, "φ²=φ+1 at 139"
 
-# Sign inversions (half-order involutions)
-assert pow(PHI_229, ORD_PHIBAR_229, P1) == P1 - 1, "sign inversion F₂₂₉"
-assert pow(PHI_181, ORD_PHIBAR_181, P2) == P2 - 1, "sign inversion F₁₈₁"
-assert pow(PHI_139, ORD_PHIBAR_139, P3) == P3 - 1, "sign inversion F₁₃₉"
+# Sign inversions: φ^ord ≡ -1 (mod p) at full orbit boundary
+assert pow(PHI_229, ORD_PHIBAR_229, P1) == P1 - 1, "sign inversion φ^57≡-1 at F₂₂₉"
+assert pow(PHI_181, ORD_PHIBAR_181, P2) == P2 - 1, "sign inversion φ^45≡-1 at F₁₈₁"
+assert pow(PHI_139, ORD_PHIBAR_139, P3) == P3 - 1, "sign inversion φ^23≡-1 at F₁₃₉"
 
 # SU(3) / cube root identities (3-decomposable fields only)
 assert (1 + OMEGA_229 + OMEGA2_229) % P1 == 0, "cube root identity F₂₂₉"
@@ -463,14 +463,15 @@ function animate() {{
         }}
     }});
     
-    // Sign inversion visual: at half-order, flash the strand
-    if (step229 === 56) {{ // φ^57 = -1
+    // Sign inversion: φ^ord ≡ -1 (mod p) at full orbit boundary
+    // Verified: φ^57≡228(229), φ^45≡180(181), φ^23≡138(139)
+    if (step229 === 56) {{ // φ^57 ≡ -1 (mod 229)
         pointLight.color.setHex(0xff4444);
         pointLight.intensity = 2.0;
     }} else if (step181 === 44) {{
         pointLight.color.setHex(0x4ecdc4);
         pointLight.intensity = 2.0;
-    }} else if (step139 === 22) {{ // φ^23 = -1 (simultaneous inversion)
+    }} else if (step139 === 22) {{ // φ^23 ≡ -1 (mod 139) — completion + inversion
         pointLight.color.setHex(0xffe66d);
         pointLight.intensity = 3.0;  // Brighter — completion + inversion at same step
     }} else {{
