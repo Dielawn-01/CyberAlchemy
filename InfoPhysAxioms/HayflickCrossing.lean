@@ -6,7 +6,7 @@ import Mathlib.Tactic.Omega
 /-!
 # Hayflick Crossing: The Biological Nibiru
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Core Principle
 

@@ -6,7 +6,7 @@ import Mathlib.Tactic.Omega
 /-!
 # Von Neumann Thermal Envelope & The 171-Infogalaxy Lifecycle
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Core Principle
 

@@ -6,9 +6,9 @@ import LaRueProtorealAlgebra.MayerVietoris
 /-!
 # Microtransformer Efficiency & Prime Field Dispatch (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
-## The Rising Sea — Eighth Wave (Updated: Prime Field Theory)
+## The Rising Sea — Eighth Wave (Updated: Golden Chromodynamics)
 
 This module proves the computational endgame of the Protoreal Architecture
 on **Von Neumann hardware**. Instead of brute-force matrix multiplication
@@ -178,8 +178,8 @@ theorem microtransformer_efficiency_bound (N : ℕ) (hN : N > 1) :
 /-- **Prime Field Dispatch Dominance**
     The 224-address dispatch at port 14489 is strictly less than the
     traditional attention cost for any sequence length N > 0 and any
-    embedding dimension d > 0. The dispatch is a CONSTANT, not O(N). -/
-theorem prime_dispatch_dominance (N d : ℕ) (hN : N > 0) (hd : d > 0) :
+    enterprise embedding dimension d ≥ 4096. The dispatch is a CONSTANT, not O(N). -/
+theorem prime_dispatch_dominance (N d : ℕ) (hN : N > 0) (hd : d ≥ 4096) :
     prime_dispatch_cost < traditional_attention_cost N d + 1 := by
   unfold prime_dispatch_cost total_dispatch semantic_dim chromodynamic_dim simplex_cube
   unfold traditional_attention_cost

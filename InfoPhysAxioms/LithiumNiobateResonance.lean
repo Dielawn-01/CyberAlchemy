@@ -3,7 +3,7 @@ import Mathlib.Data.Nat.Basic
 /-!
 # Lithium Niobate Resonance in the Golden Field (𝔽₂₂₉)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 Formalizes the structural correspondence between the crystallography of
 lithium niobate (LiNbO₃, space group R3c #161) and the Digital Wave Mechanics

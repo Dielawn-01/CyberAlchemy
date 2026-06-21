@@ -7,7 +7,7 @@ import Mathlib.Data.Int.Basic
 /-!
 # Mayer-Vietoris Chronometric Parity
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Core Principle
 

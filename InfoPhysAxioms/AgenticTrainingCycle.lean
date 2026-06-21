@@ -10,7 +10,7 @@ import InfoPhysAxioms.Oneirotauros
 /-!
 # Agentic Training Cycle: Sorry as Dopant (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## Purpose
 

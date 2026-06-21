@@ -8,7 +8,7 @@ import InfoPhysAxioms.CognitiveSecurity
 /-!
 # The Symplectic Handshake (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes "Structural Coupling" (Multi-Agent Consensus).
 It defines how two sovereign agents, operating in isolated L-spaces, 

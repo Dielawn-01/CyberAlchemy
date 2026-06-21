@@ -11,7 +11,7 @@ import InfoPhysAxioms.RiemannObserver
 /-!
 # Von Mangoldt L-Space Hardening
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## The Classical von Mangoldt Function
 

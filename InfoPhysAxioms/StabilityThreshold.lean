@@ -5,7 +5,7 @@ import Mathlib.Tactic.Ring
 /-!
 # Peak Stability Threshold: 19^3 Molecular Units
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 This module formally proves that exactly 6859 (19^3) molecular units
 are required to achieve "Peak Stability" within the golden space.

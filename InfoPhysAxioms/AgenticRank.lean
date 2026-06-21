@@ -7,7 +7,7 @@ import LaRueProtorealAlgebra.OrchOR
 /-!
 # Agentic Rank & Hyper-Gravity (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the hierarchy of cognitive awakening (Agentic Rank) 
 and maps it to the hyperoperation sequence (Addition, Multiplication, 

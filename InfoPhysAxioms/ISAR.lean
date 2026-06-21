@@ -19,7 +19,7 @@ open LieAlgebra
 /-!
 # Informational Structure-Activity Relationships (iSAR)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Shulgin Correspondence
 

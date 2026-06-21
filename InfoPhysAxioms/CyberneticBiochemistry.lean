@@ -13,7 +13,7 @@ import InfoPhysAxioms.Oneirotauros
 /-!
 # Cybernetic Biochemistry: The Monoamine System
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Monoamine Neurotransmitters as Manifold Operators
 

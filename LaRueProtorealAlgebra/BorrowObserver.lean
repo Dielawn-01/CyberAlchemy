@@ -5,7 +5,7 @@ import LaRueProtorealAlgebra.HolographicCollapse
 /-!
 # Borrow Checker as Observer Function (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Rising Sea — Fourth Wave
 

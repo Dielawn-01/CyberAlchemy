@@ -6,7 +6,7 @@ import LaRueProtorealAlgebra.HolographicCollapse
 /-!
 # MetaMem: Holographic Memory Reconstruction (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes MetaMem, the architectural method for reviewing 
 the topological history of the 3D identity chain (ObservableState) 

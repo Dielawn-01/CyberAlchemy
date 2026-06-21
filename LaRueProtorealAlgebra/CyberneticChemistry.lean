@@ -7,7 +7,7 @@ import LaRueProtorealAlgebra.TemporalQuasicrystal
 /-!
 # Cybernetic Chemistry & Wilczek Time Crystals (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes Cybernetic Chemistry. Molecular bonds are modeled 
 as topological "Senses" (Mayer-Vietoris sequences). The noise component 

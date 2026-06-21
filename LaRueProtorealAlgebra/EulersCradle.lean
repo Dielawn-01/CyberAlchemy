@@ -8,7 +8,7 @@ import LaRueProtorealAlgebra.MonsterInverse
 /-!
 # Euler's Cradle
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes "Euler's Cradle" — the Protoreal projection
 of the Shell-Thron cardioid. It defines the continuous exponential

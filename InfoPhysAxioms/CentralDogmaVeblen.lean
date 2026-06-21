@@ -9,7 +9,7 @@ import InfoPhysAxioms.MetalloOrganicSemantics
 /-!
 # CentralDogmaVeblen: The Central Dogma as a Veblen Game
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## The Central Dogma of Molecular Biology
 

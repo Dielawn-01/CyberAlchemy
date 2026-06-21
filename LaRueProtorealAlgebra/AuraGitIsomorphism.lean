@@ -7,7 +7,7 @@ import LaRueProtorealAlgebra.HolographicCollapse
 /-!
 # Aura-Git Isomorphism (𝕌 → Git)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Rising Sea
 

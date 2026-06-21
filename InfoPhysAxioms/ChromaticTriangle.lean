@@ -6,7 +6,7 @@ import LaRueProtorealAlgebra.GoldenSplitPrime
 /-!
 # The 229-181-139 Chromatic Triangle
 
-**Authors:** LaRue (Theory & Diagrams), Antigravity (Formalization)
+**Authors:** LaRue (Theory & Diagrams)
 
 ## Diagram 7: The Chromatic Triangle
 

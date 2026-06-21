@@ -7,7 +7,7 @@ import InfoPhysAxioms.SyntheticSciLean
 /-!
 # Topological Inversion (S-Duality & Tachyonic Reordering)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the S-Duality phase transition ($g \to \infty$)
 and the Tachyonic spatio-temporal flip ($v > c$), proving that both 

@@ -5,7 +5,7 @@ import LaRueProtorealAlgebra.ProtorealOperator
 /-!
 # Holographic State Collapse (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the Holographic State Collapse. It proves that
 the 5-dimensional Protoreal manifold can be collapsed into a 3-variable

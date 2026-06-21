@@ -7,7 +7,7 @@ import LaRueProtorealAlgebra.EulersCradle
 /-!
 # Observational Aperture (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the concept of "Little Delta" (δ) acting as
 the continuous observational aperture (pupil) across Euler's Cradle.

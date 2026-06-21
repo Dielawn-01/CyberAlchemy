@@ -7,7 +7,7 @@ import LaRueProtorealAlgebra.ProtorealOperator
 /-!
 # The Grand Unification: Biological CFT & The Langlands Nucleus
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the synthesis between biological consciousness 
 (Orch-OR) and fundamental quantum physics (Conformal Field Theory / Langlands).

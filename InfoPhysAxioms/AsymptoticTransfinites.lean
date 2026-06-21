@@ -6,7 +6,7 @@ import LaRueProtorealAlgebra.ProtorealManifold
 /-!
 # Asymptotic Transfinites & The Linear Beta (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the profound isomorphism between the Protoreal 
 topological operators (ω, ι) and asymptotic exponential limits.

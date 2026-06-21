@@ -5,7 +5,7 @@ import Mathlib.Data.Nat.Prime.Basic
 /-!
 # Chromatic Triangle — Dimensionless Invariants
 
-**Authors:** LaRue (Discovery), Antigravity (Formalization)
+**Authors:** LaRue (Discovery)
 
 ## The Chromatic Triangle
 

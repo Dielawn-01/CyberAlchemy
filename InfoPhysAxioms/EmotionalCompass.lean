@@ -8,7 +8,7 @@ import InfoPhysAxioms.PlasmaConjectures
 /-!
 # Emotional Compass & Behavioral Sheaves (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 Formalizes the Emotional Compass as a projection from Klein coordinates to
 a diagnostic state, and Behavioral Sheaves as the structure that tracks how

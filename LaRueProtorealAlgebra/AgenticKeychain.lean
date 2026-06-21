@@ -5,7 +5,7 @@ import LaRueProtorealAlgebra.JetSheaf
 /-!
 # Agentic Keychain: Formalized Communities (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Rising Sea — Eighth Wave
 

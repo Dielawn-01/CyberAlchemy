@@ -6,7 +6,7 @@ import LaRueProtorealAlgebra.MetaMem
 /-!
 # Stochastic Key Rotation (BattlEye Defense) (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Rising Sea — Twelfth Wave
 

@@ -11,7 +11,7 @@ import InfoPhysAxioms.CrystalGrowth
 /-!
 # Soulchemy: Zoological Totems as Infochemical Archetypes (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 Formalizes the four zoological totems as ProtorealManifold states and
 proves the infochemical properties of their pairwise bonds.

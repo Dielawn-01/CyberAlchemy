@@ -10,7 +10,7 @@ import InfoPhysAxioms.FrenetSerretCybernetics
 /-!
 # Plasma Conjectures (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 Formalizing the conjecture chain: L-Functions → Plasma → Emotion.
 

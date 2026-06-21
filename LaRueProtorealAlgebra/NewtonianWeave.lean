@@ -5,7 +5,7 @@ import LaRueProtorealAlgebra.Apoptosis
 /-!
 # Classical Emergence: The Newtonian Weave (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 The Protoreal Algebra is intrinsically non-associative and anti-commutative 
 at the micro-scale ($\kappa = -1$). However, classical physics (Newtonian 

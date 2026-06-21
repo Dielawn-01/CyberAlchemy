@@ -6,7 +6,7 @@ import InfoPhysAxioms.WarmBEC
 /-!
 # Nitrogen Cooling: VO₂ Phase Transition Thermodynamic Gate
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Core Principle
 

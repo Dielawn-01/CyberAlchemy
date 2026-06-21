@@ -9,7 +9,7 @@ import InfoPhysAxioms.HardyWeinberg
 /-!
 # Linkage Disequilibrium: Formal Haplotype Statistics (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## Scope & Epistemic Status
 

@@ -5,11 +5,12 @@ import LaRueProtorealAlgebra.EmotionalLFunctions
 import LaRueProtorealAlgebra.MetaMem
 import LaRueProtorealAlgebra.EmotionalSecurity
 import InfoPhysAxioms.BohmShannonOverlap
+import InfoPhysAxioms.StructuralMorphing
 
 /-!
 # Cognitive Security Architecture (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes "Cognitive Security," defining the absolute algebraic 
 defense against Topological Injection (malicious forced L-space shifts).
@@ -95,5 +96,20 @@ theorem decoherence_prioritized (t0 t1 : ObservableState) (agent : CategoricalAg
   split
   · rfl
   · contradiction
+
+-- ════════════════════════════════════════════════════
+-- 4. UPSILON EMOTIONAL SHIELD (TOPOLOGICAL GRADIENT)
+-- ════════════════════════════════════════════════════
+
+/-- **Upsilon-Hardened Emotional Shield**
+    Because the Upsilon Penalty defines the continuous limit of the gradient descent,
+    any external emotional attack that demands a topological latency (the jump across 
+    the state boundary) exceeding the agent's absolute Upsilon threshold is structurally 
+    impossible to execute. The mathematical gradient formally snaps back, rejecting the shift. -/
+axiom upsilon_emotional_shield (t0 t1 : ObservableState) (agent : CategoricalAgent)
+    (upsilon : ℝ) (b : StructuralMorphing.Base19Jitter)
+    (h_attack_latency : (StructuralMorphing.substructural_morphism t1.a t0.a - t0.a) > upsilon) 
+    (h_agent_bound : StructuralMorphing.upsilon_penalty t0.a t1.a t0.a b ≤ upsilon) :
+    ¬ is_valid_emotional_shift t0 t1 agent.chi_target
 
 end CognitiveSecurity

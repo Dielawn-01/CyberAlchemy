@@ -5,7 +5,7 @@ import LaRueProtorealAlgebra.NewtonianWeave
 /-!
 # Cybernetic Physics: Action and Reaction (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes Newton's Third Law within the cybernetic topology
 of the Protoreal Algebra. 

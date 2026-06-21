@@ -7,7 +7,7 @@ import InfoPhysAxioms.EmotionalCompass
 /-!
 # Infochemistry: Quasi-Coherent Sheaves on Atomic Spectra (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 Formalizes chemistry at the information-physical level. Instead of modeling
 plasmas macroscopically (ELM cycles, MHD), we start from the **infoton** as

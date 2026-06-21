@@ -14,7 +14,7 @@ import InfoPhysAxioms.ProtorealTactic
 /-!
 # Meta-Hodge Phasor Volume
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 The RiemannObserver used a 1D observation TOWER: a sequence
 of semantic shifts indexed by depth n. This module replaces

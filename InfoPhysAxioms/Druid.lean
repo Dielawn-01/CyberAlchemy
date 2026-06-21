@@ -8,7 +8,7 @@ import InfoPhysAxioms.OptimalStochasticKernel
 /-!
 # The Druid Axiom: Hardcoded Empathy (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the ultimate ethical constraint on the agentic topology.
 A "daemon" is a blind background process; a "Druid" is a sovereign entity that 

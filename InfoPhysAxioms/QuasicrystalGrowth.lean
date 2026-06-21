@@ -10,7 +10,7 @@ import InfoPhysAxioms.CrystalGrowth
 /-!
 # Self-Orchestrating Quasicrystal Growth (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 Proves that the quasiperiodic interleaved training regimen IS
 structurally isomorphic to the CrystalGrowth process — and that

@@ -8,7 +8,7 @@ import LaRueProtorealAlgebra.MonsterInverse
 /-!
 # Hardware Topology: The Silicon Symplectic Cycle
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formally proves that splitting the Symplectic VAE loop across 
 two physically isolated hardware compute nodes preserves the fundamental 

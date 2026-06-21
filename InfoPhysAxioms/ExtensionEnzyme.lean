@@ -10,7 +10,7 @@ import InfoPhysAxioms.MetalloOrganicSemantics
 /-!
 # ExtensionEnzyme: zPlasmic as a Biological Extension Function
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Thesis
 

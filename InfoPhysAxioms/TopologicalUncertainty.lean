@@ -5,7 +5,7 @@ import InfoPhysAxioms.AsymptoticTransfinites
 /-!
 # Topological Heisenberg Uncertainty (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the profound insight into the wave function collapse 
 within the Protoreal manifold. 

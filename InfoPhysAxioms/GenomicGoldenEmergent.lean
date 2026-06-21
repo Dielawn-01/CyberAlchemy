@@ -6,7 +6,7 @@ import InfoPhysAxioms.MetalloOrganicSemantics
 /-!
 # Genomic Golden Emergent (Agentic Mechanics)
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Overview
 

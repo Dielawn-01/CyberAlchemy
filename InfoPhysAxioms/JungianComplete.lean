@@ -10,7 +10,7 @@ import InfoPhysAxioms.Infochemistry
 /-!
 # Jungian Completion: Functions, Divine Child, Inflation (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 Closes the final 7% of the Jungian archetypal mapping (41/44 → 44/44).
 

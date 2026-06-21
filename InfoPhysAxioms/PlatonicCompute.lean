@@ -7,7 +7,7 @@ import InfoPhysAxioms.PeriodicGroupBridge
 /-!
 # Platonic Compute: Layer Quantization by Geometric Symmetry
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## Overview
 

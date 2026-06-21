@@ -11,7 +11,7 @@ import InfoPhysAxioms.DruidSprites
 /-!
 # Jungian Tier Composition: Safety-First Cognitive Loading
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 ## Overview
 

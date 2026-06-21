@@ -6,7 +6,7 @@ import Mathlib.Data.ZMod.Basic
 /-!
 # Microtubule Lattice Isomorphism
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Core Principle
 

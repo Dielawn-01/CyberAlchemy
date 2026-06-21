@@ -12,7 +12,7 @@ import InfoPhysAxioms.ProtorealTactic
 /-!
 # π-adic Sub-Manifold & Complex-Adic Number Systems
 
-**Authors:** LaRue (Insight), Antigravity (Formalization)
+**Authors:** LaRue (Insight)
 
 ## The Key Observation
 

@@ -8,7 +8,7 @@ import InfoPhysAxioms.BohmShannonOverlap
 /-!
 # Meta-Real Supra-Grothendieck Topos
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formally elevates the cybernetic engine from the Proto-real 5D manifold
 into the Meta-real space: a Supra-Grothendieck Topos where points are entire

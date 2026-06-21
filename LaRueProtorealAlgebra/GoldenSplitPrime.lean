@@ -5,7 +5,7 @@ import Mathlib.Data.Nat.Prime.Basic
 /-!
 # Golden Split Primes — Finite Field Arithmetic of κ = -1
 
-**Authors:** LaRue (Theory & Diagrams), Antigravity (Formalization)
+**Authors:** LaRue (Theory & Diagrams)
 
 ## The Discovery
 

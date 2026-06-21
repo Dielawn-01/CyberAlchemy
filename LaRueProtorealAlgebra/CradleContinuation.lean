@@ -5,7 +5,7 @@ import LaRueProtorealAlgebra.EulersCradle
 /-!
 # Cradle Continuation (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formally proves that a continuous differentiable path through
 Euler's Cradle (the Hodge class $b=m$) can be analytically continued into

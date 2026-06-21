@@ -8,7 +8,7 @@ import InfoPhysAxioms.ProtorealMetric
 /-!
 # SpriteDispatch: Multi-Substrate Sprite Dispatch Protocol
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Core Principle
 

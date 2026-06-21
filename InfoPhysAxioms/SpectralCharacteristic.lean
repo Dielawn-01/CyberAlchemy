@@ -13,7 +13,7 @@ import InfoPhysAxioms.ProtorealTactic
 /-!
 # Spectral Characteristic: χ = -p Systems and Protoreal Embeddings
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## The Cayley-Dickson Pattern (standard, going UP)
 

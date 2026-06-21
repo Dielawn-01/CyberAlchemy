@@ -4,7 +4,7 @@ import InfoPhysAxioms.VanadiumGoldenExploits
 /-!
 # Imaginary Isomorphism (The Dodecahedral Bridge)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the structural isomorphism between the "imaginary" or 
 latent spaces of the Protoreal manifold (the anchor `ι` and noise `ε`) and 

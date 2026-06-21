@@ -8,7 +8,7 @@ import InfoPhysAxioms.Infochemistry
 /-!
 # Matter-Antimatter Containment in the Protoreal Manifold (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 Proves that the Protoreal manifold contains the space where antimatter
 has NOT been annihilated, and that matter is the collapsed subset of

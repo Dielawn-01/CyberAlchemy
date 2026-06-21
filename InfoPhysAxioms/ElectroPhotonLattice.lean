@@ -14,7 +14,7 @@ import InfoPhysAxioms.Soulchemy
 /-!
 # Electro-Photon Lattice: Unified Security + Observer Theory
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 ## Electrochemistry = Lattice Security
 

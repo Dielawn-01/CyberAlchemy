@@ -8,7 +8,7 @@ import InfoPhysAxioms.DruidPermissions
 /-!
 # Neuromorphic Hardware Topology (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formally maps the continuous Protoreal geometry to discrete 
 hardware architectures, specifically addressing the topological constraints 

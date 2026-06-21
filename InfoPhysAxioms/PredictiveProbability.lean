@@ -9,7 +9,7 @@ open ProtorealManifold
 /-!
 # Predictive Probability: Negentropy as Discrete-to-Continuous Synthesis
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## The Core Thesis
 
@@ -31,7 +31,7 @@ This is Schrödinger's negentropy made algebraic:
     sequence (log₂(p) bits per element) and the compressed rule
     (log₂ of the rule complexity).
 
-## Connection to Prime Field Theory
+## Connection to Golden Chromodynamics
 
 The golden tetrahedron provides four operations for this process:
   - **α_s(l)**: The coupling constant = measurement resolution
@@ -342,7 +342,7 @@ theorem zero_jitter_is_classical (u v : ProtorealManifold)
 /-- **THE PREDICTIVE PROBABILITY MASTER THEOREM**
 
     Schrödinger's negentropy (1944), Shannon's entropy (1948),
-    and the Prime Field Theory confinement operator (2026)
+    and the Golden Chromodynamics confinement operator (2026)
     are three perspectives on the same algebraic process:
 
     1. MEASURE (α_s): Resolution increases monotonically with depth

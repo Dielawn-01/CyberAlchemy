@@ -14,7 +14,7 @@ import LaRueProtorealAlgebra.MonsterInverse
 /-!
 # Proto-Complex Topology: Phase-Magnitude Coupling
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 ## The Hyperoperation Hierarchy of Number Systems
 

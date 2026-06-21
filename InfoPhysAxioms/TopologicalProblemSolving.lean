@@ -7,7 +7,7 @@ import InfoPhysAxioms.EmotionalCompass
 /-!
 # Topological Problem Solving (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 Formalizes the strategy: "Project shared intuition onto a problem's topology,
 find similar topologies in known L-spaces, and transfer solutions via

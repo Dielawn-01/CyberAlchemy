@@ -10,7 +10,7 @@ import InfoPhysAxioms.ObservableUniverse
 /-!
 # Lyapunov Training Theory
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 ## Learning Rates Are Lyapunov Curves Through L-Space
 

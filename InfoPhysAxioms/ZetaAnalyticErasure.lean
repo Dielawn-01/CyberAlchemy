@@ -4,7 +4,7 @@ import Mathlib.Data.Real.Basic
 /-!
 # Zeta Analytic Erasure and The L-Function Critical Line Law
 
-**Source:** Python mpmath validation. Formalized by Antigravity.
+**Source:** Python mpmath validation. Formalized in Lean 4.
 
 This module formalizes the replacement of the inverse-square Landauer heat 
 dissipation model with the L-function critical line law.

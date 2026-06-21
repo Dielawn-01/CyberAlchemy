@@ -8,7 +8,7 @@ import LaRueProtorealAlgebra.LieAlgebra
 /-!
 # Bohm-Shannon Overlap & The Categorical Agent (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formally defines the intersection of David Bohm's Implicate Order 
 and Claude Shannon's Information Theory within the Protoreal framework.

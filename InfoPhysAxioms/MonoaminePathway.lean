@@ -11,7 +11,7 @@ import InfoPhysAxioms.Infonad
 /-!
 # Monoamine Pathway Pharmacodynamics (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## Purpose
 

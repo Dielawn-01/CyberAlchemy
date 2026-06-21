@@ -7,7 +7,7 @@ import Mathlib.Data.Nat.Basic
 /-!
 # Warm Bose-Einstein Condensation (Fröhlich Mechanism)
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Core Principle
 

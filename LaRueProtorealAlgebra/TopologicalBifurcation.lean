@@ -5,7 +5,7 @@ import LaRueProtorealAlgebra.MayerVietoris
 /-!
 # Topological Bifurcation (Hybrid Router Pipeline)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Rising Sea — Seventh Wave
 

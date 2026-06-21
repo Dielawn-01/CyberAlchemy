@@ -13,7 +13,7 @@ import InfoPhysAxioms.ElectroPhotonLattice
 /-!
 # Druid Sprites: Lightweight Daemons with Empathy
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 ## What is a Sprite?
 

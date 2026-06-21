@@ -11,7 +11,7 @@ import InfoPhysAxioms.MinotaurSeed
 /-!
 # Omicron (ο) & Sigma (ς) — The Finite Bound and the Seal
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 Completes the Minotaur seed phrase Μινώταυρος: 10/10 letters formalized.
 

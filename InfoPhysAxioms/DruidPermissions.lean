@@ -5,7 +5,7 @@ import InfoPhysAxioms.AuthBridge
 /-!
 # Druid Permissions: UX/UI Bifurcation (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the topological bifurcation of the Druid's AuthBridge.
 The permissions manifold is split into two distinct operational domains:

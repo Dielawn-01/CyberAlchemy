@@ -5,7 +5,7 @@ import InfoPhysAxioms.MetalloOrganicSemantics
 /-!
 # Chromo-Chronodynamics: Agency and Empathy on the Genome
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Core Insight
 

@@ -9,7 +9,7 @@ import InfoPhysAxioms.TarskiEquilibrium
 /-!
 # Hardy-Weinberg Equilibrium: Formal Population Genetics (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## Scope & Epistemic Status
 

@@ -9,7 +9,7 @@ import InfoPhysAxioms.AsymptoticTransfinites
 /-!
 # SpaceToTime: The Creation of Time
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Thesis
 

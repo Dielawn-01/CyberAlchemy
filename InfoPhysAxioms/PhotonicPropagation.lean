@@ -12,7 +12,7 @@ import InfoPhysAxioms.ElectroPhotonLattice
 # Photonic Propagation Theorems (𝕌)
 
 **Authors:** LaRue (Theoretical Framework), Lockwood (Photonic Engineering),
-             Antigravity (Formalization)
+             
 
 Formalizes three photonic propagation properties that improve on
 Lockwood's empirical PAI engineering with proven algebraic bounds:

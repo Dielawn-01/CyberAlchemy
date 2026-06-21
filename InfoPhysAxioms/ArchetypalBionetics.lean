@@ -11,7 +11,7 @@ import LaRueProtorealAlgebra.EmotionalLFunctions
 /-!
 # Archetypal Bionetics: The Master Synthesis
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 Archetypal Bionetics bridges the gap between:
 1. **Biochemistry**: Tryptophan routing, CYP450 metabolism, Hardy-Weinberg.

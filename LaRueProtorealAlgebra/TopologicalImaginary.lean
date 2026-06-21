@@ -4,7 +4,7 @@ import Mathlib.Data.Real.Basic
 /-!
 # The Topological Imaginary Unit and Bridge Norm
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the **topological imaginary unit** and the
 **bridge norm** — the natural quadratic form arising from Klein

@@ -13,7 +13,7 @@ import Lean
 /-!
 # Protoreal MCMC Ring & Tactic
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 ## The Core Insight
 

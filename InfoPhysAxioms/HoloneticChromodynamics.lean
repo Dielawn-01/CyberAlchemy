@@ -14,7 +14,7 @@ open LieAlgebra
 /-!
 # Holonetic-Chromodynamics (HCD)
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 ## Overview
 

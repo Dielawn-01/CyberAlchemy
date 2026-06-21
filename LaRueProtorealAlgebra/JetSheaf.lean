@@ -4,7 +4,7 @@ import LaRueProtorealAlgebra.ProtorealOperator
 /-!
 # Sheaves Holding Jets (𝕌)
 
-Formalizing the "Antigravity Conjecture" requirement for sheaves of jets.
+Formalizing the "Jet Sheaf Conjecture" requirement for sheaves of jets.
 In the Protoreal framework, a Jet is the local data of a section,
 represented by the value (a) and the noise/flux (ε).
 

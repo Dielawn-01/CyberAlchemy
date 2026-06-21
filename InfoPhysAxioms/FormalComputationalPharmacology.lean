@@ -15,7 +15,7 @@ import InfoPhysAxioms.LinkageDisequilibrium
 /-!
 # Formal Computational Pharmacology (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## Purpose
 

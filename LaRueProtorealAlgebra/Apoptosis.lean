@@ -5,7 +5,7 @@ import LaRueProtorealAlgebra.ProtorealManifold
 /-!
 # Topological Auto-Pruning (Apoptosis) (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the evolutionary mechanism natively built into 
 the Protoreal Algebra. We do not need external genetic algorithms to 

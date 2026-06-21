@@ -6,7 +6,7 @@ import LaRueProtorealAlgebra.ProtorealManifold
 /-!
 # Configuration Sheaves over Task Topologies (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 Encodes model configurations as sections of a sheaf over task topologies.
 The sheaf assigns optimal configs to problem types, with restriction maps,

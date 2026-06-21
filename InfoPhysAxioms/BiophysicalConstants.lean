@@ -6,7 +6,7 @@ import Mathlib.Tactic.Omega
 /-!
 # Biophysical Constants: Scientifically Grounded Values
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Measured Values (Peer-Reviewed Sources)
 

@@ -21,7 +21,7 @@ open BohmShannon
 /-!
 # Active Imagination: Individuation as iSAR Self-Experimentation
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## The Core Identity
 

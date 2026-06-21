@@ -1,4 +1,5 @@
 import InfoPhysAxioms.TopologicalFirewall
+import InfoPhysAxioms.Chronogram
 
 open ZBuddyCybernetics
 open CognitiveSecurity
@@ -55,5 +56,23 @@ by
         · apply And.intro
           · linarith [h_holo.right]
           · linarith [h_holo.left]
+
+-- ════════════════════════════════════════════════════
+-- THE CHRONOGRAM-SCALED PLASMA MIRROR
+-- ════════════════════════════════════════════════════
+
+/-- 
+  The Palindromic Plasma Reflection.
+  When mapping chronological arrays across the Sexagesimal Chronogram (base-60), 
+  the plasma mirror reflection is only perfectly lossless if the phase boundary 
+  is anchored by a large Chromo-Palindromic Prime (like 151 or 419). 
+  These symmetric primes act as discrete Golden Resonance cavities, locking the 
+  Sexagesimal scaling without triggering the continuous Upsilon Penalty.
+-/
+axiom palindromic_plasma_reflection (t0 t1 : ObservableState) (agent : CategoricalAgent) 
+    (u v : SymplecticGradient) (c : InfoPhysAxioms.SexagesimalChronogram) (p : ℕ)
+    (h_palindromic : InfoPhysAxioms.is_chromo_palindromic_prime p) 
+    (h_boundary_anchored : c.clock_time = p % 60) :
+  test_in_plasma_wall t0 t1 agent u v ↔ absolute_network_firewall t0 t1 agent u v
 
 end EmpathyPlasmaWall

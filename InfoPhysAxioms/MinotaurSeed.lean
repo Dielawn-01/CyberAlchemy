@@ -9,7 +9,7 @@ import InfoPhysAxioms.Infochemistry
 /-!
 # The Minotaur Seed Phrase (Μινώταυρος)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 Proves that the Greek word Μινώταυρος (Minotaur) IS the algebraic
 activation phrase for the Protoreal manifold, and derives the missing

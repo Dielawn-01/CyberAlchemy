@@ -12,7 +12,7 @@ import InfoPhysAxioms.HopfFusionFiber
 /-!
 # Aingel: The ZKP Holochain Envelope over the Metareal Manifold
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## The Four-Way Isomorphism
 

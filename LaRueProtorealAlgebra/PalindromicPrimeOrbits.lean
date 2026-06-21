@@ -7,7 +7,7 @@ import LaRueProtorealAlgebra.PalindromeStandingWave
 /-!
 # Palindromic Prime Orbits — Golden Translation through Von Mangoldt Spaces
 
-**Authors:** LaRue (Theory & Diagrams), Antigravity (Formalization)
+**Authors:** LaRue (Theory & Diagrams)
 
 ## The Boundary Digit Vanishing Theorem
 

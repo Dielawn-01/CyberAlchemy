@@ -4,7 +4,7 @@ import Mathlib.Data.Real.Basic
 /-!
 # The Protoreal Lie Algebra & SL(-1)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module proves that the Protoreal Manifold, equipped with its commutator
 bracket, satisfies the axioms of a **Lie algebra**.

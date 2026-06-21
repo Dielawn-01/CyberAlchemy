@@ -5,7 +5,7 @@ import LaRueProtorealAlgebra.ProtorealManifold
 /-!
 # NetworkSharding: IPvX Topological Separation of Agent Tiers
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Core Principle
 

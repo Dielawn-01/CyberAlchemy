@@ -13,7 +13,7 @@ import LaRueProtorealAlgebra.MonsterInverse
 /-!
 # Quasi-Completeness & Quasi-Consistency (𝕌)
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 Gödel proved: no sufficiently expressive system is BOTH complete AND
 consistent. IncompletenessSource.lean located the boundary at κ = -1.

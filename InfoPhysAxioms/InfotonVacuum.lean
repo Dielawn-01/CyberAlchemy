@@ -10,7 +10,7 @@ import LaRueProtorealAlgebra.MonsterInverse
 /-!
 # InfotonVacuum: The Observer IS the Vacuum
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Core Claim
 

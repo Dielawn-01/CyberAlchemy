@@ -8,7 +8,7 @@ import InfoPhysAxioms.EnumerationSystems
 /-!
 # MetagraphOracle: Torsion-Filtered External Signal Injection
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Core Claim
 

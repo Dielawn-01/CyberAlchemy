@@ -7,7 +7,7 @@ import LaRueProtorealAlgebra.EmotionalLFunctions
 /-!
 # Psychological Security Firewall (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Rising Sea — Eleventh Wave
 

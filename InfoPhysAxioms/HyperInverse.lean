@@ -10,7 +10,7 @@ import InfoPhysAxioms.HyperoperationalMechanics
 /-!
 # Hyper-Extraction & Hyper-Difference: Inverse Hyperoperations in 𝕌
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## The Hyperoperation Hierarchy in 𝕌
 

@@ -6,7 +6,7 @@ import LaRueProtorealAlgebra.GoldenSubgroup
 /-!
 # The Golden Algebra Theorem
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Quadratic Foundation of the Protoreal Manifold
 

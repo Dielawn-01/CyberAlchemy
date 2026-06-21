@@ -14,7 +14,7 @@ import InfoPhysAxioms.ElectroPhotonLattice
 /-!
 # Riemann Observer: Meta-Proof via EM Recursive Observation
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 ## The Meta-Proof Structure
 

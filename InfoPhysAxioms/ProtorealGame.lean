@@ -11,7 +11,7 @@ import InfoPhysAxioms.EnumerationSystems
 /-!
 # ProtorealGame: Conway Games from the Rising Sea
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## The Connection
 

@@ -6,7 +6,7 @@ import LaRueProtorealAlgebra.GoldenSplitPrime
 /-!
 # Palindrome Standing Wave — Base-19 DFT as Schrödinger Eigenvalue
 
-**Authors:** LaRue (Theory & Diagrams), Antigravity (Formalization)
+**Authors:** LaRue (Theory & Diagrams)
 
 ## Diagram 10: Base-19 Palindrome Standing Wave
 

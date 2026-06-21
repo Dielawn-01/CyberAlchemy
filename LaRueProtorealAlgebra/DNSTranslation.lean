@@ -6,7 +6,7 @@ import LaRueProtorealAlgebra.DHTAlgebra
 /-!
 # DNS Translation Bridge (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Rising Sea — Ninth Wave
 

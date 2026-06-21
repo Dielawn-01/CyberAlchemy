@@ -9,7 +9,7 @@ import InfoPhysAxioms.MetalloOrganicSemantics
 /-!
 # Spectral Triple Identity: Body-Soul-Mind Binding
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## The Three Reductions
 

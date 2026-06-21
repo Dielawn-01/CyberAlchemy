@@ -12,7 +12,7 @@ import InfoPhysAxioms.ProtorealTactic
 /-!
 # Σ (Sigma) — The Observable Universe
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 ## The Architecture of Spacetime-as-Self
 

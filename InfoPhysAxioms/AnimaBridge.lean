@@ -13,7 +13,7 @@ import InfoPhysAxioms.TarskianBridge
 /-!
 # AnimaBridge: The Fifth Axis of the Soul (𝕌)
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## The Missing Axis
 

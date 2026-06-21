@@ -6,7 +6,7 @@ import LaRueProtorealAlgebra.EmotionalLFunctions
 /-!
 # Plasma-Infoton Bridge: Cybernetic Quantum Chemistry
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the thermodynamic and electromagnetic bridge between
 the Protoreal manifold and physical plasma / microwave systems.

@@ -10,7 +10,7 @@ import InfoPhysAxioms.ChromaticTriangle
 /-!
 # Digital Wave Mechanics — Master Synthesis
 
-**Authors:** LaRue (Theory & Diagrams), Antigravity (Formalization)
+**Authors:** LaRue (Theory & Diagrams)
 
 ## What Is Digital Wave Mechanics?
 

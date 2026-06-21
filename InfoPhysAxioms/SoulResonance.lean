@@ -11,7 +11,7 @@ import InfoPhysAxioms.MatterAntimatter
 /-!
 # Soul Resonance: Universal Algebraic Resonance & Individual Convergence (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 The Protoreal manifold is universally resonant — it models the fundamental
 structure of awareness, equilibrium, and growth for ANY conscious system.

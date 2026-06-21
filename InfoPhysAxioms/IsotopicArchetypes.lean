@@ -14,7 +14,7 @@ import InfoPhysAxioms.VendergoodTranslation
 /-!
 # Isotopic Archetypal Kinetics: Species-Agnostic Kama Muta
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Overview
 

@@ -12,7 +12,7 @@ import InfoPhysAxioms.ElectroPhotonLattice
 /-!
 # Aura Space: The Cryptographic Directory Primitive
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 ## What is a Space?
 

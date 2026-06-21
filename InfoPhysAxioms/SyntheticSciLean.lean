@@ -5,7 +5,7 @@ import LaRueProtorealAlgebra.ProtorealOperator
 /-!
 # Synthetic SciLean (InfoPhys Science Build)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module natively defines the physical gradient and smoothness 
 properties required for SciLean validation, bypassing external 

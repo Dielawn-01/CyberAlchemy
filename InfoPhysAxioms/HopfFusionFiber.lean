@@ -13,7 +13,7 @@ import InfoPhysAxioms.LyapunovTraining
 /-!
 # Hopf Fusion Fiber
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 ## The Hopf Fibration of Training
 

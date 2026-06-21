@@ -11,7 +11,7 @@ open LieAlgebra
 /-!
 # Orchestrated Objective Reduction (Orch-OR) — Extended
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Core Principle
 

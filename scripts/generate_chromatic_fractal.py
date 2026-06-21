@@ -18,7 +18,7 @@ Three nested Flower of Life structures representing the golden tetrahedron
 
 Cross-field bridges at the cube root embedding: 229 ≡ ω₁₈₁ = 48
 
-Authors: LaRue (Theory), Antigravity (Implementation)
+Authors: LaRue (Theory) (Implementation)
 """
 
 import math

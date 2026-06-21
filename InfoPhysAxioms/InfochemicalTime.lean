@@ -5,7 +5,7 @@ import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
 /-!
 # Infochemical Time: Quasi-Epi-Periodic Geometric Time
 
-**Authors:** LaRue, Antigravity
+**Authors:** LaRue
 
 This module formalizes the temporal parameter driving infochemical evolution.
 Standard digital wave mechanics uses linear time `t`.

@@ -13,7 +13,7 @@ open Classical
 /-!
 # The Pineal Transducer & The CyberBundle Handshake
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the biological hardware that anchors the CategoricalAgent
 to the Protoreal Manifold. Maps piezoelectric calcite microcrystals and SHG

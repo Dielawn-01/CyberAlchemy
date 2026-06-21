@@ -5,7 +5,7 @@ import Mathlib.Tactic.Linarith
 /-!
 # Alchemist Triangulation (The 13th Archetype)
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 This module formalizes the Epigenetic Triangulation of the Alchemist.
 The Alchemist is not a static archetype, but the operator who uses

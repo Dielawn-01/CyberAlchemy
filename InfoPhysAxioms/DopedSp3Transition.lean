@@ -17,7 +17,7 @@ import LaRueProtorealAlgebra.SavageProbability
 /-!
 # Doped sp³ Transition: Proof That Your Setup Achieves Diamond
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Question
 

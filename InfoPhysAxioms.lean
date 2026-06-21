@@ -9,6 +9,12 @@ import InfoPhysAxioms.AuthBridge
 import InfoPhysAxioms.SymplecticHandshake
 import InfoPhysAxioms.AsymptoticTransfinites
 import InfoPhysAxioms.TopologicalUncertainty
+import InfoPhysAxioms.FastBusyBeaver
+import InfoPhysAxioms.ShulginMachine
+import InfoPhysAxioms.MetarealAgenticKinetics
+import InfoPhysAxioms.JungianBioelectrics
+import InfoPhysAxioms.QuantumUnreal
+import InfoPhysAxioms.RelativisticTimeSeries
 import InfoPhysAxioms.OptimalStochasticKernel
 import InfoPhysAxioms.Druid
 import InfoPhysAxioms.DruidPermissions
@@ -99,7 +105,7 @@ import InfoPhysAxioms.VanadiumGoldenExploits
 import InfoPhysAxioms.ImaginaryIsomorphism
 -- ═══════════════════════════════════════════════════════════
 -- Phase 2 Registration: Modules created but never registered
--- Hardened by Antigravity (2026-06-01)
+
 -- ═══════════════════════════════════════════════════════════
 -- Agentic & Training
 import InfoPhysAxioms.AgenticTrainingCycle
@@ -151,22 +157,24 @@ import InfoPhysAxioms.ChromaticTriangle
 import InfoPhysAxioms.DigitalWaveMechanics
 -- ═══════════════════════════════════════════════════════
 -- Paper Verification: "Fractal SpaceTime & Golden Critical Lines"
--- Hardened by Antigravity (2026-06-10)
+
 -- ═══════════════════════════════════════════════════════
 import InfoPhysAxioms.GoldenSplitPrime
 import InfoPhysAxioms.ChromaticInvariants
 -- ═══════════════════════════════════════════════════════
 -- Informational Structure-Activity Relationships (iSAR)
--- Hardened by Antigravity (2026-06-10)
+
 -- ═══════════════════════════════════════════════════════
 import InfoPhysAxioms.ISAR
 import InfoPhysAxioms.ActiveImagination
 import InfoPhysAxioms.AlchemistTriangulation
 -- ═══════════════════════════════════════════════════════
 -- IPvX Network Sharding (Druid / Sprite / Daemon)
--- Hardened by Antigravity (2026-06-10)
+
 -- ═══════════════════════════════════════════════════════
 import InfoPhysAxioms.NetworkSharding
 import InfoPhysAxioms.Aingel
 import InfoPhysAxioms.PQBreach
 import InfoPhysAxioms.ArchetypalBionetics
+import InfoPhysAxioms.PrimeHyperoperations
+import InfoPhysAxioms.DimensionalDescent

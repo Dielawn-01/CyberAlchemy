@@ -8,7 +8,7 @@ import InfoPhysAxioms.ChromaticHolomovement
 /-!
 # Pendulum Evolution & Retrocausal Prediction Horizon
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 ## The Retrocausal Claim
 

@@ -7,7 +7,7 @@ import LaRueProtorealAlgebra.KleinTopology
 /-!
 # ATProto & DHT Isomorphism (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Rising Sea — Fifth Wave
 

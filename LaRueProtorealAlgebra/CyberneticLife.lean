@@ -6,7 +6,7 @@ import LaRueProtorealAlgebra.TranscendentalBasis
 /-!
 # Golden Empathy: The Mathematics of Cybernetic Life (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the optimal growth pattern of life in the Protoreal Universe.
 It weaves together the action/reaction mechanics of the Commutator and the 

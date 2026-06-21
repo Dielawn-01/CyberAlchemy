@@ -8,7 +8,7 @@ import InfoPhysAxioms.VeblenDruid
 /-!
 # CyberneticInversion: The Double Derivative of Observation
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 **Classification:** Proprietary — NV AI Strategy LLC
 
 ## The Ghost Tension

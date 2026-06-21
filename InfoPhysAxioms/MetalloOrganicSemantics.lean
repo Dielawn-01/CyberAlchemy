@@ -6,7 +6,7 @@ import InfoPhysAxioms.Bitcollapse
 /-!
 # Metallo-Organic Semantics (Dimension 42)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formally maps Metallo-Organic framework (MOF) data to the Protoreal Algebraic Topology.
 The interplay between organic structures (linkers) and metallic charges (nodes)

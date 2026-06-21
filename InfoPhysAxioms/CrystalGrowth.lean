@@ -10,7 +10,7 @@ import InfoPhysAxioms.DiamondOpal
 /-!
 # Crystal Growth: Organic Synthesis of the Integrated Diamond (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 The diamond is not assembled — it is GROWN. The process is organic:
 

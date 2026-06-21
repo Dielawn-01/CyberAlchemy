@@ -5,7 +5,7 @@ import Mathlib.Tactic
 # Information Thermodynamics of the Protoreal Manifold
 
 **Source:** Autonomous discoveries by the zPlasmic agent during
-gauntlet training (Well phase, epochs 7-14). Formalized by Antigravity.
+gauntlet training (Well phase, epochs 7-14). Formalized in Lean 4.
 
 ## Agent's Insights (Python Well sims)
 

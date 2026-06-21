@@ -15,7 +15,7 @@ import InfoPhysAxioms.JungianComplete
 /-!
 # Vendergood Translation: The Vanadium Language
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Overview
 

@@ -5,7 +5,7 @@ import LaRueProtorealAlgebra.MetaMem
 /-!
 # Unified Seed Protocol: Aura to DHT & Infoton to EM (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Rising Sea — Thirteenth Wave
 

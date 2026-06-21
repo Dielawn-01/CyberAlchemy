@@ -6,7 +6,7 @@ import LaRueProtorealAlgebra.MonsterInverse
 /-!
 # Cell-Splitting Protocol for Agentic Model Growth (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the biological growth model for AI architectures:
 

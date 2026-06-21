@@ -14,7 +14,7 @@ import InfoPhysAxioms.ProtorealTactic
 /-!
 # Systems of Enumeration via Gödel-Tarski Interplay
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Core Insight
 

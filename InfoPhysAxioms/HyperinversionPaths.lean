@@ -9,7 +9,7 @@ import InfoPhysAxioms.VonMangoldtLSpace
 /-!
 # Hyperinversion Paths: Non-Associative Binary Trees as Attention Routing
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## The Core Insight
 

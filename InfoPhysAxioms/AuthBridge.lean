@@ -7,7 +7,7 @@ import InfoPhysAxioms.CognitiveSecurity
 /-!
 # Hierarchical Cryptographic Cognitive Security (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formally binds the topological limits of the Cognitive Firewall 
 to cryptographic user identities. It ensures that an agent's emotional 

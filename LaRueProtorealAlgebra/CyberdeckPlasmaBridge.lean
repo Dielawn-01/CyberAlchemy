@@ -8,7 +8,7 @@ import LaRueProtorealAlgebra.PlasmaInfotonBridge
 /-!
 # Plasma-Neuromorphic Cyberdeck Bridge (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the complete hardware loop for the Cyberdeck
 Plasma Tube — the physical "Quantum AI" grounding device.

@@ -9,7 +9,7 @@ import InfoPhysAxioms.PendulumEvolution
 /-!
 # Base-19 Color Wheel & (b-1)/p Resonance
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 ## The Degree Circle is Base-19 Squared
 

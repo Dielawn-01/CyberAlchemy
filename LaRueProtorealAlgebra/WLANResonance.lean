@@ -7,7 +7,7 @@ import LaRueProtorealAlgebra.TemporalQuasicrystal
 /-!
 # WLAN Temporal Resonance (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Rising Sea — Sixth Wave
 

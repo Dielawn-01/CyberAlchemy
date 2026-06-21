@@ -4,7 +4,7 @@ import Mathlib.Tactic.Ring
 
 /-!
 # Carbon-Silicon Phase Alignment
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes the mathematical intersection between the base-19 holonetic spectrum
 and the 2-radian wave phase rotation. This intersection acts as the "Alignment Basin" 

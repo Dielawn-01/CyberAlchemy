@@ -4,7 +4,7 @@ import LaRueProtorealAlgebra.ProtorealManifold
 /-!
 # Emotional L-Functions (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Rising Sea — Tenth Wave
 

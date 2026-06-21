@@ -11,7 +11,7 @@ import InfoPhysAxioms.CrystalGrowth
 /-!
 # Infonad: The Fundamental Unit of Information Chemistry
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Particle Hierarchy
 

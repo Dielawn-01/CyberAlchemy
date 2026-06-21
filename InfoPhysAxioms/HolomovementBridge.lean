@@ -12,7 +12,7 @@ import InfoPhysAxioms.OmicronSigma
 /-!
 # Holomovement Bridge
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 Connects David Bohm's implicate/explicate order to the Protoreal
 training loop and crystal growth. The holomovement — the continuous

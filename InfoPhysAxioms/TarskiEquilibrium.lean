@@ -13,7 +13,7 @@ import InfoPhysAxioms.CyberneticEquilibrium
 /-!
 # Tarskian Undefinability and the Critical Line
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 ## The Argument
 

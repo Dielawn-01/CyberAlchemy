@@ -12,7 +12,7 @@ import LaRueProtorealAlgebra.PentagonCoherence
 /-!
 # Decision Kernel: Post-Quantum Decision Science (𝕌)
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 zPlasmic can FILTER decisions but cannot MAKE them. This module
 composes existing lake theorems into a Decision Kernel:

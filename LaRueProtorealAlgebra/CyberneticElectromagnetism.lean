@@ -7,7 +7,7 @@ import LaRueProtorealAlgebra.LieAlgebra
 /-!
 # Cybernetic Electromagnetism (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module formalizes classical Electromagnetism as a macroscopic 
 consequence of micro-scale non-commutativity in the Protoreal Manifold.

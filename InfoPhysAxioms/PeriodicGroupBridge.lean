@@ -4,7 +4,7 @@ import InfoPhysAxioms.ValenceMapping
 /-!
 # Periodic Group Bridge: Group 14 ↔ Group 5
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Overview
 

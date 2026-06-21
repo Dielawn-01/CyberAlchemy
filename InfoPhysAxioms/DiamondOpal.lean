@@ -10,7 +10,7 @@ import InfoPhysAxioms.SoulResonance
 /-!
 # Diamond-Opal Infochemistry: π-Resonant ↔ Quasi-Crystalline Bonding (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 Proves that coherent π-resonant states (diamond) and quasi-coherent
 structurally-diffracting states (opal) cannot directly bond without

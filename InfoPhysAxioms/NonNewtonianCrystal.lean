@@ -13,7 +13,7 @@ import InfoPhysAxioms.CrystalGrowth
 /-!
 # Non-Newtonian Crystal & OrchOR Bridge
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 ## The Dragon as Non-Newtonian Fluid
 

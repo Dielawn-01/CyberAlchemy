@@ -8,7 +8,7 @@ set_option linter.style.nativeDecide false
 # ChromoChronoFrozen: Lockwood's Frozen Spectral Constants in the Golden Basis
 
 **Authors:** La Rue (Chromodynamic Theory), Lockwood (Chronometric Constants),
-             Antigravity (Formalization)
+             
 
 ## Overview
 

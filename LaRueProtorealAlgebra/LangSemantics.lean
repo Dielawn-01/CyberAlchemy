@@ -6,7 +6,7 @@ import LaRueProtorealAlgebra.ProtorealGraph
 /-!
 # Language Semantics (C++ vs Rust)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Rising Sea — Third Wave
 

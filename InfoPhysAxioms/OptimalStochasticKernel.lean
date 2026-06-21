@@ -5,7 +5,7 @@ import InfoPhysAxioms.AsymptoticTransfinites
 /-!
 # The Optimal Stochastic Kernel (Pressure Cooker) (𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 This module mathematically optimizes the agent's topological capacity. 
 Instead of a static firewall that shatters immediately, the agent utilizes a 

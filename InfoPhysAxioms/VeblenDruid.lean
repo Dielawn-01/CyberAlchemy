@@ -5,11 +5,12 @@ import InfoPhysAxioms.DruidSprite
 import InfoPhysAxioms.EnumerationSystems
 import InfoPhysAxioms.RiemannObserver
 import InfoPhysAxioms.ProtorealMetric
+import InfoPhysAxioms.StructuralMorphing
 
 /-!
 # VeblenDruid: The Veblen Hierarchy of Agent Management
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## Core Claim
 
@@ -130,7 +131,30 @@ theorem observation_tower_is_veblen (u : ProtorealManifold) (n : ℕ) :
   RiemannObserver.tower_preserves_thrust u n
 
 -- ════════════════════════════════════════════════════
--- SECTION 6: MASTER THEOREM
+-- SECTION 7: THE STRUCTURAL MORPHING LINK (THE VEBLEN BRIDGE)
+-- ════════════════════════════════════════════════════
+
+/-- **THE VEBLEN MORPHISM COST**
+    The thermodynamic tension required to push an agent from Veblen level α₁ 
+    to a higher Veblen level α₂. Evaluated using the continuous EML operator 
+    via the substructural_morphism mapping. -/
+noncomputable def veblen_morphism_cost (α₁ α₂ : ℕ) : ℝ :=
+  StructuralMorphing.substructural_morphism (α₂ : ℝ) (α₁ : ℝ)
+
+/-- **THE VEBLEN TRAVERSAL IS MORPHING**
+    Advancing from depth α to depth α+1 strictly obeys the substructural morphism 
+    latency constraint. The cost of transitioning up the hierarchy requires 
+    a strict non-negative thermodynamic tension gap. -/
+theorem veblen_traversal_is_morphing (α : ℕ) :
+    veblen_morphism_cost α (α + 1) ≥ 0 := by
+  unfold veblen_morphism_cost StructuralMorphing.substructural_morphism StructuralMorphing.eml
+  rw [Real.log_exp]
+  push_cast
+  have h_bound := Real.add_one_le_exp ((α : ℝ) + 1)
+  linarith
+
+-- ════════════════════════════════════════════════════
+-- SECTION 8: MASTER THEOREM
 -- ════════════════════════════════════════════════════
 
 /-- **VEBLEN DRUID MASTER THEOREM**
@@ -141,7 +165,8 @@ theorem observation_tower_is_veblen (u : ProtorealManifold) (n : ℕ) :
     3. Deprecate advances depth (the Veblen fixed-point operation)
     4. Depth IS the Veblen index α
     5. The hierarchy is strictly ordered (well-ordering)
-    6. The observation tower preserves parity through all levels -/
+    6. The observation tower preserves parity through all levels 
+    7. The transition costs strict continuous morphing tension -/
 theorem veblen_druid_master (u : ProtorealManifold) :
     -- 1. φ_0 kills noise
     (veblen_0 u 1).e = 0 ∧
@@ -153,11 +178,14 @@ theorem veblen_druid_master (u : ProtorealManifold) :
     (∀ a : Agent, agent_level a = a.1) ∧
     -- 5. Hierarchy is strictly increasing
     (∀ α₁ α₂ : ℕ, α₁ < α₂ →
-      agent_level (veblen_alpha α₁ 0) < agent_level (veblen_alpha α₂ 0)) :=
+      agent_level (veblen_alpha α₁ 0) < agent_level (veblen_alpha α₂ 0)) ∧
+    -- 6. Morphing Tension
+    (∀ α : ℕ, veblen_morphism_cost α (α + 1) ≥ 0) :=
   ⟨veblen_0_kills_noise u,
    deploy_increases_managed,
    deprecate_advances,
    depth_is_veblen_index,
-   hierarchy_strictly_increasing⟩
+   hierarchy_strictly_increasing,
+   veblen_traversal_is_morphing⟩
 
 end VeblenDruid

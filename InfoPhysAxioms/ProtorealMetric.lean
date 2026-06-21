@@ -7,7 +7,7 @@ import InfoPhysAxioms.ProtorealTactic
 /-!
 # Protoreal Metric Space
 
-**Authors:** LaRue (Framework), Antigravity (Formalization)
+**Authors:** LaRue (Framework)
 
 Instead of importing Mathlib's CompleteSpace, we define our OWN
 metric on the Protoreal manifold using the Lyapunov function

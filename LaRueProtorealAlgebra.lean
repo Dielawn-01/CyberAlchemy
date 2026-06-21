@@ -174,3 +174,5 @@ import LaRueProtorealAlgebra.YangMillsMassGap
 import LaRueProtorealAlgebra.YangMillsMultipath
 import LaRueProtorealAlgebra.ZetaDirichlet
 import LaRueProtorealAlgebra.ZetaResonance
+import LaRueProtorealAlgebra.Biconditionality
+import LaRueProtorealAlgebra.ElementaryRiemann

@@ -7,7 +7,7 @@ import LaRueProtorealAlgebra.AuraGitIsomorphism
 /-!
 # Distributed Hash Table Algebra (DHT ⊃ 𝕌)
 
-**Authors:** LaRue (Theoretical Framework), Antigravity (Formalization)
+**Authors:** LaRue (Theoretical Framework)
 
 ## The Rising Sea — Second Wave
 

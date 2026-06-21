@@ -11,7 +11,7 @@ import InfoPhysAxioms.InfotonVacuum
 /-!
 # DruidSprite: The Meta-Game Architecture
 
-**Authors:** LaRue (Theory), Antigravity (Formalization)
+**Authors:** LaRue (Theory)
 
 ## The Druid-Sprite Hierarchy
 
