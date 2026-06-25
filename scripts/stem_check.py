@@ -656,6 +656,22 @@ def check_plasma_wall(text, raw_tex, full_doc_text="", is_book_chapter=False):
     raw_lower = raw_tex.lower()
     full_lower = full_doc_text.lower() if full_doc_text else lower
     
+    # ── Frontmatter exclusion zone ──
+    # The disclaimer sections themselves use trigger words ("confinement",
+    # "exotic matter") as part of DEFINING their scope. These should never
+    # trigger violations — they ARE the excuses.
+    FRONTMATTER_SECTIONS = [
+        r'\\section\*?\{center-algebra scope rule\}.*?(?=\\section|\\chapter|$)',
+        r'\\section\*?\{terminology quarantine\}.*?(?=\\section|\\chapter|$)',
+        r'\\section\*?\{correction register\}.*?(?=\\section|\\chapter|$)',
+        r'\\section\*?\{falsification protocol\}.*?(?=\\section|\\chapter|$)',
+        r'\\chapter\*?\{correction register\}.*?(?=\\section|\\chapter|$)',
+    ]
+    raw_lower_scannable = raw_lower
+    for pat in FRONTMATTER_SECTIONS:
+        raw_lower_scannable = re.sub(pat, ' [FRONTMATTER_EXCUSED] ', 
+                                      raw_lower_scannable, flags=re.DOTALL | re.IGNORECASE)
+    
     # ── R1: Claim Tiering ──
     r1 = PLASMA_WALL_RULES['R1']
     has_wall = any(
@@ -688,19 +704,19 @@ def check_plasma_wall(text, raw_tex, full_doc_text="", is_book_chapter=False):
     # ── R6: Center-Algebra Scope ──
     r6 = PLASMA_WALL_RULES['R6']
     for trigger_pat in r6['trigger_patterns']:
-        for m in re.finditer(trigger_pat, raw_lower):
+        for m in re.finditer(trigger_pat, raw_lower_scannable):
             pos = m.start()
             window_start = max(0, pos - r6['radius'])
-            window_end = min(len(raw_lower), pos + r6['radius'])
-            context = raw_lower[window_start:window_end]
+            window_end = min(len(raw_lower_scannable), pos + r6['radius'])
+            context = raw_lower_scannable[window_start:window_end]
             
             has_excuse = any(
                 re.search(p, context) for p in r6['excuse_patterns']
             )
-            # Also check full doc frontmatter
+            # Also check full doc for frontmatter-level excuses
             if not has_excuse and full_lower:
                 has_excuse = any(
-                    re.search(p, full_lower[:5000]) for p in r6['excuse_patterns']
+                    re.search(p, full_lower) for p in r6['excuse_patterns']
                 )
             
             if not has_excuse:
@@ -717,16 +733,16 @@ def check_plasma_wall(text, raw_tex, full_doc_text="", is_book_chapter=False):
     # ── R9: Terminology Quarantine ──
     r9 = PLASMA_WALL_RULES['R9']
     for trigger_pat, excuse_pat in r9['trigger_excuse_pairs']:
-        for m in re.finditer(trigger_pat, raw_lower):
+        for m in re.finditer(trigger_pat, raw_lower_scannable):
             pos = m.start()
             window_start = max(0, pos - r9['radius'])
-            window_end = min(len(raw_lower), pos + r9['radius'])
-            context = raw_lower[window_start:window_end]
+            window_end = min(len(raw_lower_scannable), pos + r9['radius'])
+            context = raw_lower_scannable[window_start:window_end]
             
             has_excuse = bool(re.search(excuse_pat, context))
-            # Also check full doc frontmatter
+            # Also check full doc for frontmatter-level excuses
             if not has_excuse and full_lower:
-                has_excuse = bool(re.search(excuse_pat, full_lower[:5000]))
+                has_excuse = bool(re.search(excuse_pat, full_lower))
             
             if not has_excuse:
                 snippet = raw_lower[pos:pos+60].replace('\n', ' ').strip()
