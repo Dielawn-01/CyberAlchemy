@@ -473,7 +473,7 @@ FALLACY_CHECKS = [
         'desc': 'Uses causal language for algebraic correlation without qualifier',
         'trigger': re.compile(
             r'(?:is the reason|determines\s+(?:mass|coupling|charge)|'
-            r'causes?\s+(?:the|mass|confinement))',
+            r'(?<!be)causes?\s+(?:the|mass|confinement))',
             re.IGNORECASE
         ),
         'excuse': re.compile(
