@@ -43,10 +43,8 @@ def is_dark_energy_candidate (u : ProtorealManifold) : Prop :=
 theorem dark_energy_is_uncollapsed (u : ProtorealManifold)
     (h_de : is_dark_energy_candidate u) :
     ¬ is_matter u := by
-  unfold is_matter
-  push_neg
-  intro _
-  exact h_de.2
+  intro ⟨hbm, _, _⟩
+  exact h_de.2 hbm
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 2: DARK MATTER AS TOPOLOGICAL FRICTION

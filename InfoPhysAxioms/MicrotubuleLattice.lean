@@ -1,6 +1,5 @@
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Omega
 import Mathlib.Data.ZMod.Basic
 
 /-!

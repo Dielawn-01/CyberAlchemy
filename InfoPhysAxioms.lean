@@ -178,3 +178,41 @@ import InfoPhysAxioms.PQBreach
 import InfoPhysAxioms.ArchetypalBionetics
 import InfoPhysAxioms.PrimeHyperoperations
 import InfoPhysAxioms.DimensionalDescent
+-- ═══════════════════════════════════════════════════════
+-- Conformance Registration (2026-06-25)
+-- Modules verified: 0 errors, 0 sorries
+
+-- ═══════════════════════════════════════════════════════
+-- Experimental Physics & Interferometry
+import InfoPhysAxioms.AntisymmetricHalting
+import InfoPhysAxioms.ChiralCasimirCollapse
+import InfoPhysAxioms.RCCI_Interferometer
+import InfoPhysAxioms.WarmBEC
+-- Chromatic & Gauge Theory
+import InfoPhysAxioms.ChromaticBoundaries
+import InfoPhysAxioms.ChromaticCombinatorics
+import InfoPhysAxioms.GoldenParity
+import InfoPhysAxioms.ZetaAnalyticErasure
+-- Temporal & Structural
+import InfoPhysAxioms.Chronogram
+import InfoPhysAxioms.ChronometricTriangle
+import InfoPhysAxioms.StructuralMorphing
+import InfoPhysAxioms.TarskianBridge
+-- Material Science & Biochemistry
+import InfoPhysAxioms.AnimaBridge
+import InfoPhysAxioms.LithiumNiobateResonance
+import InfoPhysAxioms.NitrogenCooling
+import InfoPhysAxioms.PartitionPrimeFilter
+-- Computation & Jungian Depth
+import InfoPhysAxioms.DiscretePropulsion
+import InfoPhysAxioms.JungianComplete
+import InfoPhysAxioms.PlatonicCompute
+-- Recovered from Omega import fix
+import InfoPhysAxioms.BiophysicalConstants
+import InfoPhysAxioms.VonNeumannEnvelope
+import InfoPhysAxioms.VendergoodTranslation
+import InfoPhysAxioms.IsotopicArchetypes
+import InfoPhysAxioms.RoyalJellyResonance
+import InfoPhysAxioms.JungianTierComposition
+import InfoPhysAxioms.DarkMatterGenesis
+

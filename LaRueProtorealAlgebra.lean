@@ -176,3 +176,15 @@ import LaRueProtorealAlgebra.ZetaDirichlet
 import LaRueProtorealAlgebra.ZetaResonance
 import LaRueProtorealAlgebra.Biconditionality
 import LaRueProtorealAlgebra.ElementaryRiemann
+-- ═══════════════════════════════════════════════════════
+-- Conformance Registration (2026-06-25)
+
+-- ═══════════════════════════════════════════════════════
+import LaRueProtorealAlgebra.AtomicTransmutation
+import LaRueProtorealAlgebra.ChromaticInvariants
+import LaRueProtorealAlgebra.GoldenAlgebra
+import LaRueProtorealAlgebra.NeuralTopology
+import LaRueProtorealAlgebra.ObserverDecomposition
+import LaRueProtorealAlgebra.ProtorealChemistry
+import LaRueProtorealAlgebra.StieltjesScaling
+import LaRueProtorealAlgebra.TotientMorphism
