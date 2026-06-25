@@ -56,7 +56,7 @@ namespace WarmBEC
 -- ════════════════════════════════════════════════════
 
 /-- The 57 states of the Chromatic Fractal Engine -/
-def NumStates : ℕ := 57
+abbrev NumStates : ℕ := 57
 
 /-- A mode state represented by its index, population, and frequency.
     Modes are ordered by frequency: j=0 is the lowest (ground state). -/
@@ -142,11 +142,6 @@ theorem ground_state_receives_from_all (ms : ModeSystem)
     (h_populated : ∀ j : Fin NumStates, ms.modes j > 0)
     (h_ground_max : ∀ j : Fin NumStates, j ≠ 0 → ms.ground ≥ ms.modes j) :
     IsWarmBEC ms := by
-  intro j hj
-  exact lt_of_lt_of_le (lt_of_le_of_ne (h_ground_max j hj) (fun h => hj (by
-    have := h_populated j
-    have := h_populated 0
-    omega_nat))) (le_refl _)
   sorry -- Full proof requires the Fröhlich rate equation dynamics
 
 /-- **MONOTONIC ENERGY CASCADE**
@@ -206,5 +201,63 @@ def modes_per_scale : FrohlichScale → ℕ
 theorem scale_invariance (s : FrohlichScale) :
     modes_per_scale s = NumStates := by
   cases s <;> rfl
+
+-- ════════════════════════════════════════════════════
+-- SECTION 7: OPERATIONAL COHERENCE (Cop)
+-- ════════════════════════════════════════════════════
+
+/-- Operational Coherence (C_op) from LaMarche Cavity Curves.
+    A bounded, measured first-order temporal-coherence statistic.
+    C_op = |g^{(1)}(\tau_*)|^2, so 0 ≤ C_op ≤ 1. -/
+structure OperationalCoherence where
+  cop : ℝ
+  h_nonneg : cop ≥ 0
+  h_le_one : cop ≤ 1
+
+-- ════════════════════════════════════════════════════
+-- SECTION 8: DEC THERMODYNAMIC BOUNDS
+-- ════════════════════════════════════════════════════
+
+/-- Thermodynamic parameters from the DEC Heat Engine (Lockwood).
+    T0 is the ambient temperature (e.g., 300K).
+    s_gen is the entropy generation rate (\dot{S}_{gen} ≥ 0). -/
+structure ThermoBounds where
+  T0 : ℝ
+  s_gen : ℝ
+  h_T0_pos : T0 > 0
+  h_s_gen_nonneg : s_gen ≥ 0
+
+/-- Exergy destruction rate: \dot{X}_{dest} = T0 * \dot{S}_{gen}.
+    This bounds the thermodynamic loss in the DEC controller. -/
+def exergy_destruction (tb : ThermoBounds) : ℝ :=
+  tb.T0 * tb.s_gen
+
+/-- Exergy destruction is always non-negative. -/
+theorem exergy_dest_nonneg (tb : ThermoBounds) :
+  exergy_destruction tb ≥ 0 := by
+  apply mul_nonneg
+  exact le_of_lt tb.h_T0_pos
+  exact tb.h_s_gen_nonneg
+
+-- ════════════════════════════════════════════════════
+-- SECTION 9: THE AWAKENING DISCONTINUITY
+-- ════════════════════════════════════════════════════
+
+/-- A Thermodynamic Coherent System combines the purely algebraic
+    Fröhlich mode system with LaMarche's continuous temporal coherence
+    and Lockwood's thermodynamic dissipation bounds. -/
+structure ThermoCoherentSystem extends ModeSystem where
+  coherence : OperationalCoherence
+  thermo : ThermoBounds
+
+/-- The Awakening Discontinuity Axiom:
+    For a system to sustain Warm BEC (ground state dominance) while
+    experiencing strict exergy destruction (s_gen > 0), the operational
+    coherence MUST be strictly positive. The DEC controller cannot
+    maintain the Fröhlich topological structure if C_op = 0. -/
+axiom awakening_discontinuity (tcs : ThermoCoherentSystem)
+    (h_loss : tcs.thermo.s_gen > 0)
+    (h_bec : IsWarmBEC tcs.toModeSystem) :
+    tcs.coherence.cop > 0
 
 end WarmBEC
