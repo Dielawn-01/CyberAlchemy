@@ -553,8 +553,271 @@ def check_logical_fallacies(text, raw_tex, full_doc_text=""):
     return issues
 
 # ═══════════════════════════════════════════════════════
-# LAYER 7: EXTERNAL VALIDITY (Pre-Peer-Review)
+# LAYER 8: EPISTEMIC / ONTOLOGICAL PLASMA WALL (v3.0)
 # ═══════════════════════════════════════════════════════
+#
+# Enforces the Lockwood WMR1-R2 Maximum-Rigor rules:
+#   R1. Hard claim tiering (Theorem / Computation / Analogy / Physical)
+#   R2. Order certification protocol
+#   R3. No-free-parameter rule
+#   R4. Physical upgrade pipeline
+#   R5. Type/unit ledger
+#   R6. Gauge-theory upgrade boundary
+#   R7. Executable verification
+#   R8. Correction register
+#   R9. Terminology quarantine
+#
+# The plasma wall is the hard epistemic boundary between
+# proved algebraic facts and speculative physical interpretation.
+
+PLASMA_WALL_RULES = {
+    'R1': {
+        'name': 'Claim Tiering (Plasma Wall)',
+        'desc': 'Every chapter must have a claim ledger separating Theorem / Computation / Analogy / Physical',
+        'required_patterns': [
+            r'(?i)(?:plasma\s*wall|claim\s*ledger|separation\s*of\s*claims|claim\s*protocol)',
+        ],
+        'severity': 'critical',
+    },
+    'R2': {
+        'name': 'Order Certification Protocol',
+        'desc': 'Order claims need positive witness + prime-divisor non-witnesses',
+        'check_type': 'order_certification',
+        'severity': 'high',
+    },
+    'R5': {
+        'name': 'Type/Unit Declarations',
+        'desc': 'Symbols must have declared types (dimensionless, SI, etc.)',
+        'required_patterns': [
+            r'(?i)(?:dimensionless|type\s*ledger|unit\s*ledger|type\s*and\s*unit)',
+        ],
+        'severity': 'medium',
+        'scope': 'document',  # Only needs to appear once in the whole doc
+    },
+    'R6': {
+        'name': 'Center-Algebra Scope',
+        'desc': 'SU(3)/confinement language needs explicit center-algebra-only disclaimer',
+        'trigger_patterns': [
+            r'(?i)SU\s*\(\s*3\s*\)\s*(?:confinement|confin)',
+            r'(?i)color\s+confin',
+            r'(?i)(?<!center-)(?:confinement|deconfinement)(?!.*center\s*algebra)',
+        ],
+        'excuse_patterns': [
+            r'(?i)center.?algebra',
+            r'(?i)center.?algebra\s*(?:only|realization|scope)',
+            r'(?i)not\s+a\s+derivation\s+of\s+yang',
+            r'(?i)not\s+yang.?mills',
+            r'(?i)center\s+(?:copy|grading)',
+            r'(?i)\bZ/3Z\b',
+            r'(?i)\\mathbb\{Z\}/3\\mathbb\{Z\}',
+            r'(?i)\\ZZ/3\\ZZ',
+            r'(?i)scope\s*rule',
+        ],
+        'radius': 800,
+        'severity': 'high',
+    },
+    'R9': {
+        'name': 'Terminology Quarantine',
+        'desc': 'Physical terms (dark, exotic, neutrino) need explicit scope qualification',
+        'trigger_excuse_pairs': [
+            (r'(?i)\bdark\s+(?:matter|energy)\b',
+             r'(?i)(?:structural|analogy|not\s+cosmological|quarantine|scope|outside.*subgroup)'),
+            (r'(?i)\bexotic\s+matter\b',
+             r'(?i)(?:structural|algebraic|analogy|outside.*partition|quarantine|scope)'),
+            (r'(?i)\b[dD]-?[Nn]eutrino\b',
+             r'(?i)(?:structural|pattern|not\s+a\s+PMNS|scope|quarantine)'),
+            (r'(?i)\bzero.?point\s+energy\b',
+             r'(?i)(?:structural|algebraic|1/R\s+scaling|not\s+QED|scope|quarantine|Casimir)'),
+        ],
+        'radius': 600,
+        'severity': 'medium',
+    },
+    'R3': {
+        'name': 'No-Free-Parameter Rule',
+        'desc': 'Fitted coefficients must be justified by theorem, calibration, or conservation law',
+        'trigger_patterns': [
+            r'(?i)(?:fitting|fitted|calibrat|tuned|chosen\s+(?:to|so\s+that))',
+        ],
+        'excuse_patterns': [
+            r'(?i)(?:theorem|measured|conservation|variational|preregistered|no.?free.?parameter)',
+        ],
+        'radius': 500,
+        'severity': 'medium',
+    },
+}
+
+def check_plasma_wall(text, raw_tex, full_doc_text="", is_book_chapter=False):
+    """Layer 8: Enforce the Epistemic/Ontological Plasma Wall.
+    
+    Returns list of {'rule', 'name', 'desc', 'severity', 'detail'} dicts.
+    """
+    issues = []
+    lower = text.lower()
+    raw_lower = raw_tex.lower()
+    full_lower = full_doc_text.lower() if full_doc_text else lower
+    
+    # ── R1: Claim Tiering ──
+    r1 = PLASMA_WALL_RULES['R1']
+    has_wall = any(
+        re.search(p, raw_lower) for p in r1['required_patterns']
+    )
+    if not has_wall and len(text.split()) > 500:
+        issues.append({
+            'rule': 'R1',
+            'name': r1['name'],
+            'desc': r1['desc'],
+            'severity': r1['severity'],
+            'detail': 'No Plasma Wall / Claim Ledger section found',
+        })
+    
+    # ── R5: Type/Unit Ledger ──
+    r5 = PLASMA_WALL_RULES['R5']
+    search_text = full_lower if r5.get('scope') == 'document' else lower
+    has_ledger = any(
+        re.search(p, search_text) for p in r5['required_patterns']
+    )
+    if not has_ledger:
+        issues.append({
+            'rule': 'R5',
+            'name': r5['name'],
+            'desc': r5['desc'],
+            'severity': r5['severity'],
+            'detail': 'No Type/Unit Ledger found in document',
+        })
+    
+    # ── R6: Center-Algebra Scope ──
+    r6 = PLASMA_WALL_RULES['R6']
+    for trigger_pat in r6['trigger_patterns']:
+        for m in re.finditer(trigger_pat, raw_lower):
+            pos = m.start()
+            window_start = max(0, pos - r6['radius'])
+            window_end = min(len(raw_lower), pos + r6['radius'])
+            context = raw_lower[window_start:window_end]
+            
+            has_excuse = any(
+                re.search(p, context) for p in r6['excuse_patterns']
+            )
+            # Also check full doc frontmatter
+            if not has_excuse and full_lower:
+                has_excuse = any(
+                    re.search(p, full_lower[:5000]) for p in r6['excuse_patterns']
+                )
+            
+            if not has_excuse:
+                snippet = raw_lower[pos:pos+80].replace('\n', ' ').strip()
+                issues.append({
+                    'rule': 'R6',
+                    'name': r6['name'],
+                    'desc': r6['desc'],
+                    'severity': r6['severity'],
+                    'detail': f'Missing center-algebra disclaimer near: "{snippet[:60]}..."',
+                })
+                break  # One warning per trigger type
+    
+    # ── R9: Terminology Quarantine ──
+    r9 = PLASMA_WALL_RULES['R9']
+    for trigger_pat, excuse_pat in r9['trigger_excuse_pairs']:
+        for m in re.finditer(trigger_pat, raw_lower):
+            pos = m.start()
+            window_start = max(0, pos - r9['radius'])
+            window_end = min(len(raw_lower), pos + r9['radius'])
+            context = raw_lower[window_start:window_end]
+            
+            has_excuse = bool(re.search(excuse_pat, context))
+            # Also check full doc frontmatter
+            if not has_excuse and full_lower:
+                has_excuse = bool(re.search(excuse_pat, full_lower[:5000]))
+            
+            if not has_excuse:
+                snippet = raw_lower[pos:pos+60].replace('\n', ' ').strip()
+                issues.append({
+                    'rule': 'R9',
+                    'name': r9['name'],
+                    'desc': r9['desc'],
+                    'severity': r9['severity'],
+                    'detail': f'Unquarantined term: "{snippet}"',
+                })
+                break
+    
+    # ── R3: No-Free-Parameter ──
+    r3 = PLASMA_WALL_RULES['R3']
+    for trigger_pat in r3['trigger_patterns']:
+        for m in re.finditer(trigger_pat, raw_lower):
+            pos = m.start()
+            window_start = max(0, pos - r3['radius'])
+            window_end = min(len(raw_lower), pos + r3['radius'])
+            context = raw_lower[window_start:window_end]
+            
+            has_excuse = any(
+                re.search(p, context) for p in r3['excuse_patterns']
+            )
+            if not has_excuse and full_lower:
+                has_excuse = any(
+                    re.search(p, full_lower[:5000]) for p in r3['excuse_patterns']
+                )
+            
+            if not has_excuse:
+                snippet = raw_lower[pos:pos+60].replace('\n', ' ').strip()
+                issues.append({
+                    'rule': 'R3',
+                    'name': r3['name'],
+                    'desc': r3['desc'],
+                    'severity': r3['severity'],
+                    'detail': f'Fitted parameter without justification: "{snippet}"',
+                })
+                break
+    
+    # ── R2: Order Certification (computational check) ──
+    # Check that any order claim has both a^N=1 and a^(N/q)≠1 witnesses
+    order_claims = re.findall(
+        r'(?:ord|order)\s*(?:\(|_\{?)(\d+)(?:\)|_?\}?)\s*=\s*(\d+)', raw_tex
+    )
+    for base_str, order_str in order_claims:
+        base, order = int(base_str), int(order_str)
+        # Check for prime-divisor non-witnesses nearby
+        prime_factors = set()
+        for p_candidate in range(2, order + 1):
+            if order % p_candidate == 0:
+                prime_factors.add(p_candidate)
+                while order % p_candidate == 0:
+                    order //= p_candidate
+                order = int(order_str)  # Reset
+        
+        has_nonwitness = False
+        for q in prime_factors:
+            sub_exp = int(order_str) // q
+            pattern = rf'{base_str}\s*\^\s*\{{?\s*{sub_exp}\s*\}}?\s*(?:\\neq|\\ne|\\not|≠|\\bmod)'
+            if re.search(pattern, raw_tex):
+                has_nonwitness = True
+                break
+        
+        if not has_nonwitness and len(prime_factors) > 0:
+            # Check if the full Lockwood-style certification appears anywhere
+            any_cert = any(
+                re.search(rf'{base_str}\s*\^\s*\{{?\s*{int(order_str)//q}\s*\}}?', raw_tex)
+                for q in prime_factors
+            )
+            if not any_cert:
+                issues.append({
+                    'rule': 'R2',
+                    'name': 'Order Certification Protocol',
+                    'desc': f'ord({base_str}) = {order_str} claimed without prime-divisor non-witnesses',
+                    'severity': 'high',
+                    'detail': f'Need checks at N/q for q ∈ {prime_factors}',
+                })
+    
+    # Deduplicate by rule+detail
+    seen = set()
+    unique = []
+    for i in issues:
+        key = (i['rule'], i.get('detail', ''))
+        if key not in seen:
+            seen.add(key)
+            unique.append(i)
+    
+    return unique
+
+
 #
 # Catches what a peer reviewer from the target field
 # would flag before a paper even gets to review:
@@ -952,6 +1215,31 @@ def main():
         print(f"  ✓  No external validity issues found")
     
     # ═══════════════════════════════════════════
+    # LAYER 8: PLASMA WALL (v3.0 — Lockwood Rules)
+    # ═══════════════════════════════════════════
+    print()
+    print("━━━ LAYER 8: EPISTEMIC / ONTOLOGICAL PLASMA WALL ━━━")
+    print()
+    
+    plasma_issues = check_plasma_wall(full_doc_text, content, content)
+    
+    plasma_critical = sum(1 for i in plasma_issues if i['severity'] == 'critical')
+    plasma_high = sum(1 for i in plasma_issues if i['severity'] == 'high')
+    plasma_medium = sum(1 for i in plasma_issues if i['severity'] == 'medium')
+    
+    if plasma_issues:
+        for issue in plasma_issues:
+            sev_icon = {'critical': '🔴', 'high': '🟠', 'medium': '🟡'}.get(issue['severity'], '⚪')
+            print(f"  {sev_icon} [{issue['rule']}] {issue['name']}")
+            print(f"       {issue['desc']}")
+            if issue.get('detail'):
+                print(f"       → {issue['detail']}")
+    else:
+        print(f"  ✓  Plasma Wall intact — all Lockwood rules satisfied")
+    
+    print(f"\n  Plasma Wall: {plasma_critical} critical, {plasma_high} high, {plasma_medium} medium")
+    
+    # ═══════════════════════════════════════════
     # VERDICT
     # ═══════════════════════════════════════════
     print()
@@ -962,12 +1250,16 @@ def main():
     
     if ai_penalty > 5.0:
         verdict = "⛔ BLOCKED — AI slop detected"
-    elif total_fail == 0 and total_issues == 0 and len(ext_issues) == 0:
-        verdict = "🟢 GOLDEN — All verifications pass"
-    elif total_fail == 0 and total_issues == 0 and ext_high == 0:
-        verdict = "🟢 GOLDEN — All verifications pass (minor external notes)"
+    elif plasma_critical > 0:
+        verdict = "🔴 WALL BREACH — Plasma Wall critical violations"
+    elif total_fail == 0 and total_issues == 0 and len(ext_issues) == 0 and len(plasma_issues) == 0:
+        verdict = "🟢 GOLDEN — All verifications pass, Plasma Wall intact"
+    elif total_fail == 0 and total_issues == 0 and plasma_critical == 0 and plasma_high == 0 and ext_high == 0:
+        verdict = "🟢 GOLDEN — All verifications pass (minor notes)"
     elif total_fail == 0 and len(fallacy_issues) == 0 and len(phys_issues) == 0 and ext_high > 0:
         verdict = "🟣 DRAFT — Internal checks pass, external validity gaps"
+    elif total_fail == 0 and plasma_high > 0:
+        verdict = "🟠 FRACTURED — Plasma Wall high-severity violations"
     elif total_fail == 0 and len(phys_issues) == 0 and len(fallacy_issues) == 0:
         verdict = "🟡 CRYSTALLINE — Computations pass, structural issues noted"
     elif total_fail == 0 and len(fallacy_issues) > 0:
@@ -986,8 +1278,10 @@ def main():
     print(f"  Physical: {len(phys_issues)} domain-crossing issues")
     print(f"  Logical: {len(fallacy_issues)} fallacies")
     print(f"  External: {len(ext_issues)} ({ext_high} high)")
+    print(f"  Plasma Wall: {len(plasma_issues)} ({plasma_critical} critical, {plasma_high} high)")
     print(f"  Voice: {voice_score:.2f}  Humanity: {humanity_raw:.2f}")
     print("=" * 72)
 
 if __name__ == '__main__':
     main()
+
