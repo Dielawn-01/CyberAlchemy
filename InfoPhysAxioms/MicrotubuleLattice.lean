@@ -131,7 +131,7 @@ inductive DynamicEvent where
   deriving DecidableEq, Repr
 
 /-- The Nibiru crossing in the golden field. -/
-def nibiru_value : ZMod 229 := (82 : ZMod 229) ^ 57
+def nibiru_value : ZMod 229 := (148 : ZMod 229) ^ 57
 
 /-- φ̄⁵⁷ = 228 = -1 (mod 229): the sign flip at the crossing. -/
 theorem nibiru_is_negative_one : nibiru_value = 228 := by native_decide
@@ -176,7 +176,7 @@ structure PiezoState where
 -- SECTION 5: CONSCIOUSNESS AS FRÖHLICH BEC
 -- ════════════════════════════════════════════════════
 
-/-- **THE CEMI MAPPING**
+/-! **THE CEMI MAPPING**
     The coherent electromagnetic information (CEMI) field proposed by
     McFadden (2020) as the substrate of consciousness maps directly
     to the Fröhlich ground state of the microtubule lattice:

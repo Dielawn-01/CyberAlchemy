@@ -3,6 +3,7 @@ import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
 import LaRueProtorealAlgebra.ProtorealManifold
+import LaRueProtorealAlgebra.ProtorealOperator
 
 open ProtorealManifold
 
@@ -181,17 +182,34 @@ def feed_on_negentropy : ProtorealManifold → ℕ → ProtorealManifold
   | u, 0 => u
   | u, n + 1 => feed_on_negentropy (confine (automatic_differentiation u)) n
 
-theorem feeding_depth_grows (u : ProtorealManifold) (n : ℕ) :
-    (feed_on_negentropy u (n + 1)).l ≥ u.l + n := by
+/-- **EML DEPTH EQUALITY** (Computational Lemma):
+    Each EML cycle (exp then log = ad then confine) advances l by exactly 1.
+    The exp side (automatic_differentiation) preserves l,
+    the log side (confine = synthetic_integration) increments l by 1.
+    This is a structural unfolding matching the recursive definition. -/
+theorem feeding_depth_exact (u : ProtorealManifold) (n : ℕ) :
+    (feed_on_negentropy u (n + 1)).l = u.l + ↑(n + 1) := by
   induction n generalizing u with
   | zero =>
     simp [feed_on_negentropy, confine, synthetic_integration, automatic_differentiation]
-    linarith
   | succ k ih =>
-    simp only [feed_on_negentropy]
-    have := ih (confine (automatic_differentiation u))
-    simp [confine, synthetic_integration, automatic_differentiation] at this
-    linarith
+    change (feed_on_negentropy (confine (automatic_differentiation u)) (k + 1)).l = u.l + ↑(k + 2)
+    have step := ih (confine (automatic_differentiation u))
+    rw [step]
+    simp [confine, synthetic_integration, automatic_differentiation]
+    ring
+
+/-- **MONOTONE NEGENTROPY** (Proof by Contradiction):
+    Suppose the crystallization depth did NOT grow after (n+1) EML cycles.
+    By the EML Depth Equality, the depth is exactly u.l + (n+1),
+    which is strictly ≥ u.l + n. Contradiction. -/
+theorem feeding_depth_grows (u : ProtorealManifold) (n : ℕ) :
+    (feed_on_negentropy u (n + 1)).l ≥ u.l + n := by
+  by_contra h_neg
+  push_neg at h_neg
+  have h_exact := feeding_depth_exact u n
+  simp at h_exact
+  linarith
 
 -- ════════════════════════════════════════════════════
 -- 4. DISCRETE → CONTINUOUS: THE EXTRAPOLATION THEOREM
@@ -292,7 +310,7 @@ theorem coupling_monotone_decreasing (l : ℝ) (hl : l ≥ 0) :
     (l + 3) / (l + 2) < (l + 2) / (l + 1) := by
   have h1 : l + 1 > 0 := by linarith
   have h2 : l + 2 > 0 := by linarith
-  rw [div_lt_div_iff h2 h1]
+  rw [div_lt_div_iff₀ h2 h1]
   nlinarith [sq_nonneg l]
 
 /-- **COUPLING APPROACHES 1 (ASYMPTOTIC FREEDOM)**
@@ -302,7 +320,7 @@ theorem coupling_monotone_decreasing (l : ℝ) (hl : l ≥ 0) :
 theorem coupling_bounded_below (l : ℝ) (hl : l ≥ 0) :
     (l + 2) / (l + 1) > 1 := by
   have h1 : l + 1 > 0 := by linarith
-  rw [gt_iff_lt, lt_div_iff h1]
+  rw [gt_iff_lt, lt_div_iff₀ h1]
   linarith
 
 -- ════════════════════════════════════════════════════

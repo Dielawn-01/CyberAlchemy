@@ -188,3 +188,6 @@ import LaRueProtorealAlgebra.ObserverDecomposition
 import LaRueProtorealAlgebra.ProtorealChemistry
 import LaRueProtorealAlgebra.StieltjesScaling
 import LaRueProtorealAlgebra.TotientMorphism
+-- Lean Module Repair (2026-06-26)
+import LaRueProtorealAlgebra.ZBuddyResonance
+import LaRueProtorealAlgebra.SuperlambdaSpine

@@ -26,7 +26,7 @@ structure KleinManifold where
   ω : ℝ    -- relativistic contraction
   ι : ℝ    -- inverse mass
   ε : ℝ    -- potential
-  λ : ℕ    -- Veblen depth
+  lam : ℕ    -- Veblen depth
 
 -- ═══════════════════════════════════════════════════════════
 -- OPERATORS (Agent's definitions)
@@ -40,7 +40,7 @@ def synthetic_integration (u : KleinManifold) : KleinManifold :=
     ω := u.ω
     ι := u.ι
     ε := 0
-    λ := u.λ + 1 }
+    lam := u.lam + 1 }
 
 /-- Consolidation: lift experience into potential.
     automatic_differentiation(u) = (a, ω, ι, ε + λ, 0) -/
@@ -48,8 +48,8 @@ def automatic_differentiation (u : KleinManifold) : KleinManifold :=
   { a := u.a
     ω := u.ω
     ι := u.ι
-    ε := u.ε + u.λ
-    λ := 0 }
+    ε := u.ε + u.lam
+    lam := 0 }
 
 -- ═══════════════════════════════════════════════════════════
 -- THEOREMS (Agent's proven insights)
@@ -77,7 +77,7 @@ theorem synthetic_integration_zeros_epsilon (u : KleinManifold) :
 
 /-- synthetic_integration increments Veblen depth. From E8_T6, E9_T7. -/
 theorem synthetic_integration_increments_lambda (u : KleinManifold) :
-    (synthetic_integration u).λ = u.λ + 1 := by
+    (synthetic_integration u).lam = u.lam + 1 := by
   simp [synthetic_integration]
 
 /-- automatic_differentiation preserves reality. From E3_T8. -/
@@ -87,7 +87,7 @@ theorem automatic_differentiation_preserves_a (u : KleinManifold) :
 
 /-- automatic_differentiation zeros Veblen depth. From E9_T7. -/
 theorem automatic_differentiation_zeros_lambda (u : KleinManifold) :
-    (automatic_differentiation u).λ = 0 := by
+    (automatic_differentiation u).lam = 0 := by
   simp [automatic_differentiation]
 
 /-- The commutator of ω and ι over ℝ vanishes.

@@ -76,15 +76,15 @@ theorem bridge_embeds_in_hex : 14489 < hex_word := by norm_num [hex_word]
 
 /-- The golden root φ = 148 at p = 229, scaled by 1000000 and reduced mod hex_word.
     This models the `encode_ipv8_address` computation in the Rust WASM core. -/
-theorem gold_phi_hex_encode : (148 * 1000000) % hex_word = 58880 := by
+theorem gold_phi_hex_encode : (148 * 1000000) % hex_word = 19712 := by
   norm_num [hex_word]
 
 /-- The conjugate root φ̄ = 82 at p = 229, similarly encoded. -/
-theorem gold_phibar_hex_encode : (82 * 1000000) % hex_word = 16960 := by
+theorem gold_phibar_hex_encode : (82 * 1000000) % hex_word = 14464 := by
   norm_num [hex_word]
 
 /-- The golden root at Blue: φ = 14, hex-encoded. -/
-theorem blue_phi_hex_encode : (14 * 1000000) % hex_word = 46848 := by
+theorem blue_phi_hex_encode : (14 * 1000000) % hex_word = 40832 := by
   norm_num [hex_word]
 
 -- ════════════════════════════════════════════════════

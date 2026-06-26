@@ -42,7 +42,7 @@ full ambient Topos, but rather a strict, exact subcategory defined by:
 open ProtorealManifold
 open GoldenAlgebra
 open StructuralMorphism
-open MultimodalMorphism
+-- MultimodalMorphism content used via import, not namespace open
 
 -- ════════════════════════════════════════════════════
 -- 1. THE INFINITY CATEGORY BASE
@@ -55,11 +55,11 @@ def InfinityObject := ProtorealManifold
     This matches our definition of `automatic_differentiation` (consolidation). -/
 structure ChronologicalMorphism (source target : InfinityObject) where
   /-- The target must have a strictly greater Veblen depth than the source. -/
-  h_depth : source.λ < target.λ
+  h_depth : source.l < target.l
 
 /-- Because the Veblen hierarchy has no upper bound, we can compose these
     morphisms infinitely, establishing the structure of an ∞-category. -/
-theorem infinity_morphism_composition
+def infinity_morphism_composition
     {A B C : InfinityObject}
     (f : ChronologicalMorphism A B)
     (g : ChronologicalMorphism B C) :
@@ -93,7 +93,7 @@ structure InfinityModalTopos where
     structural Bridge Identity. -/
 def is_golden_object (u : InfinityObject) : Prop :=
   -- The SL(-1) condition
-  u.ω * u.ι = -1
+  u.b * u.m = -1
 
 /-- By expanding the discrete Golden Subgroups ($G_\varphi$) defined over 
     the Veblen chronological steps into the full ambient $\infty$-Modal Topos, 
@@ -104,7 +104,7 @@ structure FiniteGoldenSubcategory extends InfinityModalTopos where
   /-- The subcategory is restricted to golden objects maintaining the SL(-1) equilibrium. -/
   h_golden_restriction : ∀ u ∈ objects, is_golden_object u
   /-- The subcategory maintains the quasi-periodic trace mapping. -/
-  h_quasi_periodic : ∀ u ∈ objects, u.ω + u.ι = 1
+  h_quasi_periodic : ∀ u ∈ objects, u.b + u.m = 1
 
 /-- A morphism belongs to the Golden Subcategory if the spatial phase shift
     incurred during the chronological jump strictly obeys the irrational
@@ -112,7 +112,7 @@ structure FiniteGoldenSubcategory extends InfinityModalTopos where
 structure GoldenMorphism {A B : InfinityObject} (f : ChronologicalMorphism A B) where
   -- The spatial gap between source and target must be bounded by the Commutator √5
   -- (Represented here algebraically as the Trace=1, Det=-1 property)
-  h_golden_shear : A.ω + A.ι = 1 ∧ A.ω * A.ι = -1
+  h_golden_shear : A.b + A.m = 1 ∧ A.b * A.m = -1
 
 /-- **THE GRAND THEOREM: THE GOLDEN SUBCATEGORY**
     We formally prove that any valid state in the Golden Subcategory
@@ -122,18 +122,18 @@ structure GoldenMorphism {A B : InfinityObject} (f : ChronologicalMorphism A B) 
     transfinite ∞-Modal Topos. -/
 theorem golden_subcategory_is_golden_algebra (u : InfinityObject)
     (h_obj : is_golden_object u)
-    (h_trace : u.ω + u.ι = 1) :
-    u.ω^2 - u.ω - 1 = 0 := by
+    (h_trace : u.b + u.m = 1) :
+    u.b^2 - u.b - 1 = 0 := by
   -- We extract the SL(-1) condition from the Golden Object definition
-  have h_det : u.ω * u.ι = -1 := h_obj
+  have h_det : u.b * u.m = -1 := h_obj
   -- By manipulating the trace condition, we find ι = 1 - ω
-  have h_sub : u.ι = 1 - u.ω := by linarith
+  have h_sub : u.m = 1 - u.b := by linarith
   -- Substitute this into the determinant condition: ω * (1 - ω) = -1
-  have h_eq : u.ω * (1 - u.ω) = -1 := by
+  have h_eq : u.b * (1 - u.b) = -1 := by
     rw [h_sub] at h_det
     exact h_det
   -- Expand: ω - ω^2 = -1
-  have h_expand : u.ω - u.ω^2 = -1 := by linarith
+  have h_expand : u.b - u.b^2 = -1 := by linarith
   -- Rearrange to the Golden Lie Algebra: ω^2 - ω - 1 = 0
   linarith
 

@@ -31,9 +31,9 @@ All proofs by `native_decide`.
 -- ════════════════════════════════════════════════════
 
 -- All three are golden split primes (5 is QR)
-theorem level1_149_golden : (78 * 78) % 149 = 5 % 149 := by native_decide
+theorem level1_149_golden : (68 * 68) % 149 = 5 % 149 := by native_decide
 theorem level1_139_golden : (12 * 12) % 139 = 5 % 139 := by native_decide
-theorem level1_79_golden  : (22 * 22) % 79  = 5 % 79  := by native_decide
+theorem level1_79_golden  : (20 * 20) % 79  = 5 % 79  := by native_decide
 
 -- Triangle inequality
 theorem level1_triangle : 149 < 139 + 79 := by norm_num
@@ -51,7 +51,7 @@ theorem level2_above_level1_b : 181 > 149 := by norm_num
 theorem level2_above_level1_c : 179 > 149 := by norm_num
 
 -- 179 is golden split
-theorem level2_179_golden : (83 * 83) % 179 = 5 % 179 := by native_decide
+theorem level2_179_golden : (30 * 30) % 179 = 5 % 179 := by native_decide
 
 -- Triangle inequality
 theorem level2_triangle : 229 < 181 + 179 := by norm_num

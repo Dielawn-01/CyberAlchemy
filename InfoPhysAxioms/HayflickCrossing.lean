@@ -1,6 +1,7 @@
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Data.Nat.Basic
 import Mathlib.Tactic.NormNum
+import Mathlib.Data.Real.Basic
 
 /-!
 # Hayflick Crossing: The Biological Nibiru
@@ -198,7 +199,7 @@ def metabolic_balance (atp dna protein : ℝ) : ℝ :=
 /-- A cell is metabolically confined when the three pathways sum to their
     equilibrium target. Imbalance above threshold → deconfinement risk. -/
 def is_confined (atp dna protein : ℝ) (target : ℝ) (tolerance : ℝ) : Prop :=
-  |metabolic_balance atp dna protein - target| ≤ tolerance
+  abs (metabolic_balance atp dna protein - target) ≤ tolerance
 
 /-- **DARK THRUST = DECONFINEMENT**
     The dark thrust value ω² - 1 = 133 (mod 229) corresponds to
@@ -259,32 +260,32 @@ def measured_cell : TelomereClock := {
 theorem telomere_at_nibiru_measured :
     let tc : TelomereClock := {
       divisions := 57, initial_bp := 11000,
-      loss_per_division := 28, h_bound := by omega }
+      loss_per_division := 28, h_bound := by unfold conjugate_orbit_order; omega }
     tc.current_bp = 9404 := by
-  native_decide
+  simp [TelomereClock.current_bp]
 
 /-- The telomere is ABOVE senescence threshold at the Nibiru crossing. -/
 theorem nibiru_telomere_healthy :
     let tc : TelomereClock := {
       divisions := 57, initial_bp := 11000,
-      loss_per_division := 28, h_bound := by omega }
+      loss_per_division := 28, h_bound := by unfold conjugate_orbit_order; omega }
     tc.current_bp > 4000 := by
-  native_decide
+  simp [TelomereClock.current_bp]
 
 /-- Actual divisions to telomere senescence: (11000 - 4000) / 28 = 250. -/
 theorem divisions_to_exhaustion :
     (11000 - 4000) / 28 = 250 := by native_decide
 
-/-- ── Legacy comparison (historical 100 bp/div estimate) ──
-    These used older estimates; kept for reference. -/
+-- Legacy comparison (historical 100 bp/div estimate)
+-- These used older estimates; kept for reference.
 
 /-- With older estimate (100 bp/div): 10,000 - 57 × 100 = 4,300.
     This was below the old threshold (5,000). -/
 theorem legacy_estimate :
     let tc : TelomereClock := {
       divisions := 57, initial_bp := 10000,
-      loss_per_division := 100, h_bound := by omega }
+      loss_per_division := 100, h_bound := by unfold conjugate_orbit_order; omega }
     tc.current_bp = 4300 := by
-  native_decide
+  simp [TelomereClock.current_bp]
 
 end HayflickCrossing

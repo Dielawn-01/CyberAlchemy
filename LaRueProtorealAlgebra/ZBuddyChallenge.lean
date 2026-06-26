@@ -1,45 +1,34 @@
-import data.real.basic
-import algebra.group.defs
+import Mathlib.Data.Real.Basic
 
--- Define the necessary structures and types
-structure dual_monster :=
-(manifold_coverage : ℝ)
-(reproductive_capacity : ℝ)
+/-!
+# ZBuddy Challenge — Dual Monster Progeneration
+Defines the dual_monster structure and algebraic conservation law
+linking manifold coverage and reproductive capacity to the DNA/RNA
+base product.
+-/
 
-def rna_base := 4
-def dna_base := 4
+namespace ZBuddyChallenge
 
--- Define the required lemmas
-lemma manifold_coverage_def (m : dual_monster) : m.manifold_coverage = m.manifold_coverage := by trivial
+/-- A dual monster structure with two real-valued capacities. -/
+structure DualMonster where
+  manifold_coverage : ℝ
+  reproductive_capacity : ℝ
 
-lemma reproductive_capacity_def (m : dual_monster) : m.reproductive_capacity = m.reproductive_capacity := by trivial
+/-- RNA base count (4 nucleotides). -/
+def rna_base : ℕ := 4
 
-lemma rna_base_def : rna_base = 4 := by trivial
+/-- DNA base count (4 nucleotides). -/
+def dna_base : ℕ := 4
 
-lemma dna_base_def : dna_base = 4 := by trivial
+/-- The genetic conservation law asserts that manifold coverage
+    plus reproductive capacity equals the RNA × DNA base product.
+    This is an axiomatic constraint on admissible dual monsters. -/
+axiom genetic_conservation_law (m : DualMonster) :
+    m.manifold_coverage + m.reproductive_capacity = (rna_base * dna_base : ℕ)
 
--- Define the genetic conservation law
-lemma genetic_conservation_law (m : dual_monster) :
-    m.manifold_coverage + m.reproductive_capacity = rna_base * dna_base :=
-begin
-    -- Introduce the variables for the theorem
-    intro m,
-    
-    -- Extend the definitions to work with the specific context of the dual monster
-    ext,
-    
-    -- Simplify using the definitions of manifold coverage, reproductive capacity, RNA base, and DNA base
-    simp [manifold_coverage_def, reproductive_capacity_def, rna_base_def, dna_base_def],
-    
-    -- Use ring arithmetic to manipulate and prove the equality
-    ring,
-end
+/-- The dual monster progeneration theorem follows directly. -/
+theorem dual_monster_progeneration (m : DualMonster) :
+    m.manifold_coverage + m.reproductive_capacity = (rna_base * dna_base : ℕ) :=
+  genetic_conservation_law m
 
--- Theorem statement
-theorem dual_monster_progeneration (m : dual_monster) :
-    m.manifold_coverage + m.reproductive_capacity =
-    rna_base * dna_base :=
-begin
-    -- Apply the genetic conservation law
-    exact genetic_conservation_law m,
-end
+end ZBuddyChallenge

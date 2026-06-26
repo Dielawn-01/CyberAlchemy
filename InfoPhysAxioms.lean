@@ -215,4 +215,24 @@ import InfoPhysAxioms.IsotopicArchetypes
 import InfoPhysAxioms.RoyalJellyResonance
 import InfoPhysAxioms.JungianTierComposition
 import InfoPhysAxioms.DarkMatterGenesis
+-- ═══════════════════════════════════════════════════════
+-- Source Library Incorporation (2026-06-25)
+-- Berry–Keating, Mahler/de Shalit, Lev GFQT
 
+-- ═══════════════════════════════════════════════════════
+import InfoPhysAxioms.BerryKeatingBridge
+import InfoPhysAxioms.MahlerBounds
+import InfoPhysAxioms.GaloisFieldQT
+-- ═══════════════════════════════════════════════════════
+-- Lean Module Repair (2026-06-26)
+-- Modules fixed & registered from broken/unregistered state
+-- ═══════════════════════════════════════════════════════
+import InfoPhysAxioms.SpacetimeCoupling
+import InfoPhysAxioms.GoldenPlexHierarchy
+import InfoPhysAxioms.HexadecimalBoundary
+import InfoPhysAxioms.MicrotubuleLattice
+import InfoPhysAxioms.PrimeFieldMechanics
+import InfoPhysAxioms.ChromoChronoFrozen
+import InfoPhysAxioms.HayflickCrossing
+import InfoPhysAxioms.PredictiveProbability
+import InfoPhysAxioms.MayerVietorisParity

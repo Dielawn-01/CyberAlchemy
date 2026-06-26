@@ -112,7 +112,7 @@ theorem phi_bar_not_order_19 : phi_bar ^ 19 ≠ 1 := by native_decide
 -- SECTION 4: THE MAYER-VIETORIS PARITY
 -- ════════════════════════════════════════════════════
 
-/-- **THE CHRONOMETRIC PARITY**
+/-! **THE CHRONOMETRIC PARITY**
     φⁿ · φ̄ⁿ = (φφ̄)ⁿ = (-1)ⁿ for all n.
 
     This is the connecting homomorphism of the Mayer-Vietoris
@@ -224,12 +224,9 @@ theorem odd_negative (n : ℕ) (h : n % 2 = 1) : parity_sign n = -1 := by
 theorem parity_alternates (n : ℕ) : parity_sign (n + 1) = -parity_sign n := by
   unfold parity_sign
   by_cases h : n % 2 = 0
-  · simp [h, Nat.add_mod, Nat.mod_eq_of_lt]
-    omega
-  · simp at h
-    have h1 : n % 2 = 1 := by omega
+  · simp [h, Nat.add_mod]
+  · have h1 : n % 2 = 1 := by omega
     simp [h1, Nat.add_mod]
-    omega
 
 -- ════════════════════════════════════════════════════
 -- SECTION 8: CHROMO × CHRONO PRODUCT
@@ -267,7 +264,7 @@ def chromo_chrono (n : ℕ) : ChromoChronoState := {
 -- SECTION 9: TEMPORAL PROJECTION
 -- ════════════════════════════════════════════════════
 
-/-- **TEMPORAL PROJECTION THEOREM**
+/-! **TEMPORAL PROJECTION**
     The golden field is deterministic: knowing the generator (φ = 148)
     and any single step n, every other step is uniquely determined.
 
@@ -281,7 +278,7 @@ def chromo_chrono (n : ℕ) : ChromoChronoState := {
 
 /-- Forward projection: φⁿ⁺¹ = φ · φⁿ. -/
 theorem forward_step (n : ℕ) : phi ^ (n + 1) = phi * phi ^ n := by
-  ring
+  rw [pow_succ']
 
 /-- Reverse projection from Nibiru: φⁿ = (-1) · φ^(n - 57) when n < 114.
     The sign flip at Nibiru (-1) means the retro-projected state is the
@@ -293,16 +290,8 @@ theorem nibiru_reflection : phi ^ 57 = -1 := phi_not_order_57
     without any signal passing between them. -/
 theorem conjugate_determination (n : ℕ) :
     phi ^ n * phi_bar ^ n = (-1 : ZMod 229) ^ n := by
-  have h : phi * phi_bar = (-1 : ZMod 229) := vieta_product
-  induction n with
-  | zero => simp
-  | succ k ih =>
-    rw [pow_succ, pow_succ, pow_succ]
-    ring_nf
-    rw [show phi ^ k * (phi_bar * phi_bar ^ k) = 
-         (phi_bar * phi ^ k) * phi_bar ^ k from by ring]
-    sorry -- requires careful ring manipulation in ZMod; 
-          -- verified computationally for all n ∈ [0, 114]
+  rw [← mul_pow]
+  rw [vieta_product]
 
 -- ════════════════════════════════════════════════════
 -- SECTION 10: VERIFIED INSTANCES

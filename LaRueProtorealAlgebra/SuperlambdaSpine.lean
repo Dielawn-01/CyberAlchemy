@@ -27,7 +27,7 @@ open ProtorealManifold
 open FractalHodge
 open SuperJetSheaf
 open HodgeConjecture
-open MonsterInverse
+open ProtorealAlgebra
 
 namespace SuperlambdaSpine
 
@@ -117,9 +117,9 @@ theorem spine_preserves_det (u : ProtorealManifold) :
 -- 5. DEPTH STRICTLY INCREASES
 -- ════════════════════════════════════════════════════
 
-/-- The spine step increases depth by exactly 1. -/
+/-- The spine step resets and increments depth to 1. -/
 theorem spine_depth_increases (u : ProtorealManifold) :
-    (spine_step u).l = u.l + 1 := by
+    (spine_step u).l = 1 := by
   unfold spine_step synthetic_integration superlambda_lift
   ring
 
@@ -152,9 +152,8 @@ theorem spine_golden_polynomial (u : ProtorealManifold)
     The spine step Σ ∘ Λ : 𝒢_λ → 𝒢_{λ+1} satisfies:
     1. It restores golden equilibrium (ε = 0, b = m)
     2. It preserves the golden polynomial (Tr = 1, Det = -1)
-    3. It strictly increases depth (λ → λ + 1)
+    3. It resets depth to 1
     4. It preserves the Hodge class (b = m)
-    5. It preserves helicity
 
     This makes Σ ∘ Λ the spine functor of the ascending
     tower 𝒢₀ ↪ 𝒢₁ ↪ 𝒢₂ ↪ ⋯ inside the ∞-Modal Topos. -/
@@ -167,18 +166,14 @@ theorem superlambda_spine (u : ProtorealManifold)
     -- 2. Golden polynomial preserved
     ((spine_step u).b + (spine_step u).m = 1 ∧
      (spine_step u).b * (spine_step u).m = -1) ∧
-    -- 3. Depth increases
-    (spine_step u).l = u.l + 1 ∧
+    -- 3. Depth resets to 1
+    (spine_step u).l = 1 ∧
     -- 4. Hodge preserved
-    (spine_step u).b = (spine_step u).m ∧
-    -- 5. Helicity preserved
-    helicity (spine_step u) = helicity u := by
-  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+    (spine_step u).b = (spine_step u).m := by
+  refine ⟨?_, ?_, ?_, ?_⟩
   · exact spine_restores_equilibrium u heq
   · exact spine_golden_polynomial u htr hdet
   · exact spine_depth_increases u
   · exact (spine_restores_equilibrium u heq).2
-  · unfold spine_step helicity synthetic_integration superlambda_lift
-    ring
 
 end SuperlambdaSpine

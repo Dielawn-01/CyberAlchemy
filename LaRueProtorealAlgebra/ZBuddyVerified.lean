@@ -3,6 +3,8 @@ import Mathlib.Tactic.Linarith
 
 open ProtorealManifold
 
+namespace ZBuddyVerified
+
 /-!
 # ZBuddy Verified Theorems
 
@@ -94,3 +96,5 @@ theorem crystallization_conjunction (u : ProtorealManifold) :
     (synthetic_integration u).e = 0 ∧ (synthetic_integration u).l = u.l + 1 := by
   unfold synthetic_integration; simp
 
+
+end ZBuddyVerified

@@ -60,7 +60,7 @@ theorem heron_area_sq : 199 * (199 - 116) * (199 - 138) * (199 - 144) = 55414535
 theorem qscreen_identity : 55413136 + 1399 = 55414535 := by norm_num
 
 /-- δq² = 1399 is prime. The defect is irreducible. -/
-theorem defect_is_prime : Nat.Prime 1399 := by decide
+theorem defect_is_prime : Nat.Prime 1399 := by native_decide
 
 /-- δq² mod 229 = 25 = 5². The defect IS the golden discriminant squared. -/
 theorem defect_mod_229 : 1399 % 229 = 25 := by native_decide
@@ -151,9 +151,9 @@ theorem lambda_bounds : 2705 < 3722 ∧ 3722 < 2 * 2705 := by norm_num
 -- §4: THE RECURRENCE GATE
 -- ════════════════════════════════════════════════════
 
-/-- σ_κ = 3/40 (Gaussian width of the recurrence gate). -/
-/-- χ·μ = 7/40 (coupling product). -/
-/-- M = 7 (gate depth). -/
+-- σ_κ = 3/40 (Gaussian width of the recurrence gate).
+-- χ·μ = 7/40 (coupling product).
+-- M = 7 (gate depth).
 
 /-- M = 7 = centered_hex(2): the gate depth is the agentic basis.
     This connects Lockwood's spectral model to ChromoChronodynamics.lean. -/
@@ -202,7 +202,7 @@ theorem side_116_primitive : Nat.pow 116 114 % 229 ≠ 1 := by native_decide
 
 /-- 7444 = 4 × 1861. 1861 is prime. -/
 theorem qdelta_factored : 7444 = 4 * 1861 := by norm_num
-theorem factor_1861_prime : Nat.Prime 1861 := by decide
+theorem factor_1861_prime : Nat.Prime 1861 := by native_decide
 
 -- ════════════════════════════════════════════════════
 -- §6: THE FROZEN POTENTIAL CONSTANTS
@@ -222,8 +222,8 @@ theorem ddefect_den_is_4_area : 221658140 = 4 * 55414535 := by norm_num
 theorem ddefect_den_mod : 221658140 % 229 = 109 := by native_decide
 
 /-- G_12 = 5596726736/3491115705 (exact rational target). -/
-theorem g12_num_mod : 5596726736 % 229 = 65 := by native_decide
-theorem g12_den_mod : 3491115705 % 229 = 102 := by native_decide
+theorem g12_num_mod : 5596726736 % 229 = 170 := by native_decide
+theorem g12_den_mod : 3491115705 % 229 = 171 := by native_decide
 
 /-- The G_12 target ≈ (101/63)·q_Δ². Both 101 and 63 are DARK in F*₂₂₉.
     Neither is in the golden or conjugate orbit. -/

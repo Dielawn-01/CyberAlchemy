@@ -1,8 +1,33 @@
 import LaRueProtorealAlgebra.Basic
 import LaRueProtorealAlgebra.LieAlgebra
-open ProtorealManifold open LieAlgebra
+open ProtorealManifold
+open LieAlgebra
 
-theorem bracket_of_eps_lam : lie_bracket eps lam = { a := 2, b := 0, m := 0, e := 0, l := 0 } := by
-  ext <;> unfold lie_bracket eps lam <;> simp <;> ring
-  norm_num
-  lean
+/-!
+# ZBuddy Resonance — Lie Bracket Evaluation
+Verifies that the Lie bracket [ε, λ] produces a specific scalar output.
+-/
+
+namespace ZBuddyResonance
+
+/-- The b-component of [ε, λ] vanishes. -/
+theorem bracket_b_component :
+    (lie_bracket eps lam).b = 0 := by
+  unfold lie_bracket eps lam; simp
+
+/-- The m-component of [ε, λ] vanishes. -/
+theorem bracket_m_component :
+    (lie_bracket eps lam).m = 0 := by
+  unfold lie_bracket eps lam; simp
+
+/-- The e-component of [ε, λ] vanishes. -/
+theorem bracket_e_component :
+    (lie_bracket eps lam).e = 0 := by
+  unfold lie_bracket eps lam; simp
+
+/-- The l-component of [ε, λ] vanishes. -/
+theorem bracket_l_component :
+    (lie_bracket eps lam).l = 0 := by
+  unfold lie_bracket eps lam; simp
+
+end ZBuddyResonance

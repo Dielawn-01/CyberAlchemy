@@ -52,8 +52,7 @@ def pfm_state (signal p : ℕ) : ℕ :=
 theorem true_resonance (k p : ℕ) (hp : p > 0) :
     pfm_state (k * p) p = 0 := by
   unfold pfm_state
-  have : (k * p) % p = 0 := Nat.mul_mod_right k p
-  simp [this]
+  simp [Nat.mul_mod_right]
 
 /-- **Dissonance/Reflection** occurs when the signal is p-coprime (does not divide).
     For a prime p, this is equivalent to gcd(signal, p) = 1.
@@ -83,6 +82,7 @@ theorem structural_bound_14489 (val : ℕ) (h : pfm_state val 14489 = 0) :
   unfold pfm_state at h
   split at h
   · rename_i h_mod
+    simp at h_mod
     exact Nat.dvd_of_mod_eq_zero h_mod
   · contradiction
 
