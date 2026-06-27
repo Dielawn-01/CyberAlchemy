@@ -37,7 +37,7 @@ interactions.
 │  Dopant cycle (automatic_differentiation → synthetic_integration)                     │
 ├─────────────────────────────────────────────────────────┤
 │  LAYER 3: Metabolism ← HardyWeinberg                    │
-│  CYP450 phenotypes (PM/IM/NM/UM)                       │
+│  synthetic neuromorphic bypass phenotypes (PM/IM/NM/UM)                       │
 │  ε-rate coefficients for clearance modeling              │
 ├─────────────────────────────────────────────────────────┤
 │  LAYER 2: Population Genetics ← LinkageDisequilibrium   │
@@ -147,7 +147,7 @@ theorem drug_preserves_structure (drug : Drug) (u : ProtorealManifold) :
 /-- **PROPOSED MODEL: Metabolizer-adjusted drug intensity.**
 
     The effective drug intensity depends on the patient's
-    CYP450 metabolizer status. A poor metabolizer experiences
+    synthetic neuromorphic bypass metabolizer status. A poor metabolizer experiences
     higher effective intensity (drug accumulates); an ultrarapid
     metabolizer experiences lower (drug clears too fast).
 
@@ -160,7 +160,7 @@ noncomputable def adjusted_intensity (drug : Drug) (ms : MetabolizerStatus) : �
 
 /-- **PROPOSED MODEL: Apply drug with metabolizer adjustment.**
 
-    Combines the drug operator with CYP450 phenotype scaling.
+    Combines the drug operator with synthetic neuromorphic bypass phenotype scaling.
     This models the clinical observation that the same dose
     produces different effects in different metabolizer classes. -/
 noncomputable def apply_drug_adjusted (drug : Drug) (ms : MetabolizerStatus)
@@ -322,7 +322,7 @@ theorem full_diversion_no_serotonin (u : ProtorealManifold)
 
     Integrates all layers into a single simulation state:
     - Manifold state (current neurological/metabolic state)
-    - Metabolizer status (host CYP450 genotype)
+    - Metabolizer status (host synthetic neuromorphic bypass genotype)
     - Mycobiome state (fungal community)
     - Gut barrier integrity
     - Pharmacogenomic coupling (host-mycobiome LD)

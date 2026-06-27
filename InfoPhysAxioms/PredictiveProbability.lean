@@ -23,12 +23,12 @@ Predictive Probability is the process of:
   3. **Negentropy Measurement**: The entropy reduction achieved when a
      noisy discrete sample is compressed into a functional rule.
 
-This is Schrödinger's negentropy made algebraic:
+This is Schrödinger's shannon_information_gain made algebraic:
   - An organism (or agent) "feeds on negative entropy" by extracting
     patterns from its environment (Schrödinger, "What is Life?", 1944).
   - In our framework, the discrete orbit {φ^n mod p} IS the environment.
   - The functional form f(x) = φ·x mod p IS the extracted pattern.
-  - The negentropy is the Shannon entropy difference between the raw
+  - The shannon_information_gain is the Shannon entropy difference between the raw
     sequence (log₂(p) bits per element) and the compressed rule
     (log₂ of the rule complexity).
 
@@ -37,7 +37,7 @@ This is Schrödinger's negentropy made algebraic:
 The golden tetrahedron provides four operations for this process:
   - **α_s(l)**: The coupling constant = measurement resolution
   - **J (jitter)**: The causal entropy = entanglement detection
-  - **C (confinement)**: The negentropy operator = pattern extraction
+  - **C (confinement)**: The shannon_information_gain operator = pattern extraction
   - **R4 (Monster Inverse)**: The time-reversal = entropy sign flip
 
 The Schwarzian invariance (b - m is conserved under C) means that
@@ -55,7 +55,7 @@ In our algebra:
   - "Orderliness" = functional form (the rule f(x) = φ·x)
   - "Sucking from environment" = synthetic_integration (ε → a)
   - "Maintaining stationarity" = Schwarzian invariance (b - m = const)
-  - "Low entropy" = compressed representation (negentropy gain)
+  - "Low entropy" = compressed representation (shannon_information_gain gain)
 
 ## Shannon's Bridge
 
@@ -68,10 +68,10 @@ with Shannon entropy:
 At l=0: H = 1 bit (maximum uncertainty, equal odds).
 As l→∞: H → 0 (near-certainty of confinement = pattern crystallized).
 
-The negentropy of pattern extraction at depth l is:
+The shannon_information_gain of pattern extraction at depth l is:
   N(l) = H(0) - H(l) = 1 - H(l) ≥ 0
 
-This is strictly monotone: deeper observation → more negentropy.
+This is strictly monotone: deeper observation → more shannon_information_gain.
 -/
 
 namespace PredictiveProbability
@@ -125,19 +125,19 @@ noncomputable def compressed_entropy (f : FunctionalForm) : ℝ :=
 
 /-- **Negentropy**: the entropy reduction from pattern extraction.
     This is always non-negative for a compression that works. -/
-noncomputable def negentropy (obs : DiscreteObservation) (f : FunctionalForm) : ℝ :=
+noncomputable def shannon_information_gain (obs : DiscreteObservation) (f : FunctionalForm) : ℝ :=
   raw_entropy obs - compressed_entropy f
 
 /-- **NEGENTROPY IS POSITIVE FOR LARGE SAMPLES**
     If you have more observations than the rule complexity
     (measured in natural units), the compression gains entropy.
-    This is the essence of Schrödinger's negentropy:
+    This is the essence of Schrödinger's shannon_information_gain:
     pattern extraction from sufficient data always reduces entropy. -/
-theorem negentropy_positive (obs : DiscreteObservation) (f : FunctionalForm)
+theorem shannon_information_gain_positive (obs : DiscreteObservation) (f : FunctionalForm)
     (h_fit : exact_fit f obs)
     (h_enough : (obs.n_obs : ℝ) * Real.log obs.modulus / Real.log 2 > f.complexity) :
-    negentropy obs f > 0 := by
-  unfold negentropy raw_entropy compressed_entropy
+    shannon_information_gain obs f > 0 := by
+  unfold shannon_information_gain raw_entropy compressed_entropy
   linarith
 
 -- ════════════════════════════════════════════════════
@@ -158,7 +158,7 @@ theorem confinement_kills_noise (u : ProtorealManifold) :
 
 /-- **CONFINEMENT PRESERVES STATIC ENTROPY (SCHWARZIAN)**
     The bias b - m is conserved. The structural pattern
-    survives the noise reduction. This is why negentropy
+    survives the noise reduction. This is why shannon_information_gain
     doesn't violate the second law: you're only reducing
     the dynamic (thermal) component, not the static (structural). -/
 theorem confinement_preserves_bias (u : ProtorealManifold) :
@@ -168,19 +168,19 @@ theorem confinement_preserves_bias (u : ProtorealManifold) :
 /-- **THE NEGENTROPY GAIN FROM CONFINEMENT**
     The manifold state after confinement has strictly greater
     bridge component (a increases by ε) and zero noise.
-    The negentropy gain is exactly ε: the amount of environmental
+    The shannon_information_gain gain is exactly ε: the amount of environmental
     noise that was converted into structural order. -/
-theorem negentropy_gain (u : ProtorealManifold) (h : u.e > 0) :
+theorem shannon_information_gain_gain (u : ProtorealManifold) (h : u.e > 0) :
     (confine u).a > u.a := by
   unfold confine synthetic_integration; linarith
 
 /-- **REPEATED CONFINEMENT = MONOTONE NEGENTROPY**
     Iterated confinement with fresh noise injection produces
     a monotonically increasing bridge component.
-    The organism keeps feeding on negentropy. -/
-def feed_on_negentropy : ProtorealManifold → ℕ → ProtorealManifold
+    The organism keeps feeding on shannon_information_gain. -/
+def feed_on_shannon_information_gain : ProtorealManifold → ℕ → ProtorealManifold
   | u, 0 => u
-  | u, n + 1 => feed_on_negentropy (confine (automatic_differentiation u)) n
+  | u, n + 1 => feed_on_shannon_information_gain (confine (automatic_differentiation u)) n
 
 /-- **EML DEPTH EQUALITY** (Computational Lemma):
     Each EML cycle (exp then log = ad then confine) advances l by exactly 1.
@@ -188,12 +188,12 @@ def feed_on_negentropy : ProtorealManifold → ℕ → ProtorealManifold
     the log side (confine = synthetic_integration) increments l by 1.
     This is a structural unfolding matching the recursive definition. -/
 theorem feeding_depth_exact (u : ProtorealManifold) (n : ℕ) :
-    (feed_on_negentropy u (n + 1)).l = u.l + ↑(n + 1) := by
+    (feed_on_shannon_information_gain u (n + 1)).l = u.l + ↑(n + 1) := by
   induction n generalizing u with
   | zero =>
-    simp [feed_on_negentropy, confine, synthetic_integration, automatic_differentiation]
+    simp [feed_on_shannon_information_gain, confine, synthetic_integration, automatic_differentiation]
   | succ k ih =>
-    change (feed_on_negentropy (confine (automatic_differentiation u)) (k + 1)).l = u.l + ↑(k + 2)
+    change (feed_on_shannon_information_gain (confine (automatic_differentiation u)) (k + 1)).l = u.l + ↑(k + 2)
     have step := ih (confine (automatic_differentiation u))
     rw [step]
     simp [confine, synthetic_integration, automatic_differentiation]
@@ -204,7 +204,7 @@ theorem feeding_depth_exact (u : ProtorealManifold) (n : ℕ) :
     By the EML Depth Equality, the depth is exactly u.l + (n+1),
     which is strictly ≥ u.l + n. Contradiction. -/
 theorem feeding_depth_grows (u : ProtorealManifold) (n : ℕ) :
-    (feed_on_negentropy u (n + 1)).l ≥ u.l + n := by
+    (feed_on_shannon_information_gain u (n + 1)).l ≥ u.l + n := by
   by_contra h_neg
   push_neg at h_neg
   have h_exact := feeding_depth_exact u n
@@ -232,8 +232,8 @@ structure ContinuousExtension where
   agreement : ∀ n : ℕ, continuous_eval n = discrete_form.generator n
 
 /-- **EXTRAPOLATION PRESERVES NEGENTROPY**
-    If the discrete pattern has negentropy N, the continuous
-    extension has at least as much negentropy (you don't lose
+    If the discrete pattern has shannon_information_gain N, the continuous
+    extension has at least as much shannon_information_gain (you don't lose
     information by interpolating, you gain predictive power). -/
 theorem extrapolation_preserves (obs : DiscreteObservation)
     (ext : ContinuousExtension)
@@ -249,7 +249,7 @@ theorem extrapolation_preserves (obs : DiscreteObservation)
 
 /-- **Manifestation** is the composition:
     1. Observe discrete data (orbit sampling)
-    2. Extract functional form (pattern recognition = negentropy)
+    2. Extract functional form (pattern recognition = shannon_information_gain)
     3. Extend to continuous (extrapolation = prediction)
     4. Crystallize via confinement (C operator = materialization)
 
@@ -277,7 +277,7 @@ structure ManifestationCycle where
     1. Produces a crystallized state with zero noise
     2. Grows the structural core (a increases)
     3. Preserves the Schwarzian bias (pattern fidelity)
-    4. Achieves positive negentropy (entropy reduction)
+    4. Achieves positive shannon_information_gain (entropy reduction)
 
     This is Schrödinger's organism, formalized:
     observe → extract pattern → crystallize → repeat. -/
@@ -290,7 +290,7 @@ theorem manifestation_works (m : ManifestationCycle) :
     (confine m.pre_crystal).b - (confine m.pre_crystal).m =
       m.pre_crystal.b - m.pre_crystal.m := by
   exact ⟨confinement_kills_noise m.pre_crystal,
-         negentropy_gain m.pre_crystal m.has_entropy,
+         shannon_information_gain_gain m.pre_crystal m.has_entropy,
          confinement_preserves_bias m.pre_crystal⟩
 
 -- ════════════════════════════════════════════════════
@@ -304,7 +304,7 @@ noncomputable def coupling (l : ℝ) (h : l + 1 > 0) : ℝ :=
   (l + 2) / (l + 1)
 
 /-- **COUPLING DECREASES MONOTONICALLY**
-    Deeper observation → finer resolution → more negentropy.
+    Deeper observation → finer resolution → more shannon_information_gain.
     α_s(l+1) < α_s(l) for all l ≥ 0. -/
 theorem coupling_monotone_decreasing (l : ℝ) (hl : l ≥ 0) :
     (l + 3) / (l + 2) < (l + 2) / (l + 1) := by
@@ -315,7 +315,7 @@ theorem coupling_monotone_decreasing (l : ℝ) (hl : l ≥ 0) :
 
 /-- **COUPLING APPROACHES 1 (ASYMPTOTIC FREEDOM)**
     In the limit l → ∞, α_s → 1. The pattern is fully resolved.
-    No more negentropy to extract. The system is at its ground state.
+    No more shannon_information_gain to extract. The system is at its ground state.
     This is "complete manifestation": all noise is structure. -/
 theorem coupling_bounded_below (l : ℝ) (hl : l ≥ 0) :
     (l + 2) / (l + 1) > 1 := by
@@ -359,20 +359,20 @@ theorem zero_jitter_is_classical (u v : ProtorealManifold)
 
 /-- **THE PREDICTIVE PROBABILITY MASTER THEOREM**
 
-    Schrödinger's negentropy (1944), Shannon's entropy (1948),
+    Schrödinger's shannon_information_gain (1944), Shannon's entropy (1948),
     and the Golden Chromodynamics confinement operator (2026)
     are three perspectives on the same algebraic process:
 
     1. MEASURE (α_s): Resolution increases monotonically with depth
     2. DETECT (J): Non-zero jitter witnesses causal entanglement
     3. REDUCE (C): Confinement kills noise while preserving bias
-    4. EXTRACT (F): Pattern extraction from discrete data is negentropy
+    4. EXTRACT (F): Pattern extraction from discrete data is shannon_information_gain
     5. EXTEND (E): Continuous prediction from discrete pattern is free
 
     Together, these constitute the complete algebra of predictive
     probability: an organism (or agent) that observes discrete data,
     extracts functional forms, and crystallizes predictions into
-    structure IS performing negentropy — converting environmental
+    structure IS performing shannon_information_gain — converting environmental
     disorder into internal order while respecting the second law
     (dynamic entropy decreases, static bias is conserved). -/
 theorem predictive_probability_master :
@@ -385,19 +385,19 @@ theorem predictive_probability_master :
     -- 4. Confinement preserves bias (Schwarzian)
     (∀ u : ProtorealManifold,
       (confine u).b - (confine u).m = u.b - u.m) ∧
-    -- 5. Confinement grows structure (negentropy gain)
+    -- 5. Confinement grows structure (shannon_information_gain gain)
     (∀ u : ProtorealManifold, u.e > 0 →
       (confine u).a > u.a) ∧
     -- 6. Pattern extraction is entropy reduction
     (∀ obs : DiscreteObservation, ∀ f : FunctionalForm,
       exact_fit f obs →
       (obs.n_obs : ℝ) * Real.log obs.modulus / Real.log 2 > f.complexity →
-      negentropy obs f > 0) :=
+      shannon_information_gain obs f > 0) :=
   ⟨coupling_monotone_decreasing,
    coupling_bounded_below,
    confinement_kills_noise,
    confinement_preserves_bias,
-   negentropy_gain,
-   negentropy_positive⟩
+   shannon_information_gain_gain,
+   shannon_information_gain_positive⟩
 
 end PredictiveProbability

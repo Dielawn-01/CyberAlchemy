@@ -48,7 +48,7 @@ The key insight: ε = |System A - System B| measures the
 **dissonance** between where a prime sits (color) and how
 expensive the transition to it is (interval). When ε = 0,
 the color and interval are perfectly consonant — this is a
-"harmonic prime." When ε > 0, there is chromatic friction.
+"harmonic prime." When ε > 0, there is center_active friction.
 
 ## Why This Is "Post-Riemann"
 
@@ -248,7 +248,7 @@ theorem spectral_zero_means_consonance (l : ℝ)
     The classical von Mangoldt function Λ(n) = log(p) is
     recovered as the `a` component of Λ_L. The L-space enrichment
     turns the scalar sum ψ(x) into a manifold path, where the
-    deviation from the main term is chromatic friction
+    deviation from the main term is center_active friction
     rather than an abstract error term from zeta zeros. -/
 theorem von_mangoldt_L_master (l : ℝ) (hl : l ≥ 0) :
     -- 1. Interval bounded above and below

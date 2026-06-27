@@ -2,7 +2,7 @@ import Mathlib.Data.Nat.Basic
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.NormNum
 import LaRueProtorealAlgebra.ProtorealManifold
-import InfoPhysAxioms.ChromoChronodynamics
+import InfoPhysAxioms.CenterChronodynamics
 import InfoPhysAxioms.PostQuantumSecurity
 import InfoPhysAxioms.MetalloOrganicSemantics
 
@@ -51,7 +51,7 @@ plus the PQC triple barrier (factorial in chain length).
 namespace InfoPhysAxioms.SpectralTripleIdentity
 
 open ProtorealManifold
-open ChromoChronodynamics
+open CenterChronodynamics
 open PostQuantumSecurity
 open MetalloOrganicSemantics
 

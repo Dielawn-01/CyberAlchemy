@@ -17,7 +17,7 @@ at least 4 distinct fractions.
 
 This module verifies:
 - Level 1 is the smallest: {149, 139, 79} with perimeter 367
-- The chromatic triangle {229, 181, 139} is cross-level (139 ∈ Level 1)
+- The SU(3) Center triangle {229, 181, 139} is cross-level (139 ∈ Level 1)
 - {229, 181, 179} is the pure Level 2 triangle with perimeter 589
 - 229 and 181 are base-12 palindromes: 229 = 171₁₂, 181 = 131₁₂
 - The bridge prime 14489 = 24 × 600 + 89 (24th prime)
@@ -146,7 +146,7 @@ theorem perimeter_monotone_8_9 : 4499 < 5067 := by norm_num
 -- ════════════════════════════════════════════════════
 
 /-- The golden split p-plex hierarchy:
-    Level 1 is smallest, the chromatic triangle bridges levels 1-2,
+    Level 1 is smallest, the SU(3) Center triangle bridges levels 1-2,
     229 and 181 are base-12 palindromes (171₁₂ and 131₁₂),
     and 14489 = 24×600+89 connects to all vertices via unit fractions. -/
 theorem golden_plex_hierarchy_master :

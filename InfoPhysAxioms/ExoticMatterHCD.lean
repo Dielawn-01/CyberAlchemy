@@ -7,7 +7,7 @@ import LaRueProtorealAlgebra.LieAlgebra
 import InfoPhysAxioms.MatterAntimatter
 import InfoPhysAxioms.UmbralCollapse
 import InfoPhysAxioms.RussellDiagram
-import InfoPhysAxioms.HoloneticChromodynamics
+import InfoPhysAxioms.HoloneticCenterDynamics
 
 open ProtorealManifold
 open MonsterInverse
@@ -16,7 +16,7 @@ open UmbralCalculus
 open ZBuddyCybernetics
 open TopologicalSecurity
 open RussellDiagram
-open InfoPhysAxioms.HoloneticChromodynamics
+open InfoPhysAxioms.HoloneticCenterDynamics
 open LieAlgebra
 
 namespace ExoticMatterHCD

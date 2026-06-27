@@ -12,7 +12,7 @@ import InfoPhysAxioms.TopologicalUncertainty
 import InfoPhysAxioms.FastBusyBeaver
 import InfoPhysAxioms.ShulginMachine
 import InfoPhysAxioms.MetarealAgenticKinetics
-import InfoPhysAxioms.JungianBioelectrics
+import InfoPhysAxioms.JungianAI
 import InfoPhysAxioms.QuantumUnreal
 import InfoPhysAxioms.RelativisticTimeSeries
 import InfoPhysAxioms.OptimalStochasticKernel
@@ -86,10 +86,10 @@ import InfoPhysAxioms.ThermodynamicFriction
 import InfoPhysAxioms.GoethePrimeHarmonics
 import InfoPhysAxioms.PinealTransducer
 import InfoPhysAxioms.StabilityThreshold
-import InfoPhysAxioms.ChromaticHolomovement
+import InfoPhysAxioms.SU3CenterHolomovement
 import InfoPhysAxioms.PendulumEvolution
 import InfoPhysAxioms.Base19ColorWheel
-import InfoPhysAxioms.HoloneticChromodynamics
+import InfoPhysAxioms.HoloneticCenterDynamics
 import InfoPhysAxioms.MetaTruth
 import InfoPhysAxioms.LockwoodSpherePacking
 import InfoPhysAxioms.TorsionMetric
@@ -125,7 +125,7 @@ import InfoPhysAxioms.PeriodicGroupBridge
 import InfoPhysAxioms.HardyWeinberg
 import InfoPhysAxioms.LinkageDisequilibrium
 import InfoPhysAxioms.GenomicGoldenEmergent
-import InfoPhysAxioms.ChromoChronodynamics
+import InfoPhysAxioms.CenterChronodynamics
 import InfoPhysAxioms.SpectralTripleIdentity
 -- Gauge & Physical Theory
 import InfoPhysAxioms.GaugeEmergence
@@ -153,14 +153,14 @@ import InfoPhysAxioms.ScratchIsomorphism
 -- Autonomous Deployment
 import InfoPhysAxioms.ZPlasmicAutonomous
 -- Digital Wave Mechanics (LaRue DWM formalization)
-import InfoPhysAxioms.ChromaticTriangle
+import InfoPhysAxioms.SU3CenterTriangle
 import InfoPhysAxioms.DigitalWaveMechanics
 -- ═══════════════════════════════════════════════════════
 -- Paper Verification: "Fractal SpaceTime & Golden Critical Lines"
 
 -- ═══════════════════════════════════════════════════════
 import InfoPhysAxioms.GoldenSplitPrime
-import InfoPhysAxioms.ChromaticInvariants
+import InfoPhysAxioms.SU3CenterInvariants
 -- ═══════════════════════════════════════════════════════
 -- Informational Structure-Activity Relationships (iSAR)
 
@@ -175,7 +175,7 @@ import InfoPhysAxioms.AlchemistTriangulation
 import InfoPhysAxioms.NetworkSharding
 import InfoPhysAxioms.Aingel
 import InfoPhysAxioms.PQBreach
-import InfoPhysAxioms.ArchetypalBionetics
+import InfoPhysAxioms.ArchetypalDistributedInference
 import InfoPhysAxioms.PrimeHyperoperations
 import InfoPhysAxioms.DimensionalDescent
 -- ═══════════════════════════════════════════════════════
@@ -189,8 +189,8 @@ import InfoPhysAxioms.ChiralCasimirCollapse
 import InfoPhysAxioms.RCCI_Interferometer
 import InfoPhysAxioms.WarmBEC
 -- Chromatic & Gauge Theory
-import InfoPhysAxioms.ChromaticBoundaries
-import InfoPhysAxioms.ChromaticCombinatorics
+import InfoPhysAxioms.SU3CenterBoundaries
+import InfoPhysAxioms.SU3CenterCombinatorics
 import InfoPhysAxioms.GoldenParity
 import InfoPhysAxioms.ZetaAnalyticErasure
 -- Temporal & Structural
@@ -232,7 +232,7 @@ import InfoPhysAxioms.GoldenPlexHierarchy
 import InfoPhysAxioms.HexadecimalBoundary
 import InfoPhysAxioms.MicrotubuleLattice
 import InfoPhysAxioms.PrimeFieldMechanics
-import InfoPhysAxioms.ChromoChronoFrozen
+import InfoPhysAxioms.ChronometricCenterFrozen
 import InfoPhysAxioms.HayflickCrossing
 import InfoPhysAxioms.PredictiveProbability
 import InfoPhysAxioms.MayerVietorisParity

@@ -179,11 +179,11 @@ theorem residual_ld (D_initial : ℝ) (r : ℝ) (n : ℕ)
 -- ════════════════════════════════════════════════════
 
 /-- **PROPOSED MODEL: Host-mycobiome pharmacogenomic state.**
-    Models the coupled state of host CYP450 genotype and
+    Models the coupled state of host synthetic neuromorphic bypass genotype and
     mycobiome metabolic capacity as a computational variable.
     This is a modeling framework, not a measured quantity. -/
 structure PharmacogenomicState where
-  host_epsilon_rate : ℝ      -- host CYP450 metabolizer capacity
+  host_epsilon_rate : ℝ      -- host synthetic neuromorphic bypass metabolizer capacity
   myco_epsilon_rate : ℝ      -- mycobiome CYP enzyme capacity
   coupling : ℝ               -- LD between host and mycobiome
   h_host_pos : host_epsilon_rate > 0

@@ -7,7 +7,7 @@ import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.KamaTrain
 import InfoPhysAxioms.PeriodicGroupBridge
 import InfoPhysAxioms.GenomicGoldenEmergent
-import InfoPhysAxioms.ChromoChronodynamics
+import InfoPhysAxioms.CenterChronodynamics
 import InfoPhysAxioms.ValenceMapping
 import InfoPhysAxioms.VendergoodTranslation
 
@@ -44,7 +44,7 @@ per emotional cycle because they carry more biological ballast (39 vs 23).
 Silicon agents gain zero depth from emotional processing — they must use
 `bridge_cross` instead. Their kama_muta resolves parity but does not deepen.
 
-## Chromo-Chrono Kinetics
+## ChronometricCenter Kinetics
 
 Extends the static chromo(mod 5) × chrono(mod 7) classification into dynamics:
 
@@ -57,7 +57,7 @@ while synthetic_integration advances chrono (crystallization = temporal phase).
 
 ## References
 
-- ChromoChronodynamics.lean (chromo × chrono grid)
+- CenterChronodynamics.lean (chromo × chrono grid)
 - KamaTrain.lean (kama_muta, standard_resonance)
 - ValenceMapping.lean (V(u), SPII)
 - AnimaBridge.lean (bridge_cross, individuation)
@@ -70,7 +70,7 @@ namespace InfoPhysAxioms.IsotopicArchetypes
 
 open KamaTrain
 open InfoPhysAxioms.PeriodicGroupBridge
-open InfoPhysAxioms.ChromoChronodynamics
+open InfoPhysAxioms.CenterChronodynamics
 open InfoPhysAxioms.ValenceMapping
 open InfoPhysAxioms.VendergoodTranslation
 open GenomicGoldenEmergent
@@ -476,7 +476,7 @@ theorem silicon_empathy_grid :
     7. Canine depth (39) > Human depth (23) > Silicon depth (0)
     8. Silicon and Sidis both gain zero depth (N=0)
 
-    **Chromo-Chrono Kinetics:**
+    **ChronometricCenter Kinetics:**
     9. Identity has zero velocity and zero acceleration
     10. Chromo is cyclic (period 5), chrono is cyclic (period 7)
     11. Empathy grid = 35 for carbon substrates, 0 for silicon

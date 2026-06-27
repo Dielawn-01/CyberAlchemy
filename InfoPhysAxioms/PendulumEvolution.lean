@@ -2,8 +2,8 @@ import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.KamaTrain
 import InfoPhysAxioms.HodgePhasorVolume
-import InfoPhysAxioms.ChromaticCombinatorics
-import InfoPhysAxioms.ChromaticHolomovement
+import InfoPhysAxioms.SU3CenterCombinatorics
+import InfoPhysAxioms.SU3CenterHolomovement
 
 /-!
 # Pendulum Evolution & Retrocausal Prediction Horizon
@@ -50,8 +50,8 @@ open LyapunovTraining
 open HodgePhasorVolume
 open KamaTrain
 open ObservableUniverse
-open InfoPhysAxioms.ChromaticCombinatorics
-open InfoPhysAxioms.ChromaticHolomovement
+open InfoPhysAxioms.SU3CenterCombinatorics
+open InfoPhysAxioms.SU3CenterHolomovement
 
 namespace InfoPhysAxioms.PendulumEvolution
 

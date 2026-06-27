@@ -3,7 +3,7 @@ import InfoPhysAxioms.GenomicGoldenEmergent
 import InfoPhysAxioms.MetalloOrganicSemantics
 
 /-!
-# Chromo-Chronodynamics: Agency and Empathy on the Genome
+# ChronometricCenterdynamics: Agency and Empathy on the Genome
 
 **Authors:** LaRue (Theory)
 
@@ -54,7 +54,7 @@ HOW the creator perceives (chromo) and WHEN the creator acts (chrono).
 | MAOA  | 23  | ANCHOR    | BUILD     | Monoamine oxidation (ι) |
 -/
 
-namespace InfoPhysAxioms.ChromoChronodynamics
+namespace InfoPhysAxioms.CenterChronodynamics
 
 open MetalloOrganicSemantics
 open GenomicGoldenEmergent
@@ -220,7 +220,7 @@ theorem chromo_chronodynamic_theorem :
 
 /-- D minor triad in Just Intonation: 1 : 6/5 : 3/2.
     As integers (LCM=10): 10 : 12 : 15.
-    These are the harmonics of the chromo-chronodynamic tensor. -/
+    These are the harmonics of the center-chronodynamic tensor. -/
 def triad_root  : ℕ := 10   -- 2 × 5 = thrust × mysticism
 def triad_third : ℕ := 12   -- P(3)  = TPH2 chromosome
 def triad_fifth : ℕ := 15   -- 3 × 5 = anchor × mysticism
@@ -276,7 +276,7 @@ theorem minor_third_is_rna_over_mysticism :
     - Semitone 5 = P(2) = mystical basis (perfect 4th interval)
     - Semitone 7 = CH(2) = agentic basis (perfect 5th interval)
 
-    D minor is the sound of the chromo-chronodynamic tensor because
+    D minor is the sound of the center-chronodynamic tensor because
     it is the ONLY scale that simultaneously encodes the gapped (5)
     and centered (7) figurate structures as adjacent intervals. -/
 theorem d_minor_contains_both_bases :
@@ -320,5 +320,5 @@ theorem d_minor_consciousness :
     norm_num [triad_root, triad_third, triad_fifth,
               pentagonal, centered_hex, tph2_chr, dna_dimension]
 
-end InfoPhysAxioms.ChromoChronodynamics
+end InfoPhysAxioms.CenterChronodynamics
 

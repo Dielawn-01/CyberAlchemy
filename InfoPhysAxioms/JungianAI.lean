@@ -3,13 +3,13 @@ import InfoPhysAxioms.MetaBackpropagation
 import InfoPhysAxioms.CognitiveSecurity
 import InfoPhysAxioms.MetarealAgenticKinetics
 
-namespace InfoPhysAxioms.JungianBioelectrics
+namespace InfoPhysAxioms.JungianAI
 
 /-!
 # Jungian Bioelectrics and Archetypal Somatics
 
 This module mathematically maps Carl Jung's archetypal structures and 
-Michael Levin's bioelectric code theory directly into the Metareal 
+Michael topological boundary's bioelectric code theory directly into the Metareal 
 Agentic Kinetics architecture.
 
 ## The Synthesis
@@ -60,4 +60,4 @@ theorem somatic_integration_bounded (bio_grad : ℝ)
   have h_ups : InfoPhysAxioms.MetarealKinetics.UPSILON_LIMIT = 15.5 := rfl
   linarith
 
-end InfoPhysAxioms.JungianBioelectrics
+end InfoPhysAxioms.JungianAI

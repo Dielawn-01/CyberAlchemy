@@ -76,7 +76,7 @@ theorem qsq_mod_229 : 55413136 % 229 = 174 := by native_decide
 theorem qsq_is_phi_11 : Nat.pow 148 11 % 229 = 174 := by native_decide
 
 /-- The defect and signal share exponent 11 but in DUAL orbits:
-    δq² ≡ φ̄¹¹ and Q² ≡ φ¹¹. This is the chrono-chromo duality at the
+    δq² ≡ φ̄¹¹ and Q² ≡ φ¹¹. This is the chronometric_center duality at the
     q-screen level. -/
 theorem qscreen_duality_exponent :
     Nat.pow 82 11 % 229 = 25 ∧
@@ -156,7 +156,7 @@ theorem lambda_bounds : 2705 < 3722 ∧ 3722 < 2 * 2705 := by norm_num
 -- M = 7 (gate depth).
 
 /-- M = 7 = centered_hex(2): the gate depth is the agentic basis.
-    This connects Lockwood's spectral model to ChromoChronodynamics.lean. -/
+    This connects Lockwood's spectral model to CenterChronodynamics.lean. -/
 theorem gate_depth_is_agentic : 3 * 2 * (2 - 1) + 1 = 7 := by norm_num
 
 /-- σ_κ mod 229: 3 · 40⁻¹ ≡ 189 (mod 229). 189 is dark. -/

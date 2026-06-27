@@ -5,7 +5,7 @@ import Mathlib.Tactic.NormNum
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.GoldenSplitPrime
 import LaRueProtorealAlgebra.PalindromeStandingWave
-import InfoPhysAxioms.ChromaticTriangle
+import InfoPhysAxioms.SU3CenterTriangle
 
 /-!
 # Digital Wave Mechanics — Master Synthesis
@@ -54,7 +54,7 @@ This is the Digital Wave Equation.
 open ProtorealManifold
 open GoldenSplitPrime
 open PalindromeStandingWave
-open InfoPhysAxioms.ChromaticTriangle
+open InfoPhysAxioms.SU3CenterTriangle
 
 namespace InfoPhysAxioms.DigitalWaveMechanics
 

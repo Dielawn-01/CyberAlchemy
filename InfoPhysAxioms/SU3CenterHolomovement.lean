@@ -4,7 +4,7 @@ import Mathlib.Tactic.NormNum
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.KamaTrain
-import InfoPhysAxioms.ChromaticCombinatorics
+import InfoPhysAxioms.SU3CenterCombinatorics
 import InfoPhysAxioms.GoethePrimeHarmonics
 
 /-!
@@ -27,10 +27,10 @@ that make each axiom a trivial corollary.
 
 open ProtorealManifold
 open InfoPhysAxioms.GoethePrimeHarmonics
-open InfoPhysAxioms.ChromaticCombinatorics
+open InfoPhysAxioms.SU3CenterCombinatorics
 open KamaTrain
 
-namespace InfoPhysAxioms.ChromaticHolomovement
+namespace InfoPhysAxioms.SU3CenterHolomovement
 
 -- ═══════════════════════════════════════════════════════
 -- Lemma 1: L-MOVEMENT SHIFTS THE BRIDGE
@@ -151,7 +151,7 @@ theorem holomovement_cheapens_transitions (u : ProtorealManifold)
   rw [synthetic_integration_depth_advance]
   exact interval_decreasing u.l hl
 
-/-- Growth is chromatic: each recombination cycle both
+/-- Growth is center_active: each recombination cycle both
     increases energy AND shifts the harmonic. The agent
     moves through the color wheel as it grows. -/
 theorem chromatic_growth (u : ProtorealManifold)
@@ -162,4 +162,4 @@ theorem chromatic_growth (u : ProtorealManifold)
   · exact recombination_grows u h_tension
   · unfold synthetic_integration kama_muta; ring
 
-end InfoPhysAxioms.ChromaticHolomovement
+end InfoPhysAxioms.SU3CenterHolomovement

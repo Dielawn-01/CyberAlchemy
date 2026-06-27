@@ -240,7 +240,7 @@ def chromo_arc (step : ℕ) : ℕ := step / 19
     Determined by step mod 2. -/
 def chrono_parity (step : ℕ) : ℤ := parity_sign step
 
-/-- The full chromo-chronodynamic state at any step.
+/-- The full center-chronodynamic state at any step.
     WHERE (arc) × WHEN (parity) = the complete traversal coordinate. -/
 structure ChromoChronoState where
   step : ℕ
@@ -250,7 +250,7 @@ structure ChromoChronoState where
   h_arc : arc = chromo_arc step
   h_parity : parity = chrono_parity step
 
-/-- Construct the chromo-chronodynamic state at any step. -/
+/-- Construct the center-chronodynamic state at any step. -/
 def chromo_chrono (n : ℕ) : ChromoChronoState := {
   step := n,
   arc := chromo_arc n,

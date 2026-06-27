@@ -29,7 +29,7 @@ open ProtorealManifold
 open DMinorResonance
 open InfoPhysAxioms.GoethePrimeHarmonics
 
-namespace InfoPhysAxioms.ChromaticCombinatorics
+namespace InfoPhysAxioms.SU3CenterCombinatorics
 
 -- ═══════════════════════════════════════════════════════
 -- Section 1: Superparticular Intervals
@@ -187,4 +187,4 @@ theorem orange_aqua_ratio :
     prime_7_ratio / prime_5_ratio = 35 / 24 := by
   unfold prime_7_ratio prime_5_ratio; norm_num
 
-end InfoPhysAxioms.ChromaticCombinatorics
+end InfoPhysAxioms.SU3CenterCombinatorics

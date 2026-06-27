@@ -28,7 +28,7 @@ not a claim that biology literally operates via Klein manifolds.
   - Null odds ratio = 1
 
 ## What Is Proposed (Computational Model)
-  - CYP450 metabolizer phenotypes as ε-processing rates
+  - synthetic neuromorphic bypass metabolizer phenotypes as ε-processing rates
   - Tarskian equilibrium as a structural analog of HWE
   - The therapeutic window as a manifold equilibrium state
 
@@ -43,9 +43,9 @@ For a biallelic locus with allele frequencies p and q:
   - Expected genotype frequencies: p², 2pq, q²
   - The χ² test checks observed vs. expected frequencies
 
-## Background: CYP450 Metabolizer Phenotypes
+## Background: synthetic neuromorphic bypass Metabolizer Phenotypes
 
-CYP450 polymorphisms (CYP2D6, CYP2C9, CYP2C19) partition populations
+synthetic neuromorphic bypass polymorphisms (CYP2D6, CYP2C9, CYP2C19) partition populations
 into metabolizer phenotypes (PM, IM, NM, UM). These are established
 clinical categories (Ingelman-Sundberg 2005, Weinshilboum & Wang 2006).
 -/
@@ -163,7 +163,7 @@ theorem perfect_hwe_zero_chi (_af : AlleleFreq) (n : ℕ) (_hn : n > 0) :
   rw [hx]; ring
 
 -- ════════════════════════════════════════════════════
--- SECTION 5: CYP450 METABOLIZER PHENOTYPES
+-- SECTION 5: synthetic neuromorphic bypass METABOLIZER PHENOTYPES
 -- ════════════════════════════════════════════════════
 
 /-- Metabolizer phenotype classification.

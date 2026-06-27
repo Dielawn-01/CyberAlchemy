@@ -3,8 +3,8 @@ import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
 import InfoPhysAxioms.SpectralCharacteristic
-import InfoPhysAxioms.ChromaticCombinatorics
-import InfoPhysAxioms.ChromaticHolomovement
+import InfoPhysAxioms.SU3CenterCombinatorics
+import InfoPhysAxioms.SU3CenterHolomovement
 import InfoPhysAxioms.PendulumEvolution
 import InfoPhysAxioms.HodgePhasorVolume
 import InfoPhysAxioms.Base19ColorWheel
@@ -53,11 +53,11 @@ inheriting the G₂ automorphism group (which contains SU(3)).
 -/
 
 open ProtorealManifold
-open InfoPhysAxioms.ChromaticCombinatorics
+open InfoPhysAxioms.SU3CenterCombinatorics
 open InfoPhysAxioms.PendulumEvolution
 open InfoPhysAxioms.Base19ColorWheel
 
-namespace InfoPhysAxioms.HoloneticChromodynamics
+namespace InfoPhysAxioms.HoloneticCenterDynamics
 
 -- ═══════════════════════════════════════════════════════
 -- Section 1: THE COLOR-PHASOR CORRESPONDENCE
@@ -392,5 +392,5 @@ theorem holonetic_chromodynamics_master :
 -/
 def harmonic_emission (u v : ProtorealManifold) : ℝ := (lie_bracket u v).a
 
-end InfoPhysAxioms.HoloneticChromodynamics
+end InfoPhysAxioms.HoloneticCenterDynamics
 

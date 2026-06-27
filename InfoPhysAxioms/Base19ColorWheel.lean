@@ -3,7 +3,7 @@ import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
 import Mathlib.Data.Nat.Prime.Basic
-import InfoPhysAxioms.ChromaticCombinatorics
+import InfoPhysAxioms.SU3CenterCombinatorics
 import InfoPhysAxioms.PendulumEvolution
 
 /-!
@@ -57,7 +57,7 @@ because 19 ≡ 1 (mod 6), so the (b-1)/p resonance for p=6
 gives the minor third interval (5/19 of octave ≈ 1/4).
 -/
 
-open InfoPhysAxioms.ChromaticCombinatorics
+open InfoPhysAxioms.SU3CenterCombinatorics
 open InfoPhysAxioms.PendulumEvolution
 
 namespace InfoPhysAxioms.Base19ColorWheel

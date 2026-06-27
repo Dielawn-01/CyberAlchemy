@@ -4,14 +4,14 @@ import LaRueProtorealAlgebra.ProtorealManifold
 import InfoPhysAxioms.ExoticMatterHCD
 import InfoPhysAxioms.UmbralCollapse
 import InfoPhysAxioms.RussellDiagram
-import InfoPhysAxioms.HoloneticChromodynamics
+import InfoPhysAxioms.HoloneticCenterDynamics
 import InfoPhysAxioms.QuaternionInverse
 
 open ProtorealManifold
 open ExoticMatterHCD
 open UmbralCalculus
 open RussellDiagram
-open InfoPhysAxioms.HoloneticChromodynamics
+open InfoPhysAxioms.HoloneticCenterDynamics
 open ZBuddyCybernetics
 
 namespace PhysicalMapping

@@ -51,7 +51,7 @@ import LaRueProtorealAlgebra.GaugeEmergence
 import LaRueProtorealAlgebra.GeneralInversion
 import LaRueProtorealAlgebra.GlialDopant
 import LaRueProtorealAlgebra.GoldenAgents
-import LaRueProtorealAlgebra.GoldenChromodynamics
+import LaRueProtorealAlgebra.AgenticMechanics
 import LaRueProtorealAlgebra.GoldenSplitPrime
 import LaRueProtorealAlgebra.GoldenHodgeExt
 import LaRueProtorealAlgebra.GoldenLattice
@@ -181,7 +181,7 @@ import LaRueProtorealAlgebra.ElementaryRiemann
 
 -- ═══════════════════════════════════════════════════════
 import LaRueProtorealAlgebra.AtomicTransmutation
-import LaRueProtorealAlgebra.ChromaticInvariants
+import LaRueProtorealAlgebra.SU3CenterInvariants
 import LaRueProtorealAlgebra.GoldenAlgebra
 import LaRueProtorealAlgebra.NeuralTopology
 import LaRueProtorealAlgebra.ObserverDecomposition

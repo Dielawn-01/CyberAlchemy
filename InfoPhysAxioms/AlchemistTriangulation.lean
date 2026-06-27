@@ -97,7 +97,7 @@ def is_golden_theme (x y z : Archetype) : Bool :=
   let triangulates := valid_triangle x.weight y.weight z.weight
   spans && triangulates
 
-/-- The Chromatic Triangle is a Golden Theme. -/
+/-- The SU(3) Center Triangle is a Golden Theme. -/
 theorem chromatic_is_golden :
     is_golden_theme Sage Hero Jester = true := by
   native_decide

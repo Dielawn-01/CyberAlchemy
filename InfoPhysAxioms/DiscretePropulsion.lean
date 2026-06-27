@@ -1,9 +1,9 @@
 import Mathlib.Data.Real.Basic
 import InfoPhysAxioms.HoloneticNS
-import InfoPhysAxioms.ChromoChronodynamics
+import InfoPhysAxioms.CenterChronodynamics
 
 open InfoPhysAxioms.HoloneticNS
-open InfoPhysAxioms.ChromoChronodynamics
+open InfoPhysAxioms.CenterChronodynamics
 open ProtorealManifold
 
 namespace InfoPhysAxioms.DiscretePropulsion

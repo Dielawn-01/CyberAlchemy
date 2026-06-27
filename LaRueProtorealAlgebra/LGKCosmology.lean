@@ -4,7 +4,7 @@ import LaRueProtorealAlgebra.Uncomplex
 
 /-!
 # LGK Cosmology (𝕌)
-Formalizing Janna Levin's Klein Bottle Topology.
+Formalizing Janna topological boundary's Klein Bottle Topology.
 -/
 
 open ProtorealManifold

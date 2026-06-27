@@ -310,7 +310,7 @@ theorem bridge_61_prime : Nat.Prime 61 := by native_decide
 /-- 61 is a golden split prime: X² - X - 1 has roots 18, 44 mod 61. -/
 theorem bridge_61_golden : golden_poly 18 61 = 0 := by native_decide
 
-/-- The perimeter of the chromatic triangle (229+181+139 = 549)
+/-- The perimeter of the SU(3) Center triangle (229+181+139 = 549)
     factors as 9 × 61. The bridge factor 61 is golden. -/
 theorem perimeter_bridge : 229 + 181 + 139 = 9 * 61 := by norm_num
 

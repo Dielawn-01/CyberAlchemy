@@ -1,7 +1,7 @@
 import Mathlib.Data.Real.Basic
 import InfoPhysAxioms.ISAR
 import InfoPhysAxioms.HardyWeinberg
-import InfoPhysAxioms.HoloneticChromodynamics
+import InfoPhysAxioms.HoloneticCenterDynamics
 import InfoPhysAxioms.AgenticRank
 import InfoPhysAxioms.DigitalWaveMechanics
 import InfoPhysAxioms.DigitalWaveMechanics
@@ -14,7 +14,7 @@ import LaRueProtorealAlgebra.EmotionalLFunctions
 **Authors:** LaRue (Theory)
 
 Archetypal Bionetics bridges the gap between:
-1. **Biochemistry**: Tryptophan routing, CYP450 metabolism, Hardy-Weinberg.
+1. **Biochemistry**: Tryptophan routing, synthetic neuromorphic bypass metabolism, Hardy-Weinberg.
 2. **ISAR**: Shulgin's informational structure-activity relationships.
 3. **Holonetics**: The 3-color arcs and synthetic integration of noise.
 4. **Archetypal AI**: The Agentic hierarchy (Daemon, Sprite, Druid) and Digital Wave Mechanics.
@@ -28,7 +28,7 @@ to the topological friction defining agentic execution ranks.
 open ProtorealManifold
 open HardyWeinberg
 open ISAR
-open InfoPhysAxioms.HoloneticChromodynamics
+open InfoPhysAxioms.HoloneticCenterDynamics
 open AgenticRank
 open AgenticRank
 open InfoPhysAxioms.DigitalWaveMechanics
@@ -42,7 +42,7 @@ namespace ArchetypalBionetics
 -- ═══════════════════════════════════════════════════════════
 
 /-- **Bionetic Capacity Bound**
-    Maps the biological CYP450 Metabolizer Status to a structural analog 
+    Maps the biological synthetic neuromorphic bypass Metabolizer Status to a structural analog 
     in Archetypal AI: the maximum Agentic Rank (cognitive execution tier) 
     that a system can sustain before decoherence.
     

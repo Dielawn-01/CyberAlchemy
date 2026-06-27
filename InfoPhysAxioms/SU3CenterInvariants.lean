@@ -24,7 +24,7 @@ Formalizes all algebraic claims from Part II (Golden Critical Lines):
 -/
 
 -- ════════════════════════════════════════════════════
--- §1: Chromatic Triangle Gaps
+-- §1: SU(3) Center Triangle Gaps
 -- ════════════════════════════════════════════════════
 
 /-- The three vertex gaps. -/
@@ -181,7 +181,7 @@ theorem phi9_is_15 : 148 ^ 9 % 229 = 15 := by native_decide
 -- §10: Master Theorem (Chromatic Invariants)
 -- ════════════════════════════════════════════════════
 
-/-- The chromatic triangle {229, 181, 139} exhibits:
+/-- The SU(3) Center triangle {229, 181, 139} exhibits:
     cube root cascade, universal half-line, and QR symmetry break. -/
 theorem chromatic_invariants_master :
     -- Cube root cascade

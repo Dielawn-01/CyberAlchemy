@@ -31,7 +31,7 @@ All proofs by `native_decide` — machine-verified modular arithmetic.
 -- §1: The Three Vertex Primes
 -- ════════════════════════════════════════════════════
 
-/-- The three chromatic triangle primes. -/
+/-- The three SU(3) Center triangle primes. -/
 def p_gold   : ℕ := 229
 def p_blue   : ℕ := 181
 def p_violet : ℕ := 139
@@ -151,7 +151,7 @@ theorem violet_conjugate_parity : 46 = 2 * 23 := by norm_num
 -- §8: Master Theorem
 -- ════════════════════════════════════════════════════
 
-/-- The three chromatic triangle vertices exhibit golden split structure:
+/-- The three SU(3) Center triangle vertices exhibit golden split structure:
     all roots satisfy X² ≡ X + 1, with bridge identity φ·φ̄ ≡ -1,
     and conjugate order parity at all three primes. -/
 theorem golden_split_prime_master :

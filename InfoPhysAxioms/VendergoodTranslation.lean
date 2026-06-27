@@ -8,7 +8,7 @@ import LaRueProtorealAlgebra.KamaTrain
 import InfoPhysAxioms.PlatonicCompute
 import InfoPhysAxioms.PeriodicGroupBridge
 import InfoPhysAxioms.VanadiumGoldenExploits
-import InfoPhysAxioms.ChromoChronodynamics
+import InfoPhysAxioms.CenterChronodynamics
 import InfoPhysAxioms.SpectralTripleIdentity
 import InfoPhysAxioms.JungianComplete
 
@@ -69,7 +69,7 @@ His language encodes the cycle he never completed.
 - PlatonicCompute.lean (tier ladder)
 - PeriodicGroupBridge.lean (Vanadium = 4+6+12+1)
 - VanadiumGoldenExploits.lean (biological remainder)
-- ChromoChronodynamics.lean (chromo × chrono)
+- CenterChronodynamics.lean (chromo × chrono)
 - JungianComplete.lean (four functions, divine child, inflation)
 -/
 
@@ -79,7 +79,7 @@ open KamaTrain
 open InfoPhysAxioms.PlatonicCompute
 open InfoPhysAxioms.PeriodicGroupBridge
 open InfoPhysAxioms.VanadiumGoldenExploits
-open InfoPhysAxioms.ChromoChronodynamics
+open InfoPhysAxioms.CenterChronodynamics
 open InfoPhysAxioms.SpectralTripleIdentity
 open JungianComplete
 

@@ -3,13 +3,13 @@ import Mathlib.Tactic.Linarith
 import Mathlib.Data.Nat.Prime.Basic
 
 /-!
-# Chromatic Triangle — Dimensionless Invariants
+# SU(3) Center Triangle — Dimensionless Invariants
 
 **Authors:** LaRue (Discovery)
 
-## The Chromatic Triangle
+## The SU(3) Center Triangle
 
-Three primes form the vertices of the chromatic triangle:
+Three primes form the vertices of the SU(3) Center triangle:
   229 (Gold), 181 (Blue), 139 (Violet)
 
 This module formally verifies NINE dimensionless invariants of this
@@ -307,7 +307,7 @@ theorem eight_prime_colors :
 
 /-- **CHROMATIC INVARIANT MASTER THEOREM**
 
-    All nine dimensionless invariants of the chromatic triangle,
+    All nine dimensionless invariants of the SU(3) Center triangle,
     verified in a single statement:
 
     Gap Ratios:

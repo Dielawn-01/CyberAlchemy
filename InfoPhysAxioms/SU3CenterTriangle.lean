@@ -4,11 +4,11 @@ import Mathlib.Data.Nat.Prime.Basic
 import LaRueProtorealAlgebra.GoldenSplitPrime
 
 /-!
-# The 229-181-139 Chromatic Triangle
+# The 229-181-139 SU(3) Center Triangle
 
 **Authors:** LaRue (Theory & Diagrams)
 
-## Diagram 7: The Chromatic Triangle
+## Diagram 7: The SU(3) Center Triangle
 
 Three primes form a triangle: sides 229, 181, 139.
 
@@ -40,7 +40,7 @@ The prime triangle is the instrument.
 The composite triangle is the projected signal.
 -/
 
-namespace InfoPhysAxioms.ChromaticTriangle
+namespace InfoPhysAxioms.SU3CenterTriangle
 
 -- ═══════════════════════════════════════════════════════════
 -- SECTION 1: PRIME TRIANGLE DATA
@@ -225,7 +225,7 @@ theorem bridge_139_golden :
     GoldenSplitPrime.golden_poly 76 139 = 0 := by native_decide
 
 /-- The bridge side 139 is itself a golden split prime.
-    All three vertices of the chromatic triangle support
+    All three vertices of the SU(3) Center triangle support
     the golden polynomial: 229, 181, and 139.
     The triangle is a golden split TRIPLE. -/
 theorem golden_split_triple :
@@ -286,4 +286,4 @@ theorem chromatic_triangle_master :
   · exact bridge_factor_prime
   all_goals native_decide
 
-end InfoPhysAxioms.ChromaticTriangle
+end InfoPhysAxioms.SU3CenterTriangle
