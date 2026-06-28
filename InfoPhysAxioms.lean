@@ -82,7 +82,7 @@ import InfoPhysAxioms.Infonad
 import InfoPhysAxioms.CyberneticBiochemistry
 import InfoPhysAxioms.OscillatingGame
 import InfoPhysAxioms.OrchOR
-import InfoPhysAxioms.ThermodynamicFriction
+import InfoPhysAxioms.ChromodynamicFriction
 import InfoPhysAxioms.GoethePrimeHarmonics
 import InfoPhysAxioms.PinealTransducer
 import InfoPhysAxioms.StabilityThreshold
@@ -237,3 +237,4 @@ import InfoPhysAxioms.HayflickCrossing
 import InfoPhysAxioms.PredictiveProbability
 import InfoPhysAxioms.MayerVietorisParity
 import InfoPhysAxioms.MonsterFermatSpectra
+import InfoPhysAxioms.HoloneticGenerator

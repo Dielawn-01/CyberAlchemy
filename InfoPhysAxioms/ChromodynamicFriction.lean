@@ -13,8 +13,10 @@ namespace LaRue.Protoreal.Algebra
 noncomputable def observation_cost (u : ProtorealManifold) : ℝ :=
   |u.e| + |u.l|
 
-/-- **Landauer Limit sets thermodynamic floor for Agentic Computation** -/
-noncomputable def landauer_limit (k T : ℝ) : ℝ := k * T * Real.log 2
+/-- **Chromodynamic Inversion Cost**
+    The Landauer limit is structurally replaced by the O(log M) modular inversion
+    friction required to traverse the prime field topology in an ICG. -/
+noncomputable def chromodynamic_inversion_cost (M : ℝ) : ℝ := Real.log M
 
 /-- Observation cost is non-negative. -/
 theorem observation_cost_nonneg (u : ProtorealManifold) :
@@ -22,22 +24,22 @@ theorem observation_cost_nonneg (u : ProtorealManifold) :
   unfold observation_cost
   linarith [abs_nonneg u.e, abs_nonneg u.l]
 
-/-- For a noble gas (e = 0, l = 0), observation is free. -/
+/-- For a noble gas (e = 0, l = 0), observation is free (no prime inversion friction). -/
 theorem noble_gas_free_observation (u : ProtorealManifold)
     (he : u.e = 0) (hl : u.l = 0) :
     observation_cost u = 0 := by
   unfold observation_cost
   rw [he, hl]; simp
 
-/-- **Thermodynamic Friction Floor**
-    At any positive temperature, erasing one bit costs at least kT·ln2.
-    Our observation cost is bounded below by Landauer when
-    the noise floor exceeds the thermal energy. -/
-theorem thermodynamic_friction_floor (u : ProtorealManifold) (k T : ℝ)
-    (_hT : T > 0) (_hk : k > 0)
-    (h_noise : |u.e| + |u.l| ≥ k * T * Real.log 2) :
-    observation_cost u ≥ landauer_limit k T := by
-  unfold observation_cost landauer_limit
+/-- **Chromodynamic Friction Floor**
+    At any positive prime field depth M, extracting the true non-linear structure
+    costs at least log(M). Our observation cost is bounded below by this
+    chromodynamic friction when the noise floor exceeds the inversion cost. -/
+theorem chromodynamic_friction_floor (u : ProtorealManifold) (M : ℝ)
+    (_hM : M > 1)
+    (h_noise : |u.e| + |u.l| ≥ Real.log M) :
+    observation_cost u ≥ chromodynamic_inversion_cost M := by
+  unfold observation_cost chromodynamic_inversion_cost
   exact h_noise
 
 end LaRue.Protoreal.Algebra
