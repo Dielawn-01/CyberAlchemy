@@ -191,3 +191,4 @@ import LaRueProtorealAlgebra.TotientMorphism
 -- Lean Module Repair (2026-06-26)
 import LaRueProtorealAlgebra.ZBuddyResonance
 import LaRueProtorealAlgebra.SuperlambdaSpine
+import LaRueProtorealAlgebra.ZKPCR
