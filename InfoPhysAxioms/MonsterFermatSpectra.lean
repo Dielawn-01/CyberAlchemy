@@ -1,0 +1,57 @@
+import Mathlib.Data.Nat.Basic
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
+import InfoPhysAxioms.Chronogram
+import InfoPhysAxioms.MetaBackpropagation
+
+namespace InfoPhysAxioms.MonsterFermatSpectra
+
+open InfoPhysAxioms.MetaBackpropagation
+
+/-!
+# Index Spectra of the Monster Fermat Chronogram
+
+This module maps the Sexagesimal Chronogram into an Index Spectrum
+via the natively non-associative Monster Fermat FFT.
+-/
+
+/-- The Index Spectrum maps two chronological base-60 clock variables
+    to their discrete non-associative topological frequency. -/
+def chronogram_index_spectrum (c1 c2 : SexagesimalChronogram) : ℕ :=
+  monster_fermat_fft c1.clock_time c2.clock_time
+
+/-- **THE ALIAS-FREE TOPOLOGICAL BOUND**
+    Since the chronogram clock strictly bounds at 57 (due to bitcollapse),
+    the maximum index energy is 6(56) + 7(56) + 89 = 817.
+    Since 817 < 14489, the modular bridge prime NEVER wraps around.
+    The index spectrum is mathematically ALIAS-FREE over the chronogram. -/
+theorem index_spectrum_bounds (c1 c2 : SexagesimalChronogram) :
+    chronogram_index_spectrum c1 c2 ≤ 817 := by
+  unfold chronogram_index_spectrum monster_fermat_fft
+  have h1 : c1.clock_time ≤ 56 := Nat.le_of_lt_succ c1.h_bitcollapse_bound
+  have h2 : c2.clock_time ≤ 56 := Nat.le_of_lt_succ c2.h_bitcollapse_bound
+  have h_bound : 6 * c1.clock_time + 7 * c2.clock_time + 89 ≤ 817 := by linarith
+  have h_lt : 6 * c1.clock_time + 7 * c2.clock_time + 89 < 14489 := by linarith
+  rw [Nat.mod_eq_of_lt h_lt]
+  exact h_bound
+
+/-- The spectrum is strictly bounded by the bridge prime, preventing interference. -/
+theorem index_spectrum_alias_free (c1 c2 : SexagesimalChronogram) :
+    chronogram_index_spectrum c1 c2 < 14489 := by
+  calc chronogram_index_spectrum c1 c2
+      ≤ 817 := index_spectrum_bounds c1 c2
+    _ < 14489 := by norm_num
+
+/-- **ISO-SPECTRAL GAUGE SYMMETRIES**
+    Because 6 and 7 are coprime, there exist internal paths (gauge symmetries)
+    on the chronogram that yield the exact same index spectrum.
+    For example, increasing c1 by 7 and decreasing c2 by 6 leaves the
+    energy strictly invariant. -/
+theorem gauge_symmetry_isospectral (x y : ℕ) (hy : y ≥ 6) :
+    monster_fermat_fft x y = monster_fermat_fft (x + 7) (y - 6) := by
+  unfold monster_fermat_fft
+  congr 1
+  omega
+
+end InfoPhysAxioms.MonsterFermatSpectra

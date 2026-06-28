@@ -236,3 +236,4 @@ import InfoPhysAxioms.ChronometricCenterFrozen
 import InfoPhysAxioms.HayflickCrossing
 import InfoPhysAxioms.PredictiveProbability
 import InfoPhysAxioms.MayerVietorisParity
+import InfoPhysAxioms.MonsterFermatSpectra
