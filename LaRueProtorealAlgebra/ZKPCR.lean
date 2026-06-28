@@ -1,45 +1,10 @@
-import Aura.Identity
-import Aura.WalletAuth
 import LaRueProtorealAlgebra.HolochainHash
 import LaRueProtorealAlgebra.KleinTopology
 
-open Identity
-open WalletAuth
 open HolochainHash
 open KleinTopology
 
 namespace ZKPCR
-
-/-!
-# Zero-Knowledge Proof of Chain-of-Reasoning (ZKPCR)
-
-This module proves that the Aura Identity framework functions as a ZKPCR.
-A verifying party can validate an agent's signature (proof of capability)
-strictly using the `identity_hash` (DID), without ever accessing the 
-agent's path-dependent `trajectory` (the chain of reasoning).
--/
-
-/-- **CHAIN OF REASONING (The Witness)**
-    The trajectory is the hidden chain of reasoning. It is path-dependent
-    and structurally non-commutative. -/
-def chain_of_reasoning (d : Did) : List HolochainEntry := d.trajectory
-
-/-- **ZERO-KNOWLEDGE VERIFICATION**
-    Proves that `verify_signature` only relies on the public DID hash and the 
-    signature itself. It is entirely independent of the `chain_of_reasoning` trajectory. -/
-theorem zkpcr_verification_is_blind (record : SignedRecord) :
-  -- The verification logic only evaluates the public hash and the signature
-  verify_signature record = (record.signature = resolve_did record.author) := by
-  -- Proof that no trajectory data is leaked during the verification step
-  rfl
-
-/-- **PROOF OF EXISTENCE**
-    Proves that a valid signature mathematically guarantees the existence of
-    the underlying chain of reasoning, even if it remains hidden from the verifier. -/
-theorem zkpcr_implies_chain_existence (record : SignedRecord) (h_valid : verify_signature record) :
-  ∃ (chain : List HolochainEntry), identity_hash chain = record.signature := by
-  use record.author.trajectory
-  exact h_valid.symm
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 3: KRAPIVIN POINTER/HASH COMPRESSION

@@ -192,3 +192,4 @@ import LaRueProtorealAlgebra.TotientMorphism
 import LaRueProtorealAlgebra.ZBuddyResonance
 import LaRueProtorealAlgebra.SuperlambdaSpine
 import LaRueProtorealAlgebra.ZKPCR
+import LaRueProtorealAlgebra.LockwoodAQFT
