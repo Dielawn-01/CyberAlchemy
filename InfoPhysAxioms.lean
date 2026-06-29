@@ -238,3 +238,9 @@ import InfoPhysAxioms.PredictiveProbability
 import InfoPhysAxioms.MayerVietorisParity
 import InfoPhysAxioms.MonsterFermatSpectra
 import InfoPhysAxioms.HoloneticGenerator
+import InfoPhysAxioms.EulerHodgeMorphism
+import InfoPhysAxioms.MonsterFermat229
+import InfoPhysAxioms.FineStructureTopology
+import InfoPhysAxioms.GoldenTimeAnchor
+import InfoPhysAxioms.TeslaPrimeResonance
+import InfoPhysAxioms.ChiralComposite10D
