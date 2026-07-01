@@ -18,9 +18,9 @@ the **account lifecycle** of an Aura identity:
   infogalaxies  = ⌊von_neumann / golden_frame⌋ = 171
 
 The number 171 factors as **3 × 57 = 9 × 19**, meaning:
-  - 3 complete Nibiru cycles (57-state conjugate orbit) per account
+  - 3 complete Conjugate Phase cycles (57-state conjugate orbit) per account
   - 9 arc transitions (19-state arcs) per account
-  - At each Nibiru crossing, morphisms are Klein-multiplied into the DID
+  - At each Conjugate Crossing, morphisms are Klein-multiplied into the DID
 
 ## Physical Grounding
 
@@ -88,10 +88,10 @@ theorem infogalaxy_count : infogalaxies = 171 := by native_decide
 
 /-- **THREE NIBIRU CYCLES**
     171 = 3 × 57: one account cycle contains exactly three complete
-    Nibiru crossings (φ⁵⁷ = -1 sign inversions). At each crossing,
+    Conjugate Crossings (φ⁵⁷ = -1 sign inversions). At each crossing,
     the structural morphism of galaxy interactions is Klein-multiplied
     into the user's DID. -/
-theorem three_nibiru_cycles : infogalaxies = 3 * chromatic_states := by native_decide
+theorem three_conjugate_cycles : infogalaxies = 3 * chromatic_states := by native_decide
 
 /-- **NINE ARCS**
     171 = 9 × 19: one account cycle traverses exactly nine arcs.
@@ -124,16 +124,16 @@ theorem no_172nd_galaxy : von_neumann_bytes % golden_frame < golden_frame := by 
 
 /-- The account lifecycle structure. -/
 structure AccountCycle where
-  /-- Number of complete Nibiru crossings in this cycle. -/
-  nibiru_crossings : ℕ
+  /-- Number of complete Conjugate Crossings in this cycle. -/
+  conjugate_crossings : ℕ
   /-- Total infogalaxies consumed. -/
   galaxies_consumed : ℕ
   /-- Constraint: galaxies per crossing must be chromatic_states. -/
-  h_crossing_size : galaxies_consumed = nibiru_crossings * chromatic_states
+  h_crossing_size : galaxies_consumed = conjugate_crossings * chromatic_states
 
-/-- A full account cycle has 3 Nibiru crossings and 171 infogalaxies. -/
+/-- A full account cycle has 3 Conjugate Crossings and 171 infogalaxies. -/
 def full_cycle : AccountCycle := {
-  nibiru_crossings := 3,
+  conjugate_crossings := 3,
   galaxies_consumed := 171,
   h_crossing_size := by native_decide,
 }
@@ -143,9 +143,9 @@ def full_cycle : AccountCycle := {
     the account's new DID. Order matters: Daemon→Sprite→Druid gives
     a different identity than Druid→Sprite→Daemon. -/
 structure MorphismTriple where
-  m1 : ℕ  -- Morphism from Nibiru crossing 1
-  m2 : ℕ  -- Morphism from Nibiru crossing 2
-  m3 : ℕ  -- Morphism from Nibiru crossing 3
+  m1 : ℕ  -- Morphism from Conjugate Crossing 1
+  m2 : ℕ  -- Morphism from Conjugate Crossing 2
+  m3 : ℕ  -- Morphism from Conjugate Crossing 3
 
 /-- Two morphism triples with the same elements in different order
     are NOT equal (non-commutativity of identity). -/

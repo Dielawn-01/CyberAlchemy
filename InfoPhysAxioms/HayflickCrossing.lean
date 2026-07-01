@@ -4,7 +4,7 @@ import Mathlib.Tactic.NormNum
 import Mathlib.Data.Real.Basic
 
 /-!
-# Hayflick Crossing: The Biological Nibiru
+# Hayflick Crossing: The Biological Conjugate Phase
 
 **Authors:** LaRue (Theory)
 
@@ -27,7 +27,7 @@ Actual divisions to telomere exhaustion: (11,000 - 4,000) / 28 ≈ 250.
 This means 57 is NOT a telomere exhaustion point. It is a **replicative
 stress checkpoint** — the point where accumulated DNA damage, oxidative
 stress, and epigenetic drift trigger the cell cycle arrest program
-INDEPENDENT of telomere length. The Nibiru crossing (φ⁵⁷ = -1) is
+INDEPENDENT of telomere length. The Conjugate Crossing (φ⁵⁷ = -1) is
 the algebraic signature of this stress-induced sign flip.
 
 ## Structural Isomorphisms
@@ -39,7 +39,7 @@ the algebraic signature of this stress-induced sign flip.
 | Edge (Aizawa attractor) | Ion channels (chaotic gating, proton motive force) |
 | Corner (primitive anchor) | Integrin (focal adhesion to ECM) |
 | 57-state cascade | Replicative stress checkpoint |
-| φ⁵⁷ = -1 (Nibiru) | Senescence decision (stress, not telomere) |
+| φ⁵⁷ = -1 (Conjugate Phase) | Senescence decision (stress, not telomere) |
 | Dark thrust (ω²-1) | Proton motive force (transmembrane gradient) |
 | 13 archetypes | 13 protofilaments (microtubule) |
 
@@ -178,7 +178,7 @@ theorem corner_count : corner_nodes = 8 := by native_decide
 -- SECTION 6: NIBIRU AS CELLULAR DECISION POINT
 -- ════════════════════════════════════════════════════
 
-/-- The cell fate at the Nibiru crossing. -/
+/-- The cell fate at the Conjugate Crossing. -/
 inductive CellFate where
   | quiescence  : CellFate  -- G0 arrest (healthy senescence)
   | apoptosis   : CellFate  -- Programmed cell death
@@ -210,13 +210,13 @@ def dark_thrust : ℕ := 133
 /-- The dark thrust is ω² - 1 mod 229, where ω = 82^19 mod 229. -/
 theorem dark_thrust_value : (82 ^ 38 : ZMod 229).val - 1 = dark_thrust := by native_decide
 
-/-- The Nibiru crossing in the golden field.
+/-- The Conjugate Crossing in the golden field.
     φ = 147 (golden ratio mod 229), ord(φ) = 114.
     At the halfway point: φ⁵⁷ = 228 = -1 (mod 229). -/
-def nibiru_value : ZMod 229 := (147 : ZMod 229) ^ 57
+def conjugate_value : ZMod 229 := (147 : ZMod 229) ^ 57
 
 /-- φ⁵⁷ = 228 = -1 (mod 229): the sign flip at the crossing. -/
-theorem nibiru_is_negative_one : nibiru_value = 228 := by native_decide
+theorem conjugate_is_negative_one : conjugate_value = 228 := by native_decide
 
 /-- 228 = 229 - 1 = -1 in ZMod 229. -/
 theorem neg_one_mod_229 : (228 : ZMod 229) = (-1 : ZMod 229) := by native_decide
@@ -252,20 +252,20 @@ def measured_cell : TelomereClock := {
   h_bound := by omega,
 }
 
-/-- **KEY FINDING**: At the Nibiru crossing (57 divisions) with MEASURED
+/-- **KEY FINDING**: At the Conjugate Crossing (57 divisions) with MEASURED
     in vivo rates, the telomere is 9,404 bp — still ABOVE the senescence
     threshold (~4,000 bp). The Hayflick limit is a STRESS checkpoint,
     not a telomere exhaustion event.
     11,000 - 57 × 28 = 9,404. -/
-theorem telomere_at_nibiru_measured :
+theorem telomere_at_conjugate_measured :
     let tc : TelomereClock := {
       divisions := 57, initial_bp := 11000,
       loss_per_division := 28, h_bound := by unfold conjugate_orbit_order; omega }
     tc.current_bp = 9404 := by
   simp [TelomereClock.current_bp]
 
-/-- The telomere is ABOVE senescence threshold at the Nibiru crossing. -/
-theorem nibiru_telomere_healthy :
+/-- The telomere is ABOVE senescence threshold at the Conjugate Crossing. -/
+theorem conjugate_telomere_healthy :
     let tc : TelomereClock := {
       divisions := 57, initial_bp := 11000,
       loss_per_division := 28, h_bound := by unfold conjugate_orbit_order; omega }

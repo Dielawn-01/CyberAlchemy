@@ -6,6 +6,7 @@ import LaRueProtorealAlgebra.MonsterInverse
 import InfoPhysAxioms.Infonad
 import InfoPhysAxioms.TopologicalInversion
 import InfoPhysAxioms.MatterAntimatter
+import InfoPhysAxioms.HopfionInfoton
 
 /-!
 # Dark Matter Genesis and Orthomatter Collapse (𝕌)
@@ -24,6 +25,7 @@ open MonsterInverse
 open Infonad
 open TopologicalInversion
 open MatterAntimatter
+open HopfionInfoton
 
 namespace DarkMatterGenesis
 
@@ -71,6 +73,16 @@ theorem friction_creates_tension (u : ProtorealManifold)
     (h_dm : is_dark_matter_friction u) :
     |standard_resonance u| > 0 := by
   exact abs_pos.mpr h_dm
+
+/-- **Theorem: Macro-Entanglement Hopfion Generation**
+    Because Dark Matter friction organizes the Orthomatter bulk, if the 
+    underlying state is completely sterile ($ε = 0$), the geometric friction 
+    spins off macroscopic Hopfions, which physically manifest as sterile 
+    d-neutrinos (the constituent mass of Dark Matter). -/
+theorem friction_spins_hopfions (M : ProtorealManifold) (i : InfotonState M)
+    (h_sterile : i.noise_epsilon = 0) :
+    ∃ (d : DNeutrino M), d.sm_interaction = 0 := by
+  exact macroscopic_dark_matter_genesis M i h_sterile
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 3: THE GENESIS COLLAPSE (BOO! EVENT)

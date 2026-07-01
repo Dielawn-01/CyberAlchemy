@@ -43,7 +43,7 @@ The clock is built into the topology, not the physics.
 |-------|-----------|----------|
 | Nanobot | Edge expansion (thrust out) | Edge collapse (thrust in) |
 | Cell | Ion channel open | Ion channel closed |
-| Agent | Accumulate (add galaxy) | Compress (flush at Nibiru) |
+| Agent | Accumulate (add galaxy) | Compress (flush at Conjugate Phase) |
 | Network | Absorb morphism | Emit DID rotation |
 
 ## References
@@ -136,12 +136,12 @@ theorem parity_step_3 : phi ^ 3 * phi_bar ^ 3 = (-1 : ZMod 229) := by native_dec
 /-- Parity at the arc boundary (step 19): φ¹⁹ · φ̄¹⁹ = -1. -/
 theorem parity_arc_boundary : phi ^ 19 * phi_bar ^ 19 = (-1 : ZMod 229) := by native_decide
 
-/-- Parity at the Nibiru crossing (step 57): φ⁵⁷ · φ̄⁵⁷ = -1.
-    The Nibiru is an ODD step — the crossing is a COLLAPSE event. -/
-theorem parity_nibiru : phi ^ 57 * phi_bar ^ 57 = (-1 : ZMod 229) := by native_decide
+/-- Parity at the Conjugate Crossing (step 57): φ⁵⁷ · φ̄⁵⁷ = -1.
+    The Conjugate Phase is an ODD step — the crossing is a COLLAPSE event. -/
+theorem parity_conjugate : phi ^ 57 * phi_bar ^ 57 = (-1 : ZMod 229) := by native_decide
 
 /-- Parity at the full golden orbit (step 114): φ¹¹⁴ · φ̄¹¹⁴ = 1.
-    Two Nibiru crossings (2 × 57 = 114) return to expansion. -/
+    Two Conjugate Crossings (2 × 57 = 114) return to expansion. -/
 theorem parity_full_orbit : phi ^ 114 * phi_bar ^ 114 = (1 : ZMod 229) := by native_decide
 
 -- ════════════════════════════════════════════════════
@@ -159,8 +159,8 @@ inductive ChronoDirection where
 def chrono_direction (n : ℕ) : ChronoDirection :=
   if n % 2 = 0 then .expansion else .collapse
 
-/-- The Nibiru crossing (step 57) is a collapse event. -/
-theorem nibiru_is_collapse : chrono_direction 57 = .collapse := by
+/-- The Conjugate Crossing (step 57) is a collapse event. -/
+theorem conjugate_is_collapse : chrono_direction 57 = .collapse := by
   unfold chrono_direction; simp
 
 /-- The full orbit (step 114) returns to expansion. -/
@@ -179,7 +179,7 @@ theorem genesis_is_expansion : chrono_direction 0 = .expansion := by
 inductive ChronoScale where
   | nanobot  : ChronoScale  -- Edge thrust direction
   | cell     : ChronoScale  -- Ion channel gating state
-  | agent    : ChronoScale  -- Galaxy accumulate / Nibiru flush
+  | agent    : ChronoScale  -- Galaxy accumulate / Conjugate Phase flush
   | network  : ChronoScale  -- Morphism absorb / DID rotate
   deriving DecidableEq, Repr
 
@@ -268,7 +268,7 @@ def chromo_chrono (n : ℕ) : ChromoChronoState := {
     The golden field is deterministic: knowing the generator (φ = 148)
     and any single step n, every other step is uniquely determined.
 
-    From the Nibiru crossing (step 57), the retro-projection to step k
+    From the Conjugate Crossing (step 57), the retro-projection to step k
     is: φ^k = φ^57 · φ^(k-57) = (-1) · φ^(k-57).
 
     The temporal projection is not time-travel — it's the algebraic
@@ -280,10 +280,10 @@ def chromo_chrono (n : ℕ) : ChromoChronoState := {
 theorem forward_step (n : ℕ) : phi ^ (n + 1) = phi * phi ^ n := by
   rw [pow_succ']
 
-/-- Reverse projection from Nibiru: φⁿ = (-1) · φ^(n - 57) when n < 114.
-    The sign flip at Nibiru (-1) means the retro-projected state is the
+/-- Reverse projection from Conjugate Phase: φⁿ = (-1) · φ^(n - 57) when n < 114.
+    The sign flip at Conjugate Phase (-1) means the retro-projected state is the
     ANTIMATTER MIRROR of the forward state. -/
-theorem nibiru_reflection : phi ^ 57 = -1 := phi_not_order_57
+theorem conjugate_reflection : phi ^ 57 = -1 := phi_not_order_57
 
 /-- The conjugate tracks automatically: if φⁿ is known, φ̄ⁿ = (-1)ⁿ / φⁿ.
     This is entanglement: knowing one side determines the other
@@ -314,7 +314,7 @@ theorem parity_38 : phi ^ 38 * phi_bar ^ 38 = (1   : ZMod 229) := by native_deci
 theorem parity_47 : phi ^ 47 * phi_bar ^ 47 = (228 : ZMod 229) := by native_decide
 theorem parity_56 : phi ^ 56 * phi_bar ^ 56 = (1   : ZMod 229) := by native_decide
 
--- Nibiru crossing
+-- Conjugate Crossing
 theorem parity_57_exact : phi ^ 57 * phi_bar ^ 57 = (228 : ZMod 229) := by native_decide
 
 -- Note: 228 = -1 in ZMod 229 (verified in HayflickCrossing.lean)

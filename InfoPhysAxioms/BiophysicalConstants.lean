@@ -47,7 +47,7 @@ The golden orbit order 57 falls within the **Hayflick in vitro limit**
 This means 57 corresponds to the **culture stress threshold**, not
 telomere exhaustion — the cell enters senescence at 57 divisions
 due to accumulated replicative stress, NOT because the telomere
-is too short. The Nibiru crossing is a **stress checkpoint**, not
+is too short. The Conjugate Crossing is a **stress checkpoint**, not
 a physical length limit.
 -/
 
@@ -171,7 +171,7 @@ theorem golden_eq : phi ^ 2 - phi - 1 = 0 := by native_decide
 -- Orders
 theorem phi_ord : phi ^ 114 = 1 := by native_decide
 theorem phi_bar_ord : phi_bar ^ 57 = 1 := by native_decide
-theorem nibiru : phi ^ 57 = (-1 : ZMod 229) := by native_decide
+theorem conjugate : phi ^ 57 = (-1 : ZMod 229) := by native_decide
 
 -- Mayer-Vietoris parity (sampled)
 theorem mv_parity_0 : phi ^ 0 * phi_bar ^ 0 = (1 : ZMod 229) := by native_decide

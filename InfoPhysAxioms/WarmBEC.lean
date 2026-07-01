@@ -197,8 +197,8 @@ inductive FrohlichScale where
 def modes_per_scale : FrohlichScale → ℕ
   | .cell    => 57  -- Vibrational modes of tubulin lattice
   | .nanobot => 57  -- Chromatic states of doped opal
-  | .agent   => 57  -- Identity states per Nibiru cycle
-  | .network => 57  -- Galaxies per Nibiru crossing
+  | .agent   => 57  -- Identity states per Conjugate Phase cycle
+  | .network => 57  -- Galaxies per Conjugate Crossing
 
 /-- Scale invariance: every scale has the same mode count. -/
 theorem scale_invariance (s : FrohlichScale) :

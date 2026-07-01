@@ -121,20 +121,20 @@ theorem zone_injective (a b : MetamaterialZone)
     Catastrophe = rapid depolymerization (shrinking)
     Rescue = switch back to growth
 
-    These correspond to the Nibiru crossing (φ⁵⁷ = -1):
+    These correspond to the Conjugate Crossing (φ⁵⁷ = -1):
     the sign flip between growth and shrinkage. -/
 inductive DynamicEvent where
   | growth      : DynamicEvent  -- Polymerization (positive phase)
-  | catastrophe : DynamicEvent  -- Depolymerization (sign flip = Nibiru)
+  | catastrophe : DynamicEvent  -- Depolymerization (sign flip = Conjugate Phase)
   | rescue      : DynamicEvent  -- Recovery (new cycle begins)
   | pause       : DynamicEvent  -- Quiescence (G0 = SolidDaemon phase)
   deriving DecidableEq, Repr
 
-/-- The Nibiru crossing in the golden field. -/
-def nibiru_value : ZMod 229 := (148 : ZMod 229) ^ 57
+/-- The Conjugate Crossing in the golden field. -/
+def conjugate_value : ZMod 229 := (148 : ZMod 229) ^ 57
 
 /-- φ̄⁵⁷ = 228 = -1 (mod 229): the sign flip at the crossing. -/
-theorem nibiru_is_negative_one : nibiru_value = 228 := by native_decide
+theorem conjugate_is_negative_one : conjugate_value = 228 := by native_decide
 
 /-- 228 = 229 - 1 = -1 in ZMod 229. -/
 theorem neg_one_mod_229 : (228 : ZMod 229) = (-1 : ZMod 229) := by native_decide
@@ -183,7 +183,7 @@ structure PiezoState where
 
     - 57 vibrational modes → 57 chromatic states
     - BEC ground state → Protocol Lexicon (the rules of thought)
-    - Excited modes → specific memories (flushed at Nibiru)
+    - Excited modes → specific memories (flushed at Conjugate Phase)
     - CEMI field → the coherent sum of all microtubule dipole oscillations
 
     The κ = -1 curvature (irreducible self-reference gap) prevents the

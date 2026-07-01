@@ -37,12 +37,12 @@ The duality:
     in neither orbit. The semiperimeter s = 199 is also dark.
   - The defect separates the dark area into a bright signal + conjugate noise.
 
-## The Nibiru Crossing
+## The Conjugate Crossing
 
 φ⁵⁷ ≡ -1 (mod 229): at the midpoint of the golden orbit, the sign flips.
 This is the matter/antimatter phase boundary. Lockwood's frozen potential
 has Dirichlet boundaries ψ(0) = ψ(12) = 0 — standing waves clamped at
-both ends. The Nibiru crossing is the algebraic analog: the orbit is
+both ends. The Conjugate Crossing is the algebraic analog: the orbit is
 "clamped" at 1 (step 0) and -1 (step 57), with 57 steps of positive
 sector and 57 steps of negative (mirror) sector.
 -/
@@ -103,17 +103,17 @@ theorem dark_bright_decomposition : (174 + 25) % 229 = 199 := by native_decide
 
 /-- **THE NIBIRU CROSSING**
     φ⁵⁷ ≡ -1 (mod 229): the midpoint of the golden orbit negates. -/
-theorem nibiru_crossing : Nat.pow 148 57 % 229 = 228 := by native_decide
+theorem conjugate_crossing : Nat.pow 148 57 % 229 = 228 := by native_decide
 
 /-- The conjugate orbit closes at 57 without hitting -1. -/
 theorem conjugate_closes : Nat.pow 82 57 % 229 = 1 := by native_decide
 
 /-- 57 is exactly half of ord(φ) = 114. -/
-theorem nibiru_is_midpoint : 114 = 2 * 57 := by norm_num
+theorem conjugate_is_midpoint : 114 = 2 * 57 := by norm_num
 
-/-- φ⁵⁶ ≡ φ̄ (mod 229): the step before Nibiru IS the conjugate root.
+/-- φ⁵⁶ ≡ φ̄ (mod 229): the step before Conjugate Phase IS the conjugate root.
     Moving backward one step from the crossing yields the conjugate. -/
-theorem pre_nibiru_is_conjugate : Nat.pow 148 56 % 229 = 82 := by native_decide
+theorem pre_conjugate_is_conjugate : Nat.pow 148 56 % 229 = 82 := by native_decide
 
 /-- The matter/antimatter mirror: φⁿ⁺⁵⁷ ≡ -φⁿ (mod 229).
     We verify at n = 1, 9, 19 (representative golden powers). -/
@@ -242,7 +242,7 @@ theorem g12_coeff_63_dark : Nat.pow 63 114 % 229 ≠ 1 := by native_decide
     1. The q-screen decomposes as: dark area = bright signal + conjugate defect
        199 ≡ φ¹¹ + φ̄¹¹ (mod 229)
     2. The shared exponent 11 is prime and itself a golden split prime
-    3. The Nibiru crossing φ⁵⁷ = -1 is the matter/antimatter boundary
+    3. The Conjugate Crossing φ⁵⁷ = -1 is the matter/antimatter boundary
     4. The frozen log-time rate λ_Δ ≡ φ⁴ (mod 229)
     5. The bright-ridge numerator ≡ 57 = |⟨φ̄⟩| (the orbit SIZE)
     6. The q_Δ numerator ≡ 116 = side_a (Lockwood's own triangle side)
@@ -257,7 +257,7 @@ theorem chrono_chromo_frozen_duality :
     -- 2. Shared exponent 11
     Nat.pow 148 11 % 229 = 174 ∧ Nat.pow 82 11 % 229 = 25 ∧
     Nat.Prime 11 ∧
-    -- 3. Nibiru crossing
+    -- 3. Conjugate Crossing
     Nat.pow 148 57 % 229 = 228 ∧ Nat.pow 82 57 % 229 = 1 ∧
     -- 4. Lambda = φ⁴
     Nat.pow 148 4 % 229 = 217 ∧
