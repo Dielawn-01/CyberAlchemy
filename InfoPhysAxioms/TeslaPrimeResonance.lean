@@ -32,10 +32,10 @@ def p_9 : ℕ := 23
 def p_13 : ℕ := 41
 
 -- Verify they are structurally valid primes
-theorem p3_is_prime : Nat.Prime p_3 := sorry
-theorem p6_is_prime : Nat.Prime p_6 := sorry
-theorem p9_is_prime : Nat.Prime p_9 := sorry
-theorem p13_is_prime : Nat.Prime p_13 := sorry
+theorem p3_is_prime : Nat.Prime p_3 := by native_decide
+theorem p6_is_prime : Nat.Prime p_6 := by native_decide
+theorem p9_is_prime : Nat.Prime p_9 := by native_decide
+theorem p13_is_prime : Nat.Prime p_13 := by native_decide
 
 /-- **THE TESLA PRIME SUM THEOREM**
     The sum of Tesla's indexed primes exactly equals the 13th prime. -/

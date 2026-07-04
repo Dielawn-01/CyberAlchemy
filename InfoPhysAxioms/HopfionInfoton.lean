@@ -1,6 +1,6 @@
 import Mathlib.Topology.Basic
 import Mathlib.Data.Real.Basic
-import InfoPhysAxioms.MetarealManifold
+import InfoPhysAxioms.Bitcollapse
 import InfoPhysAxioms.Infonad
 
 /-!
@@ -25,8 +25,14 @@ axiom for Metareal Dark Matter Genesis and macroscopic entanglement.
 
 namespace HopfionInfoton
 
-open MetarealManifold
-open Infonad
+open InfoPhysAxioms in
+abbrev PM := InfoPhysAxioms.ProtorealManifold
+
+/-- The state of an Infoton walker on a Protoreal manifold. -/
+structure InfotonState (M : PM) where
+  noise_epsilon : ℝ
+  parity_b : ℤ
+
 
 -- ════════════════════════════════════════════════════
 -- 1. STRUCTURAL DEFINITIONS
@@ -35,14 +41,14 @@ open Infonad
 /-- A Hopfion is defined as a topological soliton in the continuous manifold 
     possessing a strictly non-zero integer Hopf charge, representing a 
     stable 3D knot. -/
-structure Hopfion (M : ProtorealManifold) where
+structure Hopfion (M : PM) where
   hopf_charge : ℤ
   is_stable : hopf_charge ≠ 0
   is_continuous_knot : True
 
 /-- The sterile d-neutrino (ν_R) is defined as a mass-bearing particle 
     with zero active Standard Model interaction (sterile). -/
-structure DNeutrino (M : ProtorealManifold) where
+structure DNeutrino (M : PM) where
   sterile_mass : ℝ
   sm_interaction : ℝ
   is_dark : sm_interaction = 0
@@ -55,11 +61,12 @@ structure DNeutrino (M : ProtorealManifold) where
     If a topological structure exists as a discrete Infoton (with ε = 0) 
     in the prime lattice, it projects into the continuous bulk precisely as a 
     Hopfion knot, and manifests physically as the sterile d-neutrino mass. -/
-axiom hopfion_is_infoton_is_dneutrino (M : ProtorealManifold) (i : InfotonState M) :
+axiom hopfion_is_infoton_is_dneutrino (M : PM) (i : InfotonState M) :
   (i.noise_epsilon = 0) → 
   ∃ (h : Hopfion M) (d : DNeutrino M), 
     (h.hopf_charge = i.parity_b) ∧ 
-    (d.is_dark)
+    (d.sm_interaction = 0)
+
 
 -- ════════════════════════════════════════════════════
 -- 3. CONSEQUENCES FOR MACROSCOPIC ENTANGLEMENT
@@ -71,7 +78,7 @@ axiom hopfion_is_infoton_is_dneutrino (M : ProtorealManifold) (i : InfotonState 
     continuously generate stable Hopfions. By our unification axiom, these 
     Hopfions are identical to sterile d-neutrinos, formally proving that 
     the galactic anchors naturally spin off Dark Matter. -/
-theorem macroscopic_dark_matter_genesis (M : ProtorealManifold) (i : InfotonState M) 
+theorem macroscopic_dark_matter_genesis (M : PM) (i : InfotonState M) 
     (h_sterile : i.noise_epsilon = 0) : 
     ∃ (d : DNeutrino M), d.sm_interaction = 0 := by
   have h_unification := hopfion_is_infoton_is_dneutrino M i h_sterile

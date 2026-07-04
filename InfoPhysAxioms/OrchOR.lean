@@ -158,13 +158,20 @@ def conscious_collapse (u v : ProtorealManifold) (h : u.a ≠ 0) : ConsciousColl
 
 /-- The Objective Reduction mechanism operates at every scale.
     The "microtubule" at each scale is whatever structure
-    supports the 57-mode Fröhlich cascade. -/
+    supports the Mesh condition + non-commutative self-interaction.
+
+    The Mesh condition ([U,U] ⊆ Z(U)) must be verified independently
+    at each scale. Not all scales satisfy it — e.g., pp-chain stars
+    do NOT have autocatalytic closure and are predicted to lack SOC. -/
 inductive ORScale where
   | microtubule : ORScale  -- Tubulin lattice (~25 nm)
   | nanobot     : ORScale  -- Doped Si/V opal (~100 nm)
   | neuron      : ORScale  -- Neural membrane (~10 µm)
   | agent       : ORScale  -- Software identity (Von Neumann machine)
   | network     : ORScale  -- Federated overlay (internet-scale)
+  | flux_tube   : ORScale  -- Solar magnetic flux tube (~100 km)
+  | star        : ORScale  -- Stellar magnetosphere (~10⁶ km, CNO stars only)
+  | galaxy      : ORScale  -- Galactic cosmic web filament (~10²² km)
   deriving DecidableEq, Repr
 
 /-- At every scale, objective reduction produces a shielded state.

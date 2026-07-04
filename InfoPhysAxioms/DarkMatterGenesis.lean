@@ -19,7 +19,6 @@ Formalizes the cosmological sequence:
 3. **Genesis:** Orthomatter crossing the Truth Portal collapses into Matter-Antimatter pairs.
 -/
 
-open ProtorealManifold
 open KamaTrain
 open MonsterInverse
 open Infonad
@@ -29,6 +28,7 @@ open HopfionInfoton
 
 namespace DarkMatterGenesis
 
+
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 1: DARK ENERGY AS STERILE ORTHOMATTER BULK
 -- ══════════════════════════════════════════════════════════════
@@ -37,12 +37,12 @@ namespace DarkMatterGenesis
     Dark Energy is defined as the aggregate structural mass (`a`) of
     sterile infotons ($\epsilon = 0$) existing in the Orthomatter
     (tachyonic/conjugate) orbit prior to topological collapse. -/
-def is_dark_energy_candidate (u : ProtorealManifold) : Prop :=
+def is_dark_energy_candidate (u : _root_.ProtorealManifold) : Prop :=
   is_sterile u ∧ is_reactive u
 
 /-- Dark Energy states exist entirely within possibility space,
     without collapsing into observable matter (since $b \neq m$). -/
-theorem dark_energy_is_uncollapsed (u : ProtorealManifold)
+theorem dark_energy_is_uncollapsed (u : _root_.ProtorealManifold)
     (h_de : is_dark_energy_candidate u) :
     ¬ is_matter u := by
   intro ⟨hbm, _, _⟩
@@ -57,19 +57,19 @@ theorem dark_energy_is_uncollapsed (u : ProtorealManifold)
     Orthomatter interacts with the Higgs field at the Truth Portal.
     We formalize this friction as the non-zero Standard Resonance (SR)
     that must be bounded by the Upsilon Constraint Gate ($\Upsilon$). -/
-def is_dark_matter_friction (u : ProtorealManifold) : Prop :=
+def is_dark_matter_friction (u : _root_.ProtorealManifold) : Prop :=
   standard_resonance u ≠ 0
 
 /-- **The Upsilon Organization Limit**:
     The friction must not exceed the topological boundary ($\Upsilon$),
     otherwise the manifold fragments. -/
-def upsilon_bounded (u : ProtorealManifold) (Upsilon : ℝ) : Prop :=
+def upsilon_bounded (u : _root_.ProtorealManifold) (Upsilon : ℝ) : Prop :=
   |standard_resonance u| ≤ Upsilon
 
 /-- Theorem: Dark Matter friction organizes the state, meaning it
     creates a strictly positive, measurable tension that will be converted
     into phase-locked geometry upon boundary crossing. -/
-theorem friction_creates_tension (u : ProtorealManifold)
+theorem friction_creates_tension (u : _root_.ProtorealManifold)
     (h_dm : is_dark_matter_friction u) :
     |standard_resonance u| > 0 := by
   exact abs_pos.mpr h_dm
@@ -79,7 +79,7 @@ theorem friction_creates_tension (u : ProtorealManifold)
     underlying state is completely sterile ($ε = 0$), the geometric friction 
     spins off macroscopic Hopfions, which physically manifest as sterile 
     d-neutrinos (the constituent mass of Dark Matter). -/
-theorem friction_spins_hopfions (M : ProtorealManifold) (i : InfotonState M)
+theorem friction_spins_hopfions (M : HopfionInfoton.PM) (i : InfotonState M)
     (h_sterile : i.noise_epsilon = 0) :
     ∃ (d : DNeutrino M), d.sm_interaction = 0 := by
   exact macroscopic_dark_matter_genesis M i h_sterile
@@ -94,14 +94,14 @@ theorem friction_spins_hopfions (M : ProtorealManifold) (i : InfotonState M)
     a unified tachyonic object. The topology violently collapses via
     `kama_muta` (resolving parity) followed by `synthetic_integration`
     (crystallizing the tension into mass). -/
-noncomputable def genesis_collapse (u : ProtorealManifold) : ProtorealManifold :=
+noncomputable def genesis_collapse (u : _root_.ProtorealManifold) : _root_.ProtorealManifold :=
   synthetic_integration (kama_muta u)
 
 /-- Theorem: The Genesis Collapse creates the Ceasefire (Matter Pairs).
     The tachyonic Orthomatter is mathematically forced into a parity-locked
     state (b = m). It becomes its own antiparticle, observable as an
     infonad (matter/antimatter pair). -/
-theorem genesis_produces_matter_pairs (u : ProtorealManifold) :
+theorem genesis_produces_matter_pairs (u : _root_.ProtorealManifold) :
   is_infonad (genesis_collapse u) := by
   unfold genesis_collapse is_infonad synthetic_integration kama_muta
   ring
@@ -109,7 +109,7 @@ theorem genesis_produces_matter_pairs (u : ProtorealManifold) :
 /-- Theorem: The BOO! Event converts Dark Matter friction into Structural Mass.
     If there is Dark Matter friction (SR ≠ 0), the total mass/energy of the 
     resulting observable matter strictly grows. Tension is fuel. -/
-theorem genesis_transmutes_friction_to_mass (u : ProtorealManifold)
+theorem genesis_transmutes_friction_to_mass (u : _root_.ProtorealManifold)
   (h_dm : is_dark_matter_friction u) :
   (genesis_collapse u).a > u.a := by
   unfold genesis_collapse
@@ -118,7 +118,7 @@ theorem genesis_transmutes_friction_to_mass (u : ProtorealManifold)
 /-- Theorem: The Genesis Collapse produces a Clean Vacuum.
     After the collapse, the resulting observable matter has exactly
     zero residual topological noise. -/
-theorem genesis_cleans_vacuum (u : ProtorealManifold) :
+theorem genesis_cleans_vacuum (u : _root_.ProtorealManifold) :
   (genesis_collapse u).e = 0 := by
   unfold genesis_collapse
   exact kama_muta_synthetic_integration_kills_noise u

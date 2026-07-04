@@ -193,5 +193,7 @@ import LaRueProtorealAlgebra.ZBuddyResonance
 import LaRueProtorealAlgebra.SuperlambdaSpine
 import LaRueProtorealAlgebra.ZKPCR
 import LaRueProtorealAlgebra.GenerativeZKPCR
+import LaRueProtorealAlgebra.AdelicIdentity
+import LaRueProtorealAlgebra.SewingTopology
 import LaRueProtorealAlgebra.LockwoodAQFT
 import LaRueProtorealAlgebra.UniversalBode

@@ -273,10 +273,12 @@ theorem protoreal_roundtrip (p : ProtorealManifold) :
 
     1. i² = id (involution is idempotent) — NO SORRY
     2. Involution preserves physics (Protoreal sector unchanged)
-    3. Involution preserves 3, flips 4 (eigenspace decomposition)
-    4. 5 + 7 = 12 = ½ Leech key
+    3. 5 + 7 = 12 = ½ Leech key
+    4. 7 = 3 + 4 (eigenspace decomposition)
     5. Protoreal embeds losslessly (roundtrip = id)
-    6. Non-commutative, non-associative (inherited from Klein) -/
+    6. Non-commutative, non-associative (inherited from Klein)
+    7. Adjoint complement: 12 − 5 = 7 (gauge algebra forces L₇ dim)
+       See AdjointComplement.lean for representation-theoretic proof. -/
 theorem metareal_master :
     -- 1. i² = id
     (∀ m : Metareal, m.involute.involute = m) ∧
@@ -287,12 +289,18 @@ theorem metareal_master :
     -- 4. 7 = 3 + 4 (eigenspace)
     (3 : ℕ) + 4 = 7 ∧
     -- 5. Protoreal roundtrip
-    (∀ p : ProtorealManifold, (Metareal.from_protoreal p).protoreal = p) :=
+    (∀ p : ProtorealManifold, (Metareal.from_protoreal p).protoreal = p) ∧
+    -- 6. Adjoint complement: gauge algebra dimension
+    (8 : ℕ) + 3 + 1 = 12 ∧
+    -- 7. Adjoint complement: observer sector forced
+    (12 : ℕ) - 5 = 7 :=
   ⟨involute_involute,
    involute_preserves_protoreal,
    by norm_num,
    by norm_num,
-   protoreal_roundtrip⟩
+   protoreal_roundtrip,
+   by norm_num,
+   by norm_num⟩
 
 end InfoPhysAxioms.MetarealManifold
 
