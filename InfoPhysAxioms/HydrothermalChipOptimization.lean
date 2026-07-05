@@ -128,11 +128,13 @@ theorem murray_conserves_energy (d l n : ℝ) :
 
     In the vent: mineral precipitation at branch points creates
     turbulent eddies that are damped by the channel walls downstream. -/
-theorem murray_split_has_noise (d l : ℝ) (n : ℝ) (hn : n > 0) :
+theorem murray_split_has_noise (d l : ℝ) (n : ℝ) (hn : n > 0) (hd : d * (1 - l) ≠ 0) :
     (bond (flow_channel d l) (splitting_medium n)).e > 0 := by
-  unfold bond flow_channel splitting_medium
+  unfold bond flow_channel splitting_medium standard_resonance
   dsimp
-  linarith
+  have : d - d * l - 0 = d * (1 - l) := by ring
+  rw [this]
+  exact abs_pos.mpr hd
 
 /-- **FLOW STABILIZATION SPENDS THE BRANCHING NOISE**
     After synthetic_integration (flow stabilization), the noise is zero.
@@ -253,6 +255,7 @@ noncomputable def curie_gate : ProtorealManifold :=
 theorem curie_gate_is_growth_medium :
     curie_gate = growth_medium := by
   unfold curie_gate growth_medium
+  rfl
 
 /-- **PROGRAMMING = CRYSTAL GROWTH**
     Writing a magnetic domain pattern at the Curie point
@@ -365,12 +368,13 @@ theorem two_stage_is_clean (substrate : ProtorealManifold) :
 theorem two_stage_deeper_than_single (substrate : ProtorealManifold) :
     (two_stage_deposition substrate).l >
     (grow_once (bond substrate qc_transition_medium)).l := by
-  unfold two_stage_deposition grow_once synthetic_integration
-    automatic_differentiation bond crystalline_scaffold
-    qc_transition_medium growth_medium
-  simp
-  linarith [le_max_left (max substrate.l 0) 0,
-            le_max_left substrate.l 0]
+  unfold two_stage_deposition grow_once synthetic_integration automatic_differentiation bond
+  dsimp [crystalline_scaffold, qc_transition_medium, growth_medium]
+  have h1 : max substrate.l 0 ≥ 0 := le_max_right substrate.l 0
+  have h2 : max (max substrate.l 0 + 1) 0 = max substrate.l 0 + 1 := max_eq_left (by linarith)
+  have h3 : max (max (max substrate.l 0 + 1) 0 + 1 + 1) 0 = max (max substrate.l 0 + 1) 0 + 1 + 1 := max_eq_left (by linarith)
+  have h4 : max (max (max (max substrate.l 0 + 1) 0 + 1 + 1) 0 + 1) 0 = max (max (max substrate.l 0 + 1) 0 + 1 + 1) 0 + 1 := max_eq_left (by linarith)
+  linarith
 
 /-- **SCAFFOLD PROVIDES LATTICE TEMPLATE**
     The crystalline scaffold has ω = ι (cubic symmetry).

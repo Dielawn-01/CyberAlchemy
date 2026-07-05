@@ -6,6 +6,8 @@ import LaRueProtorealAlgebra.IncompletenessSource
 import LaRueProtorealAlgebra.Invariance
 import InfoPhysAxioms.ProtorealGame
 import InfoPhysAxioms.HydrothermalChipOptimization
+import InfoPhysAxioms.CrystalGrowth
+import InfoPhysAxioms.Infochemistry
 
 /-!
 # Klein Manifold Field Generator (𝕌)
@@ -71,6 +73,8 @@ open HyperKlein
 open IncompletenessSource
 open ProtorealGame
 open HydrothermalChipOptimization
+open CrystalGrowth
+open Infochemistry
 
 namespace KleinFieldGenerator
 
@@ -197,9 +201,9 @@ theorem dyson_inversion :
 
     The Curie point T_C is where e transitions from low (ordered)
     to high (disordered). At T_C exactly, e = 1 (maximum capacity).
-    This is the curie_gate from HydrothermalChipOptimization. -/
+    This is the curie_gate from HydrothermalChipOptimization.
 
-/-- **THE CURIE POINT IS THE GÖDEL BOUNDARY**
+    **THE CURIE POINT IS THE GÖDEL BOUNDARY**
     At the Curie point:
     - χ → ∞ (divergent susceptibility)
     - The system cannot determine its own state
