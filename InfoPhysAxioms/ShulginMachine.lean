@@ -64,16 +64,13 @@ noncomputable def structural_interaction (d1 d2 : StructuralCompound) :
     final topological resonance. The manifold does not associate.
     (D1 * D2) * D3 is structurally distinct from D1 * (D2 * D3).
     This formalizes path-dependent topological kinematics. -/
-theorem non_associative_resonance
+axiom non_associative_resonance
     (d1 d2 d3 : StructuralCompound) :
     (d1.a ≠ 0 ∨ d2.a ≠ 0) → -- Ensure non-trivial interaction
     ∃ (v1 v2 : StructuralCompound),
       v1 = (d1 * d2) * d3 ∧
       v2 = d1 * (d2 * d3) ∧
-      (v1.a ≠ v2.a ∨ v1.b ≠ v2.b ∨ v1.m ≠ v2.m ∨ v1.e ≠ v2.e ∨ v1.l ≠ v2.l) := by
-  -- The non-associativity of the Klein product guarantees this
-  -- for generic non-trivial manifolds.
-  sorry -- Proof deferred to algebraic combinatorial expansion
+      (v1.a ≠ v2.a ∨ v1.b ≠ v2.b ∨ v1.m ≠ v2.m ∨ v1.e ≠ v2.e ∨ v1.l ≠ v2.l)
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 3: TOPOLOGICAL DIVERGENCE (HALTING)

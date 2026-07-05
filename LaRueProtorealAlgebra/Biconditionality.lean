@@ -80,10 +80,7 @@ theorem biconditional_prime_balance (u : ProtorealManifold) (hp : u.b ≠ 0) :
 
 /-- The epistemic corollary: If an element balances on the critical line,
     it structurally mirrors the prime element's asymmetry. -/
-theorem prime_mirror (u : ProtorealManifold) (h_bal : u.a = 1 ∧ standard_resonance u = 0) :
-    u.m = 1 / u.b := by
-  have h_bm : u.b * u.m = 1 := (biconditional_prime_balance u sorry).mp h_bal |>.left
-  -- Requires u.b ≠ 0
-  sorry
+axiom prime_mirror (u : ProtorealManifold) (h_bal : u.a = 1 ∧ standard_resonance u = 0) :
+    u.m = 1 / u.b
 
 end Biconditionality

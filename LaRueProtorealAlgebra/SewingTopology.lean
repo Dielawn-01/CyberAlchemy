@@ -41,10 +41,10 @@ theorem bridge_691_prime : Nat.Prime 691 := by native_decide
 theorem bridge_829_prime : Nat.Prime 829 := by native_decide
 
 /-- 691 is a golden-split prime: X²-X-1 has roots mod 691. -/
-theorem bridge_691_golden : golden_poly 399 691 = 0 := by native_decide
+theorem bridge_691_golden : golden_poly 222 691 = 0 := by native_decide
 
 /-- 829 is a golden-split prime. -/
-theorem bridge_829_golden : golden_poly 254 829 = 0 := by native_decide
+theorem bridge_829_golden : golden_poly 96 829 = 0 := by native_decide
 
 /-- **691 BRIDGE STRUCTURE**
     ord(φ̄) at 691 = 69 = 3 × 23.

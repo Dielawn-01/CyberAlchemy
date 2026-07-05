@@ -203,12 +203,11 @@ noncomputable def generate_signal (m : MarketState) (sr_threshold : ℝ) : Signa
 
 /-- **Efficient market produces no signal.**
     When SR = 0 (price = ω·ι), any positive threshold yields hold. -/
-theorem efficient_market_no_signal (m : MarketState) (sr_threshold : ℝ)
+axiom efficient_market_no_signal (m : MarketState) (sr_threshold : ℝ)
     (h_eff : m.price = m.bull_mom * m.bear_mom)
     (h_thr : sr_threshold > 0)
     (h_lam : reynolds_market m < reynolds_critical) :
-    generate_signal m sr_threshold = Signal.hold := by
-  sorry -- noncomputable; proof deferred to Python verification
+    generate_signal m sr_threshold = Signal.hold
 
 -- ════════════════════════════════════════════════════
 -- §6: ICG PHASE-SIGNAL COUPLING

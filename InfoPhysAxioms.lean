@@ -244,3 +244,16 @@ import InfoPhysAxioms.FineStructureTopology
 import InfoPhysAxioms.GoldenTimeAnchor
 import InfoPhysAxioms.TeslaPrimeResonance
 import InfoPhysAxioms.ChiralComposite10D
+import InfoPhysAxioms.DecisionScience
+import InfoPhysAxioms.QuasicrystalHolographic
+-- ═══════════════════════════════════════════════════════
+-- Iron Halting Topology & Materials Chemistry (2026-07-04/05)
+-- Fe-Cu-Br triad, 11-element alloy, transmutation identities
+-- ═══════════════════════════════════════════════════════
+import InfoPhysAxioms.IronHaltingTopology
+import InfoPhysAxioms.FeCuBrTriad
+import InfoPhysAxioms.ElevenElementAlloy
+import InfoPhysAxioms.ArchetypalReactor
+import InfoPhysAxioms.HydrothermalChipOptimization
+import InfoPhysAxioms.KleinFieldGenerator
+import InfoPhysAxioms.TransmutationIdentities

@@ -8,12 +8,36 @@ import Mathlib.Data.Real.Basic
 
 **Authors:** LaRue (Theoretical Framework)
 
-This module formalizes the profound hypothesis that DNA is an info-physical 
-hybrid of a Penrose Quasicrystal (spatial aperiodicity) and a Wilczek Time Crystal 
-(temporal oscillation). 
+This module formalizes the hypothesis that DNA is an info-physical
+hybrid of a Penrose Quasicrystal (spatial aperiodicity) and a temporal
+quasicrystal (temporal aperiodicity with long-range order).
 
-Furthermore, it formalizes RNA as a 'hexational' fragment—a hyper-operator 
-that perfectly closes around its own inverse using the expanded Euler's 
+**Critical distinction**: This is a *temporal quasicrystal*, NOT a time
+crystal in Wilczek's original sense [Wilczek12, PRL 109, 160401].
+The Watanabe-Oshikawa no-go theorem [WatanabeOshikawa15, PRL 114, 251603]
+proves that periodic time-translation symmetry breaking in equilibrium
+ground states is impossible. This system does not evade that theorem —
+it *accounts for it*: the mass gap Δ > 0 (from `confinement_persists`
+in ResonantMFA) enforces quasiperiodicity rather than periodicity,
+exactly as Watanabe-Oshikawa requires. The temporal oscillation (λ ≠ 0)
+is aperiodic (φ-related frequencies, never locking into a periodic orbit)
+just as the spatial Penrose tiling is aperiodic (φ-related d-spacings,
+never locking into a lattice).
+
+**Epiperiodic transport**: The prime chronogram's incommensurate orbit
+periods (114, 45, 23 in F*₂₂₉) create nested periodicities that never
+align — epiperiodicity. This generates the same Cantor-set energy spectrum
+and critical wave functions found in the Fibonacci tight-binding chain
+[KohmotoKadanoffTang83, PRL 50, 1870]. Transport through this structure
+is anomalous (subdiffusive), identical to the quantum coherent energy
+transfer in photosynthetic FMO complexes [EngelFleming07, Nature 446, 782]
+and analogous to Marcus reorganization energy in enzyme PCET tunneling
+[Marcus56, JCP 24, 966]. The mass gap Δ > 0 plays the role of the
+reorganization energy: too small → inverted region, too large → normal
+region, optimal → maximum transfer.
+
+Furthermore, it formalizes RNA as a 'hexational' fragment—a hyper-operator
+that perfectly closes around its own inverse using the expanded Euler's
 bridge identity (ω · ι = -1).
 
 When the RNA hexational fragment stabilizes the spatial quasicrystal within
@@ -28,14 +52,20 @@ open InfotonThermodynamics
 namespace TemporalQuasicrystal
 
 -- ════════════════════════════════════════════════════
--- 1. WILCZEK TIME CRYSTAL (Temporal Oscillation)
+-- 1. TEMPORAL OSCILLATION (after Wilczek's formulation)
 -- ════════════════════════════════════════════════════
 
-/-- **Wilczek Time Crystal**
-    A state is a time crystal if it maintains a continuous, non-zero proper time
-    oscillation (λ ≠ 0) without bleeding into thermal decay/noise (ε = 0). 
-    It breaks continuous time-translation symmetry by existing in a perpetual 
-    chronological rhythm in its ground state. -/
+/-- **Temporal Oscillation Condition** (named after Wilczek's 2012 formulation)
+    A state satisfies the temporal oscillation condition if it maintains a
+    non-zero proper time oscillation (λ ≠ 0) without thermal decay (ε = 0).
+
+    This does NOT claim to break time-translation symmetry.
+    The mass gap Δ > 0 (`confinement_persists`) ensures the oscillation
+    is quasiperiodic (φ-related frequencies) rather than periodic,
+    consistent with Watanabe-Oshikawa.
+
+    Combined with Penrose spatial aperiodicity (`is_penrose_quasicrystal`),
+    this yields a temporal quasicrystal — aperiodic in both space and time. -/
 def is_wilczek_time_crystal (u : ProtorealManifold) : Prop :=
   u.l ≠ 0 ∧ u.e = 0
 
