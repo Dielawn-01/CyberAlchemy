@@ -91,7 +91,7 @@ print("=" * 70)
 
 phi_mod = 148
 phibar_mod = 82
-omega_mod = 94
+rho_mod = 94
 
 # Verify golden polynomial
 assert (phi_mod * phi_mod) % p == (phi_mod + 1) % p, "φ² ≠ φ+1"
@@ -105,26 +105,26 @@ print(f"  φ+φ̄ = {(phi_mod+phibar_mod)%p} ≡ 1, φ·φ̄ = {(phi_mod*phibar_
 phi_crt = crt_map[phi_mod]
 phibar_crt = crt_map[phibar_mod]
 neg1_crt = crt_map[228]  # -1 mod 229
-omega_crt = crt_map[omega_mod]
+rho_crt = crt_map[rho_mod]
 
 print(f"\nCRT positions:")
 print(f"  φ = 148:  ({phi_crt[0]}, {phi_crt[1]}) in Z/12Z × Z/19Z")
 print(f"  φ̄ = 82:   ({phibar_crt[0]}, {phibar_crt[1]}) in Z/12Z × Z/19Z")
 print(f"  -1 = 228:  ({neg1_crt[0]}, {neg1_crt[1]}) in Z/12Z × Z/19Z")
-print(f"  ω = 94:   ({omega_crt[0]}, {omega_crt[1]}) in Z/12Z × Z/19Z")
+print(f"  ρ = 94:   ({rho_crt[0]}, {rho_crt[1]}) in Z/12Z × Z/19Z")
 
 # The Z/12Z position IS the force level
 phi_force = phi_crt[0]
 phibar_force = phibar_crt[0]
 print(f"\nForce levels:")
-print(f"  φ:  level {phi_force} in Z/12Z (should be 6 = -ω position)")
-print(f"  φ̄:  level {phibar_force} in Z/12Z (should be 3 = ω position)")
+print(f"  φ:  level {phi_force} in Z/12Z (should be 6 = -ρ position)")
+print(f"  φ̄:  level {phibar_force} in Z/12Z (should be 3 = ρ position)")
 print(f"  Difference: {phi_force} - {phibar_force} = {phi_force - phibar_force} (one SU(3) unit)")
 
 # Verify force level identity
 print(f"\nForce level verification:")
 for name, z, expected_force in [("φ", 148, 6), ("φ̄", 82, 3), ("-1", 228, 6),
-                                  ("ω", 94, 4), ("ω²", 134, 8), ("i", 107, 3), ("-i", 122, 9)]:
+                                  ("ρ", 94, 4), ("ρ²", 134, 8), ("i", 107, 3), ("-i", 122, 9)]:
     crt = crt_map[z]
     status = "✓" if crt[0] == expected_force else f"✗ (got {crt[0]})"
     print(f"  {name:4s} = {z:3d}: force level {crt[0]:2d}  {status}")
@@ -146,7 +146,7 @@ print(f"Count: {len(roots_12)} ✓" if len(roots_12) == 12 else f"Count: {len(ro
 print(f"\nRoot classification:")
 root_names = {
     1: "1 (identity)", 228: "-1 (parity)",
-    94: "ω (SU(3))", 134: "ω² (SU(3))",
+    94: "ρ (SU(3))", 134: "ρ² (SU(3))",
     107: "i (SU(2))", 122: "-i (SU(2))",
 }
 for z in roots_12:
@@ -524,7 +524,7 @@ print("   roles (force carriers) but cannot sustain DYNAMIC feedback.\n")
 
 for o in sorted(set(o for _, _, o in non_19_harmonic_elements)):
     elems = [(n, Z) for n, Z, ord_val in non_19_harmonic_elements if ord_val == o]
-    root_of_unity = {2: "-1", 3: "ω/ω²", 4: "i/-i", 6: "-ω/-ω²", 12: "ζ₁₂"}
+    root_of_unity = {2: "-1", 3: "ρ/ρ²", 4: "i/-i", 6: "-ρ/-ρ²", 12: "ζ₁₂"}
     gauge = root_of_unity.get(o, f"ord-{o}")
     
     print(f"  ord={o:2d} ({gauge}):")
@@ -543,7 +543,7 @@ print(f"""
 F*_229 ≅ Z/12Z × Z/19Z  (CRT, verified exhaustively)
 
 FORCE SKELETON (Z/12Z, 12 roots of unity):
-  - The 11 non-identity roots: -1, ω, ω², i, -i, -ω, -ω², 4 primitive 12th roots
+  - The 11 non-identity roots: -1, ρ, ρ², i, -i, -ρ, -ρ², 4 primitive 12th roots
   - Chemical elements at force levels: {len(non_19_harmonic_elements)} elements
   - These elements can only carry structure, not sustain feedback
 
@@ -553,8 +553,8 @@ MATTER CONTENT (19-harmonic levels):
   - 95.2% of F*_229 has 19-harmonic order
 
 GOLDEN ROOTS:
-  - φ = 148 at force level 6 (-ω, parity × SU(3))
-  - φ̄ = 82 at force level 3 (ω, SU(3) center)
+  - φ = 148 at force level 6 (-ρ, parity × SU(3))
+  - φ̄ = 82 at force level 3 (ρ, SU(3) center)
   - They differ by one SU(3) unit in the gauge skeleton
 
 ERRORS:
