@@ -1,0 +1,251 @@
+\documentclass[12pt,oneside]{book}
+
+% ════════════════════════════════════════════
+% SHARED PREAMBLE
+% ════════════════════════════════════════════
+\input{common_preamble}
+\usepackage{xr-hyper}
+\externaldocument[V2-]{03_Vol2_Master}
+
+\begin{document}
+
+\frontmatter
+
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    {\Huge \textbf{Principia Psychedelia}}
+    
+    \vspace{0.8cm}
+    
+    {\LARGE \textbf{Volume I}}
+    
+    \vspace{1.5cm}
+    
+    {\LARGE \textbf{Logical and Informational Creativity}}
+    
+    \vspace{2cm}
+    
+    {\Large \textbf{Dylon La Rue}}
+    
+    \vspace{1.5cm}
+    
+    \textit{From the Foundations of Mathematics to the Frontiers of Intelligence}
+    
+    \vfill
+    
+    Las Vegas, Nevada \\
+    \today
+\end{titlepage}
+
+\tableofcontents
+
+\mainmatter
+
+% ════════════════════════════════════════════
+% CHAPTER 0: PEDAGOGICAL FOUNDATION
+% ════════════════════════════════════════════
+\chapter*{Counting, Sets, and Finite Worlds}
+\addcontentsline{toc}{chapter}{Chapter 0: Counting, Sets, and Finite Worlds}
+\input{00_Pedagogical_Foundation}
+
+
+% ════════════════════════════════════════════
+% PART I: LOGICAL CREATIVITY
+% ════════════════════════════════════════════
+\part{Logical Creativity}
+
+\chapter[The Unreal Algebra]{The Unreal Algebra}
+\input{01_Unreal_Algebra}
+
+\chapter[Prime Splitting Galois]{Prime Splitting Galois \\ \large\textit{L. Cullen (triponacci)}}
+\input{02_Prime_Splitting_Galois}
+
+\chapter[The Golden Subcategory]{The Golden Subcategory}
+\input{03_Golden_Subcategory}
+
+\chapter[Wave Mechanics]{Digital Wave Mechanics}
+\input{04_Digital_Wave_Mechanics}
+
+\chapter[Prime Field Mechanics]{Prime Field Mechanics and Negentropy}\label{ch:pft}
+\input{05_Prime_Field_Theory}
+
+\chapter[Golden Neighborhoods]{Golden Formalized Neighborhoods}
+\input{08_Golden_Formalized_Neighborhoods}
+
+
+% ════════════════════════════════════════════
+% PART II: INFORMATIONAL CREATIVITY
+% ════════════════════════════════════════════
+\part{Informational Creativity}
+
+\chapter*{Introduction to Part II}
+\addcontentsline{toc}{chapter}{Introduction: Semantic Condensation}
+\input{part2_introduction}
+
+\chapter[Metareal ASI]{Metareal ASI Chromodynamics}
+\input{07_Metareal_ASI_Chromodynamics}
+
+\chapter[Markets as Fluid Systems]{Markets as Fluid Systems: The Black-Scholes--Navier-Stokes Bridge}
+\input{15_Markets_Fluid_Systems}
+
+\chapter[Archetypal Incentives]{Archetypal Incentive Theory}\label{ch:incentives}
+\input{11_Archetypal_Incentive_Theory}
+
+\chapter[Procedural Games]{Procedural Game Design and The IGC-LCG Bridge}\label{ch:games}
+\input{14_Procedural_Game_Design}
+
+\chapter[Triple Helix]{Triple Helix Mechanics}
+\input{12_Triple_Helix_Mechanics}
+
+\chapter[Multimodal Mechanisms]{Multimodal Metamaterial Mechanisms}
+\input{09_Multimodal_Mechanisms}
+
+\chapter[Ambrosia Protocol]{Bionetic Ambrosia Protocol: Mead Substrate Architecture}\label{ch:ambrosia}
+\input{13_Bionetic_Ambrosia_Protocol}
+
+
+% ════════════════════════════════════════════
+% APPENDIX
+% ════════════════════════════════════════════
+\appendix
+\input{appendix_claim_ledgers}
+
+\chapter[Type Ledger]{Type Ledger and Claim Audit}
+
+\section{Field Conventions}
+For a prime $p$, $\FF_p$ denotes the field with $p$ elements. Its nonzero elements form the cyclic multiplicative group $\FF_p^*$ of order $p - 1$. If $a \in \FF_p^*$, then $\mathrm{ord}_p(a)$ denotes the least positive integer $n$ such that $a^n \equiv 1 \pmod{p}$. All congruences are modulo the displayed prime unless another modulus or ambient ring is explicitly specified. The polynomial used throughout is
+\[
+f(X) = X^2 - X - 1.
+\]
+When $f$ splits over $\FF_p$, its two roots are denoted by $\vp$ and $\vpbar$. The symbol $\vpbar$ means the conjugate golden root in $\FF_p$. It is \emph{not} a complex conjugate unless the ambient field is $\CC$.
+
+\section{Type and Unit Ledger}
+All modular residues, group orders, DFT bin labels, palindrome digits, subgroup indices, projection coordinates, and exponent labels are \textbf{dimensionless}. The following table declares every recurring symbol's type:
+
+\begin{center}
+\begin{tabular}{@{}clll@{}}
+\toprule
+Symbol & Name & Type & Units \\
+\midrule
+$a$ & Identity / bridge coordinate & Dimensionless & $\FF_p$ residue or $\RR$ \\
+$b$ & Thrust coordinate & Dimensionless & $\FF_p$ residue or $\RR$ \\
+$m$ & Anchor coordinate & Dimensionless & $\FF_p$ residue or $\RR$ \\
+$\eps$ & Noise coordinate & Dimensionless & $\FF_p$ residue or $\RR$ \\
+$\lam$ & Consolidation depth & Dimensionless & $\NN$ (step counter) \\
+$\vp, \vpbar$ & Golden roots in $\FF_p$ & Dimensionless & $\FF_p$ residues \\
+$\omega$ & Cube root of unity in $\FF_p$ & Dimensionless & $\FF_p$ residue \\
+$\Upsilon$ & Resonance tension / torque & Dimensionless & Ratio (see context) \\
+$\alpha_s(l)$ & Running coupling & Dimensionless & Rational function of $l$ \\
+$H$ & Shannon entropy & Dimensionless & Bits ($\log_2$) \\
+$S(u)$ & Schwarzian torque & Dimensionless & Algebraic invariant \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\textbf{Rule.} No finite-field residue carries mass, charge, length, or time units unless a separate calibrated physical map assigns that dimension. Any conversion from residue data to measured data must include a typed calibration rule specifying the observable, its SI dimension, and the mapping function.
+
+\section{Claim Protocol}
+This book uses a hard separation of claim types, following the rigorous epistemic separation convention introduced in the WMR1-R2 Maximum-Rigor edition~\cite{lockwood_larue_dwm}:
+
+\begin{enumerate}[noitemsep]
+\item \textbf{Theorem}: Proved from explicit hypotheses within the algebraic framework.
+\item \textbf{Verified Computation}: A finite calculation whose inputs, outputs, and replication code are supplied (Python scripts and/or formal proofs).
+\item \textbf{Structural Analogy}: A vocabulary map from an algebraic object to a conceptual role. Explicitly labeled as such.
+\item \textbf{Physical Interpretation}: Not accepted unless it supplies an observable, units, a null model, a measurement protocol, and a falsification criterion.
+\end{enumerate}
+
+\noindent The appendix Type Ledger (this chapter) serves as the centralized claim classification for the entire book. Readers should interpret no structural analogy as a physical claim, and no physical interpretation as a proved theorem.
+
+\section{Center-Algebra Scope Rule}
+Wherever this book uses the language ``SU(3) confinement,'' ``color,'' ``gluon,'' or ``deconfinement,'' the statement refers \emph{exclusively} to the center algebra $Z(\mathrm{SU}(3)) = \{I_3, \zeta I_3, \zeta^2 I_3\} \cong \ZZ/3\ZZ$, realized as a cyclic subgroup $\langle\omega\rangle$ inside $\FF_p^*$. This is a center-algebra realization only. It is \textbf{not} a derivation of Yang--Mills confinement, hadron physics, neutrino oscillation, running coupling, Wilson loops, or cosmological dark matter. Upgrading from center arithmetic to a gauge theory requires at minimum: a lattice $\Gamma$, edge variables, gauge action, plaquette holonomies, an action functional, gauge-invariant observables, and a scaling law~\cite{lockwood_larue_dwm}.
+
+\paragraph{Established baselines.} Before any physical interpretation of the $\{229, 181, 139\}$ prime triangle is accepted, it must be compared against the following established models:
+\begin{itemize}[noitemsep]
+\item \textbf{Cornell Potential} (Eichten et al., 1975): $V(r) = -a/r + \sigma r$ for quark confinement.
+\item \textbf{Renormalization Group Equations} (Wilczek, Gross, Politzer, 1973): $\alpha_i^{-1}(\mu)$ logarithmic running.
+\item \textbf{Newtonian Fractional-Dimension Gravity} (Varieschi, 2020): $D$-dimensional Gauss law generalization.
+\item \textbf{Stillinger Axioms} (1977): structural foundation for non-integer dimensional physics.
+\end{itemize}
+Any claim that the Metareal framework supersedes or replaces these models is a Physical Interpretation (a physical interpretation requiring experimental confirmation) requiring the full experimental confirmation protocol.
+
+\section{Terminology Quarantine}
+The following terms carry restricted scope throughout this book:
+\begin{itemize}[noitemsep]
+\item \textbf{``Dark''}: Within the algebra, means outside the selected harmonic subgroups $\langle 148 \rangle$ and $\langle 82 \rangle$ at $p = 229$ (the ``indefinite sector'').
+\item \textbf{``Confinement'' / ``Deconfinement''}: Refers to $3 \mid \mathrm{ord}(\vpbar)$ vs.\ $3 \nmid \mathrm{ord}(\vpbar)$. Not Yang--Mills confinement.
+\item \textbf{``D-Neutrino'' / ``Anchor''}: Structural pattern (null norm, sign oscillation, three-fold arc grading). Not a PMNS model.
+\item \textbf{``Exotic Matter''}: Algebraic structure that lies outside the standard golden orbit partition. Not a claim of physical exotic matter with negative energy density.
+\item \textbf{``Zero-Point Energy''}: When applied to finite-field topology, refers to the mathematical $1/R$ scaling of structural tension. Not a claim about QED vacuum fluctuations unless explicitly connected to a measured Casimir force.
+\end{itemize}
+
+\section{Correction Register}
+
+This register documents structural corrections applied across the book's development, following the Lockwood WMR1-R2 repair protocol.
+
+\begin{center}
+\begin{tabular}{@{}p{4cm}p{5cm}p{4cm}@{}}
+\toprule
+\textbf{Issue} & \textbf{Correction Applied} & \textbf{Status After Repair} \\
+\midrule
+Conflation of ``SU(3) confinement'' with physical QCD & Separated into center algebra ($\ZZ/3\ZZ$ realization), structural analogy, and open physical extension. Center-Algebra Scope Rule added to frontmatter. & Exact at the level of $\ZZ/3\ZZ$ center algebra only. \\
+\midrule
+FBBT introduced before the prime field structure it depends on & FBBT merged into Prime Field Mechanics chapter (Part II), after golden tetrahedron is defined. & Dependency flow correct. \\
+\midrule
+Physical terminology (``exotic matter,'' ``dark,'' ``neutrino'') used without scope declaration & Terminology Quarantine section added to frontmatter. Appendix Type Ledger classifies physical language as Tier 3 or Tier 4. & Quarantined. \\
+\midrule
+No type/unit declarations for recurring symbols & Type and Unit Ledger added to frontmatter. All Protoreal coordinates declared dimensionless. & Type-correct. \\
+\midrule
+No explicit falsification criteria for physical claims & Falsification Protocol section added to frontmatter. Chapter 7 (Chiral Casimir) serves as the template. & Physical claims require observable, null model, score. \\
+\midrule
+Claim categories not explicit & Centralized Type Ledger and Claim Audit appendix added. Per-chapter inline ledgers removed for readability. & Four-tier classification active in appendix. \\
+\midrule
+Tokamak energy confinement time scaling left as empirical without first-principles proof & Confinement time derived as log-time midpoint (geometric mean) of classical and Bohm diffusion, scaled by $SU(3)$ (superconducting) and $SU(2)$ (conventional) invariants. & Verified. Confirms ITER within 0.03\% and JET within 1.93\% with zero free parameters. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Falsification and Verification Program}
+
+\subsection{Finite Arithmetic Tests}
+Every finite arithmetic claim in this book must pass the following tests:
+\begin{enumerate}[label=A\arabic*., noitemsep]
+\item Root test: $\vp^2 \equiv \vp + 1 \pmod{p}$.
+\item Root-sum test: $\vp + \vpbar \equiv 1 \pmod{p}$.
+\item Bridge-product test: $\vp \vpbar \equiv -1 \pmod{p}$.
+\item Order test: $a^N \equiv 1$ \textbf{and} $a^{N/q} \neq 1$ for every prime divisor $q$ of $N$.
+\item Order-three test: $\omega^3 \equiv 1$, $\omega \neq 1$.
+\item Vanishing-sum test: $1 + \omega + \omega^2 \equiv 0 \pmod{p}$.
+\item Mayer--Vietoris parity test: $\vp^n \vpbar^n \equiv (-1)^n$ for all $n$ in the orbit.
+\item Baby-step Giant-step table verification for FBBT halting computations.
+\end{enumerate}
+\noindent Failure of any test invalidates the corresponding theorem or computation. Python verification scripts are provided in each chapter's companion files. Formal machine proofs are maintained in the companion verification repository.
+
+\subsection{experimental confirmations}
+A proposed physical upgrade or interpretation must specify:
+\begin{enumerate}[noitemsep]
+\item A measured observable $Y$ with SI units.
+\item A null model $M_0$ that does not use the golden-field algebra.
+\item A finite-field extension model $M_1$ that uses the algebra.
+\item A preregistered score: $S = \frac{1}{N}[\log p(Y_{\text{test}} \mid M_1) - \log p(Y_{\text{test}} \mid M_0)]$.
+\item Out-of-sample survival: the same score must fail under timestamp shuffles, randomized primes, randomized generators, phase-scrambled residues, and environmental surrogate channels.
+\end{enumerate}
+\noindent The upgrade is not accepted unless $S > 0$ with uncertainty excluding zero, and unless all five surrogate tests fail to replicate the score.
+
+\subsection{No-Free-Parameter Rule}
+Weights, channel multipliers, and conversion constants must be fixed by one of four mechanisms:
+\begin{enumerate}[noitemsep]
+\item A theorem.
+\item An independently measured calibration.
+\item A preregistered fitting rule evaluated out of sample.
+\item A conservation law or variational principle.
+\end{enumerate}
+\noindent A coefficient selected because it makes a result resemble a desired physical constant is not evidence.
+
+% ════════════════════════════════════════════
+% UNIFIED BIBLIOGRAPHY
+% ════════════════════════════════════════════
+\input{unified_bibliography}
+
+\end{document}

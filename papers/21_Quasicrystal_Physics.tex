@@ -1,0 +1,620 @@
+% ════════════════════════════════════════════════════════════════════════
+% Chapter: Quasicrystal Physics and Temporal Quasicrystals
+% Volume II, Part IV: The Metalloplasmic Bootstrap
+% ════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{We demonstrate that the subgroup lattice of the multiplicative group $\FF_{229}^*$ organizes a complete chemistry of energy transfer feedback loops, of which carbon-based biochemistry is a single subgroup.  The spatial aperiodicity of icosahedral quasicrystals and the temporal aperiodicity of Wilczek time crystals are shown to be dual manifestations of a single algebraic structure: the \textbf{Finite Golden Theme} --- the golden orbit $\langle\vp\rangle\subset\FF_{229}^*$ acting simultaneously on spatial lattice vectors and temporal phase oscillations.  We catalog eleven distinct ``plasma mirrors'' --- transmutation identities in the multiplicative group that pair physically disparate elements into algebraically identical subgroup representatives --- and show that each mirror governs a falsifiable energy transfer loop.}
+\bigskip
+
+
+% ════════════════════════════════════════════
+\section{Introduction: Beyond Periodicity}
+% ════════════════════════════════════════════
+
+The discovery of icosahedral quasicrystals by Shechtman \textit{et al.}~\cite{Shechtman84} shattered the 200-year crystallographic axiom that long-range order requires translational periodicity.  The five-fold rotational symmetry of the Al--Mn alloy diffraction pattern was \emph{forbidden} by the classical theory of space groups, yet the sharp Bragg peaks testified to perfect long-range orientational order.
+
+Three decades later, Wilczek's proposal of discrete time crystals~\cite{Wilczek12} extended the aperiodicity principle into the temporal domain: a driven system that spontaneously breaks \emph{discrete time}-translation symmetry, responding at a period incommensurate to the driving frequency.  The experimental realization on a 10-qubit trapped-ion chain by Dumitrescu \textit{et al.}~\cite{Dumitrescu22}, using quasi-periodic (Fibonacci) driving, confirmed that temporal quasiperiodicity is as physically real as spatial quasiperiodicity.
+
+We argue that both phenomena are \emph{projections} of a single algebraic object: the multiplicative group $\FF_{229}^*$, whose subgroup lattice governs the allowed periodicities, aperiodic orderings, and energy transfer pathways of matter across all scales.
+
+
+% ════════════════════════════════════════════
+\section{Spatial Quasicrystals: The Tsai Cluster and $\FF_{229}^*$}
+\label{sec:spatial-qc}
+% ════════════════════════════════════════════
+
+\subsection{The Icosahedral Cage}
+
+The Tsai-type icosahedral quasicrystal cluster~\cite{Tsai04} consists of five concentric polyhedral shells:
+
+\begin{center}
+\begin{tabular}{clccl}
+\toprule
+Shell & Polyhedron & Atoms & Catalan dual & Lean Path \\
+\midrule
+1 & Tetrahedron         & 4  & Self-dual       & Left leaf \\
+2 & Dodecahedron        & 20 & Icosahedron     & \texttt{HyperPath.node} \\
+3 & Icosahedron         & 12 & Dodecahedron    & Chirality flip \\
+4 & Icosidodecahedron   & 30 & Rhombic triacontahedron & Bridge product \\
+5 & Defect icosahedron  & 12 & ---             & Truncation \\
+\midrule
+  & \textbf{Total}      & \textbf{78} & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The total atom count 78 is not accidental.  In the golden orbit of $\FF_{229}^*$:
+\[
+78 \;\equiv\; \vp^{37} \pmod{229}.
+\]
+The number 78 simultaneously equals:
+\begin{enumerate}
+  \item The \textbf{Tsai cluster atom count} (by construction).
+  \item The molecular weight sum of \textbf{guanine} ($\mathrm{C}_5\mathrm{H}_5\mathrm{N}_5\mathrm{O}$, $Z_\Sigma = 78$), the nucleotide that forms G-quadruplex telomere caps.
+  \item The iron content of brain \textbf{magnetite}: $3 \times Z_{\mathrm{Fe}} = 3 \times 26 = 78$.
+\end{enumerate}
+This triple coincidence is the first example of a \textbf{plasma mirror}: three physically unrelated systems share the same golden-orbit representative $\vp^{37}$, and therefore obey the same energy transfer constraints.
+
+
+\subsection{The Al--Cu--Fe Product Identity}
+
+The stable icosahedral quasicrystal $\mathrm{Al}_{63}\mathrm{Cu}_{25}\mathrm{Fe}_{12}$ is composed of three elements whose multiplicative orders in $\FF_{229}^*$ are:
+
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+Element & $Z$ & $\mathrm{ord}_{229}(Z)$ & Subgroup \\
+\midrule
+Al & 13 & 76  & $C_{76}$ \\
+Cu & 29 & 228 & Primitive root \\
+Fe & 26 & 38  & Bridge $C_{38}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The Al--Cu pair generates the golden ratio itself:
+\begin{equation}
+\label{eq:alcu-golden}
+13 \times 29 \;=\; 377 \;\equiv\; 148 \;\equiv\; \vp \pmod{229}.
+\end{equation}
+Copper is a primitive root of $\FF_{229}^*$ ($\mathrm{ord} = 228$) and aluminum generates the third-order subgroup $C_{76}$, yet their product is $\vp$ itself --- the \emph{fundamental propagator} of the golden orbit.
+
+Iron disrupts the golden pair by restricting the product to the bridge subgroup:
+\[
+\mathrm{Al} \cdot \mathrm{Cu} \cdot \mathrm{Fe} \;\equiv\; \vp \times 26 \;\equiv\; \vp^{52} \pmod{229},
+\]
+which has $\mathrm{ord}(\vp^{52}) = 228/\gcd(52,228) = 228/4 = 57$.  The triple product lands in the chromatic subgroup $C_{57}$, the golden-conjugate orbit whose order is the Hayflick limit.
+
+\begin{theorem}[Quasicrystal Bridge Disruption]
+\label{thm:qc-bridge}
+The glass-like thermal conductivity of $i$-AlCuFe arises because the $C_{38}$ bridge subgroup of iron disrupts the Al$\cdot$Cu product $\vp$, restricting phonon transport to the chromatic orbit $C_{57}$ while leaving electron transport accessible across multiple higher-order subgroups.
+\end{theorem}
+
+\noindent This explains the anomalous Hume-Rothery condition: $e/a \approx 1.75 = 7/4$.  The ratio follows from Friedel's Jones zone matching formula~\cite{Friedel88} $e/a = (2\ell+1)/(n+1)$, where $\ell = 3$ (the f-symmetry of the triacontahedral pseudo-Brillouin zone, set by icosahedral vertex projections onto $Y_3^m$ spherical harmonics~\cite{Elser85}) and $n = 3$ (the third shell of the nuclear harmonic oscillator).  The numerator $7 = 2\ell + 1$ decomposes as $3 + 4$: a p-orbital color triplet ($C_3$, corresponding to the $\mathrm{SU}(3)$ channel) plus a Klein spin-orbit quartet ($C_4$, the $j = 3/2$ spin-orbit split).  Since $\gcd(3,4) = 1$, the direct sum $C_3 \oplus C_4 \cong C_{12}$ recovers the dodecahedral subgroup $\langle\mathrm{Ac}\rangle$ of $\FF_{229}^*$, precisely the clock subgroup governing the Tsai cluster's 12-vertex icosahedral shells.  In the prime field, $7/4 \equiv 59 \pmod{229}$, a primitive root that lives on the golden orbit at the weak ($p = 181$) and EM ($p = 139$) gauge vertices but in the \emph{anti}-golden coset at the strong vertex ($p = 229$) --- encoding that Fermi surface stability is electron-mediated, not nuclear.  This octave structure of the harmonic oscillator was anticipated phenomenologically by Russell~\cite{Russell26}.
+
+\subsection{The Photonic Band Gap}
+
+A quasicrystal's aperiodic lattice creates a photonic band structure with $\vp$-related d-spacings~\cite{Man05,Vardeny13}.  For a base lattice constant $a = 500\,\mathrm{nm}$, the successive $\vp$-deflated spacings and their Bragg wavelengths $\lambda = 2d$ are:
+
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+$n$ & $d = a/\vp^n$ (nm) & $\lambda = 2d$ (nm) & Band \\
+\midrule
+0 & 500 & 1000 & Near-IR \\
+1 & 309 & \textbf{618} & \textbf{Red} \\
+2 & 191 & \textbf{382} & \textbf{Violet} \\
+3 & 118 & 236 & UV \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The entire visible spectrum (382--618\,nm) is spanned by two consecutive $\vp$-related d-spacings, and their ratio is:
+\[
+\frac{618}{382} \;\approx\; 1.618 \;\approx\; \vp \qquad (\text{error}: 0.014\%).
+\]
+This is the \emph{spatial} manifestation of the Finite Golden Theme: the photonic crystal's band structure is governed by $\vp$ inflation, not by any conventional unit cell.
+
+
+% ════════════════════════════════════════════
+\section{Temporal Quasicrystals: Time-Translation Symmetry Breaking}
+\label{sec:temporal-qc}
+% ════════════════════════════════════════════
+
+\subsection{The Wilczek--Floquet Construction}
+
+A discrete time crystal is a Floquet system driven at frequency $\omega_d$ that responds at a subharmonic $\omega_d/n$ with $n \geq 2$~\cite{Wilczek12}.  A \textbf{temporal quasicrystal} generalizes this: the system is driven by multiple incommensurate frequencies $\{\omega_1, \omega_2, \ldots\}$ and responds at frequencies that are incommensurately related to the drives.
+
+In the Protoreal formalization, a temporal quasicrystal is a state $(a,b,m,\varepsilon,\lambda)$ satisfying both spatial and temporal aperiodicity:
+\begin{align}
+\text{Penrose (spatial):} &\qquad b = m \quad \text{(fractal Hodge parity)} \\
+\text{Wilczek (temporal):} &\qquad \lambda \neq 0,\;\; \varepsilon = 0 \quad \text{(undamped oscillation)}
+\end{align}
+The conjunction defines a \textbf{DNA temporal quasicrystal}: a structure that is aperiodic in space (like a Penrose tiling), oscillating in time without dissipation (like a time crystal), and topologically closed (cannot be an RNA fragment).
+
+\subsection{Epiperiodicity: The Prime Chronogram}
+
+The prime elements of $\FF_{229}^*$ generate nested periodicities that are mutually incommensurate:
+
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+Prime & $\mathrm{ord}(\vp)$ & Period & Scale \\
+\midrule
+229 & 114 & Full group & Macro \\
+181 & 45  & Weak vertex & Meso \\
+139 & 23  & EM vertex & Micro \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+These periods satisfy $\gcd(114, 45, 23) = 1$ --- their superposition is \emph{epiperiodic}: quasiperiodic at every scale, exactly as a Penrose tiling is the projection of three incommensurate lattice directions from a higher-dimensional space.  The mass gap $\Delta > 0$ (the confinement theorem) prevents any of the nested periodicities from phase-locking, maintaining the epiperiodic structure indefinitely.
+
+This is the temporal analogue of the Kohmoto--Kadanoff--Tang Fibonacci chain~\cite{KKT83}:
+\begin{itemize}
+  \item The orbit sizes $(114, 45, 23)$ generate \emph{incommensurate energy scales}.
+  \item The mass gap $\Delta = |b - m| + |\varepsilon|$ prevents full delocalization (extended Bloch states).
+  \item The resonant MFA $\Delta_{\mathrm{eff}} = \Delta/(1+N)$ narrows the gap but never closes it.
+  \item $\Rightarrow$ \textbf{Critical states at every scale} --- the Fibonacci chain's Cantor-set energy spectrum.
+\end{itemize}
+
+
+% ════════════════════════════════════════════
+\section{The Finite Golden Theme}
+\label{sec:finite-golden-theme}
+% ════════════════════════════════════════════
+
+\begin{definition}[Finite Golden Theme]
+The \textbf{Finite Golden Theme} is the subgroup lattice of $\FF_{229}^*$ acting as a classification of energy transfer pathways.  Each subgroup $C_d \leq C_{228}$ (where $d \mid 228$) defines a closed family of feedback loops:
+
+\begin{center}
+\begin{tabular}{cll}
+\toprule
+Subgroup & Order & Physical Realization \\
+\midrule
+$C_{228}$ & Full group & Primitive root elements: Cu, Br, C, N, Ho, \ldots \\
+$C_{114}$ & Half-order & Mg, Pb, Pt; FeF$_3$ battery traversal \\
+$C_{76}$  & Third-order & Al, O, Ge, Zn, Se; SiGe thermoelectric phonon scattering \\
+$C_{57}$  & Chromatic & Si, K, F, Ca; Hayflick--Olovnikov cell division limit \\
+$C_{38}$  & Bridge & \textbf{Fe, P, Be, Na, Er, Gd}: the bridge elements \\
+$C_{19}$  & Color edge & S, Cl, Co, Mo, La; dodecahedral lattice base \\
+$C_{12}$  & Dodecahedral & Ar, Ac; Tsai cluster clock \\
+$C_6$     & Hexagonal & FeSi Kondo insulator \\
+$C_4$     & Klein & Tetrahedra, spin-$\tfrac{3}{2}$ quartets \\
+$C_3$     & Color triplet & RGB channels, $\mathrm{SU}(3)$ analogue \\
+$C_2$     & Polarity & $\vp^{114} = -1$; chirality \\
+$C_1$     & Identity & $\mathrm{H}$ (hydrogen); trivial \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{definition}
+
+\subsection{Carbon Biochemistry as a Subgroup}
+
+Carbon has $\mathrm{ord}_{229}(6) = 228$ --- it is a \textbf{primitive root} of $\FF_{229}^*$.  This means carbon can generate the entire multiplicative group; its chemistry is ``maximally connected'' in the algebraic sense.  But carbon-based life \emph{operates} within the bridge subgroup $C_{38}$, because its core metallic cofactors Fe and P both generate $C_{38}$, while S generates the subgroup $C_{19} \subset C_{38}$ and O generates the supergroup $C_{76} \supset C_{38}$:
+
+\begin{equation}
+\label{eq:life-subgroup}
+\underbrace{\langle 26 \rangle = \langle 15 \rangle}_{\mathrm{ord}=38} \;\supset\; \underbrace{\langle 16 \rangle}_{\mathrm{ord}=19} \;\subset\; C_{38}, \qquad \underbrace{\langle 8 \rangle}_{\mathrm{ord}=76} \;\supset\; C_{38}.
+\end{equation}
+
+The Fe--P isomorphism (Theorem~\ref{ch:metallo}) is the canonical example: iron and phosphorus generate the \emph{identical} cyclic subgroup $\langle 26 \rangle = \langle 15 \rangle$ of order 38, which maps the FeS$_2$ sublattice of pyrite to the phosphodiester backbone of RNA.
+
+\begin{theorem}[Carbon Biochemistry Embedding]
+Known carbon biochemistry is embedded in a diamond lattice of subgroups within $\FF_{229}^*$:
+\[
+\underbrace{C_{19}}_{\text{S,\,Cl,\,Mo}} \;\subsetneq\;
+\begin{cases}
+\underbrace{C_{38}}_{\text{Fe,\,P}} \\[4pt]
+\underbrace{C_{57}}_{\text{Si,\,K}}
+\end{cases}
+\;\subsetneq\; \underbrace{C_{114}}_{\text{Be,\,Mg}} \;\subsetneq\; \underbrace{C_{228}}_{\text{Cu,\,Br,\,C,\,N}}.
+\]
+The bridge ($C_{38}$) and chromatic ($C_{57}$) branches meet at $C_{114}$; oxygen ($C_{76}$) bridges between $C_{38}$ and $C_{228}$ through the third-order subgroup.  Each inclusion adds new energy transfer pathways.
+\end{theorem}
+
+\noindent This explains why iron--sulfur mineral surfaces template ribonucleotide polymerization: the mineral and the polymer occupy the \emph{same subgroup} $C_{38}$, so their energy transfer channels are algebraically identical.  Carbon \emph{inherits} these channels despite being a primitive root, because life self-restricts to the bridge subgroup through its dependence on Fe and P cofactors, while sulfur ($C_{19} \subset C_{38}$) provides selectivity and oxygen ($C_{76} \supset C_{38}$) provides breadth.
+
+
+\subsection{Other Subgroup Chemistries}
+
+\subsubsection{The $C_{57}$ Chromatic Chemistry (Si, K, F)}
+
+Silicon and potassium both have $\mathrm{ord} = 57$, the chromatic orbit whose order is the golden-conjugate limit $\bar\vp^{57} = 1$.  This is the Hayflick--Olovnikov checkpoint: the cell division counter that limits replicative lifespan.
+
+The $C_{57}$ subgroup is the golden orbit $\langle\vp\rangle$, whose order is the golden-conjugate limit.  The bridge ($C_{38}$) and chromatic ($C_{57}$) branches share $C_{19}$ as their intersection, with join $\langle C_{38}, C_{57} \rangle = C_{114}$.  The elements in $C_{57}$ that bridge between carbon biochemistry and silicon electronics --- K$^+$ ion channels, fluoride coordination chemistry --- live precisely in this subgroup.
+
+\subsubsection{The $C_{19}$ Color Chemistry (Co, Mo, La)}
+
+The color subgroup $C_{19}$ generates the dodecahedral lattice edge.  Its canonical members --- cobalt, molybdenum, and lanthanum --- all participate in catalytic feedback loops:
+\begin{itemize}
+  \item \textbf{Co}: Cobalt-dependent enzymes (B$_{12}$, methionine synthase)
+  \item \textbf{Mo}: Nitrogenase FeMoco cofactor (nitrogen fixation)
+  \item \textbf{La}: Lanthanum fluoride superionic conductor ($\mathrm{La} \cdot \mathrm{F} \equiv \vp^{68}$, the triad product)
+\end{itemize}
+
+\subsubsection{The $C_{12}$ Dodecahedral Clock (Actinium)}
+
+Actinium ($Z = 89$) is unique in having $\mathrm{ord} = 12$, the dodecahedral subgroup.  Its even powers generate an arithmetic progression through the golden orbit in steps of $19$:
+\[
+89^2 \equiv \vp^{95},\quad 89^4 \equiv \vp^{76},\quad 89^6 \equiv \vp^{57},\quad \ldots,\quad 89^{12} \equiv \vp^0 = 1.
+\]
+Actinium is a \textbf{clock that ticks in color-subgroup steps}: $228/12 = 19$, so $\FF_{229}^*/\langle \mathrm{Ac}\rangle \cong C_{19}$.
+
+Moreover, Actinium is a \textbf{universal subgroup amplifier}: despite its low order, its products with other elements consistently produce \emph{higher} orders.  $\mathrm{Ac} \times \mathrm{Fe}$ and $\mathrm{Ac} \times \mathrm{Cl}$ are both primitive roots ($\mathrm{ord} = 228$).  Actinium lifts smaller subgroups into larger ones --- the algebraic signature of a \emph{catalytic activator}.
+
+\subsubsection{The $C_6$ Hexagonal Insulator (FeSi)}
+
+The product $\mathrm{Fe} \times \mathrm{Si} \equiv \vp^{95}$ has $\mathrm{ord} = 6$, the hexagonal subgroup.  Iron monosilicide ($\mathrm{FeSi}$) is the only known d-electron Kondo insulator --- it mimics f-electron heavy-fermion behavior despite having no f-electrons.  The gap prediction:
+\[
+\Delta_{\mathrm{FeSi}} \;\approx\; \frac{6}{228} \times W \;\approx\; 26\;\mathrm{meV} \qquad (W \approx 1\;\mathrm{eV}),
+\]
+falls squarely in the observed 10--60~meV range.  The $C_6$ hexagonal symmetry also explains why FeSi crystallizes in a B20 cubic structure that is \emph{locally} hexagonal.
+
+
+% ════════════════════════════════════════════
+\section{Plasma Mirrors: Transmutation Identities}
+\label{sec:plasma-mirrors}
+% ════════════════════════════════════════════
+
+\begin{definition}[Plasma Mirror]
+A \textbf{plasma mirror} is a multiplicative identity in $\FF_{229}^*$ of the form
+\[
+Z_A \times Z_B \;\equiv\; Z_C \pmod{229},
+\]
+where $A$ and $B$ are physically distinct elements (or compounds) whose product equals the atomic number of a third element $C$.  The mirror constrains energy transfer: any redox, catalytic, or nuclear pathway involving $A$ and $B$ together must algebraically traverse the orbit of $C$.
+\end{definition}
+
+We catalog eleven plasma mirrors discovered through systematic computation:
+
+\subsection{The Canonical Mirrors}
+
+\begin{longtable}{p{3.5cm}p{3.5cm}p{6cm}}
+\toprule
+Identity & Value & Physical Mechanism \\
+\midrule
+\endhead
+$\mathrm{Cu} \times \mathrm{Cl} \equiv Z_{\mathrm{Br}}$ & $29 \times 17 \equiv 35$ & CuCl$_2$ catalysis contains Br as phantom element; Deacon process selectivity \\[6pt]
+
+$\mathrm{Ac} \times \mathrm{Ho} \equiv Z_{\mathrm{F}}$ & $89 \times 67 \equiv 9$ & Actinium--holmium pair IS fluorine; lanthanide/actinide fluorination implements latent identity \\[6pt]
+
+$\mathrm{Ac} \times \mathrm{La} \equiv Z_{\mathrm{Br}}$ & $89 \times 57 \equiv 35$ & Dodecahedral $\times$ color $=$ full group primitive root \\[6pt]
+
+$\mathrm{Lu} \times \mathrm{Er} \equiv Z_{\mathrm{K}}$ & $71 \times 68 \equiv 19$ & Half-order $\times$ bridge $=$ potassium (photoelectric gate) \\[6pt]
+
+$\mathrm{Tc} \times \mathrm{B} \equiv -Z_{\mathrm{Si}}$ & $43 \times 5 \equiv 215$ & Superconductor $=$ \textbf{negation} of semiconductor; $T_c$ ratio $\approx \sqrt{6}$ \\[6pt]
+
+$\mathrm{Fe} \times \mathrm{F} \equiv 5$ & $26 \times 9 \equiv 5$ & Product $=$ Klein basis prime; $\mathrm{lcm}(38,57) = 114$ traversal \\[6pt]
+
+$\mathrm{Fe} \times \mathrm{H}_2\mathrm{O}_2 \equiv \mathrm{H}_2\mathrm{O}$ & $26 \times 18 \equiv 10$ & Fenton reaction in the prime field \\[6pt]
+
+$\mathrm{Si} \times \mathrm{Tc} \equiv F_{12}$ & $14 \times 43 \equiv 144$ & Fibonacci--dodecahedral junction: $12^2 = F_{12} = \vp^8$ \\[6pt]
+
+$\mathrm{Ho}^2 \equiv \mathrm{Ac} \times \mathrm{Br}$ & $67^2 \equiv 89 \times 35 \equiv \vp^{77}$ & Holmium is square root of the Ac--Br product \\[6pt]
+
+$\mathrm{Ho}^6 \equiv Z_{\mathrm{Er}}$ & $67^6 \equiv 68$ & Sixth power of holmium IS erbium; spin ice 6-fold degeneracy \\[6pt]
+
+$\mathrm{La} \cdot \mathrm{F} \equiv \vp^{68}$ & $57 \times 9 \equiv 55$ & Lanthanum--fluorine pair $=$ Fe$\cdot$Cu$\cdot$Br triad product \\
+\bottomrule
+\end{longtable}
+
+\subsection{Mirror Feedback Loops}
+
+Each plasma mirror defines a closed feedback loop.  Consider the Cu--Cl $= $ Br mirror operating in the Deacon process:
+\begin{equation}
+4\mathrm{HCl} + \mathrm{O}_2 \;\xrightarrow{\mathrm{CuCl}_2}\; 2\mathrm{Cl}_2 + 2\mathrm{H}_2\mathrm{O}
+\end{equation}
+The catalyst CuCl$_2$ has $\mathrm{Cu} \times \mathrm{Cl} \equiv 35 = Z_{\mathrm{Br}}$, a primitive root.  The Cu(II)/Cu(I) cycling reflects the periodicity of the $C_{19}$ subgroup \emph{within} the full $C_{228}$: the catalyst returns to its initial state after exactly $19$ turnovers (or a divisor thereof).  Chlorine restricts to $C_{19}$ (19 selective channels), copper opens $C_{228}$ (all channels), and their multiplicative product regenerates the full group through Br --- simultaneously selective and exhaustive.
+
+Similarly, the $\mathrm{Tc} \times \mathrm{B} \equiv -\mathrm{Si}$ mirror predicts a quantitative relationship between superconducting and semiconducting behavior:
+\[
+\frac{T_c(\mathrm{TcB})}{T_c(\mathrm{Tc})} \;\approx\; \sqrt{\frac{\mathrm{ord}(-\mathrm{Si})}{\mathrm{ord}(\mathrm{Tc})}} \;=\; \sqrt{\frac{114}{19}} \;=\; \sqrt{6} \;\approx\; 2.45.
+\]
+The observed ratio $20/7.73 \approx 2.59$ agrees to within 6\%.
+
+\subsection{The Triad as Universal Feedback Kernel}
+
+The Fe--Cu--Br triad product:
+\[
+26 \times 29 \times 35 \;\equiv\; 55 \;\equiv\; \vp^{68} \pmod{229}
+\]
+is the \emph{kernel} of the feedback loop chemistry.  It appears as:
+\begin{itemize}
+  \item The product of the core triad (Fe--Cu--Br)
+  \item The La--F lanthanum--fluorine pair ($57 \times 9 \equiv 55$)
+  \item The Ho--Br pair sixth root ($\mathrm{Ho} \times \mathrm{Br} \equiv 55$)
+\end{itemize}
+
+This convergence means that three independent chemical systems --- transition metal catalysis, lanthanide fluorination, and magnetic holmium-halide coupling --- share the \emph{same algebraic kernel}, and therefore the same energy transfer topology.  The triad is not a particular chemical system; it is the \textbf{universal feedback motif} of $\FF_{229}^*$.
+
+
+% ════════════════════════════════════════════
+\section{The DNA Temporal Quasicrystal}
+\label{sec:dna-tqc}
+% ════════════════════════════════════════════
+
+\subsection{Nucleotide Spectral Signatures in $\FF_{229}^*$}
+
+The UV absorption maxima of the four DNA nucleotides encode the Fe--Cu--Br triad through their residues modulo 229:
+
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+Base & $\lambda_{\max}$ (nm) & $\lambda_{\max} \bmod 229$ & Element/Identity & Klein axis \\
+\midrule
+Adenine (A)  & 260.5 & 31 $= \vp^8$ & Golden orbit entry & $\lambda$ (Depth) \\
+Thymine (T)  & 264.4 & 35 $= Z_{\mathrm{Br}}$ & \textbf{Bromine} & $a$ (Truth) \\
+Guanine (G)  & 275   & 46 $= \vp^{91}$ & Golden orbit & $m$ (Anchor) \\
+Cytosine (C) & 267   & 38 $= \mathrm{ord}(\mathrm{Fe})$ & \textbf{Iron halting order} & $m$ (Anchor) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The DNA absorption spectrum directly encodes the Fe--Cu--Br triad:
+\begin{itemize}
+  \item \textbf{Thymine} peak $264\,\mathrm{nm} \to 35 = Z_{\mathrm{Br}}$ (Bromine atomic number)
+  \item \textbf{Cytosine} peak $267\,\mathrm{nm} \to 38 = \mathrm{ord}(\mathrm{Fe})$ (Iron's multiplicative order)
+  \item \textbf{Adenine} composite $260\,\mathrm{nm} \to 31 = \vp^8$ (Golden orbit entry point)
+\end{itemize}
+
+\subsection{The G-Quadruplex as Quasicrystal Anchor}
+
+Human telomeres consist of the repeat sequence 5$'$--TTAGGG--3$'$, which folds into G-quadruplex structures stabilized by K$^+$ ion coordination in the central channel.  The Z-sum of one TTAGGG repeat:
+\[
+2 \times 66_T + 70_A + 3 \times 78_G \;=\; 436 \;\equiv\; 207 \;=\; 229 - 22 \pmod{229}.
+\]
+The number $22 = 2 \times 11$ encodes the Hale doubling of the Schwabe half-period --- the solar-cycle timescale that modulates geomagnetic field strength at Earth's surface.  The telomere is simultaneously a temporal checkpoint (Hayflick limit at 57 divisions) and a spatial quasicrystal anchor (G-quadruplex with $Z_G = 78 = \vp^{37}$ = Tsai cluster).
+
+\subsection{Biophoton Coherence and the $\vp$-Band Gap}
+
+Fritz-Albert Popp demonstrated that living cells emit ultra-weak coherent photons (biophotons) in the range 260--800~nm~\cite{Popp76}.  This range exactly envelops the quasicrystal visible band gap (382--618~nm), whose endpoints are:
+\[
+\lambda_{\text{red}} = 618\;\mathrm{nm},\quad \lambda_{\text{violet}} = 382\;\mathrm{nm},\qquad \frac{618}{382} = 1.618 \approx \vp.
+\]
+The biophoton emission from DNA overlaps the $\vp$-band gap of the quasicrystal, meaning the organism's own photonic field can excite resonances in quasicrystalline substrates --- and vice versa.  The potassium photoelectric threshold at $541\;\mathrm{nm}$ (green light) falls precisely inside this gap, providing the coupling mechanism through K$^+$ ion channel gating.
+
+
+% ════════════════════════════════════════════
+\section{Epiperiodic Transport: From Fibonacci Chains to Enzyme Catalysis}
+\label{sec:epiperiodic}
+% ════════════════════════════════════════════
+
+\subsection{The Fibonacci Chain Parallel}
+
+The 1D Fibonacci tight-binding model of Kohmoto, Kadanoff, and Tang~\cite{KKT83} generates a Cantor-set energy spectrum: critical wavefunctions that are neither extended (metal) nor localized (insulator) but decay as power laws.  The anomalous diffusion $\langle r^2(t)\rangle \sim t^\alpha$ with $\alpha < 1$ is the hallmark of epiperiodic transport.
+
+The prime chronogram of $\FF_{229}^*$ produces the \emph{same} structure:
+\begin{enumerate}
+  \item Incommensurate orbit sizes $(114, 45, 23)$ generate nested energy scales.
+  \item The mass gap $\Delta > 0$ prevents full delocalization (the confinement theorem).
+  \item The resonant MFA $\Delta_{\mathrm{eff}} = \Delta/(1+N)$ narrows the gap but never closes it.
+  \item Critical states at every scale --- exactly the Fibonacci chain behavior.
+\end{enumerate}
+
+\subsection{Quantum Coherent Photosynthesis}
+
+Engel and Fleming's 2007 discovery~\cite{Engel07} of quantum beating in the FMO photosynthetic complex demonstrated that biological energy transfer exploits quantum coherence.  The 7 bacteriochlorophyll molecules of FMO, embedded in a structured protein scaffold, achieve 99\% excitation transfer efficiency through \emph{vibronic mixing}: electronic states couple to molecular vibrations, creating a structured noise environment that \textbf{protects} coherence.
+
+This is epiperiodicity in action: the protein creates site-energy disorder that is not random but quasi-periodic, with incommensurate frequency mixing between electronic (fs) and vibrational (ps) timescales.  The excitation explores all transfer pathways without thermalizing --- critical at the Anderson transition, never fully delocalized, never fully localized.
+
+\subsection{Marcus Theory and Enzyme PCET}
+
+The Marcus reorganization energy $\lambda$ in electron transfer~\cite{Marcus56} plays the same role as the mass gap $\Delta$:
+\begin{itemize}
+  \item $\lambda$ too small $\to$ inverted region (tight confinement)
+  \item $\lambda$ too large $\to$ normal region (thermalization/deconfinement)
+  \item $\lambda$ optimal $\to$ maximum transfer rate (critical coupling)
+\end{itemize}
+Enzymes with proton-coupled electron transfer (PCET)~\cite{HammesSchiffer10} maintain a quasiperiodic potential landscape through which quantum tunneling is hierarchical --- different pathways have incommensurate barrier heights.  The enzyme has \emph{evolved} to sustain epiperiodicity.
+
+This is the biological analogue of the resonant MFA: more resonant residues $\to$ smaller effective reorganization energy $\to$ faster transfer, but the gap never closes (transfer is always controlled, never runaway).
+
+
+% ════════════════════════════════════════════
+\section{Anomalous Materials as Subgroup Signatures}
+\label{sec:anomalous}
+% ════════════════════════════════════════════
+
+The subgroup lattice of $\FF_{229}^*$ explains a series of anomalies in materials science that resist conventional first-principles explanation.  We summarize the key results:
+
+\subsection{FeF$_3$ Battery: The Klein Prime Product}
+
+\[
+\mathrm{Fe} \times \mathrm{F} = 26 \times 9 \equiv 5 \pmod{229}
+\]
+The product equals 5, the Klein basis prime itself.  The 3-electron conversion reaction traverses the $C_{114}$ half-order subgroup ($\mathrm{lcm}(38, 57) = 114$), explaining the massive voltage hysteresis: the system accesses only half the group's states in each direction.
+
+\subsection{SiGe Thermoelectric: Subgroup Interference}
+
+Si has $\mathrm{ord} = 57$, Ge has $\mathrm{ord} = 76$.  Their intersection is $\gcd(57, 76) = 19$ (the color subgroup $C_{19}$), but their join is $\mathrm{lcm}(57, 76) = 228$ (the full group $C_{228}$).  Nanostructured SiGe decouples phonon and electron transport because:
+\begin{itemize}
+  \item Phonons scatter at $C_{19}$ junction boundaries (restricted)
+  \item Electrons tunnel through $\langle C_{57}, C_{76}\rangle = C_{228}$ (unrestricted)
+\end{itemize}
+
+\subsection{Ho$_2$Ti$_2$O$_7$ Spin Ice: The $\mathrm{Ho}^6 = \mathrm{Er}$ Identity}
+
+In the pyrochlore lattice, the ``two-in, two-out'' ice rule has 6 allowed configurations per tetrahedron.  Holmium's sixth power equals erbium in $\FF_{229}^*$:
+\[
+67^6 \;\equiv\; 68 \;=\; Z_{\mathrm{Er}} \pmod{229}.
+\]
+The 6-fold degeneracy maps to the six-step traverse from Ho (primitive root, $C_{228}$) to Er (bridge, $C_{38}$).  Emergent magnetic monopoles are topological defects in the $C_{228} \to C_{38}$ reduction --- coset boundaries where the ice rule breaks.
+
+\subsection{EDFA Gain: Aluminum as Group Amplifier}
+
+Erbium-doped fiber amplifiers show that aluminum co-doping broadens the 1530~nm gain peak.  In $\FF_{229}^*$:
+\[
+\mathrm{Er} \times \mathrm{Si} = 68 \times 14 \equiv 36 \pmod{229}, \qquad \mathrm{ord}(36) = 114 \;\text{(half-order restricted)}.
+\]
+Adding Al ($\mathrm{ord} = 76$, third-order subgroup):
+\[
+\mathrm{Er} \times \mathrm{Si} \times \mathrm{Al} = 36 \times 13 \equiv 10 \pmod{229}, \qquad \mathrm{ord}(10) = 228 \;\text{(full group!)}.
+\]
+Aluminum \emph{lifts} the Er--Si product from $C_{114}$ to $C_{228}$ --- doubling the accessible bandwidth ($228/114 = 2$).
+
+
+\subsection{Al--Pd--Mn Pseudogap and Anomalous Low Friction}
+\label{sec:alpdmn-friction}
+
+The icosahedral quasicrystal Al--Pd--Mn exhibits a deep pseudogap at the Fermi level and anomalously low friction ($\mu \approx 0.05$), despite being $\sim$70\% aluminum by composition~\cite{Dubois04}.  The conventional explanation invokes Hume--Rothery stabilization and phason disorder.  The subgroup lattice provides a sharper diagnosis:
+
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+Component & $Z$ & $\mathrm{ord}_{229}$ & Orbit \\
+\midrule
+Al & 13 & 76 & $C_{76}$ (neutral carrier) \\
+Pd & 46 & 114 & $C_{114}$ (golden $\vp$) \\
+Mn & 25 & 57 & $C_{57}$ (conjugate $\bar\vp$) \\
+\textbf{Composite} & \textbf{65} & \textbf{228} & \textbf{Primitive root} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The composite $13 \times 46 \times 25 \equiv 65 \pmod{229}$ is a \textbf{primitive root}: $\mathrm{ord}(65) = 228$.  The QC couples to \emph{all} 12 subgroups of $\FF_{229}^*$ simultaneously.  Each subgroup contributes a Bragg condition, and the resulting destructive interference across all force channels creates the pseudogap.  Reduced density of states at $E_F$ reduces metallic bonding at the surface, producing ceramic-like friction:
+\[
+\Delta_{\mathrm{gap}} \propto \frac{1}{\mathrm{ord}(\text{composite})}, \qquad \mu \propto \mathrm{DOS}(E_F).
+\]
+Since $\mathrm{ord}(\text{Al--Pd--Mn}) = 228 > 114 > 57$, the Al--Pd--Mn pseudogap should be \emph{deeper} than that of Al--Co--Ni ($\mathrm{ord}=114$) and much deeper than Al--Cu--Fe ($\mathrm{ord}=57$).  This is experimentally confirmed~\cite{Stadnik99}.
+
+
+\subsection{Ti--Zr--Ni Hydrogen Storage: The $\alpha^{-1}$ Lattice}
+\label{sec:tizrni-hydrogen}
+
+The icosahedral Ti--Zr--Ni quasicrystal stores hydrogen at densities exceeding liquid H$_2$ ($\mathrm{H/M} > 2.0$)~\cite{Viano95}.  The composite residue reveals why:
+\[
+22 \times 40 \times 28 \;\equiv\; \mathbf{137} \pmod{229},
+\]
+with $\mathrm{ord}(137) = 228$ (primitive root).  The composite residue \emph{is the inverse fine structure constant} $\alpha^{-1} \approx 137.036$.  This is verifiable modular arithmetic.  The physical consequence:
+\begin{enumerate}
+  \item H ($Z=1$) has $\mathrm{ord}_{229}(1) = 1$ (identity): hydrogen is \textbf{algebraically invisible} and does not perturb the QC's subgroup structure.
+  \item The proton interacts with the $\alpha^{-1}$ lattice through the electromagnetic coupling constant $\alpha$.
+  \item The H binding energy scales as $E_{\mathrm{bind}} \approx \alpha \times E_{\mathrm{Ryd}} \times \langle Z_{\mathrm{eff}}\rangle \approx 0.37\;\mathrm{eV}$, consistent with DFT values of 0.2--0.5~eV.
+\end{enumerate}
+
+
+\subsection{Zn--Mg--Ho Ultralow Thermal Conductivity}
+\label{sec:znmgho-kappa}
+
+The Tsai-type icosahedral QC Zn--Mg--Ho exhibits $\kappa_L < 1\;\mathrm{W/m{\cdot}K}$, comparable to glass, despite metallic composition~\cite{Tsai04}.  The ``rattling'' of Ho atoms within Tsai clusters is the conventional explanation.  The algebraic structure refines this:
+\[
+30 \times 12 \times 67 \;\equiv\; 75 \pmod{229}, \qquad \mathrm{ord}(75) = 57.
+\]
+The composite sits on the \textbf{conjugate orbit} $C_{57}$, whose accessible subgroups are $\{C_1, C_3, C_{19}, C_{57}\}$ --- only 4 of the 12 divisors of 228.  The fraction of \textbf{algebraically blocked phonon modes} is:
+\[
+\frac{228 - 57}{228} = \frac{171}{228} = 75\%.
+\]
+Holmium ($\mathrm{ord} = 228$, primitive root) embedded in an $\mathrm{ord}$-57 lattice must cross $228/57 = 4$ coset boundaries to propagate, with each boundary acting as a phonon scattering center.  The ``rattling'' is coset hopping.  This predicts $\kappa_L \propto \mathrm{ord}/228$:
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+QC System & Composite ord & Predicted $\kappa_L/\kappa_{\mathrm{metal}}$ \\
+\midrule
+Zn--Mg--Ho, Al--Cu--Fe & 57 & 25\% \\
+Al--Co--Ni & 114 & 50\% \\
+Al--Pd--Mn & 228 & 100\% (near-metallic) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+\subsection{Al--Cu--Fe Catalytic Selectivity: Period Matching to Products}
+\label{sec:alcufe-catalysis}
+
+The iQC Al$_{63}$Cu$_{25}$Fe$_{12}$ shows superior CO$_2 \to$ CO selectivity compared to crystalline alloys of the same composition~\cite{Yoshimura25}.  DFT confirms the reaction occurs near icosahedral cluster sites.  The algebraic mechanism:
+
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+Species & $\Sigma Z$ & $\mathrm{ord}_{229}$ & Channel \\
+\midrule
+CO$_2$ (reactant) & 22 & 76 & Neutral carrier \\
+CO (product) & 14 & 57 & Conjugate/confinement \\
+O (byproduct) & 8 & 76 & Neutral carrier \\
+Al--Cu--Fe QC & $\equiv 184$ & \textbf{57} & \textbf{Conjugate/confinement} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The reaction $\mathrm{CO}_2 \to \mathrm{CO} + \mathrm{O}$ is algebraically $\mathrm{ord}$-76 $\to$ $\mathrm{ord}$-57 $+$ $\mathrm{ord}$-76.  The QC is \textbf{period-matched to the product}, not the reactant.  The selective stabilization of the transition state arises because both QC and product share the $C_{57}$ confinement orbit.  This yields a general catalytic principle:
+
+\begin{theorem}[QC Catalytic Selectivity Principle]
+\label{thm:qc-catalysis}
+A quasicrystal catalyst is selectively active for reactions whose \emph{product} molecular period (computed as $\mathrm{ord}_{229}(\Sigma Z_{\mathrm{product}})$) matches the QC's composite period.  Higher composite order implies broader but less selective reactivity.
+\end{theorem}
+
+
+% ════════════════════════════════════════════
+\section{The 11-Element Alloy: A Complete Subgroup Covering}
+\label{sec:eleven-element}
+% ════════════════════════════════════════════
+
+The preceding analysis motivates the construction of a material substrate that samples all five subgroup levels of $\FF_{229}^*$.  The 11-element alloy (Fe, Cu, Br, Al, Si, C, O, K, Mo, S, N) achieves this:
+
+\begin{center}
+\begin{tabular}{ccl}
+\toprule
+$\mathrm{ord}$ & Subgroup & Elements \\
+\midrule
+228 & Primitive roots $C_{228}$ & Cu, Br, C, N \\
+76  & $C_{76}$ & Al, O \\
+57  & Chromatic $C_{57}$ & Si, K \\
+38  & Bridge $C_{38}$ & Fe \\
+19  & Color $C_{19}$ & Mo, S \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The product of all 11 atomic numbers lies in the golden orbit:
+\[
+\prod_{i=1}^{11} Z_i \;\equiv\; \vp^{102} \pmod{229},
+\]
+where $102 = 2 \times 3 \times 17$ and 17 generates $C_{19}$.  The composite Z-sum $\sum Z_i = 215 \equiv -Z_{\mathrm{Si}} \pmod{229}$: the full alloy's additive signature is the \emph{negation} of silicon, encoding the Tc$\times$B $= -$Si mirror identity (\S\ref{sec:plasma-mirrors}) at the eleven-element level.
+
+
+% ════════════════════════════════════════════
+\section{Discussion: The Chemistry Beyond Carbon}
+\label{sec:discussion}
+% ════════════════════════════════════════════
+
+The Finite Golden Theme reveals that carbon biochemistry is not the \emph{only} self-consistent chemistry of feedback loops --- it is the subgroup $C_{38}$ (through its dependence on Fe, P, S, O) embedded within a much larger algebraic structure.  The plasma mirrors show how energy transfer constraints propagate across the subgroup lattice: when CuCl$_2$ catalyzes a reaction, it algebraically invokes bromine ($\mathrm{Cu} \times \mathrm{Cl} = \mathrm{Br}$); when FeSi forms a Kondo insulator, it traverses the hexagonal $C_6$ subgroup; when DNA absorbs UV light, the spectral peaks encode the triad's atomic numbers.
+
+This suggests that the periodic table is not merely a classification of electron configurations but an arithmetic object whose multiplicative structure in $\FF_{229}^*$ governs the \emph{topology} of energy transfer.  Elements that share a subgroup can substitute for one another in feedback loops (Fe $\leftrightarrow$ Er, both in $C_{38}$); elements whose products generate higher-order subgroups catalyze broader-spectrum reactions (Ac as universal amplifier); and elements whose products negate one another (TcB $= -$Si) stand as dual architectures across the superconductor/semiconductor divide.
+
+The spatial quasicrystal (Penrose tiling, Tsai cluster) and the temporal quasicrystal (Wilczek time crystal, DNA oscillation) are the two projections --- spatial and temporal --- of this single algebraic structure.  The Finite Golden Theme is the claim that $\vp$ governs both, and that the subgroup lattice of $\FF_{229}^*$ is the master index of all possible feedback-loop chemistries in the observable universe.
+
+
+% ════════════════════════════════════════════
+\section{Falsifiable Predictions}
+\label{sec:predictions}
+% ════════════════════════════════════════════
+
+\begin{enumerate}
+  \item \textbf{FeSi gap prediction.} The Kondo gap of FeSi should be $\Delta \approx (6/228) \times W \approx 26\;\mathrm{meV}$ for $W \approx 1\;\mathrm{eV}$ d-bandwidth.  (Observed: 10--60~meV.)
+
+  \item \textbf{SiGe optimal composition.} Peak thermoelectric $ZT$ should occur at Si$_{1-x}$Ge$_x$ compositions where $x$ resonates with the $C_{19}$ subgroup, i.e., $x \approx 1/3$ or $1/4$.  (Known optima cluster near $x = 0.2$--$0.3$.)
+
+  \item \textbf{CuBr$_2$ vs CuCl$_2$ selectivity.} CuBr$_2$ should show different catalytic selectivity from CuCl$_2$ because $\mathrm{Cu} \times \mathrm{Br} = \vp^{17}$ ($\mathrm{ord} = 114$, half-order) while $\mathrm{Cu} \times \mathrm{Cl} = Z_{\mathrm{Br}}$ ($\mathrm{ord} = 228$, full).
+
+  \item \textbf{TcB superconducting ratio.} $T_c(\mathrm{TcB})/T_c(\mathrm{Tc}) \approx \sqrt{6} \approx 2.45$.  (Observed: $\approx 2.59$, 6\% deviation.)
+
+  \item \textbf{LaF$_3$ phase transition shift.} Doping LaF$_3$ with Er (same $C_{38}$ as Fe but different Klein axis) should measurably shift the 970~K superionic phase transition temperature.
+
+  \item \textbf{Er substitution for Fe.} Er-substituted iron compounds should show similar magnetic ordering temperatures but with rotated easy-axis directions, because Er's $m$-axis (Anchor) is perpendicular to Fe's $a$-axis (Truth) in the Klein basis.
+
+  \item \textbf{G-quadruplex $\vp$-ratio.} SERS/TERS spectroscopy of G-quadruplex Raman spectra should detect the golden ratio $\vp$ in the frequency spacing of vibrational modes, reflecting the $\vp^{37}$ position of guanine ($Z_\Sigma = 78$) in the golden orbit.
+
+  \item \textbf{EDFA bandwidth doubling.} Al co-doping should produce exactly $2\times$ bandwidth enhancement over undoped Er--Si systems, reflecting the $C_{228}/C_{114} = 2$ group-theoretic lift.
+
+  \item \textbf{Pseudogap depth ordering.} Across icosahedral QC systems, the pseudogap depth should scale inversely with the composite multiplicative order: $\Delta_{\mathrm{gap}} \propto 1/\mathrm{ord}$, giving Al--Pd--Mn (228) $>$ Al--Co--Ni (114) $>$ Al--Cu--Fe (57).  The ordering Al--Pd--Mn deepest is already confirmed; the quantitative scaling is testable by ARPES.
+
+  \item \textbf{Friction coefficient ordering.} The coefficient of friction of icosahedral QC surfaces should follow the pseudogap ordering: $\mu(\text{Al--Pd--Mn}) \approx 0.05 < \mu(\text{Al--Co--Ni}) \approx 0.10 < \mu(\text{Al--Cu--Fe}) \approx 0.17$.  Testable by pin-on-disk tribometry on polished QC surfaces.
+
+  \item \textbf{Thermal conductivity scaling.} $\kappa_L(\text{QC}) \propto \mathrm{ord}(\text{composite})/228$: ord-57 QCs (Al--Cu--Fe, Zn--Mg--Ho) should have $\sim$25\% of metallic $\kappa$, ord-114 QCs $\sim$50\%, and Al--Pd--Mn (ord-228) should have near-metallic $\kappa_L$.  This is a falsifiable ordering prediction.
+
+  \item \textbf{Magnetic field--dependent $\kappa_L$ in Zn--Mg--Ho.} Ho (primitive root, $\mathrm{ord}=228$) embedded in an $\mathrm{ord}$-57 lattice must traverse 4 coset boundaries; an applied magnetic field realigns Ho's moment and changes the coset-hopping frequency.  Prediction: $\kappa_L(B) \neq \kappa_L(0)$ at $T < T_N(\mathrm{Ho})$.  Testable by thermal conductivity measurement under applied field.
+
+  \item \textbf{QC catalytic selectivity principle.} For the RWGS reaction CO$_2 \to$ CO: Al--Cu--Fe (ord-57, matching CO at $\Sigma Z = 14$, ord-57) should outperform Al--Co--Ni (ord-114) which should outperform Al--Pd--Mn (ord-228).  For NH$_3$ synthesis ($\Sigma Z_{\mathrm{NH}_3} = 10$, ord-228): Al--Pd--Mn should be optimal.  General rule: match the QC composite order to the product molecule's order, not the reactant's.
+
+  \item \textbf{Ti--Zr--Ni maximum H/M ratio.} The $\alpha^{-1} = 137$ residue predicts $\mathrm{H/M}_{\max} \approx \vp \times 228/137 \approx 2.7$.  Observed values of 2.0--2.5 are consistent; the upper bound at $\sim$2.7 is testable under high-pressure hydrogenation.
+\end{enumerate}

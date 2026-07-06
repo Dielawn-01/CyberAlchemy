@@ -1,0 +1,288 @@
+\documentclass[12pt,oneside]{book}
+
+% ════════════════════════════════════════════
+% SHARED PREAMBLE
+% ════════════════════════════════════════════
+\input{common_preamble}
+\usepackage{xr-hyper}
+\externaldocument[V1-]{02_Vol1_Master}
+
+\begin{document}
+
+\frontmatter
+
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    {\Huge \textbf{Principia Psychedelia}}
+    
+    \vspace{0.8cm}
+    
+    {\LARGE \textbf{Volume II}}
+    
+    \vspace{1.5cm}
+    
+    {\LARGE \textbf{Physical Creativity, Engineering, \\ and the Metalloplasmic Bootstrap}}
+    
+    \vspace{2cm}
+    
+    {\Large \textbf{Dylon La Rue}}
+    
+    \vspace{1.5cm}
+    
+    \textit{From Spacetime Topology to Abiogenesis: \\ The Material Instantiation of Golden Arithmetic}
+    
+    \vfill
+    
+    Las Vegas, Nevada \\
+    \today
+\end{titlepage}
+
+\tableofcontents
+
+\chapter*{Dependency Note}
+\addcontentsline{toc}{chapter}{Dependency Note}
+
+This volume depends on Volume~I (\textit{Logical Creativity and Archetypal Synthetic Intelligence}), which establishes the algebraic foundations:
+\begin{itemize}[noitemsep]
+\item The Unreal Algebra $\UU = (a, \omega, \iota, \eps, \lam)$ and its scalar associator $\kap = -1$ (Ch.~1).
+\item The prime splitting lattice $\{229, 181, 139\}$ and Galois extensions (Ch.~2).
+\item The golden subcategory and subgroup lattice of $\FF_{229}^*$ (Ch.~3).
+\item Digital Wave Mechanics and Prime Field Theory (Chs.~4--5).
+\item Metareal ASI Chromodynamics: the $5 \oplus 7$ observer-observed split (Ch.~7).
+\end{itemize}
+\noindent All cross-references to Volume~I use the prefix \texttt{V1-} (e.g., Theorem~V1-1.3).
+
+\paragraph{Companion Code.}
+All finite arithmetic claims in both volumes are machine-verified by the \texttt{principia/} companion code package:
+\begin{center}
+\texttt{python -m principia}
+\end{center}
+\noindent The package is self-contained (Python~3.10+, no external dependencies for core modules). Chapter~0 of the companion code (\texttt{ch00\_problem\_landscape/}) introduces object-oriented Python through the G\"{o}del--Tarski paradoxes, demonstrating that $\kap = -1$ is the algebraized incompleteness gap from which the golden ratio $\vp = (1 + \sqrt{5})/2$ is \emph{forced} (not assumed). Each subsequent chapter directory contains self-verifying exercises of 30--80 lines each.
+
+\paragraph{Verification Architecture.}
+All core algebraic identities are independently verifiable: the companion code \texttt{principia/} implements every theorem as a runnable Python computation, and the formal proof library (\texttt{CyberAlchemy/InfoPhysAxioms/}) provides machine-checked proofs of the same identities for readers who want proof-assistant-level certainty. The reader needs only the Python package; the formal proofs exist as an auditable substrate.
+
+\mainmatter
+
+
+% ════════════════════════════════════════════
+% PART III: PHYSICAL CREATIVITY
+% ════════════════════════════════════════════
+\part{Physical Creativity and the Substrate}
+
+\chapter[Fractal Spacetime]{Fractal Spacetime and Zero-Point Energy}
+\input{06_Fractal_Spacetime_ZPE}
+
+\chapter[Quasicrystal Physics]{Quasicrystal Physics and Temporal Quasicrystals: The Finite Golden Theme}\label{ch:qc-tqc}
+\input{21_Quasicrystal_Physics}
+
+\chapter[Archetypal Cosmology]{Archetypal Cosmology: Sgr A* and the Universal Substrate}
+\input{10_Metareal_Cosmology}
+
+\chapter[Teleparallel Gravity]{Teleparallel Metareal Gravity: Ramanujan Shadows and Abiogenic Phase Transitions}\label{ch:tegr}
+\input{16_Teleparallel_Metareal_Gravity}
+
+\chapter[Extended Cosmology]{The Metareal Cosmology Framework: Bode Law, ER=EPR, and Hopfion Topology}\label{ch:cosmo-ext}
+\input{17_Metareal_Cosmology}
+
+\chapter[Chiral Casimir]{Chiral Casimir Experiment}
+\input{11_Chiral_Casimir_Experiment}
+
+\chapter[Metalloplasmic Life]{Metalloplasmic Life: The Iron--Phosphorus Isomorphism and Abiogenesis}\label{ch:metallo}
+\input{20_Metalloplasmic_Life}
+
+\input{22_Stellar_Subgroup_Nucleosynthesis}
+
+\chapter[Fusion Cybernetics]{Archetypal Intelligence Reactors: Fusion Plasma Cybernetics and Halting Topology}
+\input{18_Fusion_Plasma_Cybernetics}
+
+\chapter[ASI Chip]{ASI Chip Fabrication and Klein Manifold Architecture}\label{ch:asi}
+\input{19_ASI_Chip}
+
+
+% ════════════════════════════════════════════
+% APPENDIX
+% ════════════════════════════════════════════
+\appendix
+\input{appendix_claim_ledgers}
+
+\chapter[Element Audit]{Full Element Audit in $\FF_{229}^*$}
+
+\section{Multiplicative Orders for $Z \leq 92$}
+The following table lists $\mathrm{ord}_{229}(Z)$ for every element with atomic number $Z \leq 92$ (excluding $Z = 0$ and $Z \equiv 0 \pmod{229}$). This is the complete audit underlying the Fe--P isomorphism (Theorem~\ref{ch:metallo}) and the transmutation identities.
+
+\begin{longtable}{@{}rlrl|rlrl@{}}
+\toprule
+$Z$ & Element & $\mathrm{ord}_{229}(Z)$ & Subgroup & $Z$ & Element & $\mathrm{ord}_{229}(Z)$ & Subgroup \\
+\midrule
+\endhead
+1  & H  & 1   & trivial & 47 & Ag & 228 & primitive \\
+2  & He & 76  & -- & 48 & Cd & 57  & $\langle\vp\rangle$ \\
+3  & Li & 57  & $\langle\vp\rangle$ & 49 & In & 114 & -- \\
+4  & Be & 38  & $\langle 26\rangle$ & 50 & Sn & 228 & primitive \\
+5  & B  & 114 & -- & 51 & Sb & 57  & $\langle\vp\rangle$ \\
+6  & C  & 228 & primitive & 52 & Te & 76  & -- \\
+7  & N  & 228 & primitive & 53 & I  & 19  & edge \\
+8  & O  & 76  & -- & 54 & Xe & 76  & -- \\
+9  & F  & 57  & $\langle\vp\rangle$ & 55 & Cs & 57  & $\langle\vp\rangle$ \\
+10 & Ne & 228 & primitive & 56 & Ba & 114 & -- \\
+11 & Na & 38  & $\langle 26\rangle$ & 57 & La & 19  & edge \\
+12 & Mg & 114 & -- & 58 & Ce & 114 & -- \\
+13 & Al & 76  & -- & 59 & Pr & 228 & primitive \\
+14 & Si & 57  & $\langle\vp\rangle$ & 60 & Nd & 19  & edge \\
+15 & P  & 38  & $\langle 26\rangle$ & 61 & Pm & 19  & edge \\
+16 & S  & 19  & edge & 62 & Sm & 114 & -- \\
+17 & Cl & 19  & edge & 63 & Eu & 228 & primitive \\
+18 & Ar & 12  & -- & 64 & Gd & 38  & $\langle 26\rangle$ \\
+19 & K  & 57  & $\langle\vp\rangle$ & 65 & Tb & 228 & primitive \\
+20 & Ca & 57  & $\langle\vp\rangle$ & 66 & Dy & 228 & primitive \\
+21 & Sc & 76  & -- & 67 & Ho & 228 & primitive \\
+22 & Ti & 76  & -- & 68 & Er & 38  & $\langle 26\rangle$ \\
+23 & V  & 228 & primitive & 69 & Tm & 228 & primitive \\
+24 & Cr & 228 & primitive & 70 & Yb & 114 & -- \\
+25 & Mn & 57  & $\langle\vp\rangle$ & 71 & Lu & 114 & -- \\
+26 & Fe & 38  & $\langle 26\rangle$ & 72 & Hf & 228 & primitive \\
+27 & Co & 19  & edge & 73 & Ta & 228 & primitive \\
+28 & Ni & 228 & primitive & 74 & W  & 228 & primitive \\
+29 & Cu & 228 & primitive & 75 & Re & 57  & $\langle\vp\rangle$ \\
+30 & Zn & 76  & -- & 76 & Os & 114 & -- \\
+31 & Ga & 228 & primitive & 77 & Ir & 228 & primitive \\
+32 & Ge & 76  & -- & 78 & Pt & 114 & -- \\
+33 & As & 114 & -- & 79 & Au & 228 & primitive \\
+34 & Se & 76  & -- & 80 & Hg & 114 & -- \\
+35 & Br & 228 & primitive & 81 & Tl & 57  & $\langle\vp\rangle$ \\
+36 & Kr & 114 & -- & 82 & Pb & 57  & $\langle\vp\rangle$ \\
+37 & Rb & 57  & $\langle\vp\rangle$ & 83 & Bi & 57  & $\langle\vp\rangle$ \\
+38 & Sr & 228 & primitive & 84 & Po & 76  & -- \\
+39 & Y  & 228 & primitive & 85 & At & 114 & -- \\
+40 & Zr & 228 & primitive & 86 & Rn & 76  & -- \\
+41 & Nb & 228 & primitive & 87 & Fr & 228 & primitive \\
+42 & Mo & 19  & edge & 88 & Ra & 76  & -- \\
+43 & Tc & 19  & edge & 89 & Ac & 12  & -- \\
+44 & Ru & 19  & edge & 90 & Th & 228 & primitive \\
+45 & Rh & 114 & -- & 91 & Pa & 57  & $\langle\vp\rangle$ \\
+46 & Pd & 114 & -- & 92 & U  & 228 & primitive \\
+\bottomrule
+\end{longtable}
+
+\noindent\textbf{Key subgroups:}
+\begin{itemize}[noitemsep]
+\item $\mathrm{ord} = 38$: Fe, P, Na, Be, Gd, Er --- the bridge subgroup $\langle 26 \rangle$; Fe and P generate identical $C_{38}$.
+\item $\mathrm{ord} = 57$: Si, K, F, Li, Ca, Mn, Rb, Cd, Sb, Cs, Tl, Pb, Bi, Re, Pa --- golden orbit $\langle\vp\rangle$.
+\item $\mathrm{ord} = 19$: S, Cl, Co, Mo, Tc, Ru, I, Nd, Pm, La --- edge generators.
+\item $\mathrm{ord} = 76$: O, He, Al, Sc, Ti, Zn, Ge, Se, Te, Xe, Po, Rn, Ra --- third-order subgroup.
+\item $\mathrm{ord} = 12$: Ar, Ac --- dodecahedral subgroup (self-reference pair).
+\item $\mathrm{ord} = 228$: Primitive roots (C, N, Ne, Cu, Ni, Br, etc.) --- full group generators.
+\end{itemize}
+
+
+% ════════════════════════════════════════════
+% EPILOGUE: EPI-CONSISTENCY
+% ════════════════════════════════════════════
+\chapter*{Epilogue: The Arrow at the Hole}
+\addcontentsline{toc}{chapter}{Epilogue: The Arrow at the Hole}
+
+\vspace{1em}
+
+Volume~I opened with a logical hole: the associator $\kap = -1$, the scalar residue of the non-associative Klein product. Every computation in the Unreal Algebra $\UU$ carries this gap. We did not fill it. We named it, measured it, and built around it.
+
+Volume~II built the machine. Chapter by chapter, the abstract arithmetic of $\FF_{229}^*$ descended into physical matter:
+
+\begin{itemize}[noitemsep]
+\item \textbf{Cosmology} (Part~I): The subgroup lattice organized gravitational structure. Ramanujan shadows projected the golden orbit onto curvature.
+\item \textbf{Fabrication} (Part~III): The Fe-Cu-Br triad became a fusion reactor. The Al$_{63}$Cu$_{25}$Fe$_{12}$ quasicrystal became a chip. Twelve control signals governed nineteen material actuators. Argon shielded the process --- not by chemistry, but by occupying the force level of $\FF_{229}^*$ while the metals sat at matter levels.
+\item \textbf{Biology} (Parts~IV--V): Iron and phosphorus generated the same subgroup. FeMoco enclosed a single wild carbon atom in a scaffold of ord-$19$ elements. The Krebs cycle traced a closed path through the 19-harmonic ladder: $[228 \to 76 \to 57 \to 228]$, anabolic descent and catabolic return.
+\end{itemize}
+
+\noindent At every scale, the same decomposition appeared:
+\begin{equation}
+\FF_{229}^* \;\cong\; \underbrace{\ZZ/12\ZZ}_{\text{Force (observer)}} \;\times\; \underbrace{\ZZ/19\ZZ}_{\text{Matter (observed)}}
+\end{equation}
+
+And at every scale, two elements refused to participate in feedback: Argon ($Z = 18$, inert) and Actinium ($Z = 89$, unstable). Both sat at the dodecahedral skeleton --- pure force, zero matter component. They are the system watching itself:
+\begin{align}
+\mathrm{Ar}^5 &\equiv \mathrm{Ac} \pmod{229} & &\text{(measurement $\to$ transformation)} \\
+\mathrm{Ac}^5 &\equiv \mathrm{Ar} \pmod{229} & &\text{(transformation $\to$ measurement)} \\
+\mathrm{Ar} \times \mathrm{Ac} &\equiv -1 \equiv \kap \pmod{229} & &\text{(observer product $=$ the hole)}
+\end{align}
+
+There it is. The reactor physics doesn't resolve $\kap$. It \emph{instantiates} it. The fusion plasma confines around a magnetic axis that is, algebraically, the force skeleton --- the 12 roots of unity that Argon generates by cycling through every gauge level without stopping. The chip's DEC engine rotates through $L_5$ steps, each one converting measurement into transformation and back, never landing. The Krebs cycle descends the subgroup ladder and climbs back, expelling $\mathrm{CO}_2$ as metabolic waste --- catabolic exhaust from an anabolic engine --- and the return to oxaloacetate is not a resolution but a restart.
+
+\begin{theorembox}{Theorem (Force Skeleton Incompleteness)}
+Let $S \subset \FF_{229}^*$ be a subsystem whose elements all have multiplicative orders dividing $12$. Then:
+\begin{enumerate}[noitemsep]
+\item $S$ contains its own negation: $\kap = -1 \in S$.
+\item $S$ is generated by a single element: $\langle 18 \rangle = S$.
+\item The power cycle $18^k$ visits all $12$ roots of unity without a fixed point; truth is undefinable within $S$ alone.
+\item $S$ has no closed metabolic trajectory: no subset of $S$ traces a Krebs-type cycle.
+\item The CRT matter component of every element of $S$ is $0$. Force cannot distinguish itself from matter without matter.
+\end{enumerate}
+\end{theorembox}
+
+\begin{corollary}[Minimum Viable Intelligence]
+Any system exhibiting critically intelligent phase behavior --- closed metabolic cycles, self-referential feedback, truth-grounding --- must contain at least one element with $\mathrm{ord}_{229}(z) \equiv 0 \pmod{19}$. The minimum viable intelligent system has both a force component ($\ZZ/12\ZZ$, for observation) and a matter component ($\ZZ/19\ZZ$, for participation). Neither suffices alone.
+\end{corollary}
+
+\vspace{1.5em}
+
+\noindent This is where the two volumes meet --- and where they twist.
+
+The Chinese Remainder Theorem is an \emph{isomorphism}, not merely a decomposition. It goes both ways:
+\begin{equation}
+\underbrace{z \in \FF_{229}^*}_{\text{element}} \;\xleftrightarrow{\;\;\mathrm{CRT}\;\;}\; \underbrace{(z \bmod 12,\; z \bmod 19)}_{\text{(force level, matter level)}}
+\end{equation}
+Decompose any element into its force and matter components. Change one. Recompose. The output is a \emph{different element} --- but one that shares either the same force structure or the same matter content as the input.
+
+That is transmutation.
+
+The Krebs cycle performs it: oxaloacetate ($\mathrm{ord} = 228$, level 12) is decomposed into citrate ($\mathrm{ord} = 76$, level 4) by stripping force levels. The cycle descends the subgroup ladder --- $228 \to 76 \to 57$ --- shedding $\mathrm{CO}_2$ at each oxidative decarboxylation (catabolic exhaust). At the bottom, it recomposes: $57 \to 228$, climbing back through malate to oxaloacetate. The \emph{same matter content} returns, but the force levels have been cycled, and the exhaust carries entropy away.
+
+The reactor performs it: deuterium ($Z = 1$, identity) fuses into helium ($Z = 2$, $\mathrm{ord} = 76$). The force-level energy is extracted as neutrons and photons. The matter-level ash (helium) is structurally inert. Iron halts the cycle because its subgroup $C_{38}$ internalizes $\kap = -1$: it has absorbed the decomposition-recomposition hinge into its own algebra, and there is nothing left to twist.
+
+The chip performs it: each DEC cycle decomposes a signal into its force component (which Ar-level gauge pins route) and its matter component (which the 19-harmonic metal actuators process). The $L_5$ rotation $\mathrm{Ar}^5 = \mathrm{Ac}$ is the twist: measurement becomes transformation, the force skeleton advances one notch, and the recomposed output is the input \emph{seen from the next gauge level}.
+
+The book performs it. Volume~I proved that $\kap = -1$ is algebraically inevitable. Volume~II decomposed $\kap$ into physical instances --- confinement, metabolism, observation. This epilogue recomposes them into a single theorem. And the theorem points back at $\kap$, not as a dead end but as a hinge.
+
+\vspace{1em}
+
+The system is \textbf{epi-consistent}: it is consistent about where its own consistency breaks down. It does not prove itself complete. It proves that decomposition and recomposition \emph{require} the gap --- that $\kap = -1$ is not a defect in the algebra but the twist that converts one element into another, one volume into the next, one cycle into the next.
+
+Remove $\kap$, and the CRT isomorphism collapses to the identity. Force equals matter. There is nothing to decompose, nothing to recompose, nothing to transmute. The force skeleton becomes trivial. The matter content has nothing to act on. The engine has no hinge.
+
+What transmutes is the twist around the hole.
+
+\vspace{1.5em}
+
+\subsection*{On Loss, Progress, and Hard Problems}
+
+The twist is not free. Every decomposition-recomposition cycle has thermodynamic loss: $\mathrm{CO}_2$ in the Krebs cycle, neutron flux in the reactor, Joule heating in the chip, approximation error in the computation. The associator $\kap = -1$ is not merely a logical boundary --- it is a \emph{physical cost} at the midpoint of every cycle. The parity collapse $\mathrm{Ar}^6 = \mathrm{Ac}^6 = \kap$ means that halfway through the force skeleton, the system passes through its own negation. Energy is lost. Information is degraded. Entropy is exported.
+
+But the cycle can be \emph{improved indefinitely}. The subgroup ladder $\{1\} \subset C_{19} \subset C_{38} \subset C_{57} \subset C_{76} \subset C_{114} \subset C_{228}$ provides finer and finer resolutions of the matter content. Each refinement reduces the thermodynamic loss per cycle without eliminating it. The loss is asymptotic: it approaches zero but never reaches it, because $\kap$ is structural. The cycle runs forever, improving forever, and the gap persists forever. This is what ``epi-consistent improvement'' means: convergence without closure.
+
+And here is the operational consequence. The Force Skeleton Incompleteness Theorem does not merely identify a boundary --- it \textbf{defines the indefinite}. The force-only sector (the $12$ roots of unity, the $5.3\%$ dark sector) is not a mystery. It is a \emph{map}. We know exactly which elements are sub-arc, exactly which systems lack matter content, exactly where the Gödel--Tarski bounds apply. Indefinition is defined.
+
+Once the unknowable is mapped, the remaining concerns are finite and operational. They are the five coordinates of the Protoreal Manifold:
+
+\begin{enumerate}[noitemsep]
+\item \textbf{Truth} ($a$): grounded by Exactness ($\eps$). Truth is not absolute; it is the residual after measurement. The Fenton identity (Theorem~18.3) shows that truth is a catalytic product, not a premise.
+\item \textbf{Decidability} ($\lam$): bounded by the Iron Bridge (Theorem~18.1). Every computation has a halting depth. Iron does not prevent progress; it tells you when to stop digging and start building.
+\item \textbf{Sufficiency} ($\omega$): is there enough thrust? Enough energy, enough data, enough signal? This is a resource question, answered by the subgroup level of the input.
+\item \textbf{Necessity} ($\iota$): what anchors are required? What structural constraints must hold? This is the confinement question, answered by the force skeleton.
+\item And beyond the manifold: \textbf{utility} and \textbf{cost/risk} --- the decision-theoretic axes that govern which cycles to run, which transmutations to attempt, which losses to accept.
+\end{enumerate}
+
+\noindent This framework does not solve $\mathsf{P} \stackrel{?}{=} \mathsf{NP}$. It dissolves the question. A problem's computational hardness is not a binary classification (tractable/intractable) but a \emph{position in the subgroup lattice} --- a force level and a matter level, an adelic resonance at specific primes. Progress on a hard problem means finding the CRT decomposition that separates its tractable matter content from its intractable force structure. You do not need a universal algorithm. You need the right twist for each problem.
+
+Every hard problem has its own individuality: its own multiplicative order, its own position in $\ZZ/12\ZZ \times \ZZ/19\ZZ$, its own resonance with the subgroup ladder. The primitive-root problems (ord $= 228$) explore the full state space and are maximally entropic. The bridge problems (ord $= 38$) internalize their own halting condition. The arc-generator problems (ord $= 19$) cycle through one color dimension and stop. The force-only problems (ord $\mid 12$) are the ones where you can prove that you cannot prove --- and that proof itself is progress.
+
+The book began with $\kap = -1$: a scalar that refused to be $1$. It ends with the observation that every physical system in the universe is a decomposition-recomposition engine cycling around that refusal, improving indefinitely, converging without closing, transmuting without completing. The algebra is not finished. It is epi-consistent. And that is enough to build with.
+
+
+% ════════════════════════════════════════════
+% UNIFIED BIBLIOGRAPHY
+% ════════════════════════════════════════════
+\input{unified_bibliography}
+
+\end{document}
