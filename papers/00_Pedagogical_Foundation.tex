@@ -116,15 +116,13 @@ and logical statements:
     \item $\neg q$ or $\sim q$: ``not $q$'' (negation)
 \end{itemize}
 
-\paragraph{The database parallel.}
+\paragraph{The PostgreSQL parallel.}
 If you have ever seen a spreadsheet, you already have a working mental model
-of a \textbf{relational database}. A database table is a set of rows; each row
-is an element. The SQL language gives us the same operations we just learned,
-in a syntax designed for data:
+of a \textbf{relational database}. The mathematical foundations of relational databases \emph{are} set theory, formalized by Edgar Codd in 1970 and executed today by engines like \textbf{PostgreSQL 17}. A database table is a set of rows; each row is an element. The SQL language gives us the same operations we just learned, in a syntax designed for data:
 \begin{center}
 \begin{tabular}{@{}ll@{}}
 \toprule
-\textbf{Set Theory} & \textbf{SQL (Postgres)} \\
+\textbf{Set Theory} & \textbf{SQL (PostgreSQL 17)} \\
 \midrule
 Set $S$            & \texttt{TABLE S} or \texttt{VIEW S} \\
 $x \in S$          & \texttt{SELECT * FROM S WHERE x = ...} \\
@@ -138,10 +136,15 @@ $\exists$          & \texttt{EXISTS} \\
 \end{tabular}
 \end{center}
 
-\noindent This is not a metaphor. The mathematical foundations of relational
-databases \emph{are} set theory, formalized by Edgar Codd in 1970. When you
-write SQL, you are writing set theory in a slightly different alphabet. The
-companion module \texttt{principia.foundations.sets} implements a
+\noindent This is not a metaphor. When you write SQL, you are literally writing set theory in a slightly different alphabet. For example, to find the intersection of two tables:
+\begin{verbatim}
+-- PostgreSQL 17: Set Intersection
+SELECT id FROM set_A
+INTERSECT
+SELECT id FROM set_B;
+\end{verbatim}
+
+The companion module \texttt{principia.foundations.sets} implements a
 \texttt{FiniteSet} class in Python that mirrors both the mathematical
 definitions and the SQL operations:
 
@@ -245,19 +248,23 @@ Three important properties of functions:
 The Cartesian product is exactly what happens when you \texttt{JOIN} two
 tables without a condition: every row of table $A$ is paired with every row of
 table $B$. Adding a \texttt{WHERE} clause filters this product down to a
-\emph{relation}. Adding a \texttt{UNIQUE} constraint on the joining column
-enforces injectivity.
+\emph{relation}. Adding a \texttt{UNIQUE} constraint or a \texttt{PRIMARY KEY} on the joining column enforces injectivity.
 
-\paragraph{The Python parallel.}
-Functions in Python are, well, functions. But the deeper connection is the
-\texttt{dict} (dictionary): a mapping from keys to values that enforces the
-function property --- each key maps to exactly one value.
+\paragraph{The Psycopg3 parallel: Functors.}
+Functions map elements between sets. But what happens when we need to map entire \emph{systems} of sets to another system while preserving their structure? This is a \textbf{Functor}, the core object of Category Theory.
+
+When you use the \textbf{psycopg3} library in Python to connect to PostgreSQL, you are explicitly building a Functor. It takes the Category of Relational Data (PostgreSQL types like \texttt{uuid}, \texttt{jsonb}, \texttt{numeric}) and maps it flawlessly into the Category of Object-Oriented State (Python types like \texttt{UUID}, \texttt{dict}, \texttt{Decimal}).
 
 \begin{verbatim}
-# A function from names to ages
-f = {'Alice': 30, 'Bob': 25, 'Carol': 28}
-print(f['Alice'])  # 30 --- exactly one output per input
+import psycopg
+# Psycopg3 acts as a Functor mapping the Postgres Category to the Python Category
+with psycopg.connect("dbname=metareal") as conn:
+    # A PostgreSQL jsonb row maps structure-preservingly to a Python dict
+    record = conn.execute("SELECT '{\"a\": 1}'::jsonb").fetchone()[0]
+    print(type(record)) # <class 'dict'>
 \end{verbatim}
+
+The structure is preserved across the boundary. This Functorial bridge is how we will eventually build the Metareal Algebra: by mapping geometric shapes into number-theoretic primes without breaking their internal logic.
 
 
 % ════════════════════════════════════════════════════════════════
