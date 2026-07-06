@@ -1,0 +1,168 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{xcolor}
+\definecolor{golden}{RGB}{218,165,32}
+\definecolor{metareal}{RGB}{0,102,204}
+\definecolor{derivative}{RGB}{128,0,128}
+\definecolor{gauge3}{RGB}{34,139,34}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\newtcolorbox{theorembox}[1]{colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,title=#1}
+\newtcolorbox{warningbox}[1]{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=#1}
+\newtcolorbox{metarealbox}[1]{colback=metareal!5!white,colframe=metareal!75!black,fonttitle=\bfseries,title=#1}
+\newtcolorbox{aingelbox}[1]{colback=golden!5!white,colframe=golden!75!black,fonttitle=\bfseries,title=#1}
+\newtcolorbox{truthbox}[1]{colback=gauge3!5!white,colframe=gauge3!75!black,fonttitle=\bfseries,title=#1}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+
+\newtheoremstyle{principia}%
+  {6pt}{6pt}{\itshape}{}{\bfseries}{.}{ }%
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ \textnormal{(}\emph{#3}\textnormal{)}}}
+\theoremstyle{principia}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{result}[theorem]{Result}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\providecommand{\UU}{\mathbb{U}}
+\providecommand{\PP}{\mathbb{P}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\CC}{\mathbb{C}}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\HH}{\mathbb{H}}
+\providecommand{\OO}{\mathbb{O}}
+\providecommand{\SS}{\mathbb{S}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\GG}{\mathcal{G}}
+\providecommand{\TT}{\mathcal{T}}
+\providecommand{\vp}{\varphi}
+\providecommand{\vpbar}{\bar{\varphi}}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\lam}{\lambda}
+\providecommand{\kap}{\kappa}
+
+\hypersetup{colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black}
+
+\title{Fractal Spacetime and Zero-Point Energy}
+\author{Dylon La Rue}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\input{../06_Fractal_Spacetime_ZPE.tex}
+
+\begin{thebibliography}{99}
+
+% Peer-reviewed and established sources
+
+\bibitem{LVK_GWTC3}
+Abbott, R. et al. (LIGO Scientific, Virgo, and KAGRA Collaborations) (2021).
+\textit{GWTC-3: Compact Binary Coalescences Observed by LIGO and Virgo During the Second Part of the Third Observing Run}.
+arXiv:2111.03606 [gr-qc].
+
+\bibitem{LVK_GravitonMass}
+Abbott, R. et al. (LIGO Scientific, Virgo, and KAGRA Collaborations) (2021).
+\textit{Tests of General Relativity with GWTC-3} $\langle 148 \rangle$.
+arXiv:2112.06861 [gr-qc].
+
+\bibitem{NASAExoplanet}
+NASA Exoplanet Science Institute (2025).
+\textit{NASA Exoplanet Archive}. California Institute of Technology.
+
+\bibitem{Titius1766}
+Titius, J.~D. (1766).
+\textit{Translation of Charles Bonnet's Contemplation of Nature}.
+
+\bibitem{creutz1980}
+M.~Creutz,
+``Monte Carlo study of quantized SU(2) gauge theory,''
+\emph{Phys. Rev. D}\ 21, 2308--2315 (1980).
+
+\bibitem{hod1998}
+S.~Hod (1998).
+``Bohr's correspondence principle and the area spectrum of quantum black holes.''
+\textit{Phys.\ Rev.\ Lett.} 81, 4293.
+
+\bibitem{larue2026chromatic}
+D.~La Rue.
+\textit{The SU(3) Center Triangle and Fractal SpaceTime} (Digital Wave Mechanics).
+Spectrality Institute, 2026.
+
+\bibitem{larue2026lc}
+D. La Rue.
+\textit{Logical Creativity and the La Rue Manifold}.
+Spectrality Institute, 2026.
+
+\bibitem{lockwood2025dwm}
+D.~La Rue and J.~Lockwood.
+\textit{Digital Wave Mechanics}.
+Spectrality Institute, 2025.
+
+\bibitem{lockwood2025zpe}
+J.~Lockwood.
+\textit{Zero-Point Energy: First Principles, Units, and Observables}.
+Spectrality Institute, Sept 2025.
+
+\bibitem{luminet2003}
+J.-P.~Luminet, J.~R.~Weeks, A.~Riazuelo, R.~Lehoucq, J.-P.~Uzan (2003).
+``Dodecahedral space topology as an explanation for weak wide-angle temperature correlations in the cosmic microwave background.''
+\textit{Nature} 425, 593--595.
+
+\bibitem{motl2003}
+L.~Motl and A.~Neitzke (2003).
+``Asymptotic black hole quasinormal frequencies.''
+\textit{Adv.\ Theor.\ Math.\ Phys.} 7, 307--330.
+
+\bibitem{planck2020}
+Planck Collaboration (2020).
+``Planck 2018 results.\ VII.\ Isotropy and statistics of the CMB.''
+\textit{Astron.\ Astrophys.} 641, A7.
+
+\bibitem{thooft1981}
+G.~'t~Hooft,
+``Topology of the gauge condition and new confinement phases in non-Abelian gauge theories,''
+\emph{Nucl. Phys. B}\ 190, 455--478 (1981).
+
+\bibitem{wilson1974}
+K.~G.~Wilson,
+``Confinement of quarks,''
+\emph{Phys. Rev. D}\ 10, 2445--2459 (1974).
+
+
+% ────────────────────────────────────────────
+% AUTHOR'S WORKS, PREPRINTS, AND
+% PRIVATE COMMUNICATIONS
+% ────────────────────────────────────────────
+% Works by the author(s) of this volume,
+% preprints not yet peer-reviewed, private
+% communications, and informal sources.
+% These have NOT undergone external peer review.
+% ────────────────────────────────────────────
+
+\end{thebibliography}
+
+\end{document}

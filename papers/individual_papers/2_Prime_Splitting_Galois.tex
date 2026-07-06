@@ -1,0 +1,222 @@
+\documentclass[12pt,oneside]{article}
+
+% ════════════════════════════════════════════
+% MASTER PREAMBLE
+% ════════════════════════════════════════════
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{xcolor}
+\definecolor{golden}{RGB}{218,165,32}
+\definecolor{metareal}{RGB}{0,102,204}
+\definecolor{derivative}{RGB}{128,0,128}
+\definecolor{gauge3}{RGB}{34,139,34}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\newtcolorbox{theorembox}[1]{
+  colback=blue!5!white,
+  colframe=blue!75!black,
+  fonttitle=\bfseries,
+  title=#1
+}
+\newtcolorbox{warningbox}[1]{
+  colback=red!5!white,
+  colframe=red!75!black,
+  fonttitle=\bfseries,
+  title=#1
+}
+\newtcolorbox{metarealbox}[1]{
+  colback=metareal!5!white,
+  colframe=metareal!75!black,
+  fonttitle=\bfseries,
+  title=#1
+}
+\newtcolorbox{aingelbox}[1]{
+  colback=golden!5!white,
+  colframe=golden!75!black,
+  fonttitle=\bfseries,
+  title=#1
+}
+\newtcolorbox{truthbox}[1]{
+  colback=gauge3!5!white,
+  colframe=gauge3!75!black,
+  fonttitle=\bfseries,
+  title=#1
+}
+\usepackage{standalone}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+
+% ════════════════════════════════════════════
+% THEOREM ENVIRONMENTS
+% ════════════════════════════════════════════
+% Custom note style: render the optional [Name] in emphasized italic,
+% not plain parenthesized text.
+\newtheoremstyle{principia}%       name
+  {6pt}%                           space above
+  {6pt}%                           space below
+  {\itshape}%                      body font
+  {}%                              indent
+  {\bfseries}%                     head font
+  {.}%                             punctuation after head
+  { }%                             space after head
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ \textnormal{(}\emph{#3}\textnormal{)}}}%
+
+\theoremstyle{principia}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{result}[theorem]{Result}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% ════════════════════════════════════════════
+% UNIFIED COMMANDS
+% ════════════════════════════════════════════
+\providecommand{\UU}{\mathbb{U}}
+\providecommand{\PP}{\mathbb{P}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\CC}{\mathbb{C}}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\HH}{\mathbb{H}}
+\providecommand{\OO}{\mathbb{O}}
+\providecommand{\SS}{\mathbb{S}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\GG}{\mathcal{G}}
+\providecommand{\TT}{\mathcal{T}}
+\providecommand{\vp}{\varphi}
+\providecommand{\vpbar}{\bar{\varphi}}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\lam}{\lambda}
+\providecommand{\kap}{\kappa}
+
+\titleformat{\section}{\normalfont\Large\bfseries\raggedright}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries\raggedright}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\raggedright}{\thesubsubsection}{1em}{}
+
+\makeatletter
+\let\old@part\@part
+\def\@part[#1]#2{%
+  \old@part[{#1}]{#2}%
+  \markboth{Part \thepart: #1}{}%
+}
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhead[L]{\small\itshape\nouppercase{\leftmark}}
+\fancyhead[R]{\small\itshape\nouppercase{\rightmark}}
+\fancyfoot[C]{\thepage}
+% Prevent headers from overflowing into the text body
+\setlength{\headheight}{15pt}
+% Clear headers on chapter-opening and part pages
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
+
+\hypersetup{colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black}
+
+\begin{document}
+
+\begin{center}\textit{By L. Cullen (triponacci)}\end{center}
+
+%==========================================================
+\section*{Claim Ledger}
+%==========================================================
+
+This chapter uses the following claim ledger:
+\begin{itemize}[noitemsep]
+  \item \textbf{Theorem / Verified Computation:} The entirety of this chapter consists of established number-theoretic theorems (e.g., Galois splitting criteria, Artin reciprocity, Chebotarev's density theorem).
+  \item \textbf{Structural Analogy:} None.
+  \item \textbf{Physical Interpretation:} None. The prime splitting rules are pure arithmetic data encoded by global Galois symmetry.
+\end{itemize}
+
+
+To describe how Galois symmetry encodes prime splitting, fix a finite Galois extension $L/K$ of number fields with rings of integers $\mathcal{O}_L$ and $\mathcal{O}_K$. For a non-zero prime ideal $\mathfrak{p} \subset \mathcal{O}_K$, its extension to $\mathcal{O}_L$ factors as
+\begin{equation}
+\mathfrak{p}\mathcal{O}_L = \prod_{i=1}^g \mathfrak{P}_i^e, \quad f = [\mathcal{O}_L/\mathfrak{P}_i : \mathcal{O}_K/\mathfrak{p}].
+\end{equation}
+Because the extension is Galois, the ramification index $e$ and residue degree $f$ are independent of $i$, and $[L : K] = efg$. The splitting type is therefore the local arithmetic signature of $\mathfrak{p}$ inside $L$.
+
+Choose one prime $\mathfrak{P}$ above $\mathfrak{p}$. The decomposition group
+\begin{equation}
+D_{\mathfrak{P}} = \{\sigma \in \text{Gal}(L/K) : \sigma(\mathfrak{P}) = \mathfrak{P}\}
+\end{equation}
+is the stabilizer of $\mathfrak{P}$, and the inertia subgroup $I_{\mathfrak{P}}$ is the kernel of the induced action on the residue field $\mathcal{O}_L/\mathfrak{P}$. When $\mathfrak{p}$ is unramified, $I_{\mathfrak{P}}$ is trivial and $D_{\mathfrak{P}}$ is canonically isomorphic to
+\begin{equation}
+\text{Gal}((\mathcal{O}_L/\mathfrak{P})/(\mathcal{O}_K/\mathfrak{p})).
+\end{equation}
+This gives the exact local bridge between the global Galois group and the residue-field arithmetic over $\mathfrak{p}$.
+
+For unramified $\mathfrak{p}$, the residue-field Galois group is generated by the Frobenius automorphism
+\begin{equation}
+x \longmapsto x^{\text{N}\mathfrak{p}}, \quad \text{N}\mathfrak{p} = |\mathcal{O}_K/\mathfrak{p}|.
+\end{equation}
+Its lift in $D_{\mathfrak{P}}$ is the Frobenius element $\text{Frob}_{\mathfrak{P}}$, also written as the Artin symbol $\left(\frac{L/K}{\mathfrak{P}}\right)$. In a nonabelian extension this element depends on the chosen prime $\mathfrak{P}$ above $\mathfrak{p}$; only its conjugacy class in $\text{Gal}(L/K)$ is intrinsic to $\mathfrak{p}$. In an abelian extension, conjugacy is trivial, so the Artin symbol becomes an unambiguous element attached to $\mathfrak{p}$.
+
+The complete-splitting criterion is exact: an unramified prime $\mathfrak{p}$ splits completely in $L$ if and only if its Frobenius conjugacy class is the identity. Equivalently, $e = f = 1, g = [L : K]$, and
+\begin{equation}
+\mathfrak{p}\mathcal{O}_L = \mathfrak{P}_1\mathfrak{P}_2\cdots\mathfrak{P}_{[L:K]}.
+\end{equation}
+Thus complete splitting is encoded precisely by whether the local Frobenius symmetry is trivial.
+
+In the abelian setting, this local rule globalizes through Artin reciprocity. After excluding primes dividing the conductor, the Artin map is defined on the appropriate ray class group, equivalently on the idele class group modulo the norm subgroup. Its kernel determines exactly which ideal classes split completely in the corresponding abelian extension. For the Hilbert class field $H_K$, the result is especially sharp: an unramified prime ideal $\mathfrak{p}$ of $K$ splits completely in $H_K$ exactly when its ideal class is trivial in $\text{Cl}(K)$, i.e. when $\mathfrak{p}$ is principal.
+
+Chebotarev's density theorem supplies the rigidity of the construction. For each conjugacy class $C \subset \text{Gal}(L/K)$, the density of unramified primes with Frobenius class $C$ is
+\begin{equation}
+\frac{|C|}{|\text{Gal}(L/K)|}.
+\end{equation}
+In particular, the density of completely split primes is $1/[L : K]$. Moreover, inside a fixed algebraic closure, the set of primes splitting completely in a finite Galois extension determines the extension up to the usual finite exceptional set. Consequently, prime splitting rules are not heuristic patterns; they are arithmetic data encoded by the global Galois symmetry of the extension.
+
+
+
+\begin{thebibliography}{9}
+
+\bibitem{neukirch}
+J.~Neukirch,
+\emph{Algebraic Number Theory},
+Grundlehren der mathematischen Wissenschaften, vol.~322, Springer, 1999.
+
+\bibitem{milne_cft}
+J.~S.~Milne,
+``Class Field Theory,''
+lecture notes, v4.03, 2020.
+
+\bibitem{serre_local}
+J.-P.~Serre,
+\emph{Local Fields},
+Graduate Texts in Mathematics, vol.~67, Springer, 1979.
+
+\end{thebibliography}
+
+
+
+\end{document}

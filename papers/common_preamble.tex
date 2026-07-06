@@ -1,19 +1,29 @@
 % ════════════════════════════════════════════
 % COMMON PREAMBLE — Principia Psychedelia
-% Shared by Vol I (Logical Creativity & ASI)
-% and Vol II (Physical Creativity & Cosmology)
+% Design System v2.0
+%
+% Shared by Vol I (Foundations & Logical)
+% and Vol II (Informational & Physical)
+%
+% Requires: tectonic (XeTeX backend)
 % ════════════════════════════════════════════
 
-% ── Encoding & Typography ──
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[margin=1in]{geometry}
+% ── Typography ──────────────────────────────
+\usepackage{fontspec}
+\usepackage{libertinus}
+\usepackage[margin=1in, inner=1.15in, outer=1in]{geometry}
 \usepackage{microtype}
+\setlength{\parskip}{0.5ex plus 0.2ex minus 0.1ex}
 
-% ── Mathematics ──
-\usepackage{amsmath,amssymb,amsthm,mathtools}
+% Fix \mathrm in bold math version (needed for \boldsymbol{...\mathrm{...}})
+\SetMathAlphabet{\mathrm}{bold}{TU}{\familydefault}{\bfdefault}{\updefault}
 
-% ── Lists & Tables ──
+% ── Mathematics ─────────────────────────────
+% Note: amssymb is NOT loaded — unicode-math (via libertinus) provides
+% all AMS symbols and they conflict on \\eth. amsthm is loaded separately.
+\usepackage{amsmath,amsthm,mathtools}
+
+% ── Lists & Tables ──────────────────────────
 \usepackage{enumitem}
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -21,62 +31,231 @@
 \usepackage{multirow}
 \usepackage{float}
 
-% ── Graphics ──
+% ── Graphics ────────────────────────────────
 \usepackage{graphicx}
 \usepackage{pdfpages}
 \usepackage{tikz}
 
-% ── TOC & Sectioning ──
+% ── Drop Caps ───────────────────────────────
+\usepackage{lettrine}
+\setcounter{DefaultLines}{2}
+\renewcommand{\DefaultLoversize}{0.1}
+\renewcommand{\DefaultLhang}{0.05}
+
+% ── Ornaments ───────────────────────────────
+\usepackage{pgfornament}
+
+% ── TOC & Sectioning ───────────────────────
 \usepackage{tocloft}
 \usepackage{titlesec}
 
-% ── Headers & Footers ──
+% ── Headers & Footers ──────────────────────
 \usepackage{fancyhdr}
 
-% ── Colors ──
+% ════════════════════════════════════════════
+% COLOR PALETTE
+% ════════════════════════════════════════════
 \usepackage{xcolor}
-\definecolor{golden}{RGB}{218,165,32}
-\definecolor{metareal}{RGB}{0,102,204}
+
+% Primary accent — the golden thread
+\definecolor{golden}{RGB}{183,144,50}
+\definecolor{goldenlight}{RGB}{245,235,210}
+\definecolor{goldendark}{RGB}{140,110,35}
+
+% Structural blue — titles, chapter numbers
+\definecolor{deepblue}{RGB}{25,42,86}
+
+% Secondary accents
+\definecolor{forestgreen}{RGB}{34,100,54}
+\definecolor{crimson}{RGB}{160,35,45}
+\definecolor{warmgray}{RGB}{88,85,80}
+
+% Legacy aliases (backward compatibility)
+\definecolor{metareal}{RGB}{25,42,86}
 \definecolor{derivative}{RGB}{128,0,128}
-\definecolor{gauge3}{RGB}{34,139,34}
+\definecolor{gauge3}{RGB}{34,100,54}
 
-% ── Colored Boxes ──
-\usepackage{tcolorbox}
+% Page background — warm white
+\definecolor{pageivory}{RGB}{253,251,247}
+\pagecolor{pageivory}
+
+% ════════════════════════════════════════════
+% ORNAMENTAL COMMANDS
+% ════════════════════════════════════════════
+
+% Golden rule (full width)
+\newcommand{\goldenrule}{%
+  \par\noindent\textcolor{golden}{\rule{\linewidth}{0.6pt}}\par%
+}
+
+% Ornamental section divider
+\newcommand{\sectiondivider}{%
+  \begin{center}
+    \vspace{0.3em}
+    \textcolor{golden}{\pgfornament[width=1.2cm]{75}}
+    \vspace{0.3em}
+  \end{center}
+}
+
+% Drop cap convenience command
+\newcommand{\dropcap}[2]{%
+  \lettrine[lines=2, lhang=0.05, loversize=0.1, findent=0.2em, nindent=0em]%
+    {\textcolor{deepblue}{#1}}{#2}%
+}
+
+% Big drop cap for Ch.0 opening
+\newcommand{\bigdropcap}[2]{%
+  \lettrine[lines=3, lhang=0.1, loversize=0.15, findent=0.3em, nindent=0em]%
+    {\textcolor{golden}{#1}}{#2}%
+}
+
+% ════════════════════════════════════════════
+% COLORED BOXES (tcolorbox)
+% ════════════════════════════════════════════
+\usepackage[most]{tcolorbox}
+
+% Theorem box — golden left bar
 \newtcolorbox{theorembox}[1]{
-  colback=blue!5!white,
-  colframe=blue!75!black,
-  fonttitle=\bfseries,
-  title=#1
-}
-\newtcolorbox{warningbox}[1]{
-  colback=red!5!white,
-  colframe=red!75!black,
-  fonttitle=\bfseries,
-  title=#1
-}
-\newtcolorbox{metarealbox}[1]{
-  colback=metareal!5!white,
-  colframe=metareal!75!black,
-  fonttitle=\bfseries,
-  title=#1
-}
-\newtcolorbox{aingelbox}[1]{
-  colback=golden!5!white,
-  colframe=golden!75!black,
-  fonttitle=\bfseries,
-  title=#1
-}
-\newtcolorbox{truthbox}[1]{
-  colback=gauge3!5!white,
-  colframe=gauge3!75!black,
-  fonttitle=\bfseries,
-  title=#1
+  enhanced,
+  sharp corners,
+  colback=goldenlight,
+  colframe=goldenlight,
+  borderline west={3pt}{0pt}{golden},
+  fonttitle=\bfseries\color{golden!80!black},
+  coltitle=golden!80!black,
+  title=#1,
+  top=6pt, bottom=6pt,
+  left=10pt, right=8pt,
+  boxrule=0pt,
+  toptitle=4pt, bottomtitle=3pt,
 }
 
-% ── Cross-references ──
+% Warning box — crimson left bar
+\newtcolorbox{warningbox}[1]{
+  enhanced,
+  sharp corners,
+  colback=crimson!4!white,
+  colframe=crimson!4!white,
+  borderline west={3pt}{0pt}{crimson},
+  fonttitle=\bfseries\color{crimson!80!black},
+  coltitle=crimson!80!black,
+  title=#1,
+  top=6pt, bottom=6pt,
+  left=10pt, right=8pt,
+  boxrule=0pt,
+  toptitle=4pt, bottomtitle=3pt,
+}
+
+% Metareal box — deep blue left bar (structural analogies, scope notes)
+\newtcolorbox{metarealbox}[1]{
+  enhanced,
+  sharp corners,
+  colback=deepblue!4!white,
+  colframe=deepblue!4!white,
+  borderline west={3pt}{0pt}{deepblue},
+  fonttitle=\bfseries\color{deepblue!80!black},
+  coltitle=deepblue!80!black,
+  title=#1,
+  top=6pt, bottom=6pt,
+  left=10pt, right=8pt,
+  boxrule=0pt,
+  toptitle=4pt, bottomtitle=3pt,
+}
+
+% Insight box — golden (key insights)
+\newtcolorbox{aingelbox}[1]{
+  enhanced,
+  sharp corners,
+  colback=golden!4!white,
+  colframe=golden!4!white,
+  borderline west={3pt}{0pt}{golden},
+  fonttitle=\bfseries\color{goldendark},
+  coltitle=goldendark,
+  title=#1,
+  top=6pt, bottom=6pt,
+  left=10pt, right=8pt,
+  boxrule=0pt,
+  toptitle=4pt, bottomtitle=3pt,
+}
+
+% Verification box — forest green left bar
+\newtcolorbox{truthbox}[1]{
+  enhanced,
+  sharp corners,
+  colback=forestgreen!4!white,
+  colframe=forestgreen!4!white,
+  borderline west={3pt}{0pt}{forestgreen},
+  fonttitle=\bfseries\color{forestgreen!80!black},
+  coltitle=forestgreen!80!black,
+  title=#1,
+  top=6pt, bottom=6pt,
+  left=10pt, right=8pt,
+  boxrule=0pt,
+  toptitle=4pt, bottomtitle=3pt,
+}
+
+% Epistemic note box — warm gray left bar (scope disclaimers)
+\newtcolorbox{epistemicbox}[1]{
+  enhanced,
+  sharp corners,
+  colback=warmgray!5!white,
+  colframe=warmgray!5!white,
+  borderline west={3pt}{0pt}{warmgray},
+  fonttitle=\bfseries\color{warmgray},
+  coltitle=warmgray,
+  title=#1,
+  top=6pt, bottom=6pt,
+  left=10pt, right=8pt,
+  boxrule=0pt,
+  toptitle=4pt, bottomtitle=3pt,
+}
+
+% ── Cross-references ───────────────────────
 \usepackage{standalone}
 \usepackage{hyperref}
+\usepackage{bookmark}
 \usepackage{cleveref}
+
+% Robustify math operators for PDF bookmarks (XeTeX + unicode-math)
+\pdfstringdefDisableCommands{%
+  % Greek letters
+  \def\alpha{α}\def\beta{β}\def\gamma{γ}\def\delta{δ}%
+  \def\epsilon{ε}\def\varepsilon{ε}\def\zeta{ζ}\def\eta{η}%
+  \def\theta{θ}\def\vartheta{ϑ}\def\iota{ι}\def\kappa{κ}%
+  \def\lambda{λ}\def\mu{μ}\def\nu{ν}\def\xi{ξ}%
+  \def\pi{π}\def\rho{ρ}\def\sigma{σ}\def\tau{τ}%
+  \def\upsilon{υ}\def\phi{ϕ}\def\varphi{φ}\def\chi{χ}%
+  \def\psi{ψ}\def\omega{ω}%
+  \def\Gamma{Γ}\def\Delta{Δ}\def\Theta{Θ}\def\Lambda{Λ}%
+  \def\Xi{Ξ}\def\Pi{Π}\def\Sigma{Σ}\def\Upsilon{Υ}%
+  \def\Phi{Φ}\def\Psi{Ψ}\def\Omega{Ω}%
+  % Operators
+  \def\times{×}\def\oplus{⊕}\def\otimes{⊗}%
+  \def\cong{≅}\def\equiv{≡}\def\leq{≤}\def\geq{≥}%
+  \def\subset{⊂}\def\supset{⊃}\def\in{∈}\def\infty{∞}%
+  \def\pm{±}\def\cdot{·}\def\sim{~}\def\approx{≈}%
+  \def\neq{≠}\def\to{→}\def\mapsto{↦}\def\star{★}%
+  \def\nabla{∇}\def\partial{∂}\def\forall{∀}\def\exists{∃}%
+  % Font commands
+  \def\mathbb#1{#1}\def\mathcal#1{#1}\def\mathfrak#1{#1}%
+  \def\mathrm#1{#1}\def\mathbf#1{#1}\def\mathsf#1{#1}%
+  \def\textbf#1{#1}\def\textit#1{#1}\def\emph#1{#1}%
+  \def\textrm#1{#1}\def\textsf#1{#1}\def\textsc#1{#1}%
+  % Structural
+  \def\bmod{mod}\def\pmod#1{(mod #1)}%
+  \def\sqrt#1{√(#1)}\def\frac#1#2{#1/#2}%
+  \def\bar#1{#1}\def\hat#1{#1}\def\tilde#1{#1}\def\vec#1{#1}%
+  \def\overline#1{#1}\def\underline#1{#1}%
+  % Custom macros
+  \def\kap{κ}\def\vp{φ}\def\vpbar{φ̄}\def\eps{ε}\def\lam{λ}%
+  \def\UU{U}\def\PP{P}\def\RR{R}\def\CC{C}\def\ZZ{Z}%
+  \def\NN{N}\def\HH{H}\def\OO{O}\def\SS{S}\def\QQ{Q}%
+  \def\FF{F}\def\GG{G}\def\TT{T}%
+  % Symbolic hygiene layer
+  \def\Lift{Λ}\def\Fric{Υ}%
+  \def\dobs{δ_obs}\def\rhoroot{ρ}%
+  \def\mathfrak#1{#1}%
+}
 
 % ════════════════════════════════════════════
 % THEOREM ENVIRONMENTS
@@ -86,7 +265,7 @@
   {6pt}%                           space below
   {\itshape}%                      body font
   {}%                              indent
-  {\bfseries}%                     head font
+  {\bfseries\color{deepblue}}%     head font
   {.}%                             punctuation after head
   { }%                             space after head
   {\thmname{#1}\thmnumber{ #2}\thmnote{ \textnormal{(}\emph{#3}\textnormal{)}}}%
@@ -112,33 +291,97 @@
 % ════════════════════════════════════════════
 % UNIFIED COMMANDS
 % ════════════════════════════════════════════
-\providecommand{\UU}{\mathbb{U}}
-\providecommand{\PP}{\mathbb{P}}
-\providecommand{\RR}{\mathbb{R}}
-\providecommand{\CC}{\mathbb{C}}
-\providecommand{\ZZ}{\mathbb{Z}}
-\providecommand{\NN}{\mathbb{N}}
-\providecommand{\HH}{\mathbb{H}}
-\providecommand{\OO}{\mathbb{O}}
-\providecommand{\SS}{\mathbb{S}}
-\providecommand{\QQ}{\mathbb{Q}}
-\providecommand{\FF}{\mathbb{F}}
-\providecommand{\GG}{\mathcal{G}}
-\providecommand{\TT}{\mathcal{T}}
-\providecommand{\vp}{\varphi}
-\providecommand{\vpbar}{\bar{\varphi}}
-\providecommand{\eps}{\varepsilon}
-\providecommand{\lam}{\lambda}
-\providecommand{\kap}{\kappa}
+% DeclareRobustCommand so these work as bare subscripts (e.g., _\UU)
+% and in section titles without \protect
+\DeclareRobustCommand{\UU}{\mathbb{U}}
+\DeclareRobustCommand{\PP}{\mathbb{P}}
+\DeclareRobustCommand{\RR}{\mathbb{R}}
+\DeclareRobustCommand{\CC}{\mathbb{C}}
+\DeclareRobustCommand{\ZZ}{\mathbb{Z}}
+\DeclareRobustCommand{\NN}{\mathbb{N}}
+\DeclareRobustCommand{\HH}{\mathbb{H}}
+\DeclareRobustCommand{\OO}{\mathbb{O}}
+\DeclareRobustCommand{\SS}{\mathbb{S}}
+\DeclareRobustCommand{\QQ}{\mathbb{Q}}
+\DeclareRobustCommand{\FF}{\mathbb{F}}
+\DeclareRobustCommand{\GG}{\mathcal{G}}
+\DeclareRobustCommand{\TT}{\mathcal{T}}
+\DeclareRobustCommand{\vp}{\varphi}
+\DeclareRobustCommand{\vpbar}{\bar{\varphi}}
+\DeclareRobustCommand{\eps}{\varepsilon}
+\DeclareRobustCommand{\lam}{\lambda}
+\DeclareRobustCommand{\kap}{\kappa}
+
+% Modal logic and special symbols (formerly from amssymb)
+\def\Diamond{\mdlgwhtdiamond}
+\def\Box{\mdlgwhtsquare}
 
 % ════════════════════════════════════════════
-% SECTIONING FORMAT
+% SYMBOLIC HYGIENE LAYER
 % ════════════════════════════════════════════
+% Thematic Transference Principle:
+%   Every symbol carries its standard mathematical meaning INTO the
+%   new context. "Collisions" are features, not bugs.
+%
+%   δ = observer AND variation   → algebraic δ-ε limit
+%   ε = noise AND tolerance      → ε → 0 IS the limit
+%   λ = depth AND wavelength     → λ counts integration cycles
+%   Λ = lift AND promotion       → next wavelength
+%   Σ = consolidation AND sum    → discrete sum of continuous ε
+%   κ = associator AND curvature → non-associative bending
+%   ω = thrust AND transfinite   → exponential limit (H₃)
+%
+% Capital = Operator, Lowercase = State
+
+% Superlambda lift (depth promotion / wavelength advance)
+\DeclareRobustCommand{\Lift}{\Lambda}
+
+% Friction torque
+\DeclareRobustCommand{\Fric}{\Upsilon}
+
+% Observer delta (subscripted when disambiguation needed)
+\DeclareRobustCommand{\dobs}{\delta_{\mathrm{obs}}}
+
+% Cube root of unity (SU(3) center / color confinement)
+% Uses ρ: charge density ↔ color charge generator
+% ρ³ = 1 (confinement), 1 + ρ + ρ² = 0 (color neutrality)
+% Tracks across SU(3) triangle {229, 181, 139} via ρ_p
+\DeclareRobustCommand{\rhoroot}{\rho}
+
+
+% ════════════════════════════════════════════
+% CHAPTER & SECTION FORMATTING
+% ════════════════════════════════════════════
+
+% Chapter heading: number in gold, title in deep blue, with golden rule
 \titleformat{\chapter}[display]
-  {\normalfont\huge\bfseries\raggedright}{\chaptertitlename\ \thechapter}{20pt}{\Huge\raggedright}
-\titleformat{\section}{\normalfont\Large\bfseries\raggedright}{\thesection}{1em}{}
-\titleformat{\subsection}{\normalfont\large\bfseries\raggedright}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\raggedright}{\thesubsubsection}{1em}{}
+  {\normalfont\raggedright}%
+  {\flushright\textcolor{golden}{\fontsize{60}{72}\selectfont\sffamily\thechapter}}%
+  {-10pt}%
+  {\textcolor{golden}{\rule{\linewidth}{0.6pt}}\\\vspace{4pt}\Huge\bfseries\color{deepblue}}%
+  [\vspace{6pt}\textcolor{golden}{\rule{0.3\linewidth}{0.4pt}}]
+
+% Section headings — color applied via before-code, not format spec,
+% to avoid \color bleeding into inline math in titles
+\titleformat{\section}
+  {\normalfont\Large\bfseries\raggedright}
+  {\textcolor{golden}{\thesection}}{0.8em}{\color{deepblue}}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\raggedright}
+  {\textcolor{golden!80!black}{\thesubsection}}{0.8em}{\color{deepblue!80!black}}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\raggedright}
+  {\textcolor{warmgray}{\thesubsubsection}}{0.8em}{\color{deepblue!60!black}}
+
+% Part heading
+\titleformat{\part}[display]
+  {\centering\normalfont}
+  {\vspace*{2cm}\textcolor{golden}{\fontsize{18}{22}\selectfont\sffamily PART \thepart}}
+  {12pt}
+  {\textcolor{golden}{\rule{0.5\linewidth}{0.6pt}}\\[12pt]\fontsize{28}{34}\selectfont\bfseries\color{deepblue}}
+  [\vspace{8pt}\textcolor{golden}{\rule{0.5\linewidth}{0.6pt}}]
 
 % ── Part header fix ──
 \makeatletter
@@ -150,24 +393,66 @@
 \makeatother
 
 % ════════════════════════════════════════════
+% TABLE OF CONTENTS STYLING
+% ════════════════════════════════════════════
+\renewcommand{\cftpartfont}{\large\bfseries\color{golden}}
+\renewcommand{\cftpartpagefont}{\large\bfseries\color{golden}}
+\renewcommand{\cftchapfont}{\bfseries\color{deepblue}}
+\renewcommand{\cftchappagefont}{\bfseries\color{deepblue}}
+\renewcommand{\cftsecfont}{\color{warmgray}}
+\renewcommand{\cftsecpagefont}{\color{warmgray}}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftdotsep}{2.5}
+
+% ════════════════════════════════════════════
 % HEADERS & FOOTERS
 % ════════════════════════════════════════════
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter: #1}{}}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{golden}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\chaptermark}[1]{\markboth{\textsc{\chaptername\ \thechapter:\ #1}}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
-\fancyhead[L]{\small\itshape\nouppercase{\leftmark}}
-\fancyhead[R]{\small\itshape\nouppercase{\rightmark}}
-\fancyfoot[C]{\thepage}
+\fancyhead[L]{\small\itshape\color{warmgray}\nouppercase{\leftmark}}
+\fancyhead[R]{\small\itshape\color{warmgray}\nouppercase{\rightmark}}
+\fancyfoot[C]{\textcolor{warmgray}{\thepage}}
 \setlength{\headheight}{15pt}
 \fancypagestyle{plain}{%
   \fancyhf{}%
-  \fancyfoot[C]{\thepage}%
+  \fancyfoot[C]{\textcolor{warmgray}{\thepage}}%
   \renewcommand{\headrulewidth}{0pt}%
 }
 
 % ════════════════════════════════════════════
 % HYPERREF SETUP
 % ════════════════════════════════════════════
-\hypersetup{colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=deepblue!70!black,
+  citecolor=golden!70!black,
+  urlcolor=deepblue!60!black,
+  unicode=true,
+  pdfencoding=auto,
+}
+
+% Make custom math commands safe for PDF bookmarks
+\pdfstringdefDisableCommands{%
+  \def\kap{κ}%
+  \def\vp{φ}%
+  \def\vpbar{φ̄}%
+  \def\eps{ε}%
+  \def\lam{λ}%
+  \def\UU{U}%
+  \def\FF{F}%
+  \def\ZZ{Z}%
+  \def\NN{N}%
+  \def\RR{R}%
+  \def\CC{C}%
+  \def\QQ{Q}%
+  \def\PP{P}%
+  \def\HH{H}%
+  \def\OO{O}%
+  \def\SS{S}%
+  \def\GG{G}%
+  \def\TT{T}%
+}

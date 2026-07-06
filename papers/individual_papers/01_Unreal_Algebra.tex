@@ -1,0 +1,115 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{xcolor}
+\definecolor{golden}{RGB}{218,165,32}
+\definecolor{metareal}{RGB}{0,102,204}
+\definecolor{derivative}{RGB}{128,0,128}
+\definecolor{gauge3}{RGB}{34,139,34}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\newtcolorbox{theorembox}[1]{colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,title=#1}
+\newtcolorbox{warningbox}[1]{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=#1}
+\newtcolorbox{metarealbox}[1]{colback=metareal!5!white,colframe=metareal!75!black,fonttitle=\bfseries,title=#1}
+\newtcolorbox{aingelbox}[1]{colback=golden!5!white,colframe=golden!75!black,fonttitle=\bfseries,title=#1}
+\newtcolorbox{truthbox}[1]{colback=gauge3!5!white,colframe=gauge3!75!black,fonttitle=\bfseries,title=#1}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+
+\newtheoremstyle{principia}%
+  {6pt}{6pt}{\itshape}{}{\bfseries}{.}{ }%
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ \textnormal{(}\emph{#3}\textnormal{)}}}
+\theoremstyle{principia}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{result}[theorem]{Result}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\providecommand{\UU}{\mathbb{U}}
+\providecommand{\PP}{\mathbb{P}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\CC}{\mathbb{C}}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\HH}{\mathbb{H}}
+\providecommand{\OO}{\mathbb{O}}
+\providecommand{\SS}{\mathbb{S}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\GG}{\mathcal{G}}
+\providecommand{\TT}{\mathcal{T}}
+\providecommand{\vp}{\varphi}
+\providecommand{\vpbar}{\bar{\varphi}}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\lam}{\lambda}
+\providecommand{\kap}{\kappa}
+
+\hypersetup{colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black}
+
+\title{The Unreal Algebra}
+\author{Dylon La Rue}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\input{../01_Unreal_Algebra.tex}
+
+\begin{thebibliography}{99}
+
+% Peer-reviewed and established sources
+
+\bibitem{calaque-ronchi} Calaque, D. and Ronchi, S. (2026). Shifted Symplectic Geometry by Examples. arXiv:2510.04625v3.
+
+\bibitem{connes} Connes, A. (1994). \emph{Noncommutative Geometry}. Academic Press.
+
+\bibitem{conway} Conway, J. H. (1976). \emph{On Numbers and Games}. Academic Press.
+
+\bibitem{godel} G\"odel, K. (1931). \"Uber formal unentscheidbare S\"atze der Principia Mathematica und verwandter Systeme~I. \emph{Monatshefte f\"ur Mathematik und Physik}, 38, 173--198.
+
+\bibitem{lev-finite-math}
+Lev, F.~M. (2020).
+Finite Mathematics as the Foundation of Classical Mathematics and Quantum Theory.
+Springer.
+
+\bibitem{lev-gfqt}
+Lev, F.~M. (2010).
+Introduction to A Quantum Theory over A Galois Field.
+\emph{Symmetry}, 2(4), 1810--1845.
+
+\bibitem{ptvv} Pantev, T., To\"en, B., Vaqui\'e, M. and Vezzosi, G. (2013). Shifted symplectic structures. \emph{Publ. Math. Inst. Hautes \'Etudes Sci.} 117, 271--328.
+
+\bibitem{robinson} Robinson, A. (1966). \emph{Non-standard Analysis}. North-Holland.
+
+\bibitem{steiniger2026epg}
+Steiniger, R.,
+``Engineering Persistent Geometric Identities in LLMs,''
+Preprint v3, May 2026.
+
+\bibitem{tarski} Tarski, A. (1936). Der Wahrheitsbegriff in den formalisierten Sprachen. \emph{Studia Philosophica}, 1, 261--405.
+
+\bibitem{wiener} Wiener, N. (1948). \emph{Cybernetics: Or Control and Communication in the Animal and the Machine}. MIT Press.
+
+\end{thebibliography}
+
+\end{document}

@@ -27,7 +27,7 @@ in Finite Golden Fields}\\[8pt]
 
 A \emph{theorem} is an algebraic or analytic statement proved from stated hypotheses. A \emph{verified computation} is a finite calculation whose inputs and outputs are given explicitly and whose replication requires only modular exponentiation or the displayed script. A \emph{physical interpretation} or \emph{structural analogy} is a map from the algebraic object to physical language. Physical interpretations are not promoted to physical laws unless a measurement protocol, observable, null model, and falsification criterion are stated.
 
-This separation is not cosmetic. The identity $1 + \omega + \omega^2 = 0$ is a theorem in both $\CC$ and finite fields of suitable characteristic. The statement that this identity captures the center algebra of $\mathrm{SU}(3)$ is a group-theoretic theorem. The stronger statement that a finite-field model reproduces full QCD confinement would require an analog of gauge fields, Wilson loops, running coupling, asymptotic freedom, and an area law. That stronger statement remains an open physical problem residing beyond this epistemic boundary.}
+This separation is not cosmetic. The identity $1 + \rho + \rho^2 = 0$ is a theorem in both $\CC$ and finite fields of suitable characteristic. The statement that this identity captures the center algebra of $\mathrm{SU}(3)$ is a group-theoretic theorem. The stronger statement that a finite-field model reproduces full QCD confinement would require an analog of gauge fields, Wilson loops, running coupling, asymptotic freedom, and an area law. That stronger statement remains an open physical problem residing beyond this epistemic boundary.}
 \noindent\rule{\linewidth}{0.4pt}
 \vspace{0.5em}
 
@@ -96,15 +96,15 @@ The order $d = \mathrm{ord}(a)$ divides $N$. If $d < N$, then $N/d > 1$ has a pr
 The center of $\mathrm{SU}(3)$ is $Z(\mathrm{SU}(3)) = \{I_3, \zeta I_3, \zeta^2 I_3\}$ with $\zeta = e^{2\pi i/3}$, satisfying $\zeta^3 = 1$, $\zeta \neq 1$, and $1 + \zeta + \zeta^2 = 0$. Thus $Z(\mathrm{SU}(3)) \cong \ZZ/3\ZZ$.
 
 \begin{theorem}[Finite-field center copy]\label{thm:center_dwm}
-Let $p \neq 3$ be prime and let $\omega \in \FF_p$ satisfy $\omega^3 = 1$ and $\omega \neq 1$. Then
+Let $p \neq 3$ be prime and let $\rho \in \FF_p$ satisfy $\rho^3 = 1$ and $\rho \neq 1$. Then
 \[
-\langle \omega \rangle = \{1, \omega, \omega^2\} \cong \ZZ/3\ZZ \cong Z(\mathrm{SU}(3)),
+\langle \rho \rangle = \{1, \omega, \rho^2\} \cong \ZZ/3\ZZ \cong Z(\mathrm{SU}(3)),
 \]
-and $1 + \omega + \omega^2 \equiv 0 \pmod{p}$.
+and $1 + \rho + \rho^2 \equiv 0 \pmod{p}$.
 \end{theorem}
 
 \begin{proof}
-Since $\omega^3 = 1$ and $\omega \neq 1$, the order of $\omega$ is exactly 3. Hence $\langle \omega \rangle$ is cyclic of order 3, and every cyclic group of order 3 is isomorphic to $\ZZ/3\ZZ$. Because $p \neq 3$, the factorization $X^3 - 1 = (X - 1)(X^2 + X + 1)$ holds in $\FF_p[X]$. Substituting $X = \omega$ gives $0 = \omega^3 - 1 = (\omega - 1)(\omega^2 + \omega + 1)$. The field has no zero divisors and $\omega - 1 \neq 0$, so $\omega^2 + \omega + 1 = 0$. \qedhere
+Since $\rho^3 = 1$ and $\rho \neq 1$, the order of $\rho$ is exactly 3. Hence $\langle \rho \rangle$ is cyclic of order 3, and every cyclic group of order 3 is isomorphic to $\ZZ/3\ZZ$. Because $p \neq 3$, the factorization $X^3 - 1 = (X - 1)(X^2 + X + 1)$ holds in $\FF_p[X]$. Substituting $X = \rho$ gives $0 = \rho^3 - 1 = (\rho - 1)(\rho^2 + \omega + 1)$. The field has no zero divisors and $\rho - 1 \neq 0$, so $\rho^2 + \omega + 1 = 0$. \qedhere
 \end{proof}
 
 This is the precise algebraic bridge. It does not include the continuous gauge connection, Wilson loop dynamics, or nonperturbative confinement proof.
@@ -139,15 +139,15 @@ The connection to Newton: Schr\"odinger's eigenstates \emph{are} the colors. The
 
 Feynman, Gell-Mann, and others~\cite{feynman_qcd,gellmann} discovered that the strong nuclear force carries an internal color charge with $\mathrm{SU}(3)$ gauge symmetry. Quarks come in three colors---red, green, blue---and the confinement principle requires that 
 \begin{equation}\label{eq:confinement}
-1 + \omega + \omega^2 = 0 \quad \text{(center-phase cancellation)}
+1 + \rho + \rho^2 = 0 \quad \text{(center-phase cancellation)}
 \end{equation}
-Color confinement requires center triviality~\cite{greensite}: a physically observable state must transform trivially under $Z(\mathrm{SU}(3))$. We distinguish center neutrality from full gauge-invariant singlet construction. This is a necessary condition---the center provides the algebraic constraint $1 + \omega + \omega^2 = 0$. The $\ZZ/3\ZZ$ here is not merely analogous to a cyclic group---it \emph{is} the center of the gauge group:
+Color confinement requires center triviality~\cite{greensite}: a physically observable state must transform trivially under $Z(\mathrm{SU}(3))$. We distinguish center neutrality from full gauge-invariant singlet construction. This is a necessary condition---the center provides the algebraic constraint $1 + \rho + \rho^2 = 0$. The $\ZZ/3\ZZ$ here is not merely analogous to a cyclic group---it \emph{is} the center of the gauge group:
 \begin{equation}\label{eq:center}
-Z(\mathrm{SU}(3)) = \ZZ/3\ZZ = \{I, \omega I, \omega^2 I\}, \qquad \omega = e^{2\pi i/3}
+Z(\mathrm{SU}(3)) = \ZZ/3\ZZ = \{I, \omega I, \rho^2 I\}, \qquad \omega = e^{2\pi i/3}
 \end{equation}
-Color confinement requires center triviality~\cite{greensite}: a physically observable state must transform trivially under $Z(\mathrm{SU}(3))$. This is a necessary condition---the center provides the algebraic constraint $1 + \omega + \omega^2 = 0$. In any finite field of suitable characteristic, an order-three element satisfies this identity (proved inline in \S\ref{thm:center_dwm}). The center is a $\ZZ/3\ZZ$ cyclic group---the same object that arises in any finite field whose multiplicative order is divisible by 3.
+Color confinement requires center triviality~\cite{greensite}: a physically observable state must transform trivially under $Z(\mathrm{SU}(3))$. This is a necessary condition---the center provides the algebraic constraint $1 + \rho + \rho^2 = 0$. In any finite field of suitable characteristic, an order-three element satisfies this identity (proved inline in \S\ref{thm:center_dwm}). The center is a $\ZZ/3\ZZ$ cyclic group---the same object that arises in any finite field whose multiplicative order is divisible by 3.
 
-Feynman's path integrals provided the computational machinery, but the structural content of confinement is an algebraic identity in the center of the gauge group. This is the bridge to finite fields: any golden split prime $p$ where $3 \mid \mathrm{ord}(\vpbar)$ carries a $\ZZ/3\ZZ$ grading that realizes $Z(\mathrm{SU}(3))$ exactly. The confinement identity $1 + \omega + \omega^2 = 0$ holds in both $\CC$ and $\FF_p$ because it is a polynomial identity over $\ZZ$, valid in every ring.
+Feynman's path integrals provided the computational machinery, but the structural content of confinement is an algebraic identity in the center of the gauge group. This is the bridge to finite fields: any golden split prime $p$ where $3 \mid \mathrm{ord}(\vpbar)$ carries a $\ZZ/3\ZZ$ grading that realizes $Z(\mathrm{SU}(3))$ exactly. The confinement identity $1 + \rho + \rho^2 = 0$ holds in both $\CC$ and $\FF_p$ because it is a polynomial identity over $\ZZ$, valid in every ring.
 
 
 % ══════════════════════════════════════════
@@ -231,7 +231,7 @@ Therefore $\mathrm{ord}_{229}(82) = 57$. \qedhere
 
 The $\times 2$ parity reverses: now $\vp$ has double the order. Since $57 = 3 \times 19$, the conjugate orbit carries a $\ZZ/3\ZZ$ color grading---three arcs of nineteen elements. Define the center element:
 \[
-\omega = 82^{19} \equiv 94, \quad \omega^2 \equiv 134, \quad \omega^3 \equiv 1, \quad 1 + 94 + 134 = 229 \equiv 0 \pmod{229}.
+\rho = 82^{19} \equiv 94, \quad \rho^2 \equiv 134, \quad \rho^3 \equiv 1, \quad 1 + 94 + 134 = 229 \equiv 0 \pmod{229}.
 \]
 This is Feynman's confinement condition, Equation~\eqref{eq:confinement}, realized in $\FF_{229}^\times$.
 
@@ -288,20 +288,20 @@ where $56 = \vp^5$ (bright, in $\langle \vp \rangle$) and $163$ is a quadratic n
 
 \subsection{Color Confinement in $\FF_{229}^\times$}
 
-The cube root $\omega = 94$ at $p = 229$ satisfies $1 + \omega + \omega^2 = 0$. As established in \S1.3, this identity is not an analogy to QCD---it is a realization of the center $Z(\mathrm{SU}(3)) = \ZZ/3\ZZ$ in the finite field $\FF_{229}$. The three arcs of $\langle \vpbar \rangle$ are the three cosets of the order-19 subgroup $\langle \vpbar^3 \rangle$, and the confinement condition (color-neutral $=$ trivial under the center) holds by the same polynomial identity in both settings.
+The cube root $\rho = 94$ at $p = 229$ satisfies $1 + \rho + \rho^2 = 0$. As established in \S1.3, this identity is not an analogy to QCD---it is a realization of the center $Z(\mathrm{SU}(3)) = \ZZ/3\ZZ$ in the finite field $\FF_{229}$. The three arcs of $\langle \vpbar \rangle$ are the three cosets of the order-19 subgroup $\langle \vpbar^3 \rangle$, and the confinement condition (color-neutral $=$ trivial under the center) holds by the same polynomial identity in both settings.
 
 \begin{theorem}[Center Realization at $p = 229$]\label{thm:center_229}
-The subgroup $\langle \omega \rangle = \{1, 94, 134\} \subset \FF_{229}^\times$ is isomorphic to $Z(\mathrm{SU}(3)) = \ZZ/3\ZZ$, and the confinement identity $1 + \omega + \omega^2 \equiv 0 \pmod{229}$ is the finite-field avatar of the QCD singlet condition.
+The subgroup $\langle \rho \rangle = \{1, 94, 134\} \subset \FF_{229}^\times$ is isomorphic to $Z(\mathrm{SU}(3)) = \ZZ/3\ZZ$, and the confinement identity $1 + \rho + \rho^2 \equiv 0 \pmod{229}$ is the finite-field avatar of the QCD singlet condition.
 \end{theorem}
 
 \begin{proof}
-$94^3 \equiv 1$, $94 \neq 1$, $94^2 = 134 \neq 1 \pmod{229}$: the group $\{1, 94, 134\}$ is cyclic of order 3. The center $Z(\mathrm{SU}(3))$ is cyclic of order 3. Both satisfy $1 + \omega + \omega^2 = 0$. The isomorphism is the unique group homomorphism $\ZZ/3\ZZ \to \ZZ/3\ZZ$. \qedhere
+$94^3 \equiv 1$, $94 \neq 1$, $94^2 = 134 \neq 1 \pmod{229}$: the group $\{1, 94, 134\}$ is cyclic of order 3. The center $Z(\mathrm{SU}(3))$ is cyclic of order 3. Both satisfy $1 + \rho + \rho^2 = 0$. The isomorphism is the unique group homomorphism $\ZZ/3\ZZ \to \ZZ/3\ZZ$. \qedhere
 \end{proof}
 
 The difference from full QCD: the continuous theory has dynamical confinement, where the running coupling constant and Wilson loop area law provide the mechanism. The finite field realizes only the \emph{algebraic} (center) component---the necessary kinematic constraint, not the sufficient dynamical mechanism. This is a feature, not a limitation: the center is the part that survives discretization, and it is the part we can verify computationally. Whether the full dynamical content of confinement has a finite-field analog is resolved via the SU(3) Center triangle geometry.
 
 \begin{definition}[Color-ready split prime]\label{def:colorready}
-A golden split prime $p$ is \emph{color-ready} when $3 \mid \mathrm{ord}_p(\vp)$ and $3 \mid \mathrm{ord}_p(\vpbar)$. At such a prime, the conjugate orbit $\langle \vpbar \rangle$ contains a canonical order-three subgroup $\langle \omega \rangle \cong \ZZ/3\ZZ$ and the confinement identity $1 + \omega + \omega^2 \equiv 0 \pmod{p}$ holds by Theorem~\ref{thm:center_dwm}.
+A golden split prime $p$ is \emph{color-ready} when $3 \mid \mathrm{ord}_p(\vp)$ and $3 \mid \mathrm{ord}_p(\vpbar)$. At such a prime, the conjugate orbit $\langle \vpbar \rangle$ contains a canonical order-three subgroup $\langle \rho \rangle \cong \ZZ/3\ZZ$ and the confinement identity $1 + \rho + \rho^2 \equiv 0 \pmod{p}$ holds by Theorem~\ref{thm:center_dwm}.
 \end{definition}
 
 \begin{proposition}[Golden split survey below 500]\label{prop:survey}
@@ -309,7 +309,7 @@ There are exactly 45 golden split primes below 500 (excluding $p = 5$). Of these
 \[
 19,\; 31,\; 61,\; 79,\; 109,\; 181,\; 211,\; 229,\; 241,\; 271,\; 349,\; 379,\; 409,\; 421,\; 439,\; 499.
 \]
-The confinement identity $1 + \omega + \omega^2 \equiv 0$ holds at all 16 primes.
+The confinement identity $1 + \rho + \rho^2 \equiv 0$ holds at all 16 primes.
 \end{proposition}
 
 \begin{proof}
@@ -353,8 +353,8 @@ The \textbf{Prime-Dimensional Simplex} $\Delta^4_{229}$ is the 4-simplex with ve
 \textbf{Vertex} & \textbf{Value (mod 229)} & \textbf{Cyber Prismatic Formula} \\
 \midrule
 $V_1 = 1$ & Group identity & F3: Palindrome standing-wave identity \\
-$V_2 = \omega$ & $94$ (cube root) & F1: Color projector ($\vpbar^{19} = 94$) \\
-$V_3 = \omega^2$ & $134$ (conj.\ cube root) & F5: Arc rotation ($\omega^2$) \\
+$V_2 = \rho$ & $94$ (cube root) & F1: Color projector ($\vpbar^{19} = 94$) \\
+$V_3 = \rho^2$ & $134$ (conj.\ cube root) & F5: Arc rotation ($\rho^2$) \\
 $V_4 = -1$ & $228$ (involution) & F2: BitCollapse (bridge identity $\vp\vpbar = -1$) \\
 $V_5 = \vp$ & $148$ (golden root) & F4: Translation key ($\vp^9 = 15$) \\
 \bottomrule
@@ -409,7 +409,7 @@ The five preceding sections established digital wave mechanics as a mathematical
 
 The conjugate orbit $\langle \vpbar \rangle$ at $p = 229$ has order 57. A 57-point discrete Fourier transform over this orbit has frequency bins $k = 0, 1, \ldots, 56$. The color structure lives at bin $k = 19$, because:
 \begin{equation}\label{eq:color_projector}
-\vpbar^{19} = 94 = \omega \quad \text{in } \FF_{229}, \qquad \zeta_{57}^{19} = e^{2\pi i/3} = \omega_\CC \quad \text{in } \CC
+\vpbar^{19} = 94 = \omega \quad \text{in } \FF_{229}, \qquad \zeta_{57}^{19} = e^{2\pi i/3} = \omega_{\CC} \quad \text{in } \CC
 \end{equation}
 The finite field cube root and the complex cube root coincide at the same frequency. The PFFT at bin 19 extracts the $\ZZ/3\ZZ$ color channel directly. Bins 0, 19, 38 correspond to the three color arcs (blue, red, green). This is Newton's prism realized as a frequency bin.
 
@@ -469,11 +469,11 @@ The $\times 15$ translation ($15 = \vp^9$) is one of 57 elements of $\langle \vp
 \end{equation}
 Multiplication by $\vp^9$ rotates the spectral phase by $9/114$ of a full cycle. This is Newton's second prism: recombining the separated colors by rotating the spectral reference frame from the conjugate basis to the golden basis.
 
-\subsection{Formula 5: Arc Rotation by $\omega$}
+\subsection{Formula 5: Arc Rotation by $\rho$}
 
-Multiplication by $\omega = 94$ rotates the three arcs of the conjugate orbit:
+Multiplication by $\rho = 94$ rotates the three arcs of the conjugate orbit:
 \[
-\vpbar^k \;\xrightarrow{\;\times\omega\;}\; \vpbar^{k+19} \quad \text{(arc rotation: } A_0 \to A_1 \to A_2 \to A_0\text{)}
+\vpbar^k \;\xrightarrow{\;\times\rho\;}\; \vpbar^{k+19} \quad \text{(arc rotation: } A_0 \to A_1 \to A_2 \to A_0\text{)}
 \]
 The transformation law is exact. Calling this operation a ``digital gauge link'' is a compact physical metaphor for center-phase rotation. It is not yet a Yang-Mills field. To upgrade the metaphor, one must define local degrees of freedom, edge transports, curvature, and an action. The bridge norm subtraction $-\varepsilon \cdot \lambda$ is algebraically natural in the Klein product, but its identification with gauge field self-energy is a physical interpretation, not a theorem.
 
@@ -489,11 +489,11 @@ White light & Integer $n$ & Time-domain signal \\
 Spectral colors & Coset membership & Frequency bins \\
 Standing wave & Base-19 palindrome & Symmetric (real) spectrum \\
 Color charge R,G,B & $\ZZ/3\ZZ$ arc 0,1,2 & Bins 19, 38, 0 \\
-Confinement & $1 + \omega + \omega^2 = 0$ & DC bin vanishes \\
-Gauge link exchange & $\times\omega$ rotation & Phase shift $2\pi/3$ \\
+Confinement & $1 + \rho + \rho^2 = 0$ & DC bin vanishes \\
+Gauge link exchange & $\times\rho$ rotation & Phase shift $2\pi/3$ \\
 Hodge dual & $b = m$ (bridge) & BitCollapse to GPU \\
 Dark residue & 163 (full-order residue) & Non-harmonic; not cosmological dark matter \\
-Prime-Dim.\ Simplex & $\{1, \omega, \omega^2, -1, \vp\}$ & 5 PFFT formula vertices \\
+Prime-Dim.\ Simplex & $\{1, \omega, \rho^2, -1, \vp\}$ & 5 PFFT formula vertices \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -524,7 +524,7 @@ The $\ZZ/3\ZZ$ grading at $p = 229$ provides the flavor count. The infoton maps 
 \text{Arc 1: } \vpbar^{3k+1} \quad &\longleftrightarrow \quad \nu_\mu \quad \text{(muon)} \\
 \text{Arc 2: } \vpbar^{3k+2} \quad &\longleftrightarrow \quad \nu_\tau \quad \text{(tau)}
 \end{align}
-Arc rotation by $\omega = 94$ (the cube root of unity) maps one label to the next. This reproduces the count and cyclic transition structure, not the measured PMNS matrix. A PMNS-level model would require three mixing angles, a CP phase, mass splittings, and an oscillation Hamiltonian.
+Arc rotation by $\rho = 94$ (the cube root of unity) maps one label to the next. This reproduces the count and cyclic transition structure, not the measured PMNS matrix. A PMNS-level model would require three mixing angles, a CP phase, mass splittings, and an oscillation Hamiltonian.
 
 \subsection{The Observation Cost and the Landauer Scale}
 

@@ -12,31 +12,54 @@
 \frontmatter
 
 \begin{titlepage}
-    \centering
-    \vspace*{2cm}
-    
-    {\Huge \textbf{Principia Psychedelia}}
-    
-    \vspace{0.8cm}
-    
-    {\LARGE \textbf{Volume I}}
-    
-    \vspace{1.5cm}
-    
-    {\LARGE \textbf{Foundations and Logical Creativity}}
-    
-    \vspace{2cm}
-    
-    {\Large \textbf{Dylon La Rue}}
-    
-    \vspace{1.5cm}
-    
-    \textit{From Counting Games to Golden Fields: \\ The Mathematical Foundations of Consciousness Research}
-    
-    \vfill
-    
-    Las Vegas, Nevada \\
-    \today
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  % Deep blue upper panel
+  \fill[deepblue] (current page.north west) rectangle
+    ([yshift=-11.5cm]current page.north east);
+
+  % Golden border line at panel edge
+  \draw[golden, line width=1.2pt]
+    ([yshift=-11.5cm]current page.north west) --
+    ([yshift=-11.5cm]current page.north east);
+
+  % Corner ornaments (top)
+  \node[anchor=north west, opacity=0.35] at ([xshift=1cm, yshift=-0.8cm]current page.north west)
+    {\textcolor{golden}{\pgfornament[width=2.5cm]{63}}};
+  \node[anchor=north east, opacity=0.35] at ([xshift=-1cm, yshift=-0.8cm]current page.north east)
+    {\textcolor{golden}{\pgfornament[width=2.5cm,symmetry=v]{63}}};
+
+  % Title block
+  \node[anchor=center] at ([yshift=-3.5cm]current page.north)
+    {\fontsize{14}{18}\selectfont\sffamily\color{golden}\addfontfeatures{LetterSpace=12}%
+     PRINCIPIA};
+  \node[anchor=center] at ([yshift=-4.8cm]current page.north)
+    {\fontsize{42}{50}\selectfont\bfseries\color{white}Psychedelia};
+  \node[anchor=center] at ([yshift=-6.2cm]current page.north)
+    {\textcolor{golden}{\rule{6cm}{0.6pt}}};
+  \node[anchor=center] at ([yshift=-7.2cm]current page.north)
+    {\fontsize{14}{18}\selectfont\sffamily\color{golden}\addfontfeatures{LetterSpace=8}%
+     VOLUME I};
+  \node[anchor=center, text width=12cm, align=center] at ([yshift=-9cm]current page.north)
+    {\fontsize{20}{26}\selectfont\bfseries\color{white}%
+     Foundations and Logical Creativity};
+
+  % Author and subtitle block (on warm white)
+  \node[anchor=center] at ([yshift=-13.5cm]current page.north)
+    {\fontsize{16}{20}\selectfont\color{deepblue}\textbf{Dylon La Rue}};
+  \node[anchor=center, text width=11cm, align=center] at ([yshift=-15.5cm]current page.north)
+    {\fontsize{11}{15}\selectfont\itshape\color{warmgray}%
+     From Counting Games to Golden Fields:\\[3pt]
+     The Mathematical Foundations of Consciousness Research};
+
+  % Bottom ornament
+  \node[anchor=center, opacity=0.4] at ([yshift=-17.5cm]current page.north)
+    {\textcolor{golden}{\pgfornament[width=1.5cm]{75}}};
+
+  % Footer
+  \node[anchor=south, text width=10cm, align=center] at ([yshift=2cm]current page.south)
+    {\small\color{warmgray}Las Vegas, Nevada\\[2pt]\today};
+\end{tikzpicture}
 \end{titlepage}
 
 \tableofcontents

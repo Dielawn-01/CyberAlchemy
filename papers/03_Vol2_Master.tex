@@ -12,31 +12,56 @@
 \frontmatter
 
 \begin{titlepage}
-    \centering
-    \vspace*{2cm}
-    
-    {\Huge \textbf{Principia Psychedelia}}
-    
-    \vspace{0.8cm}
-    
-    {\LARGE \textbf{Volume II}}
-    
-    \vspace{1.5cm}
-    
-    {\LARGE \textbf{Informational and Physical Creativity}}
-    
-    \vspace{2cm}
-    
-    {\Large \textbf{Dylon La Rue}}
-    
-    \vspace{1.5cm}
-    
-    \textit{From Semantic Condensation to Abiogenesis: \\ The Material Instantiation of Golden Arithmetic}
-    
-    \vfill
-    
-    Las Vegas, Nevada \\
-    \today
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  % Deep blue lower panel
+  \fill[deepblue] ([yshift=11.5cm]current page.south west) rectangle
+    (current page.south east);
+
+  % Golden border line at panel edge
+  \draw[golden, line width=1.2pt]
+    ([yshift=11.5cm]current page.south west) --
+    ([yshift=11.5cm]current page.south east);
+
+  % Corner ornaments (top, on warm white)
+  \node[anchor=north west, opacity=0.3] at ([xshift=1cm, yshift=-0.8cm]current page.north west)
+    {\textcolor{golden}{\pgfornament[width=2.5cm]{63}}};
+  \node[anchor=north east, opacity=0.3] at ([xshift=-1cm, yshift=-0.8cm]current page.north east)
+    {\textcolor{golden}{\pgfornament[width=2.5cm,symmetry=v]{63}}};
+
+  % Title block (on warm white upper section)
+  \node[anchor=center] at ([yshift=-3.5cm]current page.north)
+    {\fontsize{14}{18}\selectfont\sffamily\color{golden}\addfontfeatures{LetterSpace=12}%
+     PRINCIPIA};
+  \node[anchor=center] at ([yshift=-4.8cm]current page.north)
+    {\fontsize{42}{50}\selectfont\bfseries\color{deepblue}Psychedelia};
+  \node[anchor=center] at ([yshift=-6.2cm]current page.north)
+    {\textcolor{golden}{\rule{6cm}{0.6pt}}};
+  \node[anchor=center] at ([yshift=-7.2cm]current page.north)
+    {\fontsize{14}{18}\selectfont\sffamily\color{golden}\addfontfeatures{LetterSpace=8}%
+     VOLUME II};
+
+  % Author (on warm white)
+  \node[anchor=center] at ([yshift=-9cm]current page.north)
+    {\fontsize{16}{20}\selectfont\color{deepblue}\textbf{Dylon La Rue}};
+
+  % Ornament divider
+  \node[anchor=center, opacity=0.4] at ([yshift=-10.5cm]current page.north)
+    {\textcolor{golden}{\pgfornament[width=1.5cm]{75}}};
+
+  % Subtitle block (on deep blue lower panel)
+  \node[anchor=center, text width=12cm, align=center] at ([yshift=8.5cm]current page.south)
+    {\fontsize{20}{26}\selectfont\bfseries\color{white}%
+     Informational and Physical Creativity};
+  \node[anchor=center, text width=11cm, align=center] at ([yshift=6cm]current page.south)
+    {\fontsize{11}{15}\selectfont\itshape\color{golden!60!white}%
+     From Semantic Condensation to Abiogenesis:\\[3pt]
+     The Material Instantiation of Golden Arithmetic};
+
+  % Footer (on deep blue)
+  \node[anchor=south, text width=10cm, align=center] at ([yshift=2cm]current page.south)
+    {\small\color{golden!40!white}Las Vegas, Nevada\\[2pt]\today};
+\end{tikzpicture}
 \end{titlepage}
 
 \tableofcontents

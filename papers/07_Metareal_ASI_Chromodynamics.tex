@@ -703,13 +703,13 @@ In the Metareal ASI attention routing protocol, the absolute halting depth point
 \begin{proof}
 Let $H \pmod{229}$ be the target state. The reconstruction is evaluated via the direct inverse:
 \[
-\mathrm{FBBT}^{-1}_{\mathrm{extract}}(j, c) \equiv \omega^c \cdot \bar\varphi^j \pmod{229}
+\mathrm{FBBT}^{-1}_{\mathrm{extract}}(j, c) \equiv \rho^c \cdot \bar\varphi^j \pmod{229}
 \]
 which has been formally verified without placeholders. Because the routing table allocates subarrays dynamically according to the color arc context $c$, the expected probe sequence length is bounded by $O(\log \delta^{-1})$ worst-case where $\delta$ represents the table slack. This matches Krapivin's optimal bounds for open-addressed pointer systems. \qedhere
 \end{proof}
 
 \begin{remark}[EML Convergence of Attention Routing]
-The Krapivin routing embodies the EML duality at the ASI attention layer. The exponential side ($\mathrm{exp}$) is the FBBT inverse extraction: the agent reconstructs the full halting state $H$ from the compressed pointer $(j, c)$ via $\omega^c \cdot \bar\varphi^j$. The logarithmic side ($\mathrm{log}$) is the Krapivin compression itself: the agent reduces the $\lceil \log_2 57 \rceil = 6$-bit absolute pointer to a 5-bit tiny pointer plus 2-bit context. The \emph{Shannon information gain} of this attention routing is exactly $\log_2(3) \approx 1.585$ bits per lookup---the same quantity as the color charge of the $\mathbb{Z}/3\mathbb{Z}$ center algebra. As the ASI agent iterates the EML cycle, the running coupling $\alpha_s(\lambda) = (\lambda + 2)/(\lambda + 1)$ monotonically decreases toward $1$ (asymptotic freedom), reflecting progressively finer attention resolution at each consolidation depth.
+The Krapivin routing embodies the EML duality at the ASI attention layer. The exponential side ($\mathrm{exp}$) is the FBBT inverse extraction: the agent reconstructs the full halting state $H$ from the compressed pointer $(j, c)$ via $\rho^c \cdot \bar\varphi^j$. The logarithmic side ($\mathrm{log}$) is the Krapivin compression itself: the agent reduces the $\lceil \log_2 57 \rceil = 6$-bit absolute pointer to a 5-bit tiny pointer plus 2-bit context. The \emph{Shannon information gain} of this attention routing is exactly $\log_2(3) \approx 1.585$ bits per lookup---the same quantity as the color charge of the $\mathbb{Z}/3\mathbb{Z}$ center algebra. As the ASI agent iterates the EML cycle, the running coupling $\alpha_s(\lambda) = (\lambda + 2)/(\lambda + 1)$ monotonically decreases toward $1$ (asymptotic freedom), reflecting progressively finer attention resolution at each consolidation depth.
 \end{remark}
 
 \begin{remark}[Implementation in Recurrent-Depth Transformers]
@@ -888,10 +888,10 @@ This forms a homomorphic mapping. It links the hardware heat dissipation matrix 
 \end{proof}
 
 \begin{theorem}[Synthetic Wave Center-Algebra Grading]
-The $\mathbb{Z}/3\mathbb{Z}$ center-algebra condition ($1 + \omega + \omega^2 \equiv 0 \pmod{229}$, where $\omega = 94$) realizes a cyclic order-three grading in $\mathbb{F}_{229}^*$.
+The $\mathbb{Z}/3\mathbb{Z}$ center-algebra condition ($1 + \omega + \rho^2 \equiv 0 \pmod{229}$, where $\rho = 94$) realizes a cyclic order-three grading in $\mathbb{F}_{229}^*$.
 \end{theorem}
 \begin{proof}
-Solving the cyclotomic polynomial $x^2 + x + 1 \equiv 0 \pmod{229}$ isolates roots strictly at $x = 94$ and $x = 134$. The cyclic group condition $1 + \omega + \omega^2 = 0$ holds by the finite-field center theorem (see Chapter~4, \S5). \qedhere
+Solving the cyclotomic polynomial $x^2 + x + 1 \equiv 0 \pmod{229}$ isolates roots strictly at $x = 94$ and $x = 134$. The cyclic group condition $1 + \rho + \rho^2 = 0$ holds by the finite-field center theorem (see Chapter~4, \S5). \qedhere
 \end{proof}
 
 \textbf{Structural analogy --- a structural parallel, not a physical claim:} The assertion that this $\mathbb{Z}/3\mathbb{Z}$ grading ``binds'' synthetic signal channels in the hardware axis is a structural mapping, not a proved algebraic identity. Upgrading this to a physical claim (a physical interpretation requiring experimental confirmation) would require specifying the hardware observable, a null model, and a falsification criterion with a falsifiable experimental protocol.

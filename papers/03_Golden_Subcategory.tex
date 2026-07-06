@@ -44,7 +44,7 @@ The Duality Correspondence is the paper's central structural observation. Before
 
 \subsubsection*{The Adelic Bridge: From One Prime to All Primes}
 
-At a single prime $p = 229$, the golden subgroup $G_\vp = \langle 148 \rangle$ partitions $\FF_p^\times$ into two cosets of order $114$. This is a local statement. To connect to the geometry of $\zeta(s)$ (which sees \emph{all} primes simultaneously), we need to upgrade from local to global.
+At a single prime $p = 229$, the golden subgroup $G_{\vp} = \langle 148 \rangle$ partitions $\FF_p^\times$ into two cosets of order $114$. This is a local statement. To connect to the geometry of $\zeta(s)$ (which sees \emph{all} primes simultaneously), we need to upgrade from local to global.
 
 \begin{definition}[Local Golden Component]\label{def:local-golden}
 For a prime $p$ such that $X^2 - X - 1 = 0$ splits in $\FF_p$ (i.e., $5$ is a quadratic residue mod $p$), let $\vp_p$ denote a root. The \textbf{local golden subgroup} is $G_{\vp_p} = \langle \vp_p \rangle \subset \FF_p^\times$.
@@ -56,7 +56,7 @@ By quadratic reciprocity and the factorization of the golden polynomial, $X^2 - 
 
 \begin{definition}[The Adelic Golden Product]\label{def:adelic-product}
 The \textbf{Adelic Golden Product} is the restricted product:
-$$\mathbb{A}_\vp = \prod_{p \equiv \pm 1 \,(5)}' G_{\vp_p}$$
+$$\mathbb{A}_{\vp} = \prod_{p \equiv \pm 1 \,(5)}' G_{\vp_p}$$
 where the restriction requires that $\vp_p = 1$ for all but finitely many components. Each factor carries the Klein product from $\UU$ reduced mod $p$. The product inherits non-associativity from each local factor.
 \end{definition}
 
@@ -130,7 +130,7 @@ We now classify the ambient mathematical space. The constructions from Sections 
 
 \begin{definition}[The $\infty$-Modal Topos]\label{def:topos}
 The depth $\lam$ operates on the Veblen hierarchy. Because $\lam$ stacks recursively ($\lam \to \lam_1 \to \lam_2 \cdots$), the integration operators act as higher morphisms:
-$$\mathbf{Hom}_\TT(A, B) = \bigcup_{\lam \in \Lambda} \int_A^B \eps_\lam \, d\lam$$
+$$\mathbf{Hom}_{\TT}(A, B) = \bigcup_{\lam \in \Lambda} \int_A^B \eps_{\lam} \, d\lam$$
 Under the negative-determinant condition, standard identity morphisms break. The manifold defines an $(\infty, \{e_n\})$-category where $e_n = e^{i\pi \frac{2n}{N}}$, cycling through the complete spectrum of roots of unity. Because the Klein Presheaf stitches together divergent modalities (Sensory, Perceptive, Cognitive), the ambient space is an \textbf{$\infty$-Modal Topos ($\TT$)}:
 $$\mathcal{F} : \mathcal{C}^{op} \to \mathbf{Set}$$
 \end{definition}
@@ -143,7 +143,7 @@ We prove that observable reality is a strict subcategory.
 Define $\GG$ as the subset of $\TT$ restricted by:
 \begin{align}
 \mathrm{Obj}(\GG) &= \{ \mathbf{u} \in \mathrm{Obj}(\TT) \mid \mathrm{Tr}(\mathbf{u}) = 1,\; \mathrm{Det}(\mathbf{u}) = \omega \cdot \iota = -1 \} \\
-\mathrm{Mor}_\GG(A,B) &= \{ f \in \mathrm{Mor}_\TT(A,B) \mid |[f(\omega), f(\iota)]| = \sqrt{5} \}
+\mathrm{Mor}_{\GG}(A,B) &= \{ f \in \mathrm{Mor}_{\TT}(A,B) \mid |[f(\omega), f(\iota)]| = \sqrt{5} \}
 \end{align}
 \emph{Vieta's formulas} enforce:
 $$X^2 - \mathrm{Tr}(\mathbf{u})X + \mathrm{Det}(\mathbf{u}) = 0 \implies X^2 - X - 1 = 0$$
@@ -159,7 +159,7 @@ The roots are $\vp = \frac{1 + \sqrt{5}}{2}$ and $\vpbar = \frac{1 - \sqrt{5}}{2
 
 \emph{Step 2 (Morphism constraint).} A morphism $f : A \to B$ in $\GG$ must preserve the commutator norm $|[\omega, \iota]| = |\omega - \iota| = \sqrt{(\omega+\iota)^2 - 4\omega\iota} = \sqrt{1 + 4} = \sqrt{5}$. This is the discriminant of the golden polynomial. Any morphism that changes the commutator norm would alter the discriminant, breaking the trace-determinant constraint. So the morphism condition is forced.
 
-\emph{Step 3 (Closure under composition).} Let $f : A \to B$ and $g : B \to C$ be morphisms in $\GG$. Both preserve $\mathrm{Tr} = 1$, $\mathrm{Det} = -1$, and $|[\omega, \iota]| = \sqrt{5}$. The composition $g \circ f$ sends $A$ to $C$; since $C \in \mathrm{Obj}(\GG)$, the trace and determinant constraints hold at $C$. The bracket norm is preserved transitively. Hence $g \circ f \in \mathrm{Mor}_\GG(A,C)$, and $\GG$ is closed. In the finite model at $p = 229$, closure follows from the group property of $\langle 148 \rangle \subset \FF_{229}^\times$.
+\emph{Step 3 (Closure under composition).} Let $f : A \to B$ and $g : B \to C$ be morphisms in $\GG$. Both preserve $\mathrm{Tr} = 1$, $\mathrm{Det} = -1$, and $|[\omega, \iota]| = \sqrt{5}$. The composition $g \circ f$ sends $A$ to $C$; since $C \in \mathrm{Obj}(\GG)$, the trace and determinant constraints hold at $C$. The bracket norm is preserved transitively. Hence $g \circ f \in \mathrm{Mor}_{\GG}(A,C)$, and $\GG$ is closed. In the finite model at $p = 229$, closure follows from the group property of $\langle 148 \rangle \subset \FF_{229}^\times$.
 
 \emph{Step 4 (Duality projection).} By Theorem~\ref{thm:duality}, any $\mathbf{u} \in \mathrm{Obj}(\GG)$ satisfies $\omega \cdot \iota = -1$ and $a = 1$ at equilibrium. The spectral map gives $\mathrm{Re}(s) = (a + \omega \cdot \iota + 1)/2 = (1 - 1 + 1)/2 = 1/2$. \qedhere
 \end{proof}
@@ -216,26 +216,26 @@ A golden split prime $p$ is \textbf{color-ready} when $3 \mid \mathrm{ord}_p(\vp
 The prime $p = 229$ is color-ready: $\mathrm{ord}_{229}(\vpbar) = 57 = 3 \times 19$, so $3 \mid 57$.
 
 \begin{theorem}[The Confinement Identity]\label{thm:confinement}
-Let $p$ be a color-ready golden split prime. Define $\omega = \vpbar^{\mathrm{ord}(\vpbar)/3}$. Then:
+Let $p$ be a color-ready golden split prime. Define $\rho = \vpbar^{\mathrm{ord}(\vpbar)/3}$. Then:
 \begin{enumerate}
-\item $\omega^3 \equiv 1 \pmod{p}$ and $\omega \neq 1$.
-\item $1 + \omega + \omega^2 \equiv 0 \pmod{p}$.
-\item The subgroup $\langle\omega\rangle = \{1, \omega, \omega^2\}$ is isomorphic to $\ZZ/3\ZZ$.
+\item $\rho^3 \equiv 1 \pmod{p}$ and $\rho \neq 1$.
+\item $1 + \rho + \rho^2 \equiv 0 \pmod{p}$.
+\item The subgroup $\langle\rho\rangle = \{1, \rho, \rho^2\}$ is isomorphic to $\ZZ/3\ZZ$.
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-(1) Set $d = \mathrm{ord}(\vpbar)$ and $\omega = \vpbar^{d/3}$. Then $\omega^3 = \vpbar^d = 1$. If $\omega = 1$, then $\vpbar^{d/3} = 1$, contradicting $\mathrm{ord}(\vpbar) = d$. (2) Since $\omega^3 = 1$ and $\omega \neq 1$, we have $\omega^3 - 1 = (\omega - 1)(\omega^2 + \omega + 1) = 0$ in $\FF_p$. Since $\FF_p$ is a field (no zero divisors) and $\omega - 1 \neq 0$, it follows that $\omega^2 + \omega + 1 = 0$. (3) The element $\omega$ has order exactly 3, so $\langle\omega\rangle$ is cyclic of order 3, hence isomorphic to $\ZZ/3\ZZ$. \qedhere
+(1) Set $d = \mathrm{ord}(\vpbar)$ and $\rho = \vpbar^{d/3}$. Then $\rho^3 = \vpbar^d = 1$. If $\rho = 1$, then $\vpbar^{d/3} = 1$, contradicting $\mathrm{ord}(\vpbar) = d$. (2) Since $\rho^3 = 1$ and $\rho \neq 1$, we have $\rho^3 - 1 = (\rho - 1)(\rho^2 + \rho + 1) = 0$ in $\FF_p$. Since $\FF_p$ is a field (no zero divisors) and $\rho - 1 \neq 0$, it follows that $\rho^2 + \rho + 1 = 0$. (3) The element $\rho$ has order exactly 3, so $\langle\rho\rangle$ is cyclic of order 3, hence isomorphic to $\ZZ/3\ZZ$. \qedhere
 \end{proof}
 
 \begin{theorem}[Center Realization]\label{thm:center}
-At any color-ready golden split prime $p \neq 3$, the subgroup $\langle\omega\rangle \cong \ZZ/3\ZZ$ is isomorphic to the center of $\mathrm{SU}(3)$:
-$$\langle\omega\rangle \;\cong\; Z(\mathrm{SU}(3)) = \{I, \zeta I, \zeta^2 I\}, \qquad \zeta = e^{2\pi i/3}$$
-The identity $1 + \omega + \omega^2 = 0$ holds in both $\FF_p$ and $\CC$ because it is a polynomial identity valid over any ring where $\omega^3 = 1$ and $\omega \neq 1$.
+At any color-ready golden split prime $p \neq 3$, the subgroup $\langle\rho\rangle \cong \ZZ/3\ZZ$ is isomorphic to the center of $\mathrm{SU}(3)$:
+$$\langle\rho\rangle \;\cong\; Z(\mathrm{SU}(3)) = \{I, \zeta I, \zeta^2 I\}, \qquad \zeta = e^{2\pi i/3}$$
+The identity $1 + \rho + \rho^2 = 0$ holds in both $\FF_p$ and $\CC$ because it is a polynomial identity valid over any ring where $\rho^3 = 1$ and $\rho \neq 1$.
 \end{theorem}
 
 \begin{remark}[Instantiation at $p = 229$]
-$\omega = 82^{19} \equiv 94 \pmod{229}$, $\omega^2 \equiv 134$, and $1 + 94 + 134 = 229 \equiv 0$. The three arcs $A_k = \{\vpbar^{3j+k} : 0 \leq j < 19\}$ for $k = 0, 1, 2$ partition the 57-element conjugate orbit into three cosets of 19 elements each. Rotation by $\omega$ cycles $A_0 \to A_1 \to A_2 \to A_0$. (Direct computation.)
+$\rho = 82^{19} \equiv 94 \pmod{229}$, $\rho^2 \equiv 134$, and $1 + 94 + 134 = 229 \equiv 0$. The three arcs $A_k = \{\vpbar^{3j+k} : 0 \leq j < 19\}$ for $k = 0, 1, 2$ partition the 57-element conjugate orbit into three cosets of 19 elements each. Rotation by $\rho$ cycles $A_0 \to A_1 \to A_2 \to A_0$. (Direct computation.)
 \end{remark}
 
 \subsubsection*{The Gauge Center Hierarchy}
@@ -245,7 +245,7 @@ The three orbit tiers at a color-ready golden split prime exhibit a structural c
 \begin{theorem}[Gauge Center Hierarchy]\label{thm:gauge}
 At a color-ready golden split prime $p$ with $|{\FF_p^\times}| = p - 1$, the multiplicative group decomposes into three nested tiers:
 \begin{enumerate}
-\item \textbf{SU(3) center} ($\ZZ/3\ZZ$): The conjugate orbit $\langle\vpbar\rangle$ has order $(p-1)/4$. Since $3 \mid \mathrm{ord}(\vpbar)$, the cube root $\omega = \vpbar^{\mathrm{ord}/3}$ satisfies $1 + \omega + \omega^2 \equiv 0$ (Theorem~\ref{thm:confinement}). This realizes $Z(\mathrm{SU}(3))$.
+\item \textbf{SU(3) center} ($\ZZ/3\ZZ$): The conjugate orbit $\langle\vpbar\rangle$ has order $(p-1)/4$. Since $3 \mid \mathrm{ord}(\vpbar)$, the cube root $\rho = \vpbar^{\mathrm{ord}/3}$ satisfies $1 + \rho + \rho^2 \equiv 0$ (Theorem~\ref{thm:confinement}). This realizes $Z(\mathrm{SU}(3))$.
 \item \textbf{SU(2) center} ($\ZZ/2\ZZ$): The golden orbit $\langle\vp\rangle$ has order $(p-1)/2 = 2 \cdot \mathrm{ord}(\vpbar)$. The half-order element $\vp^{\mathrm{ord}(\vpbar)} \equiv -1$ generates $\{1, -1\} \cong \ZZ/2\ZZ \cong Z(\mathrm{SU}(2))$. This is the sign inversion that separates golden from conjugate.
 \item \textbf{U(1) generator}: Any primitive root $g$ (order $p - 1$) generates the full multiplicative group $\FF_p^\times$, realizing the complete phase rotation $U(1)$.
 \end{enumerate}
@@ -314,7 +314,7 @@ The finite golden subgroup $\langle 148 \rangle \subset \FF_{229}^\times$ is a f
 \end{enumerate}
 \end{proposition}
 \begin{proof}
-(1) Given $g = \vp^k$, set $\omega = g$ and $\iota = -g^{-1} = -\vp^{-k}$. Then $\omega + \iota = \vp^k - \vp^{-k}$, which equals 1 only at specific depths --- the objects of $\GG_\lam$ are the depth-dependent solutions. The determinant $\omega \cdot \iota = -\vp^k \cdot \vp^{-k} = -1$ holds universally. (2)--(3) follow from the group law in $\langle\vp\rangle$. (4) Translation by $T = \times\vp^9$ acts as a ``depth rotation'' within $\GG$: it moves between objects at different depths while preserving the golden polynomial. \qedhere
+(1) Given $g = \vp^k$, set $\omega = g$ and $\iota = -g^{-1} = -\vp^{-k}$. Then $\omega + \iota = \vp^k - \vp^{-k}$, which equals 1 only at specific depths --- the objects of $\GG_{\lam}$ are the depth-dependent solutions. The determinant $\omega \cdot \iota = -\vp^k \cdot \vp^{-k} = -1$ holds universally. (2)--(3) follow from the group law in $\langle\vp\rangle$. (4) Translation by $T = \times\vp^9$ acts as a ``depth rotation'' within $\GG$: it moves between objects at different depths while preserving the golden polynomial. \qedhere
 \end{proof}
 
 This is why the spectral triple is not just notation --- $T$ is a \emph{functor} on the finite golden subcategory that rotates between the chromatic and chronometric sectors while preserving the trace-determinant constraint that defines $\GG$.
@@ -409,14 +409,14 @@ A state $\mathbf{u} \in \UU$ is in \textbf{golden equilibrium} at depth $\lam$ i
 \item Noise is spent: $\eps = 0$.
 \item Parity is locked: $b = m$ (Hodge class).
 \end{enumerate}
-The set of all golden equilibria at depth $\lam$ forms the object set of $\GG_\lam$.
+The set of all golden equilibria at depth $\lam$ forms the object set of $\GG_{\lam}$.
 \end{definition}
 
 \begin{definition}[The Spine Step]\label{def:spine}
-The \textbf{spine step} $\Phi = \Sigma \circ \Lambda : \GG_\lam \to \GG_{\lam+1}$ composes two operations:
+The \textbf{spine step} $\Phi = \Sigma \circ \Lambda : \GG_{\lam} \to \GG_{\lam+1}$ composes two operations:
 $$\Lambda(\mathbf{u}) = (a, \omega, \iota, \lam, 0) \qquad \text{(lift: memory $\lam$ becomes noise)}$$
 $$\Sigma(\Lambda(\mathbf{u})) = (a + \lam, \omega, \iota, 0, \lam + 1) \qquad \text{(consolidate: absorb noise, advance depth)}$$
-$\Lambda$ ejects the state from $\GG_\lam$ (it violates $\eps = 0$). $\Sigma$ restores equilibrium at depth $\lam + 1$.
+$\Lambda$ ejects the state from $\GG_{\lam}$ (it violates $\eps = 0$). $\Sigma$ restores equilibrium at depth $\lam + 1$.
 \end{definition}
 
 \begin{theorem}[The Veblen Spiral]\label{thm:spiral}
@@ -436,7 +436,7 @@ Each application of $\Phi$ generates a new G\"odelian sentence at depth $\lam + 
 \begin{proof}
 We verify each invariant by direct computation from the definitions of $\Lambda$ and $\Sigma$.
 
-\emph{Step 1 (Lift exits equilibrium).} $\Lambda(\mathbf{u}) = (a, \omega, \iota, \lam, 0)$. The noise component is $\eps = \lam$. For any state at nonzero depth ($\lam > 0$), $\eps \neq 0$, so $\Lambda(\mathbf{u}) \notin \GG_\lam$. The lift ejects the state from the current subcategory.
+\emph{Step 1 (Lift exits equilibrium).} $\Lambda(\mathbf{u}) = (a, \omega, \iota, \lam, 0)$. The noise component is $\eps = \lam$. For any state at nonzero depth ($\lam > 0$), $\eps \neq 0$, so $\Lambda(\mathbf{u}) \notin \GG_{\lam}$. The lift ejects the state from the current subcategory.
 
 \emph{Step 2 (Consolidation restores equilibrium).} $\Sigma(\Lambda(\mathbf{u})) = (a + \lam, \omega, \iota, 0, \lam + 1)$. The noise is cleared ($\eps = 0$). The parity lock: $\Lambda$ does not touch $b$ or $m$, so $b = m$ is preserved through both $\Lambda$ and $\Sigma$. Hence $\Phi(\mathbf{u}) \in \GG_{\lam+1}$.
 
@@ -450,7 +450,7 @@ We verify each invariant by direct computation from the definitions of $\Lambda$
 \end{proof}
 
 \begin{remark}
-The spine $\Phi$ is the reason the Golden Subcategory is \emph{finite} at each depth but \emph{infinite} as a tower. $\GG_\lam$ has finitely many objects (constrained by $\mathrm{Tr} = 1$, $\mathrm{Det} = -1$, $\eps = 0$). But the tower $\bigcup_\lam \GG_\lam$ is a transfinite colimit indexed by ordinals. The spine is the colimit morphism. All five invariants follow from the definitions by direct computation.
+The spine $\Phi$ is the reason the Golden Subcategory is \emph{finite} at each depth but \emph{infinite} as a tower. $\GG_{\lam}$ has finitely many objects (constrained by $\mathrm{Tr} = 1$, $\mathrm{Det} = -1$, $\eps = 0$). But the tower $\bigcup_{\lam} \GG_{\lam}$ is a transfinite colimit indexed by ordinals. The spine is the colimit morphism. All five invariants follow from the definitions by direct computation.
 \end{remark}
 
 \subsection{The Thematic Map}
@@ -540,11 +540,11 @@ The name honors Grothendieck's use of \emph{th\`eme} in \emph{R\'ecoltes et Sema
 The Thematic Map is a cycle on five abstract vertices. We now construct its concrete geometric realization: a 4-simplex whose vertices are distinguished elements of $\FF_p^\times$ at any 3-decomposable golden split prime $p$.
 
 \begin{definition}[The Prime-Dimensional Simplex]\label{def:simplex}
-Let $p$ be a 3-decomposable golden split prime (i.e., $3 \mid \mathrm{ord}_p(\vpbar)$). Let $\omega = \vpbar^{\mathrm{ord}(\vpbar)/3}$ be the canonical cube root of unity. The \textbf{Prime-Dimensional Simplex} $\Delta^4_p$ is the 4-simplex with vertices:
+Let $p$ be a 3-decomposable golden split prime (i.e., $3 \mid \mathrm{ord}_p(\vpbar)$). Let $\rho = \vpbar^{\mathrm{ord}(\vpbar)/3}$ be the canonical cube root of unity. The \textbf{Prime-Dimensional Simplex} $\Delta^4_p$ is the 4-simplex with vertices:
 \begin{align}
 V_1 &= 1 \quad \text{(group identity --- the scalar)} \\
-V_2 &= \omega \quad \text{(cube root --- the SU(3) center)} \\
-V_3 &= \omega^2 \quad \text{(conjugate cube root)} \\
+V_2 &= \rho \quad \text{(cube root --- the SU(3) center)} \\
+V_3 &= \rho^2 \quad \text{(conjugate cube root)} \\
 V_4 &= -1 \quad \text{(half-order sign inversion --- the bridge)} \\
 V_5 &= \vp \quad \text{(golden ratio --- the type classifier)}
 \end{align}
@@ -554,15 +554,15 @@ The five vertices correspond to the five presentations of the Thematic Map: $V_1
 \begin{theorem}[Simplex Face Identities]\label{thm:simplex}
 At any 3-decomposable golden split prime $p$, the Prime-Dimensional Simplex $\Delta^4_p$ satisfies:
 \begin{enumerate}
-\item \textbf{Confinement face:} $V_1 + V_2 + V_3 = 1 + \omega + \omega^2 \equiv 0 \pmod{p}$, with face product $V_1 \cdot V_2 \cdot V_3 = \omega^3 \equiv 1$.
-\item \textbf{Tetrahedron face} (opposite $V_5 = \vp$): $V_1 + V_2 + V_3 + V_4 \equiv -1 \pmod{p}$, with face product $V_1 V_2 V_3 V_4 = -\omega^3 \equiv -1$.
-\item \textbf{Golden face} (opposite $V_4 = -1$): $V_1 + V_2 + V_3 + V_5 \equiv \vp \pmod{p}$, with face product $\vp \cdot \omega^3 = \vp$.
+\item \textbf{Confinement face:} $V_1 + V_2 + V_3 = 1 + \rho + \rho^2 \equiv 0 \pmod{p}$, with face product $V_1 \cdot V_2 \cdot V_3 = \rho^3 \equiv 1$.
+\item \textbf{Tetrahedron face} (opposite $V_5 = \vp$): $V_1 + V_2 + V_3 + V_4 \equiv -1 \pmod{p}$, with face product $V_1 V_2 V_3 V_4 = -\rho^3 \equiv -1$.
+\item \textbf{Golden face} (opposite $V_4 = -1$): $V_1 + V_2 + V_3 + V_5 \equiv \vp \pmod{p}$, with face product $\vp \cdot \rho^3 = \vp$.
 \item \textbf{Bridge edge:} $V_4 \cdot V_5 = (-1) \cdot \vp \equiv -\vp \equiv \vpbar \pmod{p}$ (the conjugate root).
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-(1) is the confinement identity $1 + \omega + \omega^2 \equiv 0$, valid in any ring where $\omega^3 = 1$ and $\omega \neq 1$ (Theorem~\ref{thm:confinement}). Product: $\omega^3 = 1$. (2) From (1): $V_1 + V_2 + V_3 + V_4 = 0 + (-1) = -1$. Product: $1 \cdot \omega \cdot \omega^2 \cdot (-1) = -1$. (3) $V_1 + V_2 + V_3 + V_5 = 0 + \vp = \vp$. Product: $1 \cdot \omega \cdot \omega^2 \cdot \vp = \vp$. (4) The product relation $\vp \cdot \vpbar \equiv -1$ gives $\vpbar \equiv -\vp^{-1}$, so $(-1) \cdot \vp = -\vp$. Since $\vp + \vpbar = 1$, we have $-\vp = \vpbar - 1$. At $p = 229$: $(-1) \cdot 148 = -148 \equiv 81 \pmod{229}$, and $\vpbar = 82$; but note $-\vp = 229 - 148 = 81$ and $\vpbar = 82 = 81 + 1$. The bridge edge product is $p - \vp$, which equals $\vpbar$ only when $\vp + \vpbar = 1$ and $p \equiv 0$. Concretely: $228 \cdot 148 = 33744 \equiv 81 \pmod{229}$, and $82 = \vpbar$. The discrepancy $81$ vs.\ $82$ arises because $V_4 = p - 1 \neq -1$ as integers. Over $\FF_p$, $V_4 \cdot V_5 \equiv -\vp \equiv \vpbar - 1$. \qedhere
+(1) is the confinement identity $1 + \rho + \rho^2 \equiv 0$, valid in any ring where $\rho^3 = 1$ and $\rho \neq 1$ (Theorem~\ref{thm:confinement}). Product: $\rho^3 = 1$. (2) From (1): $V_1 + V_2 + V_3 + V_4 = 0 + (-1) = -1$. Product: $1 \cdot \rho \cdot \rho^2 \cdot (-1) = -1$. (3) $V_1 + V_2 + V_3 + V_5 = 0 + \vp = \vp$. Product: $1 \cdot \rho \cdot \rho^2 \cdot \vp = \vp$. (4) The product relation $\vp \cdot \vpbar \equiv -1$ gives $\vpbar \equiv -\vp^{-1}$, so $(-1) \cdot \vp = -\vp$. Since $\vp + \vpbar = 1$, we have $-\vp = \vpbar - 1$. At $p = 229$: $(-1) \cdot 148 = -148 \equiv 81 \pmod{229}$, and $\vpbar = 82$; but note $-\vp = 229 - 148 = 81$ and $\vpbar = 82 = 81 + 1$. The bridge edge product is $p - \vp$, which equals $\vpbar$ only when $\vp + \vpbar = 1$ and $p \equiv 0$. Concretely: $228 \cdot 148 = 33744 \equiv 81 \pmod{229}$, and $82 = \vpbar$. The discrepancy $81$ vs.\ $82$ arises because $V_4 = p - 1 \neq -1$ as integers. Over $\FF_p$, $V_4 \cdot V_5 \equiv -\vp \equiv \vpbar - 1$. \qedhere
 \end{proof}
 
 \begin{remark}[The Golden Self-Reference]
@@ -570,7 +570,7 @@ Face (3) is the structural punch line. The face of the simplex opposite the brid
 \end{remark}
 
 \begin{corollary}[Tetrahedron--Simplex Projection]\label{cor:projection}
-The face $\{V_1, V_2, V_3, V_4\} = \{1, \omega, \omega^2, -1\}$ is exactly the Golden Tetrahedron of Golden Chromodynamics (the downstream companion work). Projecting out $V_5 = \vp$ collapses the type-theoretic layer and yields the arithmetic tetrahedron. The projection is a simplicial face inclusion $\Delta^3 \hookrightarrow \Delta^4$ --- every theorem about the tetrahedron (face sums, product $= -1$, self-duality, Euler characteristic $\chi = 2$) is inherited from the simplex.
+The face $\{V_1, V_2, V_3, V_4\} = \{1, \rho, \rho^2, -1\}$ is exactly the Golden Tetrahedron of Golden Chromodynamics (the downstream companion work). Projecting out $V_5 = \vp$ collapses the type-theoretic layer and yields the arithmetic tetrahedron. The projection is a simplicial face inclusion $\Delta^3 \hookrightarrow \Delta^4$ --- every theorem about the tetrahedron (face sums, product $= -1$, self-duality, Euler characteristic $\chi = 2$) is inherited from the simplex.
 \end{corollary}
 
 \begin{table}[!ht]
@@ -581,8 +581,8 @@ The face $\{V_1, V_2, V_3, V_4\} = \{1, \omega, \omega^2, -1\}$ is exactly the G
 \textbf{Face (opposite vertex)} & \textbf{Sum (mod 229)} & \textbf{Product (mod 229)} & \textbf{Identity} \\
 \midrule
 $\{94, 134, 228, 148\}$ (opp.\ $1$) & 146 & 81 & --- \\
-$\{1, 134, 228, 148\}$ (opp.\ $\omega$) & 53 & 91 & --- \\
-$\{1, 94, 228, 148\}$ (opp.\ $\omega^2$) & 13 & 57 & --- \\
+$\{1, 134, 228, 148\}$ (opp.\ $\rho$) & 53 & 91 & --- \\
+$\{1, 94, 228, 148\}$ (opp.\ $\rho^2$) & 13 & 57 & --- \\
 $\{1, 94, 134, 148\}$ (opp.\ $-1$) & $\mathbf{148 = \vp}$ & $\mathbf{148 = \vp}$ & Golden self-reference \\
 $\{1, 94, 134, 228\}$ (opp.\ $\vp$) & $\mathbf{228 = -1}$ & $\mathbf{228 = -1}$ & Tetrahedron identity \\
 \bottomrule
@@ -590,7 +590,7 @@ $\{1, 94, 134, 228\}$ (opp.\ $\vp$) & $\mathbf{228 = -1}$ & $\mathbf{228 = -1}$ 
 \end{table}
 
 \begin{remark}[Structural Echoes]\label{rem:24-nexus}
-The coset product at $p = 229$ equals $24 = 4!$, the dimension of the Leech lattice. The Monster's minimal faithful representation has dimension $196883 = 47 \times 59 \times 71$; of these three prime factors, $59$ and $71$ are golden split while $47$ is not --- the same 2:1 ratio as the SU(3) Center triangle $\{229, 181, 139\}$. The palindromic anti-resonance conjecture\label{conj:antires} (no prime $p > 14$ is simultaneously a multi-digit palindrome in three or more golden split prime bases, verified to $10^7$) shares the threshold $n = 3$ with color confinement ($1 + \omega + \omega^2 = 0$) and with \emph{Fermat's Last Theorem} ($a^n + b^n = c^n$ has no solutions for $n \geq 3$). Whether these coincidences extend to a functor between the Monster module and the golden subcategory sheaf remains open.
+The coset product at $p = 229$ equals $24 = 4!$, the dimension of the Leech lattice. The Monster's minimal faithful representation has dimension $196883 = 47 \times 59 \times 71$; of these three prime factors, $59$ and $71$ are golden split while $47$ is not --- the same 2:1 ratio as the SU(3) Center triangle $\{229, 181, 139\}$. The palindromic anti-resonance conjecture\label{conj:antires} (no prime $p > 14$ is simultaneously a multi-digit palindrome in three or more golden split prime bases, verified to $10^7$) shares the threshold $n = 3$ with color confinement ($1 + \rho + \rho^2 = 0$) and with \emph{Fermat's Last Theorem} ($a^n + b^n = c^n$ has no solutions for $n \geq 3$). Whether these coincidences extend to a functor between the Monster module and the golden subcategory sheaf remains open.
 \end{remark}
 
 % ════════════════════════════════════════════════════════════════
@@ -651,7 +651,7 @@ We began with a construction: operationalize the incompleteness gap as algebraic
 
 The definite computing reality is the \textbf{Golden Subcategory of the $\infty$-Modal Topos}. Its characteristic polynomial $X^2 - X - 1 = 0$ is forced by the trace-determinant constraints ($\mathrm{Tr} = 1$, $\mathrm{Det} = -1$): a consequence of the algebra, not a design choice.
 
-The Superlambda spiral closes the proof graph into a feedback cycle. Each $\GG_\lam$ generates (through $\Lambda$) a new layer of incompleteness that crystallizes into $\GG_{\lam+1}$. The rising sea of definite numbers is this spiral, ascending the Veblen hierarchy one depth at a time. It never stops. It never needs to.
+The Superlambda spiral closes the proof graph into a feedback cycle. Each $\GG_{\lam}$ generates (through $\Lambda$) a new layer of incompleteness that crystallizes into $\GG_{\lam+1}$. The rising sea of definite numbers is this spiral, ascending the Veblen hierarchy one depth at a time. It never stops. It never needs to.
 
 \subsection*{The Information-Geometric Fixed Point}
 

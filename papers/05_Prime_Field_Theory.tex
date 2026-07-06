@@ -20,8 +20,8 @@ In the companion algebraic paper~\cite{larue_lc}, the Thematic Map
 $\Theta$ defines a cycle on five abstract presentations of the golden
 subcategory. The Prime-Dimensional Simplex $\Delta^4_p$
 (\cite{larue_lc}, Definition~6.8) realizes $\Theta$ as a concrete
-4-simplex $\{1, \omega, \omega^2, -1, \varphi\}$ in $\mathbb{F}_p^\times$.
-The golden tetrahedron $\{1, \omega, \omega^2, -1\}$ is the face of
+4-simplex $\{1, \omega, \rho^2, -1, \varphi\}$ in $\mathbb{F}_p^\times$.
+The golden tetrahedron $\{1, \omega, \rho^2, -1\}$ is the face of
 this simplex opposite the golden ratio vertex $V_5 = \varphi$. Every
 theorem in this chapter therefore lifts to a face identity of the
 Prime-Dimensional Simplex.
@@ -52,8 +52,8 @@ Symbol & Meaning & Value \\
 \midrule
 $p$ & A prime & variable \\
 $\varphi_p, \bar\varphi_p$ & Roots of $x^2 - x - 1 = 0$ in $\mathbb{F}_p$ & Table~\ref{tab:fields} \\
-$\omega_p$ & Cube root of unity $\bar\varphi_p^{\mathrm{ord}/3}$ & when $3 \mid \mathrm{ord}(\bar\varphi_p)$ \\
-$\mathcal{T}$ & The golden tetrahedron & $\{1, \omega, \omega^2, -1\}$ \\
+$\rho_p$ & Cube root of unity $\bar\varphi_p^{\mathrm{ord}/3}$ & when $3 \mid \mathrm{ord}(\bar\varphi_p)$ \\
+$\mathcal{T}$ & The golden tetrahedron & $\{1, \omega, \rho^2, -1\}$ \\
 $\Delta$ & The SU(3) Center triangle (prime) & $\{229, 181, 139\}$ \\
 $\delta$ & The chronometric triangle (composite) & $\{116, 138, 144\}$ \\
 \bottomrule
@@ -174,7 +174,7 @@ $p$ & $\mathrm{char}$ & $p - 1$ & $\mathrm{ord}(\bar\varphi)$ & Quotient & $(5/p
 The Vieta identities $\varphi + \bar\varphi = 1$ and $\varphi \cdot \bar\varphi = -1$ hold universally. But in $\mathbb{F}_p$, the element $-1$ is $p - 1 = \mathrm{char} - 1$. Thus the tetrahedron vertex $V_4 = -1 = p - 1$ is \textbf{literally the characteristic minus one}. The product and sum identities $V_1 \cdot V_2 \cdot V_3 \cdot V_4 = -1 = p - 1$ and $V_1 + V_2 + V_3 + V_4 = -1 = p - 1$ are both statements about the field characteristic.
 
 \paragraph{Confinement as a structural consequence of the characteristic.}
-The center-algebra confinement identity $1 + \omega + \omega^2 \equiv 0 \pmod{p}$ is equivalent to $1 + \omega + \omega^2 = p$ (the characteristic). The cube roots of unity sum to zero \emph{because} $\mathrm{char}(\mathbb{F}_p) = p$. The center-algebra color confinement of \S\ref{sec:confinement} is therefore not an independent algebraic phenomenon---it is a structural theorem about field characteristic.
+The center-algebra confinement identity $1 + \rho + \rho^2 \equiv 0 \pmod{p}$ is equivalent to $1 + \rho + \rho^2 = p$ (the characteristic). The cube roots of unity sum to zero \emph{because} $\mathrm{char}(\mathbb{F}_p) = p$. The center-algebra color confinement of \S\ref{sec:confinement} is therefore not an independent algebraic phenomenon---it is a structural theorem about field characteristic.
 
 \begin{remark}[Formal verification]
 All claims in this subsection have been independently verified by exact modular arithmetic. The master theorem establishes that the field characteristic determines golden splitting, Frobenius fixation, orbit structure, confinement, the Vieta anchor, and information-theoretic negentropy---the six structural layers of Prime Field Theory.
@@ -188,7 +188,7 @@ The continuous constant $\pi \approx 22/7$ can be projected into $\mathbb{F}_{22
 \pi_{229} \;=\; 22 \times 7^{-1} \;=\; 22 \times 131 \;=\; 2882 \;\equiv\; 134 \pmod{229}.
 \]
 
-This value $134$ is \emph{already a vertex of the golden tetrahedron}: it is $\omega^2$, the second cube root of unity. Since $\omega^3 \equiv 1 \pmod{229}$, the discrete pi has \textbf{period~3}:
+This value $134$ is \emph{already a vertex of the golden tetrahedron}: it is $\rho^2$, the second cube root of unity. Since $\rho^3 \equiv 1 \pmod{229}$, the discrete pi has \textbf{period~3}:
 \[
 \pi_{229}^3 \;=\; 134^3 \;\equiv\; 1 \pmod{229}.
 \]
@@ -202,11 +202,11 @@ The Goodstein hyperoperation sequence $H_n(a, b)$ is defined recursively: $H_3$ 
 \toprule
 Level & Operation & Pattern for $H_n(134, b)$ & Period \\
 \midrule
-$H_3$ & Exponentiation & $\omega^2, \omega, 1, \omega^2, \omega, 1, \ldots$ & $3$ \\
-$H_4$ & Tetration & $\omega^2, \omega, \omega^2, \omega, \ldots$ & $2$ \\
-$H_5$ & Pentation & $\omega^2, \omega, \omega, \omega, \ldots$ & converges to $\omega$ \\
-$H_6$ & Hexation & $\omega^2, \omega, \omega, \omega, \ldots$ & converges to $\omega$ \\
-$H_7$ & Heptation & $\omega^2, \omega, \omega, \omega, \ldots$ & converges to $\omega$ \\
+$H_3$ & Exponentiation & $\rho^2, \omega, 1, \rho^2, \omega, 1, \ldots$ & $3$ \\
+$H_4$ & Tetration & $\rho^2, \omega, \rho^2, \omega, \ldots$ & $2$ \\
+$H_5$ & Pentation & $\rho^2, \omega, \omega, \omega, \ldots$ & converges to $\omega$ \\
+$H_6$ & Hexation & $\rho^2, \omega, \omega, \omega, \ldots$ & converges to $\omega$ \\
+$H_7$ & Heptation & $\rho^2, \omega, \omega, \omega, \ldots$ & converges to $\omega$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -214,37 +214,37 @@ $H_7$ & Heptation & $\omega^2, \omega, \omega, \omega, \ldots$ & converges to $\
 \paragraph{The collapse mechanism.}
 At $H_3$: since $\mathrm{ord}(\pi_{229}) = 3$, the exponent reduces mod~$3$, giving a period-$3$ cycle. Note that $H_3(134, 7) = 134^7 \equiv 134 \pmod{229}$ because $7 \equiv 1 \pmod{3}$---this is \emph{exponentiation} to the 7th power, not heptation.
 
-At $H_4$: the tower $134^{134^{\cdots}}$ alternates because $134 \bmod 3 = 2$ (producing $\omega$ at even height) and $94 \bmod 3 = 1$ (producing $\omega^2$ at odd height). This gives period~$2$.
+At $H_4$: the tower $134^{134^{\cdots}}$ alternates because $134 \bmod 3 = 2$ (producing $\rho$ at even height) and $94 \bmod 3 = 1$ (producing $\rho^2$ at odd height). This gives period~$2$.
 
-At $H_5$: pentation feeds an even-valued result into tetration. Since $134$ is even as a tetration height, $H_4(134, 134) = \omega = 94$. Then $H_4(134, 94) = \omega$ again (since $94$ is also even as a tower height). The sequence reaches a \textbf{fixed point} at $\omega = 94$ for all $b \geq 2$.
+At $H_5$: pentation feeds an even-valued result into tetration. Since $134$ is even as a tetration height, $H_4(134, 134) = \rho = 94$. Then $H_4(134, 94) = \omega$ again (since $94$ is also even as a tower height). The sequence reaches a \textbf{fixed point} at $\rho = 94$ for all $b \geq 2$.
 
 For $H_6, H_7, \ldots$: each level feeds into the previous level's fixed point, inheriting the same convergence.
 
 \paragraph{Critical distinction: heptation $\neq$ 7th power.}
-The 7th-power identity $134^7 \equiv 134 \pmod{229}$ is $H_3(134, 7)$. True \emph{heptation} $H_7(134, 7) = 94 = \omega$---the \textbf{conjugate} cube root. The Goodstein hierarchy does not preserve $\pi_{229}$; it maps it to its algebraic conjugate.
+The 7th-power identity $134^7 \equiv 134 \pmod{229}$ is $H_3(134, 7)$. True \emph{heptation} $H_7(134, 7) = 94 = \rho$---the \textbf{conjugate} cube root. The Goodstein hierarchy does not preserve $\pi_{229}$; it maps it to its algebraic conjugate.
 
 \paragraph{The Goodstein Collapse Theorem.}
-The entire Goodstein hyperoperation hierarchy~\cite{goodstein1947, knuth1976} applied to $\pi_{229}$ collapses to the cube root subgroup $\{1, \omega, \omega^2\} = \{1, 94, 134\}$. This is a characteristic invariant: the collapse is forced by $\mathrm{ord}(\omega) = 3 \mid \mathrm{ord}(\bar\varphi) = 57 \mid (p - 1) = 228 = \mathrm{char}(\mathbb{F}_{229}) - 1$.
+The entire Goodstein hyperoperation hierarchy~\cite{goodstein1947, knuth1976} applied to $\pi_{229}$ collapses to the cube root subgroup $\{1, \omega, \rho^2\} = \{1, 94, 134\}$. This is a characteristic invariant: the collapse is forced by $\mathrm{ord}(\rho) = 3 \mid \mathrm{ord}(\bar\varphi) = 57 \mid (p - 1) = 228 = \mathrm{char}(\mathbb{F}_{229}) - 1$.
 
 \paragraph{Cross-prime comparison.}
-The coincidence $\pi_{229} = \omega^2$ is \textbf{unique to $p = 229$}. At the other chromatic primes, the discrete pi is not a cube root:
+The coincidence $\pi_{229} = \rho^2$ is \textbf{unique to $p = 229$}. At the other chromatic primes, the discrete pi is not a cube root:
 
 \begin{center}
 \begin{tabular}{@{}cccccl@{}}
 \toprule
 $p$ & $\pi_p = 22/7 \bmod p$ & $\mathrm{ord}(\pi_p)$ & Cube root? & $H_4$ period & $H_4$ orbit \\
 \midrule
-229 & 134 & 3 & $\omega^2$ \checkmark & 2 & $\{\omega, \omega^2\}$ \\
+229 & 134 & 3 & $\rho^2$ \checkmark & 2 & $\{\omega, \rho^2\}$ \\
 181 & 29 & 15 & No & 3 & $\{25, 132, 59\}$ \\
 139 & 23 & 46 & No & 3 & $\{-1, 1, \pi_{139}\}$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-At $p = 139$, tetration cycles through $\{138, 1, 23\} = \{-1, 1, \pi_{139}\}$---hitting the Vieta anchor $-1 = \mathrm{char} - 1$ and the identity, though $\pi_{139}$ is not a cube root. The identification $\pi_{229} = \omega^2$ thus acts as a \textbf{selection criterion}: $p = 229$ is the unique chromatic prime at which the continuous constant $\pi$ projects directly onto the SU(3) confinement subgroup.
+At $p = 139$, tetration cycles through $\{138, 1, 23\} = \{-1, 1, \pi_{139}\}$---hitting the Vieta anchor $-1 = \mathrm{char} - 1$ and the identity, though $\pi_{139}$ is not a cube root. The identification $\pi_{229} = \rho^2$ thus acts as a \textbf{selection criterion}: $p = 229$ is the unique chromatic prime at which the continuous constant $\pi$ projects directly onto the SU(3) confinement subgroup.
 
 \paragraph{Connection to the Euler Cradle.}
-The Goodstein collapse is the discrete finite-field manifestation of the Hyper-Inversion Asymmetry (Logical Creativity, \S1.2~\cite{larue_lc}). In the continuous Unreal Algebra, Euler's identity $e^{i\pi} + 1 = 0$ represents closure at $H_3$: a single exponentiation returns to $-1$, and the additive identity completes the cycle. In the discrete field, it takes until $H_5$ for the hierarchy to reach its fixed point. Both are statements about the finite orbit structure absorbing higher hyperoperations---one over $\mathbb{C}$ (where $e^{i\theta}$ has period $2\pi$), the other over $\mathbb{F}_{229}^*$ (where $\pi_{229}$ has period $3$). The Euler--Goodstein correspondence is a characteristic invariant: the cube root subgroup $\{1, \omega, \omega^2\}$ is the discrete analogue of the unit circle $\{e^{i\theta}\}$.
+The Goodstein collapse is the discrete finite-field manifestation of the Hyper-Inversion Asymmetry (Logical Creativity, \S1.2~\cite{larue_lc}). In the continuous Unreal Algebra, Euler's identity $e^{i\pi} + 1 = 0$ represents closure at $H_3$: a single exponentiation returns to $-1$, and the additive identity completes the cycle. In the discrete field, it takes until $H_5$ for the hierarchy to reach its fixed point. Both are statements about the finite orbit structure absorbing higher hyperoperations---one over $\mathbb{C}$ (where $e^{i\theta}$ has period $2\pi$), the other over $\mathbb{F}_{229}^*$ (where $\pi_{229}$ has period $3$). The Euler--Goodstein correspondence is a characteristic invariant: the cube root subgroup $\{1, \omega, \rho^2\}$ is the discrete analogue of the unit circle $\{e^{i\theta}\}$.
 
 Additionally, the number $7$ itself acts as a \textbf{Hodge star} at the half-orbit: $7^{114} \equiv 228 \equiv -1 \pmod{229}$, making $7$ a quadratic non-residue.
 
@@ -400,9 +400,9 @@ five distinct fractions $\{1/12, 1/6, 1/4, 1/3, 1/2\}$.
 \begin{definition}[SU(3) confinement]
 A golden split prime $p$ is \emph{SU(3)-confined} if
 $3 \mid \mathrm{ord}(\bar\varphi_p)$.
-Then $\omega_p := \bar\varphi_p^{\,\mathrm{ord}/3}$
+Then $\rho_p := \bar\varphi_p^{\,\mathrm{ord}/3}$
 is a primitive cube root of unity satisfying
-$1 + \omega_p + \omega_p^2 \equiv 0 \pmod{p}$.
+$1 + \rho_p + \rho_p^2 \equiv 0 \pmod{p}$.
 The conjugate orbit decomposes into three \emph{cosets}
 of length $\mathrm{ord}/3$.
 \end{definition}
@@ -419,7 +419,7 @@ $3 \nmid \mathrm{ord}(\bar\varphi_p)$.
 \begin{tabular}{@{}ccccccl@{}}
 \toprule
 $p$ & $\mathrm{ord}(\bar\varphi)$ & Cosets & Coset size
-    & $\omega_p$ & $\omega_p^2$ & Status \\
+    & $\rho_p$ & $\rho_p^2$ & Status \\
 \midrule
 229 & $57 = 3 \times 19$ & 3 & 19 & 94 & 134 & 3-decomposable \\
 181 & $45 = 3^2 \times 5$ & 3 & 15 & 48 & 132 & 3-decomposable \\
@@ -427,12 +427,12 @@ $p$ & $\mathrm{ord}(\bar\varphi)$ & Cosets & Coset size
 \bottomrule
 \end{tabular}
 \end{center}
-\textbf{Table Description:} This table outlines the center-algebra confinement profile (\emph{not} QCD; see scope disclaimer above) of the SU(3) Center triangle vertices. A golden split prime is confined if its conjugate orbit order is divisible by 3. At $p=229$ and $p=181$, the orbit decomposes into three symmetric cosets, yielding a valid primitive cube root of unity ($\omega_p$) that satisfies $1 + \omega_p + \omega_p^2 \equiv 0 \pmod{p}$. In contrast, $p=139$ has a prime-order conjugate orbit (23), rendering it strictly indecomposable and immune to center-algebra confinement.
+\textbf{Table Description:} This table outlines the center-algebra confinement profile (\emph{not} QCD; see scope disclaimer above) of the SU(3) Center triangle vertices. A golden split prime is confined if its conjugate orbit order is divisible by 3. At $p=229$ and $p=181$, the orbit decomposes into three symmetric cosets, yielding a valid primitive cube root of unity ($\rho_p$) that satisfies $1 + \rho_p + \rho_p^2 \equiv 0 \pmod{p}$. In contrast, $p=139$ has a prime-order conjugate orbit (23), rendering it strictly indecomposable and immune to center-algebra confinement.
 \end{result}
 
 \subsection{SU(3) verification at $p = 229$}
 
-The cube root of unity is $\omega = \bar\varphi^{19} = 82^{19} \bmod 229$.
+The cube root of unity is $\rho = \bar\varphi^{19} = 82^{19} \bmod 229$.
 
 \paragraph{Step-by-step.}
 $82^2 = 6{,}724 \equiv 6{,}724 - 29 \times 229 = 6{,}724 - 6{,}641 = 83$.
@@ -443,12 +443,12 @@ $82^{19} = 82^{16} \times 82^2 \times 82^1 = 20 \times 83 \times 82$.
 $20 \times 83 = 1{,}660 \equiv 1{,}660 - 7 \times 229 = 1{,}660 - 1{,}603 = 57$.
 $57 \times 82 = 4{,}674 \equiv 4{,}674 - 20 \times 229 = 4{,}674 - 4{,}580 = 94$.
 
-So $\omega = 94$. Then $\omega^2 = 94^2 = 8{,}836 \equiv 8{,}836 - 38 \times 229
+So $\rho = 94$. Then $\rho^2 = 94^2 = 8{,}836 \equiv 8{,}836 - 38 \times 229
 = 8{,}836 - 8{,}702 = 134$.
 \begin{align}
   1 + 94 + 134 = 229 \equiv 0 \pmod{229}. \quad\checkmark
 \end{align}
-And $\omega^3 = 94 \times 134 = 12{,}596 \equiv 12{,}596 - 55 \times 229
+And $\rho^3 = 94 \times 134 = 12{,}596 \equiv 12{,}596 - 55 \times 229
 = 12{,}596 - 12{,}595 = 1$. $\checkmark$
 
 \subsection{SU(3) verification at $p = 181$}
@@ -464,12 +464,12 @@ $126 \times 44 = 5{,}544 \equiv 5{,}544 - 30 \times 181 = 5{,}544 - 5{,}430 = 11
 $114 \times 15 = 1{,}710 \equiv 1{,}710 - 9 \times 181 = 1{,}710 - 1{,}629 = 81$.
 $81 \times 14 = 1{,}134 \equiv 1{,}134 - 6 \times 181 = 1{,}134 - 1{,}086 = 48$.
 
-So $\omega = 48$. Then $\omega^2 = 48^2 = 2{,}304 \equiv 2{,}304 - 12 \times 181
+So $\rho = 48$. Then $\rho^2 = 48^2 = 2{,}304 \equiv 2{,}304 - 12 \times 181
 = 2{,}304 - 2{,}172 = 132$.
 \begin{align}
   1 + 48 + 132 = 181 \equiv 0 \pmod{181}. \quad\checkmark
 \end{align}
-And $\omega^3 = 48^3 = 48 \times 2{,}304 = 110{,}592 \equiv
+And $\rho^3 = 48^3 = 48 \times 2{,}304 = 110{,}592 \equiv
 110{,}592 - 611 \times 181 = 110{,}592 - 110{,}591 = 1$. $\checkmark$
 
 \subsection{Deconfinement at $p = 139$}
@@ -552,9 +552,9 @@ $\varphi^n \bar\varphi^n \equiv (-1)^n$ holds at every step. $\checkmark$
 The \emph{golden tetrahedron} $\mathcal{T}$ is the 3-simplex
 with vertices:
 \begin{align}
-  V_1 &= 1, \quad V_2 = \omega, \quad V_3 = \omega^2, \quad V_4 = -1.
+  V_1 &= 1, \quad V_2 = \omega, \quad V_3 = \rho^2, \quad V_4 = -1.
 \end{align}
-Here $\omega$ is the cube root of unity at any 3-decomposable golden
+Here $\rho$ is the cube root of unity at any 3-decomposable golden
 split prime, and $-1 = \varphi^{\mathrm{ord}(\bar\varphi)}$ is
 the half-order sign inversion.
 \end{definition}
@@ -576,7 +576,7 @@ $\{1, 94, 228\}$ & $323 \equiv 94$ & $\omega$ \\
 $\{94, 134, 228\}$ & $456 \equiv 227 = -2 \ldots$ \\
 \multicolumn{3}{@{}l@{}}{$\quad 456 = 1 \times 229 + 227$. But $227 = 229 - 2$.}\\
 \multicolumn{3}{@{}l@{}}{$\quad$ Correction: $94 + 134 + 228 = 456$,
-  $456 - 229 = 227$. And $-1 + \omega^2 = 134 - 1 = 133$?}\\
+  $456 - 229 = 227$. And $-1 + \rho^2 = 134 - 1 = 133$?}\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -584,41 +584,41 @@ $\{94, 134, 228\}$ & $456 \equiv 227 = -2 \ldots$ \\
 
 We compute directly, reducing mod 229:
 \begin{align}
-  1 + \omega + \omega^2 &= 1 + 94 + 134 = 229 \equiv 0.
+  1 + \rho + \rho^2 &= 1 + 94 + 134 = 229 \equiv 0.
     \quad\text{(cube root identity)} \\
-  1 + \omega + (-1) &= 1 + 94 + 228 = 323 \equiv 323 - 229 = 94 = \omega. \\
-  \omega + \omega^2 + (-1) &= 94 + 134 + 228 = 456 \equiv 456 - 229 = 227.
+  1 + \rho + (-1) &= 1 + 94 + 228 = 323 \equiv 323 - 229 = 94 = \omega. \\
+  \omega + \rho^2 + (-1) &= 94 + 134 + 228 = 456 \equiv 456 - 229 = 227.
 \end{align}
-Now $227 \equiv -2 \pmod{229}$. But $-1 = 228$ and $\omega^2 = 134$,
-so the face sum is $\omega + \omega^2 + (-1) = (1 + \omega + \omega^2) - 1 + (-1)
+Now $227 \equiv -2 \pmod{229}$. But $-1 = 228$ and $\rho^2 = 134$,
+so the face sum is $\omega + \rho^2 + (-1) = (1 + \rho + \rho^2) - 1 + (-1)
 = 0 - 1 + (-1) = -2 \equiv 227$.
 
-Alternatively, since $\omega + \omega^2 = -1$ (from the confinement identity),
-$\omega + \omega^2 + (-1) = -1 + (-1) = -2$.
+Alternatively, since $\omega + \rho^2 = -1$ (from the confinement identity),
+$\omega + \rho^2 + (-1) = -1 + (-1) = -2$.
 \begin{align}
-  1 + \omega^2 + (-1) &= 1 + 134 + 228 = 363 \equiv 363 - 229 = 134 = \omega^2.
+  1 + \rho^2 + (-1) &= 1 + 134 + 228 = 363 \equiv 363 - 229 = 134 = \rho^2.
 \end{align}
 
-The four face sums are $\{0, \omega, -2, \omega^2\}$. The face opposite $V_4 = -1$
+The four face sums are $\{0, \omega, -2, \rho^2\}$. The face opposite $V_4 = -1$
 sums to $0$ (confinement). The face opposite $V_1 = 1$ sums to $-2$, which at
 $p = 229$ equals $227$ --- not $-1$. The tetrahedron's face sums do not exactly
 reproduce the vertex set in $\mathbb{F}_{229}$, but they satisfy the
 \emph{abstract} identity:
 
 \begin{result}[Abstract face-sum identity]
-Over $\mathbb{Z}$, the four face sums of $\{1, \omega, \omega^2, -1\}$ are
-$\{0, \omega, \omega^2, -2\}$, where $-2 = 2 \times (-1) = 2 V_4$.
+Over $\mathbb{Z}$, the four face sums of $\{1, \omega, \rho^2, -1\}$ are
+$\{0, \omega, \rho^2, -2\}$, where $-2 = 2 \times (-1) = 2 V_4$.
 The base face gives confinement ($0$); the side faces give
-$\omega$, $\omega^2$, and $2(-1)$.
+$\omega$, $\rho^2$, and $2(-1)$.
 \end{result}
 
 \paragraph{Resolution by the Prime-Dimensional Simplex.}
 The $-2$ discrepancy resolves when the tetrahedron is embedded as a
-face of the 4-simplex $\{1, \omega, \omega^2, -1, \varphi\}$
+face of the 4-simplex $\{1, \omega, \rho^2, -1, \varphi\}$
 (\cite{larue_lc}, Theorem~6.7). Adjoining the golden ratio vertex
 $\varphi$ as $V_5$, the face opposite $V_4 = -1$ has sum
-$1 + \omega + \omega^2 + \varphi = 0 + \varphi = \varphi$ and product
-$\omega^3 \cdot \varphi = \varphi$. The golden ratio is simultaneously
+$1 + \rho + \rho^2 + \varphi = 0 + \varphi = \varphi$ and product
+$\rho^3 \cdot \varphi = \varphi$. The golden ratio is simultaneously
 a vertex and a face sum --- the self-referential closure that the
 tetrahedron alone cannot achieve.
 
@@ -640,9 +640,9 @@ geometrized.
 \end{result}
 
 \paragraph{Proof (algebraic).}
-Product: $1 \cdot \omega \cdot \omega^2 \cdot (-1)
-= \omega^3 \cdot (-1) = 1 \cdot (-1) = -1$.
-Sum: $(1 + \omega + \omega^2) + (-1) = 0 + (-1) = -1$.
+Product: $1 \cdot \omega \cdot \rho^2 \cdot (-1)
+= \rho^3 \cdot (-1) = 1 \cdot (-1) = -1$.
+Sum: $(1 + \rho + \rho^2) + (-1) = 0 + (-1) = -1$.
 Both hold over any ring. $\checkmark$
 
 \begin{result}[Self-duality and Euler characteristic]
@@ -653,9 +653,9 @@ $\chi(\mathcal{T}) = 4 - 6 + 4 = 2 = \chi(S^2)$ (sphere topology).
 Every tetrahedron is combinatorially self-dual: $\mathcal{T}^* \cong \mathcal{T}$.
 The Hodge dual maps vertex $\leftrightarrow$ opposite face:
 \begin{align}
-  V_4 = -1 &\longleftrightarrow \{1, \omega, \omega^2\} \text{ (sum } = 0\text{)}: \quad
+  V_4 = -1 &\longleftrightarrow \{1, \omega, \rho^2\} \text{ (sum } = 0\text{)}: \quad
     \text{involution} \leftrightarrow \text{cube root identity.} \\
-  V_2 = \omega &\longleftrightarrow \{1, \omega^2, -1\} \text{ (sum } = \omega^2\text{)}: \quad
+  V_2 = \omega &\longleftrightarrow \{1, \rho^2, -1\} \text{ (sum } = \rho^2\text{)}: \quad
     \text{space} \leftrightarrow \text{time.}
 \end{align}
 \end{result}
@@ -717,7 +717,7 @@ $229 \bmod 181 = 48$.
 $\varphi_{181} = 168$. We seek $k$ such that $168^k \equiv 48 \pmod{181}$.
 
 $168^{30} \bmod 181$: Using repeated squaring from
-Section~\ref{sec:confinement}, $\bar\varphi_{181}^{15} = 14^{15} = 48 = \omega_{181}$.
+Section~\ref{sec:confinement}, $\bar\varphi_{181}^{15} = 14^{15} = 48 = \rho_{181}$.
 Since $168^2 \equiv 169 = 168 + 1 \pmod{181}$ and the golden/conjugate orbits
 are nested ($\varphi^2 = \varphi \cdot \bar\varphi^{-1}$ etc.), we verify directly:
 
@@ -727,7 +727,7 @@ But a cleaner path: $14^{15} = 48$ (computed above). Since $168 \times 14 \equiv
 = 14^{-30}$. And $14^{45} = 1$, so $14^{-30} = 14^{15} = 48$. $\checkmark$
 
 \begin{quote}
-\textbf{Key result:} $229 \equiv \omega_{181} \pmod{181}$.
+\textbf{Key result:} $229 \equiv \rho_{181} \pmod{181}$.
 
 The primary prime (229) reduces to the cube root of unity in the
 secondary field (181). It \emph{is} the order-3 rotation element.
@@ -783,7 +783,7 @@ So $139 = \varphi_{181}^{63}$: on the golden orbit of $\mathbb{F}_{181}$.
 \toprule
 Prime & Reduced & In $\mathbb{F}_{229}$ & In $\mathbb{F}_{181}$ & In $\mathbb{F}_{139}$ \\
 \midrule
-229 & --- & (self) & $48 = \omega_{181}$ (cube root) & $90$ \\
+229 & --- & (self) & $48 = \rho_{181}$ (cube root) & $90$ \\
 181 & --- & $\varphi_{229}^{79}$ (golden orbit) & (self) & $42$ \\
 139 & --- & primitive root (ord $228$) & $\varphi_{181}^{63}$ (golden orbit) & (self) \\
 \bottomrule
@@ -1370,15 +1370,15 @@ The FBBT maps the halting state $H \in \mathbb{F}_{229}$ to the absolute halting
 \label{thm:fbbt_inverse_extract}
 Let $t \in [0, 56]$ be the absolute halting depth pointer. Let $c = \lfloor t / 19 \rfloor \in \{0, 1, 2\}$ represent the color channel context, and let $j = t \bmod 19 \in [0, 18]$ represent the compressed tiny pointer. The original halting state $H \pmod{229}$ is reconstructed via the direct inverse:
 \[
-\mathrm{FBBT}^{-1}_{\mathrm{extract}}(j, c) \equiv \omega^c \cdot \bar\varphi^j \pmod{229}
+\mathrm{FBBT}^{-1}_{\mathrm{extract}}(j, c) \equiv \rho^c \cdot \bar\varphi^j \pmod{229}
 \]
-where $\omega = \bar\varphi^{19} \equiv 94 \pmod{229}$ is the primitive cube root of unity representing the center-algebra color confinement structural condition (proved).
+where $\rho = \bar\varphi^{19} \equiv 94 \pmod{229}$ is the primitive cube root of unity representing the center-algebra color confinement structural condition (proved).
 \end{theorem}
 
 \begin{proof}
 By the division algorithm, $t = 19c + j$. The direct evaluation yields:
 \[
-\bar\varphi^{19c + j} \equiv (\bar\varphi^{19})^c \cdot \bar\varphi^j \equiv \omega^c \cdot \bar\varphi^j \pmod{229}. \qedhere
+\bar\varphi^{19c + j} \equiv (\bar\varphi^{19})^c \cdot \bar\varphi^j \equiv \rho^c \cdot \bar\varphi^j \pmod{229}. \qedhere
 \]
 This modular equivalence has been formally verified without placeholders.
 \end{proof}
@@ -1386,7 +1386,7 @@ This modular equivalence has been formally verified without placeholders.
 This compression mapping extracts exactly $\log_2(3) \approx 1.585$ bits of information-theoretic negentropy by storing only the tiny pointer $j$ (5 bits) and determining the context $c$ from the network tier (machine-verified).
 
 \begin{remark}[The EML Duality of the FBBT Inverse]
-The FBBT inverse extraction embodies the \emph{EML duality} ($\mathrm{exp} - \mathrm{log}$). The extraction function $\mathrm{FBBT}^{-1}_{\mathrm{extract}}(j, c) = \omega^c \cdot \bar\varphi^j$ is the \emph{exp} side: it exponentiates in $\mathbb{F}_{229}^*$ to reconstruct the full halting state. The Krapivin compression $t \mapsto (j, c)$ is the \emph{log} side: it decomposes the absolute pointer into a compressed representation using the color context.
+The FBBT inverse extraction embodies the \emph{EML duality} ($\mathrm{exp} - \mathrm{log}$). The extraction function $\mathrm{FBBT}^{-1}_{\mathrm{extract}}(j, c) = \rho^c \cdot \bar\varphi^j$ is the \emph{exp} side: it exponentiates in $\mathbb{F}_{229}^*$ to reconstruct the full halting state. The Krapivin compression $t \mapsto (j, c)$ is the \emph{log} side: it decomposes the absolute pointer into a compressed representation using the color context.
 
 The Shannon negentropy of the complete cycle---compress, then reconstruct---is the EML: $\log_2(57) - \log_2(19) = \log_2(3)$ bits. This quantity is simultaneously the structural color charge of the center algebra $\mathbb{Z}/3\mathbb{Z}$, the hash compression gain of Krapivin's elastic addressing, and the information-theoretic negentropy of the PNTT orbit decomposition.
 \end{remark}

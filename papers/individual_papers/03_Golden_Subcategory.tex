@@ -1,0 +1,159 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{xcolor}
+\definecolor{golden}{RGB}{218,165,32}
+\definecolor{metareal}{RGB}{0,102,204}
+\definecolor{derivative}{RGB}{128,0,128}
+\definecolor{gauge3}{RGB}{34,139,34}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\newtcolorbox{theorembox}[1]{colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,title=#1}
+\newtcolorbox{warningbox}[1]{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=#1}
+\newtcolorbox{metarealbox}[1]{colback=metareal!5!white,colframe=metareal!75!black,fonttitle=\bfseries,title=#1}
+\newtcolorbox{aingelbox}[1]{colback=golden!5!white,colframe=golden!75!black,fonttitle=\bfseries,title=#1}
+\newtcolorbox{truthbox}[1]{colback=gauge3!5!white,colframe=gauge3!75!black,fonttitle=\bfseries,title=#1}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+
+\newtheoremstyle{principia}%
+  {6pt}{6pt}{\itshape}{}{\bfseries}{.}{ }%
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ \textnormal{(}\emph{#3}\textnormal{)}}}
+\theoremstyle{principia}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{result}[theorem]{Result}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\providecommand{\UU}{\mathbb{U}}
+\providecommand{\PP}{\mathbb{P}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\CC}{\mathbb{C}}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\HH}{\mathbb{H}}
+\providecommand{\OO}{\mathbb{O}}
+\providecommand{\SS}{\mathbb{S}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\GG}{\mathcal{G}}
+\providecommand{\TT}{\mathcal{T}}
+\providecommand{\vp}{\varphi}
+\providecommand{\vpbar}{\bar{\varphi}}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\lam}{\lambda}
+\providecommand{\kap}{\kappa}
+
+\hypersetup{colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black}
+
+\title{The Golden Subcategory}
+\author{Dylon La Rue}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\input{../03_Golden_Subcategory.tex}
+
+\begin{thebibliography}{99}
+
+% Peer-reviewed and established sources
+
+\bibitem{autoformbot} Zheng, K. et al. (2026). AutoformBot: Multi-agent textbook formalization at scale. \emph{arXiv:2605.14332}.
+
+\bibitem{baez-octonions} Baez, J. C. (2002). The Octonions. \emph{Bull.\ Amer.\ Math.\ Soc.}, 39(2), 145--205.
+
+\bibitem{bender-berry-mandilara}
+Bender, C.~M., Berry, M.~V. \& Mandilara, A. (2002).
+Generalized $\mathcal{PT}$ symmetry and real spectra.
+\emph{Journal of Physics A: Mathematical and General}, 35(31), L467--L471.
+
+\bibitem{bostrom-surreal} Bostrom, N. (2011). Infinite Ethics. \emph{Analysis and Metaphysics}, 10, 9--59.
+
+\bibitem{buzzard-xena} Buzzard, K. (2020). Formalising Mathematics in Lean. \emph{Notices of the AMS}, 67(11), 1613--1618.
+
+\bibitem{calaque-ronchi} Calaque, D. and Ronchi, S. (2026). Shifted Symplectic Geometry by Examples. arXiv:2510.04625v3.
+
+\bibitem{calude-randomness} Calude, C. S. \& J\"urgensen, H. (2005). Is complexity a source of incompleteness? \emph{Advances in Applied Mathematics}, 35(1), 1--15.
+
+\bibitem{chaitin-omega} Chaitin, G. J. (1975). A theory of program size formally identical to information theory. \emph{J.\ ACM}, 22(3), 329--340.
+
+\bibitem{chevalley1936} Chevalley, C. (1936). La th\'eorie du symbole de restes normiques. \emph{Journal f\"ur die reine und angewandte Mathematik}, 1936(176), 73--94.
+
+\bibitem{connes} Connes, A. (1994). \emph{Noncommutative Geometry}. Academic Press.
+
+\bibitem{connes-consani-zeta} Connes, A., Consani, C., \& Moscovici, H. (2023). Zeta zeros and prolate wave operators. \emph{arXiv:2310.18223}.
+
+\bibitem{connes-marcolli} Connes, A. \& Marcolli, M. (2008). \emph{Noncommutative Geometry, Quantum Fields and Motives}. AMS.
+
+\bibitem{conrey-rmt}
+Conrey, J.~B. (2005).
+Notes on $L$-functions and Random Matrix Theory.
+\emph{Proceedings of Symposia in Pure Mathematics}, 73, 107--130.
+
+\bibitem{conway} Conway, J. H. (1976). \emph{On Numbers and Games}. Academic Press.
+
+\bibitem{curry-howard} Howard, W. A. (1980). The formulae-as-types notion of construction. In \emph{To H.B. Curry: Essays on Combinatory Logic}, pp.~479--490.
+
+\bibitem{demoura-lean4} de Moura, L. \& Ullrich, S. (2021). The Lean Theorem Prover and Programming Language. In \emph{CADE-28}, LNCS 12699, pp.~625--635.
+
+\bibitem{deshalit-mahler}
+de~Shalit, E. (2016).
+Mahler bases and elementary $p$-adic analysis.
+\emph{Journal de Th\'eorie des Nombres de Bordeaux}, 28(3), 597--620.
+
+\bibitem{fibonacci} Fibonacci (Leonardo of Pisa). (1202). \emph{Liber Abaci}. Translated by L.\,E.\ Sigler (2002), Springer.
+
+\bibitem{grothendieck-rs} Grothendieck, A. (1985--1986). \emph{R\'ecoltes et Semailles: R\'eflexions et T\'emoignage sur un Pass\'e de Math\'ematicien}. Universit\'e des Sciences et Techniques du Languedoc, Montpellier.
+
+\bibitem{hatcher} Hatcher, A. (2002). \emph{Algebraic Topology}. Cambridge University Press.
+
+\bibitem{kerodon} Lurie, J. (2018--). \emph{Kerodon}. \url{https://kerodon.net}.
+
+\bibitem{knuth-surreal} Knuth, D. E. (1974). \emph{Surreal Numbers}. Addison-Wesley.
+
+\bibitem{lurie-htt} Lurie, J. (2009). \emph{Higher Topos Theory}. Princeton University Press.
+
+\bibitem{maclane-moerdijk} Mac Lane, S. \& Moerdijk, I. (1992). \emph{Sheaves in Geometry and Logic}. Springer-Verlag.
+
+\bibitem{malcev} Mal'cev, A. I. (1955). Analytic loops. \emph{Mat.\ Sb.}, 36(78), 569--576.
+
+\bibitem{massot-blueprints} Massot, P. (2023). Lean Blueprints: Bridging Informal and Formal Mathematics. In \emph{ITP 2023}, LIPIcs.
+
+\bibitem{mathlib} The mathlib Community. (2020). The Lean Mathematical Library. In \emph{CPP '20}, pp.~367--381. ACM.
+
+\bibitem{may-ponto} May, J. P. \& Ponto, K. (2012). \emph{More Concise Algebraic Topology}. University of Chicago Press.
+
+\bibitem{milnor} Milnor, J. (1963). \emph{Morse Theory}. Princeton University Press.
+
+\bibitem{odrzywolek} Odrzywolek, A. (2026). All elementary functions from a single operator. \emph{arXiv preprint}.
+
+\bibitem{ptvv} Pantev, T., To\"en, B., Vaqui\'e, M. and Vezzosi, G. (2013). Shifted symplectic structures. \emph{Publ. Math. Inst. Hautes \'Etudes Sci.} 117, 271--328.
+
+\bibitem{safe-verification} Xin, H. et al. (2025). Safe: Step-aware formal verification for LLM reasoning. \emph{Proc.\ ACL}, pp.~4821--4838.
+
+\bibitem{schafer} Schafer, R. D. (1966). \emph{An Introduction to Nonassociative Algebras}. Academic Press.
+
+\end{thebibliography}
+
+\end{document}
