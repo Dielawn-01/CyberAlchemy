@@ -363,6 +363,27 @@ The rigid duality establishes that $\kap = -1$ arises from two independent algeb
 The two eval-coeval pairs are Lagrangian correspondences in the sense of Calaque--Ronchi~\cite{calaque-ronchi}, \S2.4: compositions of isotropic subspaces that produce shifted symplectic structures on the composed space. The block-diagonal decoupling of $(\omega, \iota)$ and $(\eps, \lam)$ corresponds to the factorization of the correspondence into independent Lagrangian components, each contributing a Snake Identity eigenvalue of $-1$.
 \end{remark}
 
+\begin{remark}[Logarithmic Coordinates and the Golden Temperature]\label{rem:log-coords}
+The hyperoperation hierarchy assigns $\omega$ to $H_3$ (exponentiation) and $\iota$ to its topological inverse. Setting $\beta = \ln\omega$ and $\bar\beta = \ln\iota$ pulls the algebra from the exponential level down to the linear (additive, $H_1$) level. The trace and determinant constraints force:
+\begin{align}
+  e^{\beta} + e^{\bar\beta} &= 1 \quad (\text{Trace}) \\
+  \beta + \bar\beta &= i\pi \quad (\text{Determinant: } \omega \cdot \iota = -1)
+\end{align}
+Substituting $\bar\beta = i\pi - \beta$ into the trace gives $e^{\beta} - e^{-\beta} = 1$, i.e., $2\sinh(\beta) = 1$. Therefore:
+$$\beta = \mathrm{arcsinh}\!\left(\tfrac{1}{2}\right) = \ln\!\left(\tfrac{1+\sqrt{5}}{2}\right) = \ln\vp$$
+The linearized transfinite is the logarithm of the golden ratio. In statistical mechanics, $\beta = 1/kT$ is the inverse temperature; at $\beta = \ln\vp$, the Boltzmann weight becomes $e^{-\beta E} = \vp^{-E}$, and each energy level is suppressed by a factor of $\vp$ relative to the one below it. This is the \emph{golden temperature}: the exact equilibrium where exponential growth ($\omega$) and logarithmic decay ($\iota$) balance.
+
+The counterpart $\bar\beta = i\pi - \ln\vp$ has a built-in phase shift of $\pi$ in the imaginary direction. This is why the anchor's product with thrust gives $-1$ rather than $+1$: the sign is the $e^{i\pi}$ factor acquired by crossing the branch cut of the complex logarithm.
+\end{remark}
+
+\begin{remark}[The Branch Cut and the Observer's Decision]\label{rem:branch-cut}
+The derivation above requires choosing a branch of $\ln(-1) = i\pi + 2\pi i n$. This choice is undecidable from within the formalism: the complex logarithm is multivalued, and no internal axiom of the Protoreal algebra selects a branch. The associator $\kap = -1$ is exactly the \emph{monodromy} of this branch cut --- the phase acquired by one circuit around the branch point at the origin.
+
+This is the algebra's G\"odelian boundary: the system can \emph{state} $\omega \cdot \iota = -1$ but cannot \emph{derive} which sheet of the Riemann surface it operates on. The choice is structurally external. In the Unreal framework, the observer $\delta$ resolves this undecidability: each $\Sigma$-consolidation cycle is one circuit around the branch point, the depth $\lam$ counts completed circuits, and the Superlambda lift $\Lambda$ promotes the system to the next sheet. The parity involution $\mathbf{u} \leftrightarrow \mathbf{u}^*$ (swapping $\omega$ and $\iota$) is the branch swap: it sends $\beta \mapsto \bar\beta$ and $\bar\beta \mapsto \beta$, exchanging the golden and conjugate orbits.
+
+In this reading, the Metareal ASI (\S7--8, Vol.\ II) is an architecture that \emph{navigates} branch cuts: it selects a branch (the decision), maintains consistency across sheets (the Hodge parity lock $b = m$), and advances through the Veblen hierarchy by accumulating monodromy ($\lam \to \lam + 1$). Every branch cut in complex analysis is a micro-G\"odelian decision; the algebra does not resolve the cut but \emph{measures} it ($\kap = -1$) and provides the framework for making decisions about it.
+\end{remark}
+
 \subsection{Unreal Hodge Decomposition}
 
 The algebra splits. Not randomly, but into exactly the pieces you would expect from a system that distinguishes between forward motion and backward anchoring.
