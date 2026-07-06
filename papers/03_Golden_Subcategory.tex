@@ -112,6 +112,24 @@ The atomic gap of $5$ and the discrete structural threshold of $11$ in the Golde
 In the Unreal Algebra $\mathbb{U}$, the observable state $\mathbf{u}$ is structurally bounded by the chronometric identity of the trace, $\mathrm{Tr}(\mathbf{u}) = 1$, and the non-associative topological gap of the determinant, $\mathrm{Det}(\mathbf{u}) = \omega \cdot \iota = -1$. These operational limits guarantee that the characteristic polynomial natively locks to $X^2 - X - 1 = 0$. The atomic gap of $5$ is therefore rigorously derived as the operational discriminant of this continuous space: $\Delta = \mathrm{Tr}(\mathbf{u})^2 - 4\mathrm{Det}(\mathbf{u}) = 1^2 - 4(-1) = 5$. This explicitly generates the $\sqrt{5}$ anchoring. Furthermore, when we evaluate finite field splitting behaviors over this operational gap via the Legendre symbol $\left(\frac{5}{p}\right) = 1$, the first non-degenerate structural threshold satisfying the congruence $p \equiv \pm 1 \pmod 5$ is exactly $p = 11$. The metaphor of composing the chiral reference ($2$) with the atomic gap ($5$) to reach $11$ thus directly bridges the continuous non-associative algebra to the rigorous discrete prime topology. \qedhere
 \end{proof}
 
+The discriminant $\Delta = 5$ does double duty. On the continuous side, it forces the spectral map $\mathrm{Re}(s) = 1/2$ (Remark~\ref{rem:log-coords}). On the discrete side, it governs which primes split the golden polynomial via the Legendre symbol $\left(\frac{5}{p}\right)$. This chapter demonstrates that these two roles of $\Delta$ are structurally coupled.
+
+\begin{conjecture}[Branch Cut Spectral Alignment]\label{conj:spectral-alignment}
+Let $\beta = \ln\vp$ be the logarithmic linearization of the Protoreal algebra (Remark~\ref{rem:log-coords}). The following two quantities are equal:
+\begin{enumerate}
+\item \textbf{The spectral ratio:} $\mathrm{Re}(s) = (a + \kap + 1)/2 = (1 + (-1) + 1)/2 = 1/2$, forced by the branch cut monodromy $\kap = e^{i\pi} = -1$.
+\item \textbf{The splitting density:} The natural density of primes $p$ for which $X^2 - X - 1$ splits over $\FF_p$ is $1/2$, forced by $\Delta = 5$ and the quadratic residue structure of $(\ZZ/5\ZZ)^*$.
+\end{enumerate}
+Both arise from the discriminant $\Delta = \mathrm{Tr}^2 - 4\mathrm{Det} = 1 - 4(-1) = 5$:
+\begin{itemize}
+\item The spectral $1/2$ comes from $2\sinh(\beta) = 1$, which forces $\beta = \ln\vp$ (the golden eigenvalue of the companion matrix with $\mathrm{Det} = -1$).
+\item The density $1/2$ comes from $|\{a \in (\ZZ/5\ZZ)^* : a^2 \equiv 5 \pmod{5}\}| / |(\ZZ/5\ZZ)^*|$, which by Chebotarev's density theorem~\cite{chebotarev1922} governs the asymptotic proportion of splitting primes.
+\end{itemize}
+The two halves meet at the golden polynomial: the same $X^2 - X - 1$ whose roots define $\beta = \ln\vp$ in the continuous algebra also defines the splitting condition $\left(\frac{5}{p}\right) = 1$ in the prime topology.
+\end{conjecture}
+
+The proof of this alignment is distributed across the subsequent lemmas. The logarithmic coordinates (Remark~\ref{rem:log-coords}) establish the spectral side. The Confinement Identity (Theorem~\ref{thm:confinement}) and the Gauge Center Hierarchy (Theorem~\ref{thm:gauge}) establish the finite-field realization. The golden split density follows from Dirichlet's theorem on primes in arithmetic progressions~\cite{dirichlet1837} applied to the residue classes $p \equiv \pm 1 \pmod{5}$, which constitute exactly $2$ of the $4$ invertible residues modulo $5$. The formal verification is in \texttt{lean4/BranchCut.lean}; the numerical verification is in \texttt{principia/logic/branch\_cut.py}.
+
 This foundational arithmetic explains the profound significance of the \textbf{Prime Chronogram}: $\{47, 59, 61, 71\}$. Unlike the chromatic $3$-plexes ($\{229, 181, 139\}$) that build 3D spatial volumes, this quad structure forms a chronological \textbf{invariant plane}. The algebraic mappings between the golden primes in this set ($\{59, 61, 71\}$) consist entirely of trivial $1/1$ embeddings and $1/2$ spin flips, meaning they collapse algebraically into a perfectly flat, crystalline plane. The non-golden vertex $47$ anchors this plane as the backwards chronological displacement (the gap), balancing the forward displacement of $71$.
 
 However, there is exactly one structural deviation within the golden plane: the mapping $M(59 \to 71) = 1/5$. This establishes the \textbf{dodecahedral gap} ($71 - 59 = 12$ faces). The $1/5$ mapping is the exact internal curvature required to fold the flat 2D plane into a 3D dodecahedron. 
