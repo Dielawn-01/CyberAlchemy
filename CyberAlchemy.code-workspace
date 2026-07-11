@@ -1,0 +1,52 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Aura-App"
+		},
+		{
+			"path": "../Aura-App/aura-sdk"
+		},
+		{
+			"path": "../Odysseus/odysseus"
+		}
+	],
+	"settings": {
+		"python.defaultInterpreterPath": "../Odysseus/venv/bin/python",
+		"rust-analyzer.linkedProjects": [
+			"../Aura-App/aura-sdk/Cargo.toml"
+		],
+		"editor.formatOnSave": true
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Run Odysseus (Python)",
+				"type": "python",
+				"request": "launch",
+				"program": "${workspaceFolder:odysseus}/app.py",
+				"console": "integratedTerminal"
+			},
+			{
+				"name": "Run Aura-App (Vite/Electron)",
+				"type": "node",
+				"request": "launch",
+				"cwd": "${workspaceFolder:Aura-App}",
+				"runtimeExecutable": "npm",
+				"runtimeArgs": [
+					"run",
+					"dev"
+				]
+			}
+		],
+		"compounds": [
+			{
+				"name": "Launch CyberAlchemy Stack",
+				"configurations": ["Run Odysseus (Python)", "Run Aura-App (Vite/Electron)"]
+			}
+		]
+	}
+}
