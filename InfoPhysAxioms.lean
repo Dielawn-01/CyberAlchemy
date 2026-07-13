@@ -132,6 +132,9 @@ import InfoPhysAxioms.GaugeEmergence
 import InfoPhysAxioms.YangMillsMassGap
 import InfoPhysAxioms.PhotonicPropagation
 import InfoPhysAxioms.TensorCoupling
+import InfoPhysAxioms.TopologicalQuantumGravity
+import InfoPhysAxioms.PAdicPTSymmetric
+import InfoPhysAxioms.PrimeFunctorial
 -- Manifold & Topos Extensions
 import InfoPhysAxioms.MetarealManifold
 import InfoPhysAxioms.MetaRealTopos
@@ -142,6 +145,7 @@ import InfoPhysAxioms.CyberBundle
 -- Observer & Sensory
 import InfoPhysAxioms.ObserverAdapter
 import InfoPhysAxioms.SensoryGate
+import InfoPhysAxioms.SensePerception
 -- Security & Auth
 import InfoPhysAxioms.PostQuantumSecurity
 import InfoPhysAxioms.ResonantMFA
@@ -257,3 +261,5 @@ import InfoPhysAxioms.ArchetypalReactor
 import InfoPhysAxioms.HydrothermalChipOptimization
 import InfoPhysAxioms.KleinFieldGenerator
 import InfoPhysAxioms.TransmutationIdentities
+import InfoPhysAxioms.ThemeMotifDuality
+import InfoPhysAxioms.StellarNucleosynthesis

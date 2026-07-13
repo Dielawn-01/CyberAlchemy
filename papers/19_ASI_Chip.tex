@@ -1112,6 +1112,10 @@ Lockwood's chronometric composite triangle $(116, 138, 144)$~\cite{lockwood_chro
 
 \textbf{Computational verification} (\texttt{chrono\_gauge\_fabrication.py}): All chrono-gauge identities verified by exact modular arithmetic across the full gauge triplet $(139, 181, 229)$, 13/13 checks passed, $\Upsilon = 0.0$.
 
+\begin{remark}[Aionometric Numerical Grid]
+The three-phase fabrication cycle spans 5 temporal decades ($50~\mu$s dwell to ${\sim}20$ ms total).  The Aionometric clock map $\tau = \lambda_\Delta \ln(t/t_0)$ with $\lambda_\Delta = 3722/2705 \equiv \varphi^4 \pmod{229}$ (Chapter~\ref{ch:aionometric}) transforms this multi-decade schedule into uniform $\tau$-spacing, where each $\Sigma$-consolidation step equals one chronometric tick of width $\lambda_\Delta$.  The chronometric grid eliminates numerical stiffness from the exponential ramp rate ($97{,}000~{}^\circ$C/s): in $\tau$-coordinates, the geometric temperature profile becomes linear.  The cross-prime profile $(\lambda_\Delta \bmod 181 \equiv 26,\;\mathrm{ord} = 12)$ locks the meso-scale clock to the dodecahedral subgroup, matching the Curie-point write cycle's 12-fold symmetry exactly.  Verification: \texttt{python -m Principia} (chronometric module).
+\end{remark}
+
 \subsection{DEC Thermal Management}\label{sec:dec}
 
 The Lockwood DEC Heat Engine~\cite{lockwood_chrono3} provides the thermodynamic controller for the fabrication cycle. The forge's central synthesis volume is a realization of the \textbf{RCCI cavity} (Rotating Chiral Casimir Interferometer): a chiral-boundary-locked Casimir geometry whose boundary conditions kill antisymmetric frustration modes, sustaining a Fr\"ohlich 57-mode warm Bose--Einstein condensate~\cite{Frohlich1968}.

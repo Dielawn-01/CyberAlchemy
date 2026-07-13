@@ -532,9 +532,9 @@ theorem c3_c4_trivial_intersection :
     -- The only element satisfying both x³ ≡ 1 AND x⁴ ≡ 1 is x = 1
     ∀ x : ℕ, x > 0 → x < 229 → Nat.pow x 3 % 229 = 1 → Nat.pow x 4 % 229 = 1 → x = 1 := by
   intro x _ hlt h3 h4
-  have h5 : x^4 = x^3 * x := by ring
-  have h6 : x^4 % 229 = (x^3 * x) % 229 := by rw [h5]
-  have h7 : (x^3 * x) % 229 = ((x^3 % 229) * (x % 229)) % 229 := Nat.mul_mod _ _ _
+  have h5 : Nat.pow x 4 = Nat.pow x 3 * x := by rfl
+  have h6 : Nat.pow x 4 % 229 = (Nat.pow x 3 * x) % 229 := by rw [h5]
+  have h7 : (Nat.pow x 3 * x) % 229 = ((Nat.pow x 3 % 229) * (x % 229)) % 229 := Nat.mul_mod _ _ _
   rw [h3] at h7
   rw [one_mul] at h7
   rw [Nat.mod_mod] at h7

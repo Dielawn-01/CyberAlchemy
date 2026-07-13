@@ -150,6 +150,10 @@ Prime & $\mathrm{ord}(\vp)$ & Period & Scale \\
 
 These periods satisfy $\gcd(114, 45, 23) = 1$ --- their superposition is \emph{epiperiodic}: quasiperiodic at every scale, exactly as a Penrose tiling is the projection of three incommensurate lattice directions from a higher-dimensional space.  The mass gap $\Delta > 0$ (the confinement theorem) prevents any of the nested periodicities from phase-locking, maintaining the epiperiodic structure indefinitely.
 
+\begin{remark}[Aionometric Clock Connection]
+The chronometric clock map $\tau = \lambda_\Delta \ln(t/t_0)$ with $\lambda_\Delta = 3722/2705$ (Chapter~\ref{ch:aionometric}) is structurally anchored to this epiperiodic lattice: $\lambda_\Delta \equiv \vp^4 \pmod{229}$ on the chromatic orbit $C_{57}$, with $229 - 217 = 12$ equaling the dodecahedral clock order.  The three golden primes $\{229, 181, 139\}$ define three natural clocks whose orbit lengths $(114, 45, 23)$ form an \textbf{affine clock atlas}: multiple prescribed time coordinates with epiperiodic superposition.  Each $\Sigma$-consolidation step in the Protoreal is a chronometric tick of width $\lambda_\Delta$.  Verification: \texttt{python -m Principia} (chronometric module).
+\end{remark}
+
 This is the temporal analogue of the Kohmoto--Kadanoff--Tang Fibonacci chain~\cite{KKT83}:
 \begin{itemize}
   \item The orbit sizes $(114, 45, 23)$ generate \emph{incommensurate energy scales}.

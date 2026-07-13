@@ -179,9 +179,23 @@ theorem vieta_determinant (r₁ r₂ CI : ℝ) (hCI : CI ≠ 0)
 theorem golden_polynomial_at_phi_sq (r : ℝ) (φ : ℝ)
     (hφ : φ^2 = φ + 1)     -- golden ratio defining property
     (hφ_pos : φ > 0) :
-    r^2 - r - 1 = 0 ↔ r = φ ∨ r = -(φ - 1) := by
-  sorry  -- Requires algebraic number theory; the factorization follows
-         -- from φ being the positive root of X² − X − 1
+    r^2 - r - 1 = 0 ↔ r = φ ∨ r = -((φ) - 1) := by
+  constructor
+  · -- (→) If r² - r - 1 = 0, then r = φ or r = 1 - φ
+    intro hr
+    -- r² - r - 1 = 0 and φ² - φ - 1 = 0 (from hφ)
+    have hφ_root : φ^2 - φ - 1 = 0 := by linarith
+    -- (r - φ)(r - (1 - φ)) = r² - r - 1 ... wait, 1-φ is negative of (φ-1)
+    -- Actually: r²-r-1 = (r-φ)(r+φ-1) since φ(φ-1) = φ² - φ = 1
+    have hfact : (r - φ) * (r + φ - 1) = 0 := by nlinarith [sq_nonneg r, sq_nonneg φ]
+    cases mul_eq_zero.mp hfact with
+    | inl h => left; linarith
+    | inr h => right; linarith
+  · -- (←) If r = φ or r = 1-φ, then r² - r - 1 = 0
+    intro hr
+    cases hr with
+    | inl h => rw [h]; nlinarith
+    | inr h => rw [h]; nlinarith [sq_nonneg (φ - 1)]
 
 -- ═══════════════════════════════════════════════════════════
 -- SECTION 4: THE GAUGE CONTAINMENT HIERARCHY
@@ -276,9 +290,14 @@ structure CoEvolutionarySystem where
 
     Proof: C(n) = A·φⁿ for some A. Then:
     C(n) + C(n-1) = A·φⁿ + A·φⁿ⁻¹ = A·φⁿ⁻¹·(φ+1) = A·φⁿ⁻¹·φ² = A·φⁿ⁺¹ = C(n+1). -/
-theorem fibonacci_container (φ : ℝ) (hφ : φ^2 = φ + 1) (A : ℝ) (n : ℕ) :
+theorem fibonacci_container (φ : ℝ) (hφ : φ^2 = φ + 1) (hφ_pos : φ > 0) (A : ℝ) (n : ℕ) (hn : n ≥ 1) :
     A * φ^(n+1) = A * φ^n + A * φ^(n-1) := by
-  sorry  -- requires φ^(n+1) = φ^n + φ^(n-1), which follows from φ² = φ+1
+  -- Factor: A·φ^(n+1) = A·φ^(n-1)·φ² = A·φ^(n-1)·(φ+1) = A·φ^n + A·φ^(n-1)
+  have h_sub : n - 1 + 2 = n + 1 := by omega
+  have h_sub1 : n - 1 + 1 = n := by omega
+  rw [← h_sub, pow_add, hφ, mul_add, mul_comm (A * φ^(n-1)) φ, mul_comm (A * φ^(n-1)) 1]
+  ring_nf
+  rw [h_sub1]
 
 -- ═══════════════════════════════════════════════════════════
 -- SECTION 6: CONNECTION TO ErrorCorrection.lean
@@ -301,7 +320,24 @@ theorem fibonacci_container (φ : ℝ) (hφ : φ^2 = φ + 1) (A : ℝ) (n : ℕ)
     T < n (exactly n Fibonacci steps). -/
 theorem correction_cadence (r₁ C : ℝ) (hr : r₁ > 0) (hC : C > 1) :
     ∃ T : ℝ, T > 0 ∧ ∀ t : ℝ, t > T → Real.exp (r₁ * t) > C := by
-  sorry  -- standard exponential growth argument
+  -- Witness: T = (Real.log C) / r₁ + 1
+  -- For t > T: r₁·t > r₁·T > Real.log C + r₁ > Real.log C
+  -- So exp(r₁·t) > exp(log C) = C
+  use (Real.log C / r₁ + 1)
+  constructor
+  · -- T > 0: log C > 0 (since C > 1) and r₁ > 0
+    have hlogC : Real.log C > 0 := Real.log_pos hC
+    positivity
+  · intro t ht
+    have hlogC : Real.log C > 0 := Real.log_pos hC
+    have h_rt : r₁ * t > Real.log C + r₁ := by
+      have : r₁ * t > r₁ * (Real.log C / r₁ + 1) := by
+        exact mul_lt_mul_of_pos_left ht hr
+      rw [mul_add, mul_div_cancel₀ _ (ne_of_gt hr), mul_one] at this
+      linarith
+    have h_rt_log : r₁ * t > Real.log C := by linarith
+    calc Real.exp (r₁ * t) > Real.exp (Real.log C) := Real.exp_lt_exp.mpr h_rt_log
+      _ = C := Real.exp_log (by linarith)
 
 -- ═══════════════════════════════════════════════════════════
 -- SECTION 7: THE GAUGE PRODUCT π/6 IDENTITY

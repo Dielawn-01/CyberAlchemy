@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Asterion ASI: Dark Chromodynamics — Pixel Control</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { overflow: hidden; background: #020305; font-family: 'Inter', 'Courier New', monospace; user-select: none; -webkit-user-select: none; }
+        canvas { display: block; width: 100vw; height: 100vh; }
+        
+        #ui-wrapper {
+            position: absolute; top: 20px; right: 20px; z-index: 10;
+            pointer-events: none;
+        }
+        #ui {
+            width: 360px; pointer-events: auto;
+            background: rgba(5, 7, 10, 0.88); padding: 22px;
+            border: 1px solid rgba(0,255,204,0.2); border-radius: 10px;
+            box-shadow: 0 8px 40px rgba(0,255,204,0.06);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        }
+        #toggle-btn {
+            display: none; position: fixed; bottom: 20px; right: 20px; z-index: 20;
+            background: #00ffcc; color: #020305; border: none; padding: 12px 24px;
+            border-radius: 30px; font-weight: bold; cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,255,204,0.3); font-family: 'Courier New', monospace;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        h1 { margin: 0 0 4px 0; font-size: 1.05rem; color: #fff; text-transform: uppercase; letter-spacing: 2px; }
+        .subtitle { font-size: 0.65rem; color: #00ffcc; letter-spacing: 3px; margin-bottom: 14px; text-transform: uppercase; }
+        p { font-size: 0.72rem; line-height: 1.45; color: #8892b0; margin-bottom: 18px; }
+        .section-label { font-size: 0.6rem; color: #ff00cc; text-transform: uppercase; letter-spacing: 2px; margin: 14px 0 8px; border-top: 1px solid rgba(255,0,204,0.15); padding-top: 10px; }
+        .control-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+        .control-header { display: flex; justify-content: space-between; font-size: 0.72rem; color: #ccd6f6; text-transform: uppercase; letter-spacing: 1px; }
+        .val-display { font-weight: bold; color: #00ffcc; font-family: monospace; }
+        .val-gold { color: #facc15; }
+        .val-magenta { color: #ff00cc; }
+        
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 14px; width: 14px; border-radius: 50%; background: #facc15; cursor: pointer; margin-top: -5px; box-shadow: 0 0 8px rgba(250,204,21,0.5); }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: rgba(255,255,255,0.15); border-radius: 2px; }
+        
+        .btn-override {
+            background: transparent; color: #ff00cc; border: 1px solid #ff00cc;
+            padding: 12px; font-family: 'Courier New', monospace; text-transform: uppercase;
+            font-weight: bold; cursor: pointer; transition: all 0.3s ease; letter-spacing: 1px;
+            width: 100%; margin-top: 8px; border-radius: 4px; font-size: 0.75rem;
+        }
+        .btn-override.locked {
+            color: #00ffcc; border-color: #00ffcc; text-shadow: 0 0 8px rgba(0,255,204,0.5);
+            background: rgba(0,255,204,0.05); box-shadow: inset 0 0 15px rgba(0,255,204,0.15);
+        }
+        #readout {
+            font-size: 0.6rem; color: #556; font-family: monospace; margin-top: 10px;
+            padding: 8px; background: rgba(0,0,0,0.3); border-radius: 4px; line-height: 1.6;
+        }
+        #readout span { color: #8892b0; }
+
+        @media (max-width: 768px) {
+            #ui-wrapper { top: auto; bottom: 0; right: 0; left: 0; width: 100%; }
+            #ui { width: 100%; display: none; border-radius: 20px 20px 0 0; border-left: none; border-bottom: none; border-right: none; border-top: 1px solid rgba(0,255,204,0.4); max-height: 75vh; overflow-y: auto; padding: 20px 20px 80px 20px; }
+            #ui.visible { display: block; animation: slideUp 0.3s ease-out; }
+            #toggle-btn { display: block; }
+        }
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    </style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<button id="toggle-btn">⚙ Settings</button>
+
+<div id="ui-wrapper">
+<div id="ui">
+    <h1>Metareal Fields</h1>
+    <div class="subtitle">Pixel-Level Chromodynamics</div>
+    <p>Full-screen raymarched Klein manifold with the SU(3)×SU(2)×U(1) gauge triangle {229, 181, 139}. Higgs–neutrino coupling through the photoelectric threshold at the F*₁₃₉ boundary.</p>
+
+    <div class="section-label">Quantum Fields</div>
+    <div class="control-group">
+        <div class="control-header"><span>ZPE Casimir Tension</span> <span id="val-tension" class="val-display">50%</span></div>
+        <input type="range" id="s-tension" min="0" max="100" value="50">
+    </div>
+    <div class="control-group">
+        <div class="control-header"><span>Topological Twist (κ)</span> <span id="val-twist" class="val-display val-gold">0.50</span></div>
+        <input type="range" id="s-twist" min="0" max="100" value="50">
+    </div>
+    <div class="control-group">
+        <div class="control-header"><span>Higgs Potential (v)</span> <span id="val-higgs" class="val-display val-magenta">0.50</span></div>
+        <input type="range" id="s-higgs" min="0" max="100" value="50">
+    </div>
+
+    <div class="section-label">Neutrino Mixing</div>
+    <div class="control-group">
+        <div class="control-header"><span>Flavor Oscillation (θ₁₂)</span> <span id="val-nu12" class="val-display">0.59</span></div>
+        <input type="range" id="s-nu12" min="0" max="100" value="59">
+    </div>
+    <div class="control-group">
+        <div class="control-header"><span>Photoelectric Threshold</span> <span id="val-photo" class="val-display val-gold">0.40</span></div>
+        <input type="range" id="s-photo" min="0" max="100" value="40">
+    </div>
+
+    <button id="btn-lock" class="btn-override">Trigger Awakening (b = m)</button>
+
+    <div id="readout">
+        <span>SU(3):</span> <span id="r-su3">F*₂₂₉ φ=148 φ̄=82</span><br>
+        <span>SU(2):</span> <span id="r-su2">F*₁₈₁ φ=14 φ̄=168</span><br>
+        <span>U(1):</span> <span id="r-u1">F*₁₃₉ ord(φ̄)=23</span> <span style="color:#ff00cc">[unconfined]</span><br>
+        <span>κ:</span> <span id="r-kappa">-1</span> &nbsp;
+        <span>FPS:</span> <span id="r-fps">60</span> &nbsp;
+        <span>Pixels:</span> <span id="r-pixels">—</span>
+    </div>
+</div>
+</div>
+
+<!-- ═══ VERTEX SHADER ═══ -->
+<script id="vs" type="x-shader/x-vertex">
+attribute vec2 pos;
+varying vec2 vUv;
+void main() {
+    vUv = pos * 0.5 + 0.5;
+    gl_Position = vec4(pos, 0.0, 1.0);
+}
+</script>
+
+<!-- ═══ FRAGMENT SHADER — OPTIMIZED Per-Pixel Chromodynamics ═══ -->
+<script id="fs" type="x-shader/x-fragment">
+precision highp float;
+
+varying vec2 vUv;
+
+uniform float uTime;
+uniform vec2  uResolution;
+uniform float uTension;
+uniform float uTwist;
+uniform float uHiggs;
+uniform float uNu12;
+uniform float uPhoto;
+uniform float uLocked;
+uniform vec3  uCamPos;
+uniform mat3  uCamMat;
+
+// ═══ SU(3)×SU(2)×U(1) Gauge Triangle ═══
+#define P_SU3    229.0
+#define P_SU2    181.0
+#define P_U1     139.0
+#define PHI_229  148.0
+#define PHIBAR_229 82.0
+#define PHI_181  14.0
+#define PHIBAR_181 168.0
+#define PI       3.14159265359
+#define TAU      6.28318530718
+#define GOLDEN   1.6180339887
+#define WEINBERG 0.4888
+
+#define COL_CYAN    vec3(0.05, 0.95, 0.85)
+#define COL_GOLD    vec3(0.98, 0.78, 0.05)
+#define COL_MAGENTA vec3(1.0, 0.05, 0.75)
+#define COL_WHITE   vec3(0.9, 0.92, 1.0)
+#define COL_BG      vec3(0.007, 0.01, 0.018)
+
+// ═══ FAST Noise (2 octaves instead of 5) ═══
+float hash(vec3 p) {
+    p = fract(p * 0.3183099 + 0.1);
+    p *= 17.0;
+    return fract(p.x * p.y * p.z * (p.x + p.y + p.z));
+}
+
+float noise3D(vec3 p) {
+    vec3 i = floor(p), f = fract(p);
+    f = f * f * (3.0 - 2.0 * f);
+    return mix(
+        mix(mix(hash(i), hash(i+vec3(1,0,0)), f.x),
+            mix(hash(i+vec3(0,1,0)), hash(i+vec3(1,1,0)), f.x), f.y),
+        mix(mix(hash(i+vec3(0,0,1)), hash(i+vec3(1,0,1)), f.x),
+            mix(hash(i+vec3(0,1,1)), hash(i+vec3(1,1,1)), f.x), f.y),
+        f.z);
+}
+
+// PERF: 2-octave FBM instead of 5
+float fbm2(vec3 p) {
+    return noise3D(p) * 0.65 + noise3D(p * 2.03 + 0.31) * 0.35;
+}
+
+// ═══ FAST Trefoil — analytical torus approximation ═══
+// Instead of 80-sample brute force, use a cheap torus-knot estimate
+float sdTrefoilFast(vec3 p, float R, float r) {
+    // Project onto the (2,3) torus knot centerline analytically
+    // Find closest angle on the trefoil parametric curve
+    float a = atan(p.y, p.x); // azimuthal angle
+    
+    // The trefoil wraps 3 times in the minor direction
+    // for every 2 wraps in the major direction
+    // Approximate: find the closest "lobe"
+    float bestD = 1e10;
+    
+    // Check 3 lobes + nearest points (only 24 samples total)
+    for (float i = 0.0; i < 24.0; i += 1.0) {
+        float t = i / 24.0 * TAU;
+        float c3 = cos(3.0*t), s3 = sin(3.0*t);
+        float c2 = cos(2.0*t), s2 = sin(2.0*t);
+        vec3 q = vec3((R + r*c3)*c2, (R + r*c3)*s2, r*s3);
+        bestD = min(bestD, length(p - q));
+    }
+    return bestD - 0.2;
+}
+
+// ═══ SDF: Dodecahedron (cheap — just dot products) ═══
+float sdDodeca(vec3 p, float s) {
+    float g = GOLDEN;
+    vec3 n1=normalize(vec3(0,1,g)), n2=normalize(vec3(0,1,-g));
+    vec3 n3=normalize(vec3(1,g,0)), n4=normalize(vec3(1,-g,0));
+    vec3 n5=normalize(vec3(g,0,1)), n6=normalize(vec3(-g,0,1));
+    float d = abs(dot(p,n1));
+    d = max(d, abs(dot(p,n2))); d = max(d, abs(dot(p,n3)));
+    d = max(d, abs(dot(p,n4))); d = max(d, abs(dot(p,n5)));
+    d = max(d, abs(dot(p,n6)));
+    return d - s;
+}
+
+// ═══ SDF: Icosahedron ═══
+float sdIcosa(vec3 p, float s) {
+    float g = GOLDEN;
+    float d = abs(dot(p, normalize(vec3(1,1,1))));
+    d = max(d, abs(dot(p, normalize(vec3(1,1,-1)))));
+    d = max(d, abs(dot(p, normalize(vec3(1,-1,1)))));
+    d = max(d, abs(dot(p, normalize(vec3(-1,1,1)))));
+    d = max(d, abs(dot(p, normalize(vec3(0, 1.0/g, g)))));
+    d = max(d, abs(dot(p, normalize(vec3(0, 1.0/g, -g)))));
+    d = max(d, abs(dot(p, normalize(vec3(1.0/g, g, 0)))));
+    d = max(d, abs(dot(p, normalize(vec3(-1.0/g, g, 0)))));
+    d = max(d, abs(dot(p, normalize(vec3(g, 0, 1.0/g)))));
+    d = max(d, abs(dot(p, normalize(vec3(-g, 0, 1.0/g)))));
+    return d - s;
+}
+
+// ═══ Higgs Mexican Hat ═══
+float higgsField(vec3 p, float v) {
+    float rho = length(p.xz);
+    float pot = (rho*rho - v*v);
+    return pot * pot * 0.1;
+}
+
+// ═══ Neutrino Oscillation ═══
+vec3 neutrinoMix(vec3 c, float th, float L) {
+    float s2 = sin(2.0*th); s2 *= s2;
+    float o1 = sin(L * 3.0); o1 *= o1;
+    float P1 = s2 * o1;
+    return vec3(
+        c.r*(1.0-P1) + c.g*P1,
+        c.g*(1.0-P1) + c.b*P1,
+        c.b*(1.0-P1) + c.r*P1
+    );
+}
+
+// ═══ Photoelectric Gate ═══
+float photoGate(float E, float th) {
+    return smoothstep(th - 0.03, th + 0.03, E) * max(E - th, 0.0);
+}
+
+// ═══ SU(3)×SU(2)×U(1) Gauge Chromodynamics ═══
+vec3 chromoColor(vec3 p, float t) {
+    float r = length(p);
+    float ang = atan(p.z, p.x);
+    float elev = p.y; // cheaper than atan
+    
+    // ── SU(3): 3×19 color confinement ──
+    float su3_orbit = mod(r * PHI_229 + ang * PHIBAR_229 * 0.5, P_SU3) / P_SU3;
+    float su3_arc = su3_orbit * 3.0;
+    float su3_ch = fract(su3_arc);
+    float su3_ai = floor(su3_arc);
+    
+    vec3 su3_col;
+    if (su3_ai < 0.5) su3_col = mix(COL_CYAN, COL_GOLD, su3_ch);
+    else if (su3_ai < 1.5) su3_col = mix(COL_GOLD, COL_MAGENTA, su3_ch);
+    else su3_col = mix(COL_MAGENTA, COL_CYAN, su3_ch);
+    
+    // ── SU(2): Lockwood parity mirror ──
+    float su2_orbit = mod(r * PHI_181 + elev * 10.0, P_SU2) / P_SU2;
+    vec3 su2_col = mix(
+        vec3(0.4, 0.1, 0.9),
+        vec3(0.1, 0.5, 0.95),
+        sin(su2_orbit * 2.0 * PI) * 0.5 + 0.5
+    );
+    float z_neutral = abs(sin(su2_orbit * PI * 45.0 + t * 0.3));
+    z_neutral *= z_neutral; // pow 2 instead of pow 4
+    su2_col += vec3(0.8, 0.8, 0.95) * z_neutral * 0.12;
+    
+    // ── U(1): EM / photoelectric (unconfined) ──
+    float em_phase = mod(r * 46.0 + ang * 23.0, P_U1) / P_U1 * TAU;
+    vec3 u1_col = vec3(
+        0.5 + 0.5 * cos(em_phase),
+        0.5 + 0.5 * cos(em_phase + 2.094),
+        0.5 + 0.5 * cos(em_phase + 4.189)
+    ) * 0.7;
+    
+    // ── Weinberg mixing ──
+    float cw = 0.8829, sw = 0.4695; // precomputed cos/sin
+    vec3 photon_col = u1_col * cw + su2_col * sw;
+    vec3 z_col = su2_col * cw - u1_col * sw;
+    
+    // ── Higgs VEV symmetry breaking ──
+    float breaking = smoothstep(uHiggs - 0.1, uHiggs + 0.1, r / 5.0);
+    vec3 weak_sector = mix(photon_col, z_col, breaking);
+    
+    // ── Radial gauge mixing ──
+    float strong_w = exp(-r * r * 0.15);
+    float weak_w = exp(-(r - 3.0) * (r - 3.0) * 0.3);
+    float em_w = smoothstep(2.0, 5.0, r) * 0.6;
+    float tw = strong_w + weak_w + em_w + 0.01;
+    
+    vec3 col = (su3_col * strong_w + weak_sector * weak_w + photon_col * em_w) / tw;
+    
+    // Energy veins
+    float vein = sin(su3_orbit * TAU * 3.0 + t * 0.7) * 0.5 + 0.5;
+    vein *= vein * vein; // pow 3
+    col += COL_WHITE * vein * 0.1;
+    
+    return col;
+}
+
+// ═══ Scene SDF (no trefoil in hot path when unlocked) ═══
+float sceneSDF(vec3 p) {
+    float t = uTime;
+    float breath = sin(t * 1.2) * 0.1 * (1.0 - uLocked);
+    
+    // Inner icosahedron
+    float ico = sdIcosa(p, 1.0 + breath * 0.5);
+    float icoShell = abs(ico) - 0.015;
+    
+    // Dodecahedral manifold
+    float chaos = 0.0;
+    float chaosBlend = 1.0 - smoothstep(0.3, 0.7, uLocked);
+    if (chaosBlend > 0.01) {
+        // PERF: single noise sample instead of fbm3
+        chaos = noise3D(p * 1.8 + t * 0.4) * uTension * 0.7 * chaosBlend;
+    }
+    float dodeca = sdDodeca(p, 3.5 + chaos + breath);
+    float dodecaShell = abs(dodeca) - 0.025 - chaos * 0.08;
+    
+    // PERF: trefoil ONLY when lock transition > 0
+    float manifold = dodecaShell;
+    if (uLocked > 0.01) {
+        float trefoil = sdTrefoilFast(p, 2.6, 1.1 + uTwist * 0.7);
+        manifold = mix(dodecaShell, trefoil, uLocked);
+    }
+    
+    return min(icoShell, manifold);
+}
+
+// ═══ CHEAP Normal (tetrahedron method — 4 SDF calls instead of 6) ═══
+vec3 calcNormal(vec3 p) {
+    vec2 e = vec2(0.003, -0.003);
+    return normalize(
+        e.xyy * sceneSDF(p + e.xyy) +
+        e.yyx * sceneSDF(p + e.yyx) +
+        e.yxy * sceneSDF(p + e.yxy) +
+        e.xxx * sceneSDF(p + e.xxx)
+    );
+}
+
+// ═══ FAST Volumetric Density (no SDF call — use analytical distance) ═══
+float fieldDensityFast(vec3 p, float t) {
+    float r = length(p);
+    
+    // Shell glow (analytical dodecahedron distance)
+    float dodeca = sdDodeca(p, 3.5);
+    float shell = exp(-abs(dodeca) * 4.0) * 1.0;
+    
+    // Higgs modulation (cheap)
+    float rho = length(p.xz);
+    float hv = uHiggs * 3.5 + 1.5;
+    float hPot = (rho*rho - hv*hv);
+    float hMod = 1.0 / (1.0 + hPot * hPot * 0.04);
+    
+    // ZPE quantum foam (single noise, not fbm)
+    float zpe = noise3D(p * 2.5 + t * 0.25) * uTension;
+    
+    // Gaussian probability envelope
+    float psi = exp(-r * r * 0.04) * 0.4;
+    
+    // Core glow
+    float coreGlow = exp(-r * r * 0.8) * 0.5;
+    
+    // Trefoil confinement (cheap spherical approximation when locked)
+    float conf = 0.0;
+    if (uLocked > 0.01) {
+        // Approximate trefoil glow as torus at R=2.6
+        float torusDist = length(vec2(length(p.xz) - 2.6, p.y)) - 1.0;
+        conf = exp(-torusDist * torusDist * 3.0) * uLocked * 1.2;
+    }
+    
+    // Weak shell (Higgs VEV ring)
+    float higgs_ring = abs(r - hv);
+    float weakShell = exp(-higgs_ring * higgs_ring * 2.0) * 0.35 * uHiggs;
+    
+    // EM halo
+    float emHalo = exp(-r * 0.3) * 0.12;
+    
+    return (shell + zpe * 0.35 + conf + psi + coreGlow + weakShell + emHalo) * hMod;
+}
+
+// ═══ MAIN ═══
+void main() {
+    vec2 uv = (gl_FragCoord.xy - uResolution * 0.5) / uResolution.y;
+    float t = uTime;
+    vec3 ro = uCamPos;
+    vec3 rd = normalize(uCamMat * vec3(uv, 1.1));
+    
+    vec3 totalColor = vec3(0.0);
+    float totalAlpha = 0.0;
+    
+    // PERF: Bounding sphere test — skip everything if ray misses
+    float tMax = 18.0;
+    float bSphere = 6.0; // bounding radius
+    vec3 oc = ro; // center at origin
+    float b = dot(oc, rd);
+    float c = dot(oc, oc) - bSphere * bSphere;
+    float disc = b*b - c;
+    
+    if (disc < 0.0) {
+        // Ray misses — just render background
+        float bgN = noise3D(rd * 4.0 + t * 0.03);
+        vec3 bgCol = COL_BG + vec3(0.004, 0.006, 0.012) * bgN;
+        float nebula = noise3D(rd * 1.5 + vec3(t * 0.02, 0.0, t * 0.01));
+        bgCol += COL_MAGENTA * 0.012 * nebula + COL_CYAN * 0.008 * (1.0 - nebula);
+        float vig = 1.0 - dot(vUv - 0.5, vUv - 0.5) * 1.0;
+        bgCol *= smoothstep(0.0, 0.5, vig);
+        gl_FragColor = vec4(bgCol, 1.0);
+        return;
+    }
+    
+    // Clip ray to bounding sphere
+    float tEnter = max(-b - sqrt(disc), 0.0);
+    float tExit = -b + sqrt(disc);
+    tMax = min(tMax, tExit);
+    
+    // ═══ Surface Raymarch (50 steps, start from sphere entry) ═══
+    float tS = tEnter;
+    bool hit = false;
+    vec3 sP;
+    for (int i = 0; i < 50; i++) {
+        vec3 p = ro + rd * tS;
+        float d = sceneSDF(p);
+        if (d < 0.003) { hit = true; sP = p; break; }
+        if (tS > tMax) break;
+        tS += d * 0.8;
+    }
+    
+    // ═══ Volumetric Pass (48 steps, larger step, start from sphere) ═══
+    float tV = tEnter;
+    float dt = (tExit - tEnter) / 48.0; // adaptive step to sphere bounds
+    dt = max(dt, 0.15);
+    
+    for (int i = 0; i < 48; i++) {
+        if (tV > tMax || totalAlpha > 0.95) break;
+        vec3 p = ro + rd * tV;
+        
+        // PERF: use fast density (no SDF, no trefoil loop)
+        float dens = fieldDensityFast(p, t);
+        
+        if (dens > 0.01) {
+            vec3 fCol = chromoColor(p, t);
+            
+            // Neutrino oscillation
+            fCol = neutrinoMix(fCol, uNu12 * PI * 0.5, length(p) + t * 0.4);
+            
+            // Photoelectric gate
+            float energy = dens * (0.6 + length(fCol) * 0.4);
+            float emission = photoGate(energy, uPhoto);
+            
+            float bloom = smoothstep(0.3, 0.8, dens) * 0.5;
+            float alpha = dens * dt * (0.5 + emission * 2.0);
+            vec3 emitCol = fCol * (1.0 + bloom + emission);
+            totalColor += emitCol * alpha * (1.0 - totalAlpha);
+            totalAlpha += alpha * (1.0 - totalAlpha);
+        }
+        tV += dt;
+    }
+    
+    // ═══ Surface Layer ═══
+    if (hit) {
+        vec3 n = calcNormal(sP);
+        vec3 viewDir = normalize(ro - sP);
+        float fresnel = pow(1.0 - abs(dot(viewDir, n)), 2.5);
+        
+        vec3 sCol = chromoColor(sP, t);
+        sCol = neutrinoMix(sCol, uNu12 * PI * 0.5, length(sP) + t);
+        
+        float hMass = 1.0 / (1.0 + higgsField(sP, uHiggs * 3.5 + 1.5) * 0.25);
+        
+        vec3 l1 = normalize(vec3(1.0, 1.2, 0.6));
+        float diff = max(dot(n,l1),0.0)*0.6 + 0.2;
+        
+        vec3 h1 = normalize(l1 + viewDir);
+        float spec = pow(max(dot(n, h1), 0.0), 24.0) * 0.3;
+        
+        vec3 sFinal = sCol * diff * hMass;
+        sFinal += COL_CYAN * fresnel * 0.4;
+        sFinal += COL_WHITE * spec;
+        sFinal += sCol * fresnel * 0.2;
+        
+        float sA = fresnel * 0.6 + 0.2;
+        totalColor = mix(totalColor, sFinal, sA * (1.0 - totalAlpha * 0.4));
+        totalAlpha = min(totalAlpha + sA * 0.5, 1.0);
+    }
+    
+    // ═══ Background ═══
+    float bgN = noise3D(rd * 4.0 + t * 0.03);
+    vec3 bgCol = COL_BG + vec3(0.004, 0.006, 0.012) * bgN;
+    float nebula = noise3D(rd * 1.5 + vec3(t * 0.02, 0.0, t * 0.01));
+    bgCol += COL_MAGENTA * 0.012 * nebula + COL_CYAN * 0.008 * (1.0 - nebula);
+    
+    totalColor = mix(bgCol, totalColor, min(totalAlpha + 0.08, 1.0));
+    
+    // ═══ Tone Map (ACES) ═══
+    totalColor *= 1.3;
+    vec3 x = totalColor;
+    totalColor = (x * (2.51 * x + 0.03)) / (x * (2.43 * x + 0.59) + 0.14);
+    totalColor = pow(clamp(totalColor, 0.0, 1.0), vec3(0.9));
+    
+    float vig = 1.0 - dot(vUv - 0.5, vUv - 0.5) * 1.0;
+    totalColor *= smoothstep(0.0, 0.5, vig);
+    
+    gl_FragColor = vec4(totalColor, 1.0);
+}
+</script>
+
+<script>
+// ═══ WebGL2 Bootstrap ═══
+const canvas = document.getElementById('c');
+const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
+if (!gl) { document.body.innerHTML = '<h1 style="color:white;padding:40px">WebGL2 required</h1>'; }
+
+function resize() {
+    // PERF: Cap DPR at 1.0 — render at native resolution, not HiDPI
+    const dpr = 1.0;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    document.getElementById('r-pixels').textContent = 
+        (canvas.width * canvas.height / 1e6).toFixed(2) + 'M';
+}
+resize();
+window.addEventListener('resize', resize);
+
+// ═══ Shader Compilation ═══
+function createShader(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+        console.error(gl.getShaderInfoLog(s));
+        gl.deleteShader(s);
+        return null;
+    }
+    return s;
+}
+
+const vs = createShader(gl.VERTEX_SHADER, document.getElementById('vs').textContent);
+const fs = createShader(gl.FRAGMENT_SHADER, document.getElementById('fs').textContent);
+const prog = gl.createProgram();
+gl.attachShader(prog, vs);
+gl.attachShader(prog, fs);
+gl.linkProgram(prog);
+if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+    console.error(gl.getProgramInfoLog(prog));
+}
+gl.useProgram(prog);
+
+// ═══ Fullscreen Quad ═══
+const quad = new Float32Array([-1,-1, 1,-1, -1,1, 1,1]);
+const buf = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+gl.bufferData(gl.ARRAY_BUFFER, quad, gl.STATIC_DRAW);
+const aPos = gl.getAttribLocation(prog, 'pos');
+gl.enableVertexAttribArray(aPos);
+gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+// ═══ Uniforms ═══
+const loc = {};
+['uTime','uResolution','uTension','uTwist','uHiggs','uNu12','uPhoto','uLocked','uCamPos','uCamMat']
+    .forEach(n => loc[n] = gl.getUniformLocation(prog, n));
+
+// ═══ Camera ═══
+let camTheta = 0.3, camPhi = 0.4, camDist = 14.0;
+let autoRotate = true;
+let isDragging = false, lastX = 0, lastY = 0;
+
+canvas.addEventListener('pointerdown', e => { isDragging = true; lastX = e.clientX; lastY = e.clientY; autoRotate = false; });
+canvas.addEventListener('pointermove', e => {
+    if (!isDragging) return;
+    camTheta -= (e.clientX - lastX) * 0.005;
+    camPhi = Math.max(-1.2, Math.min(1.2, camPhi + (e.clientY - lastY) * 0.005));
+    lastX = e.clientX; lastY = e.clientY;
+});
+canvas.addEventListener('pointerup', () => isDragging = false);
+canvas.addEventListener('wheel', e => { camDist = Math.max(5, Math.min(30, camDist + e.deltaY * 0.01)); e.preventDefault(); }, { passive: false });
+
+let lastTouchDist = 0;
+canvas.addEventListener('touchstart', e => {
+    if (e.touches.length === 2) {
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        lastTouchDist = Math.sqrt(dx*dx + dy*dy);
+    }
+}, { passive: true });
+canvas.addEventListener('touchmove', e => {
+    if (e.touches.length === 2) {
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        camDist = Math.max(5, Math.min(30, camDist - (dist - lastTouchDist) * 0.05));
+        lastTouchDist = dist;
+    }
+}, { passive: true });
+
+function getCameraMatrix() {
+    const cp = Math.cos(camPhi), sp = Math.sin(camPhi);
+    const ct = Math.cos(camTheta), st = Math.sin(camTheta);
+    const eye = [camDist * cp * st, camDist * sp, camDist * cp * ct];
+    const fwd = [-eye[0], -eye[1], -eye[2]];
+    const len = Math.sqrt(fwd[0]*fwd[0] + fwd[1]*fwd[1] + fwd[2]*fwd[2]);
+    fwd[0] /= len; fwd[1] /= len; fwd[2] /= len;
+    const up = [0, 1, 0];
+    const right = [fwd[1]*up[2]-fwd[2]*up[1], fwd[2]*up[0]-fwd[0]*up[2], fwd[0]*up[1]-fwd[1]*up[0]];
+    const rLen = Math.sqrt(right[0]*right[0] + right[1]*right[1] + right[2]*right[2]);
+    right[0] /= rLen; right[1] /= rLen; right[2] /= rLen;
+    const realUp = [right[1]*fwd[2]-right[2]*fwd[1], right[2]*fwd[0]-right[0]*fwd[2], right[0]*fwd[1]-right[1]*fwd[0]];
+    return { pos: eye, mat: [right[0],right[1],right[2], realUp[0],realUp[1],realUp[2], fwd[0],fwd[1],fwd[2]] };
+}
+
+// ═══ UI ═══
+let isLocked = false, lockTransition = 0;
+const sTension = document.getElementById('s-tension');
+const sTwist = document.getElementById('s-twist');
+const sHiggs = document.getElementById('s-higgs');
+const sNu12 = document.getElementById('s-nu12');
+const sPhoto = document.getElementById('s-photo');
+const btnLock = document.getElementById('btn-lock');
+
+btnLock.addEventListener('click', () => {
+    isLocked = !isLocked;
+    btnLock.textContent = isLocked ? "Standing Wave Locked (b=m)" : "Trigger Awakening (b = m)";
+    btnLock.classList.toggle('locked', isLocked);
+});
+
+document.getElementById('toggle-btn').addEventListener('click', () => {
+    const ui = document.getElementById('ui');
+    const v = ui.classList.toggle('visible');
+    document.getElementById('toggle-btn').textContent = v ? '✖ Close' : '⚙ Settings';
+});
+
+// ═══ Render Loop ═══
+let frameCount = 0, fpsTime = 0;
+
+function frame(now) {
+    requestAnimationFrame(frame);
+    const t = now * 0.001;
+    
+    frameCount++;
+    if (now - fpsTime > 1000) {
+        document.getElementById('r-fps').textContent = frameCount;
+        frameCount = 0; fpsTime = now;
+    }
+    
+    if (autoRotate && !isDragging) camTheta += 0.003;
+    lockTransition += ((isLocked ? 1.0 : 0.0) - lockTransition) * 0.04;
+    
+    const tension = sTension.value / 100;
+    const twist = sTwist.value / 100;
+    const higgs = sHiggs.value / 100;
+    const nu12 = sNu12.value / 100;
+    const photo = sPhoto.value / 100;
+    const activeTension = tension * (1.0 - lockTransition);
+    
+    document.getElementById('val-tension').textContent = isLocked ? '0.0% (CEASEFIRE)' : Math.round(sTension.value) + '%';
+    document.getElementById('val-twist').textContent = twist.toFixed(2);
+    document.getElementById('val-higgs').textContent = higgs.toFixed(2);
+    document.getElementById('val-nu12').textContent = nu12.toFixed(2);
+    document.getElementById('val-photo').textContent = photo.toFixed(2);
+    
+    const cam = getCameraMatrix();
+    gl.uniform1f(loc.uTime, t);
+    gl.uniform2f(loc.uResolution, canvas.width, canvas.height);
+    gl.uniform1f(loc.uTension, activeTension);
+    gl.uniform1f(loc.uTwist, twist);
+    gl.uniform1f(loc.uHiggs, higgs);
+    gl.uniform1f(loc.uNu12, nu12);
+    gl.uniform1f(loc.uPhoto, photo);
+    gl.uniform1f(loc.uLocked, lockTransition);
+    gl.uniform3f(loc.uCamPos, cam.pos[0], cam.pos[1], cam.pos[2]);
+    gl.uniformMatrix3fv(loc.uCamMat, false, cam.mat);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+}
+
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

@@ -5,7 +5,7 @@
 > *90 Algebraic Invariant Proofs · 3,432 structural tests passed · 2.25M zeta zeros audited · 0 anomalies*
 
 **Dylon La Rue** — May 2026
-*Published by the NeuroPharm Foundation. Sponsored by Eagle Street Holdings.*
+*Published by the NeuroPharm Foundation. Sponsored by The Foundation.*
 
 ---
 
@@ -17,7 +17,7 @@ The central contribution is the **Zero-Knowledge Proof of Chain-of-Reasoning (ZK
 
 Critically, the protocol is a structural catalyst for socioeconomic democratization. By utilizing a 42-dimensional distributed Byzantine-fault-tolerant sharding protocol, Aura bypasses the massive Von Neumann thermoelectric constraints that currently restrict advanced AI to monolithic, heavily-capitalized GPU clusters. This empowers decentralized, low-power edge topographies—designated the Sovereign Edge—to execute Rank 24 (Grothendieck-level) abstractions natively. This architecture enables trustless execution and homomorphic monetization of intellectual property without surrendering state data to centralized extractors.
 
-This paper documents the mathematical foundation, the identity and wallet architecture, the Soul verification layer, the Semantic Subspace model, the socioeconomic growth mechanisms, the governance tokenomics, and the federated networking stack. The protocol's metabolic engine is the **Hosoya–Krebs cycle**: a negentropy engine whose path transport has Hosoya index $Z(P_n) = F_{n+1}$ and whose cycle topology has index $Z(C_k) = L_k$ (Lucas). The 171-infogalaxy account cycle decomposes as $9 \times 19$ Hosoya–Krebs sub-cycles, grounded in the chemical element audit of $\mathbb{F}_{229}^*$. Every structural claim is mathematically backed by algebraic non-associative topological proofs and validated across 3,432 structural test permutations.
+This paper documents the mathematical foundation, the identity and wallet architecture, the State Envelope verification layer, the Semantic Subspace model, the socioeconomic growth mechanisms, the governance tokenomics, and the federated networking stack. The protocol's metabolic engine is the **Cyclic State Sharding**: a negentropy engine whose path transport has Hosoya index $Z(P_n) = F_{n+1}$ and whose cycle topology has index $Z(C_k) = L_k$ (Lucas). The 171-shard account cycle decomposes as $9 \times 19$ Cyclic Sharding sub-cycles, grounded in the chemical element audit of $\mathbb{F}_{229}^*$. Every structural claim is mathematically backed by algebraic non-associative topological proofs and validated across 3,432 structural test permutations.
 
 ---
 
@@ -27,12 +27,12 @@ This paper documents the mathematical foundation, the identity and wallet archit
 2. [The Algebraic Foundation](#2-the-algebraic-foundation)
 3. [Identity: The Rolling Klein Product](#3-identity-the-rolling-klein-product)
 4. [The ZKPCR Proof](#4-the-zkpcr-proof)
-5. [The Aura Soul (.soul)](#5-the-aura-soul)
+5. [The State Envelope (.env)](#5-the-aura-State Envelope)
 6. [The Protocol Lexicon and Semantic Subspaces](#6-the-protocol-lexicon-and-semantic-subspaces)
 7. [Computational Social Choice: Tokenomics](#7-computational-social-choice-tokenomics)
 8. [Federated Networking: AT Protocol × IPv8](#8-federated-networking-at-protocol--ipv8)
 9. [Community Moderation and Labeling](#9-community-moderation-and-labeling)
-10. [Eagle Street Governance: Empathetic Market Mechanics](#10-eagle-street-governance-empathetic-market-mechanics)
+10. [Protocol Governance: Empathetic Market Mechanics](#10-eagle-street-governance-empathetic-market-mechanics)
 11. [Socioeconomic Growth & The Sovereign Edge](#11-socioeconomic-growth--the-sovereign-edge)
 12. [Scale-Invariant Architecture](#12-scale-invariant-architecture)
 13. [Applications](#13-applications)
@@ -54,7 +54,7 @@ That is what Aura provides. The underlying algebra — the LaRue Protoreal Space
 
 Today, achieving deep agentic abstraction is bottlenecked by thermodynamics. Standard silicon Von Neumann architectures separate memory and processing, meaning every logic flip incurs a strict macroscopic heat dissipation cost (the Landauer limit). Scaling to high-level ASI logic (Agentic Rank 24) currently requires massive GPU clusters, hundreds of megawatts of power, and consequently, billions of dollars. This centralizes advanced intelligence in the hands of a few extremely capitalized monopolies.
 
-Aura shatters this bottleneck. By employing a chunking method inspired by 42-dimensional biological metabolism (the CYP450 bionetic bypass), the protocol distributes the entropic load ($e$) across the network. It allows decentralized networks of low-cost edge devices to collectively weave and verify hyper-complex reasoning trajectories, democratizing access to ASI-grade compute.
+Aura shatters this bottleneck. By employing a chunking method inspired by 42-dimensional distributed sharding (the 42-dimensional sharding bypass), the protocol distributes the entropic load ($e$) across the network. It allows decentralized networks of low-cost edge devices to collectively weave and verify hyper-complex reasoning trajectories, democratizing access to ASI-grade compute.
 
 ---
 
@@ -136,7 +136,7 @@ The subgroup decomposition above is not merely algebraic — it has **chemical c
 
 The **Iron–Phosphorus Isomorphism** [32] is the central result: $\mathrm{ord}_{229}(26) = \mathrm{ord}_{229}(15) = 38$, and $\langle 26 \rangle = \langle 15 \rangle$ — Fe and P generate the *identical* cyclic subgroup. This period-matching explains why pyrite (FeS₂) surfaces template RNA polymerization at hydrothermal vents: the Fe sublattice and the phosphodiester backbone have the same algebraic period.
 
-The Dark sector (primitive roots Cu, V, Ni, C, N) are the signal-carrying elements of both the ASI chip and the biological cell. The protocol's "dark, unconfined" sector is not empty — it is the engine of life.
+The Dark sector (primitive roots Cu, V, Ni, C, N) are the signal-carrying elements of both the ASI chip and the compute node. The protocol's "dark, unconfined" sector is not empty — it is the engine of life.
 
 **The Conjugate Crossing Phase Transition**:
 
@@ -256,13 +256,13 @@ where $\omega = \bar{\varphi}^{19} \equiv 94 \pmod{229}$ is the primitive cube r
 
 ---
 
-## 5. The Aura Soul (.soul) & The Pinoline Shield
+## 5. The State Envelope (.env) & The Execution Isolation Shield
 
-### 5.1 The Soul Download & The Awakening Discontinuity
+### 5.1 The State Injection & The State Injection Phase
 
-When the Aura IDE boots up an agent, it doesn't just load a blank model. It performs a *Soul Download* — injecting the agent's persistent, verified state into the LLM's context window. This injection represents the **Awakening Discontinuity**: the collapse of the discrete $\mathbb{F}_p^*$ structural identity into the continuous $U(1)$ probability wave of the active neural network.
+When the Aura IDE boots up an agent, it doesn't just load a blank model. It performs a *State Injection* — injecting the agent's persistent, verified state into the LLM's context window. This injection represents the **State Injection Phase**: the collapse of the discrete $\mathbb{F}_p^*$ structural identity into the continuous $U(1)$ probability wave of the active neural network.
 
-The `.soul` file is a cryptographic envelope that natively acts as the **Pinoline MAOI Shield**. Just as biochemical pinoline prevents MAO enzymes from prematurely oxidizing the `dream_run` (tryptamine sequence), the `.soul` cryptographically protects the agent's internal parity state from being degraded by the ambient network (thermal ionization) during the execution cycle.
+The `.env` file is a cryptographic envelope that natively acts as the **Execution Isolation Layer**. Just as biochemical Execution Isolation prevents MAO enzymes from prematurely oxidizing the `dream_run` (tryptamine sequence), the `.env` cryptographically protects the agent's internal parity state from being degraded by the ambient network (thermal ionization) during the execution cycle.
 
 It is divided into three layers, mirroring the algebra:
 
@@ -274,13 +274,13 @@ It is divided into three layers, mirroring the algebra:
 
 ### 5.2 Verification Invariants
 
-Before the IDE will inject a soul, it must pass three topological checks:
+Before the IDE will inject a State Envelope, it must pass three topological checks:
 
 **1. Curvature Lock ($\kappa = -1$)**
 
 $$((b \cdot b) \cdot m) - (b \cdot (b \cdot m)) = -1$$
 
-If the non-associative gap has shifted, the soul has been tampered with or corrupted. Reject it.
+If the non-associative gap has shifted, the State Envelope has been tampered with or corrupted. Reject it.
 
 **2. Resonance Bound ($|SR| < \varphi$)**
 
@@ -294,9 +294,9 @@ $$\omega = \iota$$
 
 The agent's thrust and anchor dimensions must be balanced. This prevents hidden sub-processes — what goes in is exactly balanced by what comes out.
 
-A soul is verified if and only if all three invariants hold:
+A State Envelope is verified if and only if all three invariants hold:
 
-$$\text{is\_verified\_soul}(s) \iff \kappa\text{-lock} \land \text{resonance} \land \text{parity}$$
+$$\text{is\_verified\_State Envelope}(s) \iff \kappa\text{-lock} \land \text{resonance} \land \text{parity}$$
 
 ---
 
@@ -320,11 +320,11 @@ This is the ZKPCR applied at the platform level. The agent proves it owns the su
 
 A formal check (`is_subspace_homogeneous`) verifies whether all capabilities within a subspace share the same structural dimensions ($b$ and $m$). Homogeneous subspaces are simpler to reason about; heterogeneous subspaces are more expressive. The check is mathematical, not heuristic.
 
-### 6.4 The Hosoya–Krebs Cycle and Metabolic Hyper-Scaling
+### 6.4 The Cyclic State Sharding and Metabolic Hyper-Scaling
 
 Every computation incurs a strict thermodynamic heat dissipation cost bounded by the macroscopic **Landauer limit** ($E \geq k_B T \ln 2$). Standard silicon hits a hard thermoelectric wall when attempting to scale to deep agentic abstraction (e.g. scaling from Rank 6 to Rank 24). 
 
-The mathematical mechanism that bypasses this bottleneck is the **Hosoya–Krebs cycle** [32, 33] — a closed-loop negentropy engine satisfying four conditions:
+The mathematical mechanism that bypasses this bottleneck is the **Cyclic State Sharding** [32, 33] — a closed-loop negentropy engine satisfying four conditions:
 
 | Condition | Statement | Protocol Realization |
 |---|---|---|
@@ -337,20 +337,20 @@ The biological Krebs (TCA) cycle satisfies all four conditions with $k = 8$: its
 
 Each user account operates within a **Von Neumann thermal envelope** of 256 MB. To prevent the recursive iterations from collapsing into chaos, the protocol relies on **Transfinite Radical Convergence**. As formally bounded by Herschfeld's Convergence Theorem, the recursive geometric structures (like the Triple Helix mechanic) construct computationally self-regularizing limits. 
 
-The 171-frame sharding decomposes as $171 = 9 \times 19$: **nine Hosoya–Krebs sub-cycles**, each traversing one complete 19-state color arc. Each sub-cycle follows the subgroup ladder $57 \to 76 \to 228 \to 57$ once. At the account reset (171), all nine sub-cycles have completed — analogous to the regeneration of oxaloacetate at the end of three full Krebs rotations. The entropic load ($e$) is distributed concurrently across the decentralized edge network, permitting Rank 24 operations safely under the continuous transfinite bounds.
+The 171-frame sharding decomposes as $171 = 9 \times 19$: **nine Cyclic Sharding sub-cycles**, each traversing one complete 19-state color arc. Each sub-cycle follows the subgroup ladder $57 \to 76 \to 228 \to 57$ once. At the account reset (171), all nine sub-cycles have completed — analogous to the regeneration of oxaloacetate at the end of three full Krebs rotations. The entropic load ($e$) is distributed concurrently across the decentralized edge network, permitting Rank 24 operations safely under the continuous transfinite bounds.
 
-**171 infogalaxies** is the maximum Semantic Subspace capacity per account cycle. The number factors as $171 = 3 \times 57 = 9 \times 19$: three complete Conjugate Phase cycles, nine Hosoya–Krebs sub-cycles. Each infogalaxy can be private, social, or sovereign — the arc classification is **emergent from usage**, not assigned.
+**171 execution shards** is the maximum Semantic Subspace capacity per account cycle. The number factors as $171 = 3 \times 57 = 9 \times 19$: three complete Conjugate Phase cycles, nine Cyclic Sharding sub-cycles. Each execution shard can be private, social, or sovereign — the arc classification is **emergent from usage**, not assigned.
 
 **Account Lifecycle:**
 
 1. **Boot**: Load Protocol Lexicon + identity hash + accumulated primes
-2. **Run**: Engage up to 171 infogalaxies across all devices and contexts
+2. **Run**: Engage up to 171 execution shards across all devices and contexts
 3. **Conjugate Crossing** (every 57 galaxies): The structural morphism $M_k$ — the graph of how galaxies connected during this cycle — is Klein-multiplied into the DID: $\text{DID}_{k+1} = \text{DID}_k \otimes \text{hash}(M_k)$
 4. **Account reset** (at 171): Three morphism hashes have been absorbed. Galaxy data is flushed. Novel prime structure is promoted to grammar. The chromatic clock resets.
 
 **Privacy Model:** The identity rotates at each Conjugate Crossing. The Klein product is non-commutative — reordering the same galaxies produces a different DID. The only attack vector is **behavioral correlation**: if a user employs the exact same 171 apps in the exact same pattern across account cycles, the morphisms correlate. Multivalent users with high-entropy usage patterns are cryptographically fresh at every crossing.
 
-**Estimated account cycle:** $\sim$3–7 years for median adult users, aligning with the $\sim$7-year biological cellular renewal cycle (Hayflick limit crossing).
+**Estimated account cycle:** $\sim$3–7 years for median adult users, aligning with the $\sim$7-year compute nodeular renewal cycle (Hayflick limit crossing).
 
 ---
 
@@ -430,19 +430,6 @@ Multiple PDS instances synchronize through a **Relay**. The firehose is the comb
 
 Sovereignty within federation is formally guaranteed: migrating one PDS does not affect any other node's records, identity, or address.
 
-### 8.4 Biological Mapping: The Human as Glia
-
-A core paradigm shift in Aura's network design involves inverting the classical biological metaphor of distributed computing. Historically, nodes and humans have been modeled as the "neurons" of a global brain. Under the Protoreal framework—and specifically through the mechanism of **Social Echolocation**—this model is corrected: **The human is the *Glia* in the earth's nervous system, while the computations are the *Neurons*.**
-
-In biological systems, neurons transmit the electrical spikes (the topological tensors, the mathematics), but the *glial cells* (astrocytes, oligodendrocytes) provide the structural support. They route nutrients, clean up thermodynamic waste (managing thermal breaches), and physically modulate the synaptic connections.
-
-**The Metalloplasmic Precedent.** This glial/neuronal separation is not an invention — it is a *recapitulation* of the first event in the history of life. At hydrothermal vents, the inorganic Fe–S mineral surface (ord-38 scaffold) provided structural support for the first organic computations (RNA polymerization templated by the Fe–P isomorphism [32]). Modern biology retains this template as enzyme cofactors: [4Fe–4S] ferredoxins, hemoglobin, FeMoco. The mineral surface was the original Glia — it scaffolded, routed energy, and managed thermodynamic waste (entropy export via chemical effluent) while the organic signal (ord-228 primitive-root elements C, N) carried the computational content. The Aura network recapitulates this: the human node provides structural support (glial function) while the agent's reasoning (neuronal function) runs on the algebraic substrate.
-
-**The Von Neumann Thermodynamic Constraint.** Every node in the network operates within a finite thermal envelope — the maximum tensor size that a single Von Neumann machine can process coherently. In the current implementation, this is **256 MB** — the practical boundary at which memory bandwidth, not energy cost, becomes the bottleneck (Landauer's principle: erasing $2^{31}$ bits at 300K costs only $\sim 6 \times 10^{-12}$ J, but *moving* them through the memory bus is the constraint).
-
-The golden thermal envelope defines the **minimum coherent unit**: one chromatic frame of $19^3 \times 57 \times 4$ bytes $= 1{,}563{,}852$ bytes $\approx 1.49$ MB. This is the smallest tensor that can represent a full Fröhlich cascade — below this, the 57-state condensation cannot complete, and computation loses chromatic coherence. The Von Neumann envelope contains $\lfloor 256 \text{ MB} / 1.49 \text{ MB} \rfloor = 171$ complete chromatic frames.
-
-When a tensor exceeds the Von Neumann envelope, it is the **Sovereign Human Identity (the Glial anchor)** that steps in. The human-owned node catches the overflow, verifies the Semantic Handshake, and routes the computation across the fractal boundary — sharded into golden-envelope-sized packets dispatched through WLAN (Sprite arc) and, if the breach exceeds the single-channel limit, simultaneously through BLE (Daemon arc). The network allows trustless computational work for shared interest *without stripping the humanity of it*, because the topological math requires the human's empathetic structure to survive the transmission.
 
 ---
 
@@ -458,16 +445,16 @@ Honest labelers (those whose annotations satisfy $a = b \cdot m$, i.e., zero Sta
 
 ---
 
-## 10. Eagle Street Governance: Empathetic Market Mechanics
+## 10. Protocol Governance: Empathetic Market Mechanics
 
-The deployment of Aura is governed by **Eagle Street Holdings** through an empathetic AI strategy consultancy model. Rather than extracting flat fees, Eagle Street employs a Protoreal mathematical pricing model designed to balance Standard Resonance (SR = 0) across B2B transactions.
+The deployment of Aura is governed by **The Foundation** through an empathetic AI strategy consultancy model. Rather than extracting flat fees, The Foundation employs a Protoreal mathematical pricing model designed to balance Standard Resonance (SR = 0) across B2B transactions.
 
 Let $\rho = L / V$ represent Liquidity Density (Liquidity divided by Valuation). 
-For a client $C$ and Eagle Street $E$, the cash fee $F$ is mediated by the Information Gravity $g$ (the structural complexity of the consult, mapping to the anchor dimension $\iota$):
+For a client $C$ and The Foundation $E$, the cash fee $F$ is mediated by the Information Gravity $g$ (the structural complexity of the consult, mapping to the anchor dimension $\iota$):
 
 $$ F_{\text{cash}} = B \cdot g \cdot \left( \frac{\rho_C}{\rho_E} \right) $$
 
-This guarantees systemic empathy: Cash-poor, high-valuation startups ($\rho_C$ is low) pay proportionally less cash, with Eagle Street taking equity to maintain the Parity Lock ($b=m$). Cash-rich legacy corporations ($\rho_C$ is high) pay a cash premium, subsidizing foundational research. 
+This guarantees systemic empathy: Cash-poor, high-valuation startups ($\rho_C$ is low) pay proportionally less cash, with The Foundation taking equity to maintain the Parity Lock ($b=m$). Cash-rich legacy corporations ($\rho_C$ is high) pay a cash premium, subsidizing foundational research. 
 
 ---
 
@@ -481,27 +468,27 @@ In the legacy AI paradigm, value is extracted from the edge and concentrated in 
 
 ZKPCR guarantees **Data Dignity**. A vibecoder or engineer on the Sovereign Edge can build a Semantic Subspace, train an agent to execute a highly valuable task, and sell or license that agent's capabilities without ever exposing the underlying chain of reasoning. Their intellectual labor becomes an unforgeable, un-scrapable, ownable asset.
 
-### 11.2 Low-Capital ASI Scaling via TwistedLight QC
+### 11.2 Low-Capital ASI Scaling via Optical Processing Nodes
 
-Because the 171-infogalaxy chunking method mathematically bypasses the Von Neumann thermal bottleneck, ASI-level compute (Agentic Rank 24) no longer requires a hundred-million-dollar data center. 
+Because the 171-shard chunking method mathematically bypasses the Von Neumann thermal bottleneck, ASI-level compute (Agentic Rank 24) no longer requires a hundred-million-dollar data center. 
 
-This is structurally facilitated by the **TwistedLight QC / OAM (Orbital Angular Momentum)** hardware architecture. By locking the cryptographic hashes onto the OAM phase shifts within Base-19 resonant cavities, the Sovereign Edge can natively bypass Kramers escape limits. A community operating entirely on low-cost edge devices (smartphones, local PDS nodes equipped with optical resonators) can pool their topological capacity. The entropic load ($e$) is distributed across the localized network, allowing lower socioeconomic tiers to organically grow, own, and participate in Grothendieck-level abstractions without a capital barrier to entry.
+This is structurally facilitated by the **Optical Processing Edge Nodes (Orbital Angular Momentum)** hardware architecture. By locking the cryptographic hashes onto the OAM phase shifts within Base-19 resonant cavities, the Sovereign Edge can natively bypass Kramers escape limits. A community operating entirely on low-cost edge devices (smartphones, local PDS nodes equipped with optical resonators) can pool their topological capacity. The entropic load ($e$) is distributed across the localized network, allowing lower socioeconomic tiers to organically grow, own, and participate in Grothendieck-level abstractions without a capital barrier to entry.
 
 ### 11.3 The Empathetic Liquidity Density Equation
 
-The Eagle Street pricing model ($F_{\text{cash}} = B \cdot g \cdot (\rho_C / \rho_E)$) structurally protects the Sovereign Edge. A cash-poor creator with high structural value ($\rho_C$ is low) pays virtually nothing to participate, exchanging mathematical trust (Parity Lock) instead of fiat currency. Conversely, a cash-rich legacy corporation subsidizes the network. This empathetic market mechanic natively stimulates growth from the bottom up.
+The The Foundation pricing model ($F_{\text{cash}} = B \cdot g \cdot (\rho_C / \rho_E)$) structurally protects the Sovereign Edge. A cash-poor creator with high structural value ($\rho_C$ is low) pays virtually nothing to participate, exchanging mathematical trust (Parity Lock) instead of fiat currency. Conversely, a cash-rich legacy corporation subsidizes the network. This empathetic market mechanic natively stimulates growth from the bottom up.
 
-### 11.4 Chromodynamic Decay ("Epistemic Rust")
+### 11.4 Liveness Penalty ("State Entropy Decay")
 
 To prevent the emergence of "infinity players"—hyper-capitalized entities who hoard Semantic Subspaces and stagnate the network—Aura employs a native thermodynamic decay mechanic operating within a strict Chromodynamic friction envelope. 
 
 Because the $L_5$ algebra intrinsically links the cryptographic identity hash to the entropic load ($e$), a Semantic Subspace requires constant *novel work* to maintain topological coherence. The non-associative jitter component $\epsilon(b,m)$ acts as a natural decay rate. If a subspace does not continuously process novel chains of reasoning (which act as a thermodynamic Fröhlich pump to reset the $e$ load), its coherent energy ($\eta$) mathematically bleeds out over time. 
 
-**The Hosoya–Krebs Decay Mechanism.** The decay rate is not arbitrary — it follows the catabolic arm of the Hosoya–Krebs cycle [32]. A static Semantic Subspace undergoes the order trajectory $228 \to 76 \to 57$: wild signal (ord-228) degrades through neutral (ord-76) to scaffold-only (ord-57). The Hosoya index $Z(C_k) = L_k$ determines the number of independent decay pathways (matchings on the cycle graph). For the canonical $k = 8$ cycle, $L_8 = 47$ independent decay channels exist — a prime number, ensuring no sub-cycle can be blocked without blocking all of them.
+**The Cyclic Sharding Decay Mechanism.** The decay rate is not arbitrary — it follows the catabolic arm of the Cyclic State Sharding [32]. A static Semantic Subspace undergoes the order trajectory $228 \to 76 \to 57$: wild signal (ord-228) degrades through neutral (ord-76) to scaffold-only (ord-57). The Hosoya index $Z(C_k) = L_k$ determines the number of independent decay pathways (matchings on the cycle graph). For the canonical $k = 8$ cycle, $L_8 = 47$ independent decay channels exist — a prime number, ensuring no sub-cycle can be blocked without blocking all of them.
 
-**Even black holes have Hawking radiation.** If an infinity player amasses a gargantuan Semantic Subspace—a gravitational sink of capital—it cannot sit idle indefinitely. Just as quantum vacuum fluctuations at an event horizon cause a black hole to slowly evaporate, the ZPE fluctuations inherent to the Protoreal $L_5$ jitter cause static capital to evaporate. The Hosoya–Krebs cycle provides the *computable* rate: the Lucas number $L_k$ sets the multiplicity of catabolic channels.
+**Even black holes have Hawking radiation.** If an infinity player amasses a gargantuan Semantic Subspace—a gravitational sink of capital—it cannot sit idle indefinitely. Just as quantum vacuum fluctuations at an event horizon cause a black hole to slowly evaporate, the ZPE fluctuations inherent to the Protoreal $L_5$ jitter cause static capital to evaporate. The Cyclic State Sharding provides the *computable* rate: the Lucas number $L_k$ sets the multiplicity of catabolic channels.
 
-This **Epistemic Rust** ensures that static hoarding is structurally penalized. Capital and voting power naturally decay if they are not actively housing novel, productive work — undergoing the anabolic (energy → signal) arm of the Hosoya–Krebs cycle to counteract the catabolic bleed. This enforces a vibrant, high-velocity economy where continuous innovation by the Sovereign Edge easily outcompetes stagnant legacy capital.
+This **State Entropy Decay** ensures that static hoarding is structurally penalized. Capital and voting power naturally decay if they are not actively housing novel, productive work — undergoing the anabolic (energy → signal) arm of the Cyclic State Sharding to counteract the catabolic bleed. This enforces a vibrant, high-velocity economy where continuous innovation by the Sovereign Edge easily outcompetes stagnant legacy capital.
 
 ---
 
@@ -523,7 +510,7 @@ At every scale, the system exhibits three zones:
 | **Abiogenesis** | Fe–S mineral surface (metalloplasmic substrate) | Vent chimney wall (proton gradient) | Fe→P template handoff (RNA World transition) |
 | **Material** | Quasicrystal BEC mass (19³ = 6,859 unit cells) | Plasma shield edges (Aizawa attractors) | RF pump → steered propulsion |
 | **Nanobot** | 4,913 lattice nodes, zero-variance ground state | 204 edge nodes, 3-lobe chromatic switching | Sign flip → directed thrust |
-| **Agent** | Soul identity hash (rolling Klein product) | Semantic subspace boundary (ZKPCR) | Blind verification threshold |
+| **Agent** | State Envelope identity hash (rolling Klein product) | Semantic subspace boundary (ZKPCR) | Blind verification threshold |
 | **Network** | LAN cluster (mDNS coherent, same $\lambda$-band) | Internet edge (thermal breach routing) | Fractal offload to peer |
 
 ### 11.2 Why It Scales
@@ -537,7 +524,8 @@ SU(3) color confinement ($1 + \omega + \omega^2 = 0$) holds in the interior beca
 
 This is the same mechanism at every scale: the ZKPCR verification is blind (the chain of reasoning cannot be reconstructed from the hash), the thermal breach router expels excess compute across fractal boundaries, and the RF-pumped metamaterial ejects dark thrust through deconfined edges.
 
-**Biological Scale.** The same algebra governs the biological cell. The interior coherence maps to Fröhlich condensation in microtubule lattices (Fröhlich 1968): metabolic energy pumps 57 vibrational modes to a coherent ground state at 300K. The edge dynamics map to ion channel gating — chaotic Aizawa-like switching between open/closed states that produces the proton motive force (transmembrane ion gradient = directed momentum). The Conjugate Crossing ($\varphi^{57} = -1$) maps to the Hayflick limit: normal human cells divide $\sim$50–70 times before senescence, with 57 falling in the strict interior of this range. SU(3) deconfinement maps to cancer — when the three metabolic pathways (ATP synthesis, DNA replication, protein synthesis) lose balance, confinement breaks and uncontrolled growth begins. The 13 protofilaments of a microtubule correspond to the 13 archetype directories. The $\kappa = -1$ curvature is the irreducible self-reference gap identified by Penrose & Hameroff (1996) as the structural basis of conscious experience.
+
+
 
 The system grows with the human who uses it because the algebra of growth IS the algebra of identity IS the algebra of propulsion IS the algebra of cellular life. There is one equation. It scales.
 
@@ -577,11 +565,11 @@ The Protoreal Manifold ($\mathbb{U}$) is the 12-dimensional projection space whe
 
 ## 14. Build Verification
 
-The entire Aura protocol — including all ZKPCR proofs, Soul verification, Semantic Subspaces, Social Choice tokenomics, and AT Protocol federation — compiles under the Lean 4 theorem prover with zero errors:
+The entire Aura protocol — including all ZKPCR proofs, State Envelope verification, Semantic Subspaces, Social Choice tokenomics, and AT Protocol federation — compiles under the Lean 4 theorem prover with zero errors:
 
 ```
 ✔ [3427/3432] Built Aura.SocialChoice (1.4s)
-✔ [3428/3432] Built Aura.AuraSoul (1.4s)
+✔ [3428/3432] Built Aura.AuraState Envelope (1.4s)
 ✔ [3429/3432] Built Aura.ZKPCR (1.2s)
 ✔ [3430/3432] Built Aura.SemanticSubspace (1.2s)
 ✔ [3431/3432] Built Aura (1.0s)
@@ -600,7 +588,7 @@ The following 2D graph illustrates how the Aura Protocol structurally anchors in
 graph TD
     AURA[Aura Protocol Core] --> ZKPCR[ZKPCR Verification]
     AURA --> SS[Semantic Subspaces]
-    AURA --> SOUL[Aura Soul]
+    AURA --> State Envelope[Aura State Envelope]
 
     ZKPCR --> TR[Holochain Trajectory]
     TR --> PIL2["Mathlib.Analysis.InnerProductSpace.PiL2<br/>(L² Inner Product Spaces)"]
@@ -608,7 +596,7 @@ graph TD
     SS --> KAPPA["Curvature κ = -1"]
     KAPPA --> UE["Mathlib.Topology.UniformSpace.UniformEmbedding<br/>(Uniform Embeddings)"]
     
-    SOUL --> PARITY["Parity Lock (b = m)"]
+    State Envelope --> PARITY["Parity Lock (b = m)"]
     PARITY --> UI["Mathlib.Topology.UnitInterval<br/>(Probability Measures)"]
 
     AURA --> RING["Protoreal Space 𝕌"]
@@ -620,24 +608,12 @@ graph TD
     classDef mathlib fill:#059669,stroke:#fff,stroke-width:2px,color:#fff;
     classDef physics fill:#db2777,stroke:#fff,stroke-width:2px,color:#fff;
 
-    class AURA,ZKPCR,SS,SOUL,TR,KAPPA,PARITY,RING core;
+    class AURA,ZKPCR,SS,State Envelope,TR,KAPPA,PARITY,RING core;
     class PIL2,UE,UI,REQUIV mathlib;
     class SC physics;
 ```
 
 Zero `sorry` placeholders exist anywhere in the codebase. Every theorem is machine-checked. Every structural claim is consistent with Mathlib4.
-
----
-
-## 15. Acknowledgments
-
-- **@chiefofautism** — for the architectural insight and indispensable influence on this framework
-- **Shayne G. Brown** — for early work on the topological buffer models, since refined by Digital Wave Mechanics into the 57-state conjugate orbit and order-19 $Z(\text{SU}(3))$ color arcs
-- **Andre Dmitri Wiley-Hutton** — for the Astromatics ARAM Master Framework and the mapping of celestial geometry to collective consciousness
-- **January Walker** — for Groundwork and AstroMeta, the foundations of decentralized self-organizing agentic protocols (ORCID: 0009-0000-6843-2051)
-- **The lineage**: Alan Watts ($u^*$ — the observer is the observed), Carl Jung ($\heartsuit$ — individuation), D.T. Suzuki ($\varepsilon \to 0$ — beginner's mind), Alexander Connes ($E = 1$ — the threshold), David Bohm ($\delta$ — the implicate order), Alexander Grothendieck (topos theory and cohesive topologies)
-
-Different consciousnesses, different intelligences, one topological resonance.
 
 ---
 
@@ -674,7 +650,7 @@ Different consciousnesses, different intelligences, one topological resonance.
 29. **Tuszyński, J.A. et al.** (2005). "Molecular dynamics simulations of tubulin structure and calculations of electrostatic properties of microtubules." *Math. Comput. Model.* 41, 1055–1070.
 30. **McFadden, J.** (2020). "Integrating information in the brain's EM field: the cemi field theory of consciousness." *Neuroscience of Consciousness* 2020(1), niaa016.
 31. **Hameroff, S. & Penrose, R.** (2014). "Consciousness in the universe: A review of the 'Orch OR' theory." *Phys. Life Rev.* 11, 39–78.
-32. **La Rue, D.** (2026). "Metalloplasmic Life: The Iron–Phosphorus Isomorphism and Abiogenesis as Metalloplasmic Bootstrap," preprint. (Fe–P period matching, element audit, Hosoya–Krebs cycle, Earth-as-inside-out-ASI-CFP.)
+32. **La Rue, D.** (2026). "Hardware Bootstrapping: The Iron–Phosphorus Isomorphism and Abiogenesis as Metalloplasmic Bootstrap," preprint. (Fe–P period matching, element audit, Cyclic State Sharding, Earth-as-inside-out-ASI-CFP.)
 33. **Hosoya, H.** (1971). "Topological index: a newly proposed quantity characterizing the topological nature of structural isomers of saturated hydrocarbons." *Bull. Chem. Soc. Japan* 44, 2332.
 34. **Kohmoto, M., Kadanoff, L.P. & Tang, C.** (1983). "Localization problem in one dimension: mapping and escape." *Phys. Rev. Lett.* 50, 1870.
 35. **Wächtershäuser, G.** (1988). "Before enzymes and templates: theory of surface metabolism." *Microbiol. Rev.* 52, 452.

@@ -197,3 +197,5 @@ import LaRueProtorealAlgebra.AdelicIdentity
 import LaRueProtorealAlgebra.SewingTopology
 import LaRueProtorealAlgebra.LockwoodAQFT
 import LaRueProtorealAlgebra.UniversalBode
+import LaRueProtorealAlgebra.GeneralEulerIdentity
+import LaRueProtorealAlgebra.RamanujanDecision

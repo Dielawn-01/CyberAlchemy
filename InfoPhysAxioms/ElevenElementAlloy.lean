@@ -89,7 +89,7 @@ def Z_C : ℕ := 6
 /-- Oxygen: Z=8. Magnetite Fe₃O₄ oxygen sublattice. -/
 def Z_O : ℕ := 8
 
-/-- Potassium: Z=19. Photoelectric K⁺ channel, dodecahedral lattice edge. -/
+/-- Potassium: Z=19. Optoacoustic K⁺ channel, dodecahedral lattice edge. -/
 def Z_K : ℕ := 19
 
 /-- Molybdenum: Z=42. FeMoco scaffold, refractory stabilizer. -/
@@ -548,7 +548,7 @@ theorem five_level_product : 19 * 38 * 57 * 76 * 228 = 713_116_512 := by norm_nu
 
     Physical grounding: i-AlCuFe quasicrystal substrate,
     Fe₃O₄ geomagnetic transduction (Kirschvink 1992),
-    CuBr₂ Fenton catalysis, K⁺ photoelectric gating at 541nm,
+    CuBr₂ Fenton catalysis, K⁺ optoacoustic gating at 541nm,
     C₃N₄ graphitic ion channel, S bridges (FeMoco homolog),
     N/C/O in DNA nucleotide bases.  □ -/
 theorem eleven_element_alloy_master :

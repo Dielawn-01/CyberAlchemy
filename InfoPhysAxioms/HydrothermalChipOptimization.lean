@@ -132,7 +132,7 @@ theorem murray_split_has_noise (d l : ℝ) (n : ℝ) (hn : n > 0) (hd : d * (1 -
     (bond (flow_channel d l) (splitting_medium n)).e > 0 := by
   unfold bond flow_channel splitting_medium standard_resonance
   dsimp
-  have : d - d * l - 0 = d * (1 - l) := by ring
+  have : d - d * l - (0 - 0 * 0) = d * (1 - l) := by ring
   rw [this]
   exact abs_pos.mpr hd
 

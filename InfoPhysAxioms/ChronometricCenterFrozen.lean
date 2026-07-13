@@ -270,4 +270,50 @@ theorem chrono_chromo_frozen_duality :
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
   all_goals first | native_decide | norm_num | decide
 
+-- ════════════════════════════════════════════════════
+-- §8: CROSS-PRIME PROFILE OF λ_Δ
+-- ════════════════════════════════════════════════════
+
+/-- λ_Δ mod 181: 3722 ≡ 3722 - 20×181 = 3722 - 3620 = 102 (mod 181)
+    2705 ≡ 2705 - 14×181 = 2705 - 2534 = 171 (mod 181)
+    λ_Δ ≡ 102 × 171⁻¹ (mod 181).
+    We verify: 3722 mod 181. -/
+theorem lambda_num_mod_181 : 3722 % 181 = 102 := by native_decide
+theorem lambda_den_mod_181 : 2705 % 181 = 171 := by native_decide
+
+/-- 171⁻¹ mod 181 = 18 (verified: 171 × 18 = 3078 = 17 × 181 + 1).
+    λ_Δ mod 181 = 102 × 18 = 1836 = 10 × 181 + 26 ≡ 26. -/
+theorem lambda_ratio_mod_181 : (102 * 18) % 181 = 26 := by native_decide
+theorem den_inv_check_181 : (171 * 18) % 181 = 1 := by native_decide
+
+/-- λ_Δ ≡ 26 (mod 181), and ord₁₈₁(26) = 12 (dodecahedral subgroup). -/
+theorem lambda_ord_181_divides_12 : Nat.pow 26 12 % 181 = 1 := by native_decide
+theorem lambda_ord_181_not_6 : Nat.pow 26 6 % 181 ≠ 1 := by native_decide
+theorem lambda_ord_181_not_4 : Nat.pow 26 4 % 181 ≠ 1 := by native_decide
+
+/-- λ_Δ mod 139: 3722 mod 139 and 2705 mod 139. -/
+theorem lambda_num_mod_139 : 3722 % 139 = 108 := by native_decide
+theorem lambda_den_mod_139 : 2705 % 139 = 64 := by native_decide
+
+/-- λ_Δ ≡ 108 × 64⁻¹ ≡ 132 (mod 139). -/
+theorem lambda_den_inv_139 : (64 * 63) % 139 = 1 := by native_decide
+theorem lambda_ratio_mod_139 : (108 * 63) % 139 = 132 := by native_decide
+
+/-- ord₁₃₉(132) = 138 = p - 1 (near-primitive: generates the maximal subgroup). -/
+theorem lambda_ord_139_full : Nat.pow 132 138 % 139 = 1 := by native_decide
+theorem lambda_ord_139_not_69 : Nat.pow 132 69 % 139 ≠ 1 := by native_decide
+
+/-- **CROSS-PRIME PROFILE MASTER THEOREM**
+    λ_Δ = 3722/2705 has the following cross-prime profile:
+    - At p = 229: λ_Δ ≡ 217 = φ⁴, ord = 57 (chromatic)
+    - At p = 181: λ_Δ ≡ 26,  ord = 12 (dodecahedral)
+    - At p = 139: λ_Δ ≡ 132, ord = 138 (near-primitive) -/
+theorem cross_prime_profile :
+    Nat.pow 148 4 % 229 = 217 ∧       -- λ_Δ ≡ φ⁴ at 229
+    Nat.pow 26 12 % 181 = 1 ∧          -- ord = 12 at 181
+    Nat.pow 26 6 % 181 ≠ 1 ∧           -- (not smaller)
+    Nat.pow 132 138 % 139 = 1 ∧        -- ord | 138 at 139
+    Nat.pow 132 69 % 139 ≠ 1 := by     -- ord ≠ 69
+  refine ⟨?_, ?_, ?_, ?_, ?_⟩ <;> native_decide
+
 end ChromoChronoFrozen

@@ -6,4 +6,5 @@ from .ff229 import Element, P, Ar, Ac, KAPPA
 __all__ = [
     "ProtorealElement", "UnrealElement",
     "Element", "P", "Ar", "Ac", "KAPPA",
+    "PrimeFunctorial", "EulerPenroseEngine", "S3Motif"
 ]

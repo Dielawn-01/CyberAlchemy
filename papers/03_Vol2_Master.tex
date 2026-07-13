@@ -81,14 +81,17 @@ This volume depends on Volume~I (\textit{Foundations and Logical Creativity}), w
 \noindent All cross-references to Volume~I use the prefix \texttt{V1-} (e.g., Theorem~V1-1.3).
 
 \paragraph{Companion Code.}
-All finite arithmetic claims in both volumes are machine-verified by the \texttt{principia/} companion code package:
+All finite arithmetic claims in both volumes are machine-verified by two companion code packages:
 \begin{center}
-\texttt{python -m principia}
+\texttt{python -m principia} \quad (chapter exercises)\\[4pt]
+\texttt{python -m Principia} \quad (physics computations)
 \end{center}
-\noindent The package is self-contained (Python~3.10+, no external dependencies for core modules). Chapter~0 of the companion code (\texttt{ch00\_problem\_landscape/}) introduces object-oriented Python through the G\"{o}del--Tarski paradoxes, demonstrating that $\kap = -1$ is the algebraized incompleteness gap from which the golden ratio $\vp = (1 + \sqrt{5})/2$ is \emph{forced} (not assumed). Each subsequent chapter directory contains self-verifying exercises of 30--80 lines each.
+\noindent The \texttt{principia/} package is self-contained (Python~3.10+, no external dependencies for core modules). Chapter~0 of the companion code (\texttt{ch00\_problem\_landscape/}) introduces object-oriented Python through the G\"{o}del--Tarski paradoxes, demonstrating that $\kap = -1$ is the algebraized incompleteness gap from which the golden ratio $\vp = (1 + \sqrt{5})/2$ is \emph{forced} (not assumed). Each subsequent chapter directory contains self-verifying exercises of 30--80 lines each.
+
+The \texttt{Principia/} package (in \texttt{LaRueResearch/scripts/}) provides the unified physics engine: Prime Functorial (S$_3$ motifs, 23 proof paths), pAQFT (PT symmetry, $\Delta = 2$, Iwasawa bounds), Aionometric Geometry ($\lambda_\Delta = \varphi^4$, chronometric clock, cross-prime profile), and Quasicrystal Physics (plasma mirrors, DNA encoding, Kondo gap).
 
 \paragraph{Verification Architecture.}
-All core algebraic identities are independently verifiable: the companion code \texttt{principia/} implements every theorem as a runnable Python computation, and the formal proof library (\texttt{CyberAlchemy/InfoPhysAxioms/}) provides machine-checked proofs of the same identities for readers who want proof-assistant-level certainty. The reader needs only the Python package; the formal proofs exist as an auditable substrate.
+All core algebraic identities are independently verifiable: the companion code \texttt{principia/} implements every theorem as a runnable Python computation, the \texttt{Principia/} physics engine computes all table values in this volume, and the formal proof library (\texttt{CyberAlchemy/InfoPhysAxioms/}) provides machine-checked proofs of the same identities for readers who want proof-assistant-level certainty. The reader needs only the Python package; the formal proofs exist as an auditable substrate.
 
 \mainmatter
 
@@ -133,6 +136,9 @@ All core algebraic identities are independently verifiable: the companion code \
 
 \chapter[Quasicrystal Physics]{Quasicrystal Physics and Temporal Quasicrystals: The Finite Golden Theme}\label{ch:qc-tqc}
 \input{21_Quasicrystal_Physics}
+
+\chapter[The Prime Functorial]{The Prime Functorial: Deterministic Macroscopic Prime Discovery via S$_3$ Adelic Resonance}\label{ch:aionometric}\label{ch:functorial}
+\input{23_Prime_Functorial}
 
 \chapter[Archetypal Cosmology]{Archetypal Cosmology: Sgr A* and the Universal Substrate}
 \input{10_Metareal_Cosmology}

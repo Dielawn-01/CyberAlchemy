@@ -62,6 +62,10 @@ Typically, physicists treat $\nu_c$ as an arbitrary mathematical regulator (a sl
 \end{equation}
 where $19 = \bar{\varphi}^4$ is the arc width and $57 = \text{ord}(\bar{\varphi})$. This identity implies that the conjugate orbit of the vacuum reaches closure exactly at the resolution limit. By the Goodstein collapse theorem (PFT \S2.6), the entire hyperoperation hierarchy applied to $\pi_{229}$ collapses to the confinement subgroup $\{1, \omega, \omega^2\}$, providing a structural reason for the closure at order 57. The total number of configurations $W = 19^{57} \approx 6.5 \times 10^{72}$ defines a finite information-theoretic vacuum entropy $S = k \ln W \approx 167.7 k$. The vacuum energy does not diverge because the fractal geometry simply doesn't have the arithmetic resolution to support modes above this topological lattice limit.
 
+\begin{remark}[pAQFT Phase Space Dimension]
+The $p=3$ PT-symmetric model (Appendix claim ledger: pAQFT) establishes the phase space dimension $\Delta = d_{st,B} - d_{st,A} = 3 - 1 = 2$, yielding spectral dimension $d_s = 3/2$.  Classical Navier-Stokes yields $\Delta = 1$.  The stable manifold mechanism with $\Delta = 2$ provides the extra contraction needed for global regularity: the Iwasawa admissibility bound $v_3(a_k) \geq (114/(3-1)) \log_3(k) = 57 \log_3(k)$ constrains the $p$-adic growth of Euler products to the golden orbit length exactly.  Verification: \texttt{python -m Principia} (paqft module).
+\end{remark}
+
 \section{Experimental Design and Confidence Bounds: The Chiral Casimir Effect}\label{sec:experiment}
 
 The La Rue algebra relies intrinsically on parity and involution (the $\omega \leftrightarrow \iota$ swap, representing thrust/anchor). The involution symmetry of the La Rue manifold necessitates a right-chiral physical counterpart to standard levo-fermions. We propose the \textbf{d-neutrino} (a right-handed, sterile neutrino) as the topological necessity.

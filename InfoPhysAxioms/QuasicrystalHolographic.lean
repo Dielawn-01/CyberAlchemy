@@ -32,7 +32,7 @@ The φ-periodic d-spacings span the visible spectrum:
   d₂ = a/φ² → λ = 382 nm (violet)
 
 K (Z=19) has the lowest work function of any metal (2.29 eV, threshold 541nm),
-making it the ideal photoelectric surface for visible-light holography.
+making it the ideal optoacoustic surface for visible-light holography.
 
 ## Cited References
 
@@ -147,13 +147,13 @@ theorem visible_ratio_near_golden :
   constructor <;> native_decide
 
 -- ══════════════════════════════════════════════════════════════
--- SECTION 4: K PHOTOELECTRIC THRESHOLD
+-- SECTION 4: K OPTOACOUSTIC THRESHOLD
 -- ══════════════════════════════════════════════════════════════
 
 /-- Potassium work function: Φ = 2.29 eV.
     Threshold wavelength: λ = hc/Φ = 541 nm (green light).
     This is INSIDE the visible band gap of the quasicrystal (382-618 nm).
-    Therefore K photoelectrically responds to the QC's output spectrum. -/
+    Therefore K optoacoustically responds to the QC's output spectrum. -/
 theorem K_threshold_in_visible_gap :
     382 < (541 : ℕ) ∧ (541 : ℕ) < 618 := by
   omega
@@ -216,7 +216,7 @@ theorem photonic_null_vectors :
     4. The visible spectrum (382-618 nm) is spanned by two
        φ-related d-spacings, with ratio ≈ φ.
 
-    5. K's photoelectric threshold (541 nm) falls inside
+    5. K's optoacoustic threshold (541 nm) falls inside
        the visible band gap, enabling holographic read-out.
 
     6. The bridge norm provides the photonic metric,
