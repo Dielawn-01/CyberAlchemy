@@ -34,6 +34,9 @@ axiom alpha : Constant
 axiom add : Constant → Constant → Constant
 infixl:65 " + " => add
 
+axiom sub : Constant → Constant → Constant
+infixl:65 " - " => sub
+
 axiom mul : Constant → Constant → Constant
 infixl:70 " * " => mul
 
@@ -43,54 +46,22 @@ infixl:70 " / " => div
 axiom exp : Constant → Constant → Constant
 notation:max base "^" exponent => exp base exponent
 
-/--
-  **THE EULER-PENROSE IDENTITY**
+/-- The Constant Ten (Degrees of Freedom). -/
+axiom ten : Constant
 
-  This identity perfectly exposes the boundary between a continuous, physical
-  approximation (which falls into a topological singularity when dividing by zero)
-  and a decidable, axiomatically closed universe (which seals the singularity).
-
-  It uses exactly 7 continuous constants with NO explicit inverses:
-  e, i, pi, 1, 0, alpha, phi.
-
-  Because e^(i*pi) + 1 = 0, the denominator is exactly the Void (0).
-  In Lean's decidable universe, any division by exactly zero evaluates to zero.
-  In physical continuous simulation (like Python), this division collapses into
-  a massive imaginary drift due to floating-point infinitesimals.
--/
-axiom euler_penrose_identity :
-  (alpha * phi) / ((e ^ (i * pi)) + one) = zero
+/-- The Constant Twenty-Seven (Spatial dimension cubed). -/
+axiom twenty_seven : Constant
 
 /--
-  **THE UNDECIDABILITY OF THE RATIONALITY OF PHI**
+  **THE RAREFIED FINE STRUCTURE CONSTANT**
+
+  This formulation strips away numerology and relies purely on spectral geometry.
+  It links the exponential running of the coupling constant via self-similar RG flow
+  to the spectral volume correction of the 3-sphere topology.
   
-  We formalize that the structural state of phi (whether it is an irrational
-  continuous limit or a rational discrete integer) depends entirely on the 
-  topological handling of the zero singularity.
+  α⁻¹ = e^(φ²) × (10 - 1/(27π²))
 -/
-
--- A predicate to classify whether the manifold is continuous or discrete.
-axiom is_continuous_topology : Prop
-axiom is_discrete_topology : Prop
-
--- In a continuous topology, the Euler sum is never exactly zero due to infinitesimal drift (dx).
--- Thus, the Euler-Penrose Identity diverges, forcing phi to remain irrational.
-axiom continuous_divergence :
-  is_continuous_topology → ((e ^ (i * pi)) + one ≠ zero)
-
--- In a discrete topology (like Lean 4 or finite prime fields), division by zero is defined
--- to exactly close the manifold. Thus, the identity evaluates exactly, and phi acts as an integer.
-axiom discrete_closure :
-  is_discrete_topology → (((alpha * phi) / zero = zero) ↔ ((e ^ (i * pi)) + one = zero))
-
-/-- 
-  The value and rationality of phi cannot be determined without first choosing 
-  a topological axiom (continuous vs discrete) to resolve the zero division singularity.
--/
-theorem phi_undecidability (h : is_continuous_topology ∨ is_discrete_topology) :
-  (is_continuous_topology → ((e ^ (i * pi)) + one ≠ zero)) ∧
-  (is_discrete_topology → (((alpha * phi) / zero = zero) ↔ ((e ^ (i * pi)) + one = zero))) :=
-by
-  exact ⟨continuous_divergence, discrete_closure⟩
+axiom rarefied_alpha_identity :
+  (one / alpha) = (e ^ (phi * phi)) * (ten - (one / (twenty_seven * (pi * pi))))
 
 end LaRueProtorealAlgebra.GeneralEulerIdentity

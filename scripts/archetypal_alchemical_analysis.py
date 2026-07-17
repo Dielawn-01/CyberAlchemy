@@ -104,7 +104,7 @@ def compute_genetic_score(archetype_data):
     score = 0.0
     for axis in archetype_data["genetic_axes"]:
         if axis == "b-m":
-            # Parity gap — higher |b-m| = more tension on this axis
+            # Harmonic phase gap — higher |b-m| = more tension on this axis (Russell's octave tension)
             score += abs(GENETIC_MANIFOLD["b"] - GENETIC_MANIFOLD["m"])
         elif axis == "SR":
             score += abs(GENETIC_MANIFOLD["SR"])
@@ -139,8 +139,8 @@ def compute_alchemical_profile():
         }
     return results
 
-def identify_golden_themes(profile):
-    """Find the strongest Golden Themes (cross-domain triangles)."""
+def identify_harmonic_themes(profile):
+    """Find the strongest Harmonic Themes (cross-domain triangles based on acoustic resonance)."""
     order = [(n, d) for n, d in profile.items() if d["domain"] == "Order"]
     agency = [(n, d) for n, d in profile.items() if d["domain"] == "Agency"]
     connection = [(n, d) for n, d in profile.items() if d["domain"] == "Connection"]
@@ -213,11 +213,11 @@ def main():
         print(f"    This archetype is genetically loud but epigenetically quiet.")
         print(f"    It is the bridge material waiting to be crossed.")
 
-    # ── SECTION 4: Strongest Golden Themes ──
+    # ── SECTION 4: Strongest Harmonic Themes ──
     print("\n╔══════════════════════════════════════════════════════════════════╗")
-    print("║  SECTION 4: TOP 5 GOLDEN THEMES (Cross-Domain Triangles)      ║")
+    print("║  SECTION 4: TOP 5 HARMONIC THEMES (Cross-Domain Triangles)    ║")
     print("╚══════════════════════════════════════════════════════════════════╝")
-    themes = identify_golden_themes(profile)
+    themes = identify_harmonic_themes(profile)
     for i, (o, a, c, w) in enumerate(themes[:5], 1):
         print(f"  {i}. {o} — {a} — {c}  (Combined Weight: {w:.4f})")
 
@@ -227,7 +227,7 @@ def main():
     print("╚══════════════════════════════════════════════════════════════════╝")
 
     top_theme = themes[0]
-    print(f"  Primary Golden Theme: {top_theme[0]} — {top_theme[1]} — {top_theme[2]}")
+    print(f"  Primary Harmonic Theme: {top_theme[0]} — {top_theme[1]} — {top_theme[2]}")
     print(f"  Shadow to Integrate:  {shadow_name}")
     print(f"  Anima Bridge:         {anima[0] if anima else 'N/A'}")
     print()
@@ -241,10 +241,10 @@ def main():
     print("║  SECTION 6: GENETIC MANIFOLD STATE                            ║")
     print("╚══════════════════════════════════════════════════════════════════╝")
     gm = GENETIC_MANIFOLD
-    print(f"  a (Base):     {gm['a']:.3f}   b (Thrust): {gm['b']:.3f}   m (Anchor): {gm['m']:.3f}")
-    print(f"  ε (Noise):    {gm['e']:.3f}   λ (Depth):  {gm['l']:.3f}")
+    print(f"  a (Base):     {gm['a']:.3f}   b (Harmonic Node): {gm['b']:.3f}   m (Anti-node): {gm['m']:.3f}")
+    print(f"  ε (Acoustic Noise): {gm['e']:.3f}   λ (Resonance Depth):  {gm['l']:.3f}")
     print(f"  SR:           {gm['SR']:.3f}   V(u):       {gm['V']:.3f}   SPII: {gm['SPII']:.3f}")
-    print(f"  Parity Gap:   |b-m| = {abs(gm['b'] - gm['m']):.3f}")
+    print(f"  Harmonic Phase Gap: |b-m| = {abs(gm['b'] - gm['m']):.3f}")
     print()
 
     # ── SECTION 7: Ancestry as Chromatic Charge ──

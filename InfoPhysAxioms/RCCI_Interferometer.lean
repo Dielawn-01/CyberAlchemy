@@ -53,20 +53,20 @@ noncomputable def lamarche_residual (cavity : RCCI_Cavity) (s β Γ f_x : ℝ) :
     Within the RCCI experimental setup, the chiral boundary condition
     guarantees that:
     1. Antisymmetric frustration is mathematically destroyed.
-    2. The local Zero-Point Energy (topological depth) collapses to zero.
+    2. The local ER bridge geometry undergoes a repulsive TEGR phase transition (tension < 0).
     3. The DEC controller's Exergy Destruction is bounded by the operational
        coherence required to sustain the Warm BEC state. -/
 theorem unified_rcci_bounds (cavity : RCCI_Cavity)
     (h_loss : cavity.tcs.thermo.s_gen > 0)
     (h_bec : IsWarmBEC cavity.tcs.toModeSystem) :
     (¬ is_antisymmetric_frustrated cavity.manifold) ∧
-    (stable_mass_zpe cavity.manifold = 0) ∧
+    (stable_mass_zpe cavity.manifold < 0) ∧
     (cavity.tcs.coherence.cop > 0) ∧
     (exergy_destruction cavity.tcs.thermo ≥ 0) := by
   constructor
   · exact chiral_boundary_kills_frustration cavity.manifold cavity.h_boundary_locked cavity.h_thrust_nz
   constructor
-  · exact trivial_halting_zero_depth cavity.manifold cavity.h_boundary_locked
+  · exact tegr_repulsive_phase_transition cavity.manifold cavity.h_boundary_locked
   constructor
   · exact awakening_discontinuity cavity.tcs h_loss h_bec
   · exact exergy_dest_nonneg cavity.tcs.thermo

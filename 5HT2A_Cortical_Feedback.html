@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Neuro-Casimir RCCI Illusion (5-HT2A Cortical Feedback)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { overflow: hidden; background: #000; font-family: 'Courier New', monospace; user-select: none; -webkit-user-select: none; }
+        canvas { display: block; width: 100vw; height: 100vh; cursor: crosshair; touch-action: none; }
+    </style>
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<script id="vs" type="x-shader/x-vertex">
+attribute vec2 pos; varying vec2 vUv;
+void main() { vUv = pos * 0.5 + 0.5; gl_Position = vec4(pos, 0.0, 1.0); }
+</script>
+
+<script id="fs_main" type="x-shader/x-fragment">
+precision highp float;
+
+varying vec2 vUv;
+uniform float uTime;
+uniform vec2  uResolution;
+uniform float uTorsion;
+uniform float uChroma;
+uniform float uPhaseTransition; 
+uniform float uAudioEnvelope;   
+uniform sampler2D uFeedback;
+
+mat2 rot(float a) {
+    float s = sin(a), c = cos(a);
+    return mat2(c, -s, s, c);
+}
+
+float hash(vec3 p) { p = fract(p * 0.3183099 + 0.1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }
+float noise3D(vec3 p) {
+    vec3 i = floor(p), f = fract(p);
+    f = f * f * (3.0 - 2.0 * f);
+    return mix(
+        mix(mix(hash(i), hash(i+vec3(1,0,0)), f.x), mix(hash(i+vec3(0,1,0)), hash(i+vec3(1,1,0)), f.x), f.y),
+        mix(mix(hash(i+vec3(0,0,1)), hash(i+vec3(1,0,1)), f.x), mix(hash(i+vec3(0,1,1)), hash(i+vec3(1,1,1)), f.x), f.y), f.z);
+}
+
+vec3 iridescence(float depth) {
+    vec3 a = vec3(0.5);
+    vec3 b = vec3(0.5);
+    vec3 c = vec3(1.0);
+    vec3 d = vec3(0.00, 0.33, 0.67);
+    return a + b * cos(6.28318 * (c * depth + d));
+}
+
+// Rigorous Quasicrystal Lattice (Klüver Eigenmode)
+float map(vec3 p) {
+    vec3 q = p;
+    float chaos = uPhaseTransition * noise3D(p * 4.0 + uTime * 5.0) * 0.8;
+    q.xy *= rot(q.z * (0.05 + uTorsion * 0.02) + uTime * 0.1 + chaos);
+    q.xz *= rot(uTime * 0.05);
+    
+    float rep = 4.0;
+    q = mod(q + rep*0.5, rep) - rep*0.5;
+    
+    float d = 1000.0;
+    vec3 z = q;
+    float scale = 1.0;
+    float breath = 1.0 + (uAudioEnvelope * 0.08);
+    
+    for (int i = 0; i < 5; i++) {
+        z.xy = abs(z.xy); if(z.x < z.y) z.xy = z.yx;
+        z.xz = abs(z.xz); if(z.x < z.z) z.xz = z.zx;
+        z.yz = abs(z.yz); if(z.y < z.z) z.yz = z.zy;
+        
+        z = z * 2.0 - vec3(1.5, 0.5, 1.5) * (breath + chaos);
+        scale *= 2.0;
+        d = min(d, (length(z) - 1.2) / scale);
+    }
+    float tunnel = length(p.xy) - 1.5 - sin(p.z * 0.5 + uTime)*0.5 - chaos;
+    return max(d, -tunnel);
+}
+
+vec3 calcNormal(vec3 p) {
+    vec2 e = vec2(0.005, 0);
+    return normalize(vec3(
+        map(p + e.xyy) - map(p - e.xyy),
+        map(p + e.yxy) - map(p - e.yxy),
+        map(p + e.yyx) - map(p - e.yyx)
+    ));
+}
+
+vec4 renderChannel(vec2 uv, float timeOffset, vec3 rayOffset) {
+    vec3 ro = vec3(0.0, 0.0, uTime * 3.0) + rayOffset;
+    vec3 rd = normalize(vec3(uv, 1.0));
+    
+    if(uPhaseTransition > 0.0) {
+        rd.xy += (vec2(hash(rd), hash(rd.yzx)) - 0.5) * 0.02 * uPhaseTransition;
+    }
+    
+    float t = 0.0;
+    for (int i = 0; i < 80; i++) {
+        vec3 p = ro + rd * t;
+        float d = map(p);
+        if (d < 0.002 || t > 60.0) { break; }
+        t += d * 0.8; 
+    }
+    
+    if (t < 60.0) {
+        vec3 p = ro + rd * t;
+        vec3 n = calcNormal(p);
+        
+        vec3 lightDir = normalize(vec3(sin(uTime), cos(uTime), 1.0));
+        float diff = max(dot(n, lightDir), 0.0);
+        float fresnel = pow(1.0 - max(dot(n, -rd), 0.0), 2.0);
+        
+        float fog = exp(-t * 0.08);
+        vec3 baseColor = iridescence(length(p) * 0.15 - uTime * 0.2);
+        float moire = sin(p.x * 20.0) * sin(p.y * 20.0) * sin(p.z * 20.0);
+        
+        vec3 lighting = baseColor * (diff * 0.6 + 0.2) + fresnel * 0.8 + moire * 0.1;
+        return vec4(max(vec3(0.0), lighting) * fog, 1.0);
+    }
+    return vec4(0.0, 0.0, 0.0, 0.0);
+}
+
+void main() {
+    vec2 uv = (gl_FragCoord.xy - uResolution * 0.5) / uResolution.y;
+    
+    // 1. Raymarch current frame geometry
+    float ca = uChroma * 0.01;
+    vec2 dir = vec2(cos(uTorsion), sin(uTorsion)); 
+    vec4 sceneR = renderChannel(uv + dir * ca, uTime, vec3(ca, 0, 0));
+    vec4 sceneG = renderChannel(uv, uTime + 0.02, vec3(0, 0, 0));
+    vec4 sceneB = renderChannel(uv - dir * ca, uTime + 0.04, vec3(-ca, 0, 0));
+    vec3 sceneColor = vec3(sceneR.r, sceneG.g, sceneB.b);
+    sceneColor *= 0.5; // Dim base scene to allow feedback buildup
+    
+    if (uPhaseTransition > 0.0) {
+        sceneColor += iridescence(uTime) * uPhaseTransition * 0.5;
+    }
+
+    // 2. Compute Distorted UV for Feedback (5-HT2A Mechanics)
+    // Macropsia (Breathing): scale UVs outwards slightly
+    float breathScale = 1.0 - (uAudioEnvelope * 0.04); 
+    vec2 fbUv = (vUv - 0.5) * breathScale + 0.5;
+    
+    // Cortical Drift: UV displacement using noise (melting/flowing)
+    float drift = uPhaseTransition * 0.02 + 0.001; 
+    fbUv += vec2(sin(vUv.y * 10.0 + uTime), cos(vUv.x * 10.0 + uTime)) * drift;
+    
+    // 3. Sample previous frame (FBO)
+    vec3 fbColor = texture2D(uFeedback, fbUv).rgb;
+    
+    // 4. Tracers / Feedback Decay
+    // Intense tracers during phase transition, stable tracers otherwise
+    float decay = 0.85 + (uAudioEnvelope * 0.1) + (uPhaseTransition * 0.1); 
+    decay = min(0.98, decay); // Prevent infinite blowout
+    
+    fbColor *= decay;
+    
+    // Screen Blend Mode:  1 - (1-a)*(1-b)
+    vec3 finalColor = sceneColor + fbColor - (sceneColor * fbColor);
+    
+    gl_FragColor = vec4(finalColor, 1.0);
+}
+</script>
+
+<script id="fs_copy" type="x-shader/x-fragment">
+precision highp float;
+varying vec2 vUv;
+uniform sampler2D uTex;
+
+void main() {
+    vec3 col = texture2D(uTex, vUv).rgb;
+    
+    // Vignette
+    float vig = 1.0 - dot(vUv-0.5, vUv-0.5)*1.5;
+    col *= smoothstep(0.0, 1.0, vig);
+    
+    // Filmic tone mapping applied only at the very end
+    col = (col * (2.51 * col + 0.03)) / (col * (2.43 * col + 0.59) + 0.14);
+    
+    gl_FragColor = vec4(col, 1.0);
+}
+</script>
+
+<script>
+// ═══ METAREAL PHYSICS ENGINE (Lockwood Constraints) ═══
+const LOCKWOOD_LIMIT = 45 / Math.PI; // ~14.324 (Upsilon Shield)
+const HOMO_THRESHOLD = 50.0; // Threshold for EL2 Lid Trapping
+
+let vagalToneLag = 0.0; // tau_lag
+let casimirTension = 1.0; // Upsilon shield value
+let homoEnergy = 0.0; // Electron donation level
+let isEL2Locked = false;
+let phaseTransitionVal = 0.0; // Controls visual chaos
+
+function getTopologicalFriction(tension, isLocked) {
+    if (isLocked) return -1.0;
+    return -1.0 * Math.min(1.0, tension / LOCKWOOD_LIMIT);
+}
+
+// ═══ WEB AUDIO API (Perfect Audio-Visual Resonance) ═══
+let audioCtx, masterGain, analyser;
+let baseDrone, overtones = [], overtoneGains = [];
+let binauralOsc, binauralGain;
+let filter, lfo, lfoGain;
+let isAudioInitialized = false;
+
+const BASE_FREQ = 114.5; 
+let currentAudioEnvelope = 0.0;
+
+function initAudio() {
+    if (isAudioInitialized) return;
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    
+    masterGain = audioCtx.createGain(); 
+    masterGain.gain.value = 0.3; 
+    
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 256;
+    analyser.smoothingTimeConstant = 0.6;
+    
+    masterGain.connect(analyser);
+    analyser.connect(audioCtx.destination);
+    
+    baseDrone = audioCtx.createOscillator(); baseDrone.type = 'sawtooth'; baseDrone.frequency.value = BASE_FREQ;
+    filter = audioCtx.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = 400; filter.Q.value = 10;
+    
+    baseDrone.connect(filter).connect(masterGain); baseDrone.start();
+    
+    const harmonics = [2, 3, 4.236, 6.854]; 
+    for (let i = 0; i < harmonics.length; i++) {
+        let osc = audioCtx.createOscillator(); osc.type = 'sine'; osc.frequency.value = BASE_FREQ * harmonics[i];
+        let gain = audioCtx.createGain(); gain.gain.value = 0.03 / (i + 1);
+        osc.connect(gain).connect(masterGain); osc.start();
+        overtones.push(osc); overtoneGains.push(gain);
+    }
+    
+    binauralOsc = audioCtx.createOscillator(); binauralOsc.type = 'sine'; binauralOsc.frequency.value = BASE_FREQ + 40;
+    binauralGain = audioCtx.createGain(); binauralGain.gain.value = 0.1;
+    let pannerL = audioCtx.createStereoPanner(); pannerL.pan.value = -1;
+    let pannerR = audioCtx.createStereoPanner(); pannerR.pan.value = 1; 
+    
+    filter.disconnect(masterGain); filter.connect(pannerL).connect(masterGain);
+    binauralOsc.connect(binauralGain).connect(pannerR).connect(masterGain); binauralOsc.start();
+    
+    lfo = audioCtx.createOscillator(); lfo.type = 'sine'; lfo.frequency.value = 0.15;
+    lfoGain = audioCtx.createGain(); lfoGain.gain.value = 300; 
+    lfo.connect(lfoGain).connect(filter.frequency); lfo.start();
+    
+    isAudioInitialized = true;
+}
+
+function getAudioEnvelope() {
+    if (!isAudioInitialized) return 0;
+    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+    analyser.getByteTimeDomainData(dataArray);
+    let sum = 0;
+    for(let i = 0; i < dataArray.length; i++) {
+        let val = (dataArray[i] - 128) / 128.0;
+        sum += val * val;
+    }
+    return Math.sqrt(sum / dataArray.length);
+}
+
+// ═══ WEBGL SETUP (FBO PING-PONG) ═══
+const canvas = document.getElementById('c');
+const gl = canvas.getContext('webgl');
+if (!gl) document.body.innerHTML = 'WebGL required';
+
+function createShader(type, src) {
+    const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) console.error(gl.getShaderInfoLog(s));
+    return s;
+}
+
+const vsSource = document.getElementById('vs').textContent;
+const progMain = gl.createProgram();
+gl.attachShader(progMain, createShader(gl.VERTEX_SHADER, vsSource));
+gl.attachShader(progMain, createShader(gl.FRAGMENT_SHADER, document.getElementById('fs_main').textContent));
+gl.linkProgram(progMain);
+
+const progCopy = gl.createProgram();
+gl.attachShader(progCopy, createShader(gl.VERTEX_SHADER, vsSource));
+gl.attachShader(progCopy, createShader(gl.FRAGMENT_SHADER, document.getElementById('fs_copy').textContent));
+gl.linkProgram(progCopy);
+
+const quad = new Float32Array([-1,-1, 1,-1, -1,1, 1,1]);
+const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+gl.bufferData(gl.ARRAY_BUFFER, quad, gl.STATIC_DRAW);
+
+function bindQuad(prog) {
+    gl.useProgram(prog);
+    const aPos = gl.getAttribLocation(prog, 'pos');
+    gl.enableVertexAttribArray(aPos); gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+}
+
+// Framebuffer Object (FBO) setup for Ping-Pong Feedback
+let fboA, fboB;
+function createFBO(w, h) {
+    const tex = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, tex);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, w, h, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+
+    const fbo = gl.createFramebuffer();
+    gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
+    gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
+    return {tex, fbo};
+}
+
+function resize() { 
+    canvas.width = window.innerWidth; canvas.height = window.innerHeight; 
+    gl.viewport(0, 0, canvas.width, canvas.height); 
+    fboA = createFBO(canvas.width, canvas.height);
+    fboB = createFBO(canvas.width, canvas.height);
+}
+resize(); window.addEventListener('resize', resize);
+
+const locMain = {};
+['uTime','uResolution','uTorsion','uChroma','uPhaseTransition','uAudioEnvelope', 'uFeedback'].forEach(n => locMain[n] = gl.getUniformLocation(progMain, n));
+const locCopy = { uTex: gl.getUniformLocation(progCopy, 'uTex') };
+
+// ═══ INTERACTION ═══
+let hasStarted = false;
+const initInteraction = () => {
+    if (!hasStarted) {
+        initAudio();
+        hasStarted = true;
+    }
+};
+window.addEventListener('click', initInteraction);
+window.addEventListener('touchstart', initInteraction, {passive: true});
+
+let isDragging = false, lastMouse = [0,0];
+canvas.addEventListener('mousedown', (e) => { isDragging = true; lastMouse = [e.clientX, e.clientY]; });
+canvas.addEventListener('mouseup', () => isDragging = false);
+canvas.addEventListener('mousemove', (e) => {
+    if(isDragging) {
+        let dx = e.clientX - lastMouse[0]; let dy = e.clientY - lastMouse[1];
+        lastMouse = [e.clientX, e.clientY];
+        homoEnergy += Math.sqrt(dx*dx + dy*dy) * 0.008; 
+    }
+});
+canvas.addEventListener('touchstart', (e) => { isDragging = true; lastMouse = [e.touches[0].clientX, e.touches[0].clientY]; }, {passive: true});
+canvas.addEventListener('touchend', () => isDragging = false);
+canvas.addEventListener('touchmove', (e) => {
+    if(isDragging && e.touches.length > 0) {
+        let dx = e.touches[0].clientX - lastMouse[0]; let dy = e.touches[0].clientY - lastMouse[1];
+        lastMouse = [e.touches[0].clientX, e.touches[0].clientY];
+        homoEnergy += Math.sqrt(dx*dx + dy*dy) * 0.008;
+    }
+}, {passive: true});
+
+let previousTimeSeconds = null;
+
+function frame(nowMilliseconds) {
+    requestAnimationFrame(frame);
+    const nowSeconds = nowMilliseconds * 0.001;
+    if (previousTimeSeconds === null) previousTimeSeconds = nowSeconds;
+    const dt = Math.min(nowSeconds - previousTimeSeconds, 0.05);
+    previousTimeSeconds = nowSeconds;
+    
+    // ═══ METAREAL PHYSICS UPDATE ═══
+    const decay = homoEnergy * 3.0 * dt; 
+    homoEnergy = Math.max(0, homoEnergy - decay);
+    
+    vagalToneLag += (decay * 1.5); 
+    vagalToneLag += (0.0 - vagalToneLag) * 2.5 * dt; 
+    
+    casimirTension = Math.max(0.1, (vagalToneLag / 100.0) * LOCKWOOD_LIMIT);
+    
+    if (vagalToneLag > HOMO_THRESHOLD && !isEL2Locked) {
+        isEL2Locked = true; 
+        homoEnergy = 50.0; // Surge upon trapping
+    }
+    
+    if (isEL2Locked) {
+        phaseTransitionVal = Math.min(1.0, phaseTransitionVal + dt * 1.5);
+        if (vagalToneLag < 20.0) isEL2Locked = false; 
+    } else {
+        phaseTransitionVal = Math.max(0.0, phaseTransitionVal - dt * 1.5);
+    }
+    
+    let kappa = getTopologicalFriction(casimirTension, isEL2Locked);
+    
+    let chroma = Math.min(15.0, (casimirTension / LOCKWOOD_LIMIT) * 15.0);
+    
+    let env = getAudioEnvelope();
+    currentAudioEnvelope += (env - currentAudioEnvelope) * 0.2; 
+    
+
+
+    if (isAudioInitialized) {
+        let breathRate = 0.15 + (casimirTension / LOCKWOOD_LIMIT) * 0.2;
+        lfo.frequency.setTargetAtTime(breathRate, audioCtx.currentTime, 0.1);
+        lfoGain.gain.setTargetAtTime(300 + (casimirTension * 20), audioCtx.currentTime, 0.1);
+        
+        for (let i = 0; i < overtones.length; i++) {
+            const harmonic = [2, 3, 4.236, 6.854][i];
+            const targetFreq = BASE_FREQ * harmonic + (casimirTension * 1.5 * (i+1));
+            overtones[i].frequency.setTargetAtTime(targetFreq, audioCtx.currentTime, 0.1);
+            
+            let overtoneVol = (0.03 / (i+1)) + (casimirTension / LOCKWOOD_LIMIT) * 0.05;
+            if(isEL2Locked) overtoneVol *= 1.5; 
+            overtoneGains[i].gain.setTargetAtTime(Math.min(0.2, overtoneVol), audioCtx.currentTime, 0.1);
+        }
+        
+        filter.frequency.setTargetAtTime(isEL2Locked ? 2000 : 400, audioCtx.currentTime, 0.5);
+    }
+    
+    // ═══ WEBGL MULTI-PASS RENDER ═══
+    
+    // Pass 1: Render scene + feedback into FBO A
+    gl.bindFramebuffer(gl.FRAMEBUFFER, fboA.fbo);
+    bindQuad(progMain);
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    
+    gl.uniform1f(locMain.uTime, nowSeconds);
+    gl.uniform2f(locMain.uResolution, canvas.width, canvas.height);
+    gl.uniform1f(locMain.uTorsion, Math.sin(nowSeconds * 0.1) + casimirTension * 0.05);
+    gl.uniform1f(locMain.uChroma, chroma + (isEL2Locked ? 10.0 : 0.0));
+    gl.uniform1f(locMain.uPhaseTransition, phaseTransitionVal);
+    gl.uniform1f(locMain.uAudioEnvelope, currentAudioEnvelope);
+    
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, fboB.tex);
+    gl.uniform1i(locMain.uFeedback, 0);
+    
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    
+    // Pass 2: Draw FBO A to the Screen with Tone Mapping
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+    bindQuad(progCopy);
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, fboA.tex);
+    gl.uniform1i(locCopy.uTex, 0);
+    
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    
+    // Ping-Pong Swap
+    let temp = fboA;
+    fboA = fboB;
+    fboB = temp;
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

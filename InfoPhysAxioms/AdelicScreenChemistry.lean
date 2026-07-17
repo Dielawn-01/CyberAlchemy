@@ -73,4 +73,31 @@ noncomputable def photon_freq_Hz (E_eV : ℝ) : ℝ :=
 noncomputable def optoacoustic_shift (E_eV : ℝ) : ℝ :=
   (photon_freq_Hz E_eV) / (2 ^ 40)
 
+-- ═══════════════════════════════════════════════════════════
+-- SECTION 5: VOLUMETRIC EXTINCTION & SPONTANEOUS EMISSION
+-- ═══════════════════════════════════════════════════════════
+
+/-- Beer-Lambert Extinction: Models photon absorption in a volumetric medium.
+    Returns the opacity/absorption over a distance step `dt`. -/
+noncomputable def beer_lambert_extinction (sigma_t dens dt : ℝ) : ℝ :=
+  1 - Real.exp (-(sigma_t * dens * dt))
+
+/-- Poisson Spontaneous Emission: The probability of an uncorrelated
+    photon emission event over a discrete time step `dt`. -/
+noncomputable def poisson_emission_prob (rate dt : ℝ) : ℝ :=
+  1 - Real.exp (-(rate * dt))
+
+-- ═══════════════════════════════════════════════════════════
+-- SECTION 6: LUMPED-CAPACITANCE THERMODYNAMICS
+-- ═══════════════════════════════════════════════════════════
+
+/-- Models the conversion of kinetic energy decay into thermal lattice heat. -/
+noncomputable def thermal_generation (decay heat_capacity : ℝ) : ℝ :=
+  (decay * 100) / heat_capacity
+
+/-- Newton's Law of Cooling: Models the lattice thermal relaxation
+    back to a 300K ambient thermal bath. -/
+noncomputable def newtons_cooling (current_temp dt : ℝ) : ℝ :=
+  (300 - current_temp) * 0.5 * dt
+
 end InfoPhysAxioms.AdelicScreenChemistry

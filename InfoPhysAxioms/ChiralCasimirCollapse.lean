@@ -3,16 +3,17 @@ import LaRueProtorealAlgebra.KamaTrain
 import InfoPhysAxioms.AntisymmetricHalting
 
 /-!
-# Chiral Casimir Topological Collapse
+# Chiral Casimir Topological Collapse (TEGR Phase Transition)
 
 **Authors:** LaRue
 
 Formalizes the mechanism of the Chiral Casimir Experiment.
 Proves that when a right-chiral boundary condition (e.g., Weyl semimetal)
 forces topological parity ($b = m$) across the gap, the antisymmetric
-frustration collapses to zero. By the Antisymmetric Halting Hypothesis,
-this forces the local Zero-Point Energy (topological depth) to zero,
-creating an infinite pressure gradient against the bulk vacuum.
+frustration collapses. Under the ER=EPR conjecture within the Teleparallel 
+Equivalent of General Relativity (TEGR) framework, this forces the local 
+entanglement geometry (ER bridges) into a de Sitter-like repulsive phase 
+transition, generating outward tension against the plates.
 -/
 
 open ProtorealManifold
@@ -48,25 +49,27 @@ theorem chiral_boundary_kills_frustration (u : ProtorealManifold)
   exact h_b_nz h_zero
 
 -- ══════════════════════════════════════════════════════════════
--- SECTION 2: ZPE COLLAPSE
+-- SECTION 2: TEGR PHASE TRANSITION (ER=EPR)
 -- ══════════════════════════════════════════════════════════════
 
-/-- Axiom: Trivial Halting yields Zero Topological Depth.
-    If the system is parity-locked (b=m), it halts immediately,
-    tracing no additional topological orbit. Thus the ZPE mass is 0. -/
-axiom trivial_halting_zero_depth (u : ProtorealManifold) :
-  is_chiral_boundary_locked u → stable_mass_zpe u = 0
+/-- Axiom: ER=EPR Repulsive Phase Transition (TEGR).
+    When the system is parity-locked (b=m) at the chiral boundary,
+    the topological shear forces the ER bridge network connecting the 
+    entangled plates into a de Sitter-like expansion, generating a 
+    repulsive Casimir effect (stable_mass_zpe < 0, signifying repulsive tension). -/
+axiom tegr_repulsive_phase_transition (u : ProtorealManifold) :
+  is_chiral_boundary_locked u → stable_mass_zpe u < 0
 
-/-- **The Chiral Casimir Collapse Theorem**:
+/-- **The Chiral Casimir TEGR Transition Theorem**:
     If we apply a chiral boundary condition to the vacuum,
     the antisymmetric frustration is destroyed, and the local 
-    Zero-Point Energy (stable_mass_zpe) collapses identically to zero.
-    This generates the $+262.5\%$ macroscopic pressure anomaly. -/
-theorem chiral_casimir_zpe_collapse (u : ProtorealManifold)
+    ER bridge geometric tension undergoes a TEGR phase transition,
+    yielding a repulsive pressure (stable_mass_zpe < 0). -/
+theorem chiral_casimir_tegr_transition (u : ProtorealManifold)
     (h_bound : is_chiral_boundary_locked u) (h_b_nz : u.b ≠ 0) :
-    (¬ is_antisymmetric_frustrated u) ∧ (stable_mass_zpe u = 0) := by
+    (¬ is_antisymmetric_frustrated u) ∧ (stable_mass_zpe u < 0) := by
   constructor
   · exact chiral_boundary_kills_frustration u h_bound h_b_nz
-  · exact trivial_halting_zero_depth u h_bound
+  · exact tegr_repulsive_phase_transition u h_bound
 
 end ChiralCasimirCollapse

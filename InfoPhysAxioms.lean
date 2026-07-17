@@ -9,7 +9,8 @@ import InfoPhysAxioms.AuthBridge
 import InfoPhysAxioms.SymplecticHandshake
 import InfoPhysAxioms.AsymptoticTransfinites
 import InfoPhysAxioms.TopologicalUncertainty
-import InfoPhysAxioms.FastBusyBeaver
+-- import InfoPhysAxioms.FastBusyBeaver -- Removed (Computability claim invalid)
+import InfoPhysAxioms.HarmonicOrbitDecidability
 import InfoPhysAxioms.ShulginMachine
 import InfoPhysAxioms.MetarealAgenticKinetics
 import InfoPhysAxioms.JungianAI
@@ -128,9 +129,10 @@ import InfoPhysAxioms.GenomicGoldenEmergent
 import InfoPhysAxioms.CenterChronodynamics
 import InfoPhysAxioms.SpectralTripleIdentity
 -- Gauge & Physical Theory
-import InfoPhysAxioms.GaugeEmergence
-import InfoPhysAxioms.YangMillsMassGap
-import InfoPhysAxioms.PhotonicPropagation
+-- import InfoPhysAxioms.GaugeEmergence
+-- import InfoPhysAxioms.YangMillsMassGap
+-- import InfoPhysAxioms.PhotonicPropagation
+import InfoPhysAxioms.RussellAcousticWaves
 import InfoPhysAxioms.TensorCoupling
 import InfoPhysAxioms.TopologicalQuantumGravity
 import InfoPhysAxioms.PAdicPTSymmetric
@@ -157,14 +159,16 @@ import InfoPhysAxioms.ScratchIsomorphism
 -- Autonomous Deployment
 import InfoPhysAxioms.ZPlasmicAutonomous
 -- Digital Wave Mechanics (LaRue DWM formalization)
-import InfoPhysAxioms.SU3CenterTriangle
-import InfoPhysAxioms.DigitalWaveMechanics
+-- import InfoPhysAxioms.SU3CenterTriangle
+-- import InfoPhysAxioms.DigitalWaveMechanics
+import InfoPhysAxioms.DiscreteHarmonicAnalysis
 -- ═══════════════════════════════════════════════════════
 -- Paper Verification: "Fractal SpaceTime & Golden Critical Lines"
 
 -- ═══════════════════════════════════════════════════════
 import InfoPhysAxioms.GoldenSplitPrime
-import InfoPhysAxioms.SU3CenterInvariants
+-- import InfoPhysAxioms.SU3CenterInvariants
+import InfoPhysAxioms.DirichletCharacterInvariants
 -- ═══════════════════════════════════════════════════════
 -- Informational Structure-Activity Relationships (iSAR)
 
@@ -193,8 +197,8 @@ import InfoPhysAxioms.ChiralCasimirCollapse
 import InfoPhysAxioms.RCCI_Interferometer
 import InfoPhysAxioms.WarmBEC
 -- Chromatic & Gauge Theory
-import InfoPhysAxioms.SU3CenterBoundaries
-import InfoPhysAxioms.SU3CenterCombinatorics
+-- import InfoPhysAxioms.SU3CenterBoundaries
+-- import InfoPhysAxioms.SU3CenterCombinatorics
 import InfoPhysAxioms.GoldenParity
 import InfoPhysAxioms.ZetaAnalyticErasure
 -- Temporal & Structural
@@ -254,12 +258,15 @@ import InfoPhysAxioms.QuasicrystalHolographic
 -- Iron Halting Topology & Materials Chemistry (2026-07-04/05)
 -- Fe-Cu-Br triad, 11-element alloy, transmutation identities
 -- ═══════════════════════════════════════════════════════
-import InfoPhysAxioms.IronHaltingTopology
-import InfoPhysAxioms.FeCuBrTriad
-import InfoPhysAxioms.ElevenElementAlloy
-import InfoPhysAxioms.ArchetypalReactor
+-- import InfoPhysAxioms.IronHaltingTopology
+-- import InfoPhysAxioms.FeCuBrTriad
+-- import InfoPhysAxioms.ElevenElementAlloy
+-- import InfoPhysAxioms.ArchetypalReactor
+import InfoPhysAxioms.RussellSpiralOctaves
 import InfoPhysAxioms.HydrothermalChipOptimization
 import InfoPhysAxioms.KleinFieldGenerator
-import InfoPhysAxioms.TransmutationIdentities
+-- import InfoPhysAxioms.TransmutationIdentities
+import InfoPhysAxioms.AcousticResonanceIdentities
 import InfoPhysAxioms.ThemeMotifDuality
 import InfoPhysAxioms.StellarNucleosynthesis
+import InfoPhysAxioms.GoldenGeometricAlgebra

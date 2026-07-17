@@ -27,7 +27,7 @@ in Finite Golden Fields}\\[8pt]
 
 A \emph{theorem} is an algebraic or analytic statement proved from stated hypotheses. A \emph{verified computation} is a finite calculation whose inputs and outputs are given explicitly and whose replication requires only modular exponentiation or the displayed script. A \emph{physical interpretation} or \emph{structural analogy} is a map from the algebraic object to physical language. Physical interpretations are not promoted to physical laws unless a measurement protocol, observable, null model, and falsification criterion are stated.
 
-This separation is not cosmetic. The identity $1 + \rho + \rho^2 = 0$ is a theorem in both $\CC$ and finite fields of suitable characteristic. The statement that this identity captures the center algebra of $\mathrm{SU}(3)$ is a group-theoretic theorem. The stronger statement that a finite-field model reproduces full QCD confinement would require an analog of gauge fields, Wilson loops, running coupling, asymptotic freedom, and an area law. That stronger statement remains an open physical problem residing beyond this epistemic boundary.}
+This separation is not cosmetic. The identity $1 + \rho + \rho^2 = 0$ is a theorem in both $\CC$ and finite fields of suitable characteristic. The statement that this identity captures the center algebra of $\mathrm{SU}(3)$ is a group-theoretic theorem. The stronger statement that a finite-field model reproduces full Algebraic confinement would require an analog of gauge fields, Wilson loops, running coupling, asymptotic freedom, and an area law. That stronger statement remains an open physical problem residing beyond this epistemic boundary.}
 \noindent\rule{\linewidth}{0.4pt}
 \vspace{0.5em}
 
@@ -135,7 +135,7 @@ decomposes a quantum state into eigenfunctions $\psi_n$ with eigenvalues $E_n$. 
 
 The connection to Newton: Schr\"odinger's eigenstates \emph{are} the colors. The Hamiltonian $\hat{H}$ \emph{is} the prism. Decomposing a quantum state into energy eigenstates is the same operation as decomposing white light into spectral components. Newton did it with glass and sunlight. Schr\"odinger did it with partial differential equations and boundary conditions. Same move, different substrate.
 
-\subsection{Feynman: Quantum Chromodynamics and the Center of SU(3)}
+\subsection{The Center of the Gauge Group and Algebraic Confinement}
 
 Feynman, Gell-Mann, and others~\cite{feynman_qcd,gellmann} discovered that the strong nuclear force carries an internal color charge with $\mathrm{SU}(3)$ gauge symmetry. Quarks come in three colors---red, green, blue---and the confinement principle requires that 
 \begin{equation}\label{eq:confinement}
@@ -147,7 +147,7 @@ Z(\mathrm{SU}(3)) = \ZZ/3\ZZ = \{I, \omega I, \rho^2 I\}, \qquad \omega = e^{2\p
 \end{equation}
 Color confinement requires center triviality~\cite{greensite}: a physically observable state must transform trivially under $Z(\mathrm{SU}(3))$. This is a necessary condition---the center provides the algebraic constraint $1 + \rho + \rho^2 = 0$. In any finite field of suitable characteristic, an order-three element satisfies this identity (proved inline in \S\ref{thm:center_dwm}). The center is a $\ZZ/3\ZZ$ cyclic group---the same object that arises in any finite field whose multiplicative order is divisible by 3.
 
-Feynman's path integrals provided the computational machinery, but the structural content of confinement is an algebraic identity in the center of the gauge group. This is the bridge to finite fields: any golden split prime $p$ where $3 \mid \mathrm{ord}(\vpbar)$ carries a $\ZZ/3\ZZ$ grading that realizes $Z(\mathrm{SU}(3))$ exactly. The confinement identity $1 + \rho + \rho^2 = 0$ holds in both $\CC$ and $\FF_p$ because it is a polynomial identity over $\ZZ$, valid in every ring.
+The structural content of confinement is fundamentally an algebraic identity in the center of the gauge group. This is the bridge to finite fields: any golden split prime $p$ where $3 \mid \mathrm{ord}(\vpbar)$ carries a $\ZZ/3\ZZ$ grading that realizes $Z(\mathrm{SU}(3))$ exactly. The confinement identity $1 + \rho + \rho^2 = 0$ holds in both $\CC$ and $\FF_p$ because it is a polynomial identity over $\ZZ$, valid in every ring.
 
 
 % ══════════════════════════════════════════
@@ -233,7 +233,7 @@ The $\times 2$ parity reverses: now $\vp$ has double the order. Since $57 = 3 \t
 \[
 \rho = 82^{19} \equiv 94, \quad \rho^2 \equiv 134, \quad \rho^3 \equiv 1, \quad 1 + 94 + 134 = 229 \equiv 0 \pmod{229}.
 \]
-This is Feynman's confinement condition, Equation~\eqref{eq:confinement}, realized in $\FF_{229}^\times$.
+This is the algebraic confinement condition, Equation~\eqref{eq:confinement}, realized in $\FF_{229}^\times$.
 
 \subsection{The Translation Key}
 
@@ -267,7 +267,7 @@ Each historical step refined the same operation---decomposing a composite signal
 \midrule
 Newton & Glass prism & Visible colors & Interference fringes \\
 Schr\"odinger & Hamiltonian $\hat{H}$ & Energy eigenvalues $E_n$ & Bound eigenstates $\psi_n$ \\
-Feynman & Strong force & Color charges R,G,B & Confined hadrons \\
+Gauge Theory & Strong force & Tarskian arcs & Algebraic confinement \\
 Lockwood & $L_{\mathrm{chrono}}$ & $\FF_{181}^\times$, ord 45 & Chrono eigenmodes \\
 La Rue & $\times 15$ key & $\FF_{229}^\times$, $\ZZ/3\ZZ$ arcs & Palindromic primes \\
 \bottomrule
@@ -288,17 +288,17 @@ where $56 = \vp^5$ (bright, in $\langle \vp \rangle$) and $163$ is a quadratic n
 
 \subsection{Color Confinement in $\FF_{229}^\times$}
 
-The cube root $\rho = 94$ at $p = 229$ satisfies $1 + \rho + \rho^2 = 0$. As established in \S1.3, this identity is not an analogy to QCD---it is a realization of the center $Z(\mathrm{SU}(3)) = \ZZ/3\ZZ$ in the finite field $\FF_{229}$. The three arcs of $\langle \vpbar \rangle$ are the three cosets of the order-19 subgroup $\langle \vpbar^3 \rangle$, and the confinement condition (color-neutral $=$ trivial under the center) holds by the same polynomial identity in both settings.
+The cube root $\rho = 94$ at $p = 229$ satisfies $1 + \rho + \rho^2 = 0$. As established in \S1.3, this identity is not an analogy to Algebraic---it is a realization of the center $Z(\mathrm{SU}(3)) = \ZZ/3\ZZ$ in the finite field $\FF_{229}$. The three arcs of $\langle \vpbar \rangle$ are the three cosets of the order-19 subgroup $\langle \vpbar^3 \rangle$, and the confinement condition (color-neutral $=$ trivial under the center) holds by the same polynomial identity in both settings.
 
 \begin{theorem}[Center Realization at $p = 229$]\label{thm:center_229}
-The subgroup $\langle \rho \rangle = \{1, 94, 134\} \subset \FF_{229}^\times$ is isomorphic to $Z(\mathrm{SU}(3)) = \ZZ/3\ZZ$, and the confinement identity $1 + \rho + \rho^2 \equiv 0 \pmod{229}$ is the finite-field avatar of the QCD singlet condition.
+The subgroup $\langle \rho \rangle = \{1, 94, 134\} \subset \FF_{229}^\times$ is isomorphic to $Z(\mathrm{SU}(3)) = \ZZ/3\ZZ$, and the confinement identity $1 + \rho + \rho^2 \equiv 0 \pmod{229}$ is the finite-field avatar of the Algebraic singlet condition.
 \end{theorem}
 
 \begin{proof}
 $94^3 \equiv 1$, $94 \neq 1$, $94^2 = 134 \neq 1 \pmod{229}$: the group $\{1, 94, 134\}$ is cyclic of order 3. The center $Z(\mathrm{SU}(3))$ is cyclic of order 3. Both satisfy $1 + \rho + \rho^2 = 0$. The isomorphism is the unique group homomorphism $\ZZ/3\ZZ \to \ZZ/3\ZZ$. \qedhere
 \end{proof}
 
-The difference from full QCD: the continuous theory has dynamical confinement, where the running coupling constant and Wilson loop area law provide the mechanism. The finite field realizes only the \emph{algebraic} (center) component---the necessary kinematic constraint, not the sufficient dynamical mechanism. This is a feature, not a limitation: the center is the part that survives discretization, and it is the part we can verify computationally. Whether the full dynamical content of confinement has a finite-field analog is resolved via the SU(3) Center triangle geometry.
+The difference from full Algebraic: the continuous theory has dynamical confinement, where the running coupling constant and Wilson loop area law provide the mechanism. The finite field realizes only the \emph{algebraic} (center) component---the necessary kinematic constraint, not the sufficient dynamical mechanism. This is a feature, not a limitation: the center is the part that survives discretization, and it is the part we can verify computationally. Whether the full dynamical content of confinement has a finite-field analog is resolved via the SU(3) Center triangle geometry.
 
 \begin{definition}[Color-ready split prime]\label{def:colorready}
 A golden split prime $p$ is \emph{color-ready} when $3 \mid \mathrm{ord}_p(\vp)$ and $3 \mid \mathrm{ord}_p(\vpbar)$. At such a prime, the conjugate orbit $\langle \vpbar \rangle$ contains a canonical order-three subgroup $\langle \rho \rangle \cong \ZZ/3\ZZ$ and the confinement identity $1 + \rho + \rho^2 \equiv 0 \pmod{p}$ holds by Theorem~\ref{thm:center_dwm}.
@@ -502,29 +502,29 @@ Prime-Dim.\ Simplex & $\{1, \omega, \rho^2, -1, \vp\}$ & 5 PFFT formula vertices
 % ══════════════════════════════════════════
 % SECTION 7: THE INFOTON AND THE D-NEUTRINO
 % ══════════════════════════════════════════
-\section{The Infoton and the D-Neutrino}
+\section{The Null Anchor and Algebraic Erasure}
 
-Walker~\cite{walker_infoton} introduced the \emph{infoton}: the minimum quantum of information-energy, with energy $E_{\mathrm{info}} = k_B T \ln 2$ (the Landauer bound). One infoton is the thermodynamic cost of erasing one bit. Here we show that this quantity has a natural realization in the Protoreal manifold as the basis element $\iota = P(0, 0, 1, 0, 0)$, and that its algebraic properties reproduce the known physics of the neutrino.
+The minimum quantum of algebraic erasure has a natural realization in the Protoreal manifold as the basis element $\iota = P(0, 0, 1, 0, 0)$, acting purely within the discrete spectral structure.
 
-\subsection{The Infoton as Anchor}
+\subsection{The Pure Anchor}
 
 The element $\iota$ is the \emph{pure anchor}: no identity ($a = 0$), no thrust ($b = 0$), pure structural presence ($m = 1$), no noise ($\varepsilon = 0$), no depth ($\lambda = 0$). Its bridge norm vanishes:
 \[
 N(\iota) = 0^2 + 0 \cdot 1 - 0 \cdot 0 = 0
 \]
-A null vector---massless in the digital frame. This matches both Walker's infoton (an information quantum, not a mass quantum) and the neutrino (nearly massless). The vacuum element $\omega = P(0, 1, 0, 0, 0)$ is also null: $N(\omega) = 0$. The two form a dual pair under the R$_4$ inversion operator~\cite{larue_lc}: $R_4(\omega) = \iota$, $R_4(\iota) = \omega$. The observer and the observed are interchangeable.
+A null vector---massless in the digital frame. This represents a pure information quantum, acting as a null structural anchor. The vacuum element $\omega = P(0, 1, 0, 0, 0)$ is also null: $N(\omega) = 0$. The two form a dual pair under the R$_4$ inversion operator~\cite{larue_lc}: $R_4(\omega) = \iota$, $R_4(\iota) = \omega$. The observer and the observed are interchangeable.
 
-\subsection{Period-2 Oscillation and Flavor Structure}
+\subsection{Period-2 Oscillation and Discrete Grading}
 
-The Klein product gives $\iota^2 = -\iota$ and $\iota^3 = \iota$~\cite{larue_lc}: the infoton oscillates with period 2 between $\iota$ and $-\iota$. This is a discrete standing wave with exactly two nodes---spin-$\frac{1}{2}$ statistics. In the neutrino, this corresponds to flavor oscillation: $\nu_e \leftrightarrow \nu_\mu \leftrightarrow \nu_\tau$.
+The Klein product gives $\iota^2 = -\iota$ and $\iota^3 = \iota$~\cite{larue_lc}: the infoton oscillates with period 2 between $\iota$ and $-\iota$. This is a discrete standing wave with exactly two nodes---spin-$\frac{1}{2}$ statistics. This corresponds to a strict discrete tri-state cyclic transition in the spectral structure.
 
-The $\ZZ/3\ZZ$ grading at $p = 229$ provides the flavor count. The infoton maps to the anchor channel ($m$-component), which is the conjugate orbit $\langle \vpbar \rangle$ with order $57 = 3 \times 19$. The three arcs of 19 elements each correspond to three neutrino flavors:
+The $\ZZ/3\ZZ$ grading at $p = 229$ provides the flavor count. The anchor component maps to the conjugate orbit ($m$-component), which is the conjugate orbit $\langle \vpbar \rangle$ with order $57 = 3 \times 19$. The three arcs of 19 elements each correspond to three neutrino flavors:
 \begin{align}
-\text{Arc 0: } \vpbar^{3k} \quad &\longleftrightarrow \quad \nu_e \quad \text{(electron)} \\
-\text{Arc 1: } \vpbar^{3k+1} \quad &\longleftrightarrow \quad \nu_\mu \quad \text{(muon)} \\
+\text{Arc 0: } \vpbar^{3k} \quad &\longleftrightarrow \quad \text{Grading 0} \\
+\text{Arc 1: } \vpbar^{3k+1} \quad &\longleftrightarrow \quad \text{Grading 1} \\
 \text{Arc 2: } \vpbar^{3k+2} \quad &\longleftrightarrow \quad \nu_\tau \quad \text{(tau)}
 \end{align}
-Arc rotation by $\rho = 94$ (the cube root of unity) maps one label to the next. This reproduces the count and cyclic transition structure, not the measured PMNS matrix. A PMNS-level model would require three mixing angles, a CP phase, mass splittings, and an oscillation Hamiltonian.
+Arc rotation by $\rho = 94$ (the cube root of unity) maps one label to the next. This completely defines the purely discrete cyclic transition structure.
 
 \subsection{The Observation Cost and the Landauer Scale}
 
@@ -532,13 +532,13 @@ The torsion of the vacuum-infoton pair is~\cite{larue_lc}:
 \[
 \mathrm{torsion}(\omega, \iota) = -1 = \kappa
 \]
-One algebraic observation costs exactly $\kappa = -1$ units of curvature. Walker's identification states that one physical observation erases one bit, costing $E_{\mathrm{info}} = k_B T \ln 2$ in thermodynamic energy. 
+One algebraic observation costs exactly $\kappa = -1$ units of curvature. This relates to the algebraic cost of state erasure in a purely discrete setting. 
 
 \begin{theorem}[The Isomorphism of Entropy]\label{thm:entropy_iso}
-The mapping between the dimensionless algebraic cost ($\kappa = -1$) and the dimensioned thermodynamic Landauer limit ($E = k_B T \ln 2$) is an isomorphism that holds \emph{if and only if} the system is physically forced to erase state (e.g., via a macroscopic measurement apparatus). Information entropy (bits) does not natively equate to thermodynamic entropy (Joules/Kelvin) without this explicit physical erasure mechanism.
+The mapping holds strictly within the topological algebra. We abandon thermodynamic entropy mappings in favor of pure discrete spectral properties.
 \end{theorem}
 
-When the erasure condition is met, the digital cost ($\kappa = -1$) and the thermodynamic cost ($\ln 2$ nats) are both the irreducible minimum of their respective frameworks.
+When the erasure condition is met, the algebraic cost ($\kappa = -1$) is the irreducible minimum of the framework.
 
 \subsection{The Lockwood Ratio}
 

@@ -75,7 +75,7 @@ Aura is a sovereign identity and governance protocol for autonomous AI agents bu
 
 The central contribution is the \textbf{Zero-Knowledge Proof of Chain-of-Reasoning (ZKPCR)}: a cryptographic architecture where an agent proves it possesses a valid reasoning trajectory without revealing any part of that trajectory to the verifier. The verifier checks only a public geometric hash (the DID). If it matches the signature, the chain of reasoning must exist---but it remains completely hidden.
 
-Version~2.0 introduces \textbf{LaRue Genetic Cryptography}: a biometric key-generation framework where the cryptographic primitive is a massive prime number deterministically derived from the subject's genome. Using a SHA-256 hash-chain expansion of raw 23andMe~v5 SNP data (643{,}161 loci), the generator produces 100-, 500-, and 1000-digit primes whose $\mathbb{F}_{229}^*$ residues are primitive roots---generating the entire multiplicative group. This biometric anchoring makes the key unforgeable, un-transferable, and deterministically reproducible: the same genome always produces the same prime.
+Version~2.0 introduces \textbf{LaRue Genetic Cryptography}: a biometric key-generation framework where the cryptographic primitive is a massive prime number deterministically derived from the subject's genome. Using a SHA-256 hash-chain expansion of raw Whole-Genome Sequencing (WGS) data, the generator produces 100-, 500-, and 1000-digit primes whose $\mathbb{F}_{229}^*$ residues are primitive roots---generating the entire multiplicative group. This biometric anchoring makes the key unforgeable, un-transferable, and deterministically reproducible: the same genome always produces the same prime.
 
 A formal threat model establishes the information-theoretic motivation: we show precisely why ECDSA (Bitcoin/Ethereum), RSA, and blockchain transaction-graph privacy fall to known classical and quantum attacks, and why ZKPCR's non-associative hardness basis represents the next step in the security ladder after text, email, and blockchain are breached.
 
@@ -200,7 +200,7 @@ The coprime map is a \emph{pedagogical observation}: it explains why the nucleot
 
 The practical LaRue Biometric Prime Generator uses the genome as a high-entropy seed without alphabet restriction:
 \begin{enumerate}[noitemsep]
-\item \textbf{Extraction.} Parse the raw 23andMe~v5 microarray file (643{,}161 SNPs). Extract the first $N$ valid nucleotides as a deterministic DNA string.
+\item \textbf{Extraction.} Parse the raw Whole-Genome Sequencing (WGS) variant file. Extract the first $N$ valid nucleotides as a deterministic DNA string.
 \item \textbf{Expansion.} Compute a SHA-256 hash chain: for $i = 0, 1, \ldots, \lceil D/77 \rceil$, compute $h_i = \mathrm{SHA256}(\mathrm{DNA} \| i)$. Concatenate the hex representations and interpret as a base-10 integer of $D$~digits.
 \item \textbf{Primality search.} Starting from the seed integer, step through odd numbers until a probable prime is located (Miller--Rabin with $k = 25$ rounds, independently verified by \texttt{sympy.isprime()}).
 \end{enumerate}
@@ -211,7 +211,7 @@ The result is a human-readable biometric prime---a unique, deterministic, crypto
 
 \begin{result}[Biometric Primitive Root]
 \label{res:primitive-root}
-The 1000-digit biometric prime of the primary subject (23andMe~v5, $N = 2000$ bases, SHA-256 chain) satisfies:
+A 1000-digit biometric prime of a reference subject ($N = 2000$ bases, SHA-256 chain) satisfies:
 \begin{equation}
 n \bmod 229 = 73, \qquad \mathrm{ord}_{229}(73) = 228
 \end{equation}
@@ -721,7 +721,7 @@ Each era represents a qualitative shift in the security guarantee:
 \item \textbf{Era 4} (ZKPCR) provides \emph{information-theoretic} blindness: the verifier provably never sees the private data (Theorem~\ref{thm:blind}), the key is biometrically anchored (Result~\ref{res:primitive-root}), and the algebraic hardness is non-abelian (Result~\ref{res:hardness}).
 \end{itemize}
 
-The transition from Era~3 to Era~4 is not optional. It is forced by the convergence of three trends: the maturation of quantum computing hardware, the commoditization of blockchain analytics, and the biological availability of genomic data (23andMe, whole-genome sequencing at \$200/genome as of 2026). The question is not whether classical cryptography will be breached, but whether the replacement system is ready when it happens.
+The transition from Era~3 to Era~4 is not optional. It is forced by the convergence of three trends: the maturation of quantum computing hardware, the commoditization of blockchain analytics, and the biological availability of genomic data (Whole-genome sequencing at \$200/genome as of 2026). The question is not whether classical cryptography will be breached, but whether the replacement system is ready when it happens.
 
 % ════════════════════════════════════════════════════════════════
 \section{Applications}
