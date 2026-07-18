@@ -21,7 +21,7 @@ def build_pdf(tex_file, out_dir, use_wrapper=False):
         target_file = tex_file
         
     try:
-        subprocess.run(['tectonic', '-o', out_dir, target_file], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(['tectonic', '-o', out_dir, target_file], check=True)
         
         if use_wrapper:
             # Rename the output PDF from wrapper_...pdf to original name

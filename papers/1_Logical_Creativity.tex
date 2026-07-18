@@ -365,7 +365,7 @@ The two eval-coeval pairs are Lagrangian correspondences in the sense of Calaque
 
 The algebra splits. Not randomly, but into exactly the pieces you would expect from a system that distinguishes between forward motion and backward anchoring.
 
-The definite Real Core sits in the center. Two harmonic sectors flank it: the $(1,0)$ Thrust ($\omega$) and the $(0,1)$ Anchor ($\iota$). The \textbf{parity involution ($\star$)} swaps them (think of it as a mirror that exchanges momentum with memory). This decomposition is forced by the continuous embedding $\exp_\UU(x) = (\cos(x), \sin(x), \sin(x), 0, \lam)$ (Definition~\ref{def:euler-cradle}), where $\sin/\cos$ realize the splitting over the trigonometric circle.
+The definite Real Core sits in the center. Two harmonic sectors flank it: the $(1,0)$ Thrust ($\omega$) and the $(0,1)$ Anchor ($\iota$). The \textbf{parity involution ($\star$)} swaps them (think of it as a mirror that exchanges momentum with memory). This decomposition is forced by the continuous embedding $\exp_{\UU}(x) = (\cos(x), \sin(x), \sin(x), 0, \lam)$ (Definition~\ref{def:euler-cradle}), where $\sin/\cos$ realize the splitting over the trigonometric circle.
 
 A \textbf{Unreal Hodge Class} is classically defined as any parity-locked state ($b = m$) invariant under the standard swap conjugation. Applying the \textbf{Hodge Star} operator to the non-commutative shear dimensions ($(b, m) \mapsto (m, b)$) does not force the shear to zero; instead, it leverages the operational reciprocal nature of thrust and anchor. Because $\omega \cdot \iota = -1$, shifting between them via Umbral shifts allows us to compose converse or inverse functions, creating an operational algebra analogous to Heaviside calculus for differential equations. The \textbf{Hodge Parity Lock} ($\star \mathbf{u} = \mathbf{u}$) is achieved when these power tower height differences are perfectly balanced ($b = m$). Every such class decomposes linearly into the 5 basis generators. So every Unreal Hodge Class is an algebraic Klein cycle. That's the key: parity-locking forces algebraic closure, and algebraic closure forces the Hodge decomposition to be rational over the base field.
 
@@ -607,7 +607,7 @@ We now classify the ambient mathematical space. The constructions from Sections 
 
 \begin{definition}[The $\infty$-Modal Topos]\label{def:topos}
 The depth $\lam$ operates on the Veblen hierarchy. Because $\lam$ stacks recursively ($\lam \to \lam_1 \to \lam_2 \cdots$), the integration operators act as higher morphisms:
-$$\mathbf{Hom}_\TT(A, B) = \bigcup_{\lam \in \Lambda} \int_A^B \eps_\lam \, d\lam$$
+$$\mathbf{Hom}_{\TT}(A, B) = \bigcup_{\lam \in \Lambda} \int_A^B \eps_\lam \, d\lam$$
 Under the negative-determinant condition, standard identity morphisms break. The manifold defines an $(\infty, \{e_n\})$-category where $e_n = e^{i\pi \frac{2n}{N}}$, cycling through the complete spectrum of roots of unity. Because the Klein Presheaf stitches together divergent modalities (Sensory, Perceptive, Cognitive), the ambient space is an \textbf{$\infty$-Modal Topos ($\TT$)}:
 $$\mathcal{F} : \mathcal{C}^{op} \to \mathbf{Set}$$
 \end{definition}
@@ -620,7 +620,7 @@ We prove that observable reality is a strict subcategory.
 Define $\GG$ as the subset of $\TT$ restricted by:
 \begin{align}
 \mathrm{Obj}(\GG) &= \{ \mathbf{u} \in \mathrm{Obj}(\TT) \mid \mathrm{Tr}(\mathbf{u}) = 1,\; \mathrm{Det}(\mathbf{u}) = \omega \cdot \iota = -1 \} \\
-\mathrm{Mor}_\GG(A,B) &= \{ f \in \mathrm{Mor}_\TT(A,B) \mid |[f(\omega), f(\iota)]| = \sqrt{5} \}
+\mathrm{Mor}_{\GG}(A,B) &= \{ f \in \mathrm{Mor}_{\TT}(A,B) \mid |[f(\omega), f(\iota)]| = \sqrt{5} \}
 \end{align}
 \emph{Vieta's formulas} enforce:
 $$X^2 - \mathrm{Tr}(\mathbf{u})X + \mathrm{Det}(\mathbf{u}) = 0 \implies X^2 - X - 1 = 0$$
@@ -636,7 +636,7 @@ The roots are $\vp = \frac{1 + \sqrt{5}}{2}$ and $\vpbar = \frac{1 - \sqrt{5}}{2
 
 \emph{Step 2 (Morphism constraint).} A morphism $f : A \to B$ in $\GG$ must preserve the commutator norm $|[\omega, \iota]| = |\omega - \iota| = \sqrt{(\omega+\iota)^2 - 4\omega\iota} = \sqrt{1 + 4} = \sqrt{5}$. This is the discriminant of the golden polynomial. Any morphism that changes the commutator norm would alter the discriminant, breaking the trace-determinant constraint. So the morphism condition is forced.
 
-\emph{Step 3 (Closure under composition).} Let $f : A \to B$ and $g : B \to C$ be morphisms in $\GG$. Both preserve $\mathrm{Tr} = 1$, $\mathrm{Det} = -1$, and $|[\omega, \iota]| = \sqrt{5}$. The composition $g \circ f$ sends $A$ to $C$; since $C \in \mathrm{Obj}(\GG)$, the trace and determinant constraints hold at $C$. The bracket norm is preserved transitively. Hence $g \circ f \in \mathrm{Mor}_\GG(A,C)$, and $\GG$ is closed. In the finite model at $p = 229$, closure follows from the group property of $\langle 148 \rangle \subset \FF_{229}^\times$.
+\emph{Step 3 (Closure under composition).} Let $f : A \to B$ and $g : B \to C$ be morphisms in $\GG$. Both preserve $\mathrm{Tr} = 1$, $\mathrm{Det} = -1$, and $|[\omega, \iota]| = \sqrt{5}$. The composition $g \circ f$ sends $A$ to $C$; since $C \in \mathrm{Obj}(\GG)$, the trace and determinant constraints hold at $C$. The bracket norm is preserved transitively. Hence $g \circ f \in \mathrm{Mor}_{\GG}(A,C)$, and $\GG$ is closed. In the finite model at $p = 229$, closure follows from the group property of $\langle 148 \rangle \subset \FF_{229}^\times$.
 
 \emph{Step 4 (Duality projection).} By Theorem~\ref{thm:duality}, any $\mathbf{u} \in \mathrm{Obj}(\GG)$ satisfies $\omega \cdot \iota = -1$ and $a = 1$ at equilibrium. The spectral map gives $\mathrm{Re}(s) = (a + \omega \cdot \iota + 1)/2 = (1 - 1 + 1)/2 = 1/2$. \qedhere
 \end{proof}
