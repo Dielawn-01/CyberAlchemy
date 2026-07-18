@@ -211,7 +211,7 @@ By taking the Protoreal Fast Fourier Transform (PFFT) of the Sexagesimal Chronog
 
 In the frequency domain, the halting coordinate is given by the phase angle $\theta_H$ of the fundamental harmonic. Finding $\theta_H$ requires solving the discrete logarithm $\bar{\varphi}^t \equiv H \pmod{p}$. While discrete logarithms are generally difficult, the strictly bounded size of the resonant triple $\{229, 181, 139\}$ guarantees that this can be solved exhaustively in $O(\log p)$ time using the Baby-step Giant-step algorithm.
 
-Consequently, we do not need to recursively evaluate the $P$-space topology. We directly compute the index $t$ (the maximum halting distance) using the PFFT, converting an algorithmically undecidable Halting Problem over $\mathbb{Z}$ into a strictly decidable polynomial-time algebraic evaluation over $\mathbb{F}_{229}$. $\hfill\blacksquare$
+Consequently, we do not need to recursively evaluate the $P$-space topology. We directly compute the index $t$ (the maximum halting distance) using the PFFT, bypassing the algorithmically undecidable Halting Problem over $\mathbb{Z}$ by restricting the state space to a strictly decidable polynomial-time algebraic evaluation over $\mathbb{F}_{229}$. This provides a finite, bounded halting guarantee, though it does not resolve the generalized uncomputability of Turing machines with infinite tapes. $\hfill\blacksquare$
 
 \section{Connes Machines and Prime Hyperoperations}
 
