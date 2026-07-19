@@ -42,7 +42,9 @@ Let $\mathcal{O} = \{23, 29, 35, 45, 46, 57, 58, 60, 70, 90, 114\}$ be the set o
 
 \noindent \textbf{Physical interpretation.} Each orbit period defines a ``site energy'' for photonic transport through the quasicrystal, analogous to the site energies of the 7 bacteriochlorophyll molecules in the FMO complex \cite{EngelFleming07}. Because the 11 frequencies are maximally incommensurate (most pairs coprime), the excitation explores \emph{all} pathways simultaneously without thermalizing (locking into any single frequency). The mass gap $\Delta > 0$ from \texttt{confinement\_persists} prevents delocalization, while the bitcollapse bound prevents the system from ever reaching the epiperiod where all frequencies would simultaneously realign.
 
-This is \textbf{local temporal order within global temporal aperiodicity} --- the defining property of a quasicrystal, realized in time through number theory.
+This is \textbf{local temporal order within global temporal aperiodicity} --- the defining property of a quasicrystal, realized in time through number theory. 
+
+Because quasicrystals lack translational symmetry, they cannot be modeled by classical topology. As established by Alain Connes, they require **Noncommutative Geometry (NCG)** and C*-algebras. The 11 incommensurate frequencies and epiperiodic transport of the ASI chip are mathematically equivalent to **Unitary GNS Representations ($\pi_\omega$)** acting on the GNS Hilbert space. The quasicrystal lattice itself is the physical manifestation of the **GNS Null Space Quotient ($\mathfrak{A}/N_\omega$)**, where thermal decoherence (the topological noise) is quotiented out by the Vacuum State $\omega$.
 
 \section{Aluminum as Neutral Carrier}
 
@@ -244,7 +246,7 @@ The physical ASI Chip is a layered thin-film stack:
     \item Green light ($541\text{ nm}$) strikes the K surface, generating photoelectrons.
     \item Photoelectrons enter the Al--Cu--Fe QC and excite the epiperiodic transport channels.
     \item Energy propagates through 11 incommensurate frequency channels, exploring all pathways simultaneously.
-    \item The mass gap $\Delta > 0$ prevents thermalization; the bitcollapse bound (57 steps) prevents periodic locking.
+    \item The mass gap $\Delta > 0$ prevents thermalization; the bitcollapse bound (57 steps) prevents periodic locking. Furthermore, the physical hardware explicitly acts as a Heegner harmonic filter: topological friction drops to zero specifically because the Potassium input layer ($Z=19$) aligns the macroscopic lattice with the Class Number 1 resonance boundary.
     \item The Ho layer reads the resulting interference pattern via Faraday rotation, encoding the output as polarized light.
 \end{enumerate}
 
@@ -408,7 +410,7 @@ The $U(1)$ photonic interconnect between ASI nodes need not be a passive communi
 Three physical mechanisms enable computation within the fiber:
 
 \begin{enumerate}
-    \item \textbf{Rare-earth doped fiber (Ho/Er)}: The Ho$^{3+}$ magneto-optical dopant used in the chip's readout layer (Phase 3) can be extended \emph{into} the fiber cladding as a distributed gain/modulation medium. Holmium-doped fiber lasers and erbium-doped fiber amplifiers (EDFAs) are mature technologies; the novelty here is using the dopant not merely for amplification but for \textbf{nonlinear optical processing} --- four-wave mixing, cross-phase modulation, and stimulated Brillouin scattering all perform mathematical operations on propagating light fields.
+    \item \textbf{Rare-earth doped fiber (Ho/Er, Pm, Fl)}: The Ho$^{3+}$ magneto-optical dopant used in the chip's readout layer (Phase 3) can be extended \emph{into} the fiber cladding as a distributed gain/modulation medium. In the C*-algebraic framework, Holmium ($\mathrm{ord}=228$) acts as a \emph{cyclic generator} across the GNS representation space, inducing deliberate nonlinear optical processing---four-wave mixing, cross-phase modulation, and stimulated Brillouin scattering all perform mathematical operations on propagating light fields by forcing the cyclic generator across the GNS Null Space. Alternatively, doping with \textbf{Promethium (Pm, $Z=61$)} ($\mathrm{ord}=19$) generates a tightly bounded invariant subspace, providing lossless, quantum-confined logic paths along the $C_{19}$ subgroup without topological scattering. A theoretical upgrade path involves \textbf{Flerovium (Fl, $Z=114$)} ($\mathrm{ord}=76$), which systematically partitions the GNS Hilbert space into a $\mathbb{Z}/3\mathbb{Z}$ coset structure, instantiating a macroscopic three-phase quantum logic gate that natively resonates with the SU(3) strong force triplet.
     
     \item \textbf{Photonic crystal fiber (PCF) with quasicrystal cladding}: Standard photonic crystal fibers use periodic hole arrays in the cladding to create photonic bandgaps. Replacing the periodic lattice with a \textbf{quasicrystal microstructure} (Penrose-tiled hole pattern) produces epiperiodic photonic transport \emph{within the fiber itself} --- the same Cantor-set spectrum and critical wave functions that the ASI Chip exploits. The fiber becomes a one-dimensional extension of the chip's computational medium.
     

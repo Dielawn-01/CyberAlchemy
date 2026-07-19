@@ -37,7 +37,7 @@ preventing unbounded exponential computation.
 theorem monster_fermat_sieve_form (n a b q : ℕ) (hq : Nat.Prime q) 
   (h_div : (q : ℤ) ∣ monsterFermatPrimeCandidate n a b) : 
   (6 * (a^n : ℤ) + 7 * (b^n : ℤ) + 89) % (q : ℤ) = 0 := by
-  sorry -- Proof relegated to computational verify step in Lake
+  exact Int.emod_eq_zero_of_dvd h_div
 
 /--
 The asymptotic dimension-shear of the Monster Fermat prime function remains bounded

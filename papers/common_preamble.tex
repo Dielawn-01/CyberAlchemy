@@ -271,7 +271,13 @@
   {\thmname{#1}\thmnumber{ #2}\thmnote{ \textnormal{(}\emph{#3}\textnormal{)}}}%
 
 \theoremstyle{principia}
-\newtheorem{theorem}{Theorem}[chapter]
+\makeatletter
+\@ifclassloaded{book}{
+  \newtheorem{theorem}{Theorem}[chapter]
+}{
+  \newtheorem{theorem}{Theorem}[section]
+}
+\makeatother
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -353,6 +359,8 @@
 % CHAPTER & SECTION FORMATTING
 % ════════════════════════════════════════════
 
+\makeatletter
+\@ifclassloaded{book}{
 % Chapter heading: number in gold, title in deep blue, with golden rule
 \titleformat{\chapter}[display]
   {\normalfont\raggedright}%
@@ -360,6 +368,8 @@
   {-10pt}%
   {\textcolor{golden}{\rule{\linewidth}{0.6pt}}\\\vspace{4pt}\Huge\bfseries\color{deepblue}}%
   [\vspace{6pt}\textcolor{golden}{\rule{0.3\linewidth}{0.4pt}}]
+}{}
+\makeatother
 
 % Section headings — color applied via before-code, not format spec,
 % to avoid \color bleeding into inline math in titles
@@ -375,6 +385,8 @@
   {\normalfont\normalsize\bfseries\raggedright}
   {\textcolor{warmgray}{\thesubsubsection}}{0.8em}{\color{deepblue!60!black}}
 
+\makeatletter
+\@ifclassloaded{book}{
 % Part heading
 \titleformat{\part}[display]
   {\centering\normalfont}
@@ -384,13 +396,11 @@
   [\vspace{8pt}\textcolor{golden}{\rule{0.5\linewidth}{0.6pt}}]
 
 % ── Part header fix ──
-\makeatletter
 \let\old@part\@part
 \def\@part[#1]#2{%
   \old@part[{#1}]{#2}%
   \markboth{Part \thepart: #1}{}%
 }
-\makeatother
 
 % ════════════════════════════════════════════
 % TABLE OF CONTENTS STYLING
@@ -399,9 +409,12 @@
 \renewcommand{\cftpartpagefont}{\large\bfseries\color{black}}
 \renewcommand{\cftchapfont}{\bfseries\color{deepblue}}
 \renewcommand{\cftchappagefont}{\bfseries\color{deepblue}}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+}{}
+\makeatother
+
 \renewcommand{\cftsecfont}{\color{warmgray}}
 \renewcommand{\cftsecpagefont}{\color{warmgray}}
-\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftdotsep}{2.5}
 
 % ════════════════════════════════════════════
@@ -411,7 +424,11 @@
 \fancyhf{}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\headrule}{\hbox to\headwidth{\color{black}\leaders\hrule height \headrulewidth\hfill}}
+\makeatletter
+\@ifclassloaded{book}{
 \renewcommand{\chaptermark}[1]{\markboth{\textsc{\chaptername\ \thechapter:\ #1}}{}}
+}{}
+\makeatother
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
 \fancyhead[L]{\small\itshape\color{warmgray}\nouppercase{\leftmark}}
 \fancyhead[R]{\small\itshape\color{warmgray}\nouppercase{\rightmark}}
