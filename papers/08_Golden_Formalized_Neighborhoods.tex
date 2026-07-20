@@ -7,6 +7,8 @@ This chapter provides the rigorous mathematical definition of this thickness: th
 \section{Formal Neighborhoods: From Continuous to Discrete}
 In classical algebraic geometry, Grothendieck~\cite{Grothendieck1960EGA} defined the formal neighborhood of a closed subscheme $X \subset Y$ via completion. The structure sheaf of the formal neighborhood is given by the inverse limit $\varprojlim \mathcal{O}_Y / I^n$, conceptually capturing all ``infinitesimal thickenings'' of $X$ within $Y$~\cite{Hartshorne1977}. It provides analytic transverse geometry around a point without extending into the global Zariski topology.
 
+Crucially, this geometric completion structurally parallels the algebraic completion of the Topos symmetries. Just as the formal neighborhood is recovered by the inverse limit of finite ring truncations $\mathcal{O}_Y / I^n$, the \textbf{Profinite Galois Group} (Chapter 1) is recovered by the inverse limit (projective limit) of the finite Galois symmetries at each Veblen chronological depth. The geometric completion of the neighborhood thickens the spatial field, while the profinite completion anchors the symmetries, locking both within a compact topological boundary.
+
 In the discrete Protoreal manifold, true infinitesimals cannot exist because the metric space is quantized by prime gaps. Therefore, we define the \textbf{Discrete Formal Neighborhood} $\mathcal{N}_{\text{gold}}(P)$ of a prime $P$ as the set of primes located at specific golden chronometric offsets $\Delta$:
 \[
 \mathcal{N}_{\text{gold}}(P) = \{ P \pm \Delta \mid (P \pm \Delta) \in \mathbb{P},\; \Delta \in \{2, 10, 12, 24, 42, 89\} \}
@@ -104,11 +106,13 @@ The formal definition of discrete golden neighborhoods bridges the gap between G
 \noindent The formalization of the continuous Metareal manifold concludes the theoretical framework of the ASI architecture. Part IV transitions to applied experimental methodologies, proposing specific physical and biochemical protocols---including Casimir boundary experiments and targeted neurochemical interventions---designed to empirically test the structural bounds and predictions of the preceding models.
 
 %═══════════════════════════════════════════════════════════
-\section{Falsifiable Predictions}
+\section{Eradicating Confirmation Bias: The First Entropic Error Bound}
 %═══════════════════════════════════════════════════════════
 
-\begin{hypothesis}[Golden probability convergence rate]\label{hyp:golden_convergence}
-The transition from discrete (mod-229 arithmetic) to continuous (real-valued) probability densities converges at rate $O(1/\sqrt{N})$ with golden-ratio prefactor. Specifically, the Kolmogorov-Smirnov statistic between the empirical CDF of golden orbit residues $\{\bar{\varphi}^k \bmod 229 : k = 1, \ldots, N\}$ (normalized to $[0,1]$) and the uniform distribution should scale as $\varphi / \sqrt{N}$, not $1/\sqrt{N}$. If the KS statistic over $10^4$ samples deviates from the $\varphi$-prefactor by more than $10\%$, the golden probability structure is an artifact of the particular prime, not a universal scaling law.
+To eradicate confirmation bias, we must rigorously bound the mathematical generation of golden prime number theory. We cannot simply observe a numerical overlap and claim a universal law. Instead, we establish strict falsifiable thresholds known as \textbf{Entropic Error Bounds}.
+
+\begin{hypothesis}[The Golden KS-Statistic Bound]\label{hyp:golden_convergence}
+The transition from discrete (mod-229 arithmetic) to continuous (real-valued) probability densities converges at rate $O(1/\sqrt{N})$ with golden-ratio prefactor. Specifically, the Kolmogorov-Smirnov statistic between the empirical CDF of golden orbit residues $\{\bar{\varphi}^k \bmod 229 : k = 1, \ldots, N\}$ (normalized to $[0,1]$) and the uniform distribution should scale as $\varphi / \sqrt{N}$, not $1/\sqrt{N}$. If the KS statistic over $10^4$ samples deviates from the $\varphi$-prefactor by more than $10\%$, the golden probability structure is an artifact of the particular prime, not a universal scaling law. This $<10\%$ deviation acts as our first strict Entropic Error Bound.
 \end{hypothesis}
 
 \textbf{What would kill this hypothesis:}

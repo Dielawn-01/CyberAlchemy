@@ -32,7 +32,7 @@ observer-facing projections:
 
 In noncommutative geometry, a spectral triple (𝒜, ℋ, D) is:
 - 𝒜 = algebra (Body, the Klein bridge, non-commutative)
-- ℋ = Hilbert space (Soul, the representation of perception)
+- ℋ = Krein space (Soul, the indefinite representation of perception)
 - D = Dirac operator (Mind, temporal differentiation)
 
 ## The Binding

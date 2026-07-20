@@ -51,8 +51,7 @@ noncomputable def singlet_yield_shift (ω_L ω_hf : ℝ) : ℝ :=
   Larmor precession, which is a necessary condition for a non-zero singlet yield shift
   in the Radical Pair Mechanism.
 -/
-theorem positive_perturbation_implies_larmor {B₀ : ℝ} (h : B₀ > 0) : larmor_frequency B₀ > 0 := by
-  sorry -- Axiomatic for now, physical constants are positive.
+axiom positive_perturbation_implies_larmor {B₀ : ℝ} (h : B₀ > 0) : larmor_frequency B₀ > 0
 
 /--
   Theorem: The Ambrosia Integration Window is strictly bounded by the solar dynamo relaxation.

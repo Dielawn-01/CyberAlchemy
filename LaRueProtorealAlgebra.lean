@@ -200,3 +200,4 @@ import LaRueProtorealAlgebra.UniversalBode
 import LaRueProtorealAlgebra.GeneralEulerIdentity
 import LaRueProtorealAlgebra.RamanujanDecision
 import LaRueProtorealAlgebra.GNSConstruction
+import InfoPhysAxioms.ProfiniteColimits

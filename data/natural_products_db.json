@@ -1,0 +1,144 @@
+{
+  "trace_minerals": [
+    {
+      "element": "Vanadium",
+      "ion": "V^IV",
+      "topological_capacitance": 5.63101,
+      "description": "Primary catalytic node."
+    },
+    {
+      "element": "Silicon",
+      "ion": "SiO2",
+      "topological_capacitance": 71.5138,
+      "description": "Rigid non-metallic scaffolding anchor."
+    },
+    {
+      "element": "Copper",
+      "ion": "Cu^2+",
+      "topological_capacitance": 5.63101,
+      "description": "Bio-electrical trace metal."
+    },
+    {
+      "element": "Gold",
+      "ion": "Au^3+",
+      "topological_capacitance": 2048.38,
+      "description": "High-spin topological anchor."
+    },
+    {
+      "element": "Lithium",
+      "ion": "Li^+",
+      "topological_capacitance": 18.22,
+      "description": "Alkali metal neuro-protectant."
+    },
+    {
+      "element": "Magnesium",
+      "ion": "Mg^2+",
+      "topological_capacitance": 33.45,
+      "description": "Key for NMDA receptor modulation."
+    }
+  ],
+  "fungal_substrates": [
+    {
+      "name": "Lion's Mane (Mycelium)",
+      "species": "Hericium erinaceus",
+      "part": "Mycelium",
+      "active_compound": "Erinacines",
+      "chitin_density": 4.2,
+      "enzymatic_resistance": 3.8,
+      "base_yield_potential": 14.5
+    },
+    {
+      "name": "Lion's Mane (Fruiting Body)",
+      "species": "Hericium erinaceus",
+      "part": "Fruiting Body",
+      "active_compound": "Hericenones",
+      "chitin_density": 7.5,
+      "enzymatic_resistance": 6.2,
+      "base_yield_potential": 8.0
+    },
+    {
+      "name": "Reishi (Spores)",
+      "species": "Ganoderma lucidum",
+      "part": "Spores",
+      "active_compound": "Triterpenes",
+      "chitin_density": 9.5,
+      "enzymatic_resistance": 9.8,
+      "base_yield_potential": 22.0
+    },
+    {
+      "name": "Oyster Mushroom (Mycelium)",
+      "species": "Pleurotus ostreatus",
+      "part": "Mycelium",
+      "active_compound": "Lovastatin",
+      "chitin_density": 3.1,
+      "enzymatic_resistance": 2.5,
+      "base_yield_potential": 11.2
+    },
+    {
+      "name": "Cordyceps (Fruiting Body)",
+      "species": "Cordyceps militaris",
+      "part": "Fruiting Body",
+      "active_compound": "Cordycepin",
+      "chitin_density": 5.8,
+      "enzymatic_resistance": 4.5,
+      "base_yield_potential": 18.4
+    },
+    {
+      "name": "Shiitake (Mycelium)",
+      "species": "Lentinula edodes",
+      "part": "Mycelium",
+      "active_compound": "Lentinan",
+      "chitin_density": 6.5,
+      "enzymatic_resistance": 5.0,
+      "base_yield_potential": 25.0
+    }
+  ],
+  "yeast_strains": [
+    {
+      "name": "Saccharomyces cerevisiae",
+      "type": "Brewers Yeast",
+      "chitinase_activity": 2.5,
+      "optimal_pH": 4.5,
+      "fermentation_stress_factor": 850.0
+    },
+    {
+      "name": "Brettanomyces bruxellensis",
+      "type": "Wild Yeast",
+      "chitinase_activity": 6.8,
+      "optimal_pH": 3.8,
+      "fermentation_stress_factor": 1200.0
+    },
+    {
+      "name": "Koji (Aspergillus oryzae)",
+      "type": "Filamentous Fungus",
+      "chitinase_activity": 9.2,
+      "optimal_pH": 5.0,
+      "fermentation_stress_factor": 600.0
+    },
+    {
+      "name": "Lactobacillus plantarum",
+      "type": "Lactic Acid Bacteria",
+      "chitinase_activity": 1.5,
+      "optimal_pH": 3.2,
+      "fermentation_stress_factor": 1500.0
+    }
+  ],
+  "botanicals": [
+    {
+      "name": "Cannabis (Flower)",
+      "species": "Cannabis sativa",
+      "part": "Flower",
+      "active_compound": "Cannabinoids & Terpenes",
+      "antimicrobial_shielding": 9.2,
+      "terpene_profile_density": 8.5
+    },
+    {
+      "name": "San Pedro (Cactus)",
+      "species": "Echinopsis pachanoi",
+      "part": "Stem/Mucilage",
+      "active_compound": "Mescaline",
+      "mucilage_density": 9.5,
+      "mescaline_yield": 12.0
+    }
+  ]
+}

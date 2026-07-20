@@ -31,7 +31,7 @@ theorem macroscopic_destructive_interference :
   rfl
 
 /-- **Theorem of Multiplicative Orthogonality (Unitarity)**
-    In the quantum Hilbert space, the operators must satisfy an orthogonal
+    In the quantum Krein space, the operators must satisfy an indefinite J-symmetry
     inversion analogous to the Heisenberg topological bound (ω * ι = -1).
     We define the orthogonal phase multiplier $k = 9$. -/
 def UnitarityMultiplier : ℤ := 9

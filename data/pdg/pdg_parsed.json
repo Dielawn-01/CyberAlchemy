@@ -1,0 +1,562 @@
+[
+  {
+    "name": "gamma",
+    "mass_gev": 0.0,
+    "mc_id": "22"
+  },
+  {
+    "name": "Z",
+    "mass_gev": 91.188,
+    "mc_id": "23"
+  },
+  {
+    "name": "mu",
+    "mass_gev": 0.00051099895,
+    "mc_id": "11"
+  },
+  {
+    "name": "tau",
+    "mass_gev": 1.77693,
+    "mc_id": "15"
+  },
+  {
+    "name": "d",
+    "mass_gev": 0.0047,
+    "mc_id": "1"
+  },
+  {
+    "name": "c",
+    "mass_gev": 1.273,
+    "mc_id": "4"
+  },
+  {
+    "name": "pi",
+    "mass_gev": 172.57,
+    "mc_id": "6"
+  },
+  {
+    "name": "eta",
+    "mass_gev": 0.1349768,
+    "mc_id": "111"
+  },
+  {
+    "name": "rho(",
+    "mass_gev": 0.6,
+    "mc_id": "9000221"
+  },
+  {
+    "name": "eta'(",
+    "mass_gev": 0.78266,
+    "mc_id": "223"
+  },
+  {
+    "name": "a(",
+    "mass_gev": 0.99,
+    "mc_id": "9010221"
+  },
+  {
+    "name": "h(",
+    "mass_gev": 1.019461,
+    "mc_id": "333"
+  },
+  {
+    "name": "a(",
+    "mass_gev": 1.2295,
+    "mc_id": "10113"
+  },
+  {
+    "name": "f(",
+    "mass_gev": 1.2754,
+    "mc_id": "225"
+  },
+  {
+    "name": "pi(",
+    "mass_gev": 1.294,
+    "mc_id": "100221"
+  },
+  {
+    "name": "f(",
+    "mass_gev": 1.3182,
+    "mc_id": "115"
+  },
+  {
+    "name": "h(",
+    "mass_gev": 1.4087,
+    "mc_id": "9020221"
+  },
+  {
+    "name": "omega(",
+    "mass_gev": 1.4284,
+    "mc_id": "20333"
+  },
+  {
+    "name": "rho(",
+    "mass_gev": 1.439,
+    "mc_id": "10111"
+  },
+  {
+    "name": "f(",
+    "mass_gev": 1.476,
+    "mc_id": "100331"
+  },
+  {
+    "name": "f(",
+    "mass_gev": 1.5173,
+    "mc_id": "335"
+  },
+  {
+    "name": "a(",
+    "mass_gev": 1.645,
+    "mc_id": "9010113"
+  },
+  {
+    "name": "omega(",
+    "mass_gev": 1.617,
+    "mc_id": "10225"
+  },
+  {
+    "name": "pi(",
+    "mass_gev": 1.667,
+    "mc_id": "227"
+  },
+  {
+    "name": "rho(",
+    "mass_gev": 1.68,
+    "mc_id": "100333"
+  },
+  {
+    "name": "a(",
+    "mass_gev": 1.72,
+    "mc_id": "30113"
+  },
+  {
+    "name": "pi(",
+    "mass_gev": 1.733,
+    "mc_id": "10331"
+  },
+  {
+    "name": "eta(",
+    "mass_gev": 1.854,
+    "mc_id": "337"
+  },
+  {
+    "name": "a(",
+    "mass_gev": 1.936,
+    "mc_id": "9050225"
+  },
+  {
+    "name": "f(",
+    "mass_gev": 2.01,
+    "mc_id": "9060225"
+  },
+  {
+    "name": "f(",
+    "mass_gev": 2.018,
+    "mc_id": "229"
+  },
+  {
+    "name": "f(",
+    "mass_gev": 2.346,
+    "mc_id": "9090225"
+  },
+  {
+    "name": "K(S)",
+    "mass_gev": 0.497611,
+    "mc_id": "311"
+  },
+  {
+    "name": "K(",
+    "mass_gev": 0.497611,
+    "mc_id": "130"
+  },
+  {
+    "name": "K*(",
+    "mass_gev": 0.89555,
+    "mc_id": "313"
+  },
+  {
+    "name": "K(",
+    "mass_gev": 1.253,
+    "mc_id": "10313"
+  },
+  {
+    "name": "K(",
+    "mass_gev": 1.414,
+    "mc_id": "100313"
+  },
+  {
+    "name": "K(",
+    "mass_gev": 1.4324,
+    "mc_id": "315"
+  },
+  {
+    "name": "K*(",
+    "mass_gev": 1.65,
+    "mc_id": "9000313"
+  },
+  {
+    "name": "K(",
+    "mass_gev": 1.773,
+    "mc_id": "10315"
+  },
+  {
+    "name": "K(",
+    "mass_gev": 1.819,
+    "mc_id": "20315"
+  },
+  {
+    "name": "K(",
+    "mass_gev": 1.99,
+    "mc_id": "9010315"
+  },
+  {
+    "name": "D",
+    "mass_gev": 1.86966,
+    "mc_id": "411"
+  },
+  {
+    "name": "D*(",
+    "mass_gev": 2.00685,
+    "mc_id": "423"
+  },
+  {
+    "name": "D(",
+    "mass_gev": 2.343,
+    "mc_id": "10421"
+  },
+  {
+    "name": "D(",
+    "mass_gev": 2.412,
+    "mc_id": "20423"
+  },
+  {
+    "name": "D(s)*",
+    "mass_gev": 1.96835,
+    "mc_id": "431"
+  },
+  {
+    "name": "D(s",
+    "mass_gev": 2.3178,
+    "mc_id": "10431"
+  },
+  {
+    "name": "D(s",
+    "mass_gev": 2.53511,
+    "mc_id": "10433"
+  },
+  {
+    "name": "B",
+    "mass_gev": 5.27941,
+    "mc_id": "521"
+  },
+  {
+    "name": "B(",
+    "mass_gev": 5.32475,
+    "mc_id": "513"
+  },
+  {
+    "name": "B(s)",
+    "mass_gev": 5.7373,
+    "mc_id": "525"
+  },
+  {
+    "name": "B(s",
+    "mass_gev": 5.4154,
+    "mc_id": "533"
+  },
+  {
+    "name": "S)",
+    "mass_gev": 6.27447,
+    "mc_id": "541"
+  },
+  {
+    "name": "P)",
+    "mass_gev": 3.0969,
+    "mc_id": "443"
+  },
+  {
+    "name": "P)",
+    "mass_gev": 3.51067,
+    "mc_id": "20443"
+  },
+  {
+    "name": "S)",
+    "mass_gev": 3.55617,
+    "mc_id": "445"
+  },
+  {
+    "name": "psi(",
+    "mass_gev": 3.686097,
+    "mc_id": "100443"
+  },
+  {
+    "name": "psi(",
+    "mass_gev": 3.9225,
+    "mc_id": "100445"
+  },
+  {
+    "name": "psi(",
+    "mass_gev": 4.191,
+    "mc_id": "9010443"
+  },
+  {
+    "name": "S)",
+    "mass_gev": 9.3987,
+    "mc_id": "551"
+  },
+  {
+    "name": "P)",
+    "mass_gev": 9.8594,
+    "mc_id": "10551"
+  },
+  {
+    "name": "P)",
+    "mass_gev": 9.8993,
+    "mc_id": "10553"
+  },
+  {
+    "name": "D)",
+    "mass_gev": 10.0234,
+    "mc_id": "100553"
+  },
+  {
+    "name": "P)",
+    "mass_gev": 10.2325,
+    "mc_id": "110551"
+  },
+  {
+    "name": "P)",
+    "mass_gev": 10.2598,
+    "mc_id": "110553"
+  },
+  {
+    "name": "P)",
+    "mass_gev": 10.3551,
+    "mc_id": "200553"
+  },
+  {
+    "name": "S)",
+    "mass_gev": 10.524,
+    "mc_id": "200555"
+  },
+  {
+    "name": "Upsilon(",
+    "mass_gev": 10.8852,
+    "mc_id": "9000553"
+  },
+  {
+    "name": "p",
+    "mass_gev": 0.93827208816,
+    "mc_id": "2212"
+  },
+  {
+    "name": "N(",
+    "mass_gev": 1.44,
+    "mc_id": "12112"
+  },
+  {
+    "name": "N(",
+    "mass_gev": 1.53,
+    "mc_id": "22112"
+  },
+  {
+    "name": "N(",
+    "mass_gev": 1.675,
+    "mc_id": "2116"
+  },
+  {
+    "name": "N(",
+    "mass_gev": 1.72,
+    "mc_id": "21214"
+  },
+  {
+    "name": "Delta(",
+    "mass_gev": 1.232,
+    "mc_id": "1114"
+  },
+  {
+    "name": "Delta(",
+    "mass_gev": 1.61,
+    "mc_id": "1112"
+  },
+  {
+    "name": "Delta(",
+    "mass_gev": 1.86,
+    "mc_id": "11112"
+  },
+  {
+    "name": "Delta(",
+    "mass_gev": 1.9,
+    "mc_id": "21112"
+  },
+  {
+    "name": "Delta(",
+    "mass_gev": 1.95,
+    "mc_id": "11116"
+  },
+  {
+    "name": "Lambda(",
+    "mass_gev": 1.115683,
+    "mc_id": "3122"
+  },
+  {
+    "name": "Lambda(",
+    "mass_gev": 1.519,
+    "mc_id": "3124"
+  },
+  {
+    "name": "Lambda(",
+    "mass_gev": 1.674,
+    "mc_id": "33122"
+  },
+  {
+    "name": "Lambda(",
+    "mass_gev": 1.8,
+    "mc_id": "43122"
+  },
+  {
+    "name": "Lambda(",
+    "mass_gev": 1.82,
+    "mc_id": "3126"
+  },
+  {
+    "name": "Lambda(",
+    "mass_gev": 1.89,
+    "mc_id": "23124"
+  },
+  {
+    "name": "Sigma",
+    "mass_gev": 2.09,
+    "mc_id": "23126"
+  },
+  {
+    "name": "Sigma",
+    "mass_gev": 1.192642,
+    "mc_id": "3212"
+  },
+  {
+    "name": "Sigma(",
+    "mass_gev": 1.3872,
+    "mc_id": "3114"
+  },
+  {
+    "name": "Sigma(",
+    "mass_gev": 1.38283,
+    "mc_id": "3224"
+  },
+  {
+    "name": "Sigma(",
+    "mass_gev": 1.675,
+    "mc_id": "13114"
+  },
+  {
+    "name": "Sigma(",
+    "mass_gev": 1.775,
+    "mc_id": "3116"
+  },
+  {
+    "name": "Sigma(",
+    "mass_gev": 1.915,
+    "mc_id": "13116"
+  },
+  {
+    "name": "Xi",
+    "mass_gev": 1.31486,
+    "mc_id": "3322"
+  },
+  {
+    "name": "Xi(",
+    "mass_gev": 1.535,
+    "mc_id": "3314"
+  },
+  {
+    "name": "Xi(",
+    "mass_gev": 1.69,
+    "mc_id": "203312"
+  },
+  {
+    "name": "Xi(",
+    "mass_gev": 1.95,
+    "mc_id": "103316"
+  },
+  {
+    "name": "Omega(",
+    "mass_gev": 1.67245,
+    "mc_id": "3334"
+  },
+  {
+    "name": "Lambda(c)(",
+    "mass_gev": 2.28646,
+    "mc_id": "4122"
+  },
+  {
+    "name": "Lambda(c)(",
+    "mass_gev": 2.628,
+    "mc_id": "104122"
+  },
+  {
+    "name": "Sigma(c)(",
+    "mass_gev": 2.45375,
+    "mc_id": "4112"
+  },
+  {
+    "name": "Sigma(c)(",
+    "mass_gev": 2.45397,
+    "mc_id": "4222"
+  },
+  {
+    "name": "Sigma(c)(",
+    "mass_gev": 2.5174,
+    "mc_id": "4214"
+  },
+  {
+    "name": "Xi(c)",
+    "mass_gev": 2.46771,
+    "mc_id": "4232"
+  },
+  {
+    "name": "Xi(c)'",
+    "mass_gev": 2.5782,
+    "mc_id": "4322"
+  },
+  {
+    "name": "Xi(c)(",
+    "mass_gev": 2.64616,
+    "mc_id": "4314"
+  },
+  {
+    "name": "Xi(c)(",
+    "mass_gev": 2.7939,
+    "mc_id": "104314"
+  },
+  {
+    "name": "Xi(c)(",
+    "mass_gev": 2.81979,
+    "mc_id": "104312"
+  },
+  {
+    "name": "Omega(c)(",
+    "mass_gev": 2.6952,
+    "mc_id": "4332"
+  },
+  {
+    "name": "Sigma(b)",
+    "mass_gev": 5.6196,
+    "mc_id": "5122"
+  },
+  {
+    "name": "Sigma(b)*",
+    "mass_gev": 5.81056,
+    "mc_id": "5222"
+  },
+  {
+    "name": "Xi(b)",
+    "mass_gev": 5.83032,
+    "mc_id": "5224"
+  },
+  {
+    "name": "Omega(b)",
+    "mass_gev": 5.7919,
+    "mc_id": "5232"
+  }
+]

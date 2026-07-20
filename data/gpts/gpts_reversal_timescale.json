@@ -1,0 +1,146 @@
+[
+  {
+    "chron": "C1n",
+    "age_ma": 0.0,
+    "polarity": "Normal",
+    "name": "Brunhes"
+  },
+  {
+    "chron": "C1r.1r",
+    "age_ma": 0.781,
+    "polarity": "Reversed",
+    "name": "Matuyama"
+  },
+  {
+    "chron": "C1r.1n",
+    "age_ma": 0.988,
+    "polarity": "Normal",
+    "name": "Jaramillo"
+  },
+  {
+    "chron": "C1r.2r",
+    "age_ma": 1.072,
+    "polarity": "Reversed",
+    "name": "Matuyama"
+  },
+  {
+    "chron": "C2n",
+    "age_ma": 1.778,
+    "polarity": "Normal",
+    "name": "Olduvai"
+  },
+  {
+    "chron": "C2r.1r",
+    "age_ma": 1.945,
+    "polarity": "Reversed",
+    "name": "Matuyama"
+  },
+  {
+    "chron": "C2An.1n",
+    "age_ma": 2.581,
+    "polarity": "Normal",
+    "name": "Gauss"
+  },
+  {
+    "chron": "C2An.1r",
+    "age_ma": 3.032,
+    "polarity": "Reversed",
+    "name": "Kaena"
+  },
+  {
+    "chron": "C2An.2n",
+    "age_ma": 3.116,
+    "polarity": "Normal",
+    "name": "Gauss"
+  },
+  {
+    "chron": "C2An.3n",
+    "age_ma": 3.207,
+    "polarity": "Normal",
+    "name": "Gauss"
+  },
+  {
+    "chron": "C2Ar",
+    "age_ma": 3.596,
+    "polarity": "Reversed",
+    "name": "Gilbert"
+  },
+  {
+    "chron": "C3n.1n",
+    "age_ma": 4.187,
+    "polarity": "Normal",
+    "name": "Cochiti"
+  },
+  {
+    "chron": "C3n.2n",
+    "age_ma": 4.3,
+    "polarity": "Normal",
+    "name": "Nunivak"
+  },
+  {
+    "chron": "C3n.3n",
+    "age_ma": 4.631,
+    "polarity": "Normal",
+    "name": "Sidufjall"
+  },
+  {
+    "chron": "C3n.4n",
+    "age_ma": 4.799,
+    "polarity": "Normal",
+    "name": "Thvera"
+  },
+  {
+    "chron": "C3r",
+    "age_ma": 5.235,
+    "polarity": "Reversed",
+    "name": "Gilbert"
+  },
+  {
+    "chron": "C3An.1n",
+    "age_ma": 6.033,
+    "polarity": "Normal",
+    "name": ""
+  },
+  {
+    "chron": "C3An.2n",
+    "age_ma": 6.436,
+    "polarity": "Normal",
+    "name": ""
+  },
+  {
+    "chron": "C3Bn",
+    "age_ma": 7.14,
+    "polarity": "Normal",
+    "name": ""
+  },
+  {
+    "chron": "C4n.1n",
+    "age_ma": 7.528,
+    "polarity": "Normal",
+    "name": ""
+  },
+  {
+    "chron": "C4n.2n",
+    "age_ma": 8.108,
+    "polarity": "Normal",
+    "name": ""
+  },
+  {
+    "chron": "C4An",
+    "age_ma": 8.771,
+    "polarity": "Normal",
+    "name": ""
+  },
+  {
+    "chron": "C5n.1n",
+    "age_ma": 9.786,
+    "polarity": "Normal",
+    "name": ""
+  },
+  {
+    "chron": "C5n.2n",
+    "age_ma": 11.04,
+    "polarity": "Normal",
+    "name": ""
+  }
+]

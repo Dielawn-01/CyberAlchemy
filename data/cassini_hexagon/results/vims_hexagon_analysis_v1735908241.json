@@ -1,0 +1,24 @@
+{
+  "observation_id": "VIMS_178SA_AURSTARE001_PRIME",
+  "target": "SATURN",
+  "start_time": "2013-003T11:50:01.930",
+  "cube_shape": [
+    64,
+    352,
+    64
+  ],
+  "wavelength_range_um": [
+    0.8,
+    5.1
+  ],
+  "cube_value_range": [
+    NaN,
+    NaN
+  ],
+  "cube_mean": NaN,
+  "n_good_bands": 8,
+  "azimuthal_fourier_power": {},
+  "gauge_wavenumber_ranks": {},
+  "data_source": "Cassini VIMS, OPUS PDS archive",
+  "pipeline_version": "1.0"
+}

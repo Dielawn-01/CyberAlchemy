@@ -271,3 +271,4 @@ import InfoPhysAxioms.ThemeMotifDuality
 import InfoPhysAxioms.StellarNucleosynthesis
 import InfoPhysAxioms.GoldenGeometricAlgebra
 import InfoPhysAxioms.TopologicalPrimes
+import InfoPhysAxioms.TeleparallelFTL
