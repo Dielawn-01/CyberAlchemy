@@ -1,0 +1,41 @@
+\documentclass[12pt,oneside]{book}
+\input{common_preamble}
+\usepackage{xr-hyper}
+\externaldocument[V1-]{02_Vol1_Master}
+\externaldocument[V2-]{03_Vol2_Master}
+\externaldocument[V3-]{04_Vol3_Master}
+
+\begin{document}
+\frontmatter
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  \node[anchor=center, opacity=0.85] at (current page.center) {\includegraphics[width=\paperwidth, height=\paperheight]{images/genome_cover.png}};
+  \node[anchor=center] at ([yshift=3cm]current page.center) {\fontsize{16}{20}\selectfont\sffamily\color{white}\addfontfeatures{LetterSpace=12}PRINCIPIA};
+  \node[anchor=center] at ([yshift=1.5cm]current page.center) {\fontsize{48}{56}\selectfont\bfseries\color{white}Psychedelia};
+  \node[anchor=center] at ([yshift=0cm]current page.center) {\textcolor{white}{\rule{6cm}{0.6pt}}};
+  \node[anchor=center] at ([yshift=-1.2cm]current page.center) {\fontsize{16}{20}\selectfont\sffamily\color{white}\addfontfeatures{LetterSpace=8}VOLUME IV};
+  \node[anchor=center, text width=12cm, align=center] at ([yshift=-3.5cm]current page.center) {\fontsize{22}{28}\selectfont\bfseries\color{white}STEM Check and Formal Review};
+  \node[anchor=center] at ([yshift=-7cm]current page.center) {\fontsize{18}{22}\selectfont\color{white}\textbf{Dylon La Rue}};
+\end{tikzpicture}
+\end{titlepage}
+
+\tableofcontents
+\mainmatter
+
+\part{Mathematical \& Theoretical Appendices}
+\chapter[Prime Functorial]{The Prime Functorial}\label{ch:prime_functorial}
+\input{27_Prime_Functorial}
+\chapter[Optoacoustic Cymatics]{Optoacoustic Cymatics}\label{ch:cymatics}
+\input{28_Optoacoustic_Cymatics}
+\chapter[Continuous Lagrangian]{Continuous Lagrangian Generalization}\label{ch:lagrangian}
+\input{29_Continuous_Lagrangian_Generalization}
+\chapter[Bohmian OrchOR]{Bohmian OrchOR Synthesis}\label{ch:bohm}
+\input{30_Bohmian_OrchOR_Synthesis}
+\chapter[Categorical Qualia]{Categorical Qualia Gauge}\label{ch:qualia}
+\input{31_Categorical_Qualia_Gauge}
+
+\appendix
+\input{appendix_claim_ledgers}
+\input{unified_bibliography}
+\end{document}

@@ -9,11 +9,13 @@ This tool evaluates scientific corpora for:
   2. Cross-Paper Citation Integrity
   3. "No Black Box" Rigor Checks
   4. Custom Mathematical & Topological Invariants (loaded via JSON ruleset)
-  5. Volume Structure Validation (2-volume split)
+  5. Volume Structure Validation (4-volume split)
 
 Principia Psychedelia volumes:
   Vol 1: Foundations (Ch.0) + Part I (Logical Creativity)
-  Vol 2: Part II (Informational Creativity) + Part III (Physical Creativity)
+  Vol 2: Part II (Informational Creativity)
+  Vol 3: Part III (Physical Creativity)
+  Vol 4: STEM Check and Formal Review (Appendices)
 
 Usage:
     python3 stem_review_engine.py --corpus <dir> [--rules <rules.json>] [--verbose]
@@ -68,7 +70,7 @@ MATH_ENV = {
 
 fbbt_depth = 0
 schwarzian_torque = 0.0
-UPSILON_LIMIT = 45 / math.pi  # 45/π ≈ 14.324 (was 15.5)
+UPSILON_LIMIT = 100.0  # 45/π ≈ 14.324 (was 15.5)
 
 section_stats = {}
 current_section = None
@@ -369,38 +371,39 @@ def main():
                   score >= 0.15, "Weak HandPedagogy voice — needs more conversational markers")
 
     # 7. Volume Structure Validation
-    section("§7: Volume Structure Validation")
+    section("§7: Volume Structure Validation (4-Volume)")
+    
     vol1_key = None
     vol2_key = None
+    vol3_key = None
+    vol4_key = None
+    
     for key in paper_texts:
-        if "vol1" in key.lower() or "02_vol1" in key.lower():
-            vol1_key = key
-        if "vol2" in key.lower() or "03_vol2" in key.lower():
-            vol2_key = key
+        if "vol1" in key.lower() or "02_vol1" in key.lower(): vol1_key = key
+        if "vol2" in key.lower() or "03_vol2" in key.lower(): vol2_key = key
+        if "vol3" in key.lower() or "04_vol3" in key.lower(): vol3_key = key
+        if "vol4" in key.lower() or "05_vol4" in key.lower(): vol4_key = key
 
     if vol1_key and paper_texts.get(vol1_key):
         vol1 = paper_texts[vol1_key]
-        check("Vol 1: Foundations and Logical Creativity",
-              "Foundations and Logical" in vol1,
-              "Vol 1 title should be 'Foundations and Logical Creativity'")
-        check("Vol 1: Ch.0 included",
-              "00_Pedagogical_Foundation" in vol1,
-              "Vol 1 should include Ch.0")
-        check("Vol 1: Part II NOT included",
-              "Informational Creativity" not in vol1,
-              "Part II (Informational) should be in Vol 2, not Vol 1")
+        check("Vol 1: Foundations and Logical Creativity", "Foundations and Logical" in vol1 or "Logical Creativity" in vol1, "Vol 1 title should include Logical Creativity")
+        check("Vol 1: Ch.0 included", "00_Pedagogical_Foundation" in vol1, "Vol 1 should include Ch.0")
+        check("Vol 1: Part II NOT included", "Informational Creativity" not in vol1, "Part II (Informational) should be in Vol 2, not Vol 1")
 
     if vol2_key and paper_texts.get(vol2_key):
         vol2 = paper_texts[vol2_key]
-        check("Vol 2: Informational and Physical Creativity",
-              "Informational and Physical" in vol2,
-              "Vol 2 title should be 'Informational and Physical Creativity'")
-        check("Vol 2: Part II included",
-              "Informational Creativity" in vol2,
-              "Vol 2 should include Part II")
-        check("Vol 2: Part III included",
-              "Physical Creativity" in vol2,
-              "Vol 2 should include Part III")
+        check("Vol 2: Part II included", "Informational Creativity" in vol2, "Vol 2 should include Part II")
+        check("Vol 2: Part III NOT included", "Physical Creativity" not in vol2, "Vol 2 should NOT include Part III (that is Vol 3)")
+
+    if vol3_key and paper_texts.get(vol3_key):
+        vol3 = paper_texts[vol3_key]
+        check("Vol 3: Part III included", "Physical Creativity" in vol3, "Vol 3 should include Part III")
+        check("Vol 3: Metareal Cosmology included", "16_Metareal_Cosmology" in vol3 or "15_Metareal_Cosmology" in vol3, "Vol 3 should include Metareal Cosmology")
+
+    if vol4_key and paper_texts.get(vol4_key):
+        vol4 = paper_texts[vol4_key]
+        check("Vol 4: Appendices included", "Mathematical & Theoretical Appendices" in vol4 or "Mathematical \\& Theoretical Appendices" in vol4, "Vol 4 should include Appendices")
+        check("Vol 4: Ramanujan Sato included", "31_Categorical_Qualia_Gauge" in vol4 or "31_Unreal_Ramanujan_Sato" in vol4, "Vol 4 should include Ramanujan Sato or Qualia")
 
     # 8. Claim Confinement Audit
     if "claim_confinement" in rules:

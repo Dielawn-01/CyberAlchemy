@@ -1,0 +1,54 @@
+\documentclass[12pt,oneside]{book}
+\input{common_preamble}
+\usepackage{xr-hyper}
+\externaldocument[V1-]{02_Vol1_Master}
+\externaldocument[V2-]{03_Vol2_Master}
+
+\begin{document}
+\frontmatter
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  \node[anchor=center, opacity=0.85] at (current page.center) {\includegraphics[width=\paperwidth, height=\paperheight]{images/genome_cover.png}};
+  \node[anchor=center] at ([yshift=3cm]current page.center) {\fontsize{16}{20}\selectfont\sffamily\color{white}\addfontfeatures{LetterSpace=12}PRINCIPIA};
+  \node[anchor=center] at ([yshift=1.5cm]current page.center) {\fontsize{48}{56}\selectfont\bfseries\color{white}Psychedelia};
+  \node[anchor=center] at ([yshift=0cm]current page.center) {\textcolor{white}{\rule{6cm}{0.6pt}}};
+  \node[anchor=center] at ([yshift=-1.2cm]current page.center) {\fontsize{16}{20}\selectfont\sffamily\color{white}\addfontfeatures{LetterSpace=8}VOLUME III};
+  \node[anchor=center, text width=12cm, align=center] at ([yshift=-3.5cm]current page.center) {\fontsize{22}{28}\selectfont\bfseries\color{white}Physical Creativity};
+  \node[anchor=center] at ([yshift=-7cm]current page.center) {\fontsize{18}{22}\selectfont\color{white}\textbf{Dylon La Rue}};
+\end{tikzpicture}
+\end{titlepage}
+
+\tableofcontents
+\mainmatter
+
+\part{Archetypal Cosmology}
+\input{part3_introduction}
+\chapter[Archetypal Cosmology]{Archetypal Cosmology: Teleparallel Gravity and the Fractional Substrate}\label{ch:cosmo}
+\input{15_Fractal_Spacetime_ZPE}
+\input{16_Metareal_Cosmology}
+
+\part{Applied Plasma and Astroengineering}
+\chapter[Casimir Experiment]{Chiral Casimir Experiment}
+\input{17_Chiral_Casimir_Experiment}
+\chapter[Plasma Cybernetics]{Fusion Plasma Cybernetics and Halting Topology}
+\input{18_Fusion_Plasma_Cybernetics}
+\chapter[ASI Chip]{ASI Chip Fabrication and Klein Manifold Architecture}\label{ch:asi}
+\input{19_ASI_Chip}
+\chapter[Metalloplasmic Life]{Metalloplasmic Life}\label{ch:metallo}
+\input{20_Metalloplasmic_Life}
+\chapter[Quasicrystal Physics]{Quasicrystal Physics and Temporal Quasicrystals}\label{ch:quasicrystal}
+\input{21_Quasicrystal_Physics}
+\chapter[Field Dynamics]{Field Enrichment Dynamics: The Icarus Thought Experiment}\label{ch:icarus}
+\input{22_Field_Enrichment_Dynamics}
+\chapter[Prime Generators]{The La Rue Prime Generators}\label{ch:primes}
+\input{23_LaRue_Prime_Generators}
+\chapter[Octagonal Monster Lift]{The Octagonal Monster Lift and FRDT Topology}\label{ch:monster}
+\input{24_Octagonal_Monster_Lift}
+\chapter[Stellar Nucleosynthesis]{Stellar Subgroup Nucleosynthesis: The Actinide Decay Sieve}\label{ch:stellar}
+\input{25_Stellar_Subgroup_Nucleosynthesis}
+\chapter[Icarus Architecture]{Icarus Chip-Ship Geometric Control Surface}\label{ch:icarus_arch}
+\input{26_Icarus_Architecture}
+
+\input{unified_bibliography}
+\end{document}

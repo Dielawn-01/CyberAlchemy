@@ -62,6 +62,7 @@ def build_pdf(tex_file, out_dir, use_wrapper=False, titles=None):
 \begin{document}
 \maketitle
 \input{%s}
+\input{unified_bibliography}
 \end{document}
 """ % (title, filename))
         target_file = wrapper_path
@@ -99,12 +100,15 @@ def main():
     titles = extract_titles(base_dir)
     
     # Book
-    build_pdf(os.path.join(base_dir, '01_Principia_Psychedelia_Master.tex'), build_dir)
-    
-    # Volumes
-    for vol in ['02_Vol1_Master.tex', '03_Vol2_Master.tex']:
-        if os.path.exists(os.path.join(base_dir, vol)):
-            build_pdf(os.path.join(base_dir, vol), volumes_dir)
+    print("\n--- Compiling Volumes ---")
+    build_pdf(os.path.join(base_dir, "02_Vol1_Master.tex"), os.path.join(base_dir, "build/Volumes"))
+    build_pdf(os.path.join(base_dir, "03_Vol2_Master.tex"), os.path.join(base_dir, "build/Volumes"))
+    build_pdf(os.path.join(base_dir, "04_Vol3_Master.tex"), os.path.join(base_dir, "build/Volumes"))
+    build_pdf(os.path.join(base_dir, "05_Vol4_Master.tex"), os.path.join(base_dir, "build/Volumes"))
+
+    print("\n--- Compiling Master Book ---")
+    build_pdf(os.path.join(base_dir, "01_Principia_Psychedelia_Master.tex"), os.path.join(base_dir, "build"))
+    build_pdf(os.path.join(base_dir, "01_Principia_Psychedelia_Full.tex"), os.path.join(base_dir, "build"))
         
     # Papers
     for file in os.listdir(base_dir):

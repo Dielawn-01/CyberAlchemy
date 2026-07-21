@@ -1,6 +1,6 @@
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Nat.Prime.Basic
-import Mathlib.Data.Complex.Exponential
+import Mathlib.Analysis.SpecialFunctions.Exponential
 
 /-!
 # Adelic Screen Chemistry (The 40-Octave Law & Fermi-Dirac Statistics)
@@ -99,5 +99,28 @@ noncomputable def thermal_generation (decay heat_capacity : ℝ) : ℝ :=
     back to a 300K ambient thermal bath. -/
 noncomputable def newtons_cooling (current_temp dt : ℝ) : ℝ :=
   (300 - current_temp) * 0.5 * dt
+
+-- ═══════════════════════════════════════════════════════════
+-- SECTION 7: ANHARMONIC PHONON SCATTERING (FERNBACH EXTENSION)
+-- ═══════════════════════════════════════════════════════════
+
+/-- The Grüneisen parameter (γ) represents the degree of anharmonicity.
+    We map this directly to the non-commutative shear. -/
+noncomputable def grueneisen_anharmonicity (temp : ℝ) : ℝ :=
+  (temp ^ 2) / (phi_continuous * 1000)
+
+/-- The 4-phonon thermal collapse boundary.
+    In highly anharmonic systems (like GaN at high temperatures), 
+    3-phonon perturbative scattering breaks down, leading to thermal collapse. -/
+noncomputable def thermal_collapse_threshold : ℝ := 0.16
+
+/-- Replaces simple Newton cooling with the MTP-derived thermal conductivity limit. -/
+noncomputable def mtp_thermal_conductivity (anharmonicity : ℝ) : ℝ :=
+  if anharmonicity > thermal_collapse_threshold then
+    -- Thermal Digestion (4-phonon dominance)
+    0.0
+  else
+    -- Coherent 3-phonon thermal transport
+    (1 / anharmonicity) * phi_continuous
 
 end InfoPhysAxioms.AdelicScreenChemistry
