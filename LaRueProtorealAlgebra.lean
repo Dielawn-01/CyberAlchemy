@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.AdelicDescent
 import LaRueProtorealAlgebra.AdelicStructure
 import LaRueProtorealAlgebra.AgenticFrame
 import LaRueProtorealAlgebra.AgenticKeychain
