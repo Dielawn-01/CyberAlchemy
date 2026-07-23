@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.RiemannFunctionalEquation
 import LaRueProtorealAlgebra.SpectralFixedPoint
 import LaRueProtorealAlgebra.StructuralHeterogeneity
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Spectral Fiber Bundle (𝕌 ↔ ℂ)

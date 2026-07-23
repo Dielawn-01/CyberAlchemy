@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.SuperJetSheaf
 import LaRueProtorealAlgebra.HodgeConjecture
 import LaRueProtorealAlgebra.MonsterLattice
 import LaRueProtorealAlgebra.MonsterInverse
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open ProtorealManifold
 open SuperJetSheaf

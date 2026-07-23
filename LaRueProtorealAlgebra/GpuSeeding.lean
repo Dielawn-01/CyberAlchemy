@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.GlialDopant
 import LaRueProtorealAlgebra.PhasorTower
 import LaRueProtorealAlgebra.ZetaResonance
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # GPU Seeding (𝕌)

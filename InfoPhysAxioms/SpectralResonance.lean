@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import InfoPhysAxioms.ProtorealMetric
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Nat.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # SpectralResonance: Metareal Triad Partition Bounds

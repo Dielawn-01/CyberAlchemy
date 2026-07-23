@@ -1,4 +1,8 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open ProtorealManifold
 

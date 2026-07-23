@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.MonsterInverse
 import LaRueProtorealAlgebra.ProtorealParity
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Hodge Decomposition Theory (𝕌)

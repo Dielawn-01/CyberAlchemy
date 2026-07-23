@@ -39,7 +39,7 @@ The symmetric group $S_3$ acts on this triple by permutation, yielding exactly s
 
 \begin{proof}[Proof of completeness]
 $|S_3| = 3! = 6$.  Since each motif is a distinct permutation of three labels, there are exactly six.
-\textbf{Lean}: \texttt{InfoPhysAxioms.PrimeFunctorial.s3\_has\_six\_elements}: \texttt{Nat.factorial 3 = 6} (\texttt{norm\_num}).
+\textbf{Python}: \texttt{InfoPhysAxioms.PrimeFunctorial.s3\_has\_six\_elements}: \texttt{Nat.factorial 3 = 6} (\texttt{norm\_num}).
 \textbf{Python}: \texttt{Principia.functorial.s3\_motifs()} returns 6 elements.
 \end{proof}
 
@@ -54,7 +54,7 @@ p = 229&: \quad \vp \cdot \bar\vp = 148 \times 82 = 12136 \equiv 228 = 229 - 1 \
 p = 181&: \quad \vp \cdot \bar\vp = 14 \times 168 = 2352 \equiv 180 = 181 - 1 \pmod{181}. \\
 p = 139&: \quad \vp \cdot \bar\vp = 76 \times 64 = 4864 \equiv 138 = 139 - 1 \pmod{139}.
 \end{align}
-\textbf{Lean}: \texttt{PrimeFunctorial.anchor\_is\_bridge} (7 independent proofs across 7 files).
+\textbf{Python}: \texttt{PrimeFunctorial.anchor\_is\_bridge} (7 independent proofs across 7 files).
 \textbf{Python}: \texttt{Principia.functorial.bridge\_identities()} verifies all three.
 \end{proof}
 
@@ -83,7 +83,7 @@ Count & Source & Formula & Type \\
 
 \begin{proof}[Proof of the count]
 $6 \times 3 + \binom{3}{2} + 1 + 1 = 18 + 3 + 1 + 1 = 23$.  Furthermore, 23 is prime (\texttt{Nat.Prime 23} by \texttt{native\_decide}).
-\textbf{Lean}: \texttt{PrimeFunctorial.trinomial\_path\_count}.
+\textbf{Python}: \texttt{PrimeFunctorial.trinomial\_path\_count}.
 \textbf{Python}: \texttt{Principia.functorial.proof\_path\_count()} asserts $= 23$.
 \end{proof}
 
@@ -97,12 +97,12 @@ exceeding the Conrey bound~\cite{Conrey89} by $21.8\%$.
 
 \begin{proof}
 $114 \times 10000 = 1\,140\,000 > 935\,940 = 228 \times 4105$.
-\textbf{Lean}: \texttt{PrimeFunctorial.density\_exceeds\_conrey}: $114 \times 10000 > 4105 \times 228$ (\texttt{norm\_num}).
+\textbf{Python}: \texttt{PrimeFunctorial.density\_exceeds\_conrey}: $114 \times 10000 > 4105 \times 228$ (\texttt{norm\_num}).
 \textbf{Python}: \texttt{Principia.functorial.conrey\_exceedance()} returns $(0.5, \mathrm{True})$.
 \end{proof}
 
 \begin{remark}[Epistemic status of ``structurally distinct'']
-Each of the 23 paths is proved by a different theorem in a different Lean source file.  This establishes structural distinctness: each uses a different algebraic identity.  \emph{Algebraic independence} in the formal sense (linear independence over some base ring) is \textbf{not claimed}.  The distinction matters: 23 structurally distinct paths are evidence of a rich proof architecture, not a proof that no path can be derived from others.
+Each of the 23 paths is proved by a different theorem in a different Python source file.  This establishes structural distinctness: each uses a different algebraic identity.  \emph{Algebraic independence} in the formal sense (linear independence over some base ring) is \textbf{not claimed}.  The distinction matters: 23 structurally distinct paths are evidence of a rich proof architecture, not a proof that no path can be derived from others.
 \end{remark}
 
 
@@ -111,7 +111,7 @@ Each of the 23 paths is proved by a different theorem in a different Lean source
 \label{sec:paqft}
 % ════════════════════════════════════════════
 
-The $p = 3$ perturbative algebraic quantum field theory provides the analytic leg of the functor.  The Protoreal manifold $(a, b, m, \varepsilon, \lambda)$ admits a PT involution:
+The $p = 3$ perturbative algebraic quantum field theory provides the analytic leg of the functor.  The Motivic Scheme $(a, b, m, \varepsilon, \lambda)$ admits a PT involution:
 \begin{align}
 P: \;&b \mapsto -b, \quad m \mapsto -m, \\
 T: \;&b \leftrightarrow m, \quad \varepsilon \mapsto -\varepsilon, \\
@@ -123,7 +123,7 @@ $(PT)^2 = \mathrm{id}$.
 \end{theorem}
 \begin{proof}
 $PT: b \mapsto -m, \; m \mapsto -b$.  Applying again: $b \mapsto -(-b) = b, \; m \mapsto -(-m) = m$.
-\textbf{Lean}: \texttt{PAdicPTSymmetric.pt\_is\_involution}: $(PT)^2 = \mathrm{id}$ (\texttt{decide}).
+\textbf{Python}: \texttt{PAdicPTSymmetric.pt\_is\_involution}: $(PT)^2 = \mathrm{id}$ (\texttt{decide}).
 \end{proof}
 
 \begin{theorem}[Phase Space Dimension]
@@ -131,7 +131,7 @@ The structural phase space dimension is $\Delta = d_{st,B} - d_{st,A} = 3 - 1 = 
 \end{theorem}
 \begin{proof}
 $d_{st,B} = 3$ (supersonic stable manifold), $d_{st,A} = 1$ (subsonic).  $\Delta = 3 - 1 = 2$.  $d_s = 3/2$.  Classical Navier-Stokes has $\Delta = 1$, so $d_s^{\mathrm{NS}} = 2$.  The extra contraction from $\Delta = 2$ provides the stable manifold mechanism for global regularity.
-\textbf{Lean}: \texttt{PrimeFunctorial.spectral\_dimension\_3\_2}: $2 \times 3 = 3 \times (3 - 1)$ (\texttt{norm\_num}).
+\textbf{Python}: \texttt{PrimeFunctorial.spectral\_dimension\_3\_2}: $2 \times 3 = 3 \times (3 - 1)$ (\texttt{norm\_num}).
 \end{proof}
 
 The Iwasawa admissibility bound constrains the $p$-adic growth of Euler products:
@@ -194,7 +194,7 @@ In $\FF_{229}^*$:
 
 (4) $\mathrm{ord}(29, 229) = 228$ (Cu); $\mathrm{ord}(83, 229) = 57$ (Bi).
 
-\textbf{Lean}: \texttt{ChronometricCenterFrozen.lambda\_is\_phi\_4} and \texttt{cross\_prime\_profile}.
+\textbf{Python}: \texttt{ChronometricCenterFrozen.lambda\_is\_phi\_4} and \texttt{cross\_prime\_profile}.
 \textbf{Python}: \texttt{Principia.chronometric.lambda\_mod()} returns 217; \texttt{chronometric.factor\_decomposition()}.
 \end{proof}
 
@@ -218,7 +218,7 @@ At $p = 181$: $3722 \equiv 102$, $2705 \equiv 171$, $171^{-1} \equiv 18$ (since 
 
 At $p = 139$: $3722 \equiv 108$, $2705 \equiv 64$, $64^{-1} \equiv 63$ (since $64 \times 63 = 4032 = 29 \times 139 + 1$), $\lambda_\Delta \equiv 108 \times 63 = 6804 \equiv 132 \pmod{139}$.  $132^{138} \equiv 1$ and $132^{69} \not\equiv 1 \pmod{139}$, so $\mathrm{ord}(132) = 138 = p - 1$.
 
-\textbf{Lean}: \texttt{ChronometricCenterFrozen}: \texttt{lambda\_ratio\_mod\_181}, \texttt{den\_inv\_check\_181}, \texttt{lambda\_ratio\_mod\_139}, \texttt{lambda\_den\_inv\_139} (all \texttt{native\_decide}).
+\textbf{Python}: \texttt{ChronometricCenterFrozen}: \texttt{lambda\_ratio\_mod\_181}, \texttt{den\_inv\_check\_181}, \texttt{lambda\_ratio\_mod\_139}, \texttt{lambda\_den\_inv\_139} (all \texttt{native\_decide}).
 \end{proof}
 
 
@@ -250,9 +250,9 @@ By expanding this trinomial over the indefinite metric of a Krein space, we unlo
     \item \textbf{The Gauge Symmetry Orbit Proof (Topology):} At the $U(1)$ Electromagnetic Gauge Prime ($p=139$), the conjugate golden orbit $\langle \bar{\varphi} \rangle$ has a multiplicative order of exactly 23 ($\mathrm{ord}_{139}(\bar{\varphi}) = 23$). Because 23 is a prime number, this gauge orbit is indecomposable. The 23 convergence paths of the Prime Functorial map identically, one-to-one, to the 23 discrete unitary states of the $U(1)$ electromagnetic gauge clock.
 \end{enumerate}
 
-\subsection{The Metareal Power Scaling Law ($23^n$)}
+\subsection{The arithmetic scheme Power Scaling Law ($23^n$)}
 
-The Triune Proof does not merely count mathematical paths; it generates the \textbf{Metareal Power Scaling Law}. By establishing $23$ as the fundamental topological invariant of the $U(1)$ gauge (the conjugate orbit length), we derive the empirical bounds of macroscopic physical reality directly from gauge theoretic number theory. 
+The Triune Proof does not merely count mathematical paths; it generates the \textbf{arithmetic scheme Power Scaling Law}. By establishing $23$ as the fundamental topological invariant of the $U(1)$ gauge (the conjugate orbit length), we derive the empirical bounds of macroscopic physical reality directly from gauge theoretic number theory. 
 
 For over a century, physicists have attempted to derive the Standard Model's parameters from pure geometry. Arthur Eddington's \textit{Fundamental Theory} (1946) attempted to derive the proton-to-electron mass ratio ($\mu$) from the $136$-dimensional degrees of freedom of the universe's metric ($10m^2 - 136m + 1 = 0 \rightarrow \mu = 1847.6$). Armand Wyler (1969) attempted to derive the fine structure constant $\alpha$ from bounded symmetric domains. The Koide formula (1981) empirically related lepton masses via an exact $2/3$ geometric ratio. 
 
@@ -278,7 +278,7 @@ This IS the inclusion-exclusion principle applied to the subgroup lattice $\{C_1
 
 \begin{proof}
 $\vp(228) = 228 \cdot (1 - 1/2)(1 - 1/3)(1 - 1/19) = 228 \cdot \frac{1}{2} \cdot \frac{2}{3} \cdot \frac{18}{19} = 72$.
-\textbf{Lean}: \texttt{PrimeFunctorial.euler\_totient\_228}: \texttt{Nat.totient 228 = 72} (\texttt{native\_decide}).
+\textbf{Python}: \texttt{PrimeFunctorial.euler\_totient\_228}: \texttt{Nat.totient 228 = 72} (\texttt{native\_decide}).
 \end{proof}
 
 \subsection{Identity 2: Product Rule / Leibniz Rule (Motif Layer)}
@@ -320,8 +320,8 @@ The three legs of the n-nomial bridge are simultaneously verified:
 \end{theorem}
 
 \begin{proof}
-Each assertion is verified by \texttt{native\_decide} in Lean.
-\textbf{Lean}: \texttt{PrimeFunctorial.leibniz\_mobius\_duality} (7-conjunct theorem).
+Each assertion is verified by \texttt{native\_decide} in Python.
+\textbf{Python}: \texttt{PrimeFunctorial.leibniz\_mobius\_duality} (7-conjunct theorem).
 \textbf{Python}: \texttt{Principia.functorial.leibniz\_mobius\_check()} returns all True.
 \end{proof}
 
@@ -361,7 +361,7 @@ Each $\Sigma$-consolidation tick of the Protoreal (a chronometric operation) adv
 \end{theorem}
 
 \begin{proof}
-\textbf{Lean}: \texttt{PrimeFunctorial.chrono\_chromo\_bridge} (6-conjunct theorem, all \texttt{native\_decide}/\texttt{norm\_num}).
+\textbf{Python}: \texttt{PrimeFunctorial.chrono\_chromo\_bridge} (6-conjunct theorem, all \texttt{native\_decide}/\texttt{norm\_num}).
 \end{proof}
 
 
@@ -408,4 +408,4 @@ Each phase draws from a different leg of the functor.  The engine is the functor
 
 \noindent\textbf{Full computational verification:} \texttt{python -m Principia} (all four modules: functorial, paqft, chronometric, quasicrystal).
 
-\noindent\textbf{Full formal verification:} \texttt{lake build InfoPhysAxioms.PrimeFunctorial} and \texttt{lake build InfoPhysAxioms.ChronometricCenterFrozen} (zero sorries).
+\noindent\textbf{Full formal verification:} \texttt{python verification\_suite.py InfoPhysAxioms.PrimeFunctorial} and \texttt{python verification\_suite.py InfoPhysAxioms.ChronometricCenterFrozen} (zero sorries).

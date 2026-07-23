@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Ring
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace InfoPhysAxioms
 

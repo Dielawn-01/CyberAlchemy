@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Ring
 import LaRueProtorealAlgebra.ProtorealManifold
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open ProtorealManifold
 
@@ -54,7 +58,7 @@ design. Constraints become subtypes, not structure fields. The algebra
 lives at the right level; the physics projects down.
 
 On bare ℝ fields, `1 - (1 - x) = x` is trivially provable.
-No sorry. No recursion. The algebra is correct because it's defined
+No exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop. No recursion. The algebra is correct because it's defined
 at the correct prime level of abstraction.
 -/
 
@@ -119,7 +123,7 @@ def Metareal.involute (m : Metareal) : Metareal :=
     ψ := m.ψ }      -- self-reference preserved
 
 /-- **i² = id.** The involution applied twice returns to the original.
-    No sorry. No proof irrelevance issues. Just `sub_sub_cancel`. -/
+    No exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop. No proof irrelevance issues. Just `sub_sub_cancel`. -/
 theorem involute_involute (m : Metareal) :
     m.involute.involute = m := by
   unfold Metareal.involute
@@ -195,7 +199,7 @@ def Metareal.mass_gap (m : Metareal) : ℝ := 1 - m.aperture
 
 /-- **COMPLEMENTARY GAPS**: The involuted observer's aperture
     is (1-τ)(1-σ)(1-η). What you can't see IS what your
-    reflection can see. Provable without sorry. -/
+    reflection can see. Provable without exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop. -/
 theorem complementary_gaps (m : Metareal) :
     m.involute.aperture = (1 - m.τ) * (1 - m.σ) * (1 - m.η) := by
   unfold Metareal.involute Metareal.aperture

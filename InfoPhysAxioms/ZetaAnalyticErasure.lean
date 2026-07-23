@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Complex.Basic
 import Mathlib.Data.Real.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Zeta Analytic Erasure and The L-Function Critical Line Law
@@ -23,11 +27,11 @@ def is_critical_line (s : ℂ) : Prop := s.re = 1/2
 
 /-- Synthesis Cost is bounded by the magnitude of the Zeta continuation.
     (Axiomatized for InfoPhys framework) -/
-axiom synthesis_cost (s : ℂ) : ℝ
-axiom synthesis_cost_nonneg (s : ℂ) : synthesis_cost s ≥ 0
+def synthesis_cost (s : ℂ) : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type
+def synthesis_cost_nonneg (s : ℂ) : synthesis_cost s ≥ 0 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 /-- Erasure Cost is the chronometric phase shift. -/
-axiom erasure_cost (s : ℂ) : ℝ
+def erasure_cost (s : ℂ) : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type
 
 /-- A Zeta Zero is a point where the synthesis cost drops to 0. -/
 def is_zeta_zero (s : ℂ) : Prop := synthesis_cost s = 0

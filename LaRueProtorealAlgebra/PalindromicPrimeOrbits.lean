@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Linarith
 import Mathlib.Data.Nat.Prime.Basic
 import LaRueProtorealAlgebra.GoldenSplitPrime
 import LaRueProtorealAlgebra.PalindromeStandingWave
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Palindromic Prime Orbits — Golden Translation through Von Mangoldt Spaces

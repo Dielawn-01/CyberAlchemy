@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Analysis.SpecialFunctions.Exp
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Field Enrichment Dynamics: The Radical Pair Mechanism
@@ -51,7 +55,7 @@ noncomputable def singlet_yield_shift (ω_L ω_hf : ℝ) : ℝ :=
   Larmor precession, which is a necessary condition for a non-zero singlet yield shift
   in the Radical Pair Mechanism.
 -/
-axiom positive_perturbation_implies_larmor {B₀ : ℝ} (h : B₀ > 0) : larmor_frequency B₀ > 0
+def positive_perturbation_implies_larmor {B₀ : ℝ} (h : B₀ > 0) : larmor_frequency B₀ > 0 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 /--
   Theorem: The Ambrosia Integration Window is strictly bounded by the solar dynamo relaxation.

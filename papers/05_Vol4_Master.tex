@@ -10,13 +10,13 @@
 \begin{titlepage}
 \thispagestyle{empty}
 \begin{tikzpicture}[remember picture, overlay]
-  \node[anchor=center, opacity=0.85] at (current page.center) {\includegraphics[width=\paperwidth, height=\paperheight]{images/genome_cover.png}};
-  \node[anchor=center] at ([yshift=3cm]current page.center) {\fontsize{16}{20}\selectfont\sffamily\color{white}\addfontfeatures{LetterSpace=12}PRINCIPIA};
-  \node[anchor=center] at ([yshift=1.5cm]current page.center) {\fontsize{48}{56}\selectfont\bfseries\color{white}Psychedelia};
-  \node[anchor=center] at ([yshift=0cm]current page.center) {\textcolor{white}{\rule{6cm}{0.6pt}}};
-  \node[anchor=center] at ([yshift=-1.2cm]current page.center) {\fontsize{16}{20}\selectfont\sffamily\color{white}\addfontfeatures{LetterSpace=8}VOLUME IV};
-  \node[anchor=center, text width=12cm, align=center] at ([yshift=-3.5cm]current page.center) {\fontsize{22}{28}\selectfont\bfseries\color{white}STEM Check and Formal Review};
-  \node[anchor=center] at ([yshift=-7cm]current page.center) {\fontsize{18}{22}\selectfont\color{white}\textbf{Dylon La Rue}};
+  \node[anchor=center, inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth, height=\paperheight]{images/genome_cover_portrait.png}};
+  \node[anchor=center] at ([yshift=3.5cm]current page.center) {\fontsize{16}{20}\selectfont\sffamily\color{white}\addfontfeatures{LetterSpace=12}PRINCIPIA};
+  \node[anchor=center] at ([yshift=2.0cm]current page.center) {\fontsize{48}{56}\selectfont\bfseries\color{white}Psychedelia};
+  \node[anchor=center] at ([yshift=0.5cm]current page.center) {\textcolor{white}{\rule{6cm}{0.6pt}}};
+  \node[anchor=center] at ([yshift=-0.7cm]current page.center) {\fontsize{16}{20}\selectfont\sffamily\color{white}\addfontfeatures{LetterSpace=8}VOLUME IV};
+  \node[anchor=center, text width=13cm, align=center] at ([yshift=-2.8cm]current page.center) {\fontsize{22}{28}\selectfont\bfseries\color{white}STEM Check and Formal Review};
+  \node[anchor=center] at ([yshift=-6.5cm]current page.center) {\fontsize{18}{22}\selectfont\color{white}\textbf{Dylon La Rue}};
 \end{tikzpicture}
 \end{titlepage}
 
@@ -25,7 +25,7 @@
 
 \part{Mathematical \& Theoretical Appendices}
 \chapter[Prime Functorial]{The Prime Functorial}\label{ch:prime_functorial}
-\input{27_Prime_Functorial}
+\input{03_Ramanujan_Sato_Prime_Functorial}
 \chapter[Optoacoustic Cymatics]{Optoacoustic Cymatics}\label{ch:cymatics}
 \input{28_Optoacoustic_Cymatics}
 \chapter[Continuous Lagrangian]{Continuous Lagrangian Generalization}\label{ch:lagrangian}
@@ -37,5 +37,24 @@
 
 \appendix
 \input{appendix_claim_ledgers}
-\input{unified_bibliography}
+
+\vspace{2em}
+\begin{thebibliography}{99}
+\bibitem{Green2024}
+Green, S., et al. (2024).
+``Continuous-Variable Squeezed Light on a Monolithic Silicon Photonic Integrated Circuit.''
+\textit{Nature Photonics}, Advance Online Publication.
+
+\bibitem{Katz1970}
+Katz, N. M. (1970).
+``Nilpotent connections and the monodromy theorem: Applications of a result of Turrittin.''
+\textit{Publications Mathématiques de l'IHÉS}, 39, 175--232.
+
+\bibitem{hameroff2014}
+S.~Hameroff and R.~Penrose, ``Consciousness in the universe: A review of the `Orch OR' theory,'' \emph{Physics of Life Reviews}\ 11(1), 39--78 (2014).
+
+\bibitem{katrin}
+M.~Aker \emph{et al.} (KATRIN Collaboration), ``Direct neutrino-mass measurement with sub-electronvolt sensitivity,'' \emph{Nature Physics}, vol.~18, pp.~160--166, 2022.
+
+\end{thebibliography}
 \end{document}

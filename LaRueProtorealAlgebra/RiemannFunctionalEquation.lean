@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.HodgeDecomposition
 import LaRueProtorealAlgebra.MonsterInverse
 import LaRueProtorealAlgebra.DualityTheorem
 import Mathlib.Analysis.Complex.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Riemann Functional Equation (𝕌)

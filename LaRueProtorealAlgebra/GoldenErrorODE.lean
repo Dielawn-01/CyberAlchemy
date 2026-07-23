@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
@@ -6,6 +7,9 @@ import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.GaugeEmergence
 import LaRueProtorealAlgebra.MassGap
 import LaRueProtorealAlgebra.ErrorCorrection
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The Golden Error ODE and Co-Evolutionary Containment

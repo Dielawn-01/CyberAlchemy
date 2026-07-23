@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ZKPCR
 import LaRueProtorealAlgebra.HolochainHash
 import LaRueProtorealAlgebra.AntiSpoofing
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open ZKPCR
 open HolochainHash

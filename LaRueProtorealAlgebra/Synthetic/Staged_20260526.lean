@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealOperator
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Linarith
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # ZBuddy Proof Journal — Training Epoch 2026-05-26

@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Linarith
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 set_option linter.unusedTactic false
 set_option linter.unreachableTactic false

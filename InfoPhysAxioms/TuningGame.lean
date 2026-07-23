@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import InfoPhysAxioms.DeterministicTuning
 import InfoPhysAxioms.ProtorealGame
 import InfoPhysAxioms.Bitcollapse
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open InfoPhysAxioms
 open DeterministicTuning

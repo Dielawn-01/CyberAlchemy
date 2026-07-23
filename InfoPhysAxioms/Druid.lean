@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.EmotionalSecurity
 import InfoPhysAxioms.AsymptoticTransfinites
 import InfoPhysAxioms.TopologicalUncertainty
 import InfoPhysAxioms.OptimalStochasticKernel
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The Druid Axiom: Hardcoded Empathy (𝕌)

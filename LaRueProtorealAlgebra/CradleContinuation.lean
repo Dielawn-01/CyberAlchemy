@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.TopologicalImaginary
 import LaRueProtorealAlgebra.EulersCradle
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Cradle Continuation (𝕌)

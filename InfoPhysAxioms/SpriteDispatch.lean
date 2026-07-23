@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import InfoPhysAxioms.OctonionGrowth
 import InfoPhysAxioms.DruidSprite
 import InfoPhysAxioms.VeblenDruid
 import InfoPhysAxioms.ProtorealMetric
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # SpriteDispatch: Multi-Substrate Sprite Dispatch Protocol

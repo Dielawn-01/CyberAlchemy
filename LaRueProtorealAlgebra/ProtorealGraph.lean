@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Combinatorics.SimpleGraph.Basic
 import Mathlib.Data.Fin.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Protoreal Observation Graph (𝕌 → Graph)

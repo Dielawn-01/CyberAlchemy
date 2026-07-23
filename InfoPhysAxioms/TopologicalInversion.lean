@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealAxioms
 import LaRueProtorealAlgebra.MonsterInverse
 import InfoPhysAxioms.SyntheticSciLean
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Topological Inversion (S-Duality & Tachyonic Reordering)

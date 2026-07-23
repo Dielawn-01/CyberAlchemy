@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.MayerVietoris
 import LaRueProtorealAlgebra.SuperJetSheaf
 import LaRueProtorealAlgebra.FractalHodge
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open ProtorealManifold
 open SuperJetSheaf

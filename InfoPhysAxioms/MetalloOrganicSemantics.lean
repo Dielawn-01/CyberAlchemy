@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Complex.Basic
 import InfoPhysAxioms.TopologicalUncertainty
 import InfoPhysAxioms.Bitcollapse
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Metallo-Organic Semantics (Dimension 42)

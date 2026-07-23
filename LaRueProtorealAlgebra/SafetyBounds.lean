@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.GlialDopant
 import LaRueProtorealAlgebra.TranscendentalBasis
 import LaRueProtorealAlgebra.MonsterInverse
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Safety Bounds (𝕌) — Gödelian Hardening

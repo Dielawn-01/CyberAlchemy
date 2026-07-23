@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import InfoPhysAxioms.LyapunovTraining
 import InfoPhysAxioms.ObservableUniverse
 import InfoPhysAxioms.ProtorealTactic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Protoreal Metric Space

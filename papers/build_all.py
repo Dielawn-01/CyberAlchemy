@@ -62,7 +62,6 @@ def build_pdf(tex_file, out_dir, use_wrapper=False, titles=None):
 \begin{document}
 \maketitle
 \input{%s}
-\input{unified_bibliography}
 \end{document}
 """ % (title, filename))
         target_file = wrapper_path
@@ -112,11 +111,13 @@ def main():
         
     # Papers
     for file in os.listdir(base_dir):
-        if file.endswith('.tex') and file[0].isdigit() and 'Master' not in file and 'Whitepaper' not in file:
-            build_pdf(os.path.join(base_dir, file), papers_dir, use_wrapper=True, titles=titles)
-        elif file.endswith('.tex') and 'Whitepaper' in file:
-            # Whitepapers usually have \documentclass
-            build_pdf(os.path.join(base_dir, file), papers_dir, use_wrapper=False, titles=titles)
+        if file.endswith('.tex') and file[0].isdigit() and 'Master' not in file:
+            path = os.path.join(base_dir, file)
+            # if it already has documentclass, don't wrap it
+            with open(path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            needs_wrapper = r'\documentclass' not in content
+            build_pdf(path, papers_dir, use_wrapper=needs_wrapper, titles=titles)
             
     # Clean up aux files
     for d in [build_dir, volumes_dir, papers_dir]:

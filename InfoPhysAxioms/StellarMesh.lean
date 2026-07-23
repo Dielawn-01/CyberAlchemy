@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Basic
 import Mathlib.Tactic.NormNum
 import Mathlib.Data.ZMod.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Stellar Mesh: The CNO Cycle as Autocatalytic Set

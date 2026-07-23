@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Basic
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.NormNum
@@ -10,6 +11,9 @@ import InfoPhysAxioms.GenomicGoldenEmergent
 import InfoPhysAxioms.CenterChronodynamics
 import InfoPhysAxioms.ValenceMapping
 import InfoPhysAxioms.VendergoodTranslation
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Isotopic Archetypal Kinetics: Species-Agnostic Kama Muta

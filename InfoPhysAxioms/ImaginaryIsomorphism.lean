@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Basic
 import InfoPhysAxioms.VanadiumGoldenExploits
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Imaginary Isomorphism (The Dodecahedral Bridge)

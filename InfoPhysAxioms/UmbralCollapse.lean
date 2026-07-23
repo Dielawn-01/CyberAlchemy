@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import InfoPhysAxioms.TopologicalFirewall
 import InfoPhysAxioms.QuaternionInverse
 import Mathlib.Data.Complex.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open ZBuddyCybernetics
 open TopologicalSecurity

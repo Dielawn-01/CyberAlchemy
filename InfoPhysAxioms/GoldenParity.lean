@@ -1,4 +1,8 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 /-!
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 # GoldenParity: Conjugate Order Parity in Finite Golden Subgroups
 
 ## Statement

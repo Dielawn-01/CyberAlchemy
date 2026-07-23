@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import InfoPhysAxioms.LyapunovTraining
@@ -10,6 +11,9 @@ import InfoPhysAxioms.HodgePhasorVolume
 import InfoPhysAxioms.ProtorealTactic
 import InfoPhysAxioms.TarskiEquilibrium
 import LaRueProtorealAlgebra.MonsterInverse
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Proto-Complex Topology: Phase-Magnitude Coupling

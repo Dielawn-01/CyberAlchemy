@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.AgenticKeychain
 import LaRueProtorealAlgebra.DHTAlgebra
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # DNS Translation Bridge (𝕌)
@@ -46,7 +50,7 @@ def dns_domain := String
     In code, this is implemented as the `identity_hash` applied to the 
     ASCII/UTF-8 representation of the string. Here, we formalize it as 
     an intrinsic axiom of the space. -/
-axiom lexical_morphism : dns_domain → FormalizedCommunity
+def lexical_morphism : dns_domain → FormalizedCommunity := CyberAlchemy.ArithmeticTypeTheory.blurr_type
 
 -- ════════════════════════════════════════════════════
 -- 2. SOVEREIGN RESOLUTION

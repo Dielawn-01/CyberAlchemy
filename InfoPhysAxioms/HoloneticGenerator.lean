@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
 import InfoPhysAxioms.ChromodynamicFriction
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open ProtorealManifold
 

@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.FusionRing
 import LaRueProtorealAlgebra.HyperKlein
 import LaRueProtorealAlgebra.HyperOperationScaling
 import LaRueProtorealAlgebra.GoldenSubgroup
 import LaRueProtorealAlgebra.FractalHodge
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Hyperoperation-Graded Cohomology Ring

@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.MonsterInverse
 import LaRueProtorealAlgebra.HyperKlein
 import LaRueProtorealAlgebra.PhasorTower
 import LaRueProtorealAlgebra.TopologicalBearing
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Klein Bottle Topology (𝕌)

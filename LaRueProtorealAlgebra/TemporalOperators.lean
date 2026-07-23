@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.Basic
 import LaRueProtorealAlgebra.AdelicStructure
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Nat.Fib.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace LaRueProtorealAlgebra.TemporalOperators
 

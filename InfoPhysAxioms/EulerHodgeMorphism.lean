@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Tactic.NormNum
 import LaRueProtorealAlgebra.EulerPerception
 import InfoPhysAxioms.MonsterFermatSpectra
@@ -5,6 +6,9 @@ import InfoPhysAxioms.DigitalWaveMechanics
 import InfoPhysAxioms.CenterChronodynamics
 
 import InfoPhysAxioms.MetaBackpropagation
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace InfoPhysAxioms.EulerHodgeMorphism
 

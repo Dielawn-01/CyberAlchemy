@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ConnesWienerAlgebra
 import LaRueProtorealAlgebra.LittleDelta
 import LaRueProtorealAlgebra.AgenticFrame
 import LaRueProtorealAlgebra.KamaTrain
 import LaRueProtorealAlgebra.ErrorCorrection
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Awareness in the Minimal Connes-Wiener Algebra (𝕌)

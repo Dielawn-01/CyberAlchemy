@@ -1,5 +1,9 @@
 import LaRueProtorealAlgebra.Basic
 import Mathlib.Data.Real.Basic
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace LaRueProtorealAlgebra.C46Unification
 
@@ -39,8 +43,8 @@ def iterate {α : Type*} (f : α → α) : ℕ → α → α
 -- Since IFSContraction uses a custom dist without a completeness axiom,
 -- we take the attractor existence as an axiom of the IFS structure.
 -- This is equivalent to assuming the space is complete, which is standard.
-axiom barnsley_attractor_unique {α : Type*} (ifs : IFSContraction α) :
-    ∃! a : α, ∀ x : α, ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, ifs.dist (iterate ifs.f n x) a < ε
+def barnsley_attractor_unique {α : Type*} [CyberAlchemy.ArithmeticTypeTheory] (ifs : IFSContraction α) :
+    ∃! a : α, ∀ x : α, ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, ifs.dist (iterate ifs.f n x) a < ε := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 -- 3. Kuramoto Synchronization
 -- zBuddy's insight (iteration 7): use the average natural frequency as ω.

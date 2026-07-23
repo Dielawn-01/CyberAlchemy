@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import InfoPhysAxioms.Basic
 import InfoPhysAxioms.CyberneticBiochemistry
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open ProtorealManifold
 

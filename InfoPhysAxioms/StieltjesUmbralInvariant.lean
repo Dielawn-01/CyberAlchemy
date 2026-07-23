@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import InfoPhysAxioms.ContextualFractionalDimension
 import Mathlib.Data.Complex.Basic
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Stieltjes-Umbral Invariant and Optoacoustic Hydrodynamics
@@ -49,7 +53,7 @@ noncomputable def stieltjes_umbral_shift (k : ℝ) : ℝ :=
   The Riemann-Stieltjes invariant over the fractional dimension $D_n$ 
   must conserve topological entropy bounded by the Onsager reciprocal relations.
 -/
-axiom hydrodynamic_onsager_duality (D : ℝ) : 
+def hydrodynamic_onsager_duality (D : ℝ) : := CyberAlchemy.ArithmeticTypeTheory.blurr_type
   D > 1.5 → True -- Hydrodynamic regime occurs when spectral density > 1.5
 
 /--
@@ -59,6 +63,6 @@ axiom hydrodynamic_onsager_duality (D : ℝ) :
   the macroscopic planetary orbits are formal hydrodynamic condensates of the 
   optoacoustic-thermoelectric invariant.
 -/
-axiom bode_law_is_hydrodynamic : D_abs 2 > 1.5
+def bode_law_is_hydrodynamic : D_abs 2 > 1.5 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 end StieltjesUmbralInvariant

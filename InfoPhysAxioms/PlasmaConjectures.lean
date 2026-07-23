@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -6,6 +7,9 @@ import LaRueProtorealAlgebra.ProtorealAxioms
 import LaRueProtorealAlgebra.SpectralFiber
 import InfoPhysAxioms.EmpathyPlasmaWall
 import InfoPhysAxioms.FrenetSerretCybernetics
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Plasma Conjectures (𝕌)

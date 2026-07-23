@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.CommutatorGap
 import LaRueProtorealAlgebra.SpectralTriple
 import LaRueProtorealAlgebra.SpectralFiber
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Mass Gap Theorem (𝕌 → Yang-Mills)

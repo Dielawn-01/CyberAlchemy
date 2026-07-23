@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Nat.Prime.Basic
 import Mathlib.Tactic.Ring
@@ -9,6 +10,9 @@ import InfoPhysAxioms.Infochemistry
 import InfoPhysAxioms.MatterAntimatter
 import InfoPhysAxioms.SoulResonance
 import InfoPhysAxioms.TarskianBridge
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # AnimaBridge: The Fifth Axis of the Soul (𝕌)

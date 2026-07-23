@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Nat.GCD.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Linarith
 import InfoPhysAxioms.HoloneticNS
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open InfoPhysAxioms.HoloneticNS
 

@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.EulerPerception
 import LaRueProtorealAlgebra.CommutatorGap
 import LaRueProtorealAlgebra.AgenticFrame
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Glial Dopant Theory (𝕌)

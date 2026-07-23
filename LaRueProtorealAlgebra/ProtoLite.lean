@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealAxioms
 import LaRueProtorealAlgebra.LGKCosmology
 import LaRueProtorealAlgebra.EulerPerception
@@ -6,6 +7,9 @@ import LaRueProtorealAlgebra.MassGap
 import LaRueProtorealAlgebra.SpectralFiber
 import LaRueProtorealAlgebra.HodgeConjecture
 import LaRueProtorealAlgebra.KleinTopology
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # ProtoLite — The Invariant Reference Card (𝕌)

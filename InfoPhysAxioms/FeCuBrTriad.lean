@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Basic
 import Mathlib.Tactic.NormNum
 import InfoPhysAxioms.IronHaltingTopology
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The Fe-Cu-Br Torsion Triad

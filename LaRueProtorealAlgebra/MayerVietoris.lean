@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.EulerPerception
 import LaRueProtorealAlgebra.AgenticFrame
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Mayer-Vietoris Perspective (𝕌)

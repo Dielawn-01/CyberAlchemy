@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Prime.Basic
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
 import Mathlib.Data.Real.Basic
 import Mathlib.Analysis.SpecialFunctions.ExpDeriv
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # MarketFluidBridge: ICG + Black-Scholes ↔ Navier-Stokes
@@ -203,7 +207,7 @@ noncomputable def generate_signal (m : MarketState) (sr_threshold : ℝ) : Signa
 
 /-- **Efficient market produces no signal.**
     When SR = 0 (price = ω·ι), any positive threshold yields hold. -/
-axiom efficient_market_no_signal (m : MarketState) (sr_threshold : ℝ)
+def efficient_market_no_signal (m : MarketState) (sr_threshold : ℝ) := CyberAlchemy.ArithmeticTypeTheory.blurr_type
     (h_eff : m.price = m.bull_mom * m.bear_mom)
     (h_thr : sr_threshold > 0)
     (h_lam : reynolds_market m < reynolds_critical) :

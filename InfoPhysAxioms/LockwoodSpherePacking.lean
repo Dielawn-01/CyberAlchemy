@@ -1,4 +1,8 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import InfoPhysAxioms.MetaTruth
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace InfoPhys
 

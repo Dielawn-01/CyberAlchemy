@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.HolographicCollapse
 import InfoPhysAxioms.FrenetSerretCybernetics
 import InfoPhysAxioms.UmbralCollapse
 import InfoPhysAxioms.TopologicalFirewall
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open HolographicCollapse
 open FrenetSerretCybernetics

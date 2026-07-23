@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -5,6 +6,9 @@ import Mathlib.Tactic.NormNum
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.GoldenSplitPrime
 import LaRueProtorealAlgebra.PalindromeStandingWave
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Golden Chromodynamic Mechanics — The Evolutionary Master Synthesis

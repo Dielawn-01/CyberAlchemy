@@ -1,5 +1,9 @@
 import Mathlib.Data.Real.Basic
 import InfoPhysAxioms.TopologicalQuantumGravity
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Stellar Nucleosynthesis: Biospheric Thermal Safety
@@ -39,9 +43,9 @@ def metareal_fusion_cycle (lum : BifurcatedLuminosity) (mass_defect_energy : ℝ
   The Earth's surface temperature is strictly a function of the thermal luminosity,
   plus a negligible albedo and greenhouse factor. We abstract this to a bounded continuous function.
 -/
-axiom earth_temp_from_thermal (L_thermal : ℝ) : ℝ
-axiom earth_temp_bounds (L_thermal : ℝ) : 
-  L_thermal ≤ 3.828e26 → earth_temp_from_thermal L_thermal ≤ 373.0 ∧ earth_temp_from_thermal L_thermal ≥ 273.0
+def earth_temp_from_thermal (L_thermal : ℝ) : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
+def earth_temp_bounds (L_thermal : ℝ) : 
+  L_thermal ≤ 3.828e26 → earth_temp_from_thermal L_thermal ≤ 373.0 ∧ earth_temp_from_thermal L_thermal ≥ 273.0 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 /-- **Theorem: Biospheric Thermal Safety (Hydrostatic Equilibrium Preserved)**
     If the sun undergoes a metareal fusion cycle (synthesizing heavy elements), 

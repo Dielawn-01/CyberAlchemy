@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealNorm
 import LaRueProtorealAlgebra.HolochainHash
 import LaRueProtorealAlgebra.AuraGitIsomorphism
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Distributed Hash Table Algebra (DHT ⊃ 𝕌)

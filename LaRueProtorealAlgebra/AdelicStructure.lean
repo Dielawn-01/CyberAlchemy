@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.Basic
 import LaRueProtorealAlgebra.SpectralFiber
 import Mathlib.Data.Real.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace LaRueProtorealAlgebra.AdelicStructure
 

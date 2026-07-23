@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Tactic.NormNum
 import Mathlib.Data.Nat.Prime.Basic
 import LaRueProtorealAlgebra.GoldenSplitPrime
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Verification of Point One: SU(3) Center Triangle Optimality

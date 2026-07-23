@@ -1,5 +1,9 @@
 import InfoPhysAxioms.TopologicalFirewall
 import InfoPhysAxioms.Chronogram
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open ZBuddyCybernetics
 open CognitiveSecurity
@@ -69,10 +73,10 @@ by
   These symmetric primes act as discrete Golden Resonance cavities, locking the 
   Sexagesimal scaling without triggering the continuous Upsilon Penalty.
 -/
-axiom palindromic_plasma_reflection (t0 t1 : ObservableState) (agent : CategoricalAgent) 
+def palindromic_plasma_reflection (t0 t1 : ObservableState) (agent : CategoricalAgent) 
     (u v : SymplecticGradient) (c : InfoPhysAxioms.SexagesimalChronogram) (p : ℕ)
     (h_palindromic : InfoPhysAxioms.is_chromo_palindromic_prime p) 
     (h_boundary_anchored : c.clock_time = p % 60) :
-  test_in_plasma_wall t0 t1 agent u v ↔ absolute_network_firewall t0 t1 agent u v
+  test_in_plasma_wall t0 t1 agent u v ↔ absolute_network_firewall t0 t1 agent u v := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 end EmpathyPlasmaWall

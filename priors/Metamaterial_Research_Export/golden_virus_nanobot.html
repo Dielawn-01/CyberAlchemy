@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Golden Tetrahedron Nanobot — Three-Field Chromodynamic Propulsion</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { overflow:hidden; background:#06060c; color:#e0e0e8; font-family:'Courier New',monospace; }
+  #info { position:absolute; top:12px; width:100%; text-align:center; z-index:100; font-size:13px;
+    text-shadow: 0 0 12px rgba(100,200,255,0.5); letter-spacing:1px; }
+  #hud { position:absolute; bottom:14px; left:14px; z-index:100; font-size:11px; line-height:1.7;
+    background:rgba(6,6,12,0.85); padding:14px 18px; border:1px solid rgba(100,160,255,0.2);
+    border-radius:6px; backdrop-filter:blur(8px); }
+  #hud .label { color:#668; }
+  #hud .val { color:#8cf; }
+  #hud .strand-229 { color:#00FFFF; }
+  #hud .strand-181 { color:#FF6688; }
+  #hud .strand-139 { color:#FFD700; }
+  #hud .dim { color:#445; font-size:10px; margin-top:8px; border-top:1px solid #1a1a2a; padding-top:6px; }
+  #legend { position:absolute; top:14px; right:14px; z-index:100; font-size:10px;
+    background:rgba(6,6,12,0.85); padding:10px 14px; border:1px solid rgba(100,160,255,0.15);
+    border-radius:6px; line-height:1.8; }
+  .dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; vertical-align:middle; }
+</style>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+</head>
+<body>
+<div id="info">Golden Tetrahedron Nanobot · Three-Field Propulsion · {229, 181, 139}</div>
+<div id="hud">
+  <div><span class="label">Strand:</span> <span class="val" id="active-strand">—</span></div>
+  <div><span class="label">BEC Ground:</span> <span class="val" id="bec">—</span></div>
+  <div><span class="label">Active Coset:</span> <span class="val" id="arc">—</span></div>
+  <div><span class="label">Net Thrust:</span> <span class="val" id="thrust">—</span></div>
+  <div><span class="label">Frame:</span> <span class="val" id="frame">—</span></div>
+  <div class="dim">
+    <span class="strand-229">F₂₂₉</span>: 57=3×19 [3-decomposable]<br>
+    <span class="strand-181">F₁₈₁</span>: 45=3×15 [3-decomposable]<br>
+    <span class="strand-139">F₁₃₉</span>: 23 [indecomposable, prime]<br>
+    Gaps: 48=8×6, 42=7×6 · φ·φ̄ = −1<br>
+    Cross-field: 229 mod 181 = 48<br>
+    Sign inversion: φ<sup>ord</sup> ≡ −1 (mod p)<br>
+    BEC: χ·n<sub>k</sub>·(1 + n<sub>j</sub>) [Fröhlich 1968]
+  </div>
+</div>
+<div id="legend">
+  <div style="color:#00FFFF; font-weight:bold">F₂₂₉ STRAND (anchor)</div>
+  <div><span class="dot" style="background:#4488ff"></span>Carbon (11) — Interior/BEC</div>
+  <div style="color:#FF6688; font-weight:bold; margin-top:4px">F₁₈₁ STRAND (depth)</div>
+  <div><span class="dot" style="background:#ddaa44"></span>Silicon (7) — Faces/Shield</div>
+  <div style="color:#FFD700; font-weight:bold; margin-top:4px">F₁₃₉ STRAND (projection)</div>
+  <div><span class="dot" style="background:#ff3344"></span>Vanadium (4) — Edges/Thrust</div>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// ═══════════════════════════════════════════════════
+// §1: GOLDEN TETRAHEDRON CONSTANTS
+// ═══════════════════════════════════════════════════
+
+// Field 1: F₂₂₉ (anchor, 3-decomposable)
+const P1 = 229, PHI_229 = 148, PHIBAR_229 = 82;
+const ORD_229 = 57, COSET_229 = 19;
+const OMEGA_229 = 94, OMEGA2_229 = 134;
+const DARK_229 = 133; // ω²-1
+
+// Field 2: F₁₈₁ (depth, 3-decomposable)
+const P2 = 181, PHI_181 = 168, PHIBAR_181 = 14;
+const ORD_181 = 45, COSET_181 = 15;
+
+// Field 3: F₁₃₉ (projection, INDECOMPOSABLE)
+const P3 = 139, PHI_139 = 76, PHIBAR_139 = 64;
+const ORD_139 = 23; // Prime — no coset decomposition
+
+const PHI = (1 + Math.sqrt(5)) / 2;
+
+// Gap structure
+const GAP_12 = P1 - P2; // 48 = 8×6
+const GAP_23 = P2 - P3; // 42 = 7×6
+
+// Build conjugate orbits for all three fields
+function buildOrbit(base, prime, len) {
+  const orbit = []; let v = 1;
+  for (let n = 0; n < len; n++) { orbit.push(v); v = (v * base) % prime; }
+  return orbit;
+}
+const orbit229 = buildOrbit(PHIBAR_229, P1, ORD_229);
+const orbit181 = buildOrbit(PHIBAR_181, P2, ORD_181);
+const orbit139 = buildOrbit(PHIBAR_139, P3, ORD_139);
+
+// ═══════════════════════════════════════════════════
+// §2: THREE-FIELD AIZAWA ATTRACTOR
+// ═══════════════════════════════════════════════════
+class AizawaState {
+  constructor(offset = 0, fieldIdx = 0) {
+    this.x = 1; this.y = 0;
+    this.fieldIdx = fieldIdx;
+    this.orbit = [orbit229, orbit181, orbit139][fieldIdx];
+    this.prime = [P1, P2, P3][fieldIdx];
+    this.ord = [ORD_229, ORD_181, ORD_139][fieldIdx];
+    this.coset = [COSET_229, COSET_181, ORD_139][fieldIdx]; // F₁₃₉: full orbit is "coset"
+    this.step = offset % this.ord;
+    this.arc = 0;
+  }
+  advance(pumpBias = 0) {
+    const z = this.orbit[this.step % this.ord];
+    const coeff = ((z - this.coset) % this.prime + this.prime) % this.prime;
+    const xn = (coeff * this.x - 7 * this.y) % this.prime;
+    const yn = (7 * this.x + coeff * this.y) % this.prime;
+    this.x = ((xn % this.prime) + this.prime) % this.prime;
+    this.y = ((yn % this.prime) + this.prime) % this.prime;
+    this.step = (this.step + 1) % this.ord;
+    // F₁₃₉ has no cosets — arc is always 0
+    if (this.fieldIdx === 2) {
+      this.arc = 0;
+    } else {
+      this.arc = Math.floor(this.step / this.coset);
+    }
+    return (this.arc + pumpBias + 3) % 3;
+  }
+  get thrustVec() {
+    return this.arc === 0 ? [1,0,0] : this.arc === 1 ? [0,1,0] : [0,0,1];
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// §3: THREE-FIELD FRÖHLICH BEC CASCADE
+// ═══════════════════════════════════════════════════
+class FrohlichCascade {
+  constructor(numModes = 57) {
+    this.modes = new Float64Array(numModes);
+    this.modes[0] = 1.0;
+    this.chi = 0.35;
+    this.numModes = numModes;
+  }
+  pump(energy) {
+    for (let j = 1; j < this.numModes; j++) this.modes[j] += energy / this.numModes;
+    // Fröhlich 1968: spontaneous (χ·n_k) + stimulated (χ·n_k·n_j)
+    for (let j = this.numModes - 1; j > 0; j--) {
+      const flow = Math.min(this.chi * this.modes[j] * (1 + this.modes[j-1]), this.modes[j] * 0.5);
+      this.modes[j] -= flow;
+      this.modes[j-1] += flow;
+    }
+    return this.modes[0];
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// §4: SIMULATION ENGINE — THREE STRANDS
+// ═══════════════════════════════════════════════════
+const NUM_PARTICLES = 22, NUM_FRAMES = 300;
+const STRAND_LEN = [11, 7, 4], STRAND_OFF = [0, 11, 18];
+const masses = [];
+for (let i=0;i<11;i++) masses.push(12.011);  // Carbon → F₂₂₉
+for (let i=0;i<7;i++) masses.push(28.085);   // Silicon → F₁₈₁
+for (let i=0;i<4;i++) masses.push(50.9415);  // Vanadium → F₁₃₉
+
+const R_INIT = 2.0, Z_SPACE = 1.5;
+const pos = [], vel = [];
+for (let i=0;i<NUM_PARTICLES;i++) { pos.push([0,0,0]); vel.push([0,0,0]); }
+
+// Init triple helix — each strand now corresponds to a field
+for (let s=0;s<3;s++) {
+  const phase = s * (2*Math.PI/3);
+  for (let u=0;u<STRAND_LEN[s];u++) {
+    const idx = STRAND_OFF[s]+u, theta = phase+u;
+    pos[idx] = [R_INIT*Math.cos(theta), R_INIT*Math.sin(theta), (u-1)*Z_SPACE];
+  }
+}
+
+// Aizawa attractors — 4 per field = 12 total
+const aizawas = [];
+for (let f=0;f<3;f++) {
+  for (let i=0;i<4;i++) {
+    aizawas.push(new AizawaState(i * 5 + f * 7, f));
+  }
+}
+
+// Three Fröhlich cascades — one per field
+const bec229 = new FrohlichCascade(ORD_229);  // 57 modes
+const bec181 = new FrohlichCascade(ORD_181);  // 45 modes
+const bec139 = new FrohlichCascade(ORD_139);  // 23 modes
+
+// Bridge prime 14489 — Gravitational envelope (GT Result 5.4)
+const BRIDGE = 14489;
+const BRIDGE_DEPTH = [1/4, 1/2, 1/4]; // symmetric coupling
+const GRAV_MOD = [BRIDGE % ORD_229, BRIDGE % ORD_181, BRIDGE % ORD_139]; // [11, 44, 22]
+const VO2_MIT = 341;
+let sysTemp = 300;
+
+// Pre-simulate all frames
+const allFrames = [], allThrust = [], strandActivity = [];
+for (let frame=0; frame<NUM_FRAMES; frame++) {
+  const t = frame * 0.1;
+  const tq = t + Math.sin(PHI*t) + Math.sin(Math.SQRT2*t);
+  
+  // THREE-FIELD CHRONOMETRIC: which strand is dominant?
+  // Cycle through strands based on golden phase
+  const strandPhase = Math.floor(tq / 1.9) % 3; // 0=F₂₂₉, 1=F₁₈₁, 2=F₁₃₉
+  
+  // Within dominant strand, which coset?
+  const orbs = [orbit229, orbit181, orbit139];
+  const ords = [ORD_229, ORD_181, ORD_139];
+  const primes = [P1, P2, P3];
+  const stateIdx = Math.floor(Math.abs(tq / 0.7)) % ords[strandPhase];
+  const state = orbs[strandPhase][stateIdx];
+  const colorPhase = strandPhase === 2 ? 0 : state % 3; // F₁₃₉: indecomposable, no arc
+  
+  // Pump all three BECs with thermal gating
+  sysTemp = 300 + 40*Math.sin(t*0.3) - 20*Math.sin(t*0.7);
+  const tGate = sysTemp < VO2_MIT ? 1.0 : 0.0;
+  const pumpE = 0.1*(1+0.5*Math.sin(t*2*Math.PI/5.7)) * tGate;
+  const g229 = bec229.pump(pumpE);
+  const g181 = bec181.pump(pumpE * 0.8);
+  const g139 = bec139.pump(pumpE * 1.2);
+
+  // Mayer-Vietoris parity: φⁿ·φ̄ⁿ ≡ (−1)ⁿ (GT §7.2)
+  const mvParity = (Math.floor(t * 4) % 2 === 0) ? 1.0 : -1.0;
+
+  // Gravitational coupling from 14489 bridge prime
+  const gravPull = BRIDGE_DEPTH.map((c, s) =>
+    c * Math.sin(t * GRAV_MOD[s] / [ORD_229, ORD_181, ORD_139][s] * 2*Math.PI) * 0.12
+  );
+
+  const netThrust = [0,0,0];
+  for (let i=0;i<12;i++) {
+    const biasedArc = aizawas[i].advance(0);
+    const tv = aizawas[i].thrustVec;
+    const sign = (i % 8) < 4 ? 1 : -1;
+    
+    // Field-dependent thrust magnitude
+    const fIdx = aizawas[i].fieldIdx;
+    const darkThrust = fIdx === 0 ? DARK_229/P1 :
+                       fIdx === 1 ? (P2 - 1 - COSET_181)/P2 :
+                                    (P3 - 1)/P3; // F₁₃₉: full uncompensated
+    
+    const scale = biasedArc===0?0.3:biasedArc===1?0.5:1.0;
+    const strandWeight = fIdx === strandPhase ? 1.5 : 0.5;
+    const gravBoost = gravPull[fIdx] * mvParity;
+    for(let j=0;j<3;j++) netThrust[j] += sign*tv[j]*darkThrust*scale*strandWeight*(1+gravBoost);
+  }
+  allThrust.push([...netThrust]);
+  strandActivity.push(strandPhase);
+
+  const forces = [];
+  for(let i=0;i<NUM_PARTICLES;i++) forces.push([0,0,0]);
+  
+  const groundPops = [g229, g181, g139];
+  
+  // Leader strand computation
+  const lr = [];
+  for(let i=STRAND_OFF[strandPhase];i<STRAND_OFF[strandPhase]+STRAND_LEN[strandPhase];i++) lr.push(i);
+  const lc = [0,0,0];
+  for(const i of lr) for(let j=0;j<3;j++) lc[j]+=pos[i][j]/lr.length;
+
+  for(let s=0;s<3;s++) {
+    const inPhase = s===strandPhase;
+    const gp = groundPops[s]; // BEC ground state for this strand
+    for(let u=0;u<STRAND_LEN[s];u++) {
+      const idx=STRAND_OFF[s]+u;
+      const ua=tq*0.5+u;
+      const v=(s-1)*1.5, rl=R_INIT+v*Math.cos(ua/2);
+      const tx=rl*Math.cos(ua), ty=rl*Math.sin(ua);
+      const tz=(u-1)*Z_SPACE+tq*0.25+v*Math.sin(ua/2);
+      if(inPhase) {
+        const kh=15*(Math.abs(1.0)+0.5)*(0.5+0.5*gp);
+        forces[idx][0]+=kh*(tx-pos[idx][0]);
+        forces[idx][1]+=kh*(ty-pos[idx][1]);
+        forces[idx][2]+=kh*(tz-pos[idx][2]);
+      } else {
+        const nm=15*(1-Math.min(gp,0.95));
+        forces[idx][0]+=(Math.random()-0.5)*nm;
+        forces[idx][1]+=(Math.random()-0.5)*nm;
+        forces[idx][2]+=(Math.random()-0.5)*nm;
+        for(let j=0;j<3;j++) forces[idx][j]+=12*(lc[j]-pos[idx][j]);
+      }
+      // Strand-specific thrust coupling
+      const tc = s===2 ? 2.0 : s===1 ? 1.0 : 0.5;
+      for(let j=0;j<3;j++) forces[idx][j]+=netThrust[j]*tc;
+    }
+  }
+  const dt=0.1;
+  for(let i=0;i<NUM_PARTICLES;i++){
+    for(let j=0;j<3;j++) vel[i][j]+=(forces[i][j]/masses[i])*dt;
+    // F₁₃₉ particles (vanadium) have prime-order damping
+    const damp = i>=18 ? 0.5+0.4*Math.sin(t*23) : // 23-period (F₁₃₉)
+                 i>=11 ? 0.75+0.15*Math.sin(t*45) : // 45-period (F₁₈₁)
+                         0.85; // F₂₂₉ stable
+    for(let j=0;j<3;j++) vel[i][j]*=damp;
+    for(let j=0;j<3;j++) pos[i][j]+=vel[i][j]*dt;
+  }
+  allFrames.push(pos.map(p=>[...p]));
+}
+
+// ═══════════════════════════════════════════════════
+// §5: THREE.JS SCENE
+// ═══════════════════════════════════════════════════
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x06060c, 0.008);
+const camera = new THREE.PerspectiveCamera(45, innerWidth/innerHeight, 0.1, 500);
+camera.position.set(0, 16, 45);
+const renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.3;
+document.body.appendChild(renderer.domElement);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 12, 0);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+
+// Lighting — three-field colored lights
+scene.add(new THREE.AmbientLight(0x1a2233, 0.5));
+const light229 = new THREE.PointLight(0x00CCFF, 2.5, 100);
+light229.position.set(12, 25, 18); scene.add(light229);
+const light181 = new THREE.PointLight(0xFF4466, 1.5, 80);
+light181.position.set(-15, 5, -12); scene.add(light181);
+const light139 = new THREE.PointLight(0xFFD700, 1.2, 60);
+light139.position.set(0, -5, 20); scene.add(light139);
+
+// Materials — each strand mapped to its field
+const makeMat = (c, e, ei, r, met) => new THREE.MeshPhysicalMaterial({
+  color:c, emissive:e, emissiveIntensity:ei, transparent:true, opacity:0.88,
+  roughness:r, metalness:met, clearcoat:0.3, clearcoatRoughness:0.1
+});
+const mats = [
+  makeMat(0x00CCFF, 0x006699, 0.5, 0.2, 0.8),   // Carbon → F₂₂₉ (cyan)
+  makeMat(0xFF6688, 0x993344, 0.5, 0.3, 0.7),   // Silicon → F₁₈₁ (rose)
+  makeMat(0xFFD700, 0x996600, 0.7, 0.1, 0.9),   // Vanadium → F₁₃₉ (gold)
+];
+
+const units = [];
+const geo = new THREE.SphereGeometry(0.35, 20, 20);
+for (let i=0; i<22; i++) {
+  const mat = mats[i<11?0:i<18?1:2].clone();
+  const m = new THREE.Mesh(geo, mat);
+  scene.add(m); units.push(m);
+}
+
+// Electrum rods — golden proportions, 3 per field
+const rodR = R_INIT/PHI, rodH = 2*Math.PI*R_INIT*PHI, rodP = R_INIT*PHI;
+const rodMat = new THREE.MeshPhysicalMaterial({
+  color:0xdfc98a, emissive:0x664411, emissiveIntensity:0.2,
+  transparent:true, opacity:0.35, roughness:0.05, metalness:1.0, side:THREE.DoubleSide
+});
+const rods = new THREE.Group();
+const rGeo = new THREE.CylinderGeometry(rodR, rodR, rodH, 32, 1, true);
+for(let r=0;r<3;r++){
+  const m = new THREE.Mesh(rGeo, rodMat.clone());
+  const a=r*2.094;
+  m.position.set(rodP*Math.cos(a), rodH/4, rodP*Math.sin(a));
+  rods.add(m);
+}
+scene.add(rods);
+
+// Thrust arrow
+const arrowDir = new THREE.Vector3(0,0,1);
+const arrow = new THREE.ArrowHelper(arrowDir, new THREE.Vector3(0,-4,0), 3, 0x00ff88, 0.4, 0.25);
+scene.add(arrow);
+
+// THREE-FIELD edge trail — color-coded per field
+const trailCount = 204;
+const trailGeo = new THREE.BufferGeometry();
+const trailPos = new Float32Array(trailCount*3);
+const trailCol = new Float32Array(trailCount*3);
+trailGeo.setAttribute('position', new THREE.BufferAttribute(trailPos, 3));
+trailGeo.setAttribute('color', new THREE.BufferAttribute(trailCol, 3));
+const trailMat = new THREE.PointsMaterial({size:0.12, transparent:true, opacity:0.6, vertexColors:true});
+scene.add(new THREE.Points(trailGeo, trailMat));
+
+// Cross-field bridge ring — the embedding 229 ≡ ω₁₈₁
+const bridgeGeo = new THREE.TorusGeometry(R_INIT * 1.5, 0.03, 8, 64);
+const bridgeMat = new THREE.MeshBasicMaterial({color:0xFF6600, transparent:true, opacity:0.25});
+const bridgeRing = new THREE.Mesh(bridgeGeo, bridgeMat);
+bridgeRing.rotation.x = Math.PI/2;
+bridgeRing.position.y = 10;
+scene.add(bridgeRing);
+
+// Sign inversion flash ring — appears at half-orbit
+const flashGeo = new THREE.RingGeometry(3, 3.5, 64);
+const flashMat = new THREE.MeshBasicMaterial({color:0xFFFFFF, transparent:true, opacity:0, side:THREE.DoubleSide});
+const flashRing = new THREE.Mesh(flashGeo, flashMat);
+flashRing.position.y = 10;
+flashRing.rotation.x = Math.PI/2;
+scene.add(flashRing);
+
+// Strand connection lines
+const lineMats = [
+  new THREE.LineBasicMaterial({color:0x00CCFF, transparent:true, opacity:0.3}),
+  new THREE.LineBasicMaterial({color:0xFF6688, transparent:true, opacity:0.3}),
+  new THREE.LineBasicMaterial({color:0xFFD700, transparent:true, opacity:0.3}),
+];
+const lineGeos = [], lines = [];
+for(let s=0;s<3;s++){
+  const lg = new THREE.BufferGeometry();
+  const lp = new Float32Array(STRAND_LEN[s]*3);
+  lg.setAttribute('position', new THREE.BufferAttribute(lp, 3));
+  const line = new THREE.Line(lg, lineMats[s]);
+  scene.add(line); lineGeos.push(lg); lines.push(line);
+}
+
+// ═══════════════════════════════════════════════════
+// §6: ANIMATION LOOP
+// ═══════════════════════════════════════════════════
+const strandNames = ['F₂₂₉ (anchor)', 'F₁₈₁ (depth)', 'F₁₃₉ (projection)'];
+const strandColors = ['#00CCFF', '#FF6688', '#FFD700'];
+const arcNames = ['Coset 0','Coset 1','Coset 2'];
+const fieldColors = [
+  new THREE.Color(0x00CCFF), new THREE.Color(0xFF6688), new THREE.Color(0xFFD700)
+];
+let frame = 0;
+
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+
+  const fp = allFrames[frame];
+  const thrust = allThrust[frame];
+  const activeStrand = strandActivity[frame];
+  const t = frame * 0.1;
+  const tq = t + Math.sin(PHI*t) + Math.sin(Math.SQRT2*t);
+
+  // Update particles — field-aware glow
+  units.forEach((m,i) => {
+    m.position.set(fp[i][0], fp[i][2], fp[i][1]);
+    const sIdx = i<11?0:i<18?1:2;
+    m.material.emissiveIntensity = sIdx===activeStrand ? 1.4 : 0.2;
+    // F₁₃₉ particles pulse with prime period 23
+    if(i>=18) m.scale.setScalar(1+0.3*Math.sin(t*23+i));
+    // F₁₈₁ particles breathe with period 45
+    else if(i>=11) m.scale.setScalar(1+0.1*Math.sin(t*45/19+i));
+  });
+
+  // Update strand lines
+  for(let s=0;s<3;s++){
+    const arr = lineGeos[s].attributes.position.array;
+    for(let u=0;u<STRAND_LEN[s];u++){
+      const idx=STRAND_OFF[s]+u;
+      arr[u*3]=fp[idx][0]; arr[u*3+1]=fp[idx][2]; arr[u*3+2]=fp[idx][1];
+    }
+    lineGeos[s].attributes.position.needsUpdate = true;
+    lineMats[s].opacity = s===activeStrand ? 0.7 : 0.12;
+  }
+
+  // Thrust arrow
+  const tMag = Math.sqrt(thrust[0]**2+thrust[1]**2+thrust[2]**2);
+  if(tMag>0.01){
+    arrow.setDirection(new THREE.Vector3(thrust[0],thrust[2],thrust[1]).normalize());
+    arrow.setLength(Math.min(tMag*8,7), 0.4, 0.25);
+    arrow.setColor(fieldColors[activeStrand]);
+  }
+
+  // Three-field edge trail — color per field assignment
+  for(let i=0;i<trailCount;i++){
+    const fieldIdx = i < 68 ? 0 : i < 136 ? 1 : 2; // 68+68+68
+    const ord = [ORD_229, ORD_181, ORD_139][fieldIdx];
+    const a=(i/trailCount)*Math.PI*2+t*0.4;
+    const r=5.5+2.5*Math.sin(a*3+t*ord/19);
+    const y=10+5*Math.sin(t*0.6+i*0.08);
+    trailPos[i*3]=r*Math.cos(a);
+    trailPos[i*3+1]=y;
+    trailPos[i*3+2]=r*Math.sin(a);
+    trailCol[i*3]=fieldColors[fieldIdx].r;
+    trailCol[i*3+1]=fieldColors[fieldIdx].g;
+    trailCol[i*3+2]=fieldColors[fieldIdx].b;
+  }
+  trailGeo.attributes.position.needsUpdate=true;
+  trailGeo.attributes.color.needsUpdate=true;
+
+  // Cross-field bridge pulses at embedding resonance
+  bridgeRing.material.opacity = 0.15 + 0.15 * Math.sin(t * GAP_12/6);
+  bridgeRing.rotation.z = t * 0.05;
+
+  // Sign inversion flash: φ^ord ≡ −1 (mod p) at full orbit boundary
+  // Verified: φ^57≡228(229), φ^45≡180(181), φ^23≡138(139)
+  const step229 = Math.floor(tq / 0.7) % (ORD_229 * 2);
+  const step139 = Math.floor(tq / 0.7) % (ORD_139 * 2);
+  let flashIntensity = 0;
+  if (step229 === ORD_229) flashIntensity = 1.0;  // Full orbit boundary
+  if (step139 === ORD_139) flashIntensity = 0.8;
+  flashMat.opacity = flashIntensity * Math.max(0, 1 - (frame % 10) * 0.2);
+  flashRing.scale.setScalar(1 + flashIntensity * 0.5);
+
+  rods.rotation.y=t*0.08;
+  
+  // Animate field lights
+  light229.intensity = activeStrand === 0 ? 3.5 : 1.5;
+  light181.intensity = activeStrand === 1 ? 3.0 : 1.0;
+  light139.intensity = activeStrand === 2 ? 2.5 : 0.8;
+
+  // HUD
+  const becVals = [
+    Math.round(bec229.modes[0]*100),
+    Math.round(bec181.modes[0]*100),
+    Math.round(bec139.modes[0]*100)
+  ];
+  document.getElementById('active-strand').innerHTML = 
+    `<span style="color:${strandColors[activeStrand]}">${strandNames[activeStrand]}</span>`;
+  document.getElementById('bec').textContent = `229:${becVals[0]}% 181:${becVals[1]}% 139:${becVals[2]}%`;
+  document.getElementById('arc').textContent = activeStrand === 2 ? 'INDIVISIBLE' : arcNames[Math.floor(tq) % 3];
+  document.getElementById('thrust').textContent = thrust.map(v=>v.toFixed(3)).join(', ');
+  document.getElementById('frame').textContent = frame+'/'+NUM_FRAMES;
+
+  frame = (frame+1)%NUM_FRAMES;
+  renderer.render(scene, camera);
+}
+
+window.addEventListener('resize', ()=>{
+  camera.aspect=innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+
+animate();
+</script>
+</body>
+</html>

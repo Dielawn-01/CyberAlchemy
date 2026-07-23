@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Basic
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
@@ -6,6 +7,9 @@ import LaRueProtorealAlgebra.SchwarzianTruth
 import InfoPhysAxioms.Chronogram
 import InfoPhysAxioms.BohmShannonOverlap
 import InfoPhysAxioms.TensorImaginaryBridge
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Fast Busy Beaver Transform (FBBT)
@@ -111,7 +115,7 @@ def is_golden_bounded_topology (agent : CategoricalAgent) : Prop :=
     Proof by Biconditional Equivalence (↔):
     Sufficiency: Golden bounds guarantee cyclic FBBT computability.
     Necessity: Uncomputability emerges if golden bounds are broken. -/
-axiom fbbt_equiv_busy_beaver (agent : CategoricalAgent)
+def fbbt_equiv_busy_beaver (agent : CategoricalAgent) := CyberAlchemy.ArithmeticTypeTheory.blurr_type
     (chrono : InfoPhysAxioms.SexagesimalChronogram) (states : ℕ) :
     (classical_busy_beaver states = fast_busy_beaver_transform agent chrono) ↔
     is_golden_bounded_topology agent

@@ -5,6 +5,10 @@ import LaRueProtorealAlgebra.MonsterInverse
 import LaRueProtorealAlgebra.SuperJetSheaf
 import LaRueProtorealAlgebra.FractalHodge
 import Mathlib.Data.Real.Basic
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Infoton Thermodynamics & Information Physics

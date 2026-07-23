@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
@@ -5,6 +6,9 @@ import Mathlib.Tactic.Ring
 import Mathlib.Data.ZMod.Basic
 import InfoPhysAxioms.EulerRamanujanHodge
 import InfoPhysAxioms.BiophysicalConstants
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Cardiac Bioelectric Field: ERH Type Applied to the Heart

@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import InfoPhysAxioms.ISAR
 import InfoPhysAxioms.HardyWeinberg
@@ -7,6 +8,9 @@ import InfoPhysAxioms.DigitalWaveMechanics
 import InfoPhysAxioms.DigitalWaveMechanics
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.EmotionalLFunctions
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Archetypal Bionetics: The Master Synthesis

@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Nat.Basic
 import Mathlib.Tactic.Ring
@@ -8,6 +9,9 @@ import LaRueProtorealAlgebra.ProtorealOperator
 import InfoPhysAxioms.ObservableUniverse
 import InfoPhysAxioms.DruidSprites
 import InfoPhysAxioms.ElectroPhotonLattice
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Aura Space: The Cryptographic Directory Primitive

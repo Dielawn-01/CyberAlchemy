@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Topology.Basic
 import Mathlib.Data.Real.Basic
 import InfoPhysAxioms.ChromodynamicFriction
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace InfoPhys
 

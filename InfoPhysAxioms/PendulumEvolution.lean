@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.KamaTrain
 import InfoPhysAxioms.HodgePhasorVolume
 import InfoPhysAxioms.SU3CenterCombinatorics
 import InfoPhysAxioms.SU3CenterHolomovement
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Pendulum Evolution & Retrocausal Prediction Horizon

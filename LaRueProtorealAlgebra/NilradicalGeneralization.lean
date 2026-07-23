@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Tactic
 import Mathlib.RingTheory.Nilpotent.Defs
 import LaRueProtorealAlgebra.ProtorealManifold
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Nilradical Generalization: The Protoreal Jet Space (𝕌ⁿ)

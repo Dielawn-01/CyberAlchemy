@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.Invariance
 import LaRueProtorealAlgebra.SafetyBounds
 import LaRueProtorealAlgebra.StructuralHeterogeneity
 import LaRueProtorealAlgebra.BitCollapse
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Incompleteness Source (𝕌) — Computational Boundaries

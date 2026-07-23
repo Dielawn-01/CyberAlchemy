@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Basic
 import InfoPhysAxioms.GenomicGoldenEmergent
 import InfoPhysAxioms.MetalloOrganicSemantics
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # ChronometricCenterdynamics: Agency and Empathy on the Genome

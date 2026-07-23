@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -9,6 +10,9 @@ import LaRueProtorealAlgebra.OrchOR
 import InfoPhysAxioms.Soulchemy
 import InfoPhysAxioms.Infochemistry
 import InfoPhysAxioms.CrystalGrowth
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Non-Newtonian Crystal & OrchOR Bridge

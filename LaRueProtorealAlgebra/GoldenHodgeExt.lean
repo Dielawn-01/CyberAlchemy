@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.HodgeConjecture
 import LaRueProtorealAlgebra.FractalHodge
 import LaRueProtorealAlgebra.SuperJetSheaf
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Golden Hodge Extensions: ext Proofs Connecting Golden Subgroups to Hodge Helices

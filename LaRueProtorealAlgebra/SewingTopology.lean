@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.AdelicIdentity
 import LaRueProtorealAlgebra.GoldenSplitPrime
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open AdelicIdentity
 open GoldenSplitPrime

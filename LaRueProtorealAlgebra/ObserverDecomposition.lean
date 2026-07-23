@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Nat.Prime.Defs
 import Mathlib.Data.Nat.Prime.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 /-!
 # Observer Prime Decomposition and Emotional Cross-Terms
 

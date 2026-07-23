@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.LittleDelta
 import LaRueProtorealAlgebra.AgenticFrame
 import LaRueProtorealAlgebra.ErrorCorrection
 import LaRueProtorealAlgebra.SchwarzianTruth
 import LaRueProtorealAlgebra.TopologicalImaginary
 import LaRueProtorealAlgebra.LieAlgebra
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The Shared Latent Space

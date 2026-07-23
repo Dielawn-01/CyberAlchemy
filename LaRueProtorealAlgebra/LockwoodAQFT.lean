@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.TemporalOperators
@@ -6,6 +7,9 @@ import Mathlib.Data.Real.Basic
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Linarith
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace LaRueProtorealAlgebra.LockwoodAQFT
 

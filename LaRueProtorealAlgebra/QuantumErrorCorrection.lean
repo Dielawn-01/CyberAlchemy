@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.Semisimple
 import LaRueProtorealAlgebra.ErrorCorrection
 import LaRueProtorealAlgebra.HyperKlein
 import LaRueProtorealAlgebra.Invariance
 import LaRueProtorealAlgebra.DualityTheorem
 import LaRueProtorealAlgebra.StochasticAlgebra
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Quantum Error-Correction Code Existence (𝕌)

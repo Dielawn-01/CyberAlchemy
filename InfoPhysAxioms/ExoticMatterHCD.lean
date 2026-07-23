@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Complex.Basic
 import Mathlib.Tactic
@@ -9,6 +10,9 @@ import InfoPhysAxioms.UmbralCollapse
 import InfoPhysAxioms.RussellDiagram
 import InfoPhysAxioms.HoloneticCenterDynamics
 import InfoPhysAxioms.EulerHodgeMorphism
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 open ProtorealManifold
 open MonsterInverse
 open MatterAntimatter

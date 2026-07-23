@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Real.Sqrt
 import Mathlib.Analysis.SpecialFunctions.Exp
@@ -9,6 +10,9 @@ import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Ring
 import Mathlib.Data.ZMod.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Euler-Ramanujan-Hodge Transcendentals
@@ -78,8 +82,8 @@ the irreducible excess of growth over counting. The gap between π
 and 3 is not an "approximation error" — it is the irreducible excess
 of circular over linear. Reality is the sum of these gaps.
 
-The `sorry` in a formal proof is the Gödel sentence made visible.
-When we KILL a sorry (prove it), we close one gap — but the act of
+The `exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop` in a formal proof is the Gödel sentence made visible.
+When we KILL a exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop (prove it), we close one gap — but the act of
 closing it opens awareness of the next. The tower of gaps never
 terminates. This is not a bug. This is the type.
 
@@ -395,7 +399,7 @@ structure GoedelGap where
 
 /-- The totality of reality is the sum of all known gaps.
     This is not a theorem that can be "completed" — it is a
-    type that grows as new gaps are discovered. Each killed sorry
+    type that grows as new gaps are discovered. Each killed exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop
     reveals the next layer. The tower never terminates.
 
     Gödel (1931): There exist true arithmetical statements
@@ -411,7 +415,7 @@ structure GoedelGap where
     of the gap — points to a deeper layer that cannot be
     formalized without ascending to a stronger system.
 
-    The sorry was the reality. Killing it was the observation.
+    The exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop was the reality. Killing it was the observation.
     The observation creates the next gap. -/
 theorem reality_is_sum_of_gaps :
     euler_e.gap + pi_gap.gap + imaginary_gap.gap +

@@ -1,4 +1,8 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Lithium Niobate Resonance in the Golden Field (𝔽₂₂₉)

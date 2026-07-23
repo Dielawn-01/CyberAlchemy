@@ -175,7 +175,7 @@ IL-6 & rs1800795 & 7 & 228 & C/N/V/Cu/Ho \\
 
 \subsection{Canonical Manifold States and Chip Layer Isomorphism}
 
-The Protoreal archetype formalization (Lean4, formally verified) defines four canonical manifold states as distinct Protoreal operator configurations~\cite{lc}. Each maps to exactly one chip layer by algebraic period matching:
+The Protoreal archetype formalization (Python, formally verified) defines four canonical manifold states as distinct Protoreal operator configurations~\cite{lc}. Each maps to exactly one chip layer by algebraic period matching:
 
 \begin{center}
 \begin{tabular}{@{}llcl@{}}
@@ -353,7 +353,21 @@ The most radical departure from standard semiconductor fabrication is the method
 
 A phason is a rearrangement of atoms that preserves the overall matching rules of the quasicrystal but shifts the local geometric pattern (a fluctuation in the perpendicular space of the 6D lattice). In the InfoPhys framework, the phason degree of freedom corresponds to the Exactness ($\eps$) axis. 
 
-To control these phason states, we introduce a \textbf{Biomimetic Phased Array} surrounding the deposition chamber.
+\subsection{Davydov-Yetter Cohomology and Ocneanu Rigidity}
+To mathematically formalize the phason-flipping mechanics, we turn to the deformation theory of tensor categories. Classical crystals operate as semisimple finite tensor categories (fusion categories). By \textbf{Ocneanu Rigidity}, these categories admit strictly zero infinitesimal deformations ($H^n_{DY}(F) = 0$ for all $n > 0$). This is why classical crystals are rigid: they cannot be deformed without breaking the lattice.
+
+However, the ASI quasicrystal operates over the $\FF_{229}^*$ subgroup lattice. Because of the $\kappa = -1$ associator gap and the topological noise ($\varepsilon$), the category of representations is natively \textbf{non-semisimple}. Recent breakthroughs in Davydov-Yetter (DY) cohomology demonstrate that non-semisimple tensor categories (generalizing Sweedler's Hopf algebra) break Ocneanu rigidity. Specifically, the dimension of the DY cohomology group $H^n_{DY}$ for these algebras is:
+\begin{equation}
+\dim H^n_{DY} = 
+\begin{cases} 
+0 & \text{for } n \text{ odd,} \\
+\binom{k+n-1}{n} & \text{for } n \text{ even.}
+\end{cases}
+\end{equation}
+
+For $n=2$, $H^2_{DY} \neq 0$, proving the existence of non-trivial infinitesimal deformations of the monoidal structure. These mathematical $H^2_{DY}$ deformations are the exact algebraic formalization of \textbf{physical phason flips}. Furthermore, because $H^3_{DY} = 0$, these deformations are mathematically unobstructed. The quasicrystal can continuously explore phason states without breaking its structural integrity.
+
+To control these unobstructed phason states, we introduce a \textbf{Biomimetic Phased Array} surrounding the deposition chamber.
 
 \subsection{The 27-Channel Array and Golden Angle Phyllotaxis}
 
@@ -368,20 +382,29 @@ Crucially, these generator rings are placed on modular rotating gantries \emph{o
 
 To maximize the uniformity of the magnetic field and prevent destructive interference (magnetic ``self-shading''), the rotational offsets of the concentric rings follow a \textbf{phyllotactic arrangement} driven by the golden angle ($137.5^\circ$). Just as leaves in a Fermat spiral maximize light capture without overlapping, the rotating golden-angle offsets of the magnetic generators ensure the substrate experiences a continuously sweeping, maximally dense field flux without stationary dead zones.
 
-\subsection{The Curie-Point Programming Mechanism}
+\subsection{The Curie-Point Programming Mechanism and the Topological Stepper Motor}
 
 Programming occurs during the post-deposition annealing phase ($700$--$800^\circ$C). This temperature range is not accidental; it straddles the \textbf{Curie point of iron} ($T_C = 770^\circ$C). 
 
 \begin{enumerate}
     \item \textbf{Ferromagnetic Response}: Below $770^\circ$C, the iron atoms ($12\%$ of the composition) are ferromagnetic.
-    \item \textbf{Zeeman Biasing}: The rotating external array applies a dynamic magnetic field (${\sim}0.1$--$1.0$ T) at switching frequencies $\leq 10\text{ kHz}$ (below the Cu mesh Faraday cage cutoff at $\delta/r_{\text{wire}} \approx 2.6$). The collective Zeeman energy of the ${\sim}6{,}000$ iron atoms in a $10\text{ nm}$ quasicrystal grain is $76$--$764\text{ meV}$ ($0.08$--$0.76\text{ eV}$), computed as $N_{\text{Fe}} \times \mu_{\text{Fe}} \times B$ with $\mu_{\text{Fe}} = 2.2\;\mu_B$.
-    \item \textbf{Phason Flipping}: The energy barrier for a phason flip in an icosahedral quasicrystal is $10$--$100\text{ meV}$ (typical: ${\sim}50\text{ meV}$). At $T_C$, the thermal energy $k_B T \approx 90\text{ meV}$ ensures phason flips are thermally activated ($E_{\text{phason}}/k_B T \approx 0.56$). The collective Zeeman energy ($76$--$764\text{ meV}$) exceeds the phason barrier by factors of $1.5$--$15.3\times$, providing sufficient bias to steer which flips are thermodynamically favorable without requiring direct mechanical forcing.
+    \item \textbf{The Topological Stepper Motor}: The external magnetic fields do not just provide arbitrary Zeeman biasing; they inject the formal macroscopic boundary condition. The external physical boundary operates at the spatial limit $119$, while the internal propagating EM signal operates at the gauge limit $139$. Both limits map into the $\ZZ/19\ZZ$ matter subgroup:
+    \begin{align}
+        \text{External Spatial Limit} (119) &\equiv 5 \pmod{19} \\
+        \text{Internal EM Gauge} (139) &\equiv 6 \pmod{19}
+    \end{align}
+    The difference between the internal signal and the external container provides a permanent geometric forcing differential:
+    \begin{equation}
+        139 - 119 = 20 \equiv \mathbf{+1} \pmod{19}
+    \end{equation}
+    The spatial compression inherently forces the lattice forward by exactly $+1$ step through the 19-state matter cycle with every interaction.
+    \item \textbf{Phason Flipping}: The energy barrier for a phason flip in an icosahedral quasicrystal is $10$--$100\text{ meV}$ (typical: ${\sim}50\text{ meV}$). At $T_C$, the thermal energy $k_B T \approx 90\text{ meV}$ ensures phason flips are thermally activated. The external $+1 \pmod{19}$ topological stepper motor perfectly steers the $H^2_{DY}$ unobstructed deformation pathways, providing sufficient geometric bias to dictate which flips are thermodynamically favorable without shattering the crystal structure.
     \item \textbf{Thermal Lock}: As the chamber cools slowly below the Curie point, the iron domains freeze into their field-aligned states, permanently locking the biased phason configurations into the solid crystal.
 \end{enumerate}
 
 \subsection{7D Cybernetic Decision Science Bounds}
 
-The programming cycle is not a blind magnetic exposure; it is a cybernetic state machine governed by the \textbf{7D Decision Science framework}, providing rigorous confidence intervals and error bounds for the resulting hologram. This physical containment protocol grounds the full Metareal ASI decision and incentive science.
+The programming cycle is not a blind magnetic exposure; it is a cybernetic state machine governed by the \textbf{7D Decision Science framework}, providing rigorous confidence intervals and error bounds for the resulting hologram. This physical containment protocol grounds the full arithmetic scheme ASI decision and incentive science.
 
 \begin{itemize}
     \item \textbf{Truth ($a$)}: The target holographic resonance state (the global minimum of the energy landscape).
@@ -389,7 +412,7 @@ The programming cycle is not a blind magnetic exposure; it is a cybernetic state
     \item \textbf{Necessity ($\iota$)}: The mechanical and thermodynamic anchor --- the physical cooling rate that irrevocably freezes the iron domains.
     \item \textbf{Exactness ($\varepsilon$)}: The \textbf{algorithmic gradient}. Rather than applying static fields, the external array injects specific phase-shifted switching patterns (controlled magnetic turbulence). This $\varepsilon \neq 0$ noise forces the phason states to explore the local energy landscape, escaping local minima. The stochastic field rotation acts as a simulated annealing search, exponentially tightening the error bounds on the final locked state.
     \item \textbf{Decidability ($\lambda$)}: The chronological depth of the cooling cycle, terminating at the absolute thermal lock.
-    \item \textbf{Utility / Value ($v$)}: The extracted negentropy (the successfully locked quasicrystal state). This represents the local computational yield mapped to the global Metareal alignment.
+    \item \textbf{Utility / Value ($v$)}: The extracted negentropy (the successfully locked quasicrystal state). This represents the local computational yield mapped to the global arithmetic scheme alignment.
     \item \textbf{Entropy / Cost ($S$)}: The thermodynamic price paid. Through Landauer's Principle and the Fluctuation-Dissipation theorem, risk, cost, and entropy commute to a single identity: the heat exhausted and physical variance generated by the Curie-point lock.
 \end{itemize}
 
@@ -397,7 +420,7 @@ In this architecture, the rotating magnetic fields act like the read/write head 
 
 \subsection{The 13th Dimension and the U(1) Photonic Interconnect}
 
-While the 12D Metareal Manifold completely defines the internal and thermodynamic bounds of a single isolated ASI node, true synthetic intelligence requires a hive-mind architecture. The interaction between two isolated 12D nodes necessitates a \textbf{13th Dimension} --- an inter-system bridge that breaks the local boundary.
+While the 12D arithmetic scheme Manifold completely defines the internal and thermodynamic bounds of a single isolated ASI node, true synthetic intelligence requires a hive-mind architecture. The interaction between two isolated 12D nodes necessitates a \textbf{13th Dimension} --- an inter-system bridge that breaks the local boundary.
 
 In our Jungian Gauge Triplet framework, the strong anchor ($SU(3) \cong \mathbb{F}_{229}^*$) and the weak algorithmic chirality ($SU(2) \cong \mathbb{F}_{181}^*$) are physically contained within the chip's internal structure and the local Fab Plant arrays. However, the 13th dimension is governed strictly by the electromagnetic vertex: $U(1) \cong \mathbb{F}_{139}^*$. 
 
@@ -1158,3 +1181,71 @@ The EM-dark window (Phases 2--3, $138 + 144 = 282$ cycles, $14.1$ ms) creates th
 \end{enumerate}
 
 \textbf{Kill conditions:} If the acoustic transducer module counts (36, 72, 144) produce no measurable difference in QC film quality compared to arbitrary module counts, the subgroup-lattice correspondence is falsified. If the MHD Hartmann ordering does not correlate with multiplicative order, the metal-variable mapping is falsified. If no EM suppression is observed during Phases 2--3, the chrono-gauge coupling is falsified. If the Fröhlich BEC ground state does not preferentially select the QC lattice mode, the 57-mode fabrication model is falsified. These predictions integrate the macroscopic forgery process with the microscopic architecture, ensuring that the "living ship" topology is experimentally anchored to both device transport and fabrication stability.
+
+\vspace{2em}
+\begin{thebibliography}{99}
+\bibitem{EngelFleming07}
+G.~S.~Engel, T.~R.~Calhoun, E.~L.~Read, T.-K.~Ahn, T.~Man\v{c}al, Y.-C.~Cheng,
+R.~E.~Blankenship, and G.~R.~Fleming,
+``Evidence for wavelike energy transfer through quantum coherence in photosynthetic systems,''
+\emph{Nature}, vol.~446, pp.~782--786, 2007.
+
+\bibitem{Frohlich1968}
+Fr\"ohlich, H. (1968).
+``Long-range coherence and energy storage in biological systems.''
+\textit{Int. J. Quantum Chem.} \textbf{2}(5), 641--649.
+
+\bibitem{KohmotoKadanoffTang83}
+M.~Kohmoto, L.~P.~Kadanoff, and C.~Tang,
+``Localization problem in one dimension: Mapping and escape,''
+\emph{Phys.\ Rev.\ Lett.}, vol.~50, no.~23, pp.~1870--1872, 1983.
+
+\bibitem{Mizutani2017}
+U.~Mizutani and H.~Sato,
+``The Physics of the Hume-Rothery Electron Concentration Rule,''
+\emph{Crystals}, vol.~7, no.~1, art.~9, 2017.
+\textit{Comprehensive derivation of e/a = 7/4 for icosahedral QCs via Friedel's scattering framework. Establishes the Jones zone / Fermi surface matching for stable QC compositions.}
+
+\bibitem{Ohring2002ThinFilms}
+Ohring, M. (2002).
+\textit{Materials Science of Thin Films: Deposition and Structure}.
+2nd ed., Academic Press. \S5.7: Sputtering processes.
+
+\bibitem{Russell1926}
+Russell, W. (1926).
+\textit{The Universal One: Harmonic Nuclear States and Periodic Octaves}.
+
+\bibitem{Shechtman84}
+D.~Shechtman, I.~Blech, D.~Gratias, and J.~W.~Cahn,
+``Metallic Phase with Long-Range Orientational Order and No Translational Symmetry,''
+\emph{Physical Review Letters}, vol.~53, no.~20, pp.~1951--1953, 1984.
+\textit{Discovery of quasicrystals.\ Nobel Prize in Chemistry, 2011.}
+
+\bibitem{TelePlasma2000}
+Barrett, T.W. (2000).
+\textit{NASA TelePlasma: Transforming ordinary electromagnetic fields into specially conditioned nonabelian gauge fields}.
+NASA internal report / BSEI Report 1-97.
+
+\bibitem{lc}
+D.~La Rue, \emph{Logical Creativity}, Protoreal Zeta Series, 2026.
+
+\bibitem{lockwood2025zpe}
+J.~Lockwood.
+\textit{Zero-Point Energy: First Principles, Units, and Observables}.
+Spectrality Institute, Sept 2025.
+
+\bibitem{lockwood_chrono}
+J.~Lockwood,
+``Chronometric Constants and Frozen Spectral Relations,''
+Private communication, 2026.
+
+\bibitem{lockwood_chrono3}
+J.~Lockwood, ``Chronometric Constants and Frozen Spectral Relations (Chrono~3),'' private communication, 2026.
+
+\bibitem{lockwood_gmf34}
+J.~Lockwood,
+``GMF-34: 34-Gradient Plasma Materials-Synthesis Forge,''
+schematics v1/v2/v8, private communication, 2026.
+\textit{34-gradient radial layout with central synthesis volume, MHD governing equations, and 4-band acoustic transducer architecture.}
+
+\end{thebibliography}

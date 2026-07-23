@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.GlialDopant
 import LaRueProtorealAlgebra.Invariance
 import LaRueProtorealAlgebra.PhasorTower
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Bit Shift Morphisms & Noise Margin (𝕌)

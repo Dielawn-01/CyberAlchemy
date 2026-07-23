@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.KamaTrain
 import InfoPhysAxioms.AntisymmetricHalting
 import InfoPhysAxioms.ChiralCasimirCollapse
 import InfoPhysAxioms.WarmBEC
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Rotating Chiral Casimir Interferometer (RCCI)

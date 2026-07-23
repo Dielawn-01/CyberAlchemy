@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.LockwoodAQFT
 import Mathlib.Data.Real.Basic
 import Mathlib.Algebra.Group.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace LaRueProtorealAlgebra.PAdicPTHamiltonian
 

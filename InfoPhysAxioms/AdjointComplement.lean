@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Basic
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Linarith
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The Adjoint Complement Theorem: Why L₁₂ = L₅ ⊕ L₇

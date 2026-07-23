@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -7,6 +8,9 @@ import LaRueProtorealAlgebra.ProtorealOperator
 import InfoPhysAxioms.CyberneticBiochemistry
 import InfoPhysAxioms.FormalComputationalPharmacology
 import InfoPhysAxioms.Infonad
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Monoamine Pathway Pharmacodynamics (𝕌)

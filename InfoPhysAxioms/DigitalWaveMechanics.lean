@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -6,6 +7,9 @@ import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.GoldenSplitPrime
 import LaRueProtorealAlgebra.PalindromeStandingWave
 import InfoPhysAxioms.SU3CenterTriangle
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Digital Wave Mechanics — Master Synthesis
@@ -435,7 +439,7 @@ theorem base19_at_intersection :
     13. Base-19 at intersection: coupling I(17) = 19/18,
         arc length 19, degree circle 19²-1 = 360
 
-    All verified by Lean. Zero sorry. Zero axioms assumed beyond Mathlib. -/
+    All verified by Lean. Zero exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop. Zero axioms assumed beyond Mathlib. -/
 theorem digital_wave_mechanics_master :
     -- SCHRÖDINGER
     (∀ a c : ℤ, PalindromeStandingWave.F1 a c = PalindromeStandingWave.F2 a c) ∧

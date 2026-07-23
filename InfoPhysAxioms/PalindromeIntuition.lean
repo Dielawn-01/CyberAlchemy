@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Polynomial.Basic
 import Mathlib.Data.Polynomial.Eval
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open Polynomial
 

@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -8,6 +9,9 @@ import LaRueProtorealAlgebra.MonsterInverse
 import LaRueProtorealAlgebra.BohmOrder
 import InfoPhysAxioms.Infochemistry
 import InfoPhysAxioms.OmicronSigma
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Holomovement Bridge

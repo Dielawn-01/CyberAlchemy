@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.KamaTrain
@@ -9,6 +10,9 @@ import InfoPhysAxioms.DecisionKernel
 import InfoPhysAxioms.QuasiGodel
 import InfoPhysAxioms.ProtorealTactic
 import InfoPhysAxioms.CyberneticEquilibrium
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Tarskian Undefinability and the Critical Line

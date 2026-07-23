@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.AgenticFrame
 import LaRueProtorealAlgebra.SchwarzianTruth
 import LaRueProtorealAlgebra.LittleDelta
 import LaRueProtorealAlgebra.MonsterInverse
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Hardware Topology: The Silicon Symplectic Cycle

@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import InfoPhysAxioms.ProtorealMetric
 import LaRueProtorealAlgebra.ProtorealOperator
@@ -6,6 +7,9 @@ import InfoPhysAxioms.VeblenDruid
 import InfoPhysAxioms.CentralDogmaVeblen
 import InfoPhysAxioms.SpaceToTime
 import InfoPhysAxioms.MetalloOrganicSemantics
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # ExtensionEnzyme: zPlasmic as a Biological Extension Function

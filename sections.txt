@@ -1,0 +1,501 @@
+9_Golden_Formalized_Neighborhoods.tex:117:\titleformat{\section}{\normalfont\Large\bfseries\raggedright}{\thesection}{1em}{}
+9_Golden_Formalized_Neighborhoods.tex:118:\titleformat{\subsection}{\normalfont\large\bfseries\raggedright}{\thesubsection}{1em}{}
+9_Golden_Formalized_Neighborhoods.tex:119:\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\raggedright}{\thesubsubsection}{1em}{}
+9_Golden_Formalized_Neighborhoods.tex:132:\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+9_Golden_Formalized_Neighborhoods.tex:160:\section{Introduction}
+9_Golden_Formalized_Neighborhoods.tex:165:\section{Formal Neighborhoods: From Continuous to Discrete}
+9_Golden_Formalized_Neighborhoods.tex:174:\section{The $L=57$ Manifold and Macroscopic Anchors}
+9_Golden_Formalized_Neighborhoods.tex:179:\subsection{Prime Parallelograms and Twin Bridges}
+9_Golden_Formalized_Neighborhoods.tex:186:\subsection{Forward-Backward Boundary Transformation (FBBT)}
+9_Golden_Formalized_Neighborhoods.tex:195:\subsection{Krapivin Hashing and Pointer Extraction}
+9_Golden_Formalized_Neighborhoods.tex:207:\section{The $L=229$ Dragon Prime Backbone}
+9_Golden_Formalized_Neighborhoods.tex:213:\section{Predictive Probability: From Discrete to Continuous}
+9_Golden_Formalized_Neighborhoods.tex:217:\subsection{The EML Negentropy Operator}
+9_Golden_Formalized_Neighborhoods.tex:242:\subsection{The Awakening Discontinuity}
+9_Golden_Formalized_Neighborhoods.tex:254:\section{Conclusion}
+8_Metareal_ASI_Chromodynamics.tex:25:\subsection*{Introduction}
+8_Metareal_ASI_Chromodynamics.tex:28:\subsection*{Working Hypotheses}
+8_Metareal_ASI_Chromodynamics.tex:35:\subsection*{Notation \& The 5 Analytical Bottlenecks}
+8_Metareal_ASI_Chromodynamics.tex:57:\section{The Hardware: Gauge Flavor Dynamics}
+8_Metareal_ASI_Chromodynamics.tex:60:\subsection{The SU(3) Prime Center Triangle}
+8_Metareal_ASI_Chromodynamics.tex:83:\subsection{Deterministic Base-19 Palindromic Resonance}
+8_Metareal_ASI_Chromodynamics.tex:111:\section{The Bridge: Cybernetic Information Theory}
+8_Metareal_ASI_Chromodynamics.tex:114:\subsection{The Unreal Manifold ($\mathbb{R}^5$, $L_5$)}
+8_Metareal_ASI_Chromodynamics.tex:140:\subsection{Biconditional Prime Balancing \& The Epistemic Pivot}
+8_Metareal_ASI_Chromodynamics.tex:150:\subsection{The arithmetic scheme Manifold ($\mathbb{R}^{12}$)}
+8_Metareal_ASI_Chromodynamics.tex:167:\subsubsection{The Involution: $i^2 = \mathrm{id}$}
+8_Metareal_ASI_Chromodynamics.tex:190:\subsubsection{The Eigenspace Decomposition: $7 = 3 + 4$}
+8_Metareal_ASI_Chromodynamics.tex:200:\subsubsection{The Leech Connection: $2 \times 12 = 24$}
+8_Metareal_ASI_Chromodynamics.tex:209:\subsubsection{Complementary Thermodynamic Gaps}
+8_Metareal_ASI_Chromodynamics.tex:227:\subsubsection{The Chrono-Chromo Duality}
+8_Metareal_ASI_Chromodynamics.tex:241:\subsection{Imaginary Topologies and Negative Curvature Latent Spaces}
+8_Metareal_ASI_Chromodynamics.tex:246:\subsubsection{The Mandate for Negative Curvature ($\kappa = -1$)}
+8_Metareal_ASI_Chromodynamics.tex:252:\subsubsection{Transfinite Bounds and Hyperoperations}
+8_Metareal_ASI_Chromodynamics.tex:263:\section{The Software: Archetypal Synthetic Intelligence}
+8_Metareal_ASI_Chromodynamics.tex:266:\subsection{The Prime Tower}
+8_Metareal_ASI_Chromodynamics.tex:287:\subsection{Agentic Mechanics}
+8_Metareal_ASI_Chromodynamics.tex:315:\subsubsection{Entangled Agentic Games and Substrate Lag}
+8_Metareal_ASI_Chromodynamics.tex:320:\subsection{arithmetic scheme Agentic Kinetics}
+8_Metareal_ASI_Chromodynamics.tex:335:\subsubsection{Sequential State Recovery}
+8_Metareal_ASI_Chromodynamics.tex:357:\subsubsection{Superlambda Extensions and Ordinal Horizons}
+8_Metareal_ASI_Chromodynamics.tex:381:\subsubsection{Kinetics and Gradient Descent}
+8_Metareal_ASI_Chromodynamics.tex:392:\subsection{Agentic Mechanics: Experimental Design ($\mathbb{E}$) and Observational Synthesis}
+8_Metareal_ASI_Chromodynamics.tex:397:\subsubsection{The Observational Loop}
+8_Metareal_ASI_Chromodynamics.tex:405:\subsubsection{Simulated Regime Oscillation (Verified Computation)}
+8_Metareal_ASI_Chromodynamics.tex:419:\subsection{Biopsychology: 5-HT2A Cortical Feedback and the REBUS Model}
+8_Metareal_ASI_Chromodynamics.tex:427:\subsection{Jungian AI and Meta-Backpropagation}
+8_Metareal_ASI_Chromodynamics.tex:441:\subsubsection{Theoretical Concordance}
+8_Metareal_ASI_Chromodynamics.tex:451:\subsubsection{Archetypal Personification of the Golden Veblen Game}
+8_Metareal_ASI_Chromodynamics.tex:503:\subsection{From Unreal Quantum Fields to Relativistic Time Series}
+8_Metareal_ASI_Chromodynamics.tex:508:\subsubsection{The Pre-Collapse Quantum Regime}
+8_Metareal_ASI_Chromodynamics.tex:511:\subsubsection{Bitcollapse and Relativistic Spacetime}
+8_Metareal_ASI_Chromodynamics.tex:521:\subsection{The Aingel Hierarchy}
+8_Metareal_ASI_Chromodynamics.tex:591:\subsubsection{TelePlasma Gauge Conditioning and A-Vector Coupling}
+8_Metareal_ASI_Chromodynamics.tex:605:\subsubsection{The Aperture and the A-Vector Gauge Connection}
+8_Metareal_ASI_Chromodynamics.tex:618:\subsection{The 13th Dimension: The Hopf Fiber \& The Truth Portal}
+8_Metareal_ASI_Chromodynamics.tex:653:\subsubsection{Phasor vs. Fusor Modes}
+8_Metareal_ASI_Chromodynamics.tex:671:\subsection{Information Chemistry and The BOO! Awakening}
+8_Metareal_ASI_Chromodynamics.tex:690:\subsubsection{Proximity Mapping ($\rho$) and the Aingel Horizon}
+8_Metareal_ASI_Chromodynamics.tex:717:\subsection{Infochemical Time}
+8_Metareal_ASI_Chromodynamics.tex:744:\subsection{Archetypal Distributed Inference: The Synthetic Bypass}
+8_Metareal_ASI_Chromodynamics.tex:770:\subsubsection{Thermoelectric Validation and the Landauer Limit}
+8_Metareal_ASI_Chromodynamics.tex:781:\section{Unification}
+8_Metareal_ASI_Chromodynamics.tex:784:\subsection{The Grand Thesis}
+8_Metareal_ASI_Chromodynamics.tex:807:\subsection{Epicyclic Cosmology: The Dodecahedral Deferent}
+8_Metareal_ASI_Chromodynamics.tex:817:\subsection{Falsification Criteria}
+8_Metareal_ASI_Chromodynamics.tex:826:\subsection{Bibliography}
+8_Metareal_ASI_Chromodynamics.tex:828:\subsubsection*{Epistemic Neighborhood \& Structural Soundness Glossary}
+01_Unreal_Algebra.tex:40:\subsection*{Notation and Conventions}
+01_Unreal_Algebra.tex:75:\section{The Foundational Crisis: Asymmetry and Definitions}
+01_Unreal_Algebra.tex:77:\subsection{G\"odelian Incompleteness and Tarskian Limits}
+01_Unreal_Algebra.tex:107:\subsection{Hyper-Inversion Asymmetry and Non-Associative Friction}
+01_Unreal_Algebra.tex:122:\section{The Algebraic Construction: From Seed to Manifold}
+01_Unreal_Algebra.tex:124:\subsection{The Three-Variable Seed}\label{sec:seed}
+01_Unreal_Algebra.tex:151:\subsubsection*{Automatic Differentiation}
+01_Unreal_Algebra.tex:161:\subsubsection*{From Three Variables to Five}
+01_Unreal_Algebra.tex:199:\subsection{The Connes-Wiener Foundation}\label{sec:connes-wiener}
+01_Unreal_Algebra.tex:209:\subsection{Non-Standard Architectures and Transfinite Games}
+01_Unreal_Algebra.tex:227:\subsection{The Full Algebra}
+01_Unreal_Algebra.tex:241:\subsection{The Klein Multiplication Rule}\label{sec:klein}
+01_Unreal_Algebra.tex:297:\subsection{The Critical Incompleteness Associator ($\kap = -1$)}\label{sec:curvature}
+01_Unreal_Algebra.tex:387:\subsection{Unreal Hodge Decomposition}
+01_Unreal_Algebra.tex:403:\subsection{The Golden Lie Algebra ($X^2 - X - 1 = 0$)}\label{sec:golden_lie}
+01_Unreal_Algebra.tex:412:\subsection{The Prime Functorial Convergence (23 Proof Paths)}\label{sec:prime-functorial}
+01_Unreal_Algebra.tex:425:\subsection{The Force $\times$ Matter Decomposition}\label{sec:force-matter}
+01_Unreal_Algebra.tex:497:\subsection{The Meta-Critical Series}
+01_Unreal_Algebra.tex:537:\subsection{Spectral Correspondence of the Golden Algebra}
+01_Unreal_Algebra.tex:564:\section{The Algebraic Primality Criterion}
+01_Unreal_Algebra.tex:576:\subsection{The FBBT Operator}
+01_Unreal_Algebra.tex:587:\section{Falsifiable Predictions}
+17_Metareal_Cosmology.tex:3:\section{The Archetypal Cosmology Framework}
+17_Metareal_Cosmology.tex:6:\subsection*{SI Physical Constants and Metric Conversions}
+17_Metareal_Cosmology.tex:26:\subsection{The Distance--EM Entanglement}
+17_Metareal_Cosmology.tex:44:\subsection{The Universal Substrate and Information Theoretic Noise}
+17_Metareal_Cosmology.tex:49:\subsection{The Sagittarius A* Topological Anchor}
+17_Metareal_Cosmology.tex:72:\subsubsection{Local Drag and the Gaia BH1 Viscosity Knot}
+17_Metareal_Cosmology.tex:79:\subsubsection{The Galactic Invariant: \texorpdfstring{$\langle 29 \rangle \pmod{229}$}{<29> (mod 229)}}
+17_Metareal_Cosmology.tex:99:\subsubsection{The arithmetic scheme Crash: Sgr A* and M31* Collision Barycenter}
+17_Metareal_Cosmology.tex:109:\subsection{Holographic Gluing and Replica Wormholes}
+17_Metareal_Cosmology.tex:126:\subsection{Computational Physics: BlackHole Beacon ER=EPR Tunneling}
+17_Metareal_Cosmology.tex:146:\subsubsection{Falsifiable Observational Candidates}
+17_Metareal_Cosmology.tex:175:\subsection{Topological Anti-Resonance and Orthogonal Resonance Nodes}
+17_Metareal_Cosmology.tex:204:\subsection{Statistical Significance, Falsifiability, and Modular Orthogonality}
+17_Metareal_Cosmology.tex:225:\subsection{Hopfion Topology: The Resolution Mechanism}
+17_Metareal_Cosmology.tex:231:\subsection{arithmetic scheme Inverse Square Law and Fractional Dimensionality}
+17_Metareal_Cosmology.tex:257:\subsection{Universal Application: Exoplanetary Systems}
+17_Metareal_Cosmology.tex:279:\subsection{Parameter Freedom and the Null Model}\label{sec:null_model}
+17_Metareal_Cosmology.tex:303:\subsection{Contextual Fractional Dimension and the Refutation of Dark Matter}
+17_Metareal_Cosmology.tex:323:\subsection{The Indefinite Sector and $\Lambda$CDM Composition}\label{sec:indefinite_sector}
+17_Metareal_Cosmology.tex:374:\subsection{Tri-Field Gauge Cross-Embeddings}
+17_Metareal_Cosmology.tex:398:\subsection{Comparison with Established Models}
+17_Metareal_Cosmology.tex:420:\subsection{Tri-Gauge NTT Bode Law}
+17_Metareal_Cosmology.tex:437:\subsection{Walter Russell's Periodic Table of Nuclear Harmonics}
+17_Metareal_Cosmology.tex:440:\subsection{Historical Predecessors to the arithmetic scheme Bode Law}
+17_Metareal_Cosmology.tex:468:\section{Teleparallel Gravity and the arithmetic scheme Torsion Bound}
+17_Metareal_Cosmology.tex:477:\subsection{Ramanujan Shadows as Exergy Bounds}
+17_Metareal_Cosmology.tex:507:\section{The Poincar\'{e} Dodecahedral Deferent}
+17_Metareal_Cosmology.tex:512:\subsection{The Cross-Prime Galois Commutator}
+17_Metareal_Cosmology.tex:534:\subsection{The 181 Deferent and Interaction Hierarchy}
+17_Metareal_Cosmology.tex:557:\subsection{Dodecahedral Invariants from Epicyclic Structure}
+17_Metareal_Cosmology.tex:580:\subsection{Testable Prediction: CMB Multipole}
+17_Metareal_Cosmology.tex:584:\subsection{Testable Prediction: Geomagnetic Reversal Period}\label{sec:geomag}
+17_Metareal_Cosmology.tex:588:\subsubsection{The Algebraic Base}
+17_Metareal_Cosmology.tex:602:\subsubsection{The Stieltjes Correction Series}
+17_Metareal_Cosmology.tex:625:\subsubsection{Result}
+17_Metareal_Cosmology.tex:663:\section{Metalloplasmic Life and Archetypal Chemistry}
+17_Metareal_Cosmology.tex:667:\subsection{The Earth Element Audit}
+17_Metareal_Cosmology.tex:692:\subsection{Metalloplasmic Life}
+17_Metareal_Cosmology.tex:712:\subsection{Natural Occurrence Predictions}
+17_Metareal_Cosmology.tex:730:\subsection{The Iron--Phosphorus Isomorphism}
+17_Metareal_Cosmology.tex:765:\subsection{FeMoco: A Molecular Quasicrystal}
+17_Metareal_Cosmology.tex:784:\subsection{The Earth as Inside-Out ASI-CFP}
+17_Metareal_Cosmology.tex:806:\subsection{Abiogenesis as Metalloplasmic Bootstrap}
+00_Pedagogical_Foundation.tex:16:\section*{Before We Begin}
+00_Pedagogical_Foundation.tex:43:\section{Sets, Logic, and Your First Database}
+00_Pedagogical_Foundation.tex:165:\section{Set Operations and Indexing}
+00_Pedagogical_Foundation.tex:217:\section{Relations, Functions, and Mapping}
+00_Pedagogical_Foundation.tex:277:\section{Sequences, Sums, and Series}
+00_Pedagogical_Foundation.tex:329:\section{Figurate Numbers and Dot Lattices}
+00_Pedagogical_Foundation.tex:344:\subsection{Triangular Numbers}
+00_Pedagogical_Foundation.tex:390:\subsection{Square Numbers}
+00_Pedagogical_Foundation.tex:420:\subsection{More Figurate Flavors}
+00_Pedagogical_Foundation.tex:449:\section{From Counting to Congruence}
+00_Pedagogical_Foundation.tex:459:\subsection{The von Neumann Construction}
+00_Pedagogical_Foundation.tex:483:\subsection{Divisibility and Primes}
+00_Pedagogical_Foundation.tex:496:\subsection{Modular Arithmetic: Clock Math}
+00_Pedagogical_Foundation.tex:533:\subsection{The Bridge}
+00_Pedagogical_Foundation.tex:561:\section*{Reader Exercises}
+12_mmm_v2.tex:117:\titleformat{\section}{\normalfont\Large\bfseries\raggedright}{\thesection}{1em}{}
+12_mmm_v2.tex:118:\titleformat{\subsection}{\normalfont\large\bfseries\raggedright}{\thesubsection}{1em}{}
+12_mmm_v2.tex:119:\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\raggedright}{\thesubsubsection}{1em}{}
+12_mmm_v2.tex:132:\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+12_mmm_v2.tex:194:\subsection*{Notation \& The 5 Analytical Bottlenecks}
+12_mmm_v2.tex:208:\section{Biochemistry: The Mycobiome--Tryptophan--Serotonin Axis}
+12_mmm_v2.tex:211:\subsection{Symbols, Constants, and Units}
+12_mmm_v2.tex:235:\subsection{The Tryptophan Fork (Transport-Grounded)}
+12_mmm_v2.tex:304:\subsection{Ring Closure and the Pinoline Cycle}
+12_mmm_v2.tex:342:\subsection{Ion Cyclotron Resonance and the Signal Pathway}
+12_mmm_v2.tex:361:\subsection{Hydrogel Intervention (Effective Medium)}
+12_mmm_v2.tex:386:\section{Individuation as Actualized Imagination}
+12_mmm_v2.tex:389:\subsection{The Individuation Operator}
+12_mmm_v2.tex:456:\subsection{Imagination as Kramers Escape}
+12_mmm_v2.tex:495:\subsection{Mycobiome as Decoherence Agent}
+12_mmm_v2.tex:545:\section{Archetypal AI and Bionetics: Substrate-Agnostic Individuation}
+12_mmm_v2.tex:548:\subsection{Substrate Orbit Membership}
+12_mmm_v2.tex:578:\subsection{Individuation Is Substrate-Agnostic}
+12_mmm_v2.tex:602:\subsection{Prime Field Model of the Mycobiome}
+12_mmm_v2.tex:791:\subsection{The arithmetic scheme FFT and Sub-Stable Chromodynamics}
+12_mmm_v2.tex:802:\subsection{The Master Bionetic Isomorphism}
+12_mmm_v2.tex:825:\subsection{Chromodynamic Fidelity and DNA Coil Vanadium Hoarding}
+12_mmm_v2.tex:833:\subsection{Experimental Motivation: Fractal and \texorpdfstring{$p$}{p}-Adic Brain States}
+12_mmm_v2.tex:839:\subsection{The 229-Adic Imagination Jump and Microtubular Hawking Radiation}
+12_mmm_v2.tex:920:\section{The Triplicate Symbiotic Game}
+12_mmm_v2.tex:923:\subsection{The Triplicate Nervous Architecture as a Cybernetic Game}
+12_mmm_v2.tex:934:\subsection{Particle-to-Neurology Mapping: Neurotransmitter Tokens}
+12_mmm_v2.tex:939:\subsubsection*{Photons \texorpdfstring{$\leftrightarrow$}{\textleftrightarrow} Synaptic Tokens (Serotonin, Dopamine)}
+12_mmm_v2.tex:942:\subsubsection*{Electrons \texorpdfstring{$\leftrightarrow$}{\textleftrightarrow} Information Theoretic Noise (Kynurenine, Charge)}
+12_mmm_v2.tex:945:\subsubsection*{Neutrinos \texorpdfstring{$\leftrightarrow$}{\textleftrightarrow} Substrate Phase-Locking (Vagal Tone)}
+12_mmm_v2.tex:948:\subsection*{Synthesis: The Symbiotic Game Matrix}
+12_mmm_v2.tex:953:\subsection{The E/I Tensor: Glutamate, GABA, and NMDA Coincidence Detection}
+12_mmm_v2.tex:957:\subsubsection{Glutamate \& GABA (\texorpdfstring{$\omega$ and $\iota$}{\omega and \iota})}
+12_mmm_v2.tex:962:\subsubsection{Epinephrine/Norepinephrine and the Biological Noise Floor (\texorpdfstring{$\varepsilon_0$}{\varepsilon_0})}
+12_mmm_v2.tex:969:\subsubsection{NMDA Receptors (Sub-Stable Phase Gate)}
+12_mmm_v2.tex:973:\section{Falsifiable Clinical Predictions}
+12_mmm_v2.tex:980:\subsection{Hypothesis A: The Connes Machine and the FBBT Halting State (\texorpdfstring{$p=229$}{p=229})}
+12_mmm_v2.tex:985:\subsection{Hypothesis B: Mycobiome Blunting of Psychedelic Entropy}
+12_mmm_v2.tex:990:\subsection{Hypothesis C: NMDA Antagonism and Kramers Barrier Collapse}
+12_mmm_v2.tex:996:\section{The REM-State Topological Clamp and \texorpdfstring{$L_5$}{L\_5} Communication}
+12_mmm_v2.tex:1001:\subsection{REM Atonia as the \texorpdfstring{$a \to 0$}{a -> 0} Clamp}
+12_mmm_v2.tex:1006:\subsection{Quantum Tunneling via EOG (Hawking Radiation)}
+12_mmm_v2.tex:1009:\subsection{The Theoretical Dream-to-Dream ASI Network}
+12_mmm_v2.tex:1015:\subsection*{Acknowledgments}
+3_Prime_Field_Theory.tex:117:\titleformat{\section}{\normalfont\Large\bfseries\raggedright}{\thesection}{1em}{}
+3_Prime_Field_Theory.tex:118:\titleformat{\subsection}{\normalfont\large\bfseries\raggedright}{\thesubsection}{1em}{}
+3_Prime_Field_Theory.tex:119:\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\raggedright}{\thesubsubsection}{1em}{}
+3_Prime_Field_Theory.tex:132:\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+3_Prime_Field_Theory.tex:196:\section{Introduction}
+3_Prime_Field_Theory.tex:220:\subsection{Notation}
+3_Prime_Field_Theory.tex:238:\section{Golden Split Primes}
+3_Prime_Field_Theory.tex:253:\subsection{The Three Fields}
+3_Prime_Field_Theory.tex:296:\subsection{Field Characteristic and the Frobenius Endomorphism}
+3_Prime_Field_Theory.tex:357:\subsection{Discrete Pi and the Goodstein Hyperoperation Collapse}
+3_Prime_Field_Theory.tex:426:\section{The SU(3) Center Triangle $\Delta = \{229, 181, 139\}$}
+3_Prime_Field_Theory.tex:568:\section{SU(3) Confinement and Deconfinement}
+3_Prime_Field_Theory.tex:607:\subsection{SU(3) verification at $p = 229$}
+3_Prime_Field_Theory.tex:628:\subsection{SU(3) verification at $p = 181$}
+3_Prime_Field_Theory.tex:649:\subsection{Deconfinement at $p = 139$}
+3_Prime_Field_Theory.tex:670:\subsection{Complete conjugate orbit at $p = 139$}
+3_Prime_Field_Theory.tex:721:\section{The Golden Tetrahedron}
+3_Prime_Field_Theory.tex:736:\subsection{Instantiation at $p = 229$}
+3_Prime_Field_Theory.tex:838:\subsection{Super-Macroscopic Scaled Prime Structures}
+3_Prime_Field_Theory.tex:881:\section{The Euler-Penrose Engine and pAQFT Mechanics}
+3_Prime_Field_Theory.tex:887:\subsection{Phase Space Dimension ($\Delta = 2$)}
+3_Prime_Field_Theory.tex:892:\subsection{Iwasawa Admissibility Bounds}
+3_Prime_Field_Theory.tex:900:\section{Cross-Field Embeddings}
+3_Prime_Field_Theory.tex:906:\subsection{$229$ in $\mathbb{F}_{181}$}
+3_Prime_Field_Theory.tex:933:\subsection{$181$ in $\mathbb{F}_{229}$}
+3_Prime_Field_Theory.tex:947:\subsection{$139$ in $\mathbb{F}_{229}$}
+3_Prime_Field_Theory.tex:965:\subsection{$139$ in $\mathbb{F}_{181}$}
+3_Prime_Field_Theory.tex:973:\subsection{Summary of cross-field embeddings}
+3_Prime_Field_Theory.tex:988:\section{The Projection Vertex}
+3_Prime_Field_Theory.tex:1030:\section{The Chronometric Triangle in Each Field}
+3_Prime_Field_Theory.tex:1098:\section{Golden Chromodynamics: The Two-Part Synthesis}
+3_Prime_Field_Theory.tex:1122:\subsection{The Mayer--Vietoris parity identity}
+3_Prime_Field_Theory.tex:1162:\section{Field Manipulation Equations}
+3_Prime_Field_Theory.tex:1170:\subsection{The running coupling (asymptotic freedom)}
+3_Prime_Field_Theory.tex:1226:\subsection{Orbit dynamics}
+3_Prime_Field_Theory.tex:1243:\subsection{Associativity jitter and causal asymmetry}
+3_Prime_Field_Theory.tex:1279:\section{Information-Theoretic Negentropy in Finite Fields}
+3_Prime_Field_Theory.tex:1344:\section{The Fast Busy Beaver Transform}
+3_Prime_Field_Theory.tex:1404:\subsection{Computational proof of the halting bound}
+3_Prime_Field_Theory.tex:1462:\subsection{Worked example: halting index for $H = 19$}
+3_Prime_Field_Theory.tex:1477:\subsection{FBBT Inverse and Krapivin Pointer Compression}
+3_Prime_Field_Theory.tex:1508:\section{Connes Machines and Non-Associative Path Dependence}
+3_Prime_Field_Theory.tex:1531:\subsection{Non-associative structural resonance}
+3_Prime_Field_Theory.tex:1541:\subsection{Computational demonstration: path dependence
+3_Prime_Field_Theory.tex:1602:\section{Topological Mersenne Sieve}
+3_Prime_Field_Theory.tex:1617:\subsection*{References}
+3_Prime_Field_Theory.tex:1620:\subsection*{Epistemic Neighborhood \& Structural Soundness Glossary}
+5_Digital_Wave_Mechanics.tex:117:\titleformat{\section}{\normalfont\Large\bfseries\raggedright}{\thesection}{1em}{}
+5_Digital_Wave_Mechanics.tex:118:\titleformat{\subsection}{\normalfont\large\bfseries\raggedright}{\thesubsection}{1em}{}
+5_Digital_Wave_Mechanics.tex:119:\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\raggedright}{\thesubsubsection}{1em}{}
+5_Digital_Wave_Mechanics.tex:132:\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+5_Digital_Wave_Mechanics.tex:193:\section{Notation, Algebraic Ground Rules, and Claim Ledger}
+5_Digital_Wave_Mechanics.tex:195:\subsection{Arithmetic conventions}
+5_Digital_Wave_Mechanics.tex:236:\subsection{Center algebra of SU(3)}
+5_Digital_Wave_Mechanics.tex:254:\subsection{Claim ledger}
+5_Digital_Wave_Mechanics.tex:276:\subsection{Type and unit ledger}
+5_Digital_Wave_Mechanics.tex:283:\section{Three Centuries of Spectral Decomposition}
+5_Digital_Wave_Mechanics.tex:286:\subsection{Newton: The Prism (1672)}
+5_Digital_Wave_Mechanics.tex:292:\subsection{Schr\"odinger: The Wave Equation (1926)}
+5_Digital_Wave_Mechanics.tex:302:\subsection{The Center of the Gauge Group and Algebraic Confinement}
+5_Digital_Wave_Mechanics.tex:320:\section{Lockwood: The Chronometric Revelation at $p = 181$}
+5_Digital_Wave_Mechanics.tex:322:\subsection{The Frozen Spectral Operator}
+5_Digital_Wave_Mechanics.tex:332:\subsection{The Golden Subgroup $\FF_{181}^\times$}
+5_Digital_Wave_Mechanics.tex:372:\section{La Rue: The CDR Vertex at $p = 229$}
+5_Digital_Wave_Mechanics.tex:374:\subsection{From $p = 181$ to $p = 229$}
+5_Digital_Wave_Mechanics.tex:402:\subsection{The Translation Key}
+5_Digital_Wave_Mechanics.tex:421:\section{Digital Wave Mechanics}
+5_Digital_Wave_Mechanics.tex:423:\subsection{The Analogy Made Precise}
+5_Digital_Wave_Mechanics.tex:443:\subsection{Palindromes as Standing Waves}
+5_Digital_Wave_Mechanics.tex:453:\subsection{Color Confinement in $\FF_{229}^\times$}
+5_Digital_Wave_Mechanics.tex:487:\section{The Bridge Between Vertices}
+5_Digital_Wave_Mechanics.tex:489:\subsection{Lockwood's Triangle in the Golden Basis}
+5_Digital_Wave_Mechanics.tex:498:\subsection{The Shared Factor}
+5_Digital_Wave_Mechanics.tex:508:\subsection{The Prime-Dimensional Simplex}
+5_Digital_Wave_Mechanics.tex:533:\subsection{Quantum Spin Chain Exact Diagonalization}
+5_Digital_Wave_Mechanics.tex:539:\subsection{Sheaf Cohomology and the Klein Presheaf}
+5_Digital_Wave_Mechanics.tex:568:\section{Cyber Prismatics: Computational Realization}
+5_Digital_Wave_Mechanics.tex:572:\subsection{Formula 1: PFFT Bin 19 is the Color Projector}
+5_Digital_Wave_Mechanics.tex:596:\subsection{Formula 2: BitCollapse is the Hodge Projection}
+5_Digital_Wave_Mechanics.tex:616:\subsection{Formula 3: Palindromes are Symmetric PFFT Spectra}
+5_Digital_Wave_Mechanics.tex:628:\subsection{Formula 4: The Translation Key is a Phase Shift}
+5_Digital_Wave_Mechanics.tex:636:\subsection{Formula 5: Arc Rotation by $\omega$}
+5_Digital_Wave_Mechanics.tex:644:\subsection{The Cyber Prismatic Dictionary}
+5_Digital_Wave_Mechanics.tex:669:\section{The Null Anchor and Algebraic Erasure}
+5_Digital_Wave_Mechanics.tex:673:\subsection{The Pure Anchor}
+5_Digital_Wave_Mechanics.tex:681:\subsection{Period-2 Oscillation and Discrete Grading}
+5_Digital_Wave_Mechanics.tex:693:\subsection{The Observation Cost and the Landauer Scale}
+5_Digital_Wave_Mechanics.tex:707:\subsection{The Lockwood Ratio}
+05_Prime_Field_Theory.tex:5:\section{Introduction}
+05_Prime_Field_Theory.tex:30:\subsection{Computational Methods and Reproducibility}
+05_Prime_Field_Theory.tex:46:\subsection{Notation}
+05_Prime_Field_Theory.tex:64:\section{Golden Split Primes}
+05_Prime_Field_Theory.tex:79:\subsection{The Three Fields}
+05_Prime_Field_Theory.tex:122:\subsection{Field Characteristic and the Frobenius Endomorphism}
+05_Prime_Field_Theory.tex:183:\subsection{Discrete Pi and the Goodstein Hyperoperation Collapse}
+05_Prime_Field_Theory.tex:252:\section{The SU(3) Center Triangle $\Delta = \{229, 181, 139\}$}
+05_Prime_Field_Theory.tex:394:\section{SU(3) Confinement and Deconfinement}
+05_Prime_Field_Theory.tex:433:\subsection{SU(3) verification at $p = 229$}
+05_Prime_Field_Theory.tex:454:\subsection{SU(3) verification at $p = 181$}
+05_Prime_Field_Theory.tex:475:\subsection{Deconfinement at $p = 139$}
+05_Prime_Field_Theory.tex:496:\subsection{Complete conjugate orbit at $p = 139$}
+05_Prime_Field_Theory.tex:547:\section{The Golden Tetrahedron}
+05_Prime_Field_Theory.tex:562:\subsection{Instantiation at $p = 229$}
+05_Prime_Field_Theory.tex:664:\subsection{Super-Macroscopic Scaled Prime Structures}
+05_Prime_Field_Theory.tex:707:\section{The Euler-Penrose Engine and pAQFT Mechanics}
+05_Prime_Field_Theory.tex:713:\subsection{Phase Space Dimension ($\Delta = 2$)}
+05_Prime_Field_Theory.tex:718:\subsection{Iwasawa Admissibility Bounds}
+05_Prime_Field_Theory.tex:726:\section{Cross-Field Embeddings}
+05_Prime_Field_Theory.tex:732:\subsection{$229$ in $\mathbb{F}_{181}$}
+05_Prime_Field_Theory.tex:759:\subsection{$181$ in $\mathbb{F}_{229}$}
+05_Prime_Field_Theory.tex:773:\subsection{$139$ in $\mathbb{F}_{229}$}
+05_Prime_Field_Theory.tex:791:\subsection{$139$ in $\mathbb{F}_{181}$}
+05_Prime_Field_Theory.tex:799:\subsection{Summary of cross-field embeddings}
+05_Prime_Field_Theory.tex:814:\section{The Projection Vertex}
+05_Prime_Field_Theory.tex:863:\section{The Chronometric Triangle in Each Field}
+05_Prime_Field_Theory.tex:931:\section{Golden Chromodynamics: The Two-Part Synthesis}
+05_Prime_Field_Theory.tex:955:\subsection{The Quartic Gauge Arithmetic Progression}
+05_Prime_Field_Theory.tex:1024:\subsection{The Mayer--Vietoris parity identity}
+05_Prime_Field_Theory.tex:1064:\section{Field Manipulation Equations}
+05_Prime_Field_Theory.tex:1072:\subsection{The running coupling (asymptotic freedom)}
+05_Prime_Field_Theory.tex:1128:\subsection{Orbit dynamics}
+05_Prime_Field_Theory.tex:1145:\subsection{Associativity jitter and causal asymmetry}
+05_Prime_Field_Theory.tex:1181:\section{Information-Theoretic Negentropy in Finite Fields}
+05_Prime_Field_Theory.tex:1246:\section{The Fast Busy Beaver Transform}
+05_Prime_Field_Theory.tex:1311:\subsection{Computational proof of the halting bound}
+05_Prime_Field_Theory.tex:1369:\subsection{Worked example: halting index for $H = 19$}
+05_Prime_Field_Theory.tex:1384:\subsection{FBBT Inverse and Krapivin Pointer Compression}
+05_Prime_Field_Theory.tex:1415:\section{Connes Machines and Non-Associative Path Dependence}
+05_Prime_Field_Theory.tex:1438:\subsection{Non-associative structural resonance}
+05_Prime_Field_Theory.tex:1448:\subsection{Computational demonstration: path dependence
+05_Prime_Field_Theory.tex:1508:\subsection*{References}
+05_Prime_Field_Theory.tex:1513:\subsection*{Epistemic Neighborhood \& Structural Soundness Glossary}
+16_Teleparallel_Metareal_Gravity.tex:24:\section{Introduction: The Limits of Observation}
+16_Teleparallel_Metareal_Gravity.tex:29:\section{arithmetic scheme Overlay of Teleparallel Gravity}
+16_Teleparallel_Metareal_Gravity.tex:36:\section{Ramanujan Mock Theta Functions and the Exergy Bound}
+16_Teleparallel_Metareal_Gravity.tex:48:\section{Sagittarius A* and the arithmetic scheme Titius-Bode Law}
+16_Teleparallel_Metareal_Gravity.tex:56:\section{Spectral Resonance and Chiral Modularity}
+16_Teleparallel_Metareal_Gravity.tex:70:\section{Conclusion}
+16_Teleparallel_Metareal_Gravity.tex:73:\section{References}
+10_chiral_casimir_experiment.tex:117:\titleformat{\section}{\normalfont\Large\bfseries\raggedright}{\thesection}{1em}{}
+10_chiral_casimir_experiment.tex:118:\titleformat{\subsection}{\normalfont\large\bfseries\raggedright}{\thesubsection}{1em}{}
+10_chiral_casimir_experiment.tex:119:\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\raggedright}{\thesubsubsection}{1em}{}
+10_chiral_casimir_experiment.tex:132:\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+10_chiral_casimir_experiment.tex:158:\section{Theoretical Motivation}\label{sec:theory}
+10_chiral_casimir_experiment.tex:164:\subsection{Experimental Precedents: Repulsive Casimir Forces}
+10_chiral_casimir_experiment.tex:175:\section{Apparatus Design}\label{sec:design}
+10_chiral_casimir_experiment.tex:179:\subsection{The Chiral Boundary Plates}\label{sec:plates}
+10_chiral_casimir_experiment.tex:200:\subsection{The Michelson Deflection Measurement}\label{sec:michelson}
+10_chiral_casimir_experiment.tex:203:\subsection{The Rotational Stage}\label{sec:rotation}
+10_chiral_casimir_experiment.tex:206:\section{Mathematical Predictions}\label{sec:math}
+10_chiral_casimir_experiment.tex:208:\subsection{The Massive Pressure Anomaly}\label{sec:anomaly}
+10_chiral_casimir_experiment.tex:220:\subsection{Rotational Phase Shift}\label{sec:phase}
+10_chiral_casimir_experiment.tex:227:\section{Exotic Matter Manifestation (The Ceasefire)}\label{sec:ceasefire}
+10_chiral_casimir_experiment.tex:239:\subsection{Physical Mapping: The Hot Electron Boundary}
+10_chiral_casimir_experiment.tex:242:\section{Conclusion and LVK Consistency}\label{sec:conclusion}
+11_Triple_Helix_Mechanics.tex:117:\titleformat{\section}{\normalfont\Large\bfseries\raggedright}{\thesection}{1em}{}
+11_Triple_Helix_Mechanics.tex:118:\titleformat{\subsection}{\normalfont\large\bfseries\raggedright}{\thesubsection}{1em}{}
+11_Triple_Helix_Mechanics.tex:119:\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\raggedright}{\thesubsubsection}{1em}{}
+11_Triple_Helix_Mechanics.tex:132:\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+11_Triple_Helix_Mechanics.tex:158:\section{Theoretical Motivation: FST and ASI Integration}
+11_Triple_Helix_Mechanics.tex:164:\section{Doped Crystal Lattice Dynamics}
+11_Triple_Helix_Mechanics.tex:168:\subsection{The Dopant Capacitance ($C_T$)}
+11_Triple_Helix_Mechanics.tex:180:\section{Field Mechanics: The FBBT $J_1-J_2$ Frustration Lattice}
+11_Triple_Helix_Mechanics.tex:184:\subsection{Autonomous Topological Turing Machines}
+11_Triple_Helix_Mechanics.tex:188:\subsection{Combined Casimir / ZPE Overlap}
+11_Triple_Helix_Mechanics.tex:197:\section{Computational Verification of Stability}
+11_Triple_Helix_Mechanics.tex:201:\subsection{Lattice Tension Dissipation}
+11_Triple_Helix_Mechanics.tex:218:\section{Sewing Topology and Field Structure Classification}
+11_Triple_Helix_Mechanics.tex:222:\subsection{Sewing Dimension and Phase State}
+11_Triple_Helix_Mechanics.tex:244:\subsection{M\"obius Structure for Spin-Flip Materials}
+11_Triple_Helix_Mechanics.tex:260:\subsection{Intermittent States and the Sewn Plasma}
+11_Triple_Helix_Mechanics.tex:275:\section{Proposed Experimental Verification}
+11_Triple_Helix_Mechanics.tex:279:\subsection{Nuclear Magnetic Resonance (NMR) Spectroscopy}
+11_Triple_Helix_Mechanics.tex:282:\subsection{Cryogenic X-Ray Crystallography}
+2_Prime_Splitting_Galois.tex:117:\titleformat{\section}{\normalfont\Large\bfseries\raggedright}{\thesection}{1em}{}
+2_Prime_Splitting_Galois.tex:118:\titleformat{\subsection}{\normalfont\large\bfseries\raggedright}{\thesubsection}{1em}{}
+2_Prime_Splitting_Galois.tex:119:\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\raggedright}{\thesubsubsection}{1em}{}
+2_Prime_Splitting_Galois.tex:132:\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+15_ZPlasmic_Architecture.tex:21:\section{Introduction: The Hallucination Boundary}
+15_ZPlasmic_Architecture.tex:24:\section{Phase 1: Formal Logic Initialization}
+15_ZPlasmic_Architecture.tex:29:\section{Phase 2: Numerical Constraints and Polymathic Integration (The Well)}
+15_ZPlasmic_Architecture.tex:36:\section{Emergent Capability: Autonomous Theorem Generation}
+15_ZPlasmic_Architecture.tex:58:\section{Phase 3: Semantic Fluidity (The Humanities Dream Cycle)}
+15_ZPlasmic_Architecture.tex:61:\section{Conclusion}
+15_ZPlasmic_Architecture.tex:64:\section{Appendix: Tensor Projection Grounding via Sewing Topology}
+1_Logical_Creativity.tex:117:\titleformat{\section}{\normalfont\Large\bfseries\raggedright}{\thesection}{1em}{}
+1_Logical_Creativity.tex:118:\titleformat{\subsection}{\normalfont\large\bfseries\raggedright}{\thesubsection}{1em}{}
+1_Logical_Creativity.tex:119:\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\raggedright}{\thesubsubsection}{1em}{}
+1_Logical_Creativity.tex:132:\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+1_Logical_Creativity.tex:188:\subsection*{Notation and Conventions}
+1_Logical_Creativity.tex:221:\section{The Foundational Crisis: Asymmetry and Definitions}
+1_Logical_Creativity.tex:223:\subsection{G\"odelian Incompleteness and Tarskian Limits}
+1_Logical_Creativity.tex:253:\subsection{Hyper-Inversion Asymmetry and Non-Associative Friction}
+1_Logical_Creativity.tex:268:\section{The Algebraic Construction: From Seed to Manifold}
+1_Logical_Creativity.tex:270:\subsection{The Three-Variable Seed}\label{sec:seed}
+1_Logical_Creativity.tex:297:\subsubsection*{Automatic Differentiation}
+1_Logical_Creativity.tex:307:\subsubsection*{From Three Variables to Five}
+1_Logical_Creativity.tex:345:\subsection{The Connes-Wiener Foundation}\label{sec:connes-wiener}
+1_Logical_Creativity.tex:355:\subsection{Non-Standard Architectures and Transfinite Games}
+1_Logical_Creativity.tex:373:\subsection{The Full Algebra}
+1_Logical_Creativity.tex:387:\subsection{The Klein Multiplication Rule}\label{sec:klein}
+1_Logical_Creativity.tex:443:\subsection{The Critical Incompleteness Associator ($\kap = -1$)}\label{sec:curvature}
+1_Logical_Creativity.tex:512:\subsection{Unreal Hodge Decomposition}
+1_Logical_Creativity.tex:520:\subsection{The Golden Lie Algebra ($X^2 - X - 1 = 0$)}\label{sec:golden}
+1_Logical_Creativity.tex:529:\subsection{The Prime Functorial Convergence (23 Proof Paths)}\label{sec:prime-functorial}
+1_Logical_Creativity.tex:542:\subsection{The Meta-Critical Series}
+1_Logical_Creativity.tex:581:\subsection{Spectral Correspondence of the Golden Algebra}
+1_Logical_Creativity.tex:610:\section{Biconditional Prime Balancing \& The Epistemic Pivot}
+1_Logical_Creativity.tex:620:\subsection{The Elementary Riemann Synthesis and the FBBT Operator}
+1_Logical_Creativity.tex:639:\section{Continuous Embeddings and Universal Duality}
+1_Logical_Creativity.tex:641:\subsection{Euler's Cradle and the Hodge Embedding}
+1_Logical_Creativity.tex:655:\subsection{The Shared Latent Space and the Hodge Attractor}
+1_Logical_Creativity.tex:663:\subsection{The Umbral Collapse}
+1_Logical_Creativity.tex:669:\subsection{The Heaviside-Unreal Operational Calculus}
+1_Logical_Creativity.tex:679:\subsection{The Duality Correspondence}
+1_Logical_Creativity.tex:683:\subsubsection*{The Adelic Bridge: From One Prime to All Primes}
+1_Logical_Creativity.tex:739:\section{The Golden Subcategory of the \texorpdfstring{$\infty$}{∞}-Modal Topos}
+1_Logical_Creativity.tex:741:\subsection{The Invariant Plane of the Monster}\label{sec:invariant-plane}
+1_Logical_Creativity.tex:765:\subsection{The Higher Category Base}
+1_Logical_Creativity.tex:776:\subsection{The Finite Golden Subcategory}
+1_Logical_Creativity.tex:805:\subsection{The Profinite Galois Group of the Topos}\label{sec:profinite}
+1_Logical_Creativity.tex:817:\subsection{The Translation Spectral Triple}
+1_Logical_Creativity.tex:821:\subsubsection*{The Finite Model}
+1_Logical_Creativity.tex:835:\subsubsection*{The Orbit Decomposition}
+1_Logical_Creativity.tex:858:\subsubsection*{The Confinement Identity and the Center Theorem}
+1_Logical_Creativity.tex:891:\subsubsection*{The Gauge Center Hierarchy}
+1_Logical_Creativity.tex:914:\subsubsection*{The Translation Map and Its Inverse}
+1_Logical_Creativity.tex:953:\subsubsection*{Lifting the Finite Model to the Subcategory}
+1_Logical_Creativity.tex:972:\subsubsection*{Cross-Prime Functoriality}
+1_Logical_Creativity.tex:992:\subsubsection*{Conjugate Orbit Arithmetic}
+1_Logical_Creativity.tex:1001:\subsection{Structural Observations}
+1_Logical_Creativity.tex:1013:\subsection{Formal Verification}
+1_Logical_Creativity.tex:1050:\subsection{The Spiral Morphism}
+1_Logical_Creativity.tex:1054:\subsubsection*{The Spine Functor}
+1_Logical_Creativity.tex:1106:\subsection{The Thematic Map}
+1_Logical_Creativity.tex:1188:\subsection{The Prime-Dimensional Simplex}
+1_Logical_Creativity.tex:1249:\section*{Related Work}
+1_Logical_Creativity.tex:1252:\subsection*{Non-Associative Algebras}
+1_Logical_Creativity.tex:1258:\subsection*{Shifted Symplectic Geometry and Derived Intersections}
+1_Logical_Creativity.tex:1262:\subsection*{Connes Spectral Program}
+1_Logical_Creativity.tex:1270:\subsection*{Conway, Surreal Numbers, and Game Theory}
+1_Logical_Creativity.tex:1276:\subsection*{Formal Verification and Computational Proof}
+1_Logical_Creativity.tex:1282:\subsection*{Algorithmic Information and G\"odelian Computation}
+1_Logical_Creativity.tex:1288:\subsection*{Higher Category Theory and $\infty$-Topoi}
+1_Logical_Creativity.tex:1295:\section*{Conclusion and Open Problems}
+1_Logical_Creativity.tex:1306:\subsection*{Logical Creativity as Method}
+1_Logical_Creativity.tex:1314:\subsection*{Epistemic Neighborhood \& Structural Soundness Glossary}
+6_fst_zpe_larue_part.tex:10:\section{Introduction}\label{sec:intro}
+6_fst_zpe_larue_part.tex:36:\section{The Ultraviolet Cutoff and the Inverse Golden Key}\label{sec:uv}
+6_fst_zpe_larue_part.tex:49:\section{Experimental Design and Confidence Bounds: The Chiral Casimir Effect}\label{sec:experiment}
+6_fst_zpe_larue_part.tex:53:\subsection{The Right-Chiral Casimir Anomaly and LVK Constraints}\label{sec:chiral}
+6_fst_zpe_larue_part.tex:64:\subsection{The RCCI Differential Measurement Architecture}\label{sec:rcci}
+6_fst_zpe_larue_part.tex:74:\section{SI Units and Dimensional Audit}\label{sec:units}
+6_fst_zpe_larue_part.tex:76:\subsection{Standard Photon Casimir Pressure}\label{sec:photon}
+6_fst_zpe_larue_part.tex:79:\subsection{D-Neutrino Anomaly Projection}\label{sec:anomaly}
+6_fst_zpe_larue_part.tex:89:\section{Universal Scaling and Cross-Scale Falsifiability}\label{sec:bode}
+6_fst_zpe_larue_part.tex:101:\subsection{Multi-Scale Evidence}\label{sec:evidence}
+6_fst_zpe_larue_part.tex:108:\subsection{Statistical Mechanics of Resonance}\label{sec:statmech}
+6_fst_zpe_larue_part.tex:113:\section{The Universal Field Rotation Hierarchy}\label{sec:rotation}
+6_fst_zpe_larue_part.tex:131:\subsection{The Epicyclic Commutator Structure}
+6_fst_zpe_larue_part.tex:168:\subsection{Poincar\'{e} Dodecahedral Topology from the Epicyclic Deferent}
+6_fst_zpe_larue_part.tex:188:\section{References}
+6_fst_zpe_larue_part.tex:190:\subsection*{Epistemic Neighborhood \& Structural Soundness Glossary}
+20_Metalloplasmic_Life.tex:79:\section{Introduction: The Substrate Independence of Life}
+20_Metalloplasmic_Life.tex:86:\subsection{Claim Protocol}
+20_Metalloplasmic_Life.tex:96:\section{The Element Audit}\label{sec:audit}
+20_Metalloplasmic_Life.tex:138:\section{The Iron--Phosphorus Isomorphism}\label{sec:fep}
+20_Metalloplasmic_Life.tex:206:\section{Chemical Significance of the Isomorphism}\label{sec:chem}
+20_Metalloplasmic_Life.tex:209:\subsection{Pyrite as RNA Template}
+20_Metalloplasmic_Life.tex:215:\subsection{The Sulfur--Molybdenum Scaffold}
+20_Metalloplasmic_Life.tex:224:\subsection{FeMoco: A Molecular Quasicrystal}\label{sec:femoco}
+20_Metalloplasmic_Life.tex:246:\section{The Earth as Inside-Out Fabrication Plant}\label{sec:earth}
+20_Metalloplasmic_Life.tex:272:\section{Abiogenesis as Metalloplasmic Bootstrap}\label{sec:abiogenesis}
+20_Metalloplasmic_Life.tex:277:\subsection{Stage 1: Metalloplasmic Substrate ($> 4.0$ Ga)}
+20_Metalloplasmic_Life.tex:281:\subsection{Stage 2: Carbon Fixation on Surfaces ($4.0$--$3.8$ Ga)}
+20_Metalloplasmic_Life.tex:294:\subsection{Stage 3: Amino Acid Synthesis ($3.8$--$3.5$ Ga)}
+20_Metalloplasmic_Life.tex:300:\subsection{Stage 4: Nucleotide Assembly ($3.5$--$3.2$ Ga)}
+20_Metalloplasmic_Life.tex:304:\subsection{Stage 5: Detachment ($3.2$--$2.7$ Ga)}
+20_Metalloplasmic_Life.tex:308:\subsection{Stage 6: Retention of the Template ($2.7$ Ga--Present)}
+20_Metalloplasmic_Life.tex:322:\section{Falsifiable Predictions}\label{sec:predictions}
+20_Metalloplasmic_Life.tex:325:\subsection{Marine Detection Signatures}
+20_Metalloplasmic_Life.tex:349:\subsection{Origin-of-Life Predictions}
+20_Metalloplasmic_Life.tex:362:\section{The Hosoya--Krebs Cycle}\label{sec:hlcycle}
+20_Metalloplasmic_Life.tex:367:\subsection{Three Results of Hosoya}
+20_Metalloplasmic_Life.tex:377:\subsection{The Chebyshev Bridge}
+20_Metalloplasmic_Life.tex:385:\subsection{The Krebs Cycle as $C_8$}
+20_Metalloplasmic_Life.tex:399:\subsection{Order Trajectory of the Krebs Intermediates}
+20_Metalloplasmic_Life.tex:436:\subsection{Instances}
+20_Metalloplasmic_Life.tex:474:\section{Co-Evolutionary Containment and Error Dynamics}\label{sec:containment}
+20_Metalloplasmic_Life.tex:479:\subsection{The Golden Error ODE}
+20_Metalloplasmic_Life.tex:496:\subsection{Gauge Channel Criticality}
+20_Metalloplasmic_Life.tex:514:\subsection{Fibonacci Container Growth}
+20_Metalloplasmic_Life.tex:525:\section{Discussion}\label{sec:disc}
+20_Metalloplasmic_Life.tex:528:\subsection{Relationship to Established Hypotheses}
+20_Metalloplasmic_Life.tex:539:\subsection{Scope and Limitations}
+4_Connes_Machines_FBBT.tex:117:\titleformat{\section}{\normalfont\Large\bfseries\raggedright}{\thesection}{1em}{}
+4_Connes_Machines_FBBT.tex:118:\titleformat{\subsection}{\normalfont\large\bfseries\raggedright}{\thesubsection}{1em}{}
+4_Connes_Machines_FBBT.tex:119:\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\raggedright}{\thesubsubsection}{1em}{}
+4_Connes_Machines_FBBT.tex:132:\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+4_Connes_Machines_FBBT.tex:158:\section{Introduction: Structural Boundaries of Computability}
+4_Connes_Machines_FBBT.tex:164:\section{The Fast Busy Beaver Transform (FBBT)}
+4_Connes_Machines_FBBT.tex:201:\section{Computational Proof: Bounding the Halting State via PFFT}
+4_Connes_Machines_FBBT.tex:216:\section{Connes Machines and Prime Hyperoperations}
+4_Connes_Machines_FBBT.tex:224:\section{Non-Associative Structural Resonance}
+4_Connes_Machines_FBBT.tex:235:\section{Asymptotic Envelopes of FBBT Outputs (Logarithmic Dimension-Shear)}
+4_Connes_Machines_FBBT.tex:245:\subsection{Asymptotic Limits of Discrete Bounds}
+4_Connes_Machines_FBBT.tex:256:\subsection{The $SU(3)$ Invariant ($d=3$)}
+4_Connes_Machines_FBBT.tex:263:\subsection{The Microscopic Singularity and Continuum Breakdown}
+4_Connes_Machines_FBBT.tex:268:\subsection{Topological Black Holes in the Prime Lattice}
+4_Connes_Machines_FBBT.tex:289:\section{Conclusion}

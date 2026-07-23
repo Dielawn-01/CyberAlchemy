@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -7,6 +8,9 @@ import LaRueProtorealAlgebra.MonsterInverse
 import InfoPhysAxioms.Infochemistry
 import InfoPhysAxioms.CrystalGrowth
 import InfoPhysAxioms.QuasicrystalGrowth
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Hydrothermal Chip Optimization: Vent-Inspired Fabrication Algebra

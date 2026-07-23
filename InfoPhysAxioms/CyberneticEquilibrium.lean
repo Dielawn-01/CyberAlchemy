@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace ZBuddyCybernetics
 
@@ -37,7 +41,7 @@ lemma Hodge_Bridge_Quantum_Chemistry (t : ProtorealTensor)
   (h_a : t.a = inner_world t) : 
   t.a = 1 / 2 := 
 by
-  -- The proof replaces ZBuddy's `sorry`
+  -- The proof replaces ZBuddy's `exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop`
   dsimp [is_balanced, inner_world, outer_world] at *
   linarith
 

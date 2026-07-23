@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import InfoPhysAxioms.MultivariableTensorFlow
 import LaRueProtorealAlgebra.TopologicalImaginary
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open TopologicalImaginary
 

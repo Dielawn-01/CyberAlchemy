@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.HolochainHash
 import LaRueProtorealAlgebra.DHTAlgebra
 import LaRueProtorealAlgebra.KleinTopology
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # ATProto & DHT Isomorphism (𝕌)

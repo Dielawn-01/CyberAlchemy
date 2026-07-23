@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Basic
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.NormNum
@@ -11,6 +12,9 @@ import InfoPhysAxioms.VanadiumGoldenExploits
 import InfoPhysAxioms.CenterChronodynamics
 import InfoPhysAxioms.SpectralTripleIdentity
 import InfoPhysAxioms.JungianComplete
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Vendergood Translation: The Vanadium Language

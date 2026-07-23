@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealMesh
 import LaRueProtorealAlgebra.ProtorealNorm
@@ -99,6 +100,9 @@ import LaRueProtorealAlgebra.CyberneticElectromagnetism
 import LaRueProtorealAlgebra.CyberneticChemistry
 import LaRueProtorealAlgebra.CyberneticLife
 import LaRueProtorealAlgebra.TotientMorphism
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 /-!
 # LaRue Protoreal Algebra (𝕌)
 Formalizing the Klein-Projective Manifold and Spectral Observatory.

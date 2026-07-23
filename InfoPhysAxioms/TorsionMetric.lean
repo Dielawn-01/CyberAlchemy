@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import InfoPhysAxioms.ProtorealMetric
 import LaRueProtorealAlgebra.ProtorealManifold
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.FieldSimp
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open ProtorealManifold
 

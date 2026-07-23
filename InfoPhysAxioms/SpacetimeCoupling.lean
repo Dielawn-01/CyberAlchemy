@@ -1,4 +1,8 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-! Axiomatic framework for Higgs-Neutrino Spacetime Coupling -/
 namespace SpacetimeCoupling

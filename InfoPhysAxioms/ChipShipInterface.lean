@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Complex.Basic
 import Mathlib.Topology.Basic
@@ -5,6 +6,9 @@ import Mathlib.Topology.ContinuousFunction.Basic
 import Mathlib.Analysis.Calculus.FDeriv.Basic
 import LaRueProtorealAlgebra.TemporalQuasicrystal
 import InfoPhysAxioms.TopologicalQuantumGravity
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Icarus Chip-Ship Geometric Control Surface

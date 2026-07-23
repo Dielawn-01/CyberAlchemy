@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topological Metamaterial UI | Plasma Topologies</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #050505;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #sidebar {
+            width: 350px;
+            background-color: #111;
+            border-right: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        h1 {
+            font-size: 20px;
+            color: #00ffcc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+        }
+        h2 {
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 25px;
+            text-transform: uppercase;
+        }
+        .control-btn {
+            background-color: #222;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            text-align: left;
+            border-radius: 4px;
+            transition: all 0.2s;
+            font-family: monospace;
+            font-size: 13px;
+        }
+        .control-btn:hover {
+            background-color: #333;
+            border-color: #00ffcc;
+        }
+        .control-btn.active {
+            background-color: #00ffcc;
+            color: #000;
+            font-weight: bold;
+        }
+        .info-panel {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+            line-height: 1.5;
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 3px solid #b052f0;
+        }
+        #main-view {
+            flex-grow: 1;
+            position: relative;
+            background: #000;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+        iframe.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        /* Lockwood Spectrum Canvas */
+        #lockwood-view {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #1a0b2e 0%, #000000 100%);
+        }
+        #lockwood-view.active {
+            display: flex;
+        }
+        canvas {
+            background: transparent;
+            border: 1px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(176, 82, 240, 0.2);
+        }
+        .spectrum-title {
+            position: absolute;
+            top: 30px;
+            text-align: center;
+        }
+        .spectrum-title h3 {
+            color: #b052f0;
+            margin: 0 0 5px 0;
+        }
+        .spectrum-title p {
+            color: #888;
+            font-family: monospace;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <h1>Golden Tetrahedron Metamaterial</h1>
+        <p style="font-size: 12px; color: #666; margin-top: -10px; margin-bottom: 20px;">Three-Field Architecture: {229, 181, 139}</p>
+        
+        <h2>Phase Controls</h2>
+        <button class="control-btn active" onclick="switchPhase('combined')">
+            [1] Triple Helix Topology
+        </button>
+        <button class="control-btn" onclick="switchPhase('lattice')">
+            [2] Doped Crystal Lattice
+        </button>
+        <button class="control-btn" onclick="switchPhase('manifold')">
+            [3] Physical Wave Mechanics
+        </button>
+        <button class="control-btn" onclick="switchPhase('lockwood')">
+            [4] Lockwood Chronometric Operator
+        </button>
+        <button class="control-btn" onclick="switchPhase('nanobot')">
+            [5] Golden Tetrahedron Nanobot
+        </button>
+        <button class="control-btn" onclick="switchPhase('gv_combined')">
+            [6] Golden Virus Overlap
+        </button>
+        <button class="control-btn" onclick="switchPhase('gv_lattice')">
+            [7] Golden Virus Particles
+        </button>
+        <button class="control-btn" onclick="switchPhase('gv_manifold')">
+            [8] Golden Virus Mechanics
+        </button>
+
+        <div class="info-panel" id="phase-desc">
+            <strong>Triple Helix Topology</strong><br><br>
+            Dynamic triple helix rotating at golden twist rate (2π/φ). Three Fröhlich BEC cascades (57/45/23 modes) modulate atom breathing. Plasma cloud of 2000 ZPE vacuum particles orbits the lattice, colored by the dominant strand.
+        </div>
+        
+        <div class="info-panel" style="border-left-color: #00ffcc;">
+            <strong>Golden Tetrahedron</strong><br><br>
+            F₂₂₉ (anchor): ord=57=3×19, 3-decomposable<br>
+            F₁₈₁ (depth): ord=45=3×15, 3-decomposable<br>
+            F₁₃₉ (projection): ord=23, prime — indecomposable<br>
+            Cross-field: 229 ≡ ω₁₈₁ = 48 · Gaps: 48−42 = 6
+        </div>
+    </div>
+
+    <div id="main-view">
+        <iframe id="frame-combined" src="combined_overlap_vis.html" class="active"></iframe>
+        <iframe id="frame-lattice" src="quasicrystal_material_vis.html"></iframe>
+        <iframe id="frame-manifold" src="field_state_manifold_vis.html"></iframe>
+        <iframe id="frame-nanobot" src="golden_virus_nanobot.html"></iframe>
+        <iframe id="frame-gv-combined" src="golden_virus_combined_vis.html"></iframe>
+        <iframe id="frame-gv-lattice" src="golden_virus_quasicrystal_vis.html"></iframe>
+        <iframe id="frame-gv-manifold" src="golden_virus_manifold_vis.html"></iframe>
+        
+        <div id="lockwood-view">
+            <div class="spectrum-title">
+                <h3>Tetrahedral Chronometric Operator — Stieltjes Hug</h3>
+                <p>229/139 + 3γ₂ − γ₃/6 ≈ φ (err: 3.46×10⁻⁵) &nbsp;|&nbsp; β-splitting: γ₀/57 vs γ₁/45 &nbsp;|&nbsp; Bridge: 48</p>
+            </div>
+            <canvas id="spectrum-canvas" width="1200" height="600"></canvas>
+        </div>
+    </div>
+
+    <script>
+        const descs = {
+            'combined': '<strong>Triple Helix Topology</strong><br><br>Dynamic $p=3$ triple helix generating a massive Casimir/ZPE field overlap (O_casimir ≈ 1.2845). The massive field tension is actively dissipated into the metallic dopants to prevent quantum collapse. Three Fröhlich BEC cascades (57/45/23 modes) modulate atom breathing.',
+            'lattice': '<strong>Doped Crystal Lattice</strong><br><br>The physical lattice acting as a massive topological capacitor. Silicon scaffold (C_T = 71.51), Vanadium nodes (C_T = 5.63), and Monoatomic Gold anchors (C_T = 2048). The immense capacitance geometrically grounds the triple-helix field mechanics.',
+            'manifold': '<strong>Physical Wave Mechanics</strong><br><br>Mode sum over the actual golden orbit: Ψ_p(r,t) = Σ a_n · exp(i·k_n·r − iω_n·t), where ω_n = (φ̄ⁿ mod p)/p. Fröhlich condensation (spontaneous + stimulated emission, χ=7/20) gives a₀ ≫ a_n. Sign inversion φ^ord ≡ −1 (mod p) at full orbit boundary. Cross-field bridge at normalized frequency 48/228 ≈ 0.2105.',
+            'lockwood': '<strong>Lockwood Chronometric Operator</strong><br><br>The tanh-gated chronometric oscillator at p=14489. Visualizes the survival spectrum of the chronological regression. The operator generates perfect chromatic structure without statistical regression variance.',
+            'nanobot': '<strong>Golden Tetrahedron Nanobot</strong><br><br>22-particle nanobot with three-field propulsion. 4 Aizawa attractors per field, 3 Fröhlich BEC cascades (57/45/23 modes) with spontaneous + stimulated emission. VO₂ core (341K MIT phase gate), VN shell (8.5K superconductor), N₂ atmosphere cooling. Temporal stride 14489 (mod 138 = 137).',
+            'gv_combined': '<strong>Golden Virus Overlap</strong><br><br>Complete immersive overlap: particle trajectories mapped into the three-field DWM topology. The centroids of the 3 strands act as the macroscopic interference basins for the field.',
+            'gv_lattice': '<strong>Golden Virus Particles</strong><br><br>Physical particle simulation: 22 units forming the triple helix. Per-strand Aizawa attractors drive chromodynamic thrust. Vanadium (F₁₃₉) edges pulse at prime-23 period.',
+            'gv_manifold': '<strong>Golden Virus Mechanics</strong><br><br>DWM continuous fluid surface with three-field wave interference. F₂₂₉ triple-coset standing wave, F₁₈₁ different triple, F₁₃₉ indivisible prime standing wave.'
+        };
+
+        function switchPhase(phase) {
+            // Update Buttons
+            document.querySelectorAll('.control-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update Description
+            document.getElementById('phase-desc').innerHTML = descs[phase];
+
+            // Hide all
+            document.getElementById('frame-combined').classList.remove('active');
+            document.getElementById('frame-lattice').classList.remove('active');
+            document.getElementById('frame-manifold').classList.remove('active');
+            document.getElementById('frame-nanobot').classList.remove('active');
+            document.getElementById('frame-gv-combined').classList.remove('active');
+            document.getElementById('frame-gv-lattice').classList.remove('active');
+            document.getElementById('frame-gv-manifold').classList.remove('active');
+            document.getElementById('lockwood-view').classList.remove('active');
+
+            // Show selected
+            if (phase === 'combined') document.getElementById('frame-combined').classList.add('active');
+            if (phase === 'lattice') document.getElementById('frame-lattice').classList.add('active');
+            if (phase === 'manifold') document.getElementById('frame-manifold').classList.add('active');
+            if (phase === 'nanobot') document.getElementById('frame-nanobot').classList.add('active');
+            if (phase === 'gv_combined') document.getElementById('frame-gv-combined').classList.add('active');
+            if (phase === 'gv_lattice') document.getElementById('frame-gv-lattice').classList.add('active');
+            if (phase === 'gv_manifold') document.getElementById('frame-gv-manifold').classList.add('active');
+            if (phase === 'lockwood') {
+                document.getElementById('lockwood-view').classList.add('active');
+                if (!window.lockwoodRendered) {
+                    renderLockwood();
+                    window.lockwoodRendered = true;
+                }
+            }
+        }
+
+        function renderLockwood() {
+            const canvas = document.getElementById('spectrum-canvas');
+            const ctx = canvas.getContext('2d');
+            const W = canvas.width;
+            const H = canvas.height;
+            const PI2 = Math.PI * 2;
+            
+            // ── STIELTJES CONSTANTS (from ζ Laurent expansion) ──
+            const G0 = 0.5772156649015329;   // γ₀ (Euler-Mascheroni)
+            const G1 = -0.0728158454836767;   // γ₁
+            const G2 = -0.0096903631928724;   // γ₂
+            const G3 = 0.0020538344203033;    // γ₃
+
+            const lambda_master = 229.0 / 139.0;
+            const phi = (1 + Math.sqrt(5)) / 2;
+            const lambda_hugged = lambda_master + 3*G2;            // ≈ φ to 3 dec
+            const lambda_hugged2 = lambda_master + 3*G2 - G3/6;   // ≈ φ to 4 dec
+
+            // ── STIELTJES-CORRECTED GATES (from game.rs::tetrahedral_stieltjes) ──
+            const gates = [
+                { // F₂₂₉ (anchor) — Stieltjes-corrected
+                    mu: (1.0/57.0) * (1 + G0 * 48/229),  // γ₀ correction
+                    gamma: 1.0,
+                    omega: PI2 / Math.log((229.0/181.0) * (1 + G0/229)),
+                    beta: Math.atan(3) + G0/57,           // Stieltjes split: +0.0101
+                    color: '#00CCFF', name: 'F₂₂₉',
+                },
+                { // F₁₈₁ (depth) — Stieltjes-corrected
+                    mu: (1.0/45.0) * (1 + G1 * 42/181),  // γ₁ correction
+                    gamma: 1.0,
+                    omega: PI2 / Math.log((181.0/139.0) * (1 + G1/181)),
+                    beta: Math.atan(3) + G1/45,           // Stieltjes split: -0.0016
+                    color: '#FF6688', name: 'F₁₈₁',
+                },
+                { // F₁₃₉ (projection) — Stieltjes-corrected
+                    mu: (1.0/23.0) * (1 + G2 * 90/139),  // γ₂ correction
+                    gamma: 1.0,
+                    omega: PI2 / Math.log((229.0/139.0) * (1 + G2/139)),
+                    beta: Math.atan(23) + G2/23,          // tiny correction
+                    color: '#FFD700', name: 'F₁₃₉',
+                },
+            ];
+            
+            // Legacy Lockwood (dim reference)
+            const lockwood = {
+                mu: 1.0, gamma: 1.0,
+                omega: PI2 / Math.log(3722.0/2765.0),
+                beta: Math.atan(Math.sqrt(55414553.0 / 13309.0)),
+                color: 'rgba(0,255,204,0.12)', name: 'Lockwood',
+            };
+            
+            const tau_s = 1.0;
+            const t_start = 0.1, t_end = 20.0;
+            
+            function getPhi(gate, t) {
+                const theta = gate.omega * Math.log(t / tau_s) + gate.beta;
+                return Math.cos(theta + gate.mu * Math.tanh(gate.gamma * Math.cos(theta)));
+            }
+            
+            function getFunctBoundary(gate, t) {
+                const theta = gate.omega * Math.log(t / tau_s) + gate.beta;
+                const sechSq = 1.0 / Math.pow(Math.cosh(gate.gamma * Math.cos(theta)), 2);
+                return gate.mu * gate.gamma * Math.abs(Math.sin(theta)) * sechSq;
+            }
+
+            // ── Background Grid ──
+            ctx.strokeStyle = '#151520';
+            ctx.lineWidth = 1;
+            for(let x=0; x<=W; x+=50) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+            for(let y=0; y<=H; y+=50) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+
+            // ── Bridge frequency bands ──
+            // At frequency 48 intervals (bridge resonance)
+            ctx.fillStyle = 'rgba(176, 82, 240, 0.06)';
+            for(let x=0; x<W; x++) {
+                let t = t_start + (x/W) * (t_end - t_start);
+                if(Math.abs(Math.sin(t * 48 * 0.3)) < 0.05) {
+                    ctx.fillRect(x, 0, 2, H);
+                }
+            }
+
+            // ── Axes ──
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 2;
+            ctx.beginPath(); ctx.moveTo(0, H/2); ctx.lineTo(W, H/2); ctx.stroke();
+
+            // ── Draw legacy Lockwood (dim) ──
+            ctx.strokeStyle = lockwood.color;
+            ctx.lineWidth = 1;
+            ctx.setLineDash([2, 4]);
+            ctx.beginPath();
+            for(let x=0; x<W; x++) {
+                let t = t_start + (x/W) * (t_end - t_start);
+                let val = getPhi(lockwood, t);
+                let y = H/2 - (val * (H/3));
+                x===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+            }
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // ── Draw three tetrahedral oscillators ──
+            const lineWidths = [2.5, 2.0, 2.0];
+            for(let gi=0; gi<3; gi++) {
+                const g = gates[gi];
+                
+                // Main Φ(t) curve
+                ctx.strokeStyle = g.color;
+                ctx.lineWidth = lineWidths[gi];
+                ctx.beginPath();
+                for(let x=0; x<W; x++) {
+                    let t = t_start + (x/W) * (t_end - t_start);
+                    let val = getPhi(g, t);
+                    let y = H/2 - (val * (H/3));
+                    x===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+                }
+                ctx.stroke();
+
+                // Funct boundary (dashed)
+                ctx.strokeStyle = g.color;
+                ctx.lineWidth = 1;
+                ctx.globalAlpha = 0.4;
+                ctx.setLineDash([3, 4]);
+                ctx.beginPath();
+                for(let x=0; x<W; x++) {
+                    let t = t_start + (x/W) * (t_end - t_start);
+                    let val = getFunctBoundary(g, t) * 3; // Scale up for visibility
+                    let y = H/2 - (val * (H/3));
+                    x===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+                }
+                ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.globalAlpha = 1.0;
+
+                // Crystallization dots
+                ctx.fillStyle = g.color;
+                for(let x=0; x<W; x+=2) {
+                    let t = t_start + (x/W) * (t_end - t_start);
+                    let fb = getFunctBoundary(g, t);
+                    if(Math.abs(fb * 3 - 1.0) < 0.03) {
+                        let y = H/2 - (getPhi(g, t) * (H/3));
+                        ctx.beginPath(); ctx.arc(x, y, 3, 0, PI2); ctx.fill();
+                    }
+                }
+            }
+            
+            // ── Legend ──
+            ctx.fillStyle = 'rgba(0,0,0,0.9)';
+            ctx.fillRect(W - 280, 10, 268, 175);
+            ctx.strokeStyle = '#333';
+            ctx.strokeRect(W - 280, 10, 268, 175);
+            
+            ctx.font = '10px monospace';
+            let ly = 28;
+            for(const g of gates) {
+                ctx.fillStyle = g.color;
+                ctx.fillText(`—— ${g.name} Φ(t) μ=${g.mu.toFixed(5)} β=${g.beta.toFixed(4)}`, W - 268, ly);
+                ly += 15;
+            }
+            ctx.fillStyle = 'rgba(0,255,204,0.4)';
+            ctx.fillText('- - Lockwood legacy (λ=3722/2765)', W - 268, ly); ly += 15;
+            ctx.fillStyle = 'rgba(176, 82, 240, 0.6)';
+            ctx.fillText('▮  Bridge resonance (freq 48)', W - 268, ly); ly += 18;
+            
+            // Stieltjes hug info
+            ctx.fillStyle = '#aaa';
+            ctx.fillText(`λ_raw  = 229/139     = ${lambda_master.toFixed(6)}`, W - 268, ly); ly += 13;
+            ctx.fillText(`λ + 3γ₂             = ${lambda_hugged.toFixed(6)}`, W - 268, ly); ly += 13;
+            ctx.fillText(`λ + 3γ₂ - γ₃/6      = ${lambda_hugged2.toFixed(6)}`, W - 268, ly); ly += 13;
+            ctx.fillStyle = '#FFD700';
+            ctx.fillText(`φ                    = ${phi.toFixed(6)}`, W - 268, ly); ly += 13;
+            ctx.fillStyle = '#666';
+            ctx.fillText(`Stieltjes β-split: Δ = ${(gates[0].beta - gates[1].beta).toFixed(5)} rad`, W - 268, ly);
+        }
+    </script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.LieAlgebra
@@ -5,6 +6,9 @@ import LaRueProtorealAlgebra.HyperKlein
 import InfoPhysAxioms.SpectralCharacteristic
 import InfoPhysAxioms.EnumerationSystems
 import InfoPhysAxioms.ProtorealMetric
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Octonion Growth Medium: The Dark Sector as Response Space

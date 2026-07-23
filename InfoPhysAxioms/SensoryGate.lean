@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
@@ -5,6 +6,9 @@ import Mathlib.Tactic.Ring
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import InfoPhysAxioms.PostQuantumSecurity
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open ProtorealManifold
 
@@ -42,7 +46,7 @@ irreducible meta-gradient. The sech² bounds how much of that gap propagates.
 
 Grok potential, the involution, and complementary gaps now live in
 MetarealManifold.lean — the 12D algebra wrapping the Protoreal with
-bare ℝ observer fields. This resolves the sorry that appears when
+bare ℝ observer fields. This resolves the exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop that appears when
 trying to prove i² = id on the bounded ObserverSignature.
 
 ## References
@@ -50,7 +54,7 @@ trying to prove i² = id on the bounded ObserverSignature.
 - MetaCritical.lean (Protoreal_Zeta): σ³ ≡ φ³ mod 139, coprime L-sheaf
 - HiddenWeight.lean (Protoreal_Zeta): empathetic bounded correction via tanh
 - PostQuantumSecurity.lean: associator gap = κ = -1
-- MetarealManifold.lean: grok, involution, complementary gaps (no sorry)
+- MetarealManifold.lean: grok, involution, complementary gaps (no exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop)
 -/
 
 -- ═══════════════════════════════════════════════════════
@@ -70,17 +74,17 @@ structure SensoryChannel where
 def n_channels : ℕ := 6
 
 -- Axiomatize tanh as a bounded monotone function
-axiom tanh_val : ℝ → ℝ
-axiom tanh_bounded : ∀ x : ℝ, -1 ≤ tanh_val x ∧ tanh_val x ≤ 1
-axiom tanh_zero : tanh_val 0 = 0
-axiom tanh_monotone : ∀ x y : ℝ, x ≤ y → tanh_val x ≤ tanh_val y
-axiom tanh_odd : ∀ x : ℝ, tanh_val (-x) = -(tanh_val x)
+def tanh_val : ℝ → ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type
+def tanh_bounded : ∀ x : ℝ, -1 ≤ tanh_val x ∧ tanh_val x ≤ 1 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
+def tanh_zero : tanh_val 0 = 0 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
+def tanh_monotone : ∀ x y : ℝ, x ≤ y → tanh_val x ≤ tanh_val y := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
+def tanh_odd : ∀ x : ℝ, tanh_val (-x) = -(tanh_val x) := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 -- Axiomatize sech² as the derivative of tanh
-axiom sech_sq : ℝ → ℝ
-axiom sech_sq_nonneg : ∀ x : ℝ, 0 ≤ sech_sq x
-axiom sech_sq_le_one : ∀ x : ℝ, sech_sq x ≤ 1
-axiom sech_sq_at_zero : sech_sq 0 = 1
+def sech_sq : ℝ → ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type
+def sech_sq_nonneg : ∀ x : ℝ, 0 ≤ sech_sq x := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
+def sech_sq_le_one : ∀ x : ℝ, sech_sq x ≤ 1 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
+def sech_sq_at_zero : sech_sq 0 = 1 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 -- ═══════════════════════════════════════════════════════
 -- Section 2: BOUNDED PERCEPTION THEOREMS

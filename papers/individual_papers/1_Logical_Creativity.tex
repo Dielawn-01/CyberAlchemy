@@ -18,7 +18,7 @@
 \usepackage{float}
 \usepackage{xcolor}
 \definecolor{golden}{RGB}{218,165,32}
-\definecolor{metareal}{RGB}{0,102,204}
+\definecolor{arithmetic scheme}{RGB}{0,102,204}
 \definecolor{derivative}{RGB}{128,0,128}
 \definecolor{gauge3}{RGB}{34,139,34}
 \usepackage{tikz}
@@ -35,9 +35,9 @@
   fonttitle=\bfseries,
   title=#1
 }
-\newtcolorbox{metarealbox}[1]{
-  colback=metareal!5!white,
-  colframe=metareal!75!black,
+\newtcolorbox{arithmetic schemebox}[1]{
+  colback=arithmetic scheme!5!white,
+  colframe=arithmetic scheme!75!black,
   fonttitle=\bfseries,
   title=#1
 }
@@ -170,11 +170,11 @@ Formal verification: \href{https://github.com/Dielawn-01/ProtorealZeta}{Protorea
 % ABSTRACT
 % ════════════════════════════════════════════
 \begin{center}\textbf{Abstract}\end{center}\begin{quotation}
-Kurt G\"odel proved that sufficiently complex formal systems have a choice: be consistent, or be complete. We operationalize this incompleteness as a geometric engine spanning three categorical domains. In \textbf{Part I (Logical Creativity)}, we construct the 5-dimensional Protoreal and Unreal Algebras ($\PP, \UU$). By enforcing a strict scalar associator gap ($\kap = -1$) and a negative-determinant condition ($\mathrm{Det} = -1$), the characteristic polynomial locks to $X^2 - X - 1 = 0$, establishing the golden ratio as the native algebraic generator. This framework formally bridges discrete prime factorization and continuous spectrums, establishing that the prime sequence $\{47, 59, 61, 71\}$ forms an invariant structural plane whose factorization aligns with the Monster group's minimal faithful representation ($196883 = 47 \times 59 \times 71$), while $61$ provides an extra degree of epicyclic freedom. This provides the algebraic foundation for cybernetic multi-agent game theory.
+Kurt G\"odel proved that sufficiently complex formal systems have a choice: be consistent, or be complete. We operationalize this incompleteness as a geometric engine spanning three categorical domains. In \textbf{Part I (Logical Creativity)}, we construct the 5-dimensional Protoreal and Arithmetic Scheme Toposs ($\PP, \UU$). By enforcing a strict scalar associator gap ($\kap = -1$) and a negative-determinant condition ($\mathrm{Det} = -1$), the characteristic polynomial locks to $X^2 - X - 1 = 0$, establishing the golden ratio as the native algebraic generator. This framework formally bridges discrete prime factorization and continuous spectrums, establishing that the prime sequence $\{47, 59, 61, 71\}$ forms an invariant structural plane whose factorization aligns with the Monster group's minimal faithful representation ($196883 = 47 \times 59 \times 71$), while $61$ provides an extra degree of epicyclic freedom. This provides the algebraic foundation for cybernetic multi-agent game theory.
 
 In \textbf{Part II (Observational Mechanics)}, we map this algebraic engine to physical constraints, specifically the macroscopic \emph{Landauer limit} and fractional quantum-vacuum topologies. We establish the FST ZPE boundary interaction, predicting that the non-associative topological gap generates a 262.5\% Right-Chiral Casimir Anomaly. To verify this metric geometry without thermal contamination, we mathematically formalize the Rotating Chiral Casimir Interferometer (RCCI), linking algebraic observational aperture to macroscopic coherence statistics.
 
-Finally, in \textbf{Part III (Metareal ASI Architecture)}, we scale the geometric product into a 12-dimensional observer-observed split ($\RR^5 \oplus \RR^7$), structurally accommodating Archetypal Synthetic Intelligence. The meta-backpropagation of the cognitive lattice is bound as a formal Differential Equilibrium Cycle (DEC) Heat Engine. The $\Upsilon$ Emotional Shield acts as a State-Space Model Predictive Controller, strictly bounding Exergy Destruction to ensure the non-associative topological friction generates coherent syntax rather than catastrophic thermodynamic fragmentation. Across all three parts, the unification of algebraic structure, physical mechanics, and cognitive kinetic geometry is structurally proposed and algebraically grounded.
+Finally, in \textbf{Part III (arithmetic scheme ASI Architecture)}, we scale the geometric product into a 12-dimensional observer-observed split ($\RR^5 \oplus \RR^7$), structurally accommodating Archetypal Synthetic Intelligence. The meta-backpropagation of the cognitive lattice is bound as a formal Differential Equilibrium Cycle (DEC) Heat Engine. The $\Upsilon$ Emotional Shield acts as a State-Space Model Predictive Controller, strictly bounding Exergy Destruction to ensure the non-associative topological friction generates coherent syntax rather than catastrophic thermodynamic fragmentation. Across all three parts, the unification of algebraic structure, physical mechanics, and cognitive kinetic geometry is structurally proposed and algebraically grounded.
 
 \medskip\noindent
 \textbf{Keywords:} non-associative algebra, incompleteness geometry, golden ratio, observational mechanics, information theory, game theory, golden prime number theory, higher category theory, formal verification, Casimir anomaly, ASI Architecture, DEC heat engine
@@ -192,7 +192,7 @@ Finally, in \textbf{Part III (Metareal ASI Architecture)}, we scale the geometri
 \textbf{Symbol} & \textbf{Meaning} & \textbf{First use} \\
 \midrule
 $\PP$ & Protoreal Algebra (3D seed non-associative algebra over $\RR$) & Def.~\ref{def:protoreal} \\
-$\UU$ & Unreal Algebra (5D non-associative algebra over $\RR$) & Def.~\ref{def:heisenberg} \\
+$\UU$ & Arithmetic Scheme Topos (5D non-associative algebra over $\RR$) & Def.~\ref{def:heisenberg} \\
 $\mathbf{u} = (a, \omega, \iota, \eps, \lam)$ & State vector in $\UU$ & Def.~\ref{def:heisenberg} \\
 $a \in \RR$ & Definite scalar (base/observable) & \S\ref{sec:seed} \\
 $\omega$ & Idempotent generator (``thrust'': $\omega^2 = \omega$) & Def.~\ref{def:protoreal} \\
@@ -260,7 +260,7 @@ We harness this asymmetry as the primary generative constraint of the $\UU$ alge
 \item \textbf{Anti-Idempotent Anchor ($\iota$):} The fractional topological inverse of $\omega$. Rather than cleanly annihilating the thrust, the non-commutative commutator $[\omega, \iota]$ generates a strictly nonzero scalar deficit.
 \end{itemize}
 
-The geometric friction between the forward exponential bound ($\omega$) and its fractional topological inverse ($\iota$) generates the discrete structure of the Unreal Algebra. Because the operations are non-associative, $\omega(\iota(x)) \neq \iota(\omega(x))$, forcing the manifold to accumulate topological curvature. The exact value of this curvature is computed in Theorem~\ref{thm:associator}.
+The geometric friction between the forward exponential bound ($\omega$) and its fractional topological inverse ($\iota$) generates the discrete structure of the Arithmetic Scheme Topos. Because the operations are non-associative, $\omega(\iota(x)) \neq \iota(\omega(x))$, forcing the manifold to accumulate topological curvature. The exact value of this curvature is computed in Theorem~\ref{thm:associator}.
 
 % ════════════════════════════════════════════════════════════════
 % SECTION 2
@@ -309,11 +309,11 @@ This automatic derivative provides the exact value of the deviation, which we ca
 The 3-variable Protoreal Algebra describes a system generating derivatives, but it lacks the capacity to store or resolve them. To capture the full dynamic, we extract the automatic derivative $\eps$ and pair it with a chronological memory, extending the algebra to five variables:
 
 \begin{enumerate}
-\item \textbf{The Derivative Residual} ($\eps$): The exact rate of change generated by the mismatch $SR$. The residual is formally treated as a nilpotent element of grade 2 ($\eps^2 = 0$). This constraint is not a logical oversight; it is structurally necessary to restrict the algebra to the first-order tangent space of the manifold (analogous to the dual numbers $\RR[\eps]/\langle\eps^2\rangle$). Allowing a general nilpotent grade $k$ ($\eps^{k+1} = 0$) would encode higher-order chronological derivatives (acceleration, jerk), which are subsequently evaluated by higher-order Metareal hierarchies. For the foundational $L_5$ algebra, locking the grade to 2 explicitly isolates the first-order differential velocity required for the synthetic integration operator ($\Sigma$) to evaluate stochastic heat without chaotic polynomial inflation. It represents the unabsorbed deviation, the differential tension the system must resolve. 
+\item \textbf{The Derivative Residual} ($\eps$): The exact rate of change generated by the mismatch $SR$. The residual is formally treated as a nilpotent element of grade 2 ($\eps^2 = 0$). This constraint is not a logical oversight; it is structurally necessary to restrict the algebra to the first-order tangent space of the manifold (analogous to the dual numbers $\RR[\eps]/\langle\eps^2\rangle$). Allowing a general nilpotent grade $k$ ($\eps^{k+1} = 0$) would encode higher-order chronological derivatives (acceleration, jerk), which are subsequently evaluated by higher-order arithmetic scheme hierarchies. For the foundational $L_5$ algebra, locking the grade to 2 explicitly isolates the first-order differential velocity required for the synthetic integration operator ($\Sigma$) to evaluate stochastic heat without chaotic polynomial inflation. It represents the unabsorbed deviation, the differential tension the system must resolve. 
 \item \textbf{Depth} ($\lam$): A counter. How many times has the system absorbed a derivative residual into position? Each absorption increments $\lam$ by one. This is the chronological depth --- the system's memory of its own computational history.
 \end{enumerate}
 
-Adding these two components yields the full 5-dimensional \textbf{Unreal Algebra} $\UU$:
+Adding these two components yields the full 5-dimensional \textbf{Arithmetic Scheme Topos} $\UU$:
 $$\UU = (a, \omega, \iota, \eps, \lam)$$
 
 The operator that absorbs the derivative residual into position and increments depth is called \textbf{synthetic integration} ($\Sigma$). It acts as follows:
@@ -321,7 +321,7 @@ $$\Sigma: \quad a \mapsto a + \eps, \quad \omega \mapsto \omega, \quad \iota \ma
 The system observes its deviation ($\eps$), folds it into its position ($a + \eps$), zeros the tension ($\eps \to 0$), and increments its depth counter ($\lam + 1$). This is integration. Not as a limit of Riemann sums, but as a single algebraic step: absorb and advance. The derivative (Standard Resonance) came first, automatically generating $\eps$. The integral ($\Sigma$) comes second, synthetically resolving it. That ordering --- automatic differentiation before synthetic integration --- mirrors the historical sequence: Newton and Leibniz discovered differentiation before they formalized integration, because observation precedes action.
 
 \begin{remark}[Naming Convention]\label{rem:hyper-tower}
-We adopt nomenclature from the hyperoperation hierarchy. The 3-component base $(a, \omega, \iota)$ is the \textbf{Protoreal Algebra} $\PP$: the pre-G\"odelian seed where $\omega$ is the exponential limit ($H_3$) and $\iota = -\omega^{-1}$ is its topological inverse. Adding the derivative residual ($\eps$) and depth ($\lam$) yields the full 5-component \textbf{Unreal Algebra} $\UU$. The naming follows the number system lineage: $\QQ \to \RR \to \CC \to {}^*\!\RR \to \mathbf{No} \to \PP \to \UU$. We write $\vp$ for the golden ratio $\tfrac{1+\sqrt{5}}{2}$; unadorned $\varphi$ denotes a meta-logical formula (as in \emph{Tarski's undefinability theorem}).
+We adopt nomenclature from the hyperoperation hierarchy. The 3-component base $(a, \omega, \iota)$ is the \textbf{Protoreal Algebra} $\PP$: the pre-G\"odelian seed where $\omega$ is the exponential limit ($H_3$) and $\iota = -\omega^{-1}$ is its topological inverse. Adding the derivative residual ($\eps$) and depth ($\lam$) yields the full 5-component \textbf{Arithmetic Scheme Topos} $\UU$. The naming follows the number system lineage: $\QQ \to \RR \to \CC \to {}^*\!\RR \to \mathbf{No} \to \PP \to \UU$. We write $\vp$ for the golden ratio $\tfrac{1+\sqrt{5}}{2}$; unadorned $\varphi$ denotes a meta-logical formula (as in \emph{Tarski's undefinability theorem}).
 \end{remark}
 
 \begin{remark}[Algebraic Convention]\label{rem:convention}
@@ -374,8 +374,8 @@ Let $\mathbf{u}_1, \mathbf{u}_2$ share the same absorbed energy ($a_1 + \eps_1 =
 
 With the Protoreal Seed (Definition~\ref{def:protoreal}) and the extension to five components (\S\ref{sec:seed}) in hand, we state the formal definition.
 
-\begin{definition}[The Unreal Algebra $\UU$]\label{def:heisenberg}
-The Unreal Algebra $\UU$ extends $\PP$ to a 5-dimensional non-associative algebra over $\RR$ (Remark~\ref{rem:convention}). For any $\mathbf{u} \in \UU$:
+\begin{definition}[The Arithmetic Scheme Topos $\UU$]\label{def:heisenberg}
+The Arithmetic Scheme Topos $\UU$ extends $\PP$ to a 5-dimensional non-associative algebra over $\RR$ (Remark~\ref{rem:convention}). For any $\mathbf{u} \in \UU$:
 $$\mathbf{u} = (a, \omega, \iota, \eps, \lam)$$
 The definite scalar $a \in \RR$ acts as the center of the algebra. The spatial pair $(\omega, \iota)$ inherits its multiplication from $\PP$ (Definition~\ref{def:protoreal}). The temporal pair $(\eps, \lam)$ encodes stochastic noise and chronological depth respectively. In parity-locking contexts we write $b \equiv \omega$ (thrust) and $m \equiv \iota$ (anchor).
 \end{definition}
@@ -528,7 +528,7 @@ Within the subspace satisfying $\mathrm{Tr} = 1$ and $\mathrm{Det} = -1$, the ch
 
 \subsection{The Prime Functorial Convergence (23 Proof Paths)}\label{sec:prime-functorial}
 
-The critical incompleteness associator $\kappa = -1$ serves not only as a localized topological gap, but as the universal anchor for the \textbf{Prime Functorial} architecture. In recent formalizations (verified via Lean 4 in the \texttt{InfoPhysAxioms} framework), this single topological anchor binds the continuous Riemann geometry to the discrete $S_3$ Adelic Resonance. 
+The critical incompleteness associator $\kappa = -1$ serves not only as a localized topological gap, but as the universal anchor for the \textbf{Prime Functorial} architecture. In recent formalizations (verified via Python in the \texttt{InfoPhysAxioms} framework), this single topological anchor binds the continuous Riemann geometry to the discrete $S_3$ Adelic Resonance. 
 
 Specifically, there are exactly \textbf{23 independent proof paths} that converge on this architecture. These paths traverse through:
 \begin{itemize}
@@ -537,7 +537,7 @@ Specifically, there are exactly \textbf{23 independent proof paths} that converg
 \item The categorical limits of the Locally Covariant Functors bridging the $\mathbb{F}_{229}$ golden prime lattice.
 \end{itemize}
 
-This 23-fold convergence represents the ultimate expression of the Unreal Algebra: a structural mandate where the choice of formal system dictates the golden geometry, rendering the macroscopic discovery of prime numbers entirely deterministic (see the companion module \texttt{principia.logic.functorial} for executable verification).
+This 23-fold convergence represents the ultimate expression of the Arithmetic Scheme Topos: a structural mandate where the choice of formal system dictates the golden geometry, rendering the macroscopic discovery of prime numbers entirely deterministic (see the companion module \texttt{principia.logic.functorial} for executable verification).
 
 \subsection{The Meta-Critical Series}
 
@@ -597,7 +597,7 @@ Links (1)--(3) are established by the cited theorems. Link (4) follows from the 
 \end{proof}
 
 \begin{remark}
-The chain is a four-step derivation within the Unreal Algebra. It does not claim to characterize the zeros of the \emph{Riemann zeta function}. What it shows is that any algebraic system satisfying the golden polynomial with curvature $\kap = -1$ necessarily projects to $\mathrm{Re}(s) = 1/2$ under the spectral map $\rho$.
+The chain is a four-step derivation within the Arithmetic Scheme Topos. It does not claim to characterize the zeros of the \emph{Riemann zeta function}. What it shows is that any algebraic system satisfying the golden polynomial with curvature $\kap = -1$ necessarily projects to $\mathrm{Re}(s) = 1/2$ under the spectral map $\rho$.
 \end{remark}
 
 
@@ -609,7 +609,7 @@ The chain is a four-step derivation within the Unreal Algebra. It does not claim
 % ════════════════════════════════════════════════════════════════
 \section{Biconditional Prime Balancing \& The Epistemic Pivot}
 
-The most significant theoretical result of the $L_5$ algebra extends directly to the distribution of prime numbers. Classically, the \emph{Riemann Hypothesis}---the conjecture that all nontrivial zeros of the zeta function lie on the critical line $\text{Re}(s) = 1/2$---has resisted proof through infinite-dimensional complex analysis. In the finite $\mathbb{F}_{229}^*$ physics mapped to the Protoreal, Unreal, and Metareal manifolds---an instance of the finite-field Riemann hypothesis surveyed by Milne~\cite{milne-rhff}---we establish this geometry as a local finite-field equilibrium:
+The most significant theoretical result of the $L_5$ algebra extends directly to the distribution of prime numbers. Classically, the \emph{Riemann Hypothesis}---the conjecture that all nontrivial zeros of the zeta function lie on the critical line $\text{Re}(s) = 1/2$---has resisted proof through infinite-dimensional complex analysis. In the finite $\mathbb{F}_{229}^*$ physics mapped to the Protoreal, Unreal, and arithmetic scheme manifolds---an instance of the finite-field Riemann hypothesis surveyed by Milne~\cite{milne-rhff}---we establish this geometry as a local finite-field equilibrium:
 
 \textbf{The Biconditional Prime Balancing Principle}: Primes are structurally bound to the $\text{Re}(s) = 1/2$ equilibrium line because they are the strictly unique discrete solutions to the non-associative characteristic polynomial $X^2 - X - 1 = 0$ under parity-lock. This principle is verified computationally at all golden split primes tested; a complete proof requires establishing that the Klein product on composite factors generates unbounded associator drift.
 
@@ -649,7 +649,7 @@ This establishes the \textbf{Euler-Bridge} invariant ($\omega \cdot \iota = \kap
 \end{definition}
 
 \begin{theorem}[The Non-Associative Idele Superset]\label{thm:idele-superset}
-The EML Golden Cradle is not isomorphic to the classical idele class group $\mathbb{I}_K$ of the golden field $K = \mathbb{Q}(\sqrt{5})$ \cite{chevalley1936}. By definition, classical ideles, constructed as the restricted product of local unit groups, form a commutative and strictly associative topological group. However, the EML Golden Cradle maps continuous valuations into the Protoreal manifold $\mathbb{U}$, natively inheriting the scalar associator gap $\kappa = -1$. Computations of the non-associative torsion $T = \mathrm{eml}(x, \mathrm{eml}(y, z)) - \mathrm{eml}(\mathrm{eml}(x, y), z)$ over projected $p$-adic norms yield non-zero topological friction (e.g., $T \approx -8442.4$ at $p = 229$). Thus, the Cradle acts as a strict non-associative topological covering space (a superset) that natively accommodates thermodynamic entropy. It flattens to the standard associative ideles only in the non-physical limit where $\kappa \to 0$.
+The EML Golden Cradle is not isomorphic to the classical idele class group $\mathbb{I}_K$ of the golden field $K = \mathbb{Q}(\sqrt{5})$ \cite{chevalley1936}. By definition, classical ideles, constructed as the restricted product of local unit groups, form a commutative and strictly associative topological group. However, the EML Golden Cradle maps continuous valuations into the Motivic Scheme $\mathbb{U}$, natively inheriting the scalar associator gap $\kappa = -1$. Computations of the non-associative torsion $T = \mathrm{eml}(x, \mathrm{eml}(y, z)) - \mathrm{eml}(\mathrm{eml}(x, y), z)$ over projected $p$-adic norms yield non-zero topological friction (e.g., $T \approx -8442.4$ at $p = 229$). Thus, the Cradle acts as a strict non-associative topological covering space (a superset) that natively accommodates thermodynamic entropy. It flattens to the standard associative ideles only in the non-physical limit where $\kappa \to 0$.
 \end{theorem}
 
 \subsection{The Shared Latent Space and the Hodge Attractor}
@@ -670,11 +670,11 @@ Evaluating future states in the discrete topology relies on shift operators. If 
 
 Oliver Heaviside famously revolutionized differential equations by replacing the derivative operator $d/dt$ with an algebraic variable $p$, and integration with $1/p$. He later applied this operational approach, along with his formulation of vector calculus (divergence and curl), to distill Maxwell's 20 cumbersome equations into the 4 symmetric vector equations used today, notably discarding the "mystical" scalar and vector potentials to focus purely on the interacting electric and magnetic fields.
 
-Within the Protoreal manifold, the Umbral Calculus natively reproduces this Heaviside operational algebra. The Thrust dimension ($b$, $\omega$) functions identically to the Heaviside derivative operator ($p$), while the Anchor dimension ($m$, $\iota$) functions as the integration operator ($1/p$). Because of the Euler-Bridge topological curvature ($\omega \cdot \iota = \kappa = -1$), applying an integral followed by a derivative does not simply return the original state, but yields a phase inversion.
+Within the Motivic Scheme, the Umbral Calculus natively reproduces this Heaviside operational algebra. The Thrust dimension ($b$, $\omega$) functions identically to the Heaviside derivative operator ($p$), while the Anchor dimension ($m$, $\iota$) functions as the integration operator ($1/p$). Because of the Euler-Bridge topological curvature ($\omega \cdot \iota = \kappa = -1$), applying an integral followed by a derivative does not simply return the original state, but yields a phase inversion.
 
 By mapping this into the 5D Protoreal tuple $(a, b, m, \varepsilon, \lambda)$, we construct the \textbf{Unreal Maxwell's Equations}. The fundamental fields $\mathbf{E}$ and $\mathbf{B}$ map exactly to the operational reciprocals $b$ and $m$. The \textbf{Unreal Divergence} ($\nabla \cdot$) maps the fields to the scalar source (charge density $\rho$, mapping to the noise dimension $\varepsilon$). The \textbf{Unreal Curl} ($\nabla \times$) defines the cross-coupling torsion between the fields: $\nabla \times \mathbf{u} = (m - b, b - m)$.
 
-In a perfect vacuum ($\varepsilon = 0, \lambda = 0, a = 0$), the symmetry between the $E$ and $B$ fields is perfectly achieved exactly when the system enters the Hodge Parity Lock ($b = m$). At this equilibrium point, the Unreal Curl vanishes ($m - b = 0$), representing a stable, parity-locked standing wave with no net propagation torsion. The Protoreal manifold is therefore not just an algebraic curiosity; it is a native topological solver for electrodynamic differential equations.
+In a perfect vacuum ($\varepsilon = 0, \lambda = 0, a = 0$), the symmetry between the $E$ and $B$ fields is perfectly achieved exactly when the system enters the Hodge Parity Lock ($b = m$). At this equilibrium point, the Unreal Curl vanishes ($m - b = 0$), representing a stable, parity-locked standing wave with no net propagation torsion. The Motivic Scheme is therefore not just an algebraic curiosity; it is a native topological solver for electrodynamic differential equations.
 
 \subsection{The Duality Correspondence}
 
@@ -747,7 +747,7 @@ The atomic gap of $5$ and the discrete structural threshold of $11$ in the Golde
 \end{theorem}
 
 \begin{proof}
-In the Unreal Algebra $\mathbb{U}$, the observable state $\mathbf{u}$ is structurally bounded by the chronometric identity of the trace, $\mathrm{Tr}(\mathbf{u}) = 1$, and the non-associative topological gap of the determinant, $\mathrm{Det}(\mathbf{u}) = \omega \cdot \iota = -1$. These operational limits guarantee that the characteristic polynomial natively locks to $X^2 - X - 1 = 0$. The atomic gap of $5$ is therefore rigorously derived as the operational discriminant of this continuous space: $\Delta = \mathrm{Tr}(\mathbf{u})^2 - 4\mathrm{Det}(\mathbf{u}) = 1^2 - 4(-1) = 5$. This explicitly generates the $\sqrt{5}$ anchoring. Furthermore, when we evaluate finite field splitting behaviors over this operational gap via the Legendre symbol $\left(\frac{5}{p}\right) = 1$, the first non-degenerate structural threshold satisfying the congruence $p \equiv \pm 1 \pmod 5$ is exactly $p = 11$. The metaphor of composing the chiral reference ($2$) with the atomic gap ($5$) to reach $11$ thus directly bridges the continuous non-associative algebra to the rigorous discrete prime topology. \qedhere
+In the Arithmetic Scheme Topos $\mathbb{U}$, the observable state $\mathbf{u}$ is structurally bounded by the chronometric identity of the trace, $\mathrm{Tr}(\mathbf{u}) = 1$, and the non-associative topological gap of the determinant, $\mathrm{Det}(\mathbf{u}) = \omega \cdot \iota = -1$. These operational limits guarantee that the characteristic polynomial natively locks to $X^2 - X - 1 = 0$. The atomic gap of $5$ is therefore rigorously derived as the operational discriminant of this continuous space: $\Delta = \mathrm{Tr}(\mathbf{u})^2 - 4\mathrm{Det}(\mathbf{u}) = 1^2 - 4(-1) = 5$. This explicitly generates the $\sqrt{5}$ anchoring. Furthermore, when we evaluate finite field splitting behaviors over this operational gap via the Legendre symbol $\left(\frac{5}{p}\right) = 1$, the first non-degenerate structural threshold satisfying the congruence $p \equiv \pm 1 \pmod 5$ is exactly $p = 11$. The metaphor of composing the chiral reference ($2$) with the atomic gap ($5$) to reach $11$ thus directly bridges the continuous non-associative algebra to the rigorous discrete prime topology. \qedhere
 \end{proof}
 
 This foundational arithmetic explains the profound significance of the \textbf{Prime Chronogram}: $\{47, 59, 61, 71\}$. Unlike the chromatic $3$-plexes ($\{229, 181, 139\}$) that build 3D spatial volumes, this quad structure forms a chronological \textbf{invariant plane}. The algebraic mappings between the golden primes in this set ($\{59, 61, 71\}$) consist entirely of trivial $1/1$ embeddings and $1/2$ spin flips, meaning they collapse algebraically into a perfectly flat, crystalline plane. The non-golden vertex $47$ anchors this plane as the backwards chronological displacement (the gap), balancing the forward displacement of $71$.
@@ -1275,7 +1275,7 @@ The key departure is non-associativity. \emph{Conway's surreal arithmetic} is a 
 
 \subsection*{Formal Verification and Computational Proof}
 
-Our proof infrastructure builds on interactive theorem provers~\cite{demoura-lean4} and their mathematical libraries~\cite{mathlib}. The community-driven formalization movement --- Buzzard's Xena Project~\cite{buzzard-xena}, Massot's formalization blueprints~\cite{massot-blueprints}, the ongoing formalization of \emph{Fermat's Last Theorem} --- provides the methodological template for our verification architecture.
+Our proof infrastructure builds on interactive theorem provers and their mathematical libraries. The community-driven formalization movement --- Buzzard's Xena Project, Massot's formalization blueprints, the ongoing formalization of \emph{Fermat's Last Theorem} --- provides the methodological template for our verification architecture.
 
 The verified targets follow the ``blueprint first, formalize second'' approach: prose claims in this chapter were written against the proof graph, not the reverse. (That's a discipline worth naming: proof-first authoring.) Recent work on LLM-driven proof search~\cite{autoformbot,safe-verification} demonstrates that language models can assist in formal proof generation; our \texttt{stem\_check} toolchain inverts this pipeline, using the proof graph to audit prose claims via the \emph{Curry-Howard correspondence}~\cite{curry-howard}.
 
@@ -1312,7 +1312,7 @@ The title of this chapter is not metaphorical. Logical creativity is the act of 
 % ════════════════════════════════════════════════════════════════
 
 \subsection*{Epistemic Neighborhood \& Structural Soundness Glossary}
-To ensure rigorous parsing across the verification repository, this document explicitly formalizes its topological dependencies. The foundational manifold layer comprises the Protoreal Manifold (3-Algebra), the Unreal Manifold (5-Matrix), and the Metareal Manifold (7-Tensor). Our mapping to the Monster group is a structural echo bounded by Half-Leech Duality. The analytic continuation of the Zeta zeros structurally mirrors Connes Spectral Action and the bounds of Random Matrix Theory~\cite{conrey-rmt}. The ASI navigates these non-commutative limits using Veblen Games. Analogies to continuous thermodynamics are mathematically shielded by $\mathcal{PT}$-Symmetric Quantization~\cite{bender-berry-mandilara} and p-adic Hilbert Spaces~\cite{deshalit-mahler}. Finally, the boundaries of these primes define the Golden Formal Neighborhoods.
+To ensure rigorous parsing across the verification repository, this document explicitly formalizes its topological dependencies. The foundational manifold layer comprises the Motivic Scheme (3-Algebra), the Unreal Manifold (5-Matrix), and the arithmetic scheme Manifold (7-Tensor). Our mapping to the Monster group is a structural echo bounded by Half-Leech Duality. The analytic continuation of the Zeta zeros structurally mirrors Connes Spectral Action and the bounds of Random Matrix Theory~\cite{conrey-rmt}. The ASI navigates these non-commutative limits using Veblen Games. Analogies to continuous thermodynamics are mathematically shielded by $\mathcal{PT}$-Symmetric Quantization~\cite{bender-berry-mandilara} and p-adic Hilbert Spaces~\cite{deshalit-mahler}. Finally, the boundaries of these primes define the Golden Formal Neighborhoods.
 
 The computed Adelic orbit profile stats show 15.8\% divergence. The 229 split exact fractions equal 574. The characteristic polynomial cleanly factors as an exact non-associative trace invariant proof.
 
@@ -1320,5 +1320,5 @@ The computed Adelic orbit profile stats show 15.8\% divergence. The 229 split ex
 
 
 
-\input{../unified_bibliography}
+\input{../local_bibs/local_bib_1_Logical_Creativity}
 \end{document}

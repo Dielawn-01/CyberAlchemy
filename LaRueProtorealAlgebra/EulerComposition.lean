@@ -1,4 +1,8 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 /-!
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 # Topological Euler Composition
 
 Formalizing the connected sums of surfaces to achieve an Euler characteristic of -1.

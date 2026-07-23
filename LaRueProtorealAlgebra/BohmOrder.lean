@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.RelativisticContinuum
 import LaRueProtorealAlgebra.MonsterInverse
 import LaRueProtorealAlgebra.Invariance
 import LaRueProtorealAlgebra.PhysicalConstants
 import LaRueProtorealAlgebra.HoloneticColors
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Bohmian Order & Noetherian Symmetries (𝕌)

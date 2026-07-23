@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Tactic.NormNum
 import Mathlib.Data.Nat.Prime.Basic
 import Mathlib.NumberTheory.LegendreSymbol.QuadraticReciprocity
 
 import LaRueProtorealAlgebra.PrimeGenerators
 import LaRueProtorealAlgebra.CyberBundle
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open LaRueProtorealAlgebra.CyberBundle
 

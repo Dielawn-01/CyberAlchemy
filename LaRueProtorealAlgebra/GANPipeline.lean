@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.GpuSeeding
 import LaRueProtorealAlgebra.MonsterInverse
 import LaRueProtorealAlgebra.ErrorCorrection
 import LaRueProtorealAlgebra.SafetyBounds
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # GAN Pipeline Formalization (𝕌)

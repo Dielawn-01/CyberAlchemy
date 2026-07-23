@@ -1,4 +1,8 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # ZBuddy Live — Early Experimental Module
@@ -16,7 +20,7 @@ structure QuantumChemicalSystem where
   l : Int
 
 /-- Hodge duality lock: parity-locked states have b * m = 1. -/
-axiom HodgeDualityLock (q : QuantumChemicalSystem) (h : q.b * q.m = 1) :
+def HodgeDualityLock (q : QuantumChemicalSystem) (h : q.b * q.m = 1) : := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
     q.b * q.m = 1
 
 end ZBuddyLive

@@ -1,0 +1,204 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Quasicrystal Material — Golden Tetrahedron Lattice</title>
+    <style>body{margin:0;overflow:hidden;background:#000;color:#fff;font-family:'Courier New',monospace;}
+    #info{position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.85);padding:14px 18px;border:1px solid rgba(255,255,255,0.12);z-index:100;line-height:1.7;border-radius:6px;backdrop-filter:blur(10px);font-size:12px;max-width:320px;}
+    #info h3{margin:0 0 6px 0;color:#00ffcc;font-size:13px;letter-spacing:1px;}
+    .s229{color:#00CCFF} .s181{color:#FF6688} .s139{color:#FFD700}
+    .label{color:#666} .val{font-weight:bold;color:#aaa}
+    </style></head>
+    <body><div id="info">
+        <h3>Quasicrystal Material — Triple Helix Lattice</h3>
+        <span class="label">Active:</span> <span id="strand" class="val">—</span><br/>
+        <span class="label">BEC:</span> <span id="bec" class="val">—</span> |
+        <span class="label">State:</span> <span id="state" class="val">—</span><br/>
+        <span class="label">Plasma density:</span> <span id="density" class="val">—</span>
+    </div>
+    <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.158.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.158.0/examples/jsm/"}}</script>
+    <script src="opal_atomic_data.js"></script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        const P1=229,P2=181,P3=139;
+        const PHIBAR=[82,14,64], PRIMES=[P1,P2,P3];
+        const ORDS=[57,45,23];
+        const PHI=(1+Math.sqrt(5))/2, TWO_PI=Math.PI*2;
+        const STRAND_NAMES=['F₂₂₉','F₁₈₁','F₁₃₉'];
+        const STRAND_CSS=['#00CCFF','#FF6688','#FFD700'];
+
+        function buildOrbit(b,p,n){const o=[];let v=1;for(let i=0;i<n;i++){o.push(v);v=(v*b)%p;}return o;}
+        const orbits=[buildOrbit(82,229,57),buildOrbit(14,181,45),buildOrbit(64,139,23)];
+
+        class BEC{constructor(n){this.m=new Float64Array(n);this.m[0]=1;this.n=n;}
+          pump(e){for(let j=1;j<this.n;j++)this.m[j]+=e/this.n;
+            // Fröhlich 1968: spontaneous (χ·n_k) + stimulated (χ·n_k·n_j)
+            for(let j=this.n-1;j>0;j--){const flow=Math.min(0.35*this.m[j]*(1+this.m[j-1]),this.m[j]*0.5);this.m[j]-=flow;this.m[j-1]+=flow;}
+            return this.m[0];}}
+        const becs=[new BEC(57),new BEC(45),new BEC(23)];
+
+        // Bridge prime 14489 — Gravitational envelope (GT Result 5.4)
+        const BRIDGE = 14489;
+        const BRIDGE_DEPTH = [1/4, 1/2, 1/4]; // symmetric coupling to {229, 181, 139}
+        const GRAV_MOD = [BRIDGE % 57, BRIDGE % 45, BRIDGE % 23]; // [11, 44, 22]
+
+        // Thermal envelope
+        let sysTemp = 300;
+        const VO2_MIT = 341;
+
+        const atoms=window.opal_atoms||[];
+        const scene=new THREE.Scene();
+        scene.fog=new THREE.FogExp2(0x020208,0.005);
+        const camera=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,0.1,1000);
+        camera.position.set(60,40,65);
+        const renderer=new THREE.WebGLRenderer({antialias:true});
+        renderer.setSize(innerWidth,innerHeight);
+        renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+        renderer.toneMapping=THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure=1.1;
+        document.body.appendChild(renderer.domElement);
+        const ctrl=new OrbitControls(camera,renderer.domElement);
+        ctrl.enableDamping=true;
+
+        scene.add(new THREE.AmbientLight(0x111122,0.5));
+        const lights=[
+          new THREE.PointLight(0x00CCFF,2,150),
+          new THREE.PointLight(0xFF6688,1.5,120),
+          new THREE.PointLight(0xFFD700,1,100)
+        ];
+        lights[0].position.set(35,55,35);
+        lights[1].position.set(-25,15,-25);
+        lights[2].position.set(5,-10,45);
+        lights.forEach(l=>scene.add(l));
+
+        const sColors=[new THREE.Color(0x00CCFF),new THREE.Color(0xFF6688),new THREE.Color(0xFFD700)];
+        const geo=new THREE.SphereGeometry(0.22,6,6);
+        const group=new THREE.Group();
+        const meshes=[], N=atoms.length;
+
+        // Compute center
+        let cx=0,cy=0,cz=0;
+        for(const a of atoms){cx+=a.x;cy+=a.y;cz+=a.z;}
+        cx/=N;cy/=N;cz/=N;
+
+        for(let i=0;i<N;i++){
+          const a=atoms[i], s=(a.macro_id-1)%3;
+          const mat=new THREE.MeshPhysicalMaterial({
+            color:sColors[s],emissive:sColors[s].clone().multiplyScalar(0.3),
+            emissiveIntensity:0.2,metalness:0.9,roughness:0.1,transparent:true,opacity:0.85
+          });
+          const m=new THREE.Mesh(geo,mat);
+          m.position.set(a.x,a.y,a.z);
+          m.userData={s,bx:a.x-cx,by:a.y-cy,bz:a.z-cz};
+          group.add(m);meshes.push(m);
+        }
+        scene.add(group);
+
+        // Strand connection lines (per strand, connecting nearest atoms)
+        for(let s=0;s<3;s++){
+          const strandAtoms=meshes.filter(m=>m.userData.s===s);
+          if(strandAtoms.length<2)continue;
+          const pts=strandAtoms.slice(0,Math.min(strandAtoms.length,200)).map(m=>m.position.clone());
+          const lineGeo=new THREE.BufferGeometry().setFromPoints(pts);
+          const lineMat=new THREE.LineBasicMaterial({color:sColors[s],transparent:true,opacity:0.15});
+          scene.add(new THREE.Line(lineGeo,lineMat));
+        }
+
+        // PLASMA CLOUD
+        const PC=1500;
+        const pGeo=new THREE.BufferGeometry();
+        const pPos=new Float32Array(PC*3);
+        const pCol=new Float32Array(PC*3);
+        const pPh=new Float32Array(PC);
+        const shellR=30;
+        for(let i=0;i<PC;i++){
+          const th=Math.random()*TWO_PI,ph2=Math.acos(2*Math.random()-1);
+          const r=shellR*(0.5+0.5*Math.random());
+          pPos[i*3]=cx+r*Math.sin(ph2)*Math.cos(th);
+          pPos[i*3+1]=cy+r*Math.sin(ph2)*Math.sin(th);
+          pPos[i*3+2]=cz+r*Math.cos(ph2);
+          pPh[i]=Math.random()*TWO_PI;
+        }
+        pGeo.setAttribute('position',new THREE.BufferAttribute(pPos,3));
+        pGeo.setAttribute('color',new THREE.BufferAttribute(pCol,3));
+        scene.add(new THREE.Points(pGeo,new THREE.PointsMaterial({
+          size:0.35,transparent:true,opacity:0.3,vertexColors:true,
+          blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true
+        })));
+
+        let time=0;
+        function animate(){
+          requestAnimationFrame(animate);
+          ctrl.update();
+          time+=0.016;
+          const tq=time+Math.sin(time*PHI)+Math.sin(time*Math.SQRT2);
+          const sp=Math.floor(tq/1.9)%3;
+          const idx=Math.floor(Math.abs(tq*2))%ORDS[sp];
+          const state=orbits[sp][idx];
+
+          // Thermal gating
+          const tGate = sysTemp < VO2_MIT ? 1.0 : 0.0;
+          const pe=0.08*(1+0.4*Math.sin(time*TWO_PI/5.7)) * tGate;
+          const gp=[becs[0].pump(pe),becs[1].pump(pe*0.8),becs[2].pump(pe*1.2)];
+
+          // Temperature oscillation
+          sysTemp = 300 + 40*Math.sin(time*0.3) - 20*Math.sin(time*0.7);
+
+          // Mayer-Vietoris parity: φⁿ·φ̄ⁿ ≡ (−1)ⁿ (GT §7.2)
+          const mvParity = (Math.floor(time * 4) % 2 === 0) ? 1.0 : -1.0;
+
+          // Bridge prime gravitational coupling
+          const gravPull = BRIDGE_DEPTH.map((c, s) =>
+            c * Math.sin(time * GRAV_MOD[s] / ORDS[s] * TWO_PI) * 0.12
+          );
+
+          // Helix rotation
+          const angle=time*0.12*TWO_PI/PHI;
+          const ca=Math.cos(angle),sa=Math.sin(angle);
+
+          for(let i=0;i<N;i++){
+            const m=meshes[i],d=m.userData;
+            const rx=d.bx*ca-d.bz*sa, rz=d.bx*sa+d.bz*ca;
+            const breath=1+0.06*(gp[d.s]-0.5)*Math.sin(time*ORDS[d.s]*0.08+i*0.02);
+            m.position.set(cx+rx*breath, cy+d.by*breath, cz+rz*breath);
+            // Gravitational breathing from 14489
+            const gb = gravPull[d.s] * 0.5 * mvParity;
+            m.position.x += (m.position.x - cx) * gb;
+            m.position.z += (m.position.z - cz) * gb;
+            const active=d.s===sp;
+            m.material.emissiveIntensity=active?0.7+0.3*Math.sin(time*5):0.08;
+            m.material.opacity=active?0.92:0.35;
+          }
+
+          // Plasma
+          const ac=sColors[sp];
+          for(let i=0;i<PC;i++){
+            const i3=i*3;
+            const px=pPos[i3]-cx,py=pPos[i3+1]-cy,pz=pPos[i3+2]-cz;
+            const dist=Math.sqrt(px*px+py*py+pz*pz)||1;
+            const os=0.25/(1+dist*0.02);
+            const co=Math.cos(os*0.016),so=Math.sin(os*0.016);
+            pPos[i3]=cx+px*co-pz*so;
+            pPos[i3+2]=cz+px*so+pz*co;
+            const br=gp[sp]*0.12*Math.sin(time*ORDS[sp]*0.05+pPh[i]);
+            const n=1/dist;
+            pPos[i3]+=px*n*br;pPos[i3+1]+=py*n*br;pPos[i3+2]+=pz*n*br;
+            pCol[i3]+=(ac.r-pCol[i3])*0.04;
+            pCol[i3+1]+=(ac.g-pCol[i3+1])*0.04;
+            pCol[i3+2]+=(ac.b-pCol[i3+2])*0.04;
+          }
+          pGeo.attributes.position.needsUpdate=true;
+          pGeo.attributes.color.needsUpdate=true;
+
+          lights.forEach((l,i)=>l.intensity=i===sp?3:0.8);
+          const fc=[0x030810,0x080308,0x080803][sp];
+          scene.fog.color.setHex(fc);renderer.setClearColor(fc);
+
+          document.getElementById('strand').innerHTML=`<span style="color:${STRAND_CSS[sp]}">${STRAND_NAMES[sp]}</span>`;
+          document.getElementById('bec').textContent=`${Math.round(gp[sp]*100)}%`;
+          document.getElementById('state').textContent=`${state} (mod ${PRIMES[sp]})`;
+          document.getElementById('density').textContent=PC;
+
+          renderer.render(scene,camera);
+        }
+        animate();
+        window.addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
+    </script></body></html>

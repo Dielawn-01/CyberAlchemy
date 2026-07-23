@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.FractalHodge
 import LaRueProtorealAlgebra.GoldenHodgeExt
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The Superlambda Spine: Ordinal Tower of Golden Subcategories

@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import InfoPhysAxioms.TensorImaginaryBridge
 import InfoPhysAxioms.QuaternionInverse
 import InfoPhysAxioms.CognitiveSecurity
 import Mathlib.Data.Complex.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open ZBuddyCybernetics
 open CognitiveSecurity

@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import InfoPhysAxioms.ProtorealMetric
 import LaRueProtorealAlgebra.ProtorealOperator
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # BlackHoleTorsion: TEGR and Ramanujan Mock Theta Fingerprints

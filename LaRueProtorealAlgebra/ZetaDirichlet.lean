@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.HyperKlein
 import LaRueProtorealAlgebra.IncompletenessSource
 import LaRueProtorealAlgebra.Invariance
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Zeta Dirichlet Decomposition (𝕌)

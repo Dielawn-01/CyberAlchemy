@@ -1,0 +1,285 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Digital Wave Mechanics — Golden Tetrahedron Field</title>
+    <style>body{margin:0;overflow:hidden;background:#000;color:#fff;font-family:'Courier New',monospace;}
+    #info{position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.88);padding:14px 18px;border:1px solid rgba(255,255,255,0.12);z-index:100;line-height:1.7;border-radius:6px;backdrop-filter:blur(12px);font-size:12px;max-width:380px;}
+    #info h3{margin:0 0 6px 0;color:#b052f0;font-size:13px;letter-spacing:1px;}
+    .s229{color:#00CCFF;font-weight:bold} .s181{color:#FF6688;font-weight:bold} .s139{color:#FFD700;font-weight:bold}
+    .label{color:#666} .val{font-weight:bold;color:#aaa}
+    .eq{color:#888;font-size:10px;margin-top:6px;border-top:1px solid #1a1a2a;padding-top:6px;line-height:1.5;}
+    </style></head>
+    <body><div id="info">
+        <h3>Digital Wave Mechanics — Physical Mode Sum</h3>
+        <span class="label">Dominant:</span> <span id="strand" class="val">—</span><br/>
+        <span class="label">Ground mode:</span> <span id="ground" class="val">—</span> |
+        <span class="label">BEC pop:</span> <span id="bec" class="val">—</span><br/>
+        <span class="label">Half-orbit:</span> <span id="halforbit" class="val">—</span> |
+        <span class="label">Phase:</span> <span id="phase" class="val">—</span><br/>
+        <span class="label">T:</span> <span id="temp" class="val">—</span> |
+        <span class="label">MV:</span> <span id="mv-parity" class="val">—</span> |
+        <span class="label">14489:</span> <span id="bridge" class="val">—</span>
+        <div class="eq">
+            Ψ_p(r,t) = Σ<sub>n</sub> a<sub>n</sub> · exp(i·k<sub>n</sub>·r − iω<sub>n</sub>t) × Φ<sub>L</sub>(t) × P<sub>MV</sub><br/>
+            k<sub>n</sub> = 2πn/ord, ω<sub>n</sub> = (φ̄<sup>n</sup> mod p)/p<br/>
+            a<sub>0</sub> ≫ a<sub>n&gt;0</sub> (Fröhlich condensation)<br/>
+            φ<sup>ord(φ̄)</sup> ≡ −1 (mod p) → half-order involution<br/>
+            BEC flow: χ · n<sub>k</sub> · (1 + n<sub>j</sub>) × T<sub>gate</sub>(T)<br/>
+            P<sub>MV</sub>: φ<sup>n</sup>·φ̄<sup>n</sup> ≡ (−1)<sup>n</sup> (Mayer-Vietoris parity)<br/>
+            <span style="color:#b052f0">Bridge 14489 → {1/4, 1/2, 1/4} symmetric coupling</span>
+        </div>
+    </div>
+    <canvas id="field-canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('field-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+        // ════════════════════════════════════════
+        // GOLDEN TETRAHEDRON WAVE PHYSICS
+        // ════════════════════════════════════════
+
+        const P1=229,P2=181,P3=139;
+        const PHIBAR=[82,14,64], PRIMES=[P1,P2,P3];
+        const ORDS=[57,45,23];
+        const PHI=(1+Math.sqrt(5))/2;
+        const TWO_PI=Math.PI*2;
+        const STRAND_NAMES=['F₂₂₉ (anchor)','F₁₈₁ (depth)','F₁₃₉ (projection)'];
+        const STRAND_CSS=['#00CCFF','#FF6688','#FFD700'];
+
+        // Build golden orbits — these ARE the frequencies
+        function buildOrbit(b,p,n){const o=[];let v=1;for(let i=0;i<n;i++){o.push(v);v=(v*b)%p;}return o;}
+        const orbits=[buildOrbit(82,229,57),buildOrbit(14,181,45),buildOrbit(64,139,23)];
+
+        // Precompute normalized frequencies: ω_n = orbit[n] / prime
+        const freqs = orbits.map((o,fi) => o.map(v => v / PRIMES[fi]));
+
+        // Precompute wavenumbers: k_n = 2π·n / ord
+        const waveK = orbits.map((o,fi) => o.map((_,n) => TWO_PI * n / ORDS[fi]));
+
+        // Fröhlich BEC amplitudes — ground state dominates
+        // After condensation: a_0 = 1.0, a_n = chi^n (exponential decay)
+        const CHI = 0.35;
+        const amps = orbits.map((o,fi) => {
+          const a = new Float64Array(ORDS[fi]);
+          a[0] = 1.0;
+          for(let n=1; n<ORDS[fi]; n++) a[n] = Math.pow(CHI, n);
+          // Sign inversion: φ^ord ≡ -1 (mod p), NOT at half-orbit
+          // Verified: φ^57≡228(mod229), φ^45≡180(mod181), φ^23≡138(mod139)
+          // The last mode carries the sign flip (full-orbit boundary)
+          a[ORDS[fi]-1] *= -1;
+          return a;
+        });
+
+        // BEC state (evolves over time)
+        class BEC{constructor(n){this.m=new Float64Array(n);this.m[0]=1;this.n=n;}
+          pump(e){for(let j=1;j<this.n;j++)this.m[j]+=e/this.n;
+            // Fröhlich 1968: spontaneous (χ·n_k) + stimulated (χ·n_k·n_j)
+            for(let j=this.n-1;j>0;j--){const flow=Math.min(0.35*this.m[j]*(1+this.m[j-1]),this.m[j]*0.5);this.m[j]-=flow;this.m[j-1]+=flow;}
+            return this.m[0];}}
+        const becs=[new BEC(57),new BEC(45),new BEC(23)];
+
+        // ════════════════════════════════════════
+        // BRIDGE PRIME 14489 — Gravitational Envelope
+        // (Golden Tetrahedron, Result 5.4)
+        // ════════════════════════════════════════
+        const BRIDGE_PRIME = 14489;
+        const BRIDGE_COUPLING = [1/4, 1/2, 1/4]; // depth for {229, 181, 139}
+        // Modular residues: how 14489 lands in each orbit
+        const GRAV_MOD = [BRIDGE_PRIME % 57, BRIDGE_PRIME % 45, BRIDGE_PRIME % 23]; // [11, 44, 22]
+        // 14489 mod 138 = 137 = 1/α_EM (fine structure bridge)
+
+        // ════════════════════════════════════════
+        // GAUGE INTERACTION MATRIX M_{ij}
+        // (Golden Tetrahedron, §8.6)
+        // M_{ij} = ord(φ̄_{p_i} mod p_j) / (p_j - 1)
+        // ════════════════════════════════════════
+        const GAUGE_MATRIX = [
+          [1/4, 1/12, 1/3],  // SU(3): 57/228, 15/180, 46/138
+          [1/6, 1/2,  1/2],  // SU(2): 38/228, 90/180, 69/138
+          [1/6, 1/6,  1/6],  // U(1):  38/228, 30/180, 23/138
+        ];
+
+        // Running coupling at penultimate arc depth (§7.1)
+        // α_s(w-2) = w/(w-1) where w = arc width
+        const ALPHA_S = [19/18, 15/14, 23/22]; // for F₂₂₉, F₁₈₁, F₁₃₉
+
+        // ════════════════════════════════════════
+        // THERMAL ENVELOPE (VO₂/VN/N₂ layers)
+        // ════════════════════════════════════════
+        let temperature = 300; // Start at room temp (K)
+        const VO2_MIT = 341;   // Metal-insulator transition
+        const VN_TC = 8.5;     // VN superconducting Tc
+        const N2_BOIL = 77;    // N₂ boiling point
+
+        let time = 0;
+        const step = 4; // pixel step for performance
+
+        // ════════════════════════════════════════
+        // MODE-SUM WAVE FUNCTION
+        // ════════════════════════════════════════
+
+        // Compute Ψ_p(r, angle, t) for a single field
+        // Uses the actual golden orbit as frequencies
+        function fieldWave(fieldIdx, r, angle, t, numModes, lockwoodEnv) {
+          const freq = freqs[fieldIdx];
+          const kn = waveK[fieldIdx];
+          const amp = amps[fieldIdx];
+          const ord = ORDS[fieldIdx];
+          let re = 0, im = 0;
+
+          const nMax = Math.min(numModes, ord);
+          for (let n = 0; n < nMax; n++) {
+            const spatialPhase = kn[n] * r + n * angle;
+            // Lockwood-gated temporal phase
+            const temporalPhase = freq[n] * t * TWO_PI * lockwoodEnv;
+            const phase = spatialPhase - temporalPhase;
+            re += amp[n] * Math.cos(phase);
+            im += amp[n] * Math.sin(phase);
+          }
+          return { re, im, mag: Math.sqrt(re*re + im*im) };
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.016;
+            const W = canvas.width, H = canvas.height;
+            const tq = time + Math.sin(time * PHI) + Math.sin(time * Math.SQRT2);
+
+            // Strand cycling
+            const sp = Math.floor(tq / 1.9) % 3;
+
+            // Pump BECs with thermal gating
+            const tGate = temperature < VO2_MIT ? 1.0 : 0.0; // VO₂ MIT gate
+            const n2Cool = temperature < VO2_MIT ? (VO2_MIT - temperature) / VO2_MIT * 0.05 : 0;
+            const pe = 0.08*(1+0.4*Math.sin(time*TWO_PI/5.7)) * tGate;
+            const gp = [becs[0].pump(pe * ALPHA_S[0]), becs[1].pump(pe*0.8 * ALPHA_S[1]), becs[2].pump(pe*1.2 * ALPHA_S[2])];
+            // N₂ cooling: dampen excited modes
+            for(let s=0;s<3;s++) for(let j=1;j<becs[s].n;j++) becs[s].m[j] *= (1 - n2Cool);
+
+            // Temperature oscillation (simulated thermal cycle)
+            temperature = 300 + 40*Math.sin(time*0.3) - 20*Math.sin(time*0.7);
+
+            // Mayer-Vietoris parity: φⁿ·φ̄ⁿ ≡ (−1)ⁿ (§7.2)
+            const mvStep = Math.floor(time * 4) % 2;
+            const mvParity = (mvStep === 0) ? 1.0 : -1.0;
+
+            // Bridge prime gravitational coupling
+            const gravStrength = BRIDGE_COUPLING.map((c, s) =>
+              c * Math.sin(time * GRAV_MOD[s] / ORDS[s] * TWO_PI) * 0.15
+            );
+
+            // Lockwood chronometric envelope per field
+            const lockwoodEnv = PRIMES.map((p, s) => {
+              const omega_L = TWO_PI / Math.log(PRIMES[s] / PRIMES[(s+1)%3]);
+              const beta = Math.atan(3);
+              const mu = 1.0 / ORDS[s];
+              const logT = Math.log(Math.max(time, 0.01));
+              return Math.cos(omega_L * logT + beta + mu * Math.tanh(0.5 * Math.cos(omega_L * logT + beta)));
+            });
+
+            // Number of modes to sum (trade accuracy for performance)
+            // Active strand gets more modes
+            const modesPerField = [
+              sp===0 ? 19 : 7,  // F₂₂₉
+              sp===1 ? 15 : 5,  // F₁₈₁
+              sp===2 ? 23 : 5   // F₁₃₉: always use all if active (prime, indivisible)
+            ];
+
+            const imgData = ctx.createImageData(W, H);
+            const d = imgData.data;
+
+            // Half-orbit index for sign inversion visual
+            const halfIdx = Math.floor(ORDS[sp]/2);
+            const currentIdx = Math.floor(Math.abs(tq*2)) % ORDS[sp];
+            const atHalfOrbit = currentIdx === halfIdx;
+
+            for (let y = 0; y < H; y += step) {
+                for (let x = 0; x < W; x += step) {
+                    const u = x/W, v = y/H;
+                    const r = Math.sqrt((u-0.5)*(u-0.5)+(v-0.5)*(v-0.5)) * 2;
+                    const angle = Math.atan2(v-0.5, u-0.5);
+
+                    // Sum wave contributions — Lockwood-gated dispersion
+                    const w229 = fieldWave(0, r, angle, tq * 0.3, modesPerField[0], lockwoodEnv[0]);
+                    const w181 = fieldWave(1, r, angle, tq * 0.25, modesPerField[1], lockwoodEnv[1]);
+                    const w139 = fieldWave(2, r, angle, tq * 0.4, modesPerField[2], lockwoodEnv[2]);
+
+                    // Gauge interaction matrix weights (§8.6)
+                    // Active strand uses diagonal; others use off-diagonal coupling
+                    const weight = [
+                      sp===0 ? GAUGE_MATRIX[0][0] : GAUGE_MATRIX[0][sp],
+                      sp===1 ? GAUGE_MATRIX[1][1] : GAUGE_MATRIX[1][sp],
+                      sp===2 ? GAUGE_MATRIX[2][2] : GAUGE_MATRIX[2][sp]
+                    ];
+
+                    // Total field magnitude (physical: interference of all three)
+                    const totalRe = (w229.re*weight[0] + w181.re*weight[1] + w139.re*weight[2]) * mvParity;
+                    const totalIm = (w229.im*weight[0] + w181.im*weight[1] + w139.im*weight[2]) * mvParity;
+                    const totalMag = Math.sqrt(totalRe*totalRe + totalIm*totalIm);
+                    const phase = Math.atan2(totalIm, totalRe);
+
+                    // Cross-field bridge: 229 mod 181 = 48 (cube root embedding)
+                    // Normalized frequency: 48/(p₁-1) = 48/228 ≈ 0.2105
+                    const bridgeFreq = 48.0 / 228.0;
+                    const bridge = Math.sin(angle * bridgeFreq * TWO_PI * 6 + tq * bridgeFreq) * 0.04 * (1-r*0.3);
+
+                    // Color from phase angle (physically: encodes the wave's oscillation state)
+                    // Phase → hue rotation, magnitude → brightness
+                    const fade = Math.max(0, 1 - r * 0.5);
+                    const intensity = totalMag * 0.3 * fade;
+
+                    // F₂₂₉→Cyan, F₁₈₁→Rose, F₁₃₉→Gold (weighted by individual magnitudes)
+                    let cr = (w229.mag*weight[0]*0.1 + w181.mag*weight[1]*0.7 + w139.mag*weight[2]*0.6) * intensity;
+                    let cg = (w229.mag*weight[0]*0.6 + w181.mag*weight[1]*0.15 + w139.mag*weight[2]*0.5) * intensity;
+                    let cb = (w229.mag*weight[0]*0.9 + w181.mag*weight[1]*0.35 + w139.mag*weight[2]*0.05) * intensity;
+
+                    // Phase modulation (the wave's oscillation visible as color shimmer)
+                    const phaseMod = 0.5 + 0.5*Math.cos(phase);
+                    cr *= 0.7 + 0.3*phaseMod;
+                    cg *= 0.7 + 0.3*phaseMod;
+                    cb *= 0.7 + 0.3*phaseMod;
+
+                    // Bridge resonance
+                    cr += bridge * 0.4;
+                    cg += bridge * 0.2;
+                    cb += bridge * 0.1;
+
+                    // Gravitational coupling from 14489
+                    const gravPulse = gravStrength[sp] * (1 - r*0.3);
+                    cr += gravPulse * 0.3;
+                    cg += gravPulse * 0.5;
+                    cb += gravPulse * 0.2;
+
+                    // Sign inversion: nodal line appears at half-orbit
+                    if (atHalfOrbit) {
+                      const nodalLine = Math.abs(Math.sin(angle * ORDS[sp] * 0.5 + tq));
+                      if (nodalLine < 0.1) { cr = 1; cg = 1; cb = 1; } // White flash at node
+                    }
+
+                    for (let dy=0; dy<step && y+dy<H; dy++) {
+                        for (let dx=0; dx<step && x+dx<W; dx++) {
+                            const idx = ((y+dy)*W+(x+dx))*4;
+                            d[idx]   = Math.min(255, Math.max(0, cr*255))|0;
+                            d[idx+1] = Math.min(255, Math.max(0, cg*255))|0;
+                            d[idx+2] = Math.min(255, Math.max(0, cb*255))|0;
+                            d[idx+3] = 255;
+                        }
+                    }
+                }
+            }
+            ctx.putImageData(imgData, 0, 0);
+
+            // HUD
+            document.getElementById('strand').innerHTML = `<span style="color:${STRAND_CSS[sp]}">${STRAND_NAMES[sp]}</span>`;
+            document.getElementById('ground').textContent = `a₀=${gp[sp].toFixed(3)}`;
+            document.getElementById('bec').textContent = `${Math.round(gp[sp]*100)}%`;
+            document.getElementById('halforbit').textContent = atHalfOrbit ? 'SIGN FLIP ⚡' : `${currentIdx}/${halfIdx}`;
+            document.getElementById('halforbit').style.color = atHalfOrbit ? '#ff4466' : '#aaa';
+            document.getElementById('phase').textContent = `${orbits[sp][currentIdx]} mod ${PRIMES[sp]}`;
+            document.getElementById('temp').textContent = `${Math.round(temperature)}K ${temperature < VO2_MIT ? '(ins)' : '(met)'}`;
+            document.getElementById('temp').style.color = temperature < VO2_MIT ? '#44ff88' : '#ff4466';
+            document.getElementById('mv-parity').textContent = mvParity > 0 ? '+1' : '−1';
+            document.getElementById('mv-parity').style.color = mvParity > 0 ? '#44ff88' : '#ff4466';
+            document.getElementById('bridge').textContent = `${GRAV_MOD[sp]}/${ORDS[sp]}`;
+        }
+        animate();
+    </script></body></html>

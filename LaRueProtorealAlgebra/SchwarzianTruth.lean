@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.MonsterInverse
 import LaRueProtorealAlgebra.HyperbolicGeneralization
 import LaRueProtorealAlgebra.HodgeConjecture
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open ProtorealManifold
 open MonsterInverse

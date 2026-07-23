@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.MassGap
 import LaRueProtorealAlgebra.Invariance
 import LaRueProtorealAlgebra.IncompletenessSource
 import LaRueProtorealAlgebra.ZetaDirichlet
 import LaRueProtorealAlgebra.BitCollapse
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Yang-Mills Mass Gap: Multiple Proof Paths (𝕌)

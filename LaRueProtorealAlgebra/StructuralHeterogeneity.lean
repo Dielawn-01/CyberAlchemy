@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealGraph
 import LaRueProtorealAlgebra.EulerPerception
 import LaRueProtorealAlgebra.Uncomplex
 import LaRueProtorealAlgebra.LGKCosmology
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Structural Heterogeneity (𝕌)

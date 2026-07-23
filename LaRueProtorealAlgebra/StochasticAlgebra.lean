@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Analysis.SpecialFunctions.Exp
 import LaRueProtorealAlgebra.ProtorealMesh
 import LaRueProtorealAlgebra.Deriv
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Stochastic Protoreal Algebra (𝕌)

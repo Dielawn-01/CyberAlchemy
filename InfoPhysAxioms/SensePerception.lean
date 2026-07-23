@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -9,6 +10,9 @@ import InfoPhysAxioms.GoethePrimeHarmonics
 import InfoPhysAxioms.RussellDiagram
 import InfoPhysAxioms.CyberneticBiochemistry
 import InfoPhysAxioms.SoulResonance
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open ProtorealManifold
 open InfoPhysAxioms.SensoryGate

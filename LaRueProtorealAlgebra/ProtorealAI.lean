@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealHyperbolic
 import LaRueProtorealAlgebra.ProtorealNorm
 import LaRueProtorealAlgebra.ProtorealOperator
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Protoreal AI Foundations (𝕌)

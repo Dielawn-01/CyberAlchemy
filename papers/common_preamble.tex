@@ -73,7 +73,7 @@
 \definecolor{warmgray}{RGB}{88,85,80}
 
 % Legacy aliases (backward compatibility)
-\definecolor{metareal}{RGB}{25,42,86}
+\definecolor{arithmetic scheme}{RGB}{25,42,86}
 \definecolor{derivative}{RGB}{128,0,128}
 \definecolor{gauge3}{RGB}{34,100,54}
 
@@ -148,8 +148,8 @@
   toptitle=4pt, bottomtitle=3pt,
 }
 
-% Metareal box — deep blue left bar (structural analogies, scope notes)
-\newtcolorbox{metarealbox}[1]{
+% arithmetic scheme box — deep blue left bar (structural analogies, scope notes)
+\newtcolorbox{arithmetic schemebox}[1]{
   enhanced,
   sharp corners,
   colback=deepblue!4!white,
@@ -276,8 +276,10 @@
 \makeatletter
 \@ifclassloaded{book}{
   \newtheorem{theorem}{Theorem}[chapter]
+  \numberwithin{equation}{chapter}
 }{
   \newtheorem{theorem}{Theorem}[section]
+  \numberwithin{equation}{section}
 }
 \makeatother
 \newtheorem{lemma}[theorem]{Lemma}

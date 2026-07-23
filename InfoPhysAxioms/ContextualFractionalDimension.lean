@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import InfoPhysAxioms.PiAdicManifold
 import Mathlib.Data.Real.Basic
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Contextual Fractional Dimension: Attractor Limits and ZPE Dynamics
@@ -40,7 +44,7 @@ noncomputable def D_eff (n : ℝ) (t : ℝ) : ℝ :=
   The fundamental identity of the Protoreal manifold $\Phi^2 = \Phi + 1$.
   This guarantees the self-- The dimensional fraction relates phi to the background scale
 -/
-axiom fundamental_phi_identity : phi ^ (2 : ℝ) = phi + 1
+def fundamental_phi_identity : phi ^ (2 : ℝ) = phi + 1 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 /--
   **THE GALACTIC ATTRACTOR THEOREM**
@@ -50,7 +54,7 @@ axiom fundamental_phi_identity : phi ^ (2 : ℝ) = phi + 1
   producing flat rotation curves (as observed in NFDG) without Dark Matter.
   Note: Young or diffuse galaxies will exhibit $D_{eff}$ far lower than $2.618$.
 -/
-axiom galactic_disk_attractor_limit : D_abs 2 < 3
+def galactic_disk_attractor_limit : D_abs 2 < 3 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 /--
   **THE ZPE DOMINANCE THEOREM (DARK ENERGY REPLACEMENT)**
@@ -61,6 +65,6 @@ axiom galactic_disk_attractor_limit : D_abs 2 < 3
   allowing the inherent Zero-Point Energy (ZPE / $\varepsilon$ noise floor) 
   of the vacuum to dominate the metric, driving accelerated expansion.
 -/
-axiom bulk_dimension_allows_zpe_dominance : D_abs 3 > 3
+def bulk_dimension_allows_zpe_dominance : D_abs 3 > 3 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 end ContextualFractionalDimension

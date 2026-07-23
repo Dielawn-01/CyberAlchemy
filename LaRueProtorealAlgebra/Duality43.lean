@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Linarith
 import LaRueProtorealAlgebra.CyberBundle
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open LaRueProtorealAlgebra.CyberBundle
 

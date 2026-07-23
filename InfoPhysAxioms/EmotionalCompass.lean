@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
 import LaRueProtorealAlgebra.KamaTrain
 import LaRueProtorealAlgebra.SpectralFiber
 import InfoPhysAxioms.PlasmaConjectures
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Emotional Compass & Behavioral Sheaves (𝕌)

@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -6,6 +7,9 @@ import LaRueProtorealAlgebra.KamaTrain
 import LaRueProtorealAlgebra.MonsterInverse
 import InfoPhysAxioms.Infochemistry
 import InfoPhysAxioms.DiamondOpal
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Crystal Growth: Organic Synthesis of the Integrated Diamond (𝕌)

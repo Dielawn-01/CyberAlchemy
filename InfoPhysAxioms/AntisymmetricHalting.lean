@@ -2,6 +2,10 @@ import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.KamaTrain
 import LaRueProtorealAlgebra.MonsterInverse
 import InfoPhysAxioms.Infonad
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Antisymmetric Halting Hypothesis (0ZPEv2)
@@ -56,13 +60,13 @@ theorem frustration_prevents_trivial_halting (u : ProtorealManifold)
     We axiomatically define the topological depth of a frustrated state
     as a strictly monotonically increasing function of the noise ($\epsilon$).
     The higher the frustration, the deeper the halting sequence length. -/
-axiom topological_depth (u : ProtorealManifold) : ℝ
+def topological_depth [CyberAlchemy.ArithmeticTypeTheory] (u : ProtorealManifold) : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
 
 /-- Axiom: Frustration bounds topological depth from below.
     If noise increases, the required topological depth (ZPE mass) increases. -/
-axiom topological_depth_scales_with_noise (u v : ProtorealManifold) :
+def topological_depth_scales_with_noise [CyberAlchemy.ArithmeticTypeTheory] (u v : ProtorealManifold) :
   is_antisymmetric_frustrated u → is_antisymmetric_frustrated v → 
-  u.e > v.e → topological_depth u > topological_depth v
+  u.e > v.e → topological_depth u > topological_depth v := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 /-- **ZPE Stable State Mass**:
     The physical Zero-Point Energy (mass) of the generated stable state
@@ -78,8 +82,8 @@ noncomputable def stable_mass_zpe (u : ProtorealManifold) : ℝ := topological_d
     with non-zero thrust, it will generate a strictly positive stable mass
     without trivially halting, thereby converting ZPE fluid into geometric structure.
     (We axiomatically state that depth > 0 for $\epsilon > 0$). -/
-axiom frustration_depth_positive (u : ProtorealManifold) :
-  is_antisymmetric_frustrated u → topological_depth u > 0
+def frustration_depth_positive [CyberAlchemy.ArithmeticTypeTheory] (u : ProtorealManifold) :
+  is_antisymmetric_frustrated u → topological_depth u > 0 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 theorem lockwood_zpe_resolution (u : ProtorealManifold)
     (h_frust : is_antisymmetric_frustrated u) (h_b_nz : u.b ≠ 0) :

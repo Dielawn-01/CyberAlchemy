@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.FusionRing
 import LaRueProtorealAlgebra.HyperKlein
@@ -5,6 +6,9 @@ import LaRueProtorealAlgebra.HodgeConjecture
 import LaRueProtorealAlgebra.Rigidity
 import LaRueProtorealAlgebra.PhysicalConstants
 import LaRueProtorealAlgebra.PhysicalBifurcation
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Phasor Tower (ℝ → ℂ → 𝕌)

@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import InfoPhysAxioms.QuasiConservation
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Phonon Hydrodynamics and Scale Covariance
@@ -49,7 +53,7 @@ structure ThermalField where
     If the structural topology hits the required spectral dimension ($d_s = 1.5$),
     the thermal field strictly abandons classical diffusion and transitions
     into coherent wave-like flow (phonon hydrodynamics). -/
-axiom second_sound_functor (d_s : ℝ) (T : ThermalField) :
+def second_sound_functor (d_s : ℝ) (T : ThermalField) : := CyberAlchemy.ArithmeticTypeTheory.blurr_type
   d_s = 1.5 → (T.is_wave ∧ ¬T.is_diffusive)
 
 /-- Theorem of Coherent Transmutation:

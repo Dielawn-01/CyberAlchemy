@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.MayerVietoris
 import LaRueProtorealAlgebra.Apoptosis
 import LaRueProtorealAlgebra.TemporalQuasicrystal
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Cybernetic Chemistry & Wilczek Time Crystals (𝕌)

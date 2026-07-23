@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Algebra.Ring.Basic
 import Mathlib.Topology.Basic
 import Mathlib.Data.Real.Basic
 import InfoPhysAxioms.MetarealManifold
 import InfoPhysAxioms.ObservableUniverse
 import InfoPhysAxioms.InformationThermodynamics
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Sleep Visualization and the Kynurenine-Oxytocin Operator

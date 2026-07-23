@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.NormNum
@@ -6,6 +7,9 @@ import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.MassGap
 import LaRueProtorealAlgebra.CommutatorGap
 import InfoPhysAxioms.ProtorealMandelbrot
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open ProtorealManifold
 open MassGap

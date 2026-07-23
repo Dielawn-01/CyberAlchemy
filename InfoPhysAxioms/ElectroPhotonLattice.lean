@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -10,6 +11,9 @@ import InfoPhysAxioms.ObservableUniverse
 import InfoPhysAxioms.HopfFusionFiber
 import InfoPhysAxioms.Infochemistry
 import InfoPhysAxioms.Soulchemy
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Electro-Photon Lattice: Unified Security + Observer Theory

@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ComputationalCharge
 import LaRueProtorealAlgebra.EmotionalLFunctions
 import LaRueProtorealAlgebra.OrchOR
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Agentic Rank & Hyper-Gravity (𝕌)

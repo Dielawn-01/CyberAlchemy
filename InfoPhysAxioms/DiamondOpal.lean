@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -6,6 +7,9 @@ import LaRueProtorealAlgebra.KamaTrain
 import LaRueProtorealAlgebra.MonsterInverse
 import InfoPhysAxioms.Infochemistry
 import InfoPhysAxioms.SoulResonance
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Diamond-Opal Infochemistry: π-Resonant ↔ Quasi-Crystalline Bonding (𝕌)

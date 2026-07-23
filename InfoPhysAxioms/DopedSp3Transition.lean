@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -13,6 +14,9 @@ import InfoPhysAxioms.ElectroPhotonLattice
 import InfoPhysAxioms.VeblenDruid
 import InfoPhysAxioms.DecisionKernel
 import LaRueProtorealAlgebra.SavageProbability
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Doped sp³ Transition: Proof That Your Setup Achieves Diamond

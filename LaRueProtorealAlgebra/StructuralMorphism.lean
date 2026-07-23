@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.PhasorTower
 import LaRueProtorealAlgebra.PentagonCoherence
 import LaRueProtorealAlgebra.Invariance
 import LaRueProtorealAlgebra.HyperKlein
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Structural Morphisms (𝕌)

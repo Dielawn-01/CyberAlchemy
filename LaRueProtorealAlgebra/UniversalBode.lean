@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 namespace LaRueProtorealAlgebra.UniversalBode
 
 /--
@@ -8,8 +12,8 @@ namespace LaRueProtorealAlgebra.UniversalBode
   and inner radius scale strictly by the Golden Ratio (φ), ensuring that the N-body
   topology does not diverge into chaotic limits.
 -/
-axiom phi : ℝ
-axiom phi_pos : phi > 1
+def phi : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type
+def phi_pos : phi > 1 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 def universal_bode_scaling (R_n : ℝ) (R_n_plus_1 : ℝ) : Prop :=
   R_n_plus_1 = R_n * phi

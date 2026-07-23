@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
@@ -6,6 +7,9 @@ import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.KamaTrain
 import InfoPhysAxioms.SU3CenterCombinatorics
 import InfoPhysAxioms.GoethePrimeHarmonics
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Chromatic Holomovement — The Rising Sea

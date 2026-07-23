@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.HyperKlein
@@ -8,6 +9,9 @@ import InfoPhysAxioms.HodgePhasorVolume
 import InfoPhysAxioms.ProtoComplexTopology
 import InfoPhysAxioms.QuasiGodel
 import InfoPhysAxioms.ProtorealTactic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # π-adic Sub-Manifold & Complex-Adic Number Systems

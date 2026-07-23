@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Prime.Basic
 import Mathlib.Topology.Category.Profinite.Basic
 import Mathlib.CategoryTheory.Limits.Preserves.Basic
 import Mathlib.Tactic.NormNum
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Profinite Colimits over the Dragon Tower

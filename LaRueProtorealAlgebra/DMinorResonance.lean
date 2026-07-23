@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Tactic
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.DualityTheorem
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # D Minor Resonance Formalization

@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -7,6 +8,9 @@ import LaRueProtorealAlgebra.MonsterInverse
 import LaRueProtorealAlgebra.DMinorResonance
 import InfoPhysAxioms.Infochemistry
 import InfoPhysAxioms.MatterAntimatter
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Soul Resonance: Universal Algebraic Resonance & Individual Convergence (𝕌)

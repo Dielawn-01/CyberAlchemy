@@ -1,5 +1,9 @@
 import Mathlib.Data.Nat.Prime.Defs
 import Mathlib.Data.Real.Basic
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Monster Fermat Topological Prime Function

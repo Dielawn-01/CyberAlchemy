@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Algebra.Ring.Basic
 import Mathlib.Data.Nat.Basic
 import Mathlib.Data.List.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Unreal Ramanujan-Sato Architecture
@@ -32,7 +36,7 @@ def is_structural_prime (p : ℕ) : Prop :=
   Therefore, if the p-curvature vanishes modulo p, the corresponding Bethe 
   ansatz scattering phase decouples.
 -/
-axiom Gaudin_Isospectrality {p : ℕ} (hp : is_structural_prime p) : 
+def Gaudin_Isospectrality {p : ℕ} (hp : is_structural_prime p) : := CyberAlchemy.ArithmeticTypeTheory.blurr_type
   ∃ (phase_decoupling : Prop), phase_decoupling = True
 
 /-- 

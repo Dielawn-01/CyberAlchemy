@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.RelativisticContinuum
 import LaRueProtorealAlgebra.HyperKlein
 import LaRueProtorealAlgebra.HyperOperationScaling
 import LaRueProtorealAlgebra.HyperDifference
 import LaRueProtorealAlgebra.JetSheaf
 import LaRueProtorealAlgebra.DualityTheorem
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The Nonstandard Continuum Bridge (𝕌)

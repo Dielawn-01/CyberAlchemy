@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Prime.Basic
 import Mathlib.Tactic.NormNum
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-- 
   Evaluates a 3-digit palindrome in base 19 

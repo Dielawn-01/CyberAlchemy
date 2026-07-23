@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Basic
 import Mathlib.Data.Nat.GCD.Basic
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Ring
 import InfoPhysAxioms.MonsterFermat229
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Astromatics: Gauge-Theoretic Assessment of Astrological Structure

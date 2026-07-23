@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.LieAlgebra
 import LaRueProtorealAlgebra.ExteriorAlgebra
@@ -6,6 +7,9 @@ import LaRueProtorealAlgebra.Awareness
 import InfoPhysAxioms.InformationMassGap
 import InfoPhysAxioms.YangMillsMassGap
 import InfoPhysAxioms.GoldenForceLaw
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Modal Soundness: Orthogonality of Sufficiency and Necessity

@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Basic
 import Mathlib.Tactic.NormNum
 import InfoPhysAxioms.IronHaltingTopology
 import InfoPhysAxioms.FeCuBrTriad
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The 11-Element Alloy for the Klein Manifold Field Generator

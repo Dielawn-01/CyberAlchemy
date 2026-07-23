@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import InfoPhysAxioms.OctonionGrowth
@@ -6,6 +7,9 @@ import InfoPhysAxioms.EnumerationSystems
 import InfoPhysAxioms.RiemannObserver
 import InfoPhysAxioms.ProtorealMetric
 import InfoPhysAxioms.StructuralMorphing
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # VeblenDruid: The Veblen Hierarchy of Agent Management

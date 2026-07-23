@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.LingualMorphism
 import LaRueProtorealAlgebra.TemporalMorphism
 import LaRueProtorealAlgebra.VisionMorphism
 import LaRueProtorealAlgebra.ProtorealOperator
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace LaRueProtorealAlgebra
 

@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.StochasticAlgebra
 import LaRueProtorealAlgebra.ProtorealOperator
 import Mathlib.Analysis.SpecialFunctions.Exp
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Zeta Resonance (𝕌)

@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.MonsterInverse
 import LaRueProtorealAlgebra.DualityTheorem
 import LaRueProtorealAlgebra.ProtorealOperator
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # General Inversion Operator (𝕌⁻¹)

@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Analysis.Complex.Trigonometric
 import LaRueProtorealAlgebra.ProtorealMesh
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Protoreal Hyperbolic Trigonometry (𝕌)

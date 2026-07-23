@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.CategoryTheory.Category.Basic
 import Mathlib.CategoryTheory.Functor.Basic
 import Mathlib.Topology.Basic
 import InfoPhysAxioms.MetaRealTopos
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The Discrete-Continuous Functor
@@ -29,7 +33,7 @@ open CategoryTheory
   The singular fundamental physical axiom of the entire Principia Psychedelia.
   The non-associative topological gap cannot be closed. 
 -/
-axiom metareal_incompleteness : ∀ (manifold : Type), ∃ (gap : ℝ), gap = -1
+def metareal_incompleteness : ∀ (manifold : Type), ∃ (gap : ℝ), gap = -1 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 /-- 
   The Discrete Gauge Skeleton Category ($\FF_{229}, \FF_{181}, \FF_{139}$) 

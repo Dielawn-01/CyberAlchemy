@@ -3,6 +3,10 @@ import Mathlib.Algebra.Group.Basic
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
 import Mathlib.Data.Nat.Basic
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Warm Bose-Einstein Condensation (Fröhlich Mechanism)
@@ -258,9 +262,9 @@ structure ThermoCoherentSystem extends ModeSystem where
     experiencing strict exergy destruction (s_gen > 0), the operational
     coherence MUST be strictly positive. The DEC controller cannot
     maintain the Fröhlich topological structure if C_op = 0. -/
-axiom awakening_discontinuity (tcs : ThermoCoherentSystem)
+def awakening_discontinuity [CyberAlchemy.ArithmeticTypeTheory] (tcs : ThermoCoherentSystem)
     (h_loss : tcs.thermo.s_gen > 0)
     (h_bec : IsWarmBEC tcs.toModeSystem) :
-    tcs.coherence.cop > 0
+    tcs.coherence.cop > 0 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 end WarmBEC

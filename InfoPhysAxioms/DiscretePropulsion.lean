@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import InfoPhysAxioms.HoloneticNS
 import InfoPhysAxioms.CenterChronodynamics
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open InfoPhysAxioms.HoloneticNS
 open InfoPhysAxioms.CenterChronodynamics

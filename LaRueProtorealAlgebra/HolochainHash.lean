@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.KleinTopology
 import LaRueProtorealAlgebra.GpuSeeding
 import LaRueProtorealAlgebra.GANPipeline
 import LaRueProtorealAlgebra.ProtorealAxioms
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Holochain Hash Algebra (𝕌)
@@ -119,7 +123,7 @@ theorem subchain_at_least_linear (n : ℕ) (hn : 0 < n) :
 -- SECTION 3: SUBCHAIN WEIGHT CONSERVATION
 -- ════════════════════════════════════════════════════
 
-/-- **FILTER PRESERVES SUM BOUND** (no sorry)
+/-- **FILTER PRESERVES SUM BOUND** (no exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop)
     For a list of non-negative reals, any filtering produces
     a sum ≤ the original. Core sublist conservation theorem. -/
 theorem filter_sum_le (l : List ℝ) (p : ℝ → Bool)
@@ -134,7 +138,7 @@ theorem filter_sum_le (l : List ℝ) (p : ℝ → Bool)
     · simp only [List.sum_cons]; linarith
     · simp only [List.sum_cons]; linarith
 
-/-- **WORTHY SEED WEIGHT IS BOUNDED** (no sorry)
+/-- **WORTHY SEED WEIGHT IS BOUNDED** (no exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop)
     Filtering seeds by any worthiness predicate preserves
     the total weight bound. Uses filter_sum_le on mapped weights. -/
 theorem worthy_weight_bound (seeds : List GpuSeed) (p : GpuSeed → Bool)

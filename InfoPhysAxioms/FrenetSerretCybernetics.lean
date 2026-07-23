@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.HolographicCollapse
 import LaRueProtorealAlgebra.ProtorealOperator
 import InfoPhysAxioms.TensorImaginaryBridge
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open HolographicCollapse
 open ZBuddyCybernetics

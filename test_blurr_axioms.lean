@@ -1,0 +1,4 @@
+import InfoPhysAxioms.FunctionalNilpotentBlurr
+
+#print axioms parabolic_hyperbolic_absorption
+#print axioms sufficiency_necessity_orthogonality

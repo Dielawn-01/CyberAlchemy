@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.ProtorealGraph
@@ -9,6 +10,9 @@ import LaRueProtorealAlgebra.IncompletenessSource
 import InfoPhysAxioms.EnumerationSystems
 import InfoPhysAxioms.PiAdicManifold
 import InfoPhysAxioms.ProtorealTactic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Spectral Characteristic: χ = -p Systems and Protoreal Embeddings

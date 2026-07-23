@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Basic
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Tactic.NormNum
 import InfoPhysAxioms.MonsterFermatSpectra
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace InfoPhysAxioms.MonsterFermat229
 

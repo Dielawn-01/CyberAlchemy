@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.FusionRing
 import LaRueProtorealAlgebra.PentagonCoherence
 import LaRueProtorealAlgebra.MonsterInverse
 import LaRueProtorealAlgebra.Invariance
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The Klein Hyperoperation Tower (𝕌)

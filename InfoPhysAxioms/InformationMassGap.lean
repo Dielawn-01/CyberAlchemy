@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
@@ -5,6 +6,9 @@ import Mathlib.Tactic.Ring
 import LaRueProtorealAlgebra.ProtorealManifold
 import InfoPhysAxioms.YangMillsMassGap
 import InfoPhysAxioms.GoldenForceLaw
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Information-Theoretic Mass Gap

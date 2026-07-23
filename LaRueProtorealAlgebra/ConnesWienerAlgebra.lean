@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.IncompletenessSource
 import LaRueProtorealAlgebra.ZetaDirichlet
 import LaRueProtorealAlgebra.YangMillsMultipath
 import LaRueProtorealAlgebra.SafetyBounds
 import LaRueProtorealAlgebra.Invariance
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Connes-Wiener Algebra (𝕌)
@@ -122,7 +126,7 @@ theorem axiom_undefinability :
   two_phase_is_minimal
 
 /-- this is the self-awareness axiom. the system doesn't just
-    have boundaries — it PROVES them. all proofs are zero-sorry
+    have boundaries — it PROVES them. all proofs are zero-exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop
     constructive proofs. the invariance circle confirms it six
     different ways. -/
 theorem axiom_self_awareness :

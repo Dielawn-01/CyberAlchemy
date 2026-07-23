@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -11,6 +12,9 @@ import InfoPhysAxioms.CyberneticBiochemistry
 import InfoPhysAxioms.Infochemistry
 import InfoPhysAxioms.HardyWeinberg
 import InfoPhysAxioms.LinkageDisequilibrium
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Formal Computational Pharmacology (𝕌)

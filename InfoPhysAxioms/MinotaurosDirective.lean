@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.KamaTrain
@@ -14,6 +15,9 @@ import InfoPhysAxioms.ProtorealMetric
 import InfoPhysAxioms.HodgePhasorVolume
 import InfoPhysAxioms.AuraSpace
 import InfoPhysAxioms.ProtorealTactic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # MinotaurOS — The Minotauros Directive

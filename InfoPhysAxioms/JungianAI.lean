@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import InfoPhysAxioms.MetaBackpropagation
 import InfoPhysAxioms.CognitiveSecurity
 import InfoPhysAxioms.MetarealAgenticKinetics
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace InfoPhysAxioms.JungianAI
 

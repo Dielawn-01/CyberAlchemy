@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Tactic.NormNum
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.GoldenSubgroup
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The Golden Algebra Theorem

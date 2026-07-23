@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Tactic
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.DualityTheorem
 import LaRueProtorealAlgebra.Biconditionality
 import LaRueProtorealAlgebra.MonsterInverse
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The Elementary Riemann Synthesis

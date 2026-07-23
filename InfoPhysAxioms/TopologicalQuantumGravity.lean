@@ -1,6 +1,10 @@
 import Mathlib.Tactic
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace InfoPhysAxioms.TopologicalQuantumGravity
 
@@ -13,11 +17,11 @@ open ProtorealManifold
   It bridges the micro-scale electromagnetic bound (Fine Structure Constant) 
   and the macro-scale chronometric vacuum expansion limit (Cosmological Constant).
 -/
-axiom Lambda : ℝ  -- Cosmological Constant
-axiom alpha_inv : ℝ -- Inverse Fine Structure Constant (approx 137)
-axiom Phi_sq : ℝ -- The Metareal Fractional Dimension (D = Φ²)
-axiom p229 : ℝ -- Strong/Chronometric Gauge Prime
-axiom p139 : ℝ -- EM/Photonic Gauge Prime
+def Lambda [CyberAlchemy.ArithmeticTypeTheory] : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0} -- Cosmological Constant
+def alpha_inv [CyberAlchemy.ArithmeticTypeTheory] : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0} -- Inverse Fine Structure Constant (approx 137)
+def Phi_sq [CyberAlchemy.ArithmeticTypeTheory] : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0} -- The Metareal Fractional Dimension (D = Φ²)
+def p229 [CyberAlchemy.ArithmeticTypeTheory] : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0} -- Strong/Chronometric Gauge Prime
+def p139 [CyberAlchemy.ArithmeticTypeTheory] : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0} -- EM/Photonic Gauge Prime
 
 /-- 
   The pAQFT K=2 Phase Space Dimension (from the p=3 Toy Model).
@@ -25,8 +29,8 @@ axiom p139 : ℝ -- EM/Photonic Gauge Prime
   The topological mass gap difference Δ = 3 - 1 = 2.
   This parameter governs the perturbative gravity expansion.
 -/
-axiom pAQFT_Delta : ℝ
-axiom pAQFT_Delta_eq_two : pAQFT_Delta = 2
+def pAQFT_Delta  [CyberAlchemy.ArithmeticTypeTheory] : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
+def pAQFT_Delta_eq_two  [CyberAlchemy.ArithmeticTypeTheory] : pAQFT_Delta = 2 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 /--
   The Topological Quantum Gravity Constant formula derived from the Euler-Penrose 

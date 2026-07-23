@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.SchwarzianTruth
 import LaRueProtorealAlgebra.GlialDopant
@@ -5,6 +6,9 @@ import LaRueProtorealAlgebra.InfotonThermodynamics
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.PhysicalConstants
 import LaRueProtorealAlgebra.PhysicalBifurcation
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Orchestrated Objective Reduction (Orch-OR)

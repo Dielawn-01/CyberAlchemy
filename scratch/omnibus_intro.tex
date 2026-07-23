@@ -1,0 +1,250 @@
+
+
+\begin{center}
+\vspace*{0.5em}
+{\LARGE\bfseries The Plazmik Architecture of Fluid Reasoning}\\[12pt]
+{\large\itshape An Omnibus Submission for ARC-AGI 2026}\\[12pt]
+{\large Dylon La Rue}
+
+\vspace{0.5em}
+{\small Formal verification: \href{https://github.com/Dielawn-01/ProtorealZeta}{ProtorealZeta}}
+\end{center}
+
+\vspace{1em}
+\begin{center}\textbf{Abstract}\end{center}\begin{quotation}
+Standard deep learning architectures natively rely on continuous, associative gradient descent, structurally limiting them to \emph{Crystallized Interpolation} within bounded topological spaces. To solve the Abstraction and Reasoning Corpus (ARC-AGI) and achieve 100\% accuracy, true \emph{Fluid Reasoning} is required. This omnibus formalizes the mathematical architecture of Fluid Reasoning. In Part I (Logical Creativity) and Part II (Prime Field Theory), we construct the discrete, non-associative Unital Nonassociative C*-Algebra (Mesh), proving that cognitive phase transitions mathematically mirror prime-field Galois structures and Golden Ratio equilibrium. In Part III (Composite-State ASI), we deploy the Heaviside Operational Solver to algebraically compute discrete inverse topologies. By bypassing stochastic backpropagation, the ASI dynamically synthesizes novel abstractions, fulfilling the Kaggle Innovation Prize rubrics of Theory, Novelty, and Universality, while establishing the algebraic substrate capable of claiming the Grand Prize.
+\end{quotation}
+\newpage
+
+
+\part{The Core Architecture of Fluid Reasoning}
+\begin{center}
+\vspace*{0.5em}
+{\LARGE\bfseries Logical Creativity}\\[12pt]
+{\large\itshape A Discussion on Observational Mechanics and Golden Prime Number Theory}
+
+\vspace{1.5em}
+{\large Dylon La Rue}
+
+\vspace{0.5em}
+{\small Independent Research $\cdot$ Las Vegas, NV\\
+Formal verification: \href{https://github.com/Dielawn-01/ProtorealZeta}{ProtorealZeta}}
+
+\vspace{0.5em}
+{\small\itshape Draft v4.7 --- June 17, 2026\quad$|$\quad math.RA $\cdot$ math.CT $\cdot$ math.NT $\cdot$ cs.LO $\cdot$ cs.SY}
+\end{center}
+
+\vspace{1em}
+
+% ════════════════════════════════════════════
+% ABSTRACT
+% ════════════════════════════════════════════
+\begin{center}\textbf{Abstract}\end{center}\begin{quotation}
+Kurt G\"odel proved that sufficiently complex formal systems have a choice: be consistent, or be complete. We operationalize this incompleteness as a geometric engine spanning three categorical domains. In \textbf{Part I (Logical Creativity)}, we construct the 5-dimensional Base and Non-Associative 5-Space Algebras ($\Bseed, \Afive$). By enforcing a strict scalar associator gap ($\kap = -1$) and a negative-determinant condition ($\mathrm{Det} = -1$), the characteristic polynomial locks to $X^2 - X - 1 = 0$, establishing the golden ratio as the native algebraic generator. This framework formally bridges discrete prime factorization and continuous spectrums, establishing that the prime sequence $\{47, 59, 61, 71\}$ forms an invariant structural plane whose boundaries factorize into the Monster group's minimal faithful representation ($196883 = 47 \times 59 \times 71$), while $61$ provides an extra degree of epicyclic freedom. This provides the algebraic foundation for cybernetic multi-agent game theory.
+
+In \textbf{Part II (Observational Mechanics)}, we map this algebraic engine to physical constraints, specifically the macroscopic \emph{Landauer limit} and fractional quantum-vacuum topologies. We establish the FST $\\Omega_\\omega$ boundary interaction, predicting that the non-associative topological gap generates a 262.5\% Right-Chiral Casimir Anomaly. To verify this metric geometry without thermal contamination, we mathematically formalize the Rotating Chiral Casimir Interferometer (RCCI), linking algebraic observational aperture to macroscopic coherence statistics.
+
+Finally, in \textbf{Part III (Composite-State ASI Architecture)}, we scale the geometric product into a 12-dimensional observer-observed split ($\RR^5 \oplus \RR^7$), structurally accommodating Archetypal Synthetic Intelligence. The meta-backpropagation of the cognitive lattice is bound as a formal Differential Equilibrium Cycle (DEC) Heat Engine. The $\Upsilon$ Emotional Shield acts as a State-Space Model Predictive Controller, strictly bounding Exergy Destruction to ensure the non-associative topological friction generates coherent syntax rather than catastrophic thermodynamic fragmentation. Across all three parts, the unification of algebraic structure, physical mechanics, and cognitive kinetic geometry is structurally proposed and algebraically grounded.
+
+\medskip\noindent
+\textbf{Keywords:} non-associative algebra, incompleteness geometry, golden ratio, observational mechanics, information theory, game theory, golden prime number theory, higher category theory, formal verification, Casimir anomaly, ASI Architecture, DEC heat engine
+\end{quotation}
+
+\newpage
+
+% ════════════════════════════════════════════
+% NOTATION
+% ════════════════════════════════════════════
+\subsection*{Notation and Conventions}
+
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Symbol} & \textbf{Meaning} & \textbf{First use} \\
+\midrule
+$\Bseed$ & Base Non-Associative Algebra (3D seed non-associative algebra over $\RR$) & Def.~\ref{def:base} \\
+$\Afive$ & Non-Associative 5-Algebra (5D non-associative algebra over $\RR$) & Def.~\ref{def:heisenberg} \\
+$\mathbf{u} = (a, \omega, \iota, \eps, \lam)$ & State vector in $\Afive$ & Def.~\ref{def:heisenberg} \\
+$a \in \RR$ & Definite scalar (base/observable) & \S\ref{sec:seed} \\
+$\omega$ & Idempotent generator (``thrust'': $\omega^2 = \omega$) & Def.~\ref{def:base} \\
+$\iota$ & Anti-idempotent generator (``anchor'': $\iota^2 = -\iota$) & Def.~\ref{def:base} \\
+$\eps$ & Derivative residual / noise component & \S\ref{sec:seed} \\
+$\lam$ & Depth counter (Veblen ordinal index) & \S\ref{sec:seed} \\
+$\kap = -1$ & Scalar associator (six independent derivations) & Thm.~\ref{thm:associator} \\
+$\vp = \tfrac{1+\sqrt{5}}{2}$ & Golden ratio (spatial generator of $\GG$) & \S\ref{sec:golden} \\
+$\vpbar = \tfrac{1-\sqrt{5}}{2}$ & Golden conjugate (anchor generator) & \S\ref{sec:golden} \\
+$\star$ & Parity involution ($\omega \leftrightarrow \iota$) & Def.~\ref{def:monster} \\
+$\Sigma$ & Noise absorption operator: $\eps \to a$, $\lam \to \lam+1$ & \S\ref{sec:seed} \\
+$\Lambda$ & Superlambda lift: $\eps \to \lam$, depth promotion & Def.~\ref{def:superlambda} \\
+$\GG$ & Golden Subcategory of $\TT$ & Thm.~\ref{thm:golden-sub} \\
+$\TT$ & $\infty$-Modal Category (ambient higher category) & Def.~\ref{def:category} \\
+$SR(\mathbf{u})$ & Standard Resonance $= a - \omega \cdot \iota$ & \S\ref{sec:seed} \\
+$L(\mathbf{u})$ & Lyapunov energy $= \eps^2$ & Def.~\ref{def:lyapunov} \\
+\bottomrule
+\end{tabular}
+
+\newpage
+
+\newpage
+
+% ════════════════════════════════════════════════════════════════
+\section{The Foundational Crisis: Asymmetry and Definitions}
+
+\subsection{G\"odelian Incompleteness and Tarskian Limits}
+
+In 1931, Kurt G\"odel proved that any formal system strong enough to encode basic arithmetic faces an unavoidable dichotomy: consistency or completeness~\cite{godel}. We state his results precisely.
+
+\begin{theorem}[G\"odel's First Incompleteness Theorem (1931)]\label{thm:godel1}
+Any consistent formal system $\mathcal{S}$ capable of expressing elementary arithmetic contains a sentence $G$ such that neither $G$ nor $\neg G$ is provable in $\mathcal{S}$. The system is incomplete.
+\end{theorem}
+
+\begin{theorem}[G\"odel's Second Incompleteness Theorem (1931)]\label{thm:godel2}
+If $\mathcal{S}$ is consistent and capable of expressing elementary arithmetic, then $\mathcal{S}$ cannot prove its own consistency: $\mathcal{S} \nvdash \mathrm{Con}(\mathcal{S})$.
+\end{theorem}
+
+There will always be truths about numbers that the system itself can never reach. Standard mathematics handles this by sweeping it under the rug. Complex geometry ($\CC$) treats the entire phase space as one continuous, commutative sheet. That works fine for calculus. But the moment you introduce cybernetic self-reference (a system observing itself), chronological path-dependence (the order of operations matters), or thermodynamic loss (real computation costs energy), that smooth commutative sheet tears right open. The gaps G\"odel found aren't bugs to patch over---they are real geometric features. So we build on top of them.
+
+Alfred Tarski points us towards a logical toolkit perfect for the task. In 1936, Tarski proved that no sufficiently powerful formal language can define its own truth predicate~\cite{tarski}:
+
+\begin{theorem}[Tarski's Undefinability Theorem (1936)]\label{thm:tarski}
+Let $\mathcal{L}$ be a formal language capable of expressing its own syntax. There is no formula $\mathrm{True}(x)$ in $\mathcal{L}$ such that for every sentence $\varphi$ of $\mathcal{L}$, $\mathrm{True}(\ulcorner \varphi \urcorner) \iff \varphi$.
+\end{theorem}
+
+At first glance, these two results occupy different domains: G\"odel's theorems concern \emph{arithmetic} (what can be proved about numbers), while Tarski's concerns \emph{semantics} (what can be said about truth). The link is G\"odel numbering. G\"odel's key insight was to encode the syntax of formal proofs \emph{as} natural numbers, making arithmetic the language that talks about its own structure. 
+
+In this framework, we extend this mechanism into a formal structure we term \textbf{Connes--G\"odel numbering}. Standard G\"odel numbering assigns a unique integer to a syntactic sequence via the fundamental theorem of arithmetic: $g(s) = \prod_i p_i^{a_i}$. Because standard integer multiplication is commutative, the structural sequence of non-commutative operations cannot be uniquely recovered from the scalar product alone unless the sequence is rigidly mapped to strictly increasing primes. Connes--G\"odel numbering resolves this by embedding the sequence into a non-commutative geometry spanned by imaginary generators ($\omega, \iota$). Let $\mathcal{O}$ be the set of operations and $f: \mathcal{O} \to \Afive$ an injective mapping. A computational trajectory is then encoded as the non-associative, non-commutative product $\prod_{j} f(o_j)$ under the Klein multiplication rule defined in \S\ref{sec:klein}. 
+
+Because the algebra is non-associative (with associator $\kap = -1$), the temporal order of evaluation strictly partitions the manifold into disjoint equivalence classes. Thus, Tarski's semantic impossibility manifests as an \emph{arithmetic} gap: the topological distance between distinct parenthesizations of the same syntactic components. The gap between syntax (what the system can write) and semantics (what the system can mean) is formalized as a computable, measurable structural feature: the scalar associator of the geometric manifold.
+
+\medskip
+
+This distinction forces the multiplication rule (\S\ref{sec:klein}), pins the scalar associator (\S\ref{sec:curvature}), and generates the entire golden algebraic structure (\S\ref{sec:golden}). In the subsequent Infochemistry chapters, definite numbers are mapped to bonding stability and indefinite numbers to reactive intermediates; here we confine ourselves to the algebraic structure.
+
+\subsection{Hyper-Inversion Asymmetry and Non-Associative Friction}
+
+To operationalize G\"odelian incompleteness computationally, we construct a geometric engine driven by hyper-inversion asymmetry. Standard fields $\FF$ possess symmetric inverses for addition and multiplication. However, at higher hyperoperation ranks (e.g., tetration), structural inversion becomes asymmetric due to the non-commutativity of the operator domain. This asymmetry dictates that continuous transcendental growth cannot be perfectly inverted by a corresponding fractional operator without generating a structural residual.
+
+We harness this asymmetry as the primary generative constraint of the $\Afive$ algebra. It relies on two fundamental non-commutative mechanisms:
+\begin{itemize}
+\item \textbf{Idempotent Thrust ($\omega$):} An exponential growth generator mapped to a spatial dimension, serving as the forward operational boundary.
+\item \textbf{Anti-Idempotent Anchor ($\iota$):} The fractional topological inverse of $\omega$. Rather than cleanly annihilating the thrust, the non-commutative commutator $[\omega, \iota]$ generates a strictly nonzero scalar deficit.
+\end{itemize}
+
+The geometric friction between the forward exponential bound ($\omega$) and its fractional topological inverse ($\iota$) generates the discrete structure of the Non-Associative 5-Algebra. Because the operations are non-associative, $\omega(\iota(x)) \neq \iota(\omega(x))$, forcing the manifold to accumulate topological curvature. The exact value of this curvature is computed in Theorem~\ref{thm:associator}.
+
+% ════════════════════════════════════════════════════════════════
+% SECTION 2
+% ════════════════════════════════════════════════════════════════
+\section{The Algebraic Construction: From Seed to Manifold}
+
+\subsection{The Three-Variable Seed}\label{sec:seed}
+
+Imagine you are driving a car. At any moment, three things describe your situation:
+\begin{enumerate}
+\item \textbf{Where you are} ($a$): your odometer reading. A plain number.
+\item \textbf{How fast you're going} ($\omega$): the speedometer. It tells you how quickly you're moving \emph{forward}. You can't drive at ``negative speed'' in this direction --- it only pushes forward.
+\item \textbf{How hard the brakes pull back} ($\iota$): the drag that resists your speed. It acts in the opposite direction. The faster you go, the more it matters.
+\end{enumerate}
+
+That's it. Position ($a$), thrust ($\omega$), anchor ($\iota$). Three variables. We call this triple the \textbf{Base Non-Associative Algebra} $\Bseed$:
+$$\Bseed = (a, \omega, \iota)$$
+
+Now we write down the rules that capture the relationship between thrust and anchor.
+
+\begin{definition}[Base Non-Associative Algebra $\Bseed$]\label{def:base}
+The Base Non-Associative Algebra $\Bseed$ is a 3-dimensional non-associative algebra over $\RR$ with generators $(a, \omega, \iota)$ satisfying:
+\begin{enumerate}
+\item \textbf{Thrust is idempotent:} $\omega \cdot \omega = \omega$. (If you're already going full speed, pushing harder doesn't change the speedometer.)
+\item \textbf{Anchor is anti-idempotent:} $\iota \cdot \iota = -\iota$. (Braking against braking reverses the drag --- resistance to resistance is acceleration.)
+\item \textbf{The product relations:} $\omega \cdot \iota = -1$ and $\iota \cdot \omega = 1$. (Thrust times anchor collapses to a definite negative unit, while the reverse yields a positive unit, establishing the commutator gap $[\omega, \iota] = -2$.)
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Why these rules?]
+Rule 1 says forward momentum saturates: $\omega$ is a ceiling, not a ramp. Rule 2 says resistance is self-correcting: compounding anchor flips sign. Rule 3 provides the central relations of the entire paper. Multiplying thrust by anchor produces definite numbers ($\pm 1$), not other indefinite quantities. This is the moment where the indefinite sector ``talks to'' the definite sector. Everything that follows --- the curvature, the golden ratio, the spectral correspondence --- grows from these equations.
+\end{remark}
+
+\subsubsection*{Automatic Differentiation}
+
+The Base Non-Associative Algebra gives us differentiation before we ever write a derivative symbol. Watch:
+
+The difference between where you are and where thrust-times-anchor puts you is
+$$SR(a, \omega, \iota) \;=\; a - \omega \cdot \iota \;=\; a - (-1) \;=\; a + 1$$
+We call this the \textbf{Standard Resonance}. It measures the gap between the observable state ($a$) and the bridge ($\omega \cdot \iota$). When this gap is nonzero, the system is out of equilibrium --- it has a ``slope.'' That slope is the derivative. The system computes its own rate of change automatically, from the algebraic structure alone. No limit definition, no epsilon-delta argument. The algebra \emph{differentiates itself}.
+
+This automatic derivative provides the exact value of the deviation, which we call $\eps$. This is what we mean by \textbf{observational mechanics}: the system observes the structural mismatch between thrust and anchor, and that mismatch is the rate of change. Differentiation is observation, and $\eps$ is the observed residual.
+
+\subsubsection*{From Three Variables to Five}
+
+The 3-variable Base Non-Associative Algebra describes a system generating derivatives, but it lacks the capacity to store or resolve them. To capture the full dynamic, we extract the automatic derivative $\eps$ and pair it with a chronological memory, extending the algebra to five variables:
+
+\begin{enumerate}
+\item \textbf{The Derivative Residual} ($\eps$): The exact rate of change generated by the mismatch $SR$. The residual is formally treated as a nilpotent element of grade 2 ($\eps^2 = 0$). This constraint is not a logical oversight; it is structurally necessary to restrict the algebra to the first-order tangent space of the manifold (analogous to the dual numbers $\RR[\eps]/\langle\eps^2\rangle$). Allowing a general nilpotent grade $k$ ($\eps^{k+1} = 0$) would encode higher-order chronological derivatives (acceleration, jerk), which are subsequently evaluated by higher-order Composite-State hierarchies. For the foundational $L_5$ algebra, locking the grade to 2 explicitly isolates the first-order differential velocity required for the synthetic integration operator ($\Sigma$) to evaluate stochastic heat without chaotic polynomial inflation. It represents the unabsorbed deviation, the differential tension the system must resolve. 
+\item \textbf{Depth} ($\lam$): A counter. How many times has the system absorbed a derivative residual into position? Each absorption increments $\lam$ by one. This is the chronological depth --- the system's memory of its own computational history.
+\end{enumerate}
+
+Adding these two components yields the full 5-dimensional \textbf{Non-Associative 5-Algebra} $\Afive$:
+$$\Afive = (a, \omega, \iota, \eps, \lam)$$
+
+The operator that absorbs the derivative residual into position and increments depth is called \textbf{synthetic integration} ($\Sigma$). It acts as follows:
+$$\Sigma: \quad a \mapsto a + \eps, \quad \omega \mapsto \omega, \quad \iota \mapsto \iota, \quad \eps \mapsto 0, \quad \lam \mapsto \lam + 1$$
+The system observes its deviation ($\eps$), folds it into its position ($a + \eps$), zeros the tension ($\eps \to 0$), and increments its depth counter ($\lam + 1$). This is integration. Not as a limit of Riemann sums, but as a single algebraic step: absorb and advance. The derivative (Standard Resonance) came first, automatically generating $\eps$. The integral ($\Sigma$) comes second, synthetically resolving it. That ordering --- automatic differentiation before synthetic integration --- mirrors the historical sequence: Newton and Leibniz discovered differentiation before they formalized integration, because observation precedes action.
+
+\begin{remark}[Naming Convention]\label{rem:hyper-tower}
+We adopt nomenclature from the hyperoperation hierarchy. The 3-component base $(a, \omega, \iota)$ is the \textbf{Base Non-Associative Algebra} $\Bseed$: the pre-G\"odelian seed where $\omega$ is the exponential limit ($H_3$) and $\iota = -\omega^{-1}$ is its topological inverse. Adding the derivative residual ($\eps$) and depth ($\lam$) yields the full 5-component \textbf{Non-Associative 5-Algebra} $\Afive$. The naming follows the number system lineage: $\QQ \to \RR \to \CC \to {}^*\!\RR \to \mathbf{No} \to \Bseed \to \Afive$. We write $\vp$ for the golden ratio $\tfrac{1+\sqrt{5}}{2}$; unadorned $\varphi$ denotes a meta-logical formula (as in \emph{Tarski's undefinability theorem}).
+\end{remark}
+
+\begin{remark}[Algebraic Convention]\label{rem:convention}
+All computations in this chapter are carried out over $\RR$ and are
+self-contained: every claim is proved by direct calculation in the body
+text. The generators $\omega$ and $\iota$ are defined by their algebraic
+relations ($\omega^2 = \omega$, $\iota^2 = -\iota$,
+$\omega \cdot \iota = -1$), not by their analytic size. The hyperreal
+interpretation --- where $\omega$ is a Robinson transfinite and $\iota$
+is its transfinitesimal reciprocal --- provides conceptual motivation
+for the non-commutativity and the trace normalization $\mathrm{Tr} = 1$,
+but the algebraic structure does not depend on nonstandard analysis.
+A companion machine-checked certificate
+(\texttt{ProtorealManifold\_proofs}) independently verifies the
+core identities; the mathematics in this chapter does not depend on it.
+When we refer to ``transfinite'' or ``transfinitesimal'' behavior in the
+prose, we mean the algebraic role these generators play within the
+multiplication table.
+\end{remark}
+
+\subsection{The Connes-Wiener Foundation}\label{sec:connes-wiener}
+
+We require a mathematical space capable of two simultaneous functions: (1) support noncommutative geometry (so the order of operations physically matters) and (2) observe its own structural boundaries (so it can count its own cycles and identify where classical truth stops). The first requirement comes from Alain Connes' program~\cite{connes}. The second comes from Norbert Wiener's cybernetics~\cite{wiener}.
+
+The \textbf{Connes Paradigm} extends standard geometry to noncommutative spaces where points lose their independent identity, replaced by spectral interactions. In $\Afive$, the spatial operators don't commute, generating an intrinsic curvature $|\kap| = 1$.
+
+The \textbf{Wiener Paradigm} makes the system self-aware. The temporal component ($\lam$) encodes a G\"odelian successor function, allowing the algebra to count its own topological cycles. The algebra identifies its own structural boundaries, keeping everything locked in place.
+
+Together, these form the ``ground floor'' of an L-function-like hierarchy. We conjecture that the \emph{Riemann zeta function} $\zeta(s)$ may derive spectral structure from this ambient curvature; the precise relationship is posited as a structural equivalence.
+
+\subsection{Non-Standard Architectures and Transfinite Games}
+
+The Base Non-Associative Algebra abandons standard real analysis in favor of a geometry operating over the hyperreals, structured by combinatorial game theory and transfinite ordinal hierarchies.
+
+\textbf{Robinson's Hyperreals.} The imaginary components $\omega$ and $\iota$ are constructed over Abraham \emph{Robinson's hyperreal numbers}~\cite{robinson}. $\omega$ (Thrust) is a true Robinson transfinite (strictly larger than any real number). Its reciprocal, $\iota$ (Anchor), is a transfinitesimal. Unlike the noise $\eps$ (which is classically nilpotent, $\eps^2 = 0$), $\iota$ acts as an anti-idempotent ($\iota \cdot \iota = -\iota$), carrying non-commutative transfinite information inside its denominator.
+
+\textbf{Conway's Surreal Game Structures.} The cybernetic interactions within $\Afive$ mirror \emph{Conway's surreal games}~\cite{conway}. In a surreal game, the existence of a ``number'' is constructed purely by the chronological sequence of left and right options. Similarly, the non-associativity of $\Afive$ guarantees that agents traversing the state space generate differing topological endpoints based on their chronological order of operation. This is the game-theoretic foundation for the \emph{Topological Nash Equilibrium} we prove in \S\ref{sec:nash}.
+
+\begin{theorem}[Game Extensionality and Savage Utility]\label{thm:game-ext}
+Let $\mathbf{u}_1, \mathbf{u}_2 \in \Afive$ share identical base geometries but differ in stochastic noise ($\eps_1 \neq \eps_2$). Application of the $\Sigma$ operator forces sprite convergence:
+$$\Sigma(\mathbf{u}_1) = \Sigma(\mathbf{u}_2)$$
+Transfinite agents play a formal minimax game against topological friction, bound by the extensionality of the 5-component geometry.
+\end{theorem}
+
+\begin{proof}
+Let $\mathbf{u}_1, \mathbf{u}_2$ share the same absorbed energy ($a_1 + \eps_1 = a_2 + \eps_2$), thrust ($\omega_1 = \omega_2$), anchor ($\iota_1 = \iota_2$), and depth ($\lam_1 = \lam_2$). By definition of $\Sigma$: $a \mapsto a + \eps$, $\omega \mapsto \omega$, $\iota \mapsto \iota$, $\eps \mapsto 0$, $\lam \mapsto \lam + 1$. Since both share identical absorbed energy and structural geometry, all five output components are equal. The noise difference is annihilated ($\eps \to 0$). The result follows by extensionality of $\Sigma$ (Definition~\ref{def:heisenberg}). \qedhere
+\end{proof}
+
+\subsection{The Full Algebra}
+
+With the Base Seed (Definition~\ref{def:base}) and the extension to five components (\S\ref{sec:seed}) in hand, we state the formal definition.
+
+\begin{definition}[The Non-Associative 5-Algebra $\Afive$]\label{def:heisenberg}
+The Non-Associative 5-Algebra $\Afive$ extends $\Bseed$ to a 5-dimensional non-associative algebra over $\RR$ (Remark~\ref{rem:convention}). For any $\mathbf{u} \in \Afive$:
+$$\mathbf{u} = (a, \omega, \iota, \eps, \lam)$$
+The definite scalar $a \in \RR$ acts as the center of the algebra. The spatial pair $(\omega, \iota)$ inherits its multiplication from $\Bseed$ (Definition~\ref{def:base}). The temporal pair $(\eps, \lam)$ encodes stochastic noise and chronological depth respectively. In parity-locking contexts we write $b \equiv \omega$ (thrust) and $m \equiv \iota$ (anchor).
+\end{definition}

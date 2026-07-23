@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.InfinityModalTopos
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 /-!
 # The 5D Decision Science: Exactness and Decidability
 

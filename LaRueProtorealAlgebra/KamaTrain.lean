@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.MonsterInverse
 import LaRueProtorealAlgebra.GlialDopant
 import LaRueProtorealAlgebra.SafetyBounds
 import LaRueProtorealAlgebra.TranscendentalBasis
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Kama Muta Training Transform (𝕌)

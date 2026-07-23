@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Ring
@@ -8,6 +9,9 @@ import InfoPhysAxioms.MetarealManifold
 import InfoPhysAxioms.NetworkSharding
 import InfoPhysAxioms.PostQuantumSecurity
 import InfoPhysAxioms.HopfFusionFiber
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Aingel: The ZKP Holochain Envelope over the Metareal Manifold

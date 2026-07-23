@@ -1,0 +1,361 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Combined Topology Overlap — Golden Tetrahedron</title>
+    <style>body{margin:0;overflow:hidden;background:#000;color:#fff;font-family:'Courier New',monospace;}
+    #info{position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.85);padding:15px 18px;border:1px solid rgba(255,255,255,0.15);z-index:100;line-height:1.7;border-radius:6px;backdrop-filter:blur(10px);font-size:12px;max-width:340px;}
+    #info h3{margin:0 0 8px 0;color:#00ffcc;font-size:14px;letter-spacing:1px;}
+    .s229{color:#00CCFF;font-weight:bold} .s181{color:#FF6688;font-weight:bold} .s139{color:#FFD700;font-weight:bold}
+    .label{color:#888} .val{font-weight:bold;color:#ccc}
+    #bec-bar{height:4px;background:#333;border-radius:2px;margin-top:6px}
+    #bec-fill{height:100%;background:#00ffcc;border-radius:2px;transition:width 0.3s}
+    </style></head>
+    <body><div id="info">
+        <h3>Golden Tetrahedron — Triple Helix</h3>
+        <span class="label">Strand:</span> <span id="strand-name" class="val">—</span><br/>
+        <span class="label">BEC Ground:</span> <span id="bec-val" class="val">—</span>
+        <div id="bec-bar"><div id="bec-fill" style="width:50%"></div></div>
+        <span class="label">Coset:</span> <span id="coset-val" class="val">—</span> |
+        <span class="label">φ̄ⁿ mod p:</span> <span id="state-val" class="val">—</span><br/>
+        <span class="label">Parity:</span> <span id="parity-val" class="val">+1</span> |
+        <span class="label">Plasma:</span> <span id="plasma-count" class="val">—</span><br/>
+        <span class="label">Casimir Overlap:</span> <span class="val" style="color:#ff8800">1.2845 (p=3)</span><br/>
+        <span class="label">Lattice Tension:</span> <span id="tension-val" class="val">—</span>
+    </div>
+    <script type="importmap">{"imports": {"three": "https://unpkg.com/three@0.158.0/build/three.module.js", "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"}}</script>
+    <script src="opal_atomic_data.js"></script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // ════════════════════════════════════════
+        // GOLDEN TETRAHEDRON CONSTANTS
+        // ════════════════════════════════════════
+        const P1=229,P2=181,P3=139;
+        const PHIBAR_229=82,PHIBAR_181=14,PHIBAR_139=64;
+        const ORD_229=57,ORD_181=45,ORD_139=23;
+        const PHI=(1+Math.sqrt(5))/2;
+        const TWO_PI=Math.PI*2;
+
+        function buildOrbit(base,prime,len){
+          const o=[];let v=1;
+          for(let n=0;n<len;n++){o.push(v);v=(v*base)%prime;}
+          return o;
+        }
+        const orbit229=buildOrbit(PHIBAR_229,P1,ORD_229);
+        const orbit181=buildOrbit(PHIBAR_181,P2,ORD_181);
+        const orbit139=buildOrbit(PHIBAR_139,P3,ORD_139);
+        const orbits=[orbit229,orbit181,orbit139];
+        const ords=[ORD_229,ORD_181,ORD_139];
+        const primes=[P1,P2,P3];
+
+        const STRAND_NAMES=['F₂₂₉ (anchor)','F₁₈₁ (depth)','F₁₃₉ (projection)'];
+        const STRAND_CSS=['#00CCFF','#FF6688','#FFD700'];
+
+        // ════════════════════════════════════════
+        // FRÖHLICH BEC CASCADE (per strand)
+        // ════════════════════════════════════════
+        class BEC {
+          constructor(n){this.modes=new Float64Array(n);this.modes[0]=1;this.n=n;this.chi=0.35;}
+          pump(e){
+            for(let j=1;j<this.n;j++)this.modes[j]+=e/this.n;
+            // Fröhlich 1968: spontaneous (χ·n_k) + stimulated (χ·n_k·n_j)
+            for(let j=this.n-1;j>0;j--){
+              const flow=Math.min(this.chi*this.modes[j]*(1+this.modes[j-1]),this.modes[j]*0.5);
+              this.modes[j]-=flow;this.modes[j-1]+=flow;
+            }
+            return this.modes[0];
+          }
+        }
+        const bec229=new BEC(ORD_229);
+        const bec181=new BEC(ORD_181);
+        const bec139=new BEC(ORD_139);
+        const becs=[bec229,bec181,bec139];
+
+        // Bridge prime 14489 — Gravitational envelope (GT Result 5.4)
+        const BRIDGE = 14489;
+        const BRIDGE_DEPTH = [1/4, 1/2, 1/4]; // symmetric coupling to {229, 181, 139}
+        const GRAV_MOD = [BRIDGE % ORD_229, BRIDGE % ORD_181, BRIDGE % ORD_139]; // [11, 44, 22]
+
+        // Gauge interaction matrix M_{ij} (GT §8.6)
+        const GAUGE_M = [
+          [1/4, 1/12, 1/3],  // SU(3)
+          [1/6, 1/2,  1/2],  // SU(2)
+          [1/6, 1/6,  1/6],  // U(1)
+        ];
+
+        // Thermal envelope
+        let sysTemp = 300;
+        const VO2_MIT = 341;
+
+        // ════════════════════════════════════════
+        // SCENE SETUP
+        // ════════════════════════════════════════
+        const atoms = window.opal_atoms || [];
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x030308, 0.004);
+        const camera = new THREE.PerspectiveCamera(55, innerWidth/innerHeight, 0.1, 1000);
+        camera.position.set(50, 35, 60);
+        const renderer = new THREE.WebGLRenderer({antialias:true});
+        renderer.setSize(innerWidth, innerHeight);
+        renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.2;
+        document.body.appendChild(renderer.domElement);
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // Lighting — three field-colored lights
+        scene.add(new THREE.AmbientLight(0x1a1a2e, 0.4));
+        const light229 = new THREE.PointLight(0x00CCFF, 2.0, 150);
+        light229.position.set(30, 50, 30); scene.add(light229);
+        const light181 = new THREE.PointLight(0xFF6688, 1.5, 120);
+        light181.position.set(-30, 20, -20); scene.add(light181);
+        const light139 = new THREE.PointLight(0xFFD700, 1.0, 100);
+        light139.position.set(0, -10, 40); scene.add(light139);
+
+        // ════════════════════════════════════════
+        // LATTICE ATOMS (from opal_atomic_data.js)
+        // ════════════════════════════════════════
+        const group = new THREE.Group();
+        const strandMats = [
+          new THREE.MeshPhysicalMaterial({color:0x00CCFF, emissive:0x004466, emissiveIntensity:0.3, metalness:0.85, roughness:0.15, transparent:true, opacity:0.9}),
+          new THREE.MeshPhysicalMaterial({color:0xFF6688, emissive:0x662233, emissiveIntensity:0.3, metalness:0.85, roughness:0.15, transparent:true, opacity:0.9}),
+          new THREE.MeshPhysicalMaterial({color:0xFFD700, emissive:0x664400, emissiveIntensity:0.3, metalness:0.85, roughness:0.15, transparent:true, opacity:0.9}),
+        ];
+        const geo = new THREE.SphereGeometry(0.25, 8, 8);
+
+        // Store initial positions for animation
+        const meshes = [];
+        const initPos = [];
+        const N = atoms.length;
+        for(let i=0; i<N; i++){
+          const a = atoms[i];
+          const sIdx = (a.macro_id - 1) % 3; // assign to strand by macro
+          const mat = strandMats[sIdx].clone();
+          const m = new THREE.Mesh(geo, mat);
+          m.position.set(a.x, a.y, a.z);
+          m.userData = {strand: sIdx, baseX: a.x, baseY: a.y, baseZ: a.z, orbitIdx: i % ords[sIdx]};
+          group.add(m);
+          meshes.push(m);
+          initPos.push({x:a.x, y:a.y, z:a.z});
+        }
+        scene.add(group);
+
+        // Compute lattice center for rotation
+        let cx=0,cy=0,cz=0;
+        for(const p of initPos){cx+=p.x;cy+=p.y;cz+=p.z;}
+        cx/=N; cy/=N; cz/=N;
+
+        // ════════════════════════════════════════
+        // PLASMA CLOUD (GPU particles)
+        // ════════════════════════════════════════
+        const PLASMA_COUNT = 2000;
+        const plasmaGeo = new THREE.BufferGeometry();
+        const plasmaPos = new Float32Array(PLASMA_COUNT * 3);
+        const plasmaCol = new Float32Array(PLASMA_COUNT * 3);
+        const plasmaSizes = new Float32Array(PLASMA_COUNT);
+        const plasmaVel = new Float32Array(PLASMA_COUNT * 3);
+        const plasmaPhase = new Float32Array(PLASMA_COUNT);
+
+        // Distribute in a shell around the lattice center
+        const shellR = 35;
+        for(let i=0; i<PLASMA_COUNT; i++){
+          const theta = Math.random() * TWO_PI;
+          const phi2 = Math.acos(2*Math.random()-1);
+          const r = shellR * (0.6 + 0.4*Math.random());
+          plasmaPos[i*3]   = cx + r*Math.sin(phi2)*Math.cos(theta);
+          plasmaPos[i*3+1] = cy + r*Math.sin(phi2)*Math.sin(theta);
+          plasmaPos[i*3+2] = cz + r*Math.cos(phi2);
+          plasmaVel[i*3]   = (Math.random()-0.5)*0.3;
+          plasmaVel[i*3+1] = (Math.random()-0.5)*0.3;
+          plasmaVel[i*3+2] = (Math.random()-0.5)*0.3;
+          plasmaPhase[i] = Math.random() * TWO_PI;
+          plasmaSizes[i] = 0.3 + Math.random() * 0.5;
+        }
+        plasmaGeo.setAttribute('position', new THREE.BufferAttribute(plasmaPos, 3));
+        plasmaGeo.setAttribute('color', new THREE.BufferAttribute(plasmaCol, 3));
+        plasmaGeo.setAttribute('size', new THREE.BufferAttribute(plasmaSizes, 1));
+
+        const plasmaMat = new THREE.PointsMaterial({
+          size: 0.4, transparent: true, opacity: 0.35,
+          vertexColors: true, blending: THREE.AdditiveBlending,
+          depthWrite: false, sizeAttenuation: true
+        });
+        const plasmaCloud = new THREE.Points(plasmaGeo, plasmaMat);
+        scene.add(plasmaCloud);
+
+        // Sign-inversion flash ring
+        const flashGeo = new THREE.RingGeometry(shellR*0.8, shellR*0.85, 64);
+        const flashMat = new THREE.MeshBasicMaterial({color:0xFFFFFF, transparent:true, opacity:0, side:THREE.DoubleSide});
+        const flashRing = new THREE.Mesh(flashGeo, flashMat);
+        flashRing.position.set(cx, cy, cz);
+        scene.add(flashRing);
+
+        // Strand colors as THREE.Color for plasma
+        const sColors = [new THREE.Color(0x00CCFF), new THREE.Color(0xFF6688), new THREE.Color(0xFFD700)];
+
+        // ════════════════════════════════════════
+        // ANIMATION
+        // ════════════════════════════════════════
+        let time = 0;
+        let flashTimer = 0;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            time += 0.016;
+
+            const tq = time + Math.sin(time*PHI) + Math.sin(time*Math.SQRT2);
+
+            // Which strand dominates?
+            const strandPhase = Math.floor(tq / 1.9) % 3;
+
+            // Orbit state for dominant strand
+            const idx = Math.floor(Math.abs(tq*2)) % ords[strandPhase];
+            const state = orbits[strandPhase][idx];
+            const coset = strandPhase === 2 ? 0 : Math.floor(idx / (ords[strandPhase]/3));
+            const parity = idx % 2 === 0 ? 1 : -1;
+
+            // Pump BECs with thermal gating and running coupling
+            const tGate = sysTemp < VO2_MIT ? 1.0 : 0.0;
+            const pumpE = 0.08*(1+0.4*Math.sin(time*TWO_PI/5.7)) * tGate;
+            const gp = [bec229.pump(pumpE), bec181.pump(pumpE*0.8), bec139.pump(pumpE*1.2)];
+
+            // Temperature oscillation
+            sysTemp = 300 + 40*Math.sin(time*0.3) - 20*Math.sin(time*0.7);
+
+            // Mayer-Vietoris parity: φⁿ·φ̄ⁿ ≡ (−1)ⁿ (GT §7.2)
+            const mvStep = Math.floor(time * 4) % 2;
+            const mvParity = (mvStep === 0) ? 1.0 : -1.0;
+
+            // Bridge prime gravitational coupling
+            const gravPull = BRIDGE_DEPTH.map((c, s) =>
+              c * Math.sin(time * GRAV_MOD[s] / ords[s] * TWO_PI) * 0.12
+            );
+
+            // Sign inversion: φ^ord(φ̄) ≡ -1 (mod p) at full orbit boundary
+            // (GT §4: "half-order involution" — ord(φ) = 2·ord(φ̄))
+            const atSignInversion = (idx === ords[strandPhase] - 1);
+            if(atSignInversion) flashTimer = 1.0;
+            flashTimer = Math.max(0, flashTimer - 0.03);
+            flashMat.opacity = flashTimer * 0.6;
+            flashRing.rotation.x = time * 0.1;
+            flashRing.rotation.y = time * 0.07;
+
+            // Golden twist rate for helix rotation
+            const twistRate = TWO_PI / PHI;
+            const helixAngle = time * 0.15 * twistRate;
+
+            // ── ANIMATE ATOMS ──
+            for(let i=0; i<N; i++){
+              const m = meshes[i];
+              const s = m.userData.strand;
+              const bx = m.userData.baseX - cx;
+              const by = m.userData.baseY - cy;
+              const bz = m.userData.baseZ - cz;
+
+              // Helix rotation around Y axis
+              const cosA = Math.cos(helixAngle);
+              const sinA = Math.sin(helixAngle);
+              const rx = bx*cosA - bz*sinA;
+              const rz = bx*sinA + bz*cosA;
+
+              // BEC breathing: radius pulses with ground-state population
+              const breathScale = 1.0 + 0.08 * (gp[s] - 0.5) * Math.sin(time * ords[s] * 0.1 + i*0.01);
+              m.position.x = cx + rx * breathScale;
+              m.position.y = cy + by * breathScale;
+              m.position.z = cz + rz * breathScale;
+
+              // Strand glow
+              const isActive = (s === strandPhase);
+              m.material.emissiveIntensity = isActive ? 0.8 + 0.4*Math.sin(time*4) : 0.1;
+              m.material.opacity = isActive ? 0.95 : 0.4;
+
+              // Gravitational breathing from 14489
+              const gravBreath = gravPull[s] * 0.5;
+              m.position.x += (m.position.x - cx) * gravBreath * mvParity;
+              m.position.z += (m.position.z - cz) * gravBreath * mvParity;
+
+              // Scale by BEC ground state
+              const baseScale = isActive ? 1.2 : 0.8;
+              m.scale.setScalar(baseScale + 0.15*gp[s]*Math.sin(time*3+i*0.1));
+            }
+
+            // ── ANIMATE PLASMA CLOUD ──
+            const activeColor = sColors[strandPhase];
+            for(let i=0; i<PLASMA_COUNT; i++){
+              const i3 = i*3;
+              // Orbital motion around lattice center
+              const px = plasmaPos[i3] - cx;
+              const py = plasmaPos[i3+1] - cy;
+              const pz = plasmaPos[i3+2] - cz;
+              const dist = Math.sqrt(px*px + py*py + pz*pz);
+
+              // Golden-ratio orbital velocity (inner = faster)
+              const orbSpeed = 0.3 / (1 + dist*0.02);
+              const cosO = Math.cos(orbSpeed * 0.016);
+              const sinO = Math.sin(orbSpeed * 0.016);
+              plasmaPos[i3]   = cx + px*cosO - pz*sinO;
+              plasmaPos[i3+2] = cz + px*sinO + pz*cosO;
+
+              // BEC-driven radial breathing
+              const breathAmp = gp[strandPhase] * 0.15;
+              const breathFreq = ords[strandPhase] * 0.05;
+              const radialPulse = breathAmp * Math.sin(time*breathFreq + plasmaPhase[i]);
+              const norm = dist > 0.01 ? 1/dist : 0;
+              plasmaPos[i3]   += px*norm*radialPulse;
+              plasmaPos[i3+1] += py*norm*radialPulse;
+              plasmaPos[i3+2] += pz*norm*radialPulse;
+
+              // Color: blend toward active strand
+              const blendRate = 0.03;
+              plasmaCol[i3]   += (activeColor.r - plasmaCol[i3]) * blendRate;
+              plasmaCol[i3+1] += (activeColor.g - plasmaCol[i3+1]) * blendRate;
+              plasmaCol[i3+2] += (activeColor.b - plasmaCol[i3+2]) * blendRate;
+
+              // Flash boost on sign inversion
+              if(flashTimer > 0.5){
+                plasmaCol[i3]   = Math.min(1, plasmaCol[i3]+0.3);
+                plasmaCol[i3+1] = Math.min(1, plasmaCol[i3+1]+0.3);
+                plasmaCol[i3+2] = Math.min(1, plasmaCol[i3+2]+0.3);
+              }
+            }
+            plasmaGeo.attributes.position.needsUpdate = true;
+            plasmaGeo.attributes.color.needsUpdate = true;
+
+            // Animate lights
+            light229.intensity = strandPhase===0 ? 3.0 : 1.2;
+            light181.intensity = strandPhase===1 ? 2.5 : 0.8;
+            light139.intensity = strandPhase===2 ? 2.0 : 0.6;
+            light229.position.x = 30*Math.cos(time*0.2);
+            light181.position.z = -20*Math.sin(time*0.15);
+
+            // Fog color follows strand
+            const fogHex = [0x030812, 0x0a0308, 0x080803][strandPhase];
+            scene.fog.color.setHex(fogHex);
+            renderer.setClearColor(fogHex);
+
+            // HUD
+            document.getElementById('strand-name').innerHTML = `<span style="color:${STRAND_CSS[strandPhase]}">${STRAND_NAMES[strandPhase]}</span>`;
+            document.getElementById('bec-val').textContent = `${Math.round(gp[strandPhase]*100)}%`;
+            document.getElementById('bec-fill').style.width = `${Math.round(gp[strandPhase]*100)}%`;
+            document.getElementById('bec-fill').style.background = STRAND_CSS[strandPhase];
+            document.getElementById('coset-val').textContent = strandPhase===2 ? 'PRIME' : coset;
+            document.getElementById('state-val').textContent = state;
+            document.getElementById('parity-val').textContent = parity > 0 ? '+1' : '-1';
+            document.getElementById('parity-val').style.color = parity > 0 ? '#44ff88' : '#ff4466';
+            document.getElementById('plasma-count').textContent = PLASMA_COUNT;
+            
+            // Triple-Helix Field Mechanics (Lattice Tension Dissipation)
+            const tensions = ["0.6416 (Stable: Vanadium)", "0.0505 (Stable: Silicon)", "0.0017 (Stable: Gold)"];
+            document.getElementById('tension-val').textContent = tensions[strandPhase];
+            document.getElementById('tension-val').style.color = STRAND_CSS[strandPhase];
+
+            renderer.render(scene, camera);
+        }
+        animate();
+        window.addEventListener('resize', () => {
+            camera.aspect = innerWidth/innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(innerWidth, innerHeight);
+        });
+    </script></body></html>

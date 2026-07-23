@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Prime.Basic
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Chromatic Invariants: Part II Verification
@@ -20,7 +24,7 @@ Formalizes all algebraic claims from Part II (Golden Critical Lines):
 - Ternary uniqueness at Violet (§6.3)
 - Perimeter-index connection (§6.3)
 
-52 theorems, all by `native_decide` or `norm_num`. Zero `sorry`.
+52 theorems, all by `native_decide` or `norm_num`. Zero `exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop`.
 -/
 
 -- ════════════════════════════════════════════════════

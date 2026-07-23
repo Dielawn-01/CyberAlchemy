@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import InfoPhysAxioms.AgenticRank
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.EmotionalLFunctions
 import LaRueProtorealAlgebra.OrchOR
 import LaRueProtorealAlgebra.LieAlgebra
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Bohm-Shannon Overlap & The Categorical Agent (𝕌)

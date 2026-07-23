@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import InfoPhysAxioms.ProtorealMetric
 import LaRueProtorealAlgebra.ProtorealOperator
 import InfoPhysAxioms.OctonionGrowth
 import InfoPhysAxioms.EnumerationSystems
 import InfoPhysAxioms.VeblenDruid
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # CyberneticInversion: The Double Derivative of Observation

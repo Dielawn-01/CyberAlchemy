@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.CommutatorGap
 import LaRueProtorealAlgebra.MassGap
 import LaRueProtorealAlgebra.StructuralHeterogeneity
 import LaRueProtorealAlgebra.SpectralFiber
 import LaRueProtorealAlgebra.SyntheticIntegration
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The Spectral Trinity (𝕌)

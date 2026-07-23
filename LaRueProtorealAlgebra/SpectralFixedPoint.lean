@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Dynamics.FixedPoints.Basic
 import Mathlib.Logic.Function.Iterate
 import Mathlib.Tactic
@@ -7,6 +8,9 @@ import LaRueProtorealAlgebra.MonsterInverse
 import LaRueProtorealAlgebra.DualityTheorem
 import LaRueProtorealAlgebra.Uncomplex
 import LaRueProtorealAlgebra.LGKCosmology
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Spectral Fixed Point Theory (𝕌 ↔ ℂ)

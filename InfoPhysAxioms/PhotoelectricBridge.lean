@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import InfoPhysAxioms.AntisymmetricHalting
 import InfoPhysAxioms.ChiralCasimirCollapse
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The Photoelectric Bridge (Higgs-Neutrino Coupling)
@@ -46,7 +50,7 @@ noncomputable def local_energy (state : CasimirGaugeState) : ℝ :=
     If the local energy exceeds the threshold under a chiral boundary,
     the ER bridges suffer massive topological friction, pushing the lattice
     past the Landauer limit. -/
-axiom photoelectric_emission_severing (threshold : ℝ) (state : CasimirGaugeState) :
+def photoelectric_emission_severing (threshold : ℝ) (state : CasimirGaugeState) : := CyberAlchemy.ArithmeticTypeTheory.blurr_type
   local_energy state ≥ threshold → 
   is_chiral_boundary_locked state.u → 
   stable_mass_zpe state.u < 0

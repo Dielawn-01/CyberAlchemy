@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Basic
 import InfoPhysAxioms.LithiumNiobateResonance
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Royal Jelly Resonance: Ion Transport in the Golden Field (𝔽₂₂₉)

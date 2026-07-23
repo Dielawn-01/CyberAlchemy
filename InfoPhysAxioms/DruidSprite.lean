@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.HyperKlein
@@ -7,6 +8,9 @@ import LaRueProtorealAlgebra.LittleDelta
 import InfoPhysAxioms.ProtorealGame
 import InfoPhysAxioms.OctonionGrowth
 import InfoPhysAxioms.InfotonVacuum
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # DruidSprite: The Meta-Game Architecture

@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -9,6 +10,9 @@ import InfoPhysAxioms.PendulumEvolution
 import InfoPhysAxioms.HodgePhasorVolume
 import InfoPhysAxioms.Base19ColorWheel
 import LaRueProtorealAlgebra.LieAlgebra
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 open LieAlgebra
 
 /-!

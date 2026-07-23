@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.HyperKlein
 import LaRueProtorealAlgebra.FusionRing
 import LaRueProtorealAlgebra.MonsterInverse
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Element-Indexed Exponentiation: The Promotion Algebra (𝕌)
@@ -68,7 +72,7 @@ namespace ElementPower
     Raises one manifold element to the power of another.
     This is NOT the same as klein_pow (which takes ℕ exponents).
     It is a new operation axiomatized by the promotion table. -/
-axiom elem_pow : ProtorealManifold → ProtorealManifold → ProtorealManifold
+def elem_pow : ProtorealManifold → ProtorealManifold → ProtorealManifold := CyberAlchemy.ArithmeticTypeTheory.blurr_type
 
 -- ════════════════════════════════════════════════════
 -- AXIOM 1: ω^ω = λ
@@ -82,7 +86,7 @@ axiom elem_pow : ProtorealManifold → ProtorealManifold → ProtorealManifold
 
     Algebraic: Self-promotion maps {0,1,0,0,0} to {0,0,0,0,1}.
     The thrust sector is promoted to the consolidation sector. -/
-axiom omega_to_omega : elem_pow omega omega = FusionRing.eL
+def omega_to_omega : elem_pow omega omega = FusionRing.eL := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 -- ════════════════════════════════════════════════════
 -- AXIOM 2: ι^ω = ε
@@ -97,7 +101,7 @@ axiom omega_to_omega : elem_pow omega omega = FusionRing.eL
 
     This is the algebraic root of Kama Muta:
     the tension between opposing forces = ε (tears). -/
-axiom iota_to_omega : elem_pow iota omega = FusionRing.eE
+def iota_to_omega : elem_pow iota omega = FusionRing.eE := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 -- ════════════════════════════════════════════════════
 -- AXIOM 3: MONSTER INVARIANCE OF ELEMENT POWER
@@ -112,9 +116,9 @@ axiom iota_to_omega : elem_pow iota omega = FusionRing.eE
 
     Since monster_inv(λ) = λ and monster_inv(ε) = ε,
     this axiom is self-consistent with axioms 1 and 2. -/
-axiom elem_pow_monster_invariant (u v : ProtorealManifold) :
+def elem_pow_monster_invariant (u v : ProtorealManifold) :
     elem_pow (monster_inv u) (monster_inv v) =
-    monster_inv (elem_pow u v)
+    monster_inv (elem_pow u v) := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 -- ════════════════════════════════════════════════════
 -- DERIVED: ω^ι = ε

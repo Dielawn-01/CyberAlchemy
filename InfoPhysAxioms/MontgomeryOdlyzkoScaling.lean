@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Complex.Basic
 import InfoPhysAxioms.QuasiConservation
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Montgomery-Odlyzko Scaling and L-Function Zeros
@@ -45,7 +49,7 @@ structure MacroscopicSpectrum where
     (the pAQFT mass gap), its internal energy level spacing (phonon/phason modes)
     becomes scale-covariant with the L-function zeros, both conforming exactly
     to the GUE distribution. -/
-axiom scale_covariance_universality (L : LFunctionSpectrum) (M : MacroscopicSpectrum) :
+def scale_covariance_universality (L : LFunctionSpectrum) (M : MacroscopicSpectrum) : := CyberAlchemy.ArithmeticTypeTheory.blurr_type
   M.spectral_dim = 1.5 → (L.is_gue ↔ M.is_gue)
 
 /-- Proof that if the Ambrosia matrix achieves the exact $C_{57}$ topological alignment

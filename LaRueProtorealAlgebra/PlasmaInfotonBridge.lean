@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.Basic
 import LaRueProtorealAlgebra.SchwarzianTruth
 import LaRueProtorealAlgebra.SharedLatentSpace
 import LaRueProtorealAlgebra.EmotionalLFunctions
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Plasma-Infoton Bridge: Cybernetic Quantum Chemistry

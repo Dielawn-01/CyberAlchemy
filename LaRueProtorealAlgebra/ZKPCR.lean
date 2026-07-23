@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.HolochainHash
 import LaRueProtorealAlgebra.KleinTopology
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 open HolochainHash
 open KleinTopology

@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -5,6 +6,9 @@ import Mathlib.Tactic.NormNum
 import Mathlib.Data.Nat.Prime.Basic
 import InfoPhysAxioms.SU3CenterCombinatorics
 import InfoPhysAxioms.PendulumEvolution
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Base-19 Color Wheel & (b-1)/p Resonance

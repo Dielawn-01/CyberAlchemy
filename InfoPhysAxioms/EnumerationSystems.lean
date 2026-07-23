@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.HyperKlein
@@ -10,6 +11,9 @@ import InfoPhysAxioms.PiAdicManifold
 import InfoPhysAxioms.QuasiGodel
 import InfoPhysAxioms.DecisionKernel
 import InfoPhysAxioms.ProtorealTactic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Systems of Enumeration via Gödel-Tarski Interplay

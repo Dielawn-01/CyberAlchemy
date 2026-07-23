@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealMesh
 import LaRueProtorealAlgebra.ProtorealNorm
 import LaRueProtorealAlgebra.Uncomplex
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # LGK Cosmology (𝕌)

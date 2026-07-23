@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Algebra.Ring.Basic
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.NormNum
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Exact Bethe Roots and Quantum Scars

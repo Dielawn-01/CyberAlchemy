@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -7,6 +8,9 @@ import LaRueProtorealAlgebra.MonsterInverse
 import InfoPhysAxioms.Infochemistry
 import InfoPhysAxioms.MatterAntimatter
 import InfoPhysAxioms.CrystalGrowth
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Infonad: The Fundamental Unit of Information Chemistry

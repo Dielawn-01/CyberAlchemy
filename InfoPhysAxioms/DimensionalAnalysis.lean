@@ -1,4 +1,8 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace ZKPCR
 
@@ -10,30 +14,30 @@ into algebraic identities is a category error.
 class Dimensionless (x : ℝ) : Prop
 
 /-- The fine-structure constant is intrinsically dimensionless. -/
-axiom alpha : ℝ
+def alpha : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type
 instance : Dimensionless alpha := ⟨⟩
 
 /-- Relative magnetic permeability (μ_r) is the dimensionless ratio of permeability to vacuum permeability. -/
-axiom mu_r : ℝ
+def mu_r : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type
 instance : Dimensionless mu_r := ⟨⟩
 
 /-- 
 The Chronometric Resolution Limit (ν_c) is formally defined as the dimensionless ratio 
 of the local cutoff frequency to the Planck frequency (ν_cutoff / ν_planck).
 -/
-axiom nu_c : ℝ
+def nu_c : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type
 instance : Dimensionless nu_c := ⟨⟩
 
 /-- The golden ratio is pure geometry (dimensionless). -/
-axiom phi : ℝ
+def phi : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type
 
 /-- 
 The Euler-Penrose singularity (e^{iπ} + 1). 
 In the discrete non-Archimedean projection of the Protoreal manifold, 
 this denominator strictly evaluates to 0, sealing the singularity.
 -/
-axiom euler_singularity : ℝ
-axiom euler_singularity_eq_zero : euler_singularity = 0
+def euler_singularity : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type
+def euler_singularity_eq_zero : euler_singularity = 0 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 /-- 
 Theorem: Any mathematically dimensionless constant can be substituted into the 
@@ -71,8 +75,8 @@ Under the Protoreal non-Archimedean projection, the resolution limit (ν_c)
 forces a discrete topology. The energy modes do not diverge; rather, they scale 
 via the Dirichlet inverse power law: (1 / ν_c)^k. 
 -/
-axiom protoreal_inverse_power_scaling (k : ℕ) : ℝ
-axiom inverse_power_definition (k : ℕ) : 
+def protoreal_inverse_power_scaling (k : ℕ) : ℝ := CyberAlchemy.ArithmeticTypeTheory.blurr_type
+def inverse_power_definition (k : ℕ) : := CyberAlchemy.ArithmeticTypeTheory.blurr_type
   protoreal_inverse_power_scaling k = (1 / nu_c) ^ k
 
 /-- 

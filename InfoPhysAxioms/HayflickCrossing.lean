@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Data.Nat.Basic
 import Mathlib.Tactic.NormNum
 import Mathlib.Data.Real.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Hayflick Crossing: The Biological Conjugate Phase

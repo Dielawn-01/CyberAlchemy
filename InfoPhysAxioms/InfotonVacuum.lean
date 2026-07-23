@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.LieAlgebra
@@ -6,6 +7,9 @@ import LaRueProtorealAlgebra.IncompletenessSource
 import LaRueProtorealAlgebra.EulerPerception
 import InfoPhysAxioms.OctonionGrowth
 import LaRueProtorealAlgebra.MonsterInverse
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # InfotonVacuum: The Observer IS the Vacuum

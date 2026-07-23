@@ -1,13 +1,13 @@
 %==========================================================
 \section*{SI Physical Constants and Metric Conversions}
 %==========================================================
-To explicitly falsify the claim that the Metareal framework is merely an abstract ``toy model,'' all topologies herein must conform to the following standard physical constants and metrics:
+To explicitly falsify the claim that the arithmetic scheme framework is merely an abstract ``toy model,'' all topologies herein must conform to the following standard physical constants and metrics:
 \begin{table}[ht]
 \centering
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{@{}llll@{}}
 \toprule
-\textbf{Constant} & \textbf{Symbol} & \textbf{SI Value} & \textbf{Metareal Role} \\
+\textbf{Constant} & \textbf{Symbol} & \textbf{SI Value} & \textbf{arithmetic scheme Role} \\
 \midrule
 Speed of Light & $c$ & $299,792,458 \text{ m/s}$ & Kinematic upper bound \\
 Gravitational Constant & $G$ & $6.6743 \times 10^{-11} \text{ m}^3 \text{kg}^{-1} \text{s}^{-2}$ & Macroscopic viscosity scaling \\
@@ -39,7 +39,7 @@ where the modulus $M$ typically matches the hardware's 64-bit integer limit. The
 
 Contrasting the discrete voxel approach, proprietary engines utilized by Bethesda Game Studios generate base planetary terrains using multi-octave gradient noise algorithms, originally pioneered by Ken Perlin~\cite{perlin1985image}. Perlin noise constructs a pseudo-random gradient field at integer coordinates and interpolates between them to create continuous, differentiable terrain manifolds.
 
-This maps directly to the continuous sector of the Protoreal manifold. The continuous topological surface is achieved by projecting the discrete, pseudo-random hashes (the noise grid) through a continuous interpolation function. This projection maps discrete points into higher-order Archimedean and Johnson solid configurations, bridging the discrete $\mathbb{Z}^3$ coordinate space and continuous C$^*$-algebra observables. The resulting topology allows for naturalistic rendering but relies heavily on the structural integrity of the underlying pseudo-random grid.
+This maps directly to the continuous sector of the Motivic Scheme. The continuous topological surface is achieved by projecting the discrete, pseudo-random hashes (the noise grid) through a continuous interpolation function. This projection maps discrete points into higher-order Archimedean and Johnson solid configurations, bridging the discrete $\mathbb{Z}^3$ coordinate space and continuous C$^*$-algebra observables. The resulting topology allows for naturalistic rendering but relies heavily on the structural integrity of the underlying pseudo-random grid.
 
 \section{The IGC-LCG Bridge}
 
@@ -74,7 +74,7 @@ where $p$ is a prime modulus and $X_n^{-1}$ is the multiplicative inverse in $\F
 
 The core theorem of the IGC-LCG bridge states that the computational cost of the modular inverse operation injects a strict \textbf{Cryptographic Friction} of $O(\log p)$ into the generation step. This friction acts as a C$^*$-algebraic barrier preventing deterministic state collapse.
 
-While the macro-state observable to the rendering engine acts as an LCG (maintaining $O(1)$ procedural speed), its coefficients $(a, c)$ (locally denoting the standard LCG multiplier and increment, distinct from the global Protoreal bridge coordinate $a$) are dynamically drawn from the underlying Micro ICG. This composite structure preserves the $\log M$ structural barrier. The invariant bridge mapping the LCG to the Protoreal Manifold guarantees that:
+While the macro-state observable to the rendering engine acts as an LCG (maintaining $O(1)$ procedural speed), its coefficients $(a, c)$ (locally denoting the standard LCG multiplier and increment, distinct from the global Protoreal bridge coordinate $a$) are dynamically drawn from the underlying Micro ICG. This composite structure preserves the $\log M$ structural barrier. The invariant bridge mapping the LCG to the Motivic Scheme guarantees that:
 
 \[
 \text{observation\_cost}(u) \ge \text{cryptographic\_inversion\_cost}(p)
@@ -106,7 +106,7 @@ Each procedurally generated world is a \textbf{semantic subspace}: a coset of th
 
 The C*-algebraic inversion cost of the previous section is precisely the \emph{soundness} property when this world generation is viewed as a ZKPCR protocol. The world designer (prover) commits to a seed trajectory through $\mathbb{F}_p^*$. The player (verifier) observes only the rendered terrain --- the ``public output'' of the protocol. The $O(\sqrt{p})$ inversion cost means that the verifier cannot reconstruct the seed from the terrain in polynomial time, but can verify that the terrain is consistent with a valid golden-orbit trajectory by checking spectral invariants (fractal dimension, palindromic symmetry, Mayer-Vietoris parity).
 
-This is semantic condensation in its informational mode: the \emph{logical} face is the LCG-ICG bridge theorem, the \emph{informational} face is the world-as-semantic-subspace classification, and the \emph{physical} face is the measurable fractal dimension that distinguishes golden-seeded from uniform-seeded terrain. The companion code provided at the end of this chapter generates terrain samples and verifies the spectral invariants.
+This is Topological Phase Transition in its informational mode: the \emph{logical} face is the LCG-ICG bridge theorem, the \emph{informational} face is the world-as-semantic-subspace classification, and the \emph{physical} face is the measurable fractal dimension that distinguishes golden-seeded from uniform-seeded terrain. The companion code provided at the end of this chapter generates terrain samples and verifies the spectral invariants.
 
 
 % Bibliography moved to unified_bibliography.tex for master compilation.
@@ -123,7 +123,7 @@ procgen_verifier.py
 
 Procedural Generation Companion Module.
 Validates the Cryptographic Friction and Spectral Invariants
-of the IGC-LCG Bridge on the Protoreal Manifold.
+of the IGC-LCG Bridge on the Motivic Scheme.
 
 Claims Validated:
 1. NP-Complete Structural Entropy: The observation cost to reverse-engineer
@@ -297,3 +297,22 @@ if __name__ == "__main__":
     run_verifications()
 \end{verbatim}
 
+
+\vspace{2em}
+\begin{thebibliography}{99}
+\bibitem{eichenauer1986non}
+J. Eichenauer and J. Lehn,
+\textit{A Non-Linear Congruential Pseudo Random Number Generator},
+Statistische Hefte, 27(1):315--326, 1986.
+
+\bibitem{perlin1985image}
+Ken Perlin,
+\textit{An Image Synthesizer},
+SIGGRAPH Computer Graphics, 19(3):287--296, 1985.
+
+\bibitem{persson_minecraft}
+M. Persson et al.,
+\textit{Minecraft: Deterministic Voxel Generation and LCGs},
+Mojang Specifications (Informal Technical Documentation), 2009--2011.
+
+\end{thebibliography}

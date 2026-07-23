@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.HodgeDecomposition
 import LaRueProtorealAlgebra.KleinTopology
 import LaRueProtorealAlgebra.GlialDopant
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The Protoreal Hodge Conjecture (𝕌)

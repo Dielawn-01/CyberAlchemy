@@ -3,6 +3,10 @@ import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.DualityTheorem
 import LaRueProtorealAlgebra.PrimorialJitter
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Biconditional Prime Balancing (The Epistemic Pivot)

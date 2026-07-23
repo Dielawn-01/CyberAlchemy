@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealMesh
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.ProtorealAlgebra
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Agentic Frames (𝕌)

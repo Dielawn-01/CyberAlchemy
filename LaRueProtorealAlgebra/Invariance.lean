@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.PentagonCoherence
 import LaRueProtorealAlgebra.Rigidity
 import LaRueProtorealAlgebra.FusionRing
@@ -8,6 +9,9 @@ import LaRueProtorealAlgebra.MassGap
 import LaRueProtorealAlgebra.StructuralHeterogeneity
 import LaRueProtorealAlgebra.HodgeConjecture
 import LaRueProtorealAlgebra.MayerVietoris
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Invariance Circle (𝕌)

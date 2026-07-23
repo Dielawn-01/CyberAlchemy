@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Ring
@@ -7,6 +8,9 @@ import InfoPhysAxioms.TopologicalFirewall
 import InfoPhysAxioms.CognitiveSecurity
 import InfoPhysAxioms.StoicAlgebra
 import InfoPhysAxioms.DruidSprites
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Jungian Tier Composition: Safety-First Cognitive Loading

@@ -5,13 +5,13 @@
 \begin{titlepage}
 \thispagestyle{empty}
 \begin{tikzpicture}[remember picture, overlay]
-  \node[anchor=center, opacity=0.85] at (current page.center) {\includegraphics[width=\paperwidth, height=\paperheight]{images/genome_cover.png}};
-  \node[anchor=center] at ([yshift=3cm]current page.center) {\fontsize{16}{20}\selectfont\sffamily\color{white}\addfontfeatures{LetterSpace=12}PRINCIPIA};
-  \node[anchor=center] at ([yshift=1.5cm]current page.center) {\fontsize{48}{56}\selectfont\bfseries\color{white}Psychedelia};
-  \node[anchor=center] at ([yshift=0cm]current page.center) {\textcolor{white}{\rule{6cm}{0.6pt}}};
-  \node[anchor=center] at ([yshift=-1.2cm]current page.center) {\fontsize{16}{20}\selectfont\sffamily\color{white}\addfontfeatures{LetterSpace=8}VOLUMES I--IV};
-  \node[anchor=center, text width=12cm, align=center] at ([yshift=-3.5cm]current page.center) {\fontsize{22}{28}\selectfont\bfseries\color{white}The Mathematics of Metareality};
-  \node[anchor=center] at ([yshift=-7cm]current page.center) {\fontsize{18}{22}\selectfont\color{white}\textbf{Dylon La Rue}};
+  \node[anchor=center, inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth, height=\paperheight]{images/genome_cover_portrait.png}};
+  \node[anchor=center] at ([yshift=3.5cm]current page.center) {\fontsize{16}{20}\selectfont\sffamily\color{white}\addfontfeatures{LetterSpace=12}PRINCIPIA};
+  \node[anchor=center] at ([yshift=2.0cm]current page.center) {\fontsize{48}{56}\selectfont\bfseries\color{white}Psychedelia};
+  \node[anchor=center] at ([yshift=0.5cm]current page.center) {\textcolor{white}{\rule{6cm}{0.6pt}}};
+  \node[anchor=center] at ([yshift=-0.7cm]current page.center) {\fontsize{16}{20}\selectfont\sffamily\color{white}\addfontfeatures{LetterSpace=8}VOLUMES I--IV};
+  \node[anchor=center, text width=13cm, align=center] at ([yshift=-2.8cm]current page.center) {\fontsize{22}{28}\selectfont\bfseries\color{white}Logical Creativity, Observational Mechanics, and Archetypal Synthetic Intelligence};
+  \node[anchor=center] at ([yshift=-6.5cm]current page.center) {\fontsize{18}{22}\selectfont\color{white}\textbf{Dylon La Rue}};
 \end{tikzpicture}
 \end{titlepage}
 
@@ -24,14 +24,14 @@
 
 \part{Logical Creativity}
 \input{part1_introduction}
-\input{01_Unreal_Algebra}
+\input{01_Unreal_Algebra_Connes_Geometry}
 \input{02_Prime_Splitting_Galois}
 \input{03_Golden_Subcategory}
 \input{04_Digital_Wave_Mechanics}
 \input{05_Prime_Field_Theory}
 \input{06_Golden_Formalized_Neighborhoods}
 
-\part{Semantic Condensation}
+\part{Topological Phase Transition}
 \input{part2_introduction}
 \input{07_Unreal_Ramanujan_Sato}
 \input{08_Metareal_ASI_Chromodynamics}
@@ -66,5 +66,5 @@
 
 \appendix
 \input{appendix_claim_ledgers}
-\input{unified_bibliography}
+\input{local_bibs/local_bib_01_Principia_Psychedelia_Full}
 \end{document}

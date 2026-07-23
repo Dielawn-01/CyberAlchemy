@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import InfoPhysAxioms.ProtorealMetric
 import LaRueProtorealAlgebra.ProtorealOperator
 import InfoPhysAxioms.OctonionGrowth
 import InfoPhysAxioms.RiemannObserver
 import InfoPhysAxioms.EnumerationSystems
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # MetagraphOracle: Torsion-Filtered External Signal Injection

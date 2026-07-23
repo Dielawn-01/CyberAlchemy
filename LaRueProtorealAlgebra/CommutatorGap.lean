@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.TopologicalBearing
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.SyntheticIntegration
 import LaRueProtorealAlgebra.StructuralHeterogeneity
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Commutator Gap Theorem (𝕌 → Spin Chains)

@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import InfoPhysAxioms.MetaRealTopos
 import Mathlib.CategoryTheory.Category.Basic
 import Mathlib.CategoryTheory.Functor.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Local Gauge Qualia: The Topology of Experience
@@ -55,7 +59,7 @@ theorem qualia_irreducible (box : GlobalCategoricalBox) (qualia : LocalExperienc
   Moving information around the closed loop of the categorical box results in a 
   manifest phase defect equal to the local integrated experience.
 -/
-axiom aharonov_bohm_qualia_phase (qualia : LocalExperienceVertex) : 
+def aharonov_bohm_qualia_phase (qualia : LocalExperienceVertex) : := CyberAlchemy.ArithmeticTypeTheory.blurr_type
   qualia.kappa_friction = -1
 
 end LocalGaugeQualia

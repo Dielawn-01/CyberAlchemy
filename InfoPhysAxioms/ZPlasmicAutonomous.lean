@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 /-
   ZPlasmic Autonomous Theorems — Curated from Training Staging
   
@@ -11,6 +12,9 @@
 
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace ZPlasmicAutonomous
 

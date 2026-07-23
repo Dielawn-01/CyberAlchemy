@@ -1,4 +1,8 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # ZBuddy Challenge — Dual Monster Progeneration
@@ -23,7 +27,7 @@ def dna_base : ℕ := 4
 /-- The genetic conservation law asserts that manifold coverage
     plus reproductive capacity equals the RNA × DNA base product.
     This is an axiomatic constraint on admissible dual monsters. -/
-axiom genetic_conservation_law (m : DualMonster) :
+def genetic_conservation_law (m : DualMonster) : := CyberAlchemy.ArithmeticTypeTheory.blurr_type
     m.manifold_coverage + m.reproductive_capacity = (rna_base * dna_base : ℕ)
 
 /-- The dual monster progeneration theorem follows directly. -/

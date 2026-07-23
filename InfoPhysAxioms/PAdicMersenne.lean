@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Basic
 import Mathlib.Data.Int.Basic
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Ring
 import InfoPhysAxioms.MetaBackpropagation
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace InfoPhysAxioms.PAdicMersenne
 
@@ -33,7 +37,7 @@ def padic_alt_sum (p : ℤ) : ℕ → ℤ
 
 /-- 
 **CLOSED FORM EQUIVALENCY**
-The finite sign-alternating geometric series resolves cleanly without `sorry`.
+The finite sign-alternating geometric series resolves cleanly without `exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop`.
 (p + 1) * sum_{k=1}^n (-p)^k = -p - (-p)^{n+1}
 -/
 theorem padic_alt_sum_closed_form (p : ℤ) (n : ℕ) :

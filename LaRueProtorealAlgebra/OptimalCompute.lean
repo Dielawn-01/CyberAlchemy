@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.NonstandardBridge
 import LaRueProtorealAlgebra.MonsterLattice
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Optimal Compute & The 42-Dimensional Buffer (𝕌)

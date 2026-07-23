@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -7,6 +8,9 @@ import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.SpectralFiber
 import InfoPhysAxioms.GoethePrimeHarmonics
 import InfoPhysAxioms.RiemannObserver
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Von Mangoldt L-Space Hardening

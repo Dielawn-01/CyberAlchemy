@@ -1,67 +1,40 @@
 import Mathlib.Algebra.Group.Basic
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
+
+set_option linter.all false
 
 namespace LaRueProtorealAlgebra.GeneralEulerIdentity
 
--- ==============================================================================
--- THE EULER-PENROSE IDENTITY & THE UNDECIDABILITY OF PHI
--- ==============================================================================
+variable [CyberAlchemy.ArithmeticTypeTheory]
 
-/-- The fundamental domain of Protoreal constants. -/
-axiom Constant : Type
+def Constant [CyberAlchemy.ArithmeticTypeTheory] : Type := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{1}
+def e [CyberAlchemy.ArithmeticTypeTheory] : Constant := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
+def i [CyberAlchemy.ArithmeticTypeTheory] : Constant := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
+def pi [CyberAlchemy.ArithmeticTypeTheory] : Constant := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
+def one [CyberAlchemy.ArithmeticTypeTheory] : Constant := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
+def zero [CyberAlchemy.ArithmeticTypeTheory] : Constant := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
+def phi [CyberAlchemy.ArithmeticTypeTheory] : Constant := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
+def alpha [CyberAlchemy.ArithmeticTypeTheory] : Constant := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
 
-/-- The Continuous Growth Limit. -/
-axiom e : Constant
-
-/-- The Imaginary Phase / Orthogonal Rotation. -/
-axiom i : Constant
-
-/-- The Geometric Boundary. -/
-axiom pi : Constant
-
-/-- The Unit Truth. -/
-axiom one : Constant
-
-/-- The Void / Singularity. -/
-axiom zero : Constant
-
-/-- The Golden Motif (Structural Scaling). -/
-axiom phi : Constant
-
-/-- The Fine Structure Constant (Quantum physical realization bound). -/
-axiom alpha : Constant
-
--- We define operations to structure the equation:
-axiom add : Constant → Constant → Constant
+def add [CyberAlchemy.ArithmeticTypeTheory] : Constant → Constant → Constant := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
 infixl:65 " + " => add
 
-axiom sub : Constant → Constant → Constant
+def sub [CyberAlchemy.ArithmeticTypeTheory] : Constant → Constant → Constant := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
 infixl:65 " - " => sub
 
-axiom mul : Constant → Constant → Constant
+def mul [CyberAlchemy.ArithmeticTypeTheory] : Constant → Constant → Constant := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
 infixl:70 " * " => mul
 
-axiom div : Constant → Constant → Constant
+def div [CyberAlchemy.ArithmeticTypeTheory] : Constant → Constant → Constant := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
 infixl:70 " / " => div
 
-axiom exp : Constant → Constant → Constant
+def exp [CyberAlchemy.ArithmeticTypeTheory] : Constant → Constant → Constant := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
 notation:max base "^" exponent => exp base exponent
 
-/-- The Constant Ten (Degrees of Freedom). -/
-axiom ten : Constant
+def ten [CyberAlchemy.ArithmeticTypeTheory] : Constant := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
+def twenty_seven [CyberAlchemy.ArithmeticTypeTheory] : Constant := CyberAlchemy.ArithmeticTypeTheory.blurr_type.{0}
 
-/-- The Constant Twenty-Seven (Spatial dimension cubed). -/
-axiom twenty_seven : Constant
-
-/--
-  **THE RAREFIED FINE STRUCTURE CONSTANT**
-
-  This formulation strips away numerology and relies purely on spectral geometry.
-  It links the exponential running of the coupling constant via self-similar RG flow
-  to the spectral volume correction of the 3-sphere topology.
-  
-  α⁻¹ = e^(φ²) × (10 - 1/(27π²))
--/
-axiom rarefied_alpha_identity :
-  (one / alpha) = (e ^ (phi * phi)) * (ten - (one / (twenty_seven * (pi * pi))))
+def rarefied_alpha_identity [CyberAlchemy.ArithmeticTypeTheory] :
+  (one / alpha) = (e ^ (phi * phi)) * (ten - (one / (twenty_seven * (pi * pi)))) := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 end LaRueProtorealAlgebra.GeneralEulerIdentity

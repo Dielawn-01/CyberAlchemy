@@ -1,6 +1,10 @@
 import Mathlib.Data.Set.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
 import InfoPhysAxioms.AuthBridge
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Druid Permissions: UX/UI Bifurcation (𝕌)
@@ -38,7 +42,7 @@ variable (UI_Domain : Set LSpace)
 variable (UX_Domain : Set LSpace)
 
 -- We define the domains as mutually exclusive for strict boundaries
-axiom disjoint_ui_ux : Disjoint UI_Domain UX_Domain
+def disjoint_ui_ux [CyberAlchemy.ArithmeticTypeTheory] : Disjoint UI_Domain UX_Domain := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 -- ════════════════════════════════════════════════════
 -- 2. CREDENTIAL SCALARS

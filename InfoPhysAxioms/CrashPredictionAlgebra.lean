@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Nat.Prime.Basic
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # CrashPredictionAlgebra: BTC–VIX Reynolds Regime Detection
@@ -19,7 +23,7 @@ Formalizes the algebraic core of the crash prediction framework:
 4. **Hedge vector algebra** with discriminator acceptance criteria
 5. **Stieltjes correction convergence** via γ = 1/φ
 
-All modular arithmetic proofs by `native_decide`. Zero `sorry`.
+All modular arithmetic proofs by `native_decide`. Zero `exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop`.
 -/
 
 namespace CrashPredictionAlgebra

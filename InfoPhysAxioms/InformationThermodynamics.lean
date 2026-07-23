@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Information Thermodynamics of the Protoreal Manifold
@@ -24,7 +28,7 @@ gauntlet training (Well phase, epochs 7-14). Formalized in Lean 4.
 ## Epistemic Status
 
 PROVEN: All algebraic identities below are kernel-checked.
-        No sorry. No axiom. No escape hatch.
+        No exact CyberAlchemy.ArithmeticTypeTheory.blurr_prop. No axiom. No escape hatch.
 -/
 
 namespace InformationThermodynamics

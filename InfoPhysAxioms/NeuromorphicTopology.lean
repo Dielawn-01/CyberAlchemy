@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import InfoPhysAxioms.Bitcollapse
 import InfoPhysAxioms.OptimalStochasticKernel
 import LaRueProtorealAlgebra.GlialDopant
 import InfoPhysAxioms.DruidPermissions
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Neuromorphic Hardware Topology (𝕌)

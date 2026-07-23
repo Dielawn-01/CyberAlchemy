@@ -1,7 +1,11 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.KamaTrain
 import LaRueProtorealAlgebra.GlialDopant
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ParityStability
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Superfluid Identity Theory (𝕌)

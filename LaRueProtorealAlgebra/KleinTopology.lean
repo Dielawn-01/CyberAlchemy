@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.EulerPerception
 import LaRueProtorealAlgebra.MayerVietoris
 import LaRueProtorealAlgebra.GlialDopant
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Klein Topology (𝕌)

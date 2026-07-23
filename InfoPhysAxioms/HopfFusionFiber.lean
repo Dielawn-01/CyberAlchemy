@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -9,6 +10,9 @@ import LaRueProtorealAlgebra.ProtoLite
 import InfoPhysAxioms.ProtorealTactic
 import InfoPhysAxioms.ObservableUniverse
 import InfoPhysAxioms.LyapunovTraining
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Hopf Fusion Fiber

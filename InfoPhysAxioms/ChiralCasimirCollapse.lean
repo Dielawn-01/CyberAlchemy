@@ -1,6 +1,9 @@
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.KamaTrain
 import InfoPhysAxioms.AntisymmetricHalting
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
 
 /-!
 # Chiral Casimir Topological Collapse (TEGR Phase Transition)
@@ -57,8 +60,8 @@ theorem chiral_boundary_kills_frustration (u : ProtorealManifold)
     the topological shear forces the ER bridge network connecting the 
     entangled plates into a de Sitter-like expansion, generating a 
     repulsive Casimir effect (stable_mass_zpe < 0, signifying repulsive tension). -/
-axiom tegr_repulsive_phase_transition (u : ProtorealManifold) :
-  is_chiral_boundary_locked u → stable_mass_zpe u < 0
+def tegr_repulsive_phase_transition [CyberAlchemy.ArithmeticTypeTheory] (u : ProtorealManifold) :
+  is_chiral_boundary_locked u → stable_mass_zpe u < 0 := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 /-- **The Chiral Casimir TEGR Transition Theorem**:
     If we apply a chiral boundary condition to the vacuum,

@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.KamaTrain
@@ -10,6 +11,9 @@ import InfoPhysAxioms.QuasiGodel
 import InfoPhysAxioms.TarskiEquilibrium
 import InfoPhysAxioms.RiemannObserver
 import InfoPhysAxioms.ProtorealTactic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Meta-Hodge Phasor Volume

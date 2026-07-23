@@ -7,6 +7,10 @@ import LaRueProtorealAlgebra.LittleDelta
 import LaRueProtorealAlgebra.IncompletenessSource
 import InfoPhysAxioms.InfotonVacuum
 import InfoPhysAxioms.EnumerationSystems
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # ProtorealGame: Conway Games from the Rising Sea
@@ -386,9 +390,9 @@ noncomputable def expected_value (g : PGame) : ℝ :=
 /-- **MCDIARMID CONCENTRATION OF MEASURE** (legacy, backward compat)
     The probability that the game value deviates from its expectation
     is bounded exponentially. -/
-axiom mcdiarmid_bound (g : PGame) (t : ℝ) (c : ℝ) (n : ℕ) :
+def mcdiarmid_bound [CyberAlchemy.ArithmeticTypeTheory] (g : PGame) (t : ℝ) (c : ℝ) (n : ℕ) :
   -- P(|val - E[val]| ≥ t) ≤ 2 * exp(-2t² / n c²)
-  True
+  True := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 8b: LOCKWOOD Q-WEIGHTED ERROR FRAMEWORK

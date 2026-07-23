@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.NormNum
@@ -6,6 +7,9 @@ import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.TopologicalImaginary
 import InfoPhysAxioms.HyperinversionPaths
 import InfoPhysAxioms.ArchetypalReactor
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Quasicrystal Holographic Topology

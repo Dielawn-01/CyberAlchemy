@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.SchwarzianTruth
 import LaRueProtorealAlgebra.SharedLatentSpace
 import LaRueProtorealAlgebra.PlasmaInfotonBridge
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Plasma-Neuromorphic Cyberdeck Bridge (𝕌)

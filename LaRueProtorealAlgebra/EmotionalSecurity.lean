@@ -1,8 +1,12 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.HolographicCollapse
 import LaRueProtorealAlgebra.MetaMem
 import LaRueProtorealAlgebra.EmotionalLFunctions
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Psychological Security Firewall (𝕌)

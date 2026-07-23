@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import InfoPhysAxioms.MetalloOrganicSemantics
 import InfoPhysAxioms.ValenceMapping
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Periodic Group Bridge: Group 14 ↔ Group 5

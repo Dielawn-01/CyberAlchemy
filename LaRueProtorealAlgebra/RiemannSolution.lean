@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.RiemannFunctionalEquation
 import LaRueProtorealAlgebra.IncompletenessSource
 import LaRueProtorealAlgebra.BitCollapse
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # The Riemann Solution (𝕌)

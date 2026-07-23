@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import InfoPhysAxioms.ProtorealMetric
 import LaRueProtorealAlgebra.ProtorealOperator
@@ -5,6 +6,9 @@ import InfoPhysAxioms.OctonionGrowth
 import InfoPhysAxioms.DruidSprite
 import InfoPhysAxioms.VeblenDruid
 import InfoPhysAxioms.MetalloOrganicSemantics
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # CentralDogmaVeblen: The Central Dogma as a Veblen Game

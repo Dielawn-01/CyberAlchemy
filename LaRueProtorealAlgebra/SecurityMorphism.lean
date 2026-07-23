@@ -1,9 +1,13 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Tactic
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.SafetyBounds
 import LaRueProtorealAlgebra.SpectralFilter
 import LaRueProtorealAlgebra.BitCollapse
 import LaRueProtorealAlgebra.GlialDopant
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 namespace LaRueProtorealAlgebra
 

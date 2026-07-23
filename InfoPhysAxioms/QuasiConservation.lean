@@ -1,6 +1,10 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import Mathlib.Analysis.Calculus.FDeriv.Basic
 import InfoPhysAxioms.ChromodynamicFriction
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Quasi-Conservation and Phason Dynamics

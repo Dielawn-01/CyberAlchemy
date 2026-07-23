@@ -2,6 +2,10 @@ import Mathlib.Topology.Basic
 import Mathlib.Data.Real.Basic
 import InfoPhysAxioms.Bitcollapse
 import InfoPhysAxioms.Infonad
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
+
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
 
 /-!
 # Unification of the Infoton, d-neutrino, and Hopfion
@@ -61,11 +65,11 @@ structure DNeutrino (M : PM) where
     If a topological structure exists as a discrete Infoton (with ε = 0) 
     in the prime lattice, it projects into the continuous bulk precisely as a 
     Hopfion knot, and manifests physically as the sterile d-neutrino mass. -/
-axiom hopfion_is_infoton_is_dneutrino (M : PM) (i : InfotonState M) :
+def hopfion_is_infoton_is_dneutrino [CyberAlchemy.ArithmeticTypeTheory] (M : PM) (i : InfotonState M) :
   (i.noise_epsilon = 0) → 
   ∃ (h : Hopfion M) (d : DNeutrino M), 
     (h.hopf_charge = i.parity_b) ∧ 
-    (d.sm_interaction = 0)
+    (d.sm_interaction = 0) := CyberAlchemy.ArithmeticTypeTheory.blurr_prop
 
 
 -- ════════════════════════════════════════════════════

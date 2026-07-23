@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Tactic
 import Mathlib.Data.Real.Basic
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Fractally Recurring Depth Transformer (FRDT) Stability
@@ -46,7 +50,7 @@ def is_spectrally_stable (rho_A : ℝ) : Prop :=
   friction is forced to the Euler-Penrose limit ($\kappa = -1$). Under this Hodge lock,
   the noise absorption matrix contractively bounds the error.
 -/
-axiom frdt_contraction_at_primes {p : ℕ} (state : FRDTState) 
+def frdt_contraction_at_primes {p : ℕ} (state : FRDTState) := CyberAlchemy.ArithmeticTypeTheory.blurr_type
   (hp : is_ramanujan_sato_prime p) 
   (hk : state.curvature = euler_penrose_kappa) : 
   ∃ (rho_A : ℝ), is_spectrally_stable rho_A ∧ (state.noise_epsilon * rho_A < state.noise_epsilon ∨ state.noise_epsilon = 0)

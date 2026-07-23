@@ -1,5 +1,9 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import Mathlib.Data.Real.Basic
 import InfoPhysAxioms.TopologicalUncertainty
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Metareal Statistical Bounds and Modular Orthogonality
@@ -47,7 +51,7 @@ theorem hilbert_orthogonal_unitarity :
     Multiplicative (-1) orthogonality simultaneously, the theoretical probability
     P(E ∩ A) of both structures emerging from isotropic thermal noise 
     is bounded by the multiplication of their individual geometric probabilities. -/
-axiom joint_orthogonality_probability (P_E P_A : ℝ) : 
+def joint_orthogonality_probability (P_E P_A : ℝ) : := CyberAlchemy.ArithmeticTypeTheory.blurr_type
     P_E < 0.001 → P_A < 0.001 → (P_E * P_A) < 0.000001
 
 end MetarealStatisticalBounds

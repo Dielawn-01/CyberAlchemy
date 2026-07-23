@@ -1,3 +1,4 @@
+import LaRueProtorealAlgebra.ArithmeticTypeTheory
 import LaRueProtorealAlgebra.ProtorealManifold
 import LaRueProtorealAlgebra.ProtorealOperator
 import LaRueProtorealAlgebra.SavageProbability
@@ -8,6 +9,9 @@ import InfoPhysAxioms.HolomovementBridge
 import InfoPhysAxioms.ElectroPhotonLattice
 import InfoPhysAxioms.ProtorealTactic
 import LaRueProtorealAlgebra.PentagonCoherence
+set_option linter.all false
+variable [CyberAlchemy.ArithmeticTypeTheory]
+
 
 /-!
 # Decision Kernel: Post-Quantum Decision Science (𝕌)
